@@ -68,7 +68,7 @@ async function _localSet(k,v){
 // on top, last-write-wins per key via an updated_at timestamp. Magic-link (email code) auth.
 // Feature-flagged: with blank keys the whole layer stays dormant and the app is 100% local.
 // To turn it on, fill SUPA.url/key (see ACCOUNTS.md) and run supabase/schema.sql in your project.
-const SUPA = { url: "", key: "" };
+const SUPA = { url: "https://giupopvtpthqnidagfsi.supabase.co", key: "sb_publishable_eyYJYRAU3DJLeYNyzofOnw_oFC77BC-" };
 const CLOUD_KEYS = ["settings","progress"];     // draft/UI-only keys stay device-local
 let sb=null, cloudUser=null, _syncMeta={}, _pushTimers={};
 
