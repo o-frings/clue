@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a18"/>
+      <stop offset="1" stop-color="#ff2f3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="230" ry="230" fill="url(#g)"/>
+  <!-- open book: two pages meeting at a thin centre spine -->
+  <path d="M491.52 409.6 L271.36 363.52 L271.36 629.76 L491.52 675.84 Z" fill="#fff"/>
+  <path d="M532.48 409.6 L752.64 363.52 L752.64 629.76 L532.48 675.84 Z" fill="#fff"/>
+  <!-- insight spark -->
+  <circle cx="512" cy="307.2" r="46.08" fill="#fff"/>
+</svg>

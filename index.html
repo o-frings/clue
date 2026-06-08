@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=overlays-content">
+<title>Clue</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Clue">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f2f7">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+<link rel="apple-touch-icon" href="icon-1024.png">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<script>
+(function(){try{
+  var m=localStorage.getItem('clueTheme')||'auto';
+  var dark = m==='dark' || (m!=='light' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+  var de=document.documentElement;
+  if(dark) de.classList.add('dark');
+  de.style.background = dark ? '#000000' : '#f2f2f7';
+}catch(e){}})();
+(function(){try{
+  // native-app feel: block pinch-zoom even in Safari
+  document.addEventListener('gesturestart', function(e){ e.preventDefault(); }, {passive:false});
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, {passive:false});
+}catch(e){}})();
+</script>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- LAUNCH SPLASH -->
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splashInner">
+    <svg class="splashLogo" viewBox="0 0 1024 1024" width="104" height="104" aria-hidden="true">
+      <path d="M491.52 409.6 L271.36 363.52 L271.36 629.76 L491.52 675.84 Z" fill="#fff"/>
+      <path d="M532.48 409.6 L752.64 363.52 L752.64 629.76 L532.48 675.84 Z" fill="#fff"/>
+      <circle cx="512" cy="307.2" r="46.08" fill="#fff"/>
+    </svg>
+    <div class="splashWord">Clue</div>
+  </div>
+</div>
+
+<div class="statusbar-bg"></div>
+
+<!-- ROTATE GUARD: portrait-only. Hidden inline so a stale stylesheet can't expose it. -->
+<div class="rotateGuard" id="rotateGuard" aria-hidden="true" style="display:none;">
+  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M11 18.5h2"/></svg>
+  <div class="rgmsg">Rotate your phone upright</div>
+  <div class="rgsub">Clue works in portrait.</div>
+</div>
+
+<!-- ===================== TODAY ===================== -->
+<div class="page active" id="pageToday" data-tab="today">
+  <div class="largeTitle"><div class="ltmain">
+    <span class="titleBtn" style="cursor:default;"><span id="tdGreet">Today</span></span>
+    <button class="iconbtn" id="openLibrary" aria-label="Browse the library">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    </button>
+  </div><small id="tdDate"></small></div>
+
+  <!-- streak ring + status (rendered by JS) -->
+  <div class="group" id="tdStreakCard"><div id="tdStreak"></div></div>
+
+  <!-- today's session CTA (rendered by JS) -->
+  <div id="tdCta"></div>
+
+  <!-- three quick tiles -->
+  <div class="daytiles" id="tdTiles"></div>
+
+  <!-- fact of the day -->
+  <div class="ed-label">Fact of the day</div>
+  <div class="group fotd pad" id="tdFotd"></div>
+
+  <!-- recently learned -->
+  <div class="ed-label" id="tdRecentLabel" style="display:none;">Recently learned</div>
+  <div class="group" id="tdRecent" style="display:none;"><div class="learnlist" id="tdRecentList"></div></div>
+
+  <!-- library entry -->
+  <div class="ed-label">Explore</div>
+  <button class="navlink" id="tdBrowse"><span>Browse all fields</span><span class="nlsub" id="tdBrowseSub">11 fields ›</span></button>
+</div>
+
+<!-- ===================== LEARN ===================== -->
+<div class="page" id="pageLearn" data-tab="learn">
+  <div class="largeTitle"><div class="ltmain">
+    <span class="titleBtn" style="cursor:default;"><span>Learn</span></span>
+    <button class="modebtn" id="lnRestart" type="button" style="display:none;">restart</button>
+  </div><small id="lnSub"></small></div>
+  <!-- session progress bar (shown during a session) -->
+  <div class="sessbar" id="lnSessBar" style="display:none;">
+    <div class="pbar"><i id="lnProg" style="width:0%"></i></div>
+    <span class="pcount" id="lnCount">0/0</span>
+  </div>
+  <div class="sessphase" id="lnPhase" style="display:none;"></div>
+  <!-- the player: card / quiz / empty / done — all rendered by JS -->
+  <div id="lnStage"></div>
+</div>
+
+<!-- ===================== DEBATE ===================== -->
+<div class="page" id="pageDebate" data-tab="debate">
+  <div class="largeTitle"><div class="ltmain">
+    <span class="titleBtn" id="dbBack" style="cursor:default;"><span id="dbTitle">Debate</span></span>
+  </div><small id="dbSub">Pick a motion to build your case.</small></div>
+  <div id="dbBody"></div>
+</div>
+
+<!-- ===================== ME ===================== -->
+<div class="page" id="pageMe" data-tab="me">
+  <div class="largeTitle"><div class="ltmain">
+    <span class="titleBtn" style="cursor:default;"><span>Me</span></span>
+    <button class="iconbtn" id="openSettings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+  </div></div>
+
+  <div class="profcard" id="meProfile"></div>
+
+  <div class="group">
+    <div class="stats">
+      <div class="stat"><div class="n" id="stLevel">1</div><div class="k">Level</div></div>
+      <div class="stat"><div class="n" id="stLearned">0</div><div class="k">Learned</div></div>
+      <div class="stat"><div class="n" id="stStreak">0</div><div class="k">Day streak</div></div>
+      <div class="stat"><div class="n" id="stDue">0</div><div class="k">Due</div></div>
+    </div>
+    <div class="pad" style="padding-top:0;">
+      <div class="ed-label" style="margin-top:16px;">Level <span id="stXpToGo" class="subhint"></span></div>
+      <div class="bar"><i id="xpBar" style="width:0%"></i></div>
+    </div>
+  </div>
+
+  <div class="mezone">Knowledge</div>
+  <div class="panel">
+    <div class="panelhd"><span class="panelt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg>Field balance</span></div>
+    <div class="radarwrap"><canvas id="fieldRadar" width="520" height="520"></canvas></div>
+    <div class="panelfoot" id="meRadarFoot"></div>
+  </div>
+  <div class="panel">
+    <div class="panelhd"><span class="panelt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/></svg>Cards learned</span></div>
+    <div class="progwrap"><canvas id="progChart" width="660" height="240"></canvas></div>
+    <div class="panelfoot" id="meProgFoot"></div>
+  </div>
+
+  <div class="mezone">Objective</div>
+  <details class="setcard" id="objCard" open>
+    <summary>
+      <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1"/><path d="m12 3 0 3M12 18l0 3M3 12l3 0M18 12l3 0"/></svg>
+      <span class="sctitle">Learning goal<span class="scsub" id="objSub"> — what to optimise for</span></span>
+    </summary>
+    <div class="scbody">
+      <div class="ed-label">Main objective</div>
+      <div class="chips wrap" id="objChips">
+        <button class="chip" data-v="general">General foundations</button>
+        <button class="chip" data-v="specialise">Specialise</button>
+        <button class="chip" data-v="debate">Debate prep</button>
+        <button class="chip" data-v="sharp">Stay sharp</button>
+      </div>
+      <div class="ed-label" style="margin-top:14px;">Focus fields <span class="subhint">— weighted higher in your daily mix</span></div>
+      <div class="chips wrap" id="focusChips"></div>
+      <div class="ed-label" style="margin-top:14px;">New cards per day <span class="subhint" id="paceVal"></span></div>
+      <div class="seg compact" id="paceSeg">
+        <div class="s" data-pace="3">3</div><div class="s" data-pace="5">5</div>
+        <div class="s" data-pace="10">10</div><div class="s" data-pace="20">20</div>
+      </div>
+    </div>
+  </details>
+
+  <div class="mezone">Achievements</div>
+  <div class="achgrid" id="achGrid"></div>
+  <div class="achcap" id="achCap"></div>
+
+  <div class="foot" id="meFoot"></div>
+</div>
+
+<!-- ===================== TOAST / COACH / CONFETTI ===================== -->
+<div class="toast" id="toast"></div>
+<div class="coach" id="coach"><div class="coachbody" id="coachTxt"></div><button class="coachx" id="coachX">Got it</button></div>
+
+<!-- ===================== SHEETS ===================== -->
+<div class="scrim" id="scrimLibrary"></div>
+<div class="sheet" id="sheetLibrary">
+  <div class="grabber"></div>
+  <div class="sheethdr"><span class="t">Library</span><button class="btn plain sm" id="libClose">Done</button></div>
+  <div class="sheetbody">
+    <input id="libSearch" type="search" placeholder="Search facts, fields, sources…" autocapitalize="none" autocorrect="off">
+    <div class="chips wrap" id="libFieldChips" style="margin-top:10px;"></div>
+    <div id="libList" style="margin-top:6px;"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrimCard"></div>
+<div class="sheet" id="sheetCard">
+  <div class="grabber"></div>
+  <div class="sheethdr"><span class="t" id="cardSheetT">Card</span><button class="btn plain sm" id="cardClose">Done</button></div>
+  <div class="sheetbody" id="cardBody"></div>
+</div>
+
+<div class="scrim" id="scrimSettings"></div>
+<div class="sheet" id="sheetSettings">
+  <div class="grabber"></div>
+  <div class="sheethdr"><span class="t">Settings</span><button class="btn plain sm" id="settingsClose">Done</button></div>
+  <div class="sheetbody">
+
+    <details class="setcard">
+      <summary>
+        <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span class="sctitle">Profile<span class="scsub"> — your name</span></span>
+      </summary>
+      <div class="scbody">
+        <div class="merow"><label>Name</label><div class="meinput"><input id="nameIn" type="text" autocapitalize="words" placeholder="—" style="text-align:right;"></div></div>
+      </div>
+    </details>
+
+    <details class="setcard">
+      <summary>
+        <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        <span class="sctitle">Appearance<span class="scsub"> — light, dark, auto</span></span>
+      </summary>
+      <div class="scbody">
+        <div class="seg compact" id="themeSeg" style="margin-top:14px;">
+          <div class="s" data-theme="auto">Auto</div><div class="s" data-theme="light">Light</div><div class="s" data-theme="dark">Dark</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="setcard">
+      <summary>
+        <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-2V5a3 3 0 0 0-3-3z"/></svg>
+        <span class="sctitle">Account &amp; sync<span class="scsub" id="acctSub"> — local only</span></span>
+      </summary>
+      <div class="scbody" id="acctBody"></div>
+    </details>
+
+    <details class="setcard">
+      <summary>
+        <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        <span class="sctitle">Your data<span class="scsub"> — backup &amp; reset</span></span>
+      </summary>
+      <div class="scbody">
+        <button class="btn tinted wide sm" id="exportBtn" style="margin-top:14px;">Export a backup</button>
+        <button class="btn tinted wide sm" id="importBtn" style="margin-top:8px;">Restore from backup</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none;">
+        <button class="btn red wide sm" id="resetBtn" style="margin-top:8px;">Reset all progress</button>
+      </div>
+    </details>
+
+    <details class="setcard">
+      <summary>
+        <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span class="sctitle">About</span>
+      </summary>
+      <div class="scbody" id="aboutBody"></div>
+    </details>
+
+    <div class="foot">Clue · a knowledge &amp; argument trainer<br>built on the Yalla blueprint</div>
+  </div>
+</div>
+
+<!-- ===================== ONBOARDING ===================== -->
+<div id="onboardWrap">
+  <div class="obcard" id="obCard"></div>
+</div>
+
+<!-- ===================== BOTTOM TAB BAR ===================== -->
+<nav class="tabbar">
+  <button class="tabitem active" data-tab="today" aria-label="Today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Today</span></button>
+  <button class="tabitem" data-tab="learn" aria-label="Learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H11v15H5.5A2.5 2.5 0 0 0 3 21.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H13v15h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg><span>Learn</span></button>
+  <button class="tabitem" data-tab="debate" aria-label="Debate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5a5.5 4.5 0 1 1 3 4v3l-3.2-2.1A5.5 4.5 0 0 1 8 10.5z"/><path d="M16.5 8.5a4 3.4 0 0 1 .5 6.4v2.6l-2.6-1.7"/></svg><span>Debate</span></button>
+  <button class="tabitem" data-tab="me" aria-label="Me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg><span>Me</span></button>
+</nav>
+
+<script>
+// Load the Supabase SDK without blocking app start. With blank keys (default), the cloud layer
+// stays dormant and the app is 100% local. Wire keys in app.js (SUPA) to switch sync on later.
+(function(){
+  try{
+    var s=document.createElement("script");
+    s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    s.async=true;
+    s.onload=function(){ if(window.__cloudInit) window.__cloudInit(); };
+    document.head.appendChild(s);
+  }catch(e){}
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

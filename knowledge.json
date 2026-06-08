@@ -1,0 +1,469 @@
+{
+  "_meta": {
+    "purpose": "Canonical, machine-readable knowledge base for the Debate app. The app reads this for the Learn loop (Discover / Review / Quiz), the Library, and Debate mode. Mirror of Yalla's evidence.json idea, but for general + specialised knowledge instead of training advice.",
+    "version": 1,
+    "updated": "2026-06-08",
+    "status": "SEED CONTENT — a small, hand-curated starter set to exercise the engine. Facts here are well-known and chosen for confidence, but every card should be re-verified and the set greatly expanded (target: hundreds of cards, many sourced to specific papers/books with working links).",
+    "schema": {
+      "fields": "ordered list for the Library + the Me radar; each {id,label,blurb,icon,color}.",
+      "depths": "legend for a card's `depth`: fact (a single finding/date) | concept (a foundational idea) | book (a whole-book insight) | event (a dated event).",
+      "cards": "the knowledge units {id,field,depth,level,title,fact,detail,source,year,tags,deploy,counter,quiz}. `deploy` = how to use it in an argument. `counter` = the honest steelman/caveat (also used in Debate mode as the opposing point). `quiz` is optional {q,choices,answer}.",
+      "motions": "debate topics for Debate mode {id,text,fields}. The app pulls your LEARNED cards in those fields as evidence (deploy) and rebuttals (counter)."
+    },
+    "rules": {
+      "accuracy": "Prefer robust, widely-accepted facts. Name the source (author/year/work). Avoid bare 'studies show'.",
+      "honesty": "Every card carries a `counter` — the strongest objection or caveat. This trains steelmanning and keeps the app from teaching one-sided talking points."
+    }
+  },
+
+  "depths": [
+    { "id": "fact",    "label": "Fact",    "blurb": "A single finding or figure." },
+    { "id": "event",   "label": "Date",    "blurb": "A dated event worth anchoring." },
+    { "id": "concept", "label": "Concept", "blurb": "A foundational idea or model." },
+    { "id": "book",    "label": "Book",    "blurb": "A whole-work insight." }
+  ],
+
+  "fields": [
+    { "id": "fun",     "label": "Fun facts & dates", "blurb": "Surprising findings and the dates things happened.", "icon": "✨", "color": "#f59f00" },
+    { "id": "math",    "label": "Mathematics",       "blurb": "Proof, infinity, probability, paradox.",            "icon": "√",  "color": "#4dabf7" },
+    { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
+    { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
+    { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
+    { "id": "bio",     "label": "Biology",           "blurb": "Life, evolution, genes, and the body.",             "icon": "🧬", "color": "#37b24d" },
+    { "id": "eco",     "label": "Ecology",           "blurb": "Ecosystems, cycles, and planetary limits.",         "icon": "🌿", "color": "#2f9e44" },
+    { "id": "systems", "label": "Systems sciences",  "blurb": "Feedback, stocks & flows, complexity.",             "icon": "🔁", "color": "#1098ad" },
+    { "id": "econ",    "label": "Economics",         "blurb": "Trade-offs, incentives, markets.",                  "icon": "📈", "color": "#e8551c" },
+    { "id": "philo",   "label": "Philosophy",        "blurb": "Logic, ethics, knowledge, justice.",                "icon": "🤔", "color": "#868e96" },
+    { "id": "polisci", "label": "Political science", "blurb": "Voting, institutions, collective action.",          "icon": "🏛", "color": "#e64980" }
+  ],
+
+  "cards": [
+    {
+      "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
+      "title": "Octopuses have three hearts",
+      "fact": "An octopus has three hearts and blue blood.",
+      "detail": "Two branchial hearts pump blood through the gills; one systemic heart sends it to the body. The blood carries oxygen with copper-based haemocyanin (blue) rather than iron-based haemoglobin (red), which works better in cold, low-oxygen water.",
+      "source": { "who": "Cephalopod physiology (general)", "year": 0, "title": "", "where": "" },
+      "tags": ["biology", "evolution"],
+      "deploy": "A vivid example that evolution finds many independent solutions to the same problem (oxygen transport) — there is rarely one 'right' design.",
+      "counter": "It's a trade-off, not strictly 'better': haemocyanin carries less oxygen than haemoglobin at warm temperatures.",
+      "quiz": { "q": "How many hearts does an octopus have?", "choices": ["One", "Two", "Three", "Four"], "answer": 2 }
+    },
+    {
+      "id": "fun-venus-day", "field": "fun", "depth": "fact", "level": 2,
+      "title": "A day on Venus is longer than its year",
+      "fact": "Venus takes longer to spin once than to orbit the Sun.",
+      "detail": "Venus rotates once every ~243 Earth days but orbits the Sun every ~225 Earth days — and it spins backwards (retrograde). So by the sidereal definition, its 'day' outlasts its 'year'.",
+      "source": { "who": "NASA planetary fact sheet", "year": 0, "title": "", "where": "" },
+      "tags": ["astronomy"],
+      "deploy": "Everyday intuitions ('a day is shorter than a year') are local conventions, not universal truths.",
+      "counter": "It depends on the definition: a solar day on Venus (sunrise to sunrise) is ~117 Earth days, because the retrograde spin and orbit partly cancel."
+    },
+    {
+      "id": "fun-1816-no-summer", "field": "fun", "depth": "event", "level": 2,
+      "title": "The Year Without a Summer (1816)",
+      "fact": "In 1816 a volcano half a world away caused snow in June and famine across the Northern Hemisphere.",
+      "detail": "The 1815 eruption of Mount Tambora in Indonesia — the largest in recorded history — threw sulfate aerosols into the stratosphere, dimming the sun and crashing temperatures. Crops failed across Europe and North America. The gloom of that summer also gave us Mary Shelley's 'Frankenstein'.",
+      "source": { "who": "Climatology / history", "year": 1816, "title": "", "where": "" },
+      "year": 1816,
+      "tags": ["climate", "history"],
+      "deploy": "A single physical event can cascade into global social, economic and even cultural effects.",
+      "counter": "Attribution is partly confounded by an overlapping solar minimum (the Dalton Minimum); the volcano was the main driver but not the only one."
+    },
+    {
+      "id": "fun-honey-keeps", "field": "fun", "depth": "fact", "level": 1,
+      "title": "Honey effectively never spoils",
+      "fact": "Sealed honey can stay edible for thousands of years — pots found in Egyptian tombs were still good.",
+      "detail": "Honey's very low water content, acidity, and the trace hydrogen peroxide released by an enzyme (glucose oxidase) make it hostile to microbes. Kept sealed and dry, it lasts indefinitely.",
+      "source": { "who": "Food chemistry / archaeology", "year": 0, "title": "", "where": "" },
+      "tags": ["chemistry"],
+      "deploy": "Preservation can be a property of chemistry, not refrigeration — a clean counterexample to 'all food rots'.",
+      "counter": "Only while sealed: add water (or contamination) and honey will ferment. Crystallisation is normal and reversible, not spoilage."
+    },
+
+    {
+      "id": "math-infinities", "field": "math", "depth": "concept", "level": 2,
+      "title": "Some infinities are bigger than others",
+      "fact": "There are strictly more real numbers than whole numbers — infinity comes in different sizes.",
+      "detail": "Cantor's diagonal argument (1891) shows you can't list all real numbers even with an infinite list: given any list, you can build a real number missing from it. So the reals are 'uncountable' and outnumber the (countable) integers.",
+      "source": { "who": "Georg Cantor", "year": 1891, "title": "Diagonal argument", "where": "" },
+      "year": 1891,
+      "tags": ["infinity", "set theory"],
+      "deploy": "Stops loose appeals to infinity: 'infinite' does not mean 'all the same' or 'anything goes'.",
+      "counter": "Whether there's a size strictly between the integers and the reals (the Continuum Hypothesis) is provably undecidable in standard set theory (Gödel 1940, Cohen 1963).",
+      "quiz": { "q": "Cantor's diagonal argument shows the real numbers are…", "choices": ["Countable", "Uncountable", "Finite", "The same size as the integers"], "answer": 1 }
+    },
+    {
+      "id": "math-godel", "field": "math", "depth": "book", "level": 3,
+      "title": "Gödel's incompleteness theorems",
+      "fact": "Any consistent maths system rich enough for arithmetic contains true statements it can never prove.",
+      "detail": "Gödel (1931) showed such a system can't be both complete and consistent, and can't prove its own consistency from within. Truth outruns provability.",
+      "source": { "who": "Kurt Gödel", "year": 1931, "title": "On Formally Undecidable Propositions", "where": "" },
+      "year": 1931,
+      "tags": ["logic", "limits"],
+      "deploy": "A hard limit on formal systems — useful against claims that 'anything true can, in principle, be proven'.",
+      "counter": "Routinely overstated. It applies to specific formal systems, not to 'all reasoning'; it does not imply 'nothing is knowable' or license mysticism."
+    },
+    {
+      "id": "math-base-rate", "field": "math", "depth": "concept", "level": 2,
+      "title": "The base-rate fallacy",
+      "fact": "A 99%-accurate test for a rare disease still produces mostly false positives.",
+      "detail": "If a disease affects 1 in 1,000 and a test is 99% accurate, a positive result is far more likely to be a false alarm than a real case, because there are so many more healthy people to misclassify. The prior (base rate) dominates.",
+      "source": { "who": "Bayes' theorem (Thomas Bayes)", "year": 1763, "title": "", "where": "" },
+      "year": 1763,
+      "tags": ["probability", "bayes"],
+      "deploy": "Demand the base rate before accepting 'the test/study says X'. Accuracy figures alone can badly mislead.",
+      "counter": "Bayesian reasoning needs a defensible prior; with a bad prior you just get confidently wrong posteriors.",
+      "quiz": { "q": "For a rare condition, a positive result on a highly accurate test is…", "choices": ["Almost certainly correct", "Often a false positive", "Impossible", "Irrelevant"], "answer": 1 }
+    },
+    {
+      "id": "math-simpson", "field": "math", "depth": "concept", "level": 3,
+      "title": "Simpson's paradox",
+      "fact": "A trend can hold in every subgroup yet reverse when the groups are combined.",
+      "detail": "In Berkeley's 1973 graduate admissions, men appeared admitted at higher rates overall, yet within most departments women were admitted at equal-or-higher rates — women applied more to competitive departments. Aggregation flipped the picture.",
+      "source": { "who": "Bickel, Hammel & O'Connell", "year": 1975, "title": "Sex Bias in Graduate Admissions", "where": "Science" },
+      "year": 1975,
+      "tags": ["statistics", "confounding"],
+      "deploy": "Aggregate numbers can mislead — always ask whether a confounder is hiding inside the average.",
+      "counter": "Which view is 'correct' isn't a rule of thumb; it depends on the underlying causal structure, which the data alone can't settle."
+    },
+
+    {
+      "id": "phys-entropy", "field": "physics", "depth": "concept", "level": 2,
+      "title": "Entropy and the arrow of time",
+      "fact": "In an isolated system, entropy never decreases — which is why time has a direction.",
+      "detail": "The second law of thermodynamics: usable energy disperses; ordered states drift toward disorder. It's why heat flows hot→cold and why a smashed cup never reassembles.",
+      "source": { "who": "Clausius / Boltzmann", "year": 1865, "title": "Second law of thermodynamics", "where": "" },
+      "tags": ["thermodynamics"],
+      "deploy": "Rules out perpetual-motion and 'free lunch' schemes — there's always a cost paid somewhere.",
+      "counter": "Local order can increase (life, fridges, crystals) as long as total entropy rises — a frequent misuse is citing the second law against evolution."
+    },
+    {
+      "id": "phys-light-speed", "field": "physics", "depth": "concept", "level": 2,
+      "title": "The speed of light is the same for everyone",
+      "fact": "Light travels at the same speed for all observers, no matter how they move.",
+      "detail": "Einstein's 1905 special relativity takes this as a postulate. The consequences are strange but measured: moving clocks run slow (time dilation), moving lengths contract, and simultaneity is relative.",
+      "source": { "who": "Albert Einstein", "year": 1905, "title": "On the Electrodynamics of Moving Bodies", "where": "" },
+      "year": 1905,
+      "tags": ["relativity"],
+      "deploy": "Shows 'common sense' about absolute time and simultaneity is simply wrong — verified by GPS, particle accelerators, atomic clocks.",
+      "counter": "Newtonian mechanics remains an excellent approximation at everyday speeds; relativity refines it, it doesn't make it 'useless'."
+    },
+    {
+      "id": "phys-uncertainty", "field": "physics", "depth": "concept", "level": 2,
+      "title": "Heisenberg's uncertainty principle",
+      "fact": "You cannot know a particle's exact position and momentum at the same time.",
+      "detail": "The product of the uncertainties in position and momentum has a hard floor (Δx·Δp ≥ ħ/2). It's a feature of nature, not a limit of our instruments.",
+      "source": { "who": "Werner Heisenberg", "year": 1927, "title": "", "where": "" },
+      "year": 1927,
+      "tags": ["quantum"],
+      "deploy": "There are fundamental, not merely practical, limits to measurement.",
+      "counter": "Frequently abused by analogy ('the observer changes everything') in social or business arguments where it simply doesn't apply."
+    },
+    {
+      "id": "phys-cmb", "field": "physics", "depth": "event", "level": 2,
+      "title": "We can still see the Big Bang's afterglow",
+      "fact": "The whole sky glows faintly at ~2.7 K — leftover heat from the early universe.",
+      "detail": "Penzias and Wilson detected the cosmic microwave background in 1964 (published 1965), a relic of when the universe cooled enough for light to travel freely ~380,000 years after the Big Bang. It's some of the strongest evidence for the hot Big Bang model.",
+      "source": { "who": "Penzias & Wilson", "year": 1965, "title": "A Measurement of Excess Antenna Temperature at 4080 Mc/s", "where": "Astrophysical Journal" },
+      "year": 1965,
+      "tags": ["cosmology"],
+      "deploy": "The Big Bang is evidence-backed, not mere speculation — we literally observe its relic radiation.",
+      "counter": "'Big Bang' describes the expansion from a hot, dense state — it does not claim to explain the ultimate origin or 'what banged'."
+    },
+
+    {
+      "id": "hist-printing", "field": "history", "depth": "event", "level": 1,
+      "title": "Gutenberg's printing press (~1440)",
+      "fact": "Cheap printed books in the 1400s helped trigger the Reformation and the Scientific Revolution.",
+      "detail": "Movable-type printing in Europe (~1440) collapsed the cost of copying text. Literacy spread, ideas travelled faster than authorities could suppress them, and standardised knowledge accumulated.",
+      "source": { "who": "History of technology (general)", "year": 1440, "title": "", "where": "" },
+      "year": 1440,
+      "tags": ["technology", "media"],
+      "deploy": "Information technology reshapes who holds power — a historical anchor for arguments about the printing press / internet / AI.",
+      "counter": "Printing predates Gutenberg in East Asia (Bi Sheng's movable type ~1040, Korean metal type earlier). His contribution was the European system and its economics, not the raw idea."
+    },
+    {
+      "id": "hist-blackdeath", "field": "history", "depth": "event", "level": 2,
+      "title": "The Black Death (1347–1351)",
+      "fact": "A plague that killed a third or more of Europe also raised the wages of those who survived.",
+      "detail": "With labour suddenly scarce, surviving workers could demand more, accelerating the decline of serfdom in parts of Western Europe. Catastrophe restructured the economy.",
+      "source": { "who": "Historical demography (general)", "year": 1347, "title": "", "where": "" },
+      "year": 1347,
+      "tags": ["demography", "economics"],
+      "deploy": "Shocks can shift the balance of power between labour and capital — scarcity changes bargaining position.",
+      "counter": "The 'wages rose' story varies sharply by region and institutions; in places elites tightened controls instead. Single mechanisms oversimplify."
+    },
+    {
+      "id": "hist-westphalia", "field": "history", "depth": "event", "level": 3,
+      "title": "The Peace of Westphalia (1648)",
+      "fact": "The 1648 treaties ending the Thirty Years' War are often called the birth of the sovereign state.",
+      "detail": "They're cited as the origin of 'Westphalian sovereignty' — the principle that states are supreme within their own borders and don't answer to outside authority.",
+      "source": { "who": "International relations (general)", "year": 1648, "title": "", "where": "" },
+      "year": 1648,
+      "tags": ["sovereignty", "IR"],
+      "deploy": "A foundational reference for debates about national sovereignty vs international intervention.",
+      "counter": "Historians (e.g. Andreas Osiander) argue the 'Westphalian myth' is a 19th-century back-projection; the treaties didn't actually establish modern sovereignty as commonly claimed."
+    },
+
+    {
+      "id": "geo-thucydides", "field": "geo", "depth": "book", "level": 2,
+      "title": "The Thucydides Trap",
+      "fact": "When a rising power threatens a ruling one, the result is often war.",
+      "detail": "Graham Allison studied 16 cases over 500 years and found war in 12. Named after Thucydides' line that it was the rise of Athens, and the fear it caused in Sparta, that made war inevitable. Applied today to the US and China.",
+      "source": { "who": "Graham Allison", "year": 2017, "title": "Destined for War", "where": "" },
+      "year": 2017,
+      "tags": ["china", "war"],
+      "deploy": "A structured frame for great-power-rivalry arguments — names the mechanism (fear of a shifting balance).",
+      "counter": "The case selection and what counts as a 'rise' or 'war' are contested; 'often' is not 'inevitable', and 4 of 16 avoided war."
+    },
+    {
+      "id": "geo-hormuz", "field": "geo", "depth": "fact", "level": 1,
+      "title": "Chokepoint: the Strait of Hormuz",
+      "fact": "Roughly a fifth of the world's oil passes through one narrow strait.",
+      "detail": "About 20–21 million barrels a day move through the Strait of Hormuz between the Persian Gulf and open ocean — a single point of geographic leverage.",
+      "source": { "who": "U.S. Energy Information Administration", "year": 2023, "title": "World Oil Transit Chokepoints", "where": "" },
+      "tags": ["energy", "strategy"],
+      "deploy": "Physical geography concentrates strategic power — concrete grounding for arguments about energy security.",
+      "counter": "Shares and volumes shift; new pipelines and changing demand steadily reduce any one chokepoint's leverage."
+    },
+    {
+      "id": "geo-heartland", "field": "geo", "depth": "concept", "level": 3,
+      "title": "Mackinder's Heartland theory (1904)",
+      "fact": "Whoever controls the Eurasian 'Heartland' could dominate the world — a classic land-power doctrine.",
+      "detail": "Halford Mackinder argued that control of inner Eurasia (the 'World-Island') was the key to global power, because it was beyond the reach of sea power.",
+      "source": { "who": "Halford Mackinder", "year": 1904, "title": "The Geographical Pivot of History", "where": "" },
+      "year": 1904,
+      "tags": ["geography", "strategy"],
+      "deploy": "The founding lens of geopolitical 'land power vs sea power' thinking — still echoed in analyses of Russia and Central Asia.",
+      "counter": "Airpower, nuclear weapons, and globalised trade undercut pure land-centric determinism; geography constrains but doesn't dictate."
+    },
+    {
+      "id": "geo-demographic", "field": "geo", "depth": "concept", "level": 2,
+      "title": "The demographic transition",
+      "fact": "As countries develop, they shift from high birth-and-death rates to low — then they age.",
+      "detail": "Falling child mortality and development first cause a population boom, then birth rates fall and the population stabilises and greys, raising the ratio of retirees to workers.",
+      "source": { "who": "Demography (general model)", "year": 0, "title": "", "where": "" },
+      "tags": ["population"],
+      "deploy": "Explains why growth slows and why ageing (China, Japan, Europe) reshapes economies and pensions.",
+      "counter": "Trajectories vary widely; immigration, policy, and culture can speed up, slow down, or reverse parts of the transition."
+    },
+
+    {
+      "id": "bio-natural-selection", "field": "bio", "depth": "book", "level": 1,
+      "title": "Natural selection",
+      "fact": "Heritable variation plus differential survival produces design without a designer.",
+      "detail": "Darwin (1859): organisms vary, some variations are inherited, and those that aid survival and reproduction become more common over generations — yielding apparent design.",
+      "source": { "who": "Charles Darwin", "year": 1859, "title": "On the Origin of Species", "where": "" },
+      "year": 1859,
+      "tags": ["evolution"],
+      "deploy": "Complexity can arise from blind, cumulative processes — the canonical answer to 'it looks designed, so it was designed'.",
+      "counter": "Selection is one mechanism among several. Genetic drift, gene flow, and sheer contingency also shape evolution; not every trait is an adaptation.",
+      "quiz": { "q": "Natural selection requires variation that is…", "choices": ["Acquired in a lifetime", "Heritable", "Always beneficial", "Identical in all individuals"], "answer": 1 }
+    },
+    {
+      "id": "bio-microbiome", "field": "bio", "depth": "fact", "level": 2,
+      "title": "You're about half bacteria (by cell count)",
+      "fact": "Your body holds roughly as many bacterial cells as human cells — about 1:1, not the old '10:1'.",
+      "detail": "A 2016 re-estimate put it near 38 trillion bacteria to 30 trillion human cells. The widely-repeated '10 times more bacteria than your own cells' was never well-founded.",
+      "source": { "who": "Sender, Fuchs & Milo", "year": 2016, "title": "Revised Estimates for the Number of Human and Bacteria Cells", "where": "PLOS Biology" },
+      "year": 2016,
+      "tags": ["microbiome", "myth-busting"],
+      "deploy": "Doubles as a fact and a myth-correction — a clean way to show how a 'known' figure can be wrong.",
+      "counter": "These are estimates with wide ranges and they vary person to person; function matters more than raw counts."
+    },
+    {
+      "id": "bio-crispr", "field": "bio", "depth": "event", "level": 2,
+      "title": "CRISPR: programmable gene editing",
+      "fact": "Since 2012 we've been able to cut and edit DNA at a chosen spot, cheaply and precisely.",
+      "detail": "Doudna and Charpentier showed the bacterial CRISPR-Cas9 system can be guided by a custom RNA to cut DNA wherever you point it (Nobel Prize 2020). It transformed biotech almost overnight.",
+      "source": { "who": "Jinek, Charpentier, Doudna et al.", "year": 2012, "title": "A Programmable Dual-RNA–Guided DNA Endonuclease", "where": "Science" },
+      "year": 2012,
+      "tags": ["genetics", "biotech"],
+      "deploy": "Cheap, precise editing changes every debate about medicine, agriculture, and 'designer' organisms.",
+      "counter": "Off-target edits and the ethics of heritable (germline) changes remain serious, unresolved caveats."
+    },
+
+    {
+      "id": "eco-yellowstone", "field": "eco", "depth": "event", "level": 2,
+      "title": "Wolves reshaped Yellowstone",
+      "fact": "Reintroducing wolves in 1995 rippled all the way down to the rivers.",
+      "detail": "With wolves back, elk grazed differently, letting willow and aspen recover, which helped beavers and stabilised some streambanks — a 'trophic cascade' from a top predator.",
+      "source": { "who": "Ripple & Beschta", "year": 2012, "title": "Trophic cascades in Yellowstone: the first 15 years after wolf reintroduction", "where": "Biological Conservation" },
+      "year": 1995,
+      "tags": ["conservation", "cascades"],
+      "deploy": "Top predators have outsized, system-wide effects — a memorable case that removing one species isn't a local change.",
+      "counter": "The popular 'wolves changed the rivers' story is partly overstated; recovery had multiple drivers and the magnitude is debated."
+    },
+    {
+      "id": "eco-planetary-boundaries", "field": "eco", "depth": "book", "level": 3,
+      "title": "Planetary boundaries",
+      "fact": "Scientists have mapped nine limits for a stable planet — and we've crossed several.",
+      "detail": "The framework defines a 'safe operating space' across climate, biodiversity, the nitrogen and phosphorus cycles, freshwater, land use, and more. A 2023 update found six of nine boundaries transgressed.",
+      "source": { "who": "Rockström et al. (2009); Richardson et al. (2023)", "year": 2009, "title": "Planetary boundaries", "where": "Nature / Science Advances" },
+      "year": 2009,
+      "tags": ["climate", "limits"],
+      "deploy": "Moves environmental debate from 'climate only' to a systems view of multiple, interacting limits.",
+      "counter": "The specific boundary values carry real uncertainty, and some boundaries are global while others are really regional — the numbers are estimates, not constants."
+    },
+    {
+      "id": "eco-haber-bosch", "field": "eco", "depth": "event", "level": 2,
+      "title": "Half the nitrogen in you came from one factory process",
+      "fact": "The Haber-Bosch process (1909) pulls nitrogen from the air to make fertiliser — and now feeds roughly half the world.",
+      "detail": "Before it, crop yields were capped by natural nitrogen. Synthetic ammonia broke that ceiling; a large share of the nitrogen atoms in your body passed through this industrial reaction.",
+      "source": { "who": "Vaclav Smil", "year": 2001, "title": "Enriching the Earth", "where": "" },
+      "year": 1909,
+      "tags": ["food", "nitrogen"],
+      "deploy": "One chemical process underpins modern food security — a striking dependency to put on the table.",
+      "counter": "It's double-edged: the same nitrogen runoff drives algal blooms, dead zones, and potent nitrous-oxide emissions."
+    },
+
+    {
+      "id": "sys-feedback", "field": "systems", "depth": "book", "level": 1,
+      "title": "Reinforcing vs balancing feedback",
+      "fact": "Two loop types explain most system behaviour: one amplifies, one stabilises.",
+      "detail": "Reinforcing (positive) loops compound — interest, viral spread, arms races. Balancing (negative) loops push back toward a target — a thermostat, hunger, market correction.",
+      "source": { "who": "Donella Meadows", "year": 2008, "title": "Thinking in Systems", "where": "" },
+      "year": 2008,
+      "tags": ["feedback"],
+      "deploy": "Lets you name why something grows explosively or stays stubbornly stable instead of hand-waving.",
+      "counter": "Real systems chain many loops with delays; reading off a single loop usually misleads."
+    },
+    {
+      "id": "sys-commons", "field": "systems", "depth": "concept", "level": 2,
+      "title": "The tragedy of the commons — and its rebuttal",
+      "fact": "Shared resources get overused when each user pockets the gain but shares the cost — yet communities often solve this without the state or markets.",
+      "detail": "Hardin (1968) argued a shared pasture is doomed to overgrazing. Elinor Ostrom (Nobel 2009) then documented many real communities that govern shared fisheries, forests and irrigation sustainably through their own rules.",
+      "source": { "who": "Hardin (1968); Ostrom (1990)", "year": 1968, "title": "The Tragedy of the Commons / Governing the Commons", "where": "Science" },
+      "year": 1968,
+      "tags": ["commons", "governance"],
+      "deploy": "Carries its own counter-argument: useful whether you're arguing for regulation OR for local self-governance.",
+      "counter": "Hardin overgeneralised from a model; Ostrom showed the 'tragedy' is not inevitable when users can communicate and make binding rules."
+    },
+    {
+      "id": "sys-powerlaw", "field": "systems", "depth": "concept", "level": 2,
+      "title": "Heavy tails: when the average lies",
+      "fact": "Wealth, city sizes, and word frequencies follow heavy-tailed distributions where a few cases dominate.",
+      "detail": "In a power-law-like distribution, the 'typical' value and the average can be wildly different — think the 80/20 rule. A handful of extreme cases carry most of the total.",
+      "source": { "who": "Pareto / Zipf (classic observations)", "year": 0, "title": "", "where": "" },
+      "tags": ["statistics", "complexity"],
+      "deploy": "Warns against reasoning from the mean in unequal systems — 'average income' or 'average user' can be meaningless.",
+      "counter": "True power laws are statistically hard to distinguish from lognormal distributions, and the label is often slapped on data that doesn't fit it."
+    },
+
+    {
+      "id": "econ-comparative-advantage", "field": "econ", "depth": "book", "level": 2,
+      "title": "Comparative advantage",
+      "fact": "Two countries can both gain from trade even if one is better at making everything.",
+      "detail": "Ricardo (1817): what matters is opportunity cost, not absolute skill. Each side specialises where it gives up the least, and total output rises. It's the core case for trade.",
+      "source": { "who": "David Ricardo", "year": 1817, "title": "On the Principles of Political Economy and Taxation", "where": "" },
+      "year": 1817,
+      "tags": ["trade"],
+      "deploy": "The standard answer to 'they can make it cheaper, so trade hurts us' — gains come from specialisation, not from winning at everything.",
+      "counter": "The clean result assumes full employment, mobile resources, and ignores distribution: trade can raise the total while leaving specific workers and regions worse off.",
+      "quiz": { "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }
+    },
+    {
+      "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 2,
+      "title": "Externalities",
+      "fact": "When a cost or benefit lands on third parties, the market price gets it wrong.",
+      "detail": "Pollution is the classic case: a factory's price doesn't include the harm downstream. Pigou (1920) proposed taxing the activity to make the price tell the truth.",
+      "source": { "who": "Arthur Pigou", "year": 1920, "title": "The Economics of Welfare", "where": "" },
+      "year": 1920,
+      "tags": ["markets", "policy"],
+      "deploy": "Justifies carbon taxes, congestion charges, and the like: prices need correcting when costs spill over.",
+      "counter": "Coase (1960) showed that with clear property rights and low bargaining costs, private parties can fix externalities without taxes — the right remedy depends on the situation."
+    },
+    {
+      "id": "econ-loss-aversion", "field": "econ", "depth": "book", "level": 2,
+      "title": "Loss aversion",
+      "fact": "Losing $100 hurts about twice as much as gaining $100 feels good.",
+      "detail": "Kahneman and Tversky's prospect theory (1979) showed people don't weigh outcomes by final wealth but by gains and losses from a reference point — and losses loom larger. It helped found behavioural economics.",
+      "source": { "who": "Kahneman & Tversky", "year": 1979, "title": "Prospect Theory: An Analysis of Decision under Risk", "where": "Econometrica" },
+      "year": 1979,
+      "tags": ["behavioural", "psychology"],
+      "deploy": "Undercuts the assumption that people are cool rational maximisers — framing a choice as a loss vs a gain changes behaviour.",
+      "counter": "The exact 2:1 ratio varies by context and there's ongoing replication debate; it's a robust tendency, not a fixed constant."
+    },
+
+    {
+      "id": "philo-is-ought", "field": "philo", "depth": "book", "level": 2,
+      "title": "Hume's is–ought gap",
+      "fact": "You can't logically derive what ought to be purely from what is.",
+      "detail": "Hume (1739) noticed writers slide from describing facts ('is') to prescribing duties ('ought') without justifying the jump. Facts alone don't entail values.",
+      "source": { "who": "David Hume", "year": 1739, "title": "A Treatise of Human Nature", "where": "" },
+      "year": 1739,
+      "tags": ["ethics", "logic"],
+      "deploy": "A precision tool for spotting when an opponent smuggles a value claim in under cover of 'the science says'.",
+      "counter": "Some philosophers (ethical naturalists) argue the gap can be bridged; it's a powerful warning, not a settled proof that values float free of facts."
+    },
+    {
+      "id": "philo-falsifiability", "field": "philo", "depth": "book", "level": 2,
+      "title": "Falsifiability",
+      "fact": "A claim that nothing could ever disprove isn't really scientific.",
+      "detail": "Popper argued the mark of a scientific theory is that it sticks its neck out — it forbids certain observations, so it could be proven wrong. 'What would change your mind?' is the key question.",
+      "source": { "who": "Karl Popper", "year": 1959, "title": "The Logic of Scientific Discovery", "where": "" },
+      "year": 1959,
+      "tags": ["epistemology", "science"],
+      "deploy": "A sharp test against unfalsifiable claims ('it's true, you just can't see the evidence').",
+      "counter": "Kuhn and Lakatos showed real science doesn't work by naive falsification — a failed prediction is often blamed on auxiliary assumptions, not the core theory.",
+      "quiz": { "q": "For Popper, a scientific theory must be…", "choices": ["Proven true", "Falsifiable", "Popular", "Mathematical"], "answer": 1 }
+    },
+    {
+      "id": "philo-veil", "field": "philo", "depth": "book", "level": 2,
+      "title": "Rawls's veil of ignorance",
+      "fact": "To find fair rules, choose them not knowing who you'll be in the society.",
+      "detail": "Rawls (1971): behind a 'veil' that hides your wealth, talents, race and class, you'd pick principles that protect everyone — because you might end up at the bottom.",
+      "source": { "who": "John Rawls", "year": 1971, "title": "A Theory of Justice", "where": "" },
+      "year": 1971,
+      "tags": ["justice", "ethics"],
+      "deploy": "A portable fairness test for any institution or policy: would you accept it not knowing your place in it?",
+      "counter": "Nozick and others reject the setup: why assume people behind the veil would be so risk-averse (favouring the worst-off) rather than gambling on the average?"
+    },
+
+    {
+      "id": "poli-median-voter", "field": "polisci", "depth": "concept", "level": 2,
+      "title": "The median voter theorem",
+      "fact": "In a simple two-way majority vote, the middle voter decides — so parties drift to the centre.",
+      "detail": "If opinion lines up on one axis and the winner needs a majority, the option preferred by the median voter beats all others. Candidates converge toward that voter to win.",
+      "source": { "who": "Black (1948); Downs (1957)", "year": 1957, "title": "An Economic Theory of Democracy", "where": "" },
+      "year": 1957,
+      "tags": ["voting"],
+      "deploy": "Explains why rival parties can end up sounding alike — a clean model for centrist convergence.",
+      "counter": "It assumes one dimension, two options, and full turnout. Primaries, multidimensional issues, and abstention routinely break it."
+    },
+    {
+      "id": "poli-duverger", "field": "polisci", "depth": "concept", "level": 2,
+      "title": "Duverger's law",
+      "fact": "Winner-take-all elections tend to produce two big parties; proportional systems produce many.",
+      "detail": "Under first-past-the-post, votes for small parties are 'wasted', so voters and donors consolidate around two contenders. Proportional representation rewards smaller parties, so more survive.",
+      "source": { "who": "Maurice Duverger", "year": 1951, "title": "Political Parties", "where": "" },
+      "year": 1951,
+      "tags": ["elections", "institutions"],
+      "deploy": "Shows that party systems are shaped by the voting rules, not just by the electorate's views — institutions matter.",
+      "counter": "It's a tendency, not an iron law: the UK and India sustain strong regional/third parties under the same rules."
+    },
+    {
+      "id": "poli-collective-action", "field": "polisci", "depth": "book", "level": 3,
+      "title": "The collective action problem",
+      "fact": "Even when everyone would benefit, large groups often fail to act — because each person can free-ride.",
+      "detail": "Olson (1965): if you'll get the benefit whether or not you contribute, the rational move is to let others do the work. So big diffuse groups under-organise while small concentrated interests punch above their weight.",
+      "source": { "who": "Mancur Olson", "year": 1965, "title": "The Logic of Collective Action", "where": "" },
+      "year": 1965,
+      "tags": ["incentives", "organising"],
+      "deploy": "Explains why concentrated lobbies beat diffuse majorities, and why obvious public goods get under-provided.",
+      "counter": "Selective incentives, social pressure, leadership, and repeated interaction (Ostrom) routinely overcome free-riding — it's a hurdle, not a wall."
+    }
+  ],
+
+  "motions": [
+    { "id": "m-growth-env",   "text": "This house would prioritise economic growth over environmental protection.", "fields": ["econ", "eco", "systems"] },
+    { "id": "m-free-trade",   "text": "Free trade does more good than harm.",                                       "fields": ["econ", "geo"] },
+    { "id": "m-democracy",    "text": "Democracy is the best system of government.",                                 "fields": ["polisci", "philo", "history"] },
+    { "id": "m-science-moral","text": "Science can answer moral questions.",                                        "fields": ["philo", "physics", "bio"] },
+    { "id": "m-progress",     "text": "Technological progress has made humanity better off.",                       "fields": ["history", "econ", "bio"] },
+    { "id": "m-china-war",    "text": "The rise of China makes conflict with the United States likely.",            "fields": ["geo", "history"] },
+    { "id": "m-individual",   "text": "Individual action is futile against systemic problems.",                     "fields": ["systems", "eco", "econ"] },
+    { "id": "m-experts",      "text": "We should trust experts over public opinion.",                              "fields": ["philo", "polisci", "systems"] }
+  ]
+}
