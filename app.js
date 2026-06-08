@@ -98,9 +98,9 @@ let byId={}, byField={}, fieldById={}, depthById={};
 let progress = {};               // cardId -> SRS record
 let session = null;              // active learn session
 let settings = {
-  name:"", objective:"general", focus:[], pace:5, theme:"auto",
+  name:"", objective:"everything", focus:[], pace:5, theme:"auto",
   xp:0, streak:0, bestStreak:0, lastSessionDay:"", sessionsDone:0,
-  quizCorrectTotal:0, debatesBuilt:0, achUnlocked:null, seenTips:{},
+  quizCorrectTotal:0, debatesBuilt:0, achUnlocked:null, seenTips:{}, saved:[],
   daily:{ day:"", count:0 }, activity:{}, fotd:null, onboarded:false
 };
 
@@ -166,8 +166,8 @@ function candidateScore(c){
 function buildDiscoverQueue(limit){
   const cand = KN.cards.filter(c=>isNew(c.id));
   cand.sort((a,b)=> candidateScore(b)-candidateScore(a));
-  // for "general", spread across fields: round-robin the sorted list by field
-  if(settings.objective==="general" || settings.objective==="sharp"){
+  // for the broad goals, spread across fields: round-robin the sorted list by field
+  if(settings.objective==="everything" || settings.objective==="general" || settings.objective==="sharp"){
     const seen={}, out=[], rest=[];
     cand.forEach(c=>{ if(!seen[c.field]){ seen[c.field]=1; out.push(c); } else rest.push(c); });
     return out.concat(rest).slice(0,limit).map(c=>c.id);
@@ -244,7 +244,7 @@ function achStats(){
   return { learned:lids.length, best:settings.bestStreak||0, fields:fieldsTouched.size, fieldTotal:KN.fields.length,
            quiz:settings.quizCorrectTotal||0, book:lids.filter(id=>byId[id].depth==="book").length,
            debates:settings.debatesBuilt||0, level:levelFor(settings.xp), counters:settings.countersRead||0,
-           objSet: settings.objective!=="general" || (settings.focus||[]).length>0 };
+           objSet: (settings.objective && settings.objective!=="everything") || (settings.focus||[]).length>0 };
 }
 function unlockedIds(){ const s=achStats(); return ACHIEVEMENTS.filter(a=>a.test(s)).map(a=>a.id); }
 function checkAchievements(){
@@ -259,7 +259,19 @@ function fieldTag(f){ const fl=fieldById[f]||{label:f,icon:"•",color:"#888"};
   return '<span class="kfieldtag" style="background:'+fl.color+'">'+fl.icon+' '+esc(fl.label)+'</span>'; }
 function depthLabel(d){ return (depthById[d]&&depthById[d].label)||d; }
 
-function setSub(){ const obj={general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||"";
+// progressive depth: the Reader peels these open one at a time, starting at the gist.
+// New cards carry an explicit `layers` array; older cards fall back to fact → detail.
+function layersOf(c){
+  const L=[]; const t=(c.fact||c.title||'').trim();
+  if(t) L.push({ d:'gist', t:'In one line', body:t });
+  if(Array.isArray(c.layers) && c.layers.length){ c.layers.forEach(x=> L.push({ d:x.d||'deeper', t:x.t||'More', body:x.body||'' })); }
+  else if(c.detail){ L.push({ d:'basics', t:'The basics', body:c.detail }); }
+  return L;
+}
+function teaser(c){ return c.fact || c.title || ''; }
+function paras(s){ return esc(s).split(/\n\n+/).map(p=>'<p>'+p+'</p>').join(''); }
+
+function setSub(){ const obj={everything:"Learn everything",general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||"";
   const due=dueCards().length, na=newAllowedToday();
   $("lnSub").textContent = obj + (due?(" · "+due+" due"):"") + (na?(" · "+na+" new"):""); }
 
@@ -397,7 +409,7 @@ function renderDone(){
   $("lnStage").innerHTML=`<div class="emptystate"><div class="ei">🎉</div><h3>Session complete</h3>
     <p>+${st.xp} XP · ${st.learned} learned · ${st.reviewed} reviewed${st.quizTotal?(' · '+st.quizCorrect+'/'+st.quizTotal+' quiz'):''}</p>
     <button class="btn wide" id="lnAgain">Done</button></div>`;
-  $("lnAgain").onclick=()=>{ session=null; renderLearn(); showTab('today'); };
+  $("lnAgain").onclick=()=>{ session=null; renderLearn(); showTab('feed'); };
 }
 
 // ================= TODAY =================
@@ -408,53 +420,69 @@ function factOfDay(){ const d=todayStr();
   if(!KN.cards.length) return null;
   const idx=hashStr(d)%KN.cards.length; const c=KN.cards[idx];
   settings.fotd={day:d, id:c.id}; return c; }
-function renderToday(){
-  $("tdGreet").textContent="Today";
-  $("tdDate").textContent = greeting()+' · '+new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});
-  $("tdBrowseSub").textContent = KN.fields.length+" fields ›";
+// ================= FEED (explore) =================
+let feedFilter="all";   // "all" or a field id
+let feedOrder=[];       // current visible order, for the Reader's "next"
 
-  // streak ring
-  const streak=settings.streak||0;
-  const ls=settings.lastSessionDay, didToday=ls===todayStr();
-  const frac = clamp((streak%7)/7 || (streak?1:0), 0, 1);
-  $("tdStreak").innerHTML=`<div class="streakrow">
-      <div class="streakring"><canvas id="streakCanvas" width="176" height="176"></canvas>
-        <div class="srnum"><div class="srn">${streak}</div><div class="srk">day${streak===1?'':'s'}</div></div></div>
-      <div class="streakinfo"><div class="sit">${didToday?'Streak kept 🔥':(streak?'Keep your streak':'Start a streak')}</div>
-        <div class="sis">${didToday?('Nice — you studied today.'):(streak?('Study today to reach '+(streak+1)+' days.'):'Learn a few cards today to begin.')} Best: ${settings.bestStreak||0}.</div></div>
-    </div>`;
-  drawRing($("streakCanvas"), didToday?1:frac, {});
-
-  // CTA
-  const due=dueCards().length, na=newAllowedToday();
-  const has = due||na;
-  $("tdCta").innerHTML=`<div class="group pad" style="text-align:center;">
-      <div class="ovk">${has?'Ready when you are':'Caught up'}</div>
-      <div class="ovbig">${has?((due?due+' to review':'')+(due&&na?' · ':'')+(na?na+' new':'')):'All done for today'}</div>
-      <button class="btn wide" id="tdGo" style="margin-top:16px;">${has?'Start learning':'Review anyway'}</button>
-    </div>`;
-  $("tdGo").onclick=()=>{ showTab('learn'); if(!session) startSession(); };
-
-  // tiles
-  const lvl=levelFor(settings.xp);
-  $("tdTiles").innerHTML=`
-    <div class="daytile"><div class="dtn">${learnedIds().length}</div><div class="dtk">Cards learned</div></div>
-    <div class="daytile"><div class="dtn hot">${settings.xp||0}</div><div class="dtk">XP · L${lvl}</div></div>
-    <div class="daytile"><div class="dtn ${due?'hot':''}">${due}</div><div class="dtk">Due now</div></div>`;
-
-  // fact of the day
-  const f=factOfDay();
-  if(f){ $("tdFotd").innerHTML=`<div class="fk">${(fieldById[f.field]||{}).icon||''} ${esc((fieldById[f.field]||{}).label||'')}</div>
-      <div class="ft">${esc(f.fact)}</div><div class="fm">Tap to read more →</div>`;
-    $("tdFotd").onclick=()=>openCard(f.id); }
-
-  // recently learned
-  const recent=learnedIds().map(id=>({id,t:progress[id].seen})).sort((a,b)=>b.t-a.t).slice(0,5);
-  if(recent.length){ $("tdRecentLabel").style.display="block"; $("tdRecent").style.display="block";
-    $("tdRecentList").innerHTML=recent.map(r=>{ const c=byId[r.id], fl=fieldById[c.field]||{};
-      return '<div class="lrow" data-id="'+c.id+'"><span class="ldot" style="background:'+(fl.color||'#888')+'"></span><span class="lnm">'+esc(c.title)+'</span><span class="lfield">'+esc(fl.label||'')+'</span></div>'; }).join('');
-    document.querySelectorAll("#tdRecentList .lrow").forEach(r=> r.onclick=()=>openCard(r.dataset.id));
-  } else { $("tdRecentLabel").style.display="none"; $("tdRecent").style.display="none"; }
+function feedCandidates(){
+  let list=KN.cards.slice();
+  if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter);
+  // basics first, with a gentle daily shuffle so the feed feels fresh and fields mix
+  list.sort((a,b)=> ((a.level||1)-(b.level||1)) || ((hashStr(a.id+todayStr())%97)-(hashStr(b.id+todayStr())%97)) );
+  return list;
+}
+function renderFeed(){
+  $("feedSub").textContent = greeting()+" — what do you want to understand today?";
+  renderFeedStrip(); renderFeedFilter(); renderFeedList();
+}
+function renderFeedStrip(){
+  const streak=settings.streak||0, due=dueCards().length, na=newAllowedToday(), saved=(settings.saved||[]).length;
+  const items=[
+    { k:'session', emoji:(due+na)?'📚':'✅', big:(due+na)?String(due+na):'0', sub:(due+na)?'to learn':'all done' },
+    { k:'streak',  emoji:'🔥', big:String(streak), sub:'day'+(streak===1?'':'s') },
+    { k:'surprise',emoji:'🎲', big:'?', sub:'surprise me' },
+    { k:'saved',   emoji:'🔖', big:String(saved), sub:'saved' }
+  ];
+  $("feedStrip").innerHTML=items.map(it=>
+    '<button class="story s-'+it.k+'" data-k="'+it.k+'"><span class="storyio">'+it.emoji+'</span>'+
+    '<span class="storybig">'+esc(it.big)+'</span><span class="storysub">'+esc(it.sub)+'</span></button>').join('');
+  document.querySelectorAll("#feedStrip .story").forEach(b=> b.onclick=()=>feedStripTap(b.dataset.k));
+}
+function feedStripTap(k){
+  if(k==='session'||k==='streak'){ showTab('learn'); if(!session) startSession(); }
+  else if(k==='surprise'){ if(KN.cards.length){ const c=KN.cards[hashStr(String(Date.now())+Math.floor(Math.random()*9999))%KN.cards.length]; feedReaderList=[]; openReader(c.id); } }
+  else if(k==='saved'){
+    const ids=(settings.saved||[]); if(!ids.length){ toast("Tap 🔖 in a card to save it for later"); return; }
+    feedReaderList = ids.slice(); openReader(ids[0]);
+  }
+}
+function renderFeedFilter(){
+  const chips=[{id:"all",label:"For you",icon:"✨"}].concat(KN.fields.map(f=>({id:f.id,label:f.label,icon:f.icon})));
+  $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
+  document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; renderFeedFilter(); renderFeedList(); });
+}
+function feedCardHtml(c, featured){
+  const fl=fieldById[c.field]||{}, col=fl.color||'#888';
+  const depthN=layersOf(c).length, st=cardState(c.id);
+  const saved=(settings.saved||[]).includes(c.id);
+  const isTheory = c.depth==='concept'||c.depth==='book';
+  return '<button class="fcard'+(featured?' feat':'')+'" data-id="'+c.id+'" style="--fc:'+col+';">'+
+    '<div class="fctop"><span class="fcfield">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+'</span>'+
+      (isTheory?'<span class="fctag">theory</span>':'')+
+      (saved?'<span class="fcsaved">🔖</span>':'')+'</div>'+
+    '<div class="fctitle">'+esc(c.title)+'</div>'+
+    '<div class="fchook">'+esc(teaser(c))+'</div>'+
+    '<div class="fcfoot"><span class="fcdepth">▽ '+depthN+' level'+(depthN===1?'':'s')+'</span>'+
+      '<span class="fcstate '+st.cls+'">'+st.txt+'</span></div>'+
+    '</button>';
+}
+function renderFeedList(){
+  const list=feedCandidates();
+  feedOrder=list.map(c=>c.id);
+  if(!list.length){ $("feedList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>Nothing here yet.</p></div>'; return; }
+  let html=''; list.forEach((c,i)=> html+=feedCardHtml(c, i===0 && feedFilter==='all'));
+  $("feedList").innerHTML=html;
+  document.querySelectorAll("#feedList .fcard").forEach(el=> el.onclick=()=>{ feedReaderList=feedOrder.slice(); openReader(el.dataset.id); });
 }
 
 // ================= LIBRARY =================
@@ -478,23 +506,83 @@ function renderLibList(){
   document.querySelectorAll("#libList .libcard").forEach(r=> r.onclick=()=>openCard(r.dataset.id));
 }
 
-// ================= CARD detail sheet =================
-function openCard(id){ const c=byId[id]; if(!c) return;
-  $("cardSheetT").textContent=(fieldById[c.field]||{}).label||"Card";
-  const st=cardState(id), p=progress[id];
-  let footer;
-  if(isNew(id)) footer='<button class="btn wide" id="cardLearn" style="margin-top:18px;">Start learning this</button>';
-  else footer='<div class="insight" style="margin-top:18px;"><div class="itext">'+(p.learned?('Learned · next review '+relDue(p.due)):'In progress')+'</div></div>';
-  $("cardBody").innerHTML=`
-    <div class="ktop" style="margin-bottom:14px;">${fieldTag(c.field)}<span class="kdepth">${esc(depthLabel(c.depth))}</span><span class="klevel">L${c.level||1}</span></div>
-    <div class="kfact" style="font-size:21px;">${esc(c.fact)}</div>
-    ${c.year?('<div class="kyear">'+c.year+'</div>'):''}
-    <div class="kback" style="border-top:none;margin-top:14px;padding-top:0;">
-      <div class="kdetail">${esc(c.detail)}</div>${sourceLine(c)}${debateBox(c)}
-    </div>${footer}`;
-  if(isNew(id)){ $("cardLearn").onclick=()=>{ schedule(id,2,true); resetDailyIfNeeded(); settings.daily.count++; touchDay('learn'); awardXp(10); persistAll(); checkAchievements(); toast("Added — "+esc(c.title)); closeSheet("Card"); refreshAll(); }; }
-  openSheet("Card");
+// ================= IMMERSIVE READER (peel-to-deepen) =================
+let rdId=null, rdRevealed=1, feedReaderList=[];
+
+function openReader(id){
+  const c=byId[id]; if(!c) return;
+  rdId=id; rdRevealed=1;
+  if(!feedReaderList.length) feedReaderList = feedOrder.length? feedOrder.slice() : KN.cards.map(x=>x.id);
+  if(feedReaderList.indexOf(id)<0) feedReaderList.unshift(id);
+  renderReader();
+  const r=$("reader"); r.classList.add("show"); r.setAttribute("aria-hidden","false");
+  document.body.classList.add("reading"); $("rdBody").scrollTop=0;
 }
+function closeReader(){ const r=$("reader"); r.classList.remove("show"); r.setAttribute("aria-hidden","true");
+  document.body.classList.remove("reading"); rdId=null; refreshAll(); }
+function readerNext(){ const i=feedReaderList.indexOf(rdId); let n=(i>=0?i+1:0); if(n>=feedReaderList.length) n=0; openReader(feedReaderList[n]); }
+
+function renderReader(){
+  const c=byId[rdId]; if(!c) return;
+  const fl=fieldById[c.field]||{}, col=fl.color||'#888';
+  const layers=layersOf(c), total=layers.length;
+  rdRevealed=clamp(rdRevealed,1,total);
+  $("rdHead").style.setProperty('--fc',col);
+  $("rdProg").innerHTML=layers.map((l,i)=>'<span class="rddot'+(i<rdRevealed?' on':'')+'"></span>').join('');
+  $("rdSave").classList.toggle("on",(settings.saved||[]).includes(rdId));
+
+  let body='<div class="rdField" style="--fc:'+col+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+(c.year?(' · '+c.year):'')+'</div>';
+  body+='<h1 class="rdTitle">'+esc(c.title)+'</h1>';
+  for(let i=0;i<rdRevealed;i++){ const l=layers[i];
+    body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }
+  // once every layer is open, the source / "use it & contest it" box / quiz / actions live in the scroll
+  if(rdRevealed>=total){
+    body+='<div class="rdEnd">'+sourceLine(c)+debateBox(c)+'</div>';
+    if(c.quiz) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
+    if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
+    else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
+    body+='<button class="btn plain wide sm" id="rdNext" style="margin-top:6px;">Next concept →</button>';
+  }
+  $("rdBody").innerHTML=body;
+  // tap anywhere on the card to peel the next layer (links / buttons excepted)
+  $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')) return; rdRevealed++; renderReader(); }) : null;
+  // foot: a persistent "go deeper" affordance while peeling; empty once fully open
+  $("rdFoot").innerHTML = (rdRevealed<total)
+    ? '<button class="btn wide rddeeper" id="rdDeeper"><span>Go deeper</span><span class="rddsub">'+esc(layers[rdRevealed].t||'')+' · '+(rdRevealed+1)+' of '+total+'</span></button>'
+    : '';
+  const dp=$("rdDeeper"); if(dp) dp.onclick=()=>{ rdRevealed++; renderReader(); };
+  const lr=$("rdLearn"); if(lr) lr.onclick=()=>{ schedule(rdId,2,true); resetDailyIfNeeded(); settings.daily.count++; touchDay('learn'); awardXp(10); persistAll(); checkAchievements(); celebrate(); toast("Added — "+esc(c.title)); renderReader(); };
+  const nn=$("rdNext"); if(nn) nn.onclick=readerNext;
+  const qz=$("rdQuiz"); if(qz) qz.onclick=()=>readerQuiz(c);
+}
+function readerQuiz(c){
+  const qz=c.quiz; if(!qz) return; let answered=null;
+  function draw(){
+    const opts=qz.choices.map((opt,i)=>{ let cls="quizopt", mark="";
+      if(answered!=null){ if(i===qz.answer){cls+=" correct"; mark='<span class="qmark">✓</span>';} else if(i===answered){cls+=" wrong"; mark='<span class="qmark">✕</span>';} else cls+=" muted"; }
+      return '<button class="'+cls+'" data-i="'+i+'"'+(answered!=null?' disabled':'')+'>'+esc(opt)+mark+'</button>'; }).join('');
+    $("rdFoot").innerHTML='';
+    $("rdBody").onclick=null;
+    $("rdBody").innerHTML='<div class="rdField" style="--fc:'+((fieldById[c.field]||{}).color||'#888')+'">Quick check ⚡</div>'+
+      '<div class="rdquiz"><div class="quizq">'+esc(qz.q)+'</div><div class="quizopts">'+opts+'</div>'+
+      (answered!=null?'<button class="btn wide sm" id="rdQzBack" style="margin-top:14px;">Back to card</button>':'')+'</div>';
+    if(answered==null){ document.querySelectorAll("#rdBody .quizopt").forEach(b=> b.onclick=()=>{ answered=+b.dataset.i;
+      if(answered===qz.answer){ settings.quizCorrectTotal=(settings.quizCorrectTotal||0)+1; awardXp(8); touchDay('quiz'); persistAll(); checkAchievements(); celebrate(); }
+      draw(); }); }
+    else { $("rdBody").scrollTop=0; $("rdQzBack").onclick=()=>{ rdRevealed=layersOf(c).length; renderReader(); }; }
+  }
+  draw();
+}
+function toggleSave(){ if(!rdId) return; settings.saved=settings.saved||[]; const i=settings.saved.indexOf(rdId);
+  if(i>=0){ settings.saved.splice(i,1); toast("Removed from saved"); } else { settings.saved.push(rdId); toast("Saved 🔖"); }
+  persistAll(); renderReader(); }
+function shareCard(){ const c=byId[rdId]; if(!c) return; const text=c.title+' — '+teaser(c)+'  · via Clue';
+  try{ if(navigator.share){ navigator.share({title:c.title, text}); return; } }catch(e){}
+  try{ if(navigator.clipboard){ navigator.clipboard.writeText(text).then(()=>toast("Copied to clipboard")); return; } }catch(e){}
+  toast("Share: "+c.title); }
+
+// keep older call sites working — every card opens in the immersive reader now
+function openCard(id){ feedReaderList=[]; openReader(id); }
 
 // ================= DEBATE =================
 let dbMotion=null, dbSide="for";
@@ -558,7 +646,7 @@ function renderMe(){
 }
 function renderObjUI(){
   document.querySelectorAll("#objChips .chip").forEach(ch=> ch.classList.toggle("on", ch.dataset.v===settings.objective));
-  $("objSub").textContent=' — '+({general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||'');
+  $("objSub").textContent=' — '+({everything:"Learn everything",general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||'');
   $("focusChips").innerHTML=KN.fields.map(f=>'<button class="chip'+((settings.focus||[]).includes(f.id)?' on':'')+'" data-f="'+f.id+'">'+esc(f.icon)+' '+esc(f.label)+'</button>').join('');
   document.querySelectorAll("#focusChips .chip").forEach(ch=> ch.onclick=()=>{ const f=ch.dataset.f; settings.focus=settings.focus||[];
     const i=settings.focus.indexOf(f); if(i>=0) settings.focus.splice(i,1); else { if(settings.focus.length>=3){ toast("Up to 3 focus fields"); return; } settings.focus.push(f); }
@@ -624,7 +712,7 @@ function applyTheme(){ const m=settings.theme||'auto';
 
 // ================= persistence helpers =================
 function persistAll(){ sset("settings",settings); sset("progress",progress); }
-function refreshAll(){ renderToday(); renderMe(); if($("sheetLibrary").classList.contains("show")) renderLibList(); }
+function refreshAll(){ renderFeed(); renderMe(); if($("sheetLibrary").classList.contains("show")) renderLibList(); }
 
 // ================= onboarding =================
 function renderOnboarding(step){
@@ -632,19 +720,19 @@ function renderOnboarding(step){
   const ob=$("obCard");
   if(step===1){
     ob.innerHTML=`<div class="obbrand"><span class="wordmark">Clue</span></div>
-      <p class="obtag">Build real knowledge across every field — and the facts to argue it well. A few cards a day, remembered for good.</p>
+      <p class="obtag">A feed for your brain. Scroll real ideas across every field, tap to go as deep as you like — from the basics to where the experts still disagree. A few a day, remembered for good.</p>
       <div class="oblabel">First, your name</div>
       <input id="obName" type="text" autocapitalize="words" placeholder="Your first name">
       <button class="btn wide" id="obNext" style="margin-top:18px;">Continue</button>`;
     $("obName").value=settings.name||"";
     $("obNext").onclick=()=>{ settings.name=($("obName").value||"").trim().slice(0,24); renderOnboarding(2); };
   } else if(step===2){
-    const opts=[{v:"general",b:"General foundations",s:"A broad base across all fields"},
+    const opts=[{v:"everything",b:"Just show me everything",s:"No focus needed — explore it all, from the basics up"},
                 {v:"specialise",b:"Specialise",s:"Go deep in the fields you choose"},
                 {v:"debate",b:"Debate prep",s:"Arguments, evidence and rebuttals"},
                 {v:"sharp",b:"Stay sharp",s:"Light daily review to keep it fresh"}];
-    ob.innerHTML=`<div class="obtitle">What’s your goal?</div>
-      <p class="obp">This shapes your daily mix. You can change it anytime in Me.</p>
+    ob.innerHTML=`<div class="obtitle">How do you want to learn?</div>
+      <p class="obp">This only nudges your daily mix — you can change it (or ignore it) anytime in Me. Not sure? Leave it on “everything”.</p>
       <div class="obopts">${opts.map(o=>'<button class="obopt'+(settings.objective===o.v?' on':'')+'" data-v="'+o.v+'"><b>'+o.b+'</b><span>'+o.s+'</span></button>').join('')}</div>
       <button class="btn wide" id="obNext" style="margin-top:18px;">Continue</button>`;
     document.querySelectorAll("#obCard .obopt").forEach(o=> o.onclick=()=>{ settings.objective=o.dataset.v; document.querySelectorAll("#obCard .obopt").forEach(x=>x.classList.toggle("on",x===o)); });
@@ -664,7 +752,7 @@ function wireSettings(){
   $("openSettings").onclick=()=>{ $("nameIn").value=settings.name||""; renderAccount(); renderAbout(); openSheet("Settings"); };
   $("settingsClose").onclick=()=>{ closeSheet("Settings"); renderMe(); };
   $("scrimSettings").onclick=()=>{ closeSheet("Settings"); renderMe(); };
-  $("nameIn").onchange=()=>{ settings.name=($("nameIn").value||"").trim().slice(0,24); persistAll(); renderMe(); renderToday(); };
+  $("nameIn").onchange=()=>{ settings.name=($("nameIn").value||"").trim().slice(0,24); persistAll(); renderMe(); renderFeed(); };
   document.querySelectorAll("#themeSeg .s").forEach(s=> s.onclick=()=>{ settings.theme=s.dataset.theme; applyTheme(); persistAll(); refreshAll(); });
   // export / import / reset
   $("exportBtn").onclick=doExport;
@@ -689,23 +777,24 @@ function showTab(name){
   document.querySelectorAll(".page").forEach(p=> p.classList.toggle("active", p.dataset.tab===name));
   document.querySelectorAll(".tabitem").forEach(t=> t.classList.toggle("active", t.dataset.tab===name));
   if(window.__pageGo) window.__pageGo(name); else { try{ window.scrollTo(0,0); }catch(e){} }
-  if(name==="today") renderToday();
+  if(name==="feed") renderFeed();
   else if(name==="learn") renderLearn();
   else if(name==="debate") renderDebate();
   else if(name==="me") renderMe();
 }
 function wireNav(){
   document.querySelectorAll(".tabitem").forEach(t=> t.onclick=()=> showTab(t.dataset.tab));
-  $("openLibrary").onclick=openLibrary; $("tdBrowse").onclick=openLibrary;
+  $("openLibrary").onclick=openLibrary;
   $("libClose").onclick=()=>closeSheet("Library"); $("scrimLibrary").onclick=()=>closeSheet("Library");
   $("libSearch").oninput=(e)=>{ libQuery=e.target.value; renderLibList(); };
-  $("cardClose").onclick=()=>closeSheet("Card"); $("scrimCard").onclick=()=>closeSheet("Card");
+  // immersive reader chrome
+  $("rdClose").onclick=closeReader; $("rdSave").onclick=toggleSave; $("rdShare").onclick=shareCard;
   $("coachX").onclick=()=> $("coach").classList.remove("show");
   $("lnRestart").onclick=()=>{ if(session && session.phase!=='done'){ if(!confirm("End this session?")) return; } session=null; renderLearn(); };
   $("dbBack").onclick=()=>{ if(dbMotion){ dbMotion=null; renderDebate(); } };
   // objective chips
   document.querySelectorAll("#objChips .chip").forEach(ch=> ch.onclick=()=>{ settings.objective=ch.dataset.v; persistAll(); renderObjUI(); setSub(); checkAchievements(); });
-  document.querySelectorAll("#paceSeg .s").forEach(s=> s.onclick=()=>{ settings.pace=+s.dataset.pace; persistAll(); renderObjUI(); setSub(); renderToday(); });
+  document.querySelectorAll("#paceSeg .s").forEach(s=> s.onclick=()=>{ settings.pace=+s.dataset.pace; persistAll(); renderObjUI(); setSub(); renderFeed(); });
 }
 // scroll-linked tab bar (reveal on scroll down, hide on scroll up; stays at bottom of content)
 (function(){
@@ -723,7 +812,7 @@ function wireNav(){
 })();
 // finger-drag the four pages 1:1, snapping to nearest on release
 (function(){
-  const ORDER=["today","learn","debate","me"];
+  const ORDER=["feed","learn","debate","me"];
   const pages=ORDER.map(n=>document.querySelector('.page[data-tab="'+n+'"]')); if(pages.some(p=>!p)) return;
   const shell=document.createElement("div"); shell.id="shell";
   const pager=document.createElement("div"); pager.id="pager";
@@ -733,7 +822,7 @@ function wireNav(){
   const tabbar=document.querySelector(".tabbar"); if(tabbar) shell.appendChild(tabbar);
   const N=ORDER.length, last=N-1;
   const W=()=> pager.clientWidth||window.innerWidth;
-  const curTab=()=>{ const a=document.querySelector(".page.active"); return a?a.dataset.tab:"today"; };
+  const curTab=()=>{ const a=document.querySelector(".page.active"); return a?a.dataset.tab:"feed"; };
   const rubber=(over,dim)=> (1-1/(Math.abs(over)*0.55/dim+1))*dim*(over<0?-1:1);
   let idx=Math.max(0,ORDER.indexOf(curTab())), tx=0, raf=0;
   const apply=()=> track.style.transform="translateX("+tx+"px)";
@@ -743,7 +832,7 @@ function wireNav(){
   const blocked=el=>{ for(let n=el;n&&n!==document.body;n=n.parentElement){ if(n.matches&&n.matches('input,textarea,select,canvas,button,.seg,.chips,.tabbar,.sheet,.quizopts,.radarwrap,.progwrap')) return true;
     const ox=getComputedStyle(n).overflowX; if((ox==="auto"||ox==="scroll")&&n.scrollWidth>n.clientWidth+4) return true; } return false; };
   let x0=0,y0=0,armed=false,locked=false,dragging=false,lastX=0,lastT=0,vx=0;
-  pager.addEventListener("touchstart",e=>{ if(e.touches.length!==1||document.querySelector(".sheet.show, #onboardWrap.show")||blocked(e.target)){ armed=false; return; }
+  pager.addEventListener("touchstart",e=>{ if(e.touches.length!==1||document.querySelector(".sheet.show, #onboardWrap.show, .reader.show")||blocked(e.target)){ armed=false; return; }
     cancelAnimationFrame(raf); x0=lastX=e.touches[0].clientX; y0=e.touches[0].clientY; lastT=Date.now(); vx=0; armed=true; locked=false; dragging=false; track.style.transition="none"; },{passive:true});
   pager.addEventListener("touchmove",e=>{ if(!armed) return; const x=e.touches[0].clientX,y=e.touches[0].clientY,dx=x-x0,dy=y-y0;
     if(!locked){ const adx=Math.abs(dx),ady=Math.abs(dy); if(adx<6&&ady<6) return; if(adx<=ady*1.2){ armed=false; return; } locked=true; dragging=true; }
@@ -780,7 +869,7 @@ async function init(){
   if(settings.achUnlocked==null) settings.achUnlocked=unlockedIds();
   await persistAll();
   wireNav(); wireSettings();
-  renderToday(); renderMe(); updateRotateGuard();
+  renderFeed(); renderMe(); updateRotateGuard();
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
   hideSplash();
 }

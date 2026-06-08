@@ -52,35 +52,23 @@
   <div class="rgsub">Clue works in portrait.</div>
 </div>
 
-<!-- ===================== TODAY ===================== -->
-<div class="page active" id="pageToday" data-tab="today">
+<!-- ===================== FEED (explore) ===================== -->
+<div class="page active" id="pageFeed" data-tab="feed">
   <div class="largeTitle"><div class="ltmain">
-    <span class="titleBtn" style="cursor:default;"><span id="tdGreet">Today</span></span>
-    <button class="iconbtn" id="openLibrary" aria-label="Browse the library">
+    <span class="titleBtn" style="cursor:default;"><span id="feedTitle">Explore</span></span>
+    <button class="iconbtn" id="openLibrary" aria-label="Search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
     </button>
-  </div><small id="tdDate"></small></div>
+  </div><small id="feedSub"></small></div>
 
-  <!-- streak ring + status (rendered by JS) -->
-  <div class="group" id="tdStreakCard"><div id="tdStreak"></div></div>
+  <!-- daily strip: streak + today's session (rendered by JS, horizontal) -->
+  <div class="storystrip" id="feedStrip"></div>
 
-  <!-- today's session CTA (rendered by JS) -->
-  <div id="tdCta"></div>
+  <!-- field filter chips -->
+  <div class="chips" id="feedFilter"></div>
 
-  <!-- three quick tiles -->
-  <div class="daytiles" id="tdTiles"></div>
-
-  <!-- fact of the day -->
-  <div class="ed-label">Fact of the day</div>
-  <div class="group fotd pad" id="tdFotd"></div>
-
-  <!-- recently learned -->
-  <div class="ed-label" id="tdRecentLabel" style="display:none;">Recently learned</div>
-  <div class="group" id="tdRecent" style="display:none;"><div class="learnlist" id="tdRecentList"></div></div>
-
-  <!-- library entry -->
-  <div class="ed-label">Explore</div>
-  <button class="navlink" id="tdBrowse"><span>Browse all fields</span><span class="nlsub" id="tdBrowseSub">11 fields ›</span></button>
+  <!-- the explorative feed (rendered by JS) -->
+  <div id="feedList"></div>
 </div>
 
 <!-- ===================== LEARN ===================== -->
@@ -150,6 +138,7 @@
     <div class="scbody">
       <div class="ed-label">Main objective</div>
       <div class="chips wrap" id="objChips">
+        <button class="chip" data-v="everything">Everything</button>
         <button class="chip" data-v="general">General foundations</button>
         <button class="chip" data-v="specialise">Specialise</button>
         <button class="chip" data-v="debate">Debate prep</button>
@@ -256,6 +245,26 @@
   </div>
 </div>
 
+<!-- ===================== IMMERSIVE READER (peel-to-deepen) ===================== -->
+<div class="reader" id="reader" aria-hidden="true">
+  <div class="readerHead" id="rdHead">
+    <button class="rdIcon" id="rdClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="rdProg" id="rdProg"></div>
+    <div class="rdActs">
+      <button class="rdIcon" id="rdSave" aria-label="Save">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>
+      </button>
+      <button class="rdIcon" id="rdShare" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m8 8 4-4 4 4"/><path d="M4 14v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="readerBody" id="rdBody"></div>
+  <div class="readerFoot" id="rdFoot"></div>
+</div>
+
 <!-- ===================== ONBOARDING ===================== -->
 <div id="onboardWrap">
   <div class="obcard" id="obCard"></div>
@@ -263,7 +272,7 @@
 
 <!-- ===================== BOTTOM TAB BAR ===================== -->
 <nav class="tabbar">
-  <button class="tabitem active" data-tab="today" aria-label="Today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Today</span></button>
+  <button class="tabitem active" data-tab="feed" aria-label="Explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m14.6 9.4-1.9 4.5-4.5 1.9 1.9-4.5z"/></svg><span>Explore</span></button>
   <button class="tabitem" data-tab="learn" aria-label="Learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H11v15H5.5A2.5 2.5 0 0 0 3 21.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H13v15h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg><span>Learn</span></button>
   <button class="tabitem" data-tab="debate" aria-label="Debate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5a5.5 4.5 0 1 1 3 4v3l-3.2-2.1A5.5 4.5 0 0 1 8 10.5z"/><path d="M16.5 8.5a4 3.4 0 0 1 .5 6.4v2.6l-2.6-1.7"/></svg><span>Debate</span></button>
   <button class="tabitem" data-tab="me" aria-label="Me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg><span>Me</span></button>
