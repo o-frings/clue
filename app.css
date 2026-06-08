@@ -520,3 +520,8 @@
   .readerFoot:empty{ display:none; }
   .rddeeper{ display:flex; flex-direction:column; gap:2px; align-items:center; }
   .rddeeper .rddsub{ font-size:12px; font-weight:600; opacity:.85; }
+
+  /* ===== account & sync (Me → settings) ===== */
+  .acctp{ font-size:14px; color:var(--l2); line-height:1.55; margin:14px 0 4px; }
+  .acctp b{ color:var(--ink); font-weight:700; }
+  #acctBody input{ font-size:16px; padding:14px 16px; }

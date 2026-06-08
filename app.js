@@ -63,33 +63,187 @@ async function _localSet(k,v){
   _mem[k]=v;
 }
 
-// ================= cloud sync (Supabase) — DORMANT =================
-// Feature-flagged exactly like Yalla: with blank keys the whole layer stays dormant and the app is
-// 100% local & offline. To switch sync on later, fill SUPA.url/key and create a `kv` table keyed by
-// (user_id, k) holding the JSON value + updated_at; last-write-wins per key.
+// ================= accounts & cloud sync (Supabase) =================
+// Same structure as Yalla: localStorage is the live, offline-first store; Supabase is a sync layer
+// on top, last-write-wins per key via an updated_at timestamp. Magic-link (email code) auth.
+// Feature-flagged: with blank keys the whole layer stays dormant and the app is 100% local.
+// To turn it on, fill SUPA.url/key (see ACCOUNTS.md) and run supabase/schema.sql in your project.
 const SUPA = { url: "", key: "" };
-const CLOUD_KEYS = ["settings","progress"];
-let sb=null, cloudUser=null;
+const CLOUD_KEYS = ["settings","progress"];     // draft/UI-only keys stay device-local
+let sb=null, cloudUser=null, _syncMeta={}, _pushTimers={};
+
 function cloudConfigured(){ return !!(SUPA.url && SUPA.key); }
 function cloudReady(){ return !!(sb && cloudUser); }
-function cloudMark(k,v){ /* no-op while dormant; real impl debounces an upsert here */ }
+function cloudAvailable(){ return !!sb; }
+async function _persistMeta(){ await _localSet("_syncMeta", _syncMeta); }
+
+// Called once the Supabase SDK script has loaded (index.html invokes window.__cloudInit).
 window.__cloudInit = async function(){
   if(sb || !cloudConfigured() || !window.supabase) return;
-  try{ sb = window.supabase.createClient(SUPA.url, SUPA.key, { auth:{ persistSession:true, autoRefreshToken:true } }); }
-  catch(e){ sb=null; return; }
-  // (auth + reconcile wiring goes here when sync is enabled)
+  try{
+    sb = window.supabase.createClient(SUPA.url, SUPA.key, {
+      auth:{ persistSession:true, autoRefreshToken:true, detectSessionInUrl:true }
+    });
+  }catch(e){ sb=null; return; }
+  _syncMeta = (await sget("_syncMeta")) || {};
+  sb.auth.onAuthStateChange((_evt, session)=>{ handleAuth(session && session.user ? session.user : null); });
+  try{ const { data } = await sb.auth.getSession(); await handleAuth(data && data.session ? data.session.user : null); }
+  catch(e){ await handleAuth(null); }
 };
+
+async function handleAuth(user){
+  const was = cloudUser && cloudUser.id;
+  cloudUser = user || null;
+  renderAccount();
+  if(cloudUser && cloudUser.id !== was){
+    await ensureProfile();
+    await cloudReconcile();
+    renderAccount();
+  }
+}
+
+// ---- auth actions (passwordless: email a 6-digit code, then verify) ----
+let _lastOtpSend=0;
+async function cloudLogin(email){
+  if(!sb){ await window.__cloudInit(); }
+  if(!sb){ toast("Couldn’t reach the cloud — check your connection."); return; }
+  email=(email||"").trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ toast("Enter a valid email address."); return; }
+  const wait=Math.ceil((60000-(Date.now()-_lastOtpSend))/1000);
+  if(wait>0){ toast("Hold on "+wait+"s before requesting another code."); return; }
+  try{
+    // Code (not link): a magic link opens Safari and never reaches an installed PWA.
+    const { error } = await sb.auth.signInWithOtp({ email, options:{ shouldCreateUser:true } });
+    if(error) throw error;
+    _lastOtpSend=Date.now(); _pendingEmail=email;
+    renderAccount();
+    const ci=$("acctCode"); if(ci){ ci.value=""; ci.focus(); }
+    toast("Check your email for a 6-digit code.", true);
+  }catch(e){ toast("Sign-in failed: "+((e&&e.message)||e)); }
+}
+let _pendingEmail="";
+async function cloudVerify(code){
+  if(!sb){ toast("Couldn’t reach the cloud — try again."); return; }
+  code=(code||"").replace(/\D/g,"");
+  if(code.length<6){ toast("Enter the 6-digit code from your email."); return; }
+  try{
+    const { error } = await sb.auth.verifyOtp({ email:_pendingEmail, token:code, type:"email" });
+    if(error) throw error;
+    _pendingEmail="";   // onAuthStateChange takes over from here
+  }catch(e){ toast("That code didn’t work — check it or send a new one."); }
+}
+async function cloudLogout(){
+  if(sb){ try{ await sb.auth.signOut(); }catch(e){} }
+  cloudUser=null; renderAccount();
+  toast("Signed out. Your data stays on this device.");
+}
+
+// Make THIS device the source of truth: push every local key up with a fresh timestamp.
+async function cloudForcePush(){
+  if(!cloudReady()){ toast("Sign in first to save to your account."); return; }
+  const now=Date.now(); let n=0;
+  for(const k of CLOUD_KEYS){ const v=await sget(k); if(v!=null){ _syncMeta[k]=now; await cloudPush(k,v,now); n++; } }
+  await _persistMeta();
+  toast(n?"Saved this device’s progress to your account.":"Nothing to save yet.", true);
+}
+// GDPR: wipe everything this user has in the cloud. Local data is untouched.
+async function cloudDeleteData(){
+  if(!cloudReady()) return;
+  if(!confirm("Delete all your data from the cloud (synced progress + profile)? The copy on this device stays. This can’t be undone.")) return;
+  const uid=cloudUser.id;
+  try{
+    await sb.from("user_data").delete().eq("user_id",uid);
+    await sb.from("profiles").delete().eq("user_id",uid);
+    _syncMeta={}; await _persistMeta();
+    await sb.auth.signOut(); cloudUser=null; renderAccount();
+    toast("Your cloud data was deleted. This device is untouched.", true);
+  }catch(e){ toast("Couldn’t delete cloud data: "+((e&&e.message)||e)); }
+}
+
+async function ensureProfile(){
+  if(!cloudReady()) return;
+  try{
+    const { data } = await sb.from("profiles").select("user_id,display_name").eq("user_id",cloudUser.id).maybeSingle();
+    const name = settings.name || (cloudUser.email||"Learner").split("@")[0];
+    if(!data) await sb.from("profiles").upsert({ user_id:cloudUser.id, display_name:name });
+    else if(!settings.name && data.display_name){ settings.name=data.display_name; await _localSet("settings",settings); }
+  }catch(e){}
+}
+
+// ---- sync engine (offline-first, last-write-wins per key) ----
+// Mark a key dirty and debounce-push it. Called on every sset.
+function cloudMark(k,v){
+  if(k==="_syncMeta" || !cloudReady() || CLOUD_KEYS.indexOf(k)<0) return;
+  _syncMeta[k]=Date.now(); _persistMeta();
+  clearTimeout(_pushTimers[k]); const ts=_syncMeta[k];
+  _pushTimers[k]=setTimeout(()=>cloudPush(k,v,ts), 1200);
+}
+async function cloudPush(k,v,ts){
+  if(!cloudReady()) return;
+  try{
+    await sb.from("user_data").upsert(
+      { user_id:cloudUser.id, key:k, value:v, updated_at:new Date(ts).toISOString() },
+      { onConflict:"user_id,key" });
+  }catch(e){ /* left dirty; next change or reconcile retries */ }
+}
+// On login / launch: pull cloud rows, adopt any newer than local, push any local that are newer/missing.
+async function cloudReconcile(){
+  if(!cloudReady()) return;
+  let rows=[];
+  try{ const { data, error } = await sb.from("user_data").select("key,value,updated_at"); if(error) throw error; rows=data||[]; }
+  catch(e){ return; }
+  const server={}; rows.forEach(r=>{ server[r.key]={ v:r.value, ts:Date.parse(r.updated_at) }; });
+  let adopted=false;
+  for(const k of CLOUD_KEYS){
+    const localTs=_syncMeta[k]||0, s=server[k];
+    if(s && s.ts>localTs){ await _localSet(k,s.v); _syncMeta[k]=s.ts; adopted=true; }
+    else { const lv=await sget(k); if(lv!=null && (!s || localTs>s.ts)) await cloudPush(k,lv,localTs||Date.now()); }
+  }
+  await _persistMeta();
+  if(adopted) await reloadFromStore();
+}
+// Re-hydrate the in-memory globals after the sync layer changed storage, then repaint.
+async function reloadFromStore(){
+  settings = Object.assign(settings, (await sget("settings"))||{});
+  progress = (await sget("progress")) || {};
+  if(settings.achUnlocked==null) settings.achUnlocked=unlockedIds();
+  resetDailyIfNeeded(); session=null;
+  applyTheme(); refreshAll(); renderLearn();
+}
+
 function renderAccount(){
   const sub=$("acctSub"), body=$("acctBody"); if(!body) return;
   if(!cloudConfigured()){
     sub.textContent=" — local only";
-    body.innerHTML='<p style="font-size:14px;color:var(--l2);line-height:1.5;margin:14px 0 4px;">'+
-      'Everything is stored privately on this device. Cloud sync and friends are scaffolded but switched off — '+
-      'fill in the Supabase keys in <b>app.js</b> to turn them on, just like Yalla.</p>';
+    body.innerHTML='<p class="acctp">Everything is stored privately on this device. To turn on an account and sync your progress across devices, add your Supabase keys — see <b>ACCOUNTS.md</b>. Until then the app is 100% local and offline.</p>';
     return;
   }
-  sub.textContent = cloudReady() ? " — synced" : " — sign in";
-  body.innerHTML='<p style="font-size:14px;color:var(--l2);margin:14px 0;">Sync is configured. (Sign-in UI to be wired.)</p>';
+  if(cloudReady()){
+    sub.textContent=" — synced";
+    body.innerHTML=
+      '<p class="acctp">Signed in as <b>'+esc(cloudUser.email||"you")+'</b>. Your progress syncs automatically across your devices.</p>'+
+      '<button class="btn tinted wide sm" id="acctForce" style="margin-top:6px;">Save this device’s progress now</button>'+
+      '<button class="btn plain wide sm" id="acctSignOut" style="margin-top:8px;">Sign out</button>'+
+      '<button class="btn red wide sm" id="acctDelete" style="margin-top:2px;">Delete my cloud data</button>';
+    $("acctForce").onclick=cloudForcePush;
+    $("acctSignOut").onclick=cloudLogout;
+    $("acctDelete").onclick=cloudDeleteData;
+    return;
+  }
+  // configured but signed out → email-code login
+  sub.textContent=" — sign in to sync";
+  const sent=!!_pendingEmail;
+  body.innerHTML=
+    '<p class="acctp">Sign in to back up your progress and sync it across devices. No password — we email you a 6-digit code.</p>'+
+    '<input id="acctEmail" type="email" inputmode="email" autocapitalize="off" autocorrect="off" placeholder="you@email.com" style="margin-top:10px;">'+
+    '<button class="btn wide sm" id="acctSend" style="margin-top:10px;">'+(sent?'Resend code':'Email me a code')+'</button>'+
+    '<div id="acctCodeRow" style="display:'+(sent?'block':'none')+';margin-top:12px;">'+
+      '<input id="acctCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code">'+
+      '<button class="btn tinted wide sm" id="acctVerify" style="margin-top:10px;">Verify & sign in</button>'+
+    '</div>';
+  const em=$("acctEmail"); if(em && _pendingEmail) em.value=_pendingEmail;
+  $("acctSend").onclick=()=>cloudLogin(($("acctEmail").value||"").trim());
+  const vb=$("acctVerify"); if(vb) vb.onclick=()=>cloudVerify(($("acctCode").value||""));
 }
 
 // ================= state =================
