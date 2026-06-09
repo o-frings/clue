@@ -461,21 +461,72 @@ function setSub(){ const obj={everything:"Learn everything",general:"General fou
   const due=dueCards().length, na=newAllowedToday();
   $("lnSub").textContent = obj + (due?(" · "+due+" due"):"") + (na?(" · "+na+" new"):""); }
 
+function recentlyLearned(n){
+  return learnedIds().filter(id=>byId[id])
+    .sort((a,b)=> (progress[b].last||0)-(progress[a].last||0))
+    .slice(0,n).map(id=>byId[id]);
+}
+// Learn home = the "Today" dashboard: streak ring + session CTA, day tiles,
+// fact-of-the-day (the old "surprise" tile), and recently-learned. Reuses the
+// streakrow / daytiles / fotd / learnlist components already in the stylesheet.
+function renderTodayHome(stage){
+  const due=dueCards().length, na=newAllowedToday(), streak=settings.streak||0;
+  const learned=learnedIds().length, pace=settings.pace||5;
+  const caughtUp = !due && !na;
+  const infoLine = (due||na)
+    ? [ due?('<b>'+due+'</b> to review'):'', na?('<b>'+na+'</b> new'):'' ].filter(Boolean).join(' · ')
+    : (learned ? 'You’re all caught up' : 'Nothing queued — set your pace in Me');
+  const btn = (due||na)
+    ? '<button class="btn wide" id="lnStart">Start</button>'
+    : (learned ? '<button class="btn tinted wide" id="lnExtra">Learn extra anyway</button>' : '');
+
+  let html = '<div class="group"><div class="streakrow">'
+    +   '<div class="streakring"><canvas id="lnRing" width="176" height="176"></canvas>'
+    +     '<div class="srnum"><div class="srn">'+streak+'</div><div class="srk">day'+(streak===1?'':'s')+'</div></div></div>'
+    +   '<div class="streakinfo"><div class="sit">'+(caughtUp&&learned?'All done today':'Today’s session')+'</div>'
+    +     '<div class="sis">'+infoLine+'</div></div>'
+    + '</div>'
+    + (btn ? '<div class="pad" style="padding-top:0;">'+btn+'</div>' : '')
+    + '</div>';
+
+  html += '<div class="daytiles">'
+    + '<div class="daytile"><div class="dtn'+(due?' hot':'')+'">'+due+'</div><div class="dtk">To review</div></div>'
+    + '<div class="daytile"><div class="dtn">'+na+'</div><div class="dtk">New today</div></div>'
+    + '<div class="daytile"><div class="dtn">'+learned+'</div><div class="dtk">Learned</div></div>'
+    + '</div>';
+
+  const fc=factOfDay();
+  if(fc){ const fl=fieldById[fc.field]||{};
+    html += '<div class="group fotd" id="lnFotd" data-id="'+fc.id+'" style="cursor:pointer;"><div class="pad">'
+      + '<div class="fk">Fact of the day</div><div class="ft">'+esc(fc.title)+'</div>'
+      + '<div class="fm">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+' · '+esc(teaser(fc))+'</div></div></div>';
+  }
+
+  const rec=recentlyLearned(5);
+  if(rec.length){
+    html += '<div class="mezone">Recently learned</div><div class="group"><div class="learnlist">'
+      + rec.map(c=>{ const fl=fieldById[c.field]||{};
+          return '<div class="lrow" data-id="'+c.id+'" style="cursor:pointer;">'
+            + '<span class="ldot" style="background:'+(fl.color||'#888')+'"></span>'
+            + '<span class="lnm">'+esc(c.title)+'</span>'
+            + '<span class="lfield">'+esc(fl.label||'')+'</span></div>'; }).join('')
+      + '</div></div>';
+  }
+
+  stage.innerHTML=html;
+  drawRing($("lnRing"), pace ? clamp(((settings.daily&&settings.daily.count)||0)/pace,0,1) : 0);
+  const sb=$("lnStart"); if(sb) sb.onclick=startSession;
+  const ex=$("lnExtra"); if(ex) ex.onclick=()=>{ session={phase:'discover',review:[],reviewIdx:0,discover:buildDiscoverQueue(5),discoverIdx:0,quiz:[],quizIdx:0,revealed:false,justLearned:[],answered:null,stats:{learned:0,reviewed:0,quizCorrect:0,quizTotal:0,xp:0}}; if(!session.discover.length){ session.quiz=buildQuizQueue(); session.phase=session.quiz.length?'quiz':'done'; } renderLearn(); };
+  const ft=$("lnFotd"); if(ft) ft.onclick=()=>{ feedReaderList=[]; openReader(ft.dataset.id); };
+  document.querySelectorAll("#lnStage .lrow").forEach(r=> r.onclick=()=>{ feedReaderList=[]; openReader(r.dataset.id); });
+}
 function renderLearn(){
   setSub();
+  const t=$("lnTitle"); if(t) t.textContent=greeting();
   const stage=$("lnStage"), bar=$("lnSessBar"), phaseEl=$("lnPhase"), restart=$("lnRestart");
   if(!session){
     bar.style.display="none"; phaseEl.style.display="none"; restart.style.display="none";
-    const due=dueCards().length, na=newAllowedToday();
-    if(!due && !na && learnedIds().length){
-      stage.innerHTML='<div class="emptystate"><div class="ei">✅</div><h3>All caught up</h3><p>No reviews due and you’ve hit today’s new-card target. Come back tomorrow, or raise your pace in <b>Me → Objective</b>.</p><button class="btn wide" id="lnExtra">Learn extra anyway</button></div>';
-      $("lnExtra").onclick=()=>{ session={phase:'discover',review:[],reviewIdx:0,discover:buildDiscoverQueue(5),discoverIdx:0,quiz:[],quizIdx:0,revealed:false,justLearned:[],answered:null,stats:{learned:0,reviewed:0,quizCorrect:0,quizTotal:0,xp:0}}; if(!session.discover.length){ session.quiz=buildQuizQueue(); session.phase=session.quiz.length?'quiz':'done'; } renderLearn(); };
-      return;
-    }
-    stage.innerHTML='<div class="emptystate"><div class="ei">📖</div><h3>Today’s session</h3><p>'+
-      (due?('<b>'+due+'</b> to review'):'')+(due&&na?' · ':'')+(na?('<b>'+na+'</b> new to discover'):'')+
-      (!due&&!na?'Nothing queued — adjust your pace in Me.':'')+'</p><button class="btn wide" id="lnStart">Start</button></div>';
-    const sb=$("lnStart"); if(sb) sb.onclick=startSession;
+    renderTodayHome(stage);
     return;
   }
   restart.style.display="block"; restart.textContent="end";
@@ -717,7 +768,7 @@ function renderDone(){
   $("lnStage").innerHTML=`<div class="emptystate"><div class="ei">🎉</div><h3>Session complete</h3>
     <p>+${st.xp} XP · ${st.learned} learned · ${st.reviewed} reviewed${st.quizTotal?(' · '+st.quizCorrect+'/'+st.quizTotal+' quiz'):''}</p>
     <button class="btn wide" id="lnAgain">Done</button></div>`;
-  $("lnAgain").onclick=()=>{ session=null; renderLearn(); showTab('feed'); };
+  $("lnAgain").onclick=()=>{ session=null; renderLearn(); showTab('learn'); };
 }
 
 // ================= TODAY =================
@@ -734,8 +785,9 @@ let feedStatus="all";   // "all" | "unlearned" | "learned"
 let feedOrder=[];       // current visible order, for the Reader's "next"
 
 function feedCandidates(){
-  let list=KN.cards.slice();
-  if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter);
+  let list;
+  if(feedFilter==="__saved"){ const s=new Set(settings.saved||[]); list=KN.cards.filter(c=>s.has(c.id)); }
+  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter); }
   if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
   else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
   // basics first, with a gentle daily shuffle so the feed feels fresh and fields mix
@@ -744,7 +796,7 @@ function feedCandidates(){
 }
 function renderFeed(){
   $("feedSub").textContent = greeting()+" — what do you want to understand today?";
-  renderFeedStrip(); renderFeedFilter(); renderFeedStatus(); renderFeedList();
+  renderFeedFilter(); renderFeedStatus(); renderFeedList();
 }
 function renderFeedStatus(){
   document.querySelectorAll("#feedStatus .s").forEach(s=>{
@@ -752,29 +804,11 @@ function renderFeedStatus(){
     s.onclick=()=>{ feedStatus=s.dataset.s; renderFeedStatus(); renderFeedList(); };
   });
 }
-function renderFeedStrip(){
-  const streak=settings.streak||0, due=dueCards().length, na=newAllowedToday(), saved=(settings.saved||[]).length;
-  const items=[
-    { k:'session', emoji:(due+na)?'📚':'✅', big:(due+na)?String(due+na):'0', sub:(due+na)?'to learn':'all done' },
-    { k:'streak',  emoji:'🔥', big:String(streak), sub:'day'+(streak===1?'':'s') },
-    { k:'surprise',emoji:'🎲', big:'?', sub:'surprise me' },
-    { k:'saved',   emoji:'🔖', big:String(saved), sub:'saved' }
-  ];
-  $("feedStrip").innerHTML=items.map(it=>
-    '<button class="story s-'+it.k+'" data-k="'+it.k+'"><span class="storyio">'+it.emoji+'</span>'+
-    '<span class="storybig">'+esc(it.big)+'</span><span class="storysub">'+esc(it.sub)+'</span></button>').join('');
-  document.querySelectorAll("#feedStrip .story").forEach(b=> b.onclick=()=>feedStripTap(b.dataset.k));
-}
-function feedStripTap(k){
-  if(k==='session'||k==='streak'){ showTab('learn'); if(!session) startSession(); }
-  else if(k==='surprise'){ if(KN.cards.length){ const c=KN.cards[hashStr(String(Date.now())+Math.floor(Math.random()*9999))%KN.cards.length]; feedReaderList=[]; openReader(c.id); } }
-  else if(k==='saved'){
-    const ids=(settings.saved||[]); if(!ids.length){ toast("Tap 🔖 in a card to save it for later"); return; }
-    feedReaderList = ids.slice(); openReader(ids[0]);
-  }
-}
 function renderFeedFilter(){
-  const chips=[{id:"all",label:"For you",icon:"✨"}].concat(KN.fields.map(f=>({id:f.id,label:f.label,icon:f.icon})));
+  const saved=(settings.saved||[]).length;
+  const chips=[{id:"all",label:"For you",icon:"✨"}]
+    .concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[])
+    .concat(KN.fields.map(f=>({id:f.id,label:f.label,icon:f.icon})));
   $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
   document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; renderFeedFilter(); renderFeedList(); });
 }
@@ -1162,7 +1196,7 @@ function wireNav(){
 })();
 // finger-drag the four pages 1:1, snapping to nearest on release
 (function(){
-  const ORDER=["feed","learn","debate","me"];
+  const ORDER=["learn","feed","debate","me"];
   const pages=ORDER.map(n=>document.querySelector('.page[data-tab="'+n+'"]')); if(pages.some(p=>!p)) return;
   const shell=document.createElement("div"); shell.id="shell";
   const pager=document.createElement("div"); pager.id="pager";
@@ -1219,7 +1253,7 @@ async function init(){
   if(settings.achUnlocked==null) settings.achUnlocked=unlockedIds();
   await persistAll();
   wireNav(); wireSettings();
-  renderFeed(); renderMe(); updateRotateGuard();
+  renderLearn(); renderFeed(); renderMe(); updateRotateGuard();
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
   hideSplash();
 }
