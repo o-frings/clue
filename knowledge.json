@@ -273,6 +273,39 @@
       "quiz": { "q": "Ice-cream sales correlate with drownings mainly because…", "choices": ["Ice cream is dangerous", "Both rise with summer heat (a confounder)", "Drowning causes hunger", "Pure coincidence"], "answer": 1 }
     },
     {
+      "id": "code-naming", "field": "math", "depth": "concept", "level": 1,
+      "title": "Good names are the cheapest documentation",
+      "fact": "Code is read far more often than it's written, so clear names are the highest-leverage documentation there is.",
+      "detail": "A variable called daysSinceLastLogin needs no comment; d needs a paragraph. Good names state intent — what something is or does — so the next reader (often you, months later) doesn't have to reverse-engineer it. Renaming for clarity is one of the safest, most valuable edits you can make.",
+      "deploy": "The simplest lever for maintainable software: spend the extra seconds naming things well.",
+      "counter": "Names can't carry everything; over-long or 'clever' names hurt as much as cryptic ones — the goal is clarity, not length.",
+      "tags": ["clean code", "software", "readability"],
+      "xref": ["code-dry"],
+      "quiz": { "q": "Clear names matter most because code is…", "choices": ["Written once and forgotten", "Read far more often than it's written", "Compiled slowly", "Always short"], "answer": 1 }
+    },
+    {
+      "id": "code-dry", "field": "math", "depth": "concept", "level": 2,
+      "title": "Don't repeat yourself (DRY)",
+      "fact": "Every piece of knowledge should have one authoritative place in the code.",
+      "detail": "When the same logic is copied in several spots, changing it means finding every copy — and missing one creates bugs. DRY says capture it once (a function, a constant, a single source of truth) so a change happens in exactly one place. It's about duplicated knowledge, not just identical text.",
+      "deploy": "Explains why copy-paste programming rots: each duplicate is a future inconsistency waiting to happen.",
+      "counter": "Premature DRY is its own trap — forcing unlike things to share code creates tangled coupling. A little duplication is cheaper than the wrong abstraction.",
+      "tags": ["clean code", "dry", "maintainability"],
+      "xref": ["code-naming", "code-complexity"],
+      "quiz": { "q": "DRY is mainly about avoiding duplication of…", "choices": ["Whitespace", "Knowledge/logic (one source of truth)", "Variable names", "Files"], "answer": 1 }
+    },
+    {
+      "id": "code-complexity", "field": "math", "depth": "concept", "level": 2,
+      "title": "Code is for humans: manage complexity",
+      "fact": "The hard part of programming isn't writing code — it's keeping complexity low enough to keep changing it.",
+      "detail": "As software grows the limit isn't the computer but the human: how much you can hold in your head. Small functions, clear boundaries between parts, and hiding details behind simple surfaces keep local changes local. The aim is code you can safely modify without understanding all of it at once.",
+      "deploy": "Reframes 'good code' as 'code that's cheap to change' — the real cost is maintenance, not the first draft.",
+      "counter": "Abstraction has a price: too many layers can obscure as much as sprawl. The skill is matching structure to the problem, not maximising either.",
+      "tags": ["clean code", "complexity", "architecture"],
+      "xref": ["code-dry", "cs-bigo"],
+      "quiz": { "q": "As software grows, the main constraint is…", "choices": ["Disk space", "Human ability to understand and change it", "CPU speed", "Bandwidth"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
