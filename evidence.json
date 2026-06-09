@@ -612,6 +612,222 @@
       "url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia",
       "kind": "reference",
       "strength": "Encyclopaedic account; the 'birth of sovereignty' framing is common but debated by historians."
+    },
+    "ev-phys-entropy": {
+      "who": "Wikipedia (after Clausius & Boltzmann)",
+      "year": 1865,
+      "title": "Second law of thermodynamics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Second_law_of_thermodynamics",
+      "kind": "reference",
+      "strength": "Established physical law; entropy increase in isolated systems is among the most robustly confirmed principles in physics."
+    },
+    "ev-phys-light-speed": {
+      "who": "Wikipedia (after Einstein, 1905)",
+      "year": 1905,
+      "title": "Special relativity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Special_relativity",
+      "kind": "reference",
+      "strength": "Foundational, exhaustively tested theory (Michelson–Morley onward)."
+    },
+    "ev-phys-uncertainty": {
+      "who": "Wikipedia (after Heisenberg, 1927)",
+      "year": 1927,
+      "title": "Uncertainty principle",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Uncertainty_principle",
+      "kind": "reference",
+      "strength": "Core quantum-mechanics result, repeatedly confirmed experimentally."
+    },
+    "ev-phys-cmb": {
+      "who": "Wikipedia",
+      "year": 1965,
+      "title": "Cosmic microwave background",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cosmic_microwave_background",
+      "kind": "reference",
+      "strength": "Measured at 2.725 K by COBE/WMAP/Planck; among the strongest evidence for the Big Bang."
+    },
+    "ev-bio-natural-selection": {
+      "who": "Wikipedia (after Darwin, 1859)",
+      "year": 1859,
+      "title": "Natural selection",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Natural_selection",
+      "kind": "reference",
+      "strength": "Foundational, overwhelmingly evidenced theory of biology."
+    },
+    "ev-bio-microbiome": {
+      "who": "Sender, Fuchs & Milo",
+      "year": 2016,
+      "title": "Revised Estimates for the Number of Human and Bacteria Cells in the Body",
+      "where": "",
+      "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+      "kind": "paper",
+      "strength": "Peer-reviewed estimate (PLOS Biology); ~1.3:1 bacteria:human with stated uncertainty, revising the old 10:1."
+    },
+    "ev-bio-crispr": {
+      "who": "Wikipedia (Doudna & Charpentier, 2012)",
+      "year": 2012,
+      "title": "CRISPR gene editing",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/CRISPR_gene_editing",
+      "kind": "reference",
+      "strength": "Established, Nobel-recognised technique (2020 Chemistry)."
+    },
+    "ev-eco-yellowstone": {
+      "who": "Wikipedia",
+      "year": 1995,
+      "title": "History of wolves in Yellowstone",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/History_of_wolves_in_Yellowstone",
+      "kind": "reference",
+      "strength": "Reintroduction is well documented; the full trophic-cascade-to-rivers claim is debated among ecologists."
+    },
+    "ev-eco-planetary-boundaries": {
+      "who": "Stockholm Resilience Centre",
+      "year": 2023,
+      "title": "Planetary Boundaries",
+      "where": "",
+      "url": "https://www.stockholmresilience.org/research/planetary-boundaries.html",
+      "kind": "report",
+      "strength": "Framework from the originating research centre; the 2023 assessment finds seven of nine boundaries transgressed."
+    },
+    "ev-eco-haber-bosch": {
+      "who": "Wikipedia",
+      "year": 1909,
+      "title": "Haber process",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Haber_process",
+      "kind": "reference",
+      "strength": "Well-established industrial chemistry; the 'feeds about half the world' figure is a widely-cited estimate."
+    },
+    "ev-sys-feedback": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Feedback",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Feedback",
+      "kind": "reference",
+      "strength": "Standard systems concept: reinforcing vs balancing loops."
+    },
+    "ev-sys-commons": {
+      "who": "Wikipedia (Hardin 1968; Ostrom 1990)",
+      "year": 1968,
+      "title": "Tragedy of the commons",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tragedy_of_the_commons",
+      "kind": "reference",
+      "strength": "Hardin's model plus Ostrom's Nobel-winning empirical rebuttal — both well documented."
+    },
+    "ev-sys-powerlaw": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Power law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Power_law",
+      "kind": "reference",
+      "strength": "Well-established pattern (Pareto/Zipf); whether a given dataset is truly power-law is often debated case by case."
+    },
+    "ev-eh-industrial-revolution": {
+      "who": "Our World in Data",
+      "year": 0,
+      "title": "Economic Growth",
+      "where": "",
+      "url": "https://ourworldindata.org/economic-growth",
+      "kind": "reference",
+      "strength": "Data-rich synthesis (Maddison-based series); the post-1800 takeoff in GDP per capita is well documented."
+    },
+    "ev-eh-enclosure": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Enclosure",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Enclosure",
+      "kind": "reference",
+      "strength": "Encyclopaedic account; the enclosure-to-wage-labour link is well attested, though its weight is debated (Marxist vs other readings)."
+    },
+    "ev-eh-bretton-woods": {
+      "who": "Wikipedia",
+      "year": 1944,
+      "title": "Bretton Woods system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Bretton_Woods_system",
+      "kind": "reference",
+      "strength": "Well-documented monetary history; the 1971 'Nixon shock' is firmly dated."
+    },
+    "ev-eh-great-depression": {
+      "who": "Wikipedia",
+      "year": 1929,
+      "title": "Great Depression",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Great_Depression",
+      "kind": "reference",
+      "strength": "Extensively documented; its causes are still debated among economists."
+    },
+    "ev-eh-stagflation": {
+      "who": "Wikipedia",
+      "year": 1973,
+      "title": "Stagflation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Stagflation",
+      "kind": "reference",
+      "strength": "Well-documented 1970s episode (oil shocks)."
+    },
+    "ev-eh-neoliberal-turn": {
+      "who": "Wikipedia",
+      "year": 1980,
+      "title": "Neoliberalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Neoliberalism",
+      "kind": "reference",
+      "strength": "Well-documented Reagan/Thatcher-era policy shift; 'neoliberalism' as a label is itself contested."
+    },
+    "ev-eh-2008": {
+      "who": "Wikipedia",
+      "year": 2008,
+      "title": "2008 financial crisis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%932008_financial_crisis",
+      "kind": "reference",
+      "strength": "Extensively documented global crisis."
+    },
+    "ev-fun-octopus-hearts": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Octopus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Octopus",
+      "kind": "reference",
+      "strength": "Encyclopaedic; three hearts and copper-based haemocyanin (blue blood) are established zoology."
+    },
+    "ev-fun-venus-day": {
+      "who": "NASA",
+      "year": 0,
+      "title": "Venus: Facts",
+      "where": "",
+      "url": "https://science.nasa.gov/venus/venus-facts/",
+      "kind": "reference",
+      "strength": "NASA reference: 243-Earth-day rotation vs a 225-day orbit — a measured fact."
+    },
+    "ev-fun-1816-no-summer": {
+      "who": "Wikipedia",
+      "year": 1816,
+      "title": "Year Without a Summer",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Year_Without_a_Summer",
+      "kind": "reference",
+      "strength": "Well documented: coldest European summer on record 1766–2000, linked to the 1815 Tambora eruption."
+    },
+    "ev-fun-honey-keeps": {
+      "who": "Smithsonian Magazine",
+      "year": 2013,
+      "title": "The Science Behind Honey's Eternal Shelf Life",
+      "where": "",
+      "url": "https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/",
+      "kind": "news",
+      "strength": "Popular-science explainer quoting a honey scientist; the mechanism (low moisture, acidity, peroxide) is well established."
     }
   }
 }
