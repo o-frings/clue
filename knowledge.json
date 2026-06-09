@@ -51,6 +51,7 @@
   "cards": [
     {
       "id": "date-constantinople-1453", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1453, "when": "1453",
+      "src": ["ev-date-constantinople-1453"],
       "title": "The fall of Constantinople",
       "fact": "In 1453 Ottoman forces took Constantinople, ending the Byzantine (Eastern Roman) Empire.",
       "detail": "Sultan Mehmed II's army breached the great walls after a siege, aided by massive cannon. The city became the Ottoman capital. It is conventionally taken to mark the end of the Middle Ages and helped push scholars and trade routes westward — one spur for the Renaissance and for Europe's search for new sea routes.",
@@ -62,6 +63,7 @@
     },
     {
       "id": "date-french-revolution-1789", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1789, "when": "14 Jul 1789",
+      "src": ["ev-date-french-revolution-1789"],
       "title": "The French Revolution begins",
       "fact": "On 14 July 1789 a Paris crowd stormed the Bastille, igniting the French Revolution.",
       "detail": "Fiscal crisis, a rigid estates system and high bread prices brought down the absolute monarchy. The Revolution produced the Declaration of the Rights of Man, a republic, the Terror, and ultimately Napoleon — spreading the language of citizenship, rights and nationalism across Europe.",
@@ -73,6 +75,7 @@
     },
     {
       "id": "date-moon-landing-1969", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1969, "when": "20 Jul 1969",
+      "src": ["ev-date-moon-landing-1969"],
       "title": "Humans land on the Moon",
       "fact": "On 20 July 1969, Apollo 11 landed the first humans on the Moon.",
       "detail": "Neil Armstrong and Buzz Aldrin walked on the surface while Michael Collins orbited above. The feat was as much Cold War contest as science — a demonstration of capability against the Soviet Union after Sputnik (1957) and Gagarin (1961).",
@@ -84,6 +87,7 @@
     },
     {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
+      "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",
       "fact": "622 CE: Muhammad's migration (the Hijra) from Mecca to Medina marks year 1 of the Islamic calendar.",
       "detail": "Facing persecution in Mecca, Muhammad and his followers relocated to Yathrib (Medina), where the first Muslim community and polity took shape. The Islamic lunar calendar (AH, 'after Hijra') counts from this year — not from Muhammad's birth or the first revelation.",
@@ -106,6 +110,7 @@
     },
     {
       "id": "date-prc-1949", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1949, "when": "1 Oct 1949",
+      "src": ["ev-date-prc-1949"],
       "title": "The founding of the People's Republic of China",
       "fact": "1 October 1949: Mao Zedong proclaimed the People's Republic of China.",
       "detail": "After decades of warlordism, Japanese invasion and civil war, the Communists under Mao defeated the Nationalists (who fled to Taiwan). The new state launched land reform and later the Great Leap Forward and Cultural Revolution; from 1978 Deng Xiaoping's reforms opened the economy that made China a superpower.",
@@ -128,6 +133,7 @@
     },
     {
       "id": "date-berlin-wall-1989", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1989, "when": "9 Nov 1989",
+      "src": ["ev-date-berlin-wall-1989"],
       "title": "The fall of the Berlin Wall",
       "fact": "9 November 1989: the Berlin Wall fell, symbolising the end of the Cold War division of Europe.",
       "detail": "Mounting protest and a botched East German announcement sent crowds to the checkpoints; the guards stood aside. Within two years Germany reunified and the Soviet Union dissolved. It marked the collapse of the Eastern Bloc and, for a time, a sense that liberal democracy had 'won'.",
@@ -459,7 +465,7 @@
       "title": "Gutenberg's printing press (~1440)",
       "fact": "Cheap printed books in the 1400s helped trigger the Reformation and the Scientific Revolution.",
       "detail": "Movable-type printing in Europe (~1440) collapsed the cost of copying text. Literacy spread, ideas travelled faster than authorities could suppress them, and standardised knowledge accumulated.",
-      "src": ["ev-history-of-technology-general"],
+      "src": ["ev-hist-printing"],
       "year": 1440,
       "tags": ["technology", "media"],
       "deploy": "Information technology reshapes who holds power — a historical anchor for arguments about the printing press / internet / AI.",
@@ -471,7 +477,7 @@
       "title": "The Black Death (1347–1351)",
       "fact": "A plague that killed a third or more of Europe also raised the wages of those who survived.",
       "detail": "With labour suddenly scarce, surviving workers could demand more, accelerating the decline of serfdom in parts of Western Europe. Catastrophe restructured the economy.",
-      "src": ["ev-historical-demography-general"],
+      "src": ["ev-hist-blackdeath"],
       "year": 1347,
       "tags": ["demography", "economics"],
       "deploy": "Shocks can shift the balance of power between labour and capital — scarcity changes bargaining position.",
@@ -483,7 +489,7 @@
       "title": "The Peace of Westphalia (1648)",
       "fact": "The 1648 treaties ending the Thirty Years' War are often called the birth of the sovereign state.",
       "detail": "They're cited as the origin of 'Westphalian sovereignty' — the principle that states are supreme within their own borders and don't answer to outside authority.",
-      "src": ["ev-international-relations-general"],
+      "src": ["ev-hist-westphalia"],
       "year": 1648,
       "tags": ["sovereignty", "IR"],
       "deploy": "A foundational reference for debates about national sovereignty vs international intervention.",

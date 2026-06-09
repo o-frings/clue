@@ -531,6 +531,87 @@
       "url": "",
       "kind": "",
       "strength": ""
+    },
+    "ev-date-constantinople-1453": {
+      "who": "Wikipedia",
+      "year": 1453,
+      "title": "Fall of Constantinople",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
+      "kind": "reference",
+      "strength": "Encyclopaedic account citing contemporary chronicles; date and outcome firmly attested."
+    },
+    "ev-date-french-revolution-1789": {
+      "who": "Wikipedia",
+      "year": 1789,
+      "title": "Storming of the Bastille",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Storming_of_the_Bastille",
+      "kind": "reference",
+      "strength": "Encyclopaedic account of a precisely dated, well-documented event."
+    },
+    "ev-date-moon-landing-1969": {
+      "who": "NASA",
+      "year": 1969,
+      "title": "Apollo 11",
+      "where": "",
+      "url": "https://www.nasa.gov/mission/apollo-11/",
+      "kind": "reference",
+      "strength": "NASA's official mission record — a primary source."
+    },
+    "ev-date-hijra-622": {
+      "who": "Wikipedia",
+      "year": 622,
+      "title": "Hijrah",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hijrah",
+      "kind": "reference",
+      "strength": "Encyclopaedic account; the year anchors the Islamic calendar, the exact day is reconstructed."
+    },
+    "ev-date-prc-1949": {
+      "who": "Wikipedia",
+      "year": 1949,
+      "title": "Proclamation of the People's Republic of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Proclamation_of_the_People%27s_Republic_of_China",
+      "kind": "reference",
+      "strength": "Encyclopaedic account of a precisely dated modern event."
+    },
+    "ev-date-berlin-wall-1989": {
+      "who": "Wikipedia",
+      "year": 1989,
+      "title": "Berlin Wall",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Berlin_Wall",
+      "kind": "reference",
+      "strength": "Encyclopaedic account; the 9 Nov 1989 opening is extensively documented."
+    },
+    "ev-hist-printing": {
+      "who": "Wikipedia",
+      "year": 1440,
+      "title": "Printing press",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Printing_press",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis; Gutenberg's ~1440 movable type is well established."
+    },
+    "ev-hist-blackdeath": {
+      "who": "Wikipedia",
+      "year": 1347,
+      "title": "Black Death",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Black_Death",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis of historical records and recent DNA work; mortality estimates vary (a third or more)."
+    },
+    "ev-hist-westphalia": {
+      "who": "Wikipedia",
+      "year": 1648,
+      "title": "Peace of Westphalia",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia",
+      "kind": "reference",
+      "strength": "Encyclopaedic account; the 'birth of sovereignty' framing is common but debated by historians."
     }
   }
 }
