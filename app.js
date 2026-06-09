@@ -413,7 +413,12 @@ const ACHIEVEMENTS=[
   {id:"debater", icon:"⚖️", t:"Debater",      d:"Build a case in Debate mode",   test:s=>s.debates>=1},
   {id:"level5",  icon:"🎓", t:"Scholar",      d:"Reach level 5",                 test:s=>s.level>=5},
   {id:"steel",   icon:"🛡️", t:"Steelman",     d:"Read 10 counter-arguments",     test:s=>s.counters>=10},
-  {id:"focused", icon:"🎯", t:"Focused",      d:"Set a learning objective",      test:s=>s.objSet}
+  {id:"focused", icon:"🎯", t:"Focused",      d:"Set a learning objective",      test:s=>s.objSet},
+  {id:"half",    icon:"🧭", t:"Broadening",   d:"Start learning in half the fields", test:s=>s.fieldTotal>0 && s.fields>=Math.ceil(s.fieldTotal/2)},
+  {id:"bookworm",icon:"📚", t:"Bookworm",     d:"Learn 5 book-depth insights",   test:s=>s.book>=5},
+  {id:"quiz100", icon:"🧠", t:"Quiz Master",  d:"100 quiz answers correct",      test:s=>s.quiz>=100},
+  {id:"level10", icon:"🏆", t:"Master",       d:"Reach level 10",                test:s=>s.level>=10},
+  {id:"counter50",icon:"⚔️", t:"Devil's Advocate", d:"Read 50 counter-arguments", test:s=>s.counters>=50}
 ];
 function achStats(){
   const lids=learnedIds(); const fieldsTouched=new Set(lids.map(id=>byId[id].field));
