@@ -445,6 +445,8 @@ function layersOf(c){
   return L;
 }
 function teaser(c){ return c.fact || c.title || ''; }
+// 'date' card kind: a date to remember. `when` (free text like "14 Jul 1789") overrides `year`.
+function cardDate(c){ return c.when || (c.year? String(c.year):''); }
 // a card's quiz can be a single {q,choices,answer} or an array of them; pickQuiz rotates daily
 function cardQuizzes(c){ const q=c&&c.quiz; return Array.isArray(q)?q.filter(Boolean):(q?[q]:[]); }
 function pickQuiz(c){ const qs=cardQuizzes(c); return qs.length? qs[hashStr(c.id+todayStr())%qs.length] : null; }
@@ -781,6 +783,7 @@ function feedCardHtml(c, featured){
     '<div class="fctop"><span class="fcfield">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+'</span>'+
       (isTheory?'<span class="fctag">theory</span>':'')+
       (saved?'<span class="fcsaved">🔖</span>':'')+'</div>'+
+    (c.kind==='date'?'<div class="fcdate">📅 '+esc(cardDate(c))+'</div>':'')+
     '<div class="fctitle">'+esc(c.title)+'</div>'+
     '<div class="fchook">'+esc(teaser(c))+'</div>'+
     (locks.length?('<div class="fclock">'+ICON.lock+'Builds on '+esc(locks.map(p=>p.title).join(', '))+'</div>'):'')+
@@ -843,7 +846,8 @@ function renderReader(){
   $("rdProg").innerHTML=layers.map((l,i)=>'<span class="rddot'+(i<rdRevealed?' on':'')+'"></span>').join('');
   $("rdSave").classList.toggle("on",(settings.saved||[]).includes(rdId));
 
-  let body='<div class="rdField" style="--fc:'+col+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+(c.year?(' · '+c.year):'')+'</div>';
+  let body='<div class="rdField" style="--fc:'+col+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+(c.kind!=='date'&&c.year?(' · '+c.year):'')+'</div>';
+  if(c.kind==='date') body+='<div class="rddate" style="--fc:'+col+'">'+esc(cardDate(c))+'</div>';
   body+='<h1 class="rdTitle">'+esc(c.title)+'</h1>';
   for(let i=0;i<rdRevealed;i++){ const l=layers[i];
     body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }

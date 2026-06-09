@@ -479,6 +479,8 @@
   .fcsaved{ margin-left:auto; font-size:14px; }
   .fctitle{ font-size:19px; font-weight:750; letter-spacing:-.4px; line-height:1.2; }
   .fchook{ font-size:15px; color:var(--l2); line-height:1.46; margin-top:7px; }
+  .fcdate{ display:inline-block; margin:4px 0 2px; font-size:13px; font-weight:800; letter-spacing:.2px; color:var(--fc,var(--accent)); }
+  .fcard.feat .fcdate{ color:rgba(255,255,255,.96); }
   .fclock{ display:flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:600; color:var(--l3); }
   .fclock svg{ width:13px; height:13px; flex:0 0 auto; }
   .fcard.feat .fclock{ color:rgba(255,255,255,.9); }
@@ -527,6 +529,7 @@
   .readerBody::-webkit-scrollbar{ display:none; }
   .rdField{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:800;
     color:var(--fc,var(--accent)); letter-spacing:.1px; }
+  .rddate{ font-size:40px; font-weight:800; letter-spacing:-1.4px; line-height:1; color:var(--fc,var(--accent)); margin:14px 0 2px; }
   .rdTitle{ font-size:30px; font-weight:800; letter-spacing:-.9px; line-height:1.12; margin:10px 0 4px; }
   .rdLayer{ animation:fadeup .32s ease both; padding-top:16px; border-top:.5px solid var(--sep); margin-top:16px; }
   .rdLayer:first-of-type{ border-top:none; margin-top:10px; padding-top:6px; }

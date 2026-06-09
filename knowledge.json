@@ -12,7 +12,7 @@
       "xref": "v3: array of card ids this card CONNECTS TO (the mental web). Rendered as 'Connects to' chips in the Reader.",
       "prereq": "v3: array of card ids this card BUILDS ON. Rendered as 'Builds on' chips; will gate unlock order in the pedagogy engine (Phase 3).",
       "media": "v3: array of {type:'equation'|'image'|'figure'|'map', tex|src, caption, alt}. Equations render as plain TeX until KaTeX lands (Phase 2).",
-      "kind": "v3 (optional): content type beyond depth — 'date' | 'language' | 'symbol' — for dated-fact, language, and notation cards. Reserved; renderers arrive with that content.",
+      "kind": "v3 (optional): content type beyond depth — 'date' (rendered: shows a big date headline via `when`, free text like '14 Jul 1789', falling back to `year`) | 'language' | 'symbol' (reserved). ",
       "layers": "each layer is {d:'gist'|'basics'|'deeper'|'debate', t:short title, body:text}. The Reader always opens at the gist (the hook) and lets you reveal the next layer. The 'debate' layer is where a theory is shown as contested — who disputes it and why.",
       "motions": "debate topics for Debate mode {id,text,fields}. The app pulls your LEARNED cards in those fields as evidence (deploy) and rebuttals (counter).",
       "evidence.json": "separate registry: id -> {who,year,title,where,url,kind,strength}. `strength` describes how thick the evidence is, concretely.",
@@ -49,6 +49,39 @@
   ],
 
   "cards": [
+    {
+      "id": "date-constantinople-1453", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1453, "when": "1453",
+      "title": "The fall of Constantinople",
+      "fact": "In 1453 Ottoman forces took Constantinople, ending the Byzantine (Eastern Roman) Empire.",
+      "detail": "Sultan Mehmed II's army breached the great walls after a siege, aided by massive cannon. The city became the Ottoman capital. It is conventionally taken to mark the end of the Middle Ages and helped push scholars and trade routes westward — one spur for the Renaissance and for Europe's search for new sea routes.",
+      "deploy": "A clean marker for the end of the medieval order and the rise of the Ottomans as a Mediterranean great power.",
+      "counter": "Periodisation is a convenience: little changed overnight, and '1453 = end of the Middle Ages' is a tidy Eurocentric label.",
+      "tags": ["ottoman", "byzantine", "medieval"],
+      "xref": ["hist-westphalia"],
+      "quiz": { "q": "What ended in 1453 with the fall of Constantinople?", "choices": ["The Roman Republic", "The Byzantine Empire", "The Ottoman Empire", "The Holy Roman Empire"], "answer": 1 }
+    },
+    {
+      "id": "date-french-revolution-1789", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1789, "when": "14 Jul 1789",
+      "title": "The French Revolution begins",
+      "fact": "On 14 July 1789 a Paris crowd stormed the Bastille, igniting the French Revolution.",
+      "detail": "Fiscal crisis, a rigid estates system and high bread prices brought down the absolute monarchy. The Revolution produced the Declaration of the Rights of Man, a republic, the Terror, and ultimately Napoleon — spreading the language of citizenship, rights and nationalism across Europe.",
+      "deploy": "The hinge between divine-right monarchy and a modern politics of rights and citizenship.",
+      "counter": "Its ideals sat alongside the Terror and real exclusions (women, the enslaved in the colonies) — liberation and violence in one event.",
+      "tags": ["revolution", "france", "rights"],
+      "xref": ["philo-veil", "pe-historical-materialism"],
+      "quiz": { "q": "The storming of the Bastille (14 July 1789) began which event?", "choices": ["The American Revolution", "The French Revolution", "The Russian Revolution", "The Industrial Revolution"], "answer": 1 }
+    },
+    {
+      "id": "date-moon-landing-1969", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1969, "when": "20 Jul 1969",
+      "title": "Humans land on the Moon",
+      "fact": "On 20 July 1969, Apollo 11 landed the first humans on the Moon.",
+      "detail": "Neil Armstrong and Buzz Aldrin walked on the surface while Michael Collins orbited above. The feat was as much Cold War contest as science — a demonstration of capability against the Soviet Union after Sputnik (1957) and Gagarin (1961).",
+      "deploy": "A peak example of what concentrated state funding and a clear goal can achieve in a few years.",
+      "counter": "It was driven by superpower rivalry as much as curiosity; crewed deep-space flight largely stalled once the point was made.",
+      "tags": ["space", "cold war", "apollo"],
+      "xref": ["geo-thucydides"],
+      "quiz": { "q": "Which mission first landed humans on the Moon (1969)?", "choices": ["Apollo 8", "Apollo 11", "Apollo 13", "Gemini 4"], "answer": 1 }
+    },
     {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "title": "Octopuses have three hearts",
