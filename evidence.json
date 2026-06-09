@@ -828,6 +828,168 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/",
       "kind": "news",
       "strength": "Popular-science explainer quoting a honey scientist; the mechanism (low moisture, acidity, peroxide) is well established."
+    },
+    "ev-date-sykes-picot-1916": {
+      "who": "Wikipedia",
+      "year": 1916,
+      "title": "Sykes–Picot Agreement",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Sykes%E2%80%93Picot_Agreement",
+      "kind": "reference",
+      "strength": "Encyclopaedic account citing the released text; the secret 1916 partition is firmly documented."
+    },
+    "ev-date-year-of-africa-1960": {
+      "who": "Wikipedia",
+      "year": 1960,
+      "title": "Year of Africa",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Year_of_Africa",
+      "kind": "reference",
+      "strength": "Encyclopaedic account; the 17 independences of 1960 are well documented."
+    },
+    "ev-geo-thucydides": {
+      "who": "Wikipedia (Graham Allison)",
+      "year": 2011,
+      "title": "Thucydides Trap",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Thucydides_Trap",
+      "kind": "reference",
+      "strength": "Allison's framework; widely discussed but heavily criticised — the '12 of 16 cases led to war' claim is contested."
+    },
+    "ev-geo-hormuz": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Strait of Hormuz",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+      "kind": "reference",
+      "strength": "Figure (~20–25% of seaborne oil) corroborated by EIA data; widely cited."
+    },
+    "ev-geo-heartland": {
+      "who": "Wikipedia (Halford Mackinder)",
+      "year": 1904,
+      "title": "The Geographical Pivot of History",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Geographical_Pivot_of_History",
+      "kind": "reference",
+      "strength": "Mackinder's original 1904 thesis — a historically influential doctrine, not an empirical law."
+    },
+    "ev-geo-demographic": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Demographic transition",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Demographic_transition",
+      "kind": "reference",
+      "strength": "Well-established empirical pattern across developed countries; the stage details are debated."
+    },
+    "ev-poli-median-voter": {
+      "who": "Wikipedia (Duncan Black)",
+      "year": 1948,
+      "title": "Median voter theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Median_voter_theorem",
+      "kind": "reference",
+      "strength": "Formal result (Black, 1948); empirically limited — real parties don't fully converge to the centre."
+    },
+    "ev-poli-duverger": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Duverger's law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Duverger%27s_law",
+      "kind": "reference",
+      "strength": "Robust empirical tendency rather than an absolute rule (regional-party exceptions)."
+    },
+    "ev-poli-collective-action": {
+      "who": "Wikipedia (after Mancur Olson)",
+      "year": 1965,
+      "title": "Collective action problem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Collective_action_problem",
+      "kind": "reference",
+      "strength": "Well-established (Olson); explains free-riding, low turnout and under-provided public goods."
+    },
+    "ev-game-prisoners-dilemma": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 1997,
+      "title": "Prisoner's Dilemma",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/prisoner-dilemma/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry; canonical, formally analysed result."
+    },
+    "ev-game-nash-equilibrium": {
+      "who": "Wikipedia (John Nash)",
+      "year": 1950,
+      "title": "Nash equilibrium",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Nash_equilibrium",
+      "kind": "reference",
+      "strength": "Foundational game-theory concept; existence proven for finite games (Nash, 1950)."
+    },
+    "ev-game-repeated": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Repeated game",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Repeated_game",
+      "kind": "reference",
+      "strength": "Standard game theory; the folk theorem and Axelrod's tit-for-tat are well established."
+    },
+    "ev-econ-comparative-advantage": {
+      "who": "Wikipedia (David Ricardo)",
+      "year": 1817,
+      "title": "Comparative advantage",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Comparative_advantage",
+      "kind": "reference",
+      "strength": "Ricardo's 1817 result; a core, widely-taught principle (with known real-world qualifications)."
+    },
+    "ev-econ-externalities": {
+      "who": "Wikipedia (after Pigou)",
+      "year": 1920,
+      "title": "Externality",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Externality",
+      "kind": "reference",
+      "strength": "Standard economics; a well-established concept."
+    },
+    "ev-econ-loss-aversion": {
+      "who": "Wikipedia (Kahneman & Tversky)",
+      "year": 1979,
+      "title": "Loss aversion",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Loss_aversion",
+      "kind": "reference",
+      "strength": "Prospect-theory finding, widely replicated — but the universal ~2:1 ratio is now debated."
+    },
+    "ev-econ-what-is": {
+      "who": "Wikipedia (after Lionel Robbins)",
+      "year": 0,
+      "title": "Scarcity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Scarcity",
+      "kind": "reference",
+      "strength": "Robbins's standard definition of economics via scarce means and competing ends."
+    },
+    "ev-econ-supply-demand": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Supply and demand",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Supply_and_demand",
+      "kind": "reference",
+      "strength": "Foundational model; a deliberate simplification, not a literal account of all price-setting."
+    },
+    "ev-econ-gdp": {
+      "who": "Wikipedia (after Simon Kuznets)",
+      "year": 1937,
+      "title": "Gross domestic product",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+      "kind": "reference",
+      "strength": "Standard national-accounts measure; its omissions are well documented (Kuznets's own 1937 caveat)."
     }
   }
 }
