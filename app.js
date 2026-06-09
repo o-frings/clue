@@ -576,18 +576,27 @@ function factOfDay(){ const d=todayStr();
   settings.fotd={day:d, id:c.id}; return c; }
 // ================= FEED (explore) =================
 let feedFilter="all";   // "all" or a field id
+let feedStatus="all";   // "all" | "unlearned" | "learned"
 let feedOrder=[];       // current visible order, for the Reader's "next"
 
 function feedCandidates(){
   let list=KN.cards.slice();
   if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter);
+  if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
+  else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
   // basics first, with a gentle daily shuffle so the feed feels fresh and fields mix
   list.sort((a,b)=> ((a.level||1)-(b.level||1)) || ((hashStr(a.id+todayStr())%97)-(hashStr(b.id+todayStr())%97)) );
   return list;
 }
 function renderFeed(){
   $("feedSub").textContent = greeting()+" — what do you want to understand today?";
-  renderFeedStrip(); renderFeedFilter(); renderFeedList();
+  renderFeedStrip(); renderFeedFilter(); renderFeedStatus(); renderFeedList();
+}
+function renderFeedStatus(){
+  document.querySelectorAll("#feedStatus .s").forEach(s=>{
+    s.classList.toggle("active", s.dataset.s===feedStatus);
+    s.onclick=()=>{ feedStatus=s.dataset.s; renderFeedStatus(); renderFeedList(); };
+  });
 }
 function renderFeedStrip(){
   const streak=settings.streak||0, due=dueCards().length, na=newAllowedToday(), saved=(settings.saved||[]).length;
@@ -790,7 +799,7 @@ function renderMe(){
   $("stXpToGo").textContent = '· '+(hi-(settings.xp||0))+' XP to level '+(L+1);
   // radar + chart
   drawFieldRadar(); drawProgress();
-  $("meRadarFoot").textContent = learnedIds().length? (new Set(learnedIds().map(id=>byId[id].field)).size+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.';
+  $("meRadarFoot").textContent = (learnedIds().length? (new Set(learnedIds().map(id=>byId[id].field)).size+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.')+' · Tap to see the breakdown.';
   const wk=lastNDaysActivity(14).reduce((a,d)=>a+d.l,0);
   $("meProgFoot").textContent = wk+' learned in the last 14 days · '+learnedIds().length+' total';
   // objective UI
@@ -841,6 +850,22 @@ function drawFieldRadar(){ const cv=$("fieldRadar"); if(!cv) return; const ctx=c
   ctx.beginPath(); for(let i=0;i<n;i++){ const a=-Math.PI/2+i/n*Math.PI*2; const v=Math.max(scores[i],0.02); const x=cx+Math.cos(a)*R*v, y=cy+Math.sin(a)*R*v; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.closePath();
   ctx.fillStyle=hexA(accent,0.22); ctx.fill(); ctx.strokeStyle=accent; ctx.lineWidth=2; ctx.stroke();
   for(let i=0;i<n;i++){ const a=-Math.PI/2+i/n*Math.PI*2; const v=Math.max(scores[i],0.02); ctx.beginPath(); ctx.arc(cx+Math.cos(a)*R*v, cy+Math.sin(a)*R*v, 3, 0, Math.PI*2); ctx.fillStyle=accent; ctx.fill(); }
+}
+function openFields(){ renderFieldsSheet(); openSheet("Fields"); }
+function renderFieldsSheet(){
+  const rows=KN.fields.map(f=>{
+    const total=byField[f.id].length, done=learnedInField(f.id), pct=total?Math.round(done/total*100):0;
+    return { f, total, done, pct };
+  }).sort((a,b)=> b.done-a.done || b.pct-a.pct);
+  $("fieldsBody").innerHTML = rows.map(r=>
+    '<button class="fieldrow" data-f="'+r.f.id+'" style="--fc:'+(r.f.color||'#888')+';">'+
+      '<span class="frico">'+esc(r.f.icon||'')+'</span>'+
+      '<span class="frmain"><span class="frtop"><span class="frlabel">'+esc(r.f.label)+'</span>'+
+        '<span class="frcount">'+r.done+' / '+r.total+'</span></span>'+
+        '<span class="frbar"><i style="width:'+Math.max(r.pct,2)+'%"></i></span></span>'+
+    '</button>').join('');
+  document.querySelectorAll("#fieldsBody .fieldrow").forEach(el=> el.onclick=()=>{
+    feedFilter=el.dataset.f; feedStatus="all"; closeSheet("Fields"); showTab("feed"); });
 }
 function hexA(hex,a){ hex=hex.trim(); if(hex[0]!=='#'||hex.length<7) return 'rgba(232,85,28,'+a+')'; const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return 'rgba('+r+','+g+','+b+','+a+')'; }
 function lastNDaysActivity(n){ const out=[]; for(let i=n-1;i>=0;i--){ const d=dayOffsetStr(-i); const a=(settings.activity||{})[d]||{l:0,r:0,q:0}; out.push({d, l:a.l||0, r:a.r||0, q:a.q||0}); } return out; }
@@ -940,6 +965,8 @@ function wireNav(){
   document.querySelectorAll(".tabitem").forEach(t=> t.onclick=()=> showTab(t.dataset.tab));
   $("openLibrary").onclick=openLibrary;
   $("libClose").onclick=()=>closeSheet("Library"); $("scrimLibrary").onclick=()=>closeSheet("Library");
+  const rw=document.querySelector("#pageMe .radarwrap"); if(rw){ rw.style.cursor="pointer"; rw.onclick=openFields; }
+  $("fieldsClose").onclick=()=>closeSheet("Fields"); $("scrimFields").onclick=()=>closeSheet("Fields");
   $("libSearch").oninput=(e)=>{ libQuery=e.target.value; renderLibList(); };
   // immersive reader chrome
   $("rdClose").onclick=closeReader; $("rdSave").onclick=toggleSave; $("rdShare").onclick=shareCard;
@@ -983,7 +1010,7 @@ function wireNav(){
   function place(i,animate,ms){ cancelAnimationFrame(raf); idx=clamp(i,0,last); track.style.transition=animate?("transform "+(ms||340)+"ms cubic-bezier(.32,.72,0,1)"):"none"; tx=-idx*W(); apply(); }
   window.__pageGo=(name)=>{ const i=ORDER.indexOf(name); if(i>=0&&i!==idx) place(i,true); };
   place(idx,false); window.addEventListener("resize",()=>place(idx,false));
-  const blocked=el=>{ for(let n=el;n&&n!==document.body;n=n.parentElement){ if(n.matches&&n.matches('input,textarea,select,canvas,button,.seg,.chips,.tabbar,.sheet,.quizopts,.radarwrap,.progwrap')) return true;
+  const blocked=el=>{ for(let n=el;n&&n!==document.body;n=n.parentElement){ if(n.matches&&n.matches('input,textarea,select,canvas,.seg,.chips,.tabbar,.sheet,.quizopts,.radarwrap,.progwrap')) return true;
     const ox=getComputedStyle(n).overflowX; if((ox==="auto"||ox==="scroll")&&n.scrollWidth>n.clientWidth+4) return true; } return false; };
   let x0=0,y0=0,armed=false,locked=false,dragging=false,lastX=0,lastT=0,vx=0;
   pager.addEventListener("touchstart",e=>{ if(e.touches.length!==1||document.querySelector(".sheet.show, #onboardWrap.show, .reader.show")||blocked(e.target)){ armed=false; return; }

@@ -67,6 +67,13 @@
   <!-- field filter chips -->
   <div class="chips" id="feedFilter"></div>
 
+  <!-- learned / unlearned status filter -->
+  <div class="seg compact" id="feedStatus" style="margin:8px 0 4px;">
+    <button class="s active" data-s="all" type="button">All</button>
+    <button class="s" data-s="unlearned" type="button">To learn</button>
+    <button class="s" data-s="learned" type="button">Learned</button>
+  </div>
+
   <!-- the explorative feed (rendered by JS) -->
   <div id="feedList"></div>
 </div>
@@ -182,6 +189,13 @@
   <div class="grabber"></div>
   <div class="sheethdr"><span class="t" id="cardSheetT">Card</span><button class="btn plain sm" id="cardClose">Done</button></div>
   <div class="sheetbody" id="cardBody"></div>
+</div>
+
+<div class="scrim" id="scrimFields"></div>
+<div class="sheet" id="sheetFields">
+  <div class="grabber"></div>
+  <div class="sheethdr"><span class="t">Field balance</span><button class="btn plain sm" id="fieldsClose">Done</button></div>
+  <div class="sheetbody" id="fieldsBody"></div>
 </div>
 
 <div class="scrim" id="scrimSettings"></div>

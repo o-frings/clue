@@ -174,6 +174,23 @@
   .panelt{ display:flex; align-items:center; gap:8px; font-size:16px; font-weight:650; letter-spacing:-.2px; }
   .panelt svg{ width:19px; height:19px; color:var(--accent); }
   .panelfoot{ padding:6px 18px 16px; font-size:13px; color:var(--l2); line-height:1.4; }
+  /* feed status toggle: brand-coloured active segment to match the field chips */
+  #feedStatus.seg{ margin-bottom:0; }
+  #feedStatus .s.active{ background:var(--accent); color:#fff; box-shadow:0 1px 3px var(--accent-glow); }
+  html.dark #feedStatus .s.active{ border-color:transparent; }
+
+  /* field-balance breakdown rows (tap radar to open) */
+  .fieldrow{ display:flex; align-items:center; gap:13px; width:100%; padding:12px 4px; background:none; border:none; border-bottom:.5px solid var(--line); text-align:left; cursor:pointer; }
+  .fieldrow:last-child{ border-bottom:none; }
+  .fieldrow:active{ opacity:.6; }
+  .fieldrow .frico{ flex:0 0 auto; width:30px; height:30px; display:flex; align-items:center; justify-content:center; font-size:17px; border-radius:9px; background:color-mix(in srgb, var(--fc) 16%, transparent); }
+  .fieldrow .frmain{ flex:1; min-width:0; }
+  .fieldrow .frtop{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:6px; }
+  .fieldrow .frlabel{ font-size:15px; font-weight:600; color:var(--ink); }
+  .fieldrow .frcount{ font-size:13px; color:var(--l2); flex:0 0 auto; }
+  .fieldrow .frbar{ display:block; height:6px; border-radius:3px; background:var(--track); overflow:hidden; }
+  .fieldrow .frbar i{ display:block; height:100%; border-radius:3px; background:var(--fc); }
+
   .insight{ border:.5px solid var(--line); border-left-width:3px; border-radius:12px; padding:16px; background:var(--card); }
   .insight .ititle{ font-size:15px; font-weight:700; letter-spacing:-.2px; }
   .insight .itext{ font-size:15px; color:var(--l2); line-height:1.5; margin-top:8px; }
@@ -439,10 +456,16 @@
   .story:active{ transform:scale(.93); }
   .story .storyio{ font-size:25px; line-height:1; }
   .story .storybig{ font-size:19px; font-weight:800; letter-spacing:-.6px; margin-top:5px; }
-  .story .storysub{ font-size:10px; font-weight:800; color:var(--l3); text-transform:uppercase; letter-spacing:.3px; }
+  .story .storysub{ font-size:10px; font-weight:800; color:var(--l2); text-transform:uppercase; letter-spacing:.3px; }
   .story.s-session{ background:var(--grad); border-color:transparent; box-shadow:0 8px 22px -10px var(--accent-glow); }
   .story.s-session .storybig{ color:#fff; }
   .story.s-session .storysub{ color:#fff; opacity:.92; }
+  /* the other three tiles: soft per-tile tint (hues borrowed from the field palette) so the strip isn't flat */
+  .story.s-streak{ --th:#f59f00; } .story.s-surprise{ --th:#7048e8; } .story.s-saved{ --th:#0ca678; }
+  .story.s-streak, .story.s-surprise, .story.s-saved{
+    background:color-mix(in srgb, var(--th) 11%, var(--card)); border-color:color-mix(in srgb, var(--th) 24%, transparent); }
+  .story.s-streak .storybig, .story.s-surprise .storybig, .story.s-saved .storybig{ color:var(--th); }
+  .story.s-streak .storysub, .story.s-surprise .storysub, .story.s-saved .storysub{ color:color-mix(in srgb, var(--th) 55%, var(--l2)); }
 
   .fcard{ display:block; width:100%; text-align:left; background:var(--card); border:.5px solid var(--line);
     border-radius:20px; padding:18px 18px 16px; margin-bottom:14px; cursor:pointer; position:relative; overflow:hidden;
