@@ -13,6 +13,16 @@
     "gl-gdp": { "term": "GDP", "symbol": "", "def": "Gross Domestic Product: the market value of all final goods and services produced in an economy over a period. A flow, not a stock — and a famously incomplete measure of welfare.", "field": "econ" },
     "gl-hbar": { "term": "Reduced Planck constant", "symbol": "ħ", "def": "Planck's constant divided by 2π (ħ = h/2π ≈ 1.055×10⁻³⁴ J·s). Sets the scale of quantum effects; appears in the uncertainty principle Δx·Δp ≥ ħ/2.", "field": "physics" },
     "gl-partial": { "term": "Partial derivative", "symbol": "∂", "def": "The rate of change of a multi-variable function with respect to one variable, holding the others fixed. Written ∂f/∂x.", "field": "math" },
-    "gl-epistemology": { "term": "Epistemology", "symbol": "", "def": "The branch of philosophy concerned with knowledge: what it is, how it is justified, and where its limits lie.", "field": "philo" }
+    "gl-epistemology": { "term": "Epistemology", "symbol": "", "def": "The branch of philosophy concerned with knowledge: what it is, how it is justified, and where its limits lie.", "field": "philo" },
+    "gl-aggregate-demand": { "term": "Aggregate demand", "symbol": "", "def": "Total spending in an economy at a given price level — consumption + investment + government + net exports. Keynes argued output tends to track it.", "field": "econ" },
+    "gl-surplus-value": { "term": "Surplus value", "symbol": "", "def": "In Marx, the value workers produce beyond what they are paid for their labour — in his account, the source of profit.", "field": "polecon" },
+    "gl-invisible-hand": { "term": "Invisible hand", "symbol": "", "def": "Adam Smith's metaphor: individuals pursuing self-interest can, through prices, produce outcomes that benefit society — under specific conditions, not always.", "field": "polecon" },
+    "gl-entropy": { "term": "Entropy", "symbol": "S", "def": "A measure of disorder — of how many microscopic arrangements fit a state. The second law of thermodynamics says it tends to increase, which gives time its arrow.", "field": "physics" },
+    "gl-inflation": { "term": "Inflation", "symbol": "", "def": "A sustained rise in the general price level, so each unit of money buys a little less over time.", "field": "econ" },
+    "gl-sovereignty": { "term": "Sovereignty", "symbol": "", "def": "A state's recognised authority to govern its territory without outside interference — the organising principle of the modern state system.", "field": "geo" },
+    "gl-haemocyanin": { "term": "Haemocyanin", "symbol": "", "def": "A copper-based, blue oxygen-carrying protein found in some molluscs and arthropods — the analogue of iron-based (red) haemoglobin.", "field": "bio" },
+    "gl-externality": { "term": "Externality", "symbol": "", "def": "A cost or benefit of an activity that falls on third parties and isn't reflected in the price — e.g. pollution (negative) or vaccination (positive).", "field": "econ" },
+    "gl-money-supply": { "term": "Money supply", "symbol": "", "def": "The total money available in an economy (cash plus various deposits). Monetarists link its growth rate to inflation.", "field": "econ" },
+    "gl-scarcity": { "term": "Scarcity", "symbol": "", "def": "The basic economic condition: wants exceed the means to satisfy them, which forces trade-offs and choices.", "field": "econ" }
   }
 }
