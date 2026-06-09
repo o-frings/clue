@@ -9,7 +9,7 @@
  * new service worker; the new SW then re-fetches the shell with cache:"reload" and deletes the old
  * cache on activate, so the update lands on next open.
  */
-const CACHE = "clue-v5";
+const CACHE = "clue-v6";
 const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json", "./evidence.json", "./glossary.json"];
 
 self.addEventListener("install", (e) => {
@@ -32,6 +32,20 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
+  // Third-party libs we want available offline (KaTeX): cache-first, best-effort.
+  // Opaque cross-origin responses can't be inspected, so just cache whatever comes back.
+  if (/\/katex@/.test(req.url)) {
+    e.respondWith(
+      caches.match(req).then((hit) =>
+        hit || fetch(req).then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+          return res;
+        }).catch(() => caches.match(req))
+      )
+    );
+    return;
+  }
   e.respondWith(
     fetch(req)
       .then((res) => {

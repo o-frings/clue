@@ -27,6 +27,7 @@
   document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, {passive:false});
 }catch(e){}})();
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -302,6 +303,22 @@
     s.async=true;
     s.onload=function(){ if(window.__cloudInit) window.__cloudInit(); };
     document.head.appendChild(s);
+  }catch(e){}
+})();
+// KaTeX (math rendering) — non-blocking; the app falls back to plain text if it never loads.
+(function(){
+  try{
+    var k=document.createElement("script");
+    k.src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js";
+    k.async=true;
+    k.onload=function(){
+      var a=document.createElement("script");
+      a.src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js";
+      a.async=true;
+      a.onload=function(){ if(window.__mathReady) window.__mathReady(); };
+      document.head.appendChild(a);
+    };
+    document.head.appendChild(k);
   }catch(e){}
 })();
 </script>

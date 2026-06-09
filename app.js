@@ -544,7 +544,8 @@ function mediaHtml(c){
   if(!Array.isArray(c.media) || !c.media.length) return '';
   return c.media.map(m=>{
     if(!m || !m.type) return '';
-    if(m.type==='equation') return '<div class="kmedia eq"><code>'+esc(m.tex||m.body||'')+'</code>'+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>';
+    if(m.type==='equation'){ const tex=m.tex||m.body||'', plain=m.plain||tex;
+      return '<div class="kmedia eq"><span class="katexeq" data-tex="'+esc(tex)+'" data-display="1">'+esc(plain)+'</span>'+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>'; }
     if(m.type==='image'||m.type==='figure'||m.type==='map'){ if(!m.src) return '';
       return '<figure class="kmedia"><img src="'+esc(m.src)+'" alt="'+esc(m.alt||m.caption||'')+'" loading="lazy">'+(m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'')+'</figure>'; }
     return '';
@@ -583,7 +584,7 @@ function decorateGlossary(root){
   const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(n){
     if(!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
     const p=n.parentElement;
-    if(!p || p.closest('a,button,.glossterm,.rdLabel,.rdField,.kmedia,.ksource,.rdrel')) return NodeFilter.FILTER_REJECT;
+    if(!p || p.closest('a,button,.glossterm,.rdLabel,.rdField,.kmedia,.ksource,.rdrel,.katex')) return NodeFilter.FILTER_REJECT;
     return NodeFilter.FILTER_ACCEPT; } });
   const nodes=[]; let n; while((n=walker.nextNode())) nodes.push(n);
   for(const node of nodes){
@@ -627,6 +628,23 @@ function showGloss(id, anchor){
   setTimeout(()=> document.addEventListener('click', dismissGloss, {once:true}), 0);
 }
 function dismissGloss(){ const p=$("glossPop"); if(p) p.style.display='none'; }
+
+// ================= math rendering (Phase 2, KaTeX — progressive enhancement) =================
+// Renders media equation slots and \(...\)/$$...$$/\[...\] delimiters in prose.
+// Single-$ is intentionally NOT a delimiter (it collides with dollar amounts).
+function renderMath(root){
+  if(!root) return;
+  if(window.katex){ root.querySelectorAll('.katexeq[data-tex]').forEach(el=>{
+    if(el.dataset.rendered) return;
+    try{ window.katex.render(el.dataset.tex, el, {throwOnError:false, displayMode: el.dataset.display==='1'}); el.dataset.rendered='1'; }catch(e){}
+  }); }
+  if(window.renderMathInElement){ try{ window.renderMathInElement(root, {
+    delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],
+    throwOnError:false, ignoredTags:['script','noscript','style','textarea','pre','code','button']
+  }); }catch(e){} }
+}
+// re-render the open Reader once KaTeX finishes loading after the fact
+window.__mathReady=()=>{ if(rdId) renderMath($("rdBody")); };
 
 function gradeCurrent(q){
   const id=session.review[session.reviewIdx]; schedule(id,q,false);
@@ -823,6 +841,7 @@ function renderReader(){
   $("rdBody").innerHTML=body;
   // tap anywhere on the card to peel the next layer (links / buttons excepted)
   $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')) return; rdRevealed++; renderReader(); }) : null;
+  renderMath($("rdBody"));
   decorateGlossary($("rdBody"));
   // related-card chips (prereq / xref) navigate the reader to that card
   document.querySelectorAll("#rdBody .rdrel").forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); openReader(b.dataset.id); });

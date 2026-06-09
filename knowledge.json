@@ -165,7 +165,7 @@
     {
       "id": "phys-uncertainty", "field": "physics", "depth": "concept", "level": 2,
       "xref": ["phys-light-speed"],
-      "media": [{ "type": "equation", "tex": "Δx · Δp ≥ ħ/2", "caption": "The more precisely you fix position (Δx), the less precisely momentum (Δp) is fixed." }],
+      "media": [{ "type": "equation", "tex": "\\Delta x \\cdot \\Delta p \\geq \\frac{\\hbar}{2}", "plain": "Δx · Δp ≥ ħ/2", "caption": "The more precisely you fix position (Δx), the less precisely momentum (Δp) is fixed." }],
       "title": "Heisenberg's uncertainty principle",
       "fact": "You cannot know a particle's exact position and momentum at the same time.",
       "detail": "The product of the uncertainties in position and momentum has a hard floor (Δx·Δp ≥ ħ/2). It's a feature of nature, not a limit of our instruments.",
