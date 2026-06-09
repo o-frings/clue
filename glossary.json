@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "purpose": "Glossary registry — jargon and canonical symbols explained once, referenced from cards. Loaded like evidence.json. Inline tap-for-definition tooltips arrive in Phase 2 (renderer).",
+    "version": 1,
+    "status": "SEED — a handful of terms to exercise the schema; expand alongside content.",
+    "schema": {
+      "terms": "map of id -> {term, symbol, def, field}. `symbol` is optional (for notation like ħ or ∂). `field` ties it to a field id for colour/grouping."
+    }
+  },
+  "terms": {
+    "gl-opportunity-cost": { "term": "Opportunity cost", "symbol": "", "def": "The value of the next-best alternative you give up when you make a choice. The real cost of anything is what you forgo to get it.", "field": "econ" },
+    "gl-marginal": { "term": "Marginal", "symbol": "", "def": "The effect of one more unit — one more hour, one more euro, one more worker. Most economic decisions are made 'at the margin', not all-or-nothing.", "field": "econ" },
+    "gl-gdp": { "term": "GDP", "symbol": "", "def": "Gross Domestic Product: the market value of all final goods and services produced in an economy over a period. A flow, not a stock — and a famously incomplete measure of welfare.", "field": "econ" },
+    "gl-hbar": { "term": "Reduced Planck constant", "symbol": "ħ", "def": "Planck's constant divided by 2π (ħ = h/2π ≈ 1.055×10⁻³⁴ J·s). Sets the scale of quantum effects; appears in the uncertainty principle Δx·Δp ≥ ħ/2.", "field": "physics" },
+    "gl-partial": { "term": "Partial derivative", "symbol": "∂", "def": "The rate of change of a multi-variable function with respect to one variable, holding the others fixed. Written ∂f/∂x.", "field": "math" },
+    "gl-epistemology": { "term": "Epistemology", "symbol": "", "def": "The branch of philosophy concerned with knowledge: what it is, how it is justified, and where its limits lie.", "field": "philo" }
+  }
+}

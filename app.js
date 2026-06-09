@@ -249,6 +249,7 @@ function renderAccount(){
 // ================= state =================
 let KN = { fields:[], cards:[], motions:[], depths:[] };
 let EV = {};                     // evidence registry: id -> {who,year,title,where,url,kind,strength}
+let GL = {};                     // glossary registry: id -> {term,symbol,def,field}
 let byId={}, byField={}, fieldById={}, depthById={};
 let progress = {};               // cardId -> SRS record
 let session = null;              // active learn session
@@ -278,6 +279,9 @@ async function loadKnowledge(){
   // evidence registry (optional, separate file — every source logged once, referenced by card.src[])
   try{ const r=await fetch("evidence.json",{cache:"no-cache"}); const ev=await r.json(); EV=ev.sources||ev||{}; }
   catch(e){ EV={}; }
+  // glossary registry (optional, separate file — jargon & canonical symbols)
+  try{ const r=await fetch("glossary.json",{cache:"no-cache"}); const gl=await r.json(); GL=gl.terms||gl||{}; }
+  catch(e){ GL={}; }
   byId={}; byField={}; fieldById={}; depthById={};
   KN.fields.forEach(f=>{ fieldById[f.id]=f; byField[f.id]=[]; });
   (KN.depths||[]).forEach(d=> depthById[d.id]=d);
@@ -532,6 +536,30 @@ function debateBox(c){ if(!c.deploy && !c.counter) return '';
     (c.counter?('<div class="karg counter"><div class="klabel">'+ICON.counter+'But…</div><p>'+esc(c.counter)+'</p></div>'):'')+
     '</div>'; }
 
+// media slots: schema v3 {type:'equation'|'image'|'figure'|'map', tex|src, caption, alt}.
+// Equations show as plain TeX for now — KaTeX rendering arrives in Phase 2.
+function mediaHtml(c){
+  if(!Array.isArray(c.media) || !c.media.length) return '';
+  return c.media.map(m=>{
+    if(!m || !m.type) return '';
+    if(m.type==='equation') return '<div class="kmedia eq"><code>'+esc(m.tex||m.body||'')+'</code>'+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>';
+    if(m.type==='image'||m.type==='figure'||m.type==='map'){ if(!m.src) return '';
+      return '<figure class="kmedia"><img src="'+esc(m.src)+'" alt="'+esc(m.alt||m.caption||'')+'" loading="lazy">'+(m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'')+'</figure>'; }
+    return '';
+  }).join('');
+}
+// cross-reference web: prereq (what this builds on) + xref (what it connects to)
+function cardLinkChip(id){ const t=byId[id]; if(!t) return ''; const fl=fieldById[t.field]||{};
+  return '<button class="rdrel" data-id="'+esc(id)+'" style="--fc:'+(fl.color||'#888')+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(t.title)+'</button>'; }
+function relatedHtml(c){
+  const pre=(c.prereq||[]).filter(id=>byId[id]);
+  const xr=(c.xref||[]).filter(id=>byId[id]&&id!==c.id);
+  let h='';
+  if(pre.length) h+='<div class="rdrelblock"><div class="rdrelh">Builds on</div><div class="rdrelrow">'+pre.map(cardLinkChip).join('')+'</div></div>';
+  if(xr.length) h+='<div class="rdrelblock"><div class="rdrelh">Connects to</div><div class="rdrelrow">'+xr.map(cardLinkChip).join('')+'</div></div>';
+  return h;
+}
+
 function gradeCurrent(q){
   const id=session.review[session.reviewIdx]; schedule(id,q,false);
   session.stats.reviewed++; touchDay('review');
@@ -718,7 +746,7 @@ function renderReader(){
     body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }
   // once every layer is open, the source / "use it & contest it" box / quiz / actions live in the scroll
   if(rdRevealed>=total){
-    body+='<div class="rdEnd">'+sourceLine(c)+debateBox(c)+'</div>';
+    body+='<div class="rdEnd">'+mediaHtml(c)+sourceLine(c)+debateBox(c)+relatedHtml(c)+'</div>';
     if(c.quiz) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
     if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
     else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
@@ -727,6 +755,8 @@ function renderReader(){
   $("rdBody").innerHTML=body;
   // tap anywhere on the card to peel the next layer (links / buttons excepted)
   $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')) return; rdRevealed++; renderReader(); }) : null;
+  // related-card chips (prereq / xref) navigate the reader to that card
+  document.querySelectorAll("#rdBody .rdrel").forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); openReader(b.dataset.id); });
   // foot: a persistent "go deeper" affordance while peeling; empty once fully open
   $("rdFoot").innerHTML = (rdRevealed<total)
     ? '<button class="btn wide rddeeper" id="rdDeeper"><span>Go deeper</span><span class="rddsub">'+esc(layers[rdRevealed].t||'')+' · '+(rdRevealed+1)+' of '+total+'</span></button>'

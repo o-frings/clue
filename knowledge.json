@@ -1,15 +1,22 @@
 {
   "_meta": {
     "purpose": "Canonical, machine-readable knowledge base for Clue. The app reads this for the explorative Feed, the immersive layered Reader, the Learn loop (Discover / Review / Quiz), the Library, and Debate mode. A few cards a day, remembered for good — starting at the very basics and going as deep as you like.",
-    "version": 2,
-    "updated": "2026-06-08",
+    "version": 3,
+    "updated": "2026-06-09",
     "status": "SEED CONTENT — hand-curated to exercise the engine, weighted toward foundations you can build on. Economics and political economy are presented as competing theories and traditions, not settled truth. Every card should be re-verified and the set expanded (target: hundreds of cards, many sourced to specific papers/books with working links).",
     "schema": {
       "fields": "ordered list for the Library + the Me radar; each {id,label,blurb,icon,color}.",
       "depths": "legend for a card's `depth`: fact (a single finding/date) | concept (a foundational idea) | book (a whole-book insight) | event (a dated event).",
-      "cards": "the knowledge units {id,field,depth,level,title,fact,detail,source,year,tags,layers,deploy,counter,quiz}. `fact` is the one-line hook shown in the Feed. `layers` is the new progressive-depth model: an ordered list of {d,t,body} the Reader peels open one at a time, from basics to nuance — start at the basics, dig as deep as you like. `detail` is a fallback when `layers` is absent. `deploy` = how to use it in an argument. `counter` = the honest steelman/caveat (also used in Debate mode). `quiz` is optional {q,choices,answer}.",
+      "cards": "the knowledge units {id,field,depth,level,title,fact,detail,src,year,tags,layers,deploy,counter,quiz,xref,prereq,media,kind}. `fact` is the one-line hook shown in the Feed. `layers` is the progressive-depth model: an ordered list of {d,t,body} the Reader peels open one at a time. `detail` is a fallback when `layers` is absent. `deploy` = how to use it in an argument. `counter` = the honest steelman/caveat (also used in Debate mode). `quiz` is optional {q,choices,answer}.",
+      "src": "v3: array of evidence ids — see evidence.json. Replaced the old inline `source` object so every source is logged once and reused.",
+      "xref": "v3: array of card ids this card CONNECTS TO (the mental web). Rendered as 'Connects to' chips in the Reader.",
+      "prereq": "v3: array of card ids this card BUILDS ON. Rendered as 'Builds on' chips; will gate unlock order in the pedagogy engine (Phase 3).",
+      "media": "v3: array of {type:'equation'|'image'|'figure'|'map', tex|src, caption, alt}. Equations render as plain TeX until KaTeX lands (Phase 2).",
+      "kind": "v3 (optional): content type beyond depth — 'date' | 'language' | 'symbol' — for dated-fact, language, and notation cards. Reserved; renderers arrive with that content.",
       "layers": "each layer is {d:'gist'|'basics'|'deeper'|'debate', t:short title, body:text}. The Reader always opens at the gist (the hook) and lets you reveal the next layer. The 'debate' layer is where a theory is shown as contested — who disputes it and why.",
-      "motions": "debate topics for Debate mode {id,text,fields}. The app pulls your LEARNED cards in those fields as evidence (deploy) and rebuttals (counter)."
+      "motions": "debate topics for Debate mode {id,text,fields}. The app pulls your LEARNED cards in those fields as evidence (deploy) and rebuttals (counter).",
+      "evidence.json": "separate registry: id -> {who,year,title,where,url,kind,strength}. `strength` describes how thick the evidence is, concretely.",
+      "glossary.json": "separate registry: id -> {term,symbol,def,field}. Inline tap-tooltips arrive in Phase 2."
     },
     "rules": {
       "accuracy": "Prefer robust, widely-accepted facts. Name the source (author/year/work). Avoid bare 'studies show'.",
@@ -110,6 +117,7 @@
     },
     {
       "id": "math-base-rate", "field": "math", "depth": "concept", "level": 2,
+      "xref": ["math-simpson","econ-loss-aversion"],
       "title": "The base-rate fallacy",
       "fact": "A 99%-accurate test for a rare disease still produces mostly false positives.",
       "detail": "If a disease affects 1 in 1,000 and a test is 99% accurate, a positive result is far more likely to be a false alarm than a real case, because there are so many more healthy people to misclassify. The prior (base rate) dominates.",
@@ -134,6 +142,7 @@
 
     {
       "id": "phys-entropy", "field": "physics", "depth": "concept", "level": 2,
+      "xref": ["phys-cmb"],
       "title": "Entropy and the arrow of time",
       "fact": "In an isolated system, entropy never decreases — which is why time has a direction.",
       "detail": "The second law of thermodynamics: usable energy disperses; ordered states drift toward disorder. It's why heat flows hot→cold and why a smashed cup never reassembles.",
@@ -155,6 +164,8 @@
     },
     {
       "id": "phys-uncertainty", "field": "physics", "depth": "concept", "level": 2,
+      "xref": ["phys-light-speed"],
+      "media": [{ "type": "equation", "tex": "Δx · Δp ≥ ħ/2", "caption": "The more precisely you fix position (Δx), the less precisely momentum (Δp) is fixed." }],
       "title": "Heisenberg's uncertainty principle",
       "fact": "You cannot know a particle's exact position and momentum at the same time.",
       "detail": "The product of the uncertainties in position and momentum has a hard floor (Δx·Δp ≥ ħ/2). It's a feature of nature, not a limit of our instruments.",
@@ -357,6 +368,8 @@
 
     {
       "id": "econ-comparative-advantage", "field": "econ", "depth": "book", "level": 2,
+      "prereq": ["econ-what-is"],
+      "xref": ["pe-ricardo"],
       "title": "Comparative advantage",
       "fact": "Two countries can both gain from trade even if one is better at making everything.",
       "layers": [
@@ -374,6 +387,7 @@
     },
     {
       "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 2,
+      "xref": ["sys-commons","eco-planetary-boundaries","eh-2008"],
       "title": "Externalities",
       "fact": "When a cost or benefit lands on third parties, the market price gets it wrong.",
       "detail": "Pollution is the classic case: a factory's price doesn't include the harm downstream. Pigou (1920) proposed taxing the activity to make the price tell the truth.",
@@ -385,6 +399,7 @@
     },
     {
       "id": "econ-loss-aversion", "field": "econ", "depth": "book", "level": 2,
+      "xref": ["math-base-rate"],
       "title": "Loss aversion",
       "fact": "Losing $100 hurts about twice as much as gaining $100 feels good.",
       "detail": "Kahneman and Tversky's prospect theory (1979) showed people don't weigh outcomes by final wealth but by gains and losses from a reference point — and losses loom larger. It helped found behavioural economics.",
@@ -408,6 +423,7 @@
     },
     {
       "id": "philo-falsifiability", "field": "philo", "depth": "book", "level": 2,
+      "xref": ["philo-is-ought"],
       "title": "Falsifiability",
       "fact": "A claim that nothing could ever disprove isn't really scientific.",
       "detail": "Popper argued the mark of a scientific theory is that it sticks its neck out — it forbids certain observations, so it could be proven wrong. 'What would change your mind?' is the key question.",
@@ -482,6 +498,8 @@
     },
     {
       "id": "econ-supply-demand", "field": "econ", "depth": "concept", "level": 1,
+      "prereq": ["econ-what-is"],
+      "xref": ["pe-marginalist","econ-loss-aversion"],
       "title": "Supply and demand",
       "fact": "In the basic model, price isn't set by cost or fairness — it's where supply meets demand.",
       "layers": [
@@ -530,6 +548,7 @@
     },
     {
       "id": "pe-schools", "field": "polecon", "depth": "concept", "level": 1,
+      "xref": ["pe-keynes","pe-friedman","pe-marx-capital","pe-hayek"],
       "title": "The rival schools",
       "fact": "There is no single 'economics' — there are rival schools that disagree about how the economy works.",
       "layers": [
@@ -545,6 +564,8 @@
     },
     {
       "id": "pe-smith-wealth", "field": "polecon", "depth": "book", "level": 1,
+      "prereq": ["pe-what-is"],
+      "xref": ["pe-division-labour","pe-ltv"],
       "title": "Adam Smith and the invisible hand",
       "fact": "Smith argued a butcher feeds you not from kindness but from self-interest — and somehow it works.",
       "layers": [
@@ -562,6 +583,7 @@
     },
     {
       "id": "pe-division-labour", "field": "polecon", "depth": "concept", "level": 1,
+      "prereq": ["pe-smith-wealth"],
       "title": "The division of labour",
       "fact": "Smith watched a pin factory and saw the secret of modern wealth: split the job up.",
       "layers": [
@@ -578,6 +600,8 @@
     },
     {
       "id": "pe-ricardo", "field": "polecon", "depth": "concept", "level": 2,
+      "prereq": ["pe-smith-wealth"],
+      "xref": ["econ-comparative-advantage"],
       "title": "Ricardo and the logic machine",
       "fact": "David Ricardo turned economics into a machine of pure logic — and reached unsettling conclusions.",
       "layers": [
@@ -594,6 +618,7 @@
     },
     {
       "id": "pe-ltv", "field": "polecon", "depth": "concept", "level": 2,
+      "xref": ["pe-marx-capital","pe-marginalist"],
       "title": "Where does value come from?",
       "fact": "Is a thing valuable because of the work in it, or because of how much you want it?",
       "layers": [
@@ -609,6 +634,8 @@
     },
     {
       "id": "pe-marginalist", "field": "polecon", "depth": "event", "level": 2,
+      "prereq": ["pe-ltv"],
+      "xref": ["econ-supply-demand"],
       "title": "The marginal revolution (1870s)",
       "fact": "In the 1870s economics quietly changed its mind about what value even is.",
       "layers": [
@@ -625,6 +652,8 @@
     },
     {
       "id": "pe-marx-capital", "field": "polecon", "depth": "book", "level": 2,
+      "prereq": ["pe-ltv"],
+      "xref": ["pe-historical-materialism"],
       "title": "Marx's Capital",
       "fact": "Marx didn't just dislike capitalism — he tried to reverse-engineer its hidden machinery.",
       "layers": [
@@ -658,6 +687,8 @@
     },
     {
       "id": "pe-keynes", "field": "polecon", "depth": "book", "level": 2,
+      "prereq": ["pe-what-is"],
+      "xref": ["pe-paradox-thrift","eh-great-depression","pe-friedman"],
       "title": "Keynes and the stuck economy",
       "fact": "Keynes argued a market economy can get stuck in a slump — and just sit there.",
       "layers": [
@@ -675,6 +706,7 @@
     },
     {
       "id": "pe-paradox-thrift", "field": "polecon", "depth": "concept", "level": 1,
+      "prereq": ["pe-keynes"],
       "title": "The paradox of thrift",
       "fact": "If everyone saves more at once, the country can end up saving less.",
       "layers": [
@@ -690,6 +722,7 @@
     },
     {
       "id": "pe-friedman", "field": "polecon", "depth": "book", "level": 2,
+      "xref": ["pe-keynes","eh-stagflation","pe-hayek"],
       "title": "Friedman and monetarism",
       "fact": "Milton Friedman's counter-revolution: inflation is always, everywhere, about money.",
       "layers": [
@@ -706,6 +739,7 @@
     },
     {
       "id": "pe-hayek", "field": "polecon", "depth": "book", "level": 2,
+      "xref": ["pe-friedman","pe-schools"],
       "title": "Hayek and the knowledge problem",
       "fact": "Hayek's argument against central planning: nobody knows enough — but prices do.",
       "layers": [
@@ -771,6 +805,7 @@
     },
     {
       "id": "eh-great-depression", "field": "echist", "depth": "event", "level": 2,
+      "xref": ["pe-keynes","eh-bretton-woods"],
       "title": "The Great Depression",
       "fact": "The 1930s slump was so deep it rewrote economics — and economists still argue about why.",
       "layers": [
@@ -787,6 +822,7 @@
     },
     {
       "id": "eh-stagflation", "field": "echist", "depth": "event", "level": 2,
+      "xref": ["pe-friedman","eh-neoliberal-turn"],
       "title": "The 1970s stagflation",
       "fact": "In the 1970s, prices and unemployment rose together — which the textbooks said couldn't happen.",
       "layers": [
@@ -803,6 +839,8 @@
     },
     {
       "id": "eh-neoliberal-turn", "field": "echist", "depth": "event", "level": 2,
+      "prereq": ["eh-stagflation"],
+      "xref": ["pe-hayek","pe-friedman"],
       "title": "The neoliberal turn",
       "fact": "Around 1980, the rich world swung from 'manage the market' to 'free the market'.",
       "layers": [
