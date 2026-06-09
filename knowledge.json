@@ -58,7 +58,7 @@
       "tags": ["biology", "evolution"],
       "deploy": "A vivid example that evolution finds many independent solutions to the same problem (oxygen transport) — there is rarely one 'right' design.",
       "counter": "It's a trade-off, not strictly 'better': haemocyanin carries less oxygen than haemoglobin at warm temperatures.",
-      "quiz": { "q": "How many hearts does an octopus have?", "choices": ["One", "Two", "Three", "Four"], "answer": 2 }
+      "quiz": [{ "q": "How many hearts does an octopus have?", "choices": ["One", "Two", "Three", "Four"], "answer": 2 }, {"q":"An octopus's blue blood carries oxygen using…","choices":["Iron-based haemoglobin","Copper-based haemocyanin","Dissolved chlorophyll","Nitrogen gas"],"answer":1}]
     },
     {
       "id": "fun-venus-day", "field": "fun", "depth": "fact", "level": 2,
@@ -102,7 +102,7 @@
       "tags": ["infinity", "set theory"],
       "deploy": "Stops loose appeals to infinity: 'infinite' does not mean 'all the same' or 'anything goes'.",
       "counter": "Whether there's a size strictly between the integers and the reals (the Continuum Hypothesis) is provably undecidable in standard set theory (Gödel 1940, Cohen 1963).",
-      "quiz": { "q": "Cantor's diagonal argument shows the real numbers are…", "choices": ["Countable", "Uncountable", "Finite", "The same size as the integers"], "answer": 1 }
+      "quiz": [{ "q": "Cantor's diagonal argument shows the real numbers are…", "choices": ["Countable", "Uncountable", "Finite", "The same size as the integers"], "answer": 1 }, {"q":"Which set is the 'bigger', uncountable infinity?","choices":["The integers","The rational numbers","The real numbers","The even numbers"],"answer":2}]
     },
     {
       "id": "math-godel", "field": "math", "depth": "book", "level": 3,
@@ -383,7 +383,7 @@
       "tags": ["trade", "economics", "classical"],
       "deploy": "The standard answer to 'they can make it cheaper, so trade hurts us' — gains come from specialisation, not from winning at everything.",
       "counter": "The clean result assumes full employment, mobile resources, and ignores distribution: trade can raise the total while leaving specific workers and regions worse off.",
-      "quiz": { "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }
+      "quiz": [{ "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }, {"q":"A country should specialise where it has the lowest…","choices":["Absolute cost","Opportunity cost","Tax rate","Wage bill"],"answer":1}]
     },
     {
       "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 2,
@@ -432,7 +432,7 @@
       "tags": ["epistemology", "science"],
       "deploy": "A sharp test against unfalsifiable claims ('it's true, you just can't see the evidence').",
       "counter": "Kuhn and Lakatos showed real science doesn't work by naive falsification — a failed prediction is often blamed on auxiliary assumptions, not the core theory.",
-      "quiz": { "q": "For Popper, a scientific theory must be…", "choices": ["Proven true", "Falsifiable", "Popular", "Mathematical"], "answer": 1 }
+      "quiz": [{ "q": "For Popper, a scientific theory must be…", "choices": ["Proven true", "Falsifiable", "Popular", "Mathematical"], "answer": 1 }, {"q":"By Popper's criterion, which claim is LEAST scientific (unfalsifiable)?","choices":["Heavy objects fall at g in a vacuum","Light bends near the Sun","Whatever happens was meant to be","Water boils at 100°C at sea level"],"answer":2}]
     },
     {
       "id": "philo-veil", "field": "philo", "depth": "book", "level": 2,
@@ -494,7 +494,7 @@
       "tags": ["economics", "basics", "scarcity"],
       "deploy": "Reframes almost any policy fight as 'what are we giving up?' rather than just 'is this nice?'.",
       "counter": "The scarcity frame can hide questions of power and distribution — who decides what's scarce, and for whom.",
-      "quiz": { "q": "The opportunity cost of a choice is…", "choices": ["Its money price", "The best alternative you gave up", "Always zero", "The sales tax on it"], "answer": 1 }
+      "quiz": [{ "q": "The opportunity cost of a choice is…", "choices": ["Its money price", "The best alternative you gave up", "Always zero", "The sales tax on it"], "answer": 1 }, {"q":"Economics begins from the problem of…","choices":["Inflation","Scarcity — unlimited wants, limited means","Taxation","The money supply"],"answer":1}]
     },
     {
       "id": "econ-supply-demand", "field": "econ", "depth": "concept", "level": 1,
@@ -702,7 +702,7 @@
       "tags": ["political economy", "keynesian", "macro"],
       "deploy": "The canonical case for stimulus in a recession — private demand can fail to recover by itself.",
       "counter": "Sustained deficit spending can stoke inflation and debt; the 1970s showed demand management has limits.",
-      "quiz": { "q": "Keynes argued that in a slump, the economy…", "choices": ["Always self-corrects fast", "Can stay stuck below full employment", "Needs higher interest rates", "Should cut all spending"], "answer": 1 }
+      "quiz": [{ "q": "Keynes argued that in a slump, the economy…", "choices": ["Always self-corrects fast", "Can stay stuck below full employment", "Needs higher interest rates", "Should cut all spending"], "answer": 1 }, {"q":"Keynes's prescription for a demand-deficient slump was…","choices":["Cut public spending to balance the budget","Government spending to lift aggregate demand","Raise interest rates sharply","Wait for wages to fall on their own"],"answer":1}]
     },
     {
       "id": "pe-paradox-thrift", "field": "polecon", "depth": "concept", "level": 1,

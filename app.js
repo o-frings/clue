@@ -323,7 +323,7 @@ function candidateScore(c){
   if((settings.focus||[]).includes(c.field)) s += 40;            // focus fields surface sooner
   if(settings.objective==="debate"){ if(c.deploy) s+=20; if(c.depth==="concept"||c.depth==="book") s+=10; }
   if(settings.objective==="specialise" && (settings.focus||[]).includes(c.field)) s+=30;
-  if(settings.objective==="sharp") s += (c.quiz?15:0);
+  if(settings.objective==="sharp") s += (cardQuizzes(c).length?15:0);
   s += (hashStr(c.id+todayStr())%12);                            // gentle daily shuffle
   return s;
 }
@@ -355,7 +355,7 @@ function buildReviewQueue(){
 }
 function buildQuizQueue(){
   const pool = new Set([...(session?session.justLearned:[]), ...learnedIds()]);
-  const arr=[...pool].filter(id=> byId[id] && byId[id].quiz);
+  const arr=[...pool].filter(id=> byId[id] && cardQuizzes(byId[id]).length);
   arr.sort((a,b)=> (hashStr(a+todayStr())%100)-(hashStr(b+todayStr())%100));
   return arr.slice(0,5);
 }
@@ -445,6 +445,9 @@ function layersOf(c){
   return L;
 }
 function teaser(c){ return c.fact || c.title || ''; }
+// a card's quiz can be a single {q,choices,answer} or an array of them; pickQuiz rotates daily
+function cardQuizzes(c){ const q=c&&c.quiz; return Array.isArray(q)?q.filter(Boolean):(q?[q]:[]); }
+function pickQuiz(c){ const qs=cardQuizzes(c); return qs.length? qs[hashStr(c.id+todayStr())%qs.length] : null; }
 function paras(s){ return esc(s).split(/\n\n+/).map(p=>'<p>'+p+'</p>').join(''); }
 
 function setSub(){ const obj={everything:"Learn everything",general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||"";
@@ -676,7 +679,7 @@ function discoverCurrent(q){
 function afterCardAction(){ advancePhase(); persistAll(); checkAchievements(); renderLearn(); }
 
 function renderQuiz(){
-  const id=session.quiz[session.quizIdx], c=byId[id], qz=c.quiz;
+  const id=session.quiz[session.quizIdx], c=byId[id], qz=pickQuiz(c);
   const ans=session.answered;
   const opts=qz.choices.map((opt,i)=>{
     let cls="quizopt"; let mark="";
@@ -695,7 +698,7 @@ function renderQuiz(){
   else { $("qzNext").onclick=()=>{ advancePhase(); renderLearn(); }; }
 }
 function answerQuiz(i){
-  const id=session.quiz[session.quizIdx], c=byId[id]; const correct = i===c.quiz.answer;
+  const id=session.quiz[session.quizIdx], c=byId[id]; const correct = i===pickQuiz(c).answer;
   session.answered=i; session.stats.quizTotal++; touchDay('quiz');
   if(correct){ session.stats.quizCorrect++; settings.quizCorrectTotal=(settings.quizCorrectTotal||0)+1; awardXp(8); }
   else { awardXp(2); if(progress[id]) schedule(id,1,false); }   // miss → review sooner
@@ -847,7 +850,7 @@ function renderReader(){
   // once every layer is open, the source / "use it & contest it" box / quiz / actions live in the scroll
   if(rdRevealed>=total){
     body+='<div class="rdEnd">'+mediaHtml(c)+sourceLine(c)+debateBox(c)+relatedHtml(c)+'</div>';
-    if(c.quiz) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
+    if(cardQuizzes(c).length) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
     if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
     else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
     body+='<button class="btn plain wide sm" id="rdNext" style="margin-top:6px;">Next concept →</button>';
@@ -869,7 +872,7 @@ function renderReader(){
   const qz=$("rdQuiz"); if(qz) qz.onclick=()=>readerQuiz(c);
 }
 function readerQuiz(c){
-  const qz=c.quiz; if(!qz) return; let answered=null;
+  const qz=pickQuiz(c); if(!qz) return; let answered=null;
   function draw(){
     const opts=qz.choices.map((opt,i)=>{ let cls="quizopt", mark="";
       if(answered!=null){ if(i===qz.answer){cls+=" correct"; mark='<span class="qmark">✓</span>';} else if(i===answered){cls+=" wrong"; mark='<span class="qmark">✕</span>';} else cls+=" muted"; }
