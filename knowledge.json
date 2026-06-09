@@ -84,6 +84,7 @@
     },
     {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
+      "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
       "fact": "An octopus has three hearts and blue blood.",
       "detail": "Two branchial hearts pump blood through the gills; one systemic heart sends it to the body. The blood carries oxygen with copper-based haemocyanin (blue) rather than iron-based haemoglobin (red), which works better in cold, low-oxygen water.",
@@ -95,6 +96,7 @@
     },
     {
       "id": "fun-venus-day", "field": "fun", "depth": "fact", "level": 2,
+      "xref": ["phys-light-speed"],
       "title": "A day on Venus is longer than its year",
       "fact": "Venus takes longer to spin once than to orbit the Sun.",
       "detail": "Venus rotates once every ~243 Earth days but orbits the Sun every ~225 Earth days — and it spins backwards (retrograde). So by the sidereal definition, its 'day' outlasts its 'year'.",
@@ -117,6 +119,7 @@
     },
     {
       "id": "fun-honey-keeps", "field": "fun", "depth": "fact", "level": 1,
+      "xref": ["bio-microbiome"],
       "title": "Honey effectively never spoils",
       "fact": "Sealed honey can stay edible for thousands of years — pots found in Egyptian tombs were still good.",
       "detail": "Honey's very low water content, acidity, and the trace hydrogen peroxide released by an enzyme (glucose oxidase) make it hostile to microbes. Kept sealed and dry, it lasts indefinitely.",
@@ -266,6 +269,7 @@
 
     {
       "id": "geo-thucydides", "field": "geo", "depth": "book", "level": 2,
+      "xref": ["geo-heartland","hist-westphalia"],
       "title": "The Thucydides Trap",
       "fact": "When a rising power threatens a ruling one, the result is often war.",
       "detail": "Graham Allison studied 16 cases over 500 years and found war in 12. Named after Thucydides' line that it was the rise of Athens, and the fear it caused in Sparta, that made war inevitable. Applied today to the US and China.",
@@ -542,6 +546,7 @@
 
     {
       "id": "econ-what-is", "field": "econ", "depth": "concept", "level": 1,
+      "xref": ["pe-what-is","econ-supply-demand"],
       "title": "What economics is about",
       "fact": "Economics starts from one awkward fact: we have unlimited wants and limited means.",
       "layers": [
@@ -594,6 +599,7 @@
 
     {
       "id": "pe-what-is", "field": "polecon", "depth": "concept", "level": 1,
+      "xref": ["econ-what-is","pe-schools"],
       "title": "Why 'political economy'?",
       "fact": "Before it was 'economics', it was 'political economy' — and the politics never really left.",
       "layers": [
