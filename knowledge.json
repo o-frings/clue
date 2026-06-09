@@ -138,6 +138,40 @@
       "quiz": { "q": "The fall of the Berlin Wall (1989) symbolised…", "choices": ["the start of WWII", "the end of the Cold War division of Europe", "the rejection of German reunification", "the founding of the EU"], "answer": 1 }
     },
     {
+      "id": "game-prisoners-dilemma", "field": "econ", "depth": "concept", "level": 2,
+      "title": "The prisoner's dilemma",
+      "fact": "Two people each acting in their own interest can both end up worse off than if they'd cooperated.",
+      "detail": "In the classic setup two suspects each do better by betraying the other no matter what the other does — so both betray, and both get a worse outcome than mutual silence. The individually rational move is collectively self-defeating. It models arms races, price wars, overfishing and climate inaction.",
+      "deploy": "The sharpest illustration that 'everyone acting rationally' need not produce a good outcome — a core case for coordination and rules.",
+      "counter": "Real life is rarely one-shot or anonymous; repetition, reputation and communication can rescue cooperation.",
+      "tags": ["game theory", "cooperation", "incentives"],
+      "xref": ["sys-commons", "poli-collective-action", "econ-externalities"],
+      "quiz": { "q": "In a one-shot prisoner's dilemma, two self-interested players tend to…", "choices": ["Both cooperate", "Both defect, ending up worse off", "Split the difference", "Refuse to play"], "answer": 1 }
+    },
+    {
+      "id": "game-nash-equilibrium", "field": "econ", "depth": "concept", "level": 2,
+      "title": "Nash equilibrium",
+      "fact": "A Nash equilibrium is a situation where no player can do better by changing their move alone.",
+      "detail": "Named after John Nash, it is the resting point of a game: given what everyone else is doing, no one gains by deviating unilaterally. A game can have one, many, or no equilibria in pure strategies. Crucially, an equilibrium can be stable yet bad for everyone — mutual defection in the prisoner's dilemma is a Nash equilibrium.",
+      "deploy": "Lets you predict where strategic interactions settle — and show that a stable outcome isn't necessarily efficient or fair.",
+      "counter": "It assumes rational, payoff-maximising players who know the rules; real people misjudge, learn, and care about fairness.",
+      "tags": ["game theory", "equilibrium", "strategy"],
+      "xref": ["game-prisoners-dilemma", "econ-supply-demand"],
+      "quiz": { "q": "At a Nash equilibrium…", "choices": ["everyone is happy", "no player gains by changing strategy alone", "the game has ended", "prices fall to zero"], "answer": 1 }
+    },
+    {
+      "id": "game-repeated", "field": "econ", "depth": "concept", "level": 3,
+      "title": "Repeated games and tit-for-tat",
+      "fact": "If a game is played again and again, cooperation can become rational — strategies like 'tit-for-tat' reward it and punish betrayal.",
+      "detail": "When players keep meeting, today's betrayal invites tomorrow's retaliation. In Axelrod's tournaments the simple 'tit-for-tat' rule — start nice, then copy the opponent's last move — did remarkably well. Repetition, reputation and a long 'shadow of the future' turn the prisoner's dilemma's logic around.",
+      "deploy": "Explains how cooperation emerges without a central enforcer — among firms, nations, even unrelated animals.",
+      "counter": "It needs a credible future: if the end is known and near, cooperation can unravel backwards from the final round.",
+      "tags": ["game theory", "cooperation", "tit-for-tat"],
+      "prereq": ["game-prisoners-dilemma"],
+      "xref": ["sys-commons"],
+      "quiz": { "q": "Why can repetition sustain cooperation in a prisoner's dilemma?", "choices": ["Players forget past moves", "Future retaliation deters betrayal today", "The payoffs change", "A referee enforces it"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
