@@ -118,6 +118,7 @@
     {
       "id": "math-base-rate", "field": "math", "depth": "concept", "level": 2,
       "xref": ["math-simpson","econ-loss-aversion"],
+      "media": [{ "type": "equation", "tex": "P(A \\mid B) = \\dfrac{P(B \\mid A)\\,P(A)}{P(B)}", "plain": "P(A|B) = P(B|A)·P(A) / P(B)", "caption": "Bayes' theorem. Read the bar '|' as 'given'. It updates the chance of A once you've seen B — and P(A), the base rate, never drops out, which is exactly what the fallacy forgets." }],
       "title": "The base-rate fallacy",
       "fact": "A 99%-accurate test for a rare disease still produces mostly false positives.",
       "detail": "If a disease affects 1 in 1,000 and a test is 99% accurate, a positive result is far more likely to be a false alarm than a real case, because there are so many more healthy people to misclassify. The prior (base rate) dominates.",
