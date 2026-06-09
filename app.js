@@ -349,7 +349,9 @@ function buildDiscoverQueue(limit){
   return ordered.slice(0,limit).map(c=>c.id);
 }
 function buildReviewQueue(){
-  return dueCards().sort((a,b)=> progress[a].due-progress[b].due).slice(0,40);
+  // most-overdue first sets the field order; round-robin then interleaves reviews across fields
+  const due=dueCards().sort((a,b)=> progress[a].due-progress[b].due).map(id=>byId[id]);
+  return interleaveByField(due).slice(0,40).map(c=>c.id);
 }
 function buildQuizQueue(){
   const pool = new Set([...(session?session.justLearned:[]), ...learnedIds()]);
