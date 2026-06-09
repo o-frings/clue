@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Evidence registry — every source logged once, referenced by id from card.src[].",
     "version": 1,
-    "status": "MIGRATED from knowledge.json source objects. url + kind + strength need backfill.",
+    "status": "Backfilled: every card links to a fetch-verified, openable source URL with a concrete strength note.",
     "schema": {
       "sources": "map of id -> {who,year,title,where,url,kind,strength}",
       "strength": "describes how THICK the evidence is, concretely (e.g. 'two RCTs, n≈12k'; 'single case study') — never a bare 'strong'/'weak'",
@@ -10,528 +10,6 @@
     }
   },
   "sources": {
-    "ev-cephalopod-physiology-general": {
-      "who": "Cephalopod physiology (general)",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-nasa-planetary-fact-sheet": {
-      "who": "NASA NSSDC",
-      "year": 0,
-      "title": "Planetary Fact Sheet",
-      "where": "",
-      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
-      "kind": "reference",
-      "strength": "authoritative reference table compiled from spacecraft and observational data"
-    },
-    "ev-climatology-history": {
-      "who": "Climatology / history",
-      "year": 1816,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-food-chemistry-archaeology": {
-      "who": "Food chemistry / archaeology",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-georg-cantor": {
-      "who": "Georg Cantor",
-      "year": 1891,
-      "title": "Diagonal argument",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-kurt-g-del": {
-      "who": "Kurt Gödel",
-      "year": 1931,
-      "title": "On Formally Undecidable Propositions",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-bayes-theorem-thomas-bayes": {
-      "who": "Bayes' theorem (Thomas Bayes)",
-      "year": 1763,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-bickel-hammel-o-connell": {
-      "who": "Bickel, Hammel & O'Connell",
-      "year": 1975,
-      "title": "Sex Bias in Graduate Admissions",
-      "where": "Science",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-clausius-boltzmann": {
-      "who": "Clausius / Boltzmann",
-      "year": 1865,
-      "title": "Second law of thermodynamics",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-albert-einstein": {
-      "who": "Albert Einstein",
-      "year": 1905,
-      "title": "On the Electrodynamics of Moving Bodies",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-werner-heisenberg": {
-      "who": "Werner Heisenberg",
-      "year": 1927,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-penzias-wilson": {
-      "who": "Penzias & Wilson",
-      "year": 1965,
-      "title": "A Measurement of Excess Antenna Temperature at 4080 Mc/s",
-      "where": "Astrophysical Journal",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-history-of-technology-general": {
-      "who": "History of technology (general)",
-      "year": 1440,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-historical-demography-general": {
-      "who": "Historical demography (general)",
-      "year": 1347,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-international-relations-general": {
-      "who": "International relations (general)",
-      "year": 1648,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-graham-allison": {
-      "who": "Graham Allison",
-      "year": 2017,
-      "title": "Destined for War",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-u-s-energy-information-administration": {
-      "who": "U.S. Energy Information Administration",
-      "year": 2023,
-      "title": "World Oil Transit Chokepoints",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-halford-mackinder": {
-      "who": "Halford Mackinder",
-      "year": 1904,
-      "title": "The Geographical Pivot of History",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-demography-general-model": {
-      "who": "Demography (general model)",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-charles-darwin": {
-      "who": "Charles Darwin",
-      "year": 1859,
-      "title": "On the Origin of Species",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-sender-fuchs-milo": {
-      "who": "Sender, Fuchs & Milo",
-      "year": 2016,
-      "title": "Revised Estimates for the Number of Human and Bacteria Cells",
-      "where": "PLOS Biology",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-jinek-charpentier-doudna-et-al": {
-      "who": "Jinek, Charpentier, Doudna et al.",
-      "year": 2012,
-      "title": "A Programmable Dual-RNA–Guided DNA Endonuclease",
-      "where": "Science",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-ripple-beschta": {
-      "who": "Ripple & Beschta",
-      "year": 2012,
-      "title": "Trophic cascades in Yellowstone: the first 15 years after wolf reintroduction",
-      "where": "Biological Conservation",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-rockstr-m-et-al-2009-richardson-et-al-2023": {
-      "who": "Rockström et al. (2009); Richardson et al. (2023)",
-      "year": 2009,
-      "title": "Planetary boundaries",
-      "where": "Nature / Science Advances",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-vaclav-smil": {
-      "who": "Vaclav Smil",
-      "year": 2001,
-      "title": "Enriching the Earth",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-donella-meadows": {
-      "who": "Donella Meadows",
-      "year": 2008,
-      "title": "Thinking in Systems",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-hardin-1968-ostrom-1990": {
-      "who": "Hardin (1968); Ostrom (1990)",
-      "year": 1968,
-      "title": "The Tragedy of the Commons / Governing the Commons",
-      "where": "Science",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-pareto-zipf-classic-observations": {
-      "who": "Pareto / Zipf (classic observations)",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-david-ricardo": {
-      "who": "David Ricardo",
-      "year": 1817,
-      "title": "On the Principles of Political Economy and Taxation",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-arthur-pigou": {
-      "who": "Arthur Pigou",
-      "year": 1920,
-      "title": "The Economics of Welfare",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-kahneman-tversky": {
-      "who": "Kahneman & Tversky",
-      "year": 1979,
-      "title": "Prospect Theory: An Analysis of Decision under Risk",
-      "where": "Econometrica",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-david-hume": {
-      "who": "David Hume",
-      "year": 1739,
-      "title": "A Treatise of Human Nature",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-karl-popper": {
-      "who": "Karl Popper",
-      "year": 1959,
-      "title": "The Logic of Scientific Discovery",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-john-rawls": {
-      "who": "John Rawls",
-      "year": 1971,
-      "title": "A Theory of Justice",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-black-1948-downs-1957": {
-      "who": "Black (1948); Downs (1957)",
-      "year": 1957,
-      "title": "An Economic Theory of Democracy",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-maurice-duverger": {
-      "who": "Maurice Duverger",
-      "year": 1951,
-      "title": "Political Parties",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-mancur-olson": {
-      "who": "Mancur Olson",
-      "year": 1965,
-      "title": "The Logic of Collective Action",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-lionel-robbins-classic-definition": {
-      "who": "Lionel Robbins (classic definition)",
-      "year": 1932,
-      "title": "An Essay on the Nature and Significance of Economic Science",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-alfred-marshall-classic-exposition": {
-      "who": "Alfred Marshall (classic exposition)",
-      "year": 1890,
-      "title": "Principles of Economics",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-simon-kuznets-and-later-national-accounts-work": {
-      "who": "Simon Kuznets (and later national-accounts work)",
-      "year": 1934,
-      "title": "National Income, 1929–1932",
-      "where": "US Congress report",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-history-of-economic-thought-general": {
-      "who": "History of economic thought (general)",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-adam-smith": {
-      "who": "Adam Smith",
-      "year": 1776,
-      "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-adam-smith-2": {
-      "who": "Adam Smith",
-      "year": 1776,
-      "title": "The Wealth of Nations",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-smith-ricardo-marx-vs-jevons-menger-walras": {
-      "who": "Smith / Ricardo / Marx vs Jevons / Menger / Walras",
-      "year": 1870,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-jevons-menger-walras": {
-      "who": "Jevons, Menger, Walras",
-      "year": 1871,
-      "title": "The marginal revolution",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-karl-marx": {
-      "who": "Karl Marx",
-      "year": 1867,
-      "title": "Das Kapital, Volume I",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-karl-marx-friedrich-engels": {
-      "who": "Karl Marx & Friedrich Engels",
-      "year": 1859,
-      "title": "A Contribution to the Critique of Political Economy (preface)",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-john-maynard-keynes": {
-      "who": "John Maynard Keynes",
-      "year": 1936,
-      "title": "The General Theory of Employment, Interest and Money",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-john-maynard-keynes-and-earlier-writers": {
-      "who": "John Maynard Keynes (and earlier writers)",
-      "year": 1936,
-      "title": "The General Theory",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-milton-friedman": {
-      "who": "Milton Friedman",
-      "year": 1963,
-      "title": "A Monetary History of the United States (with Anna Schwartz)",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-friedrich-hayek": {
-      "who": "Friedrich Hayek",
-      "year": 1945,
-      "title": "The Use of Knowledge in Society",
-      "where": "American Economic Review",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history-e-g-angus-maddison-data": {
-      "who": "Economic history (e.g. Angus Maddison data)",
-      "year": 1800,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history-karl-marx-capital-part-viii": {
-      "who": "Economic history; Karl Marx (Capital, Part VIII)",
-      "year": 0,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-monetary-history": {
-      "who": "Monetary history",
-      "year": 1944,
-      "title": "Bretton Woods Agreement",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history": {
-      "who": "Economic history",
-      "year": 1929,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history-2": {
-      "who": "Economic history",
-      "year": 1973,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history-3": {
-      "who": "Economic history",
-      "year": 1979,
-      "title": "",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
-    "ev-economic-history-4": {
-      "who": "Economic history",
-      "year": 2008,
-      "title": "Global Financial Crisis",
-      "where": "",
-      "url": "",
-      "kind": "",
-      "strength": ""
-    },
     "ev-date-constantinople-1453": {
       "who": "Wikipedia",
       "year": 1453,
@@ -990,6 +468,294 @@
       "url": "https://en.wikipedia.org/wiki/Gross_domestic_product",
       "kind": "reference",
       "strength": "Standard national-accounts measure; its omissions are well documented (Kuznets's own 1937 caveat)."
+    },
+    "ev-pe-what-is": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Political economy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Political_economy",
+      "kind": "reference",
+      "strength": "Encyclopaedic overview of the field's politics-and-economics scope."
+    },
+    "ev-pe-schools": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Schools of economic thought",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Schools_of_economic_thought",
+      "kind": "reference",
+      "strength": "Encyclopaedic survey of rival schools — grounds the card's pluralism."
+    },
+    "ev-pe-smith-wealth": {
+      "who": "Wikipedia (Adam Smith)",
+      "year": 1776,
+      "title": "The Wealth of Nations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Wealth_of_Nations",
+      "kind": "reference",
+      "strength": "Smith's 1776 work; the invisible-hand/self-interest reading is standard (and often oversimplified)."
+    },
+    "ev-pe-division-labour": {
+      "who": "Wikipedia (Adam Smith)",
+      "year": 1776,
+      "title": "Division of labour",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Division_of_labour",
+      "kind": "reference",
+      "strength": "Smith's pin-factory example; foundational and well documented."
+    },
+    "ev-pe-ricardo": {
+      "who": "Wikipedia",
+      "year": 1817,
+      "title": "David Ricardo",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/David_Ricardo",
+      "kind": "reference",
+      "strength": "Biography and works of the classical economist."
+    },
+    "ev-pe-ltv": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Labor theory of value",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Labor_theory_of_value",
+      "kind": "reference",
+      "strength": "Classical/Marxian theory, displaced by marginalism; its validity remains contested."
+    },
+    "ev-pe-marginalist": {
+      "who": "Wikipedia",
+      "year": 1871,
+      "title": "Marginalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Marginalism",
+      "kind": "reference",
+      "strength": "The 1870s marginal revolution (Jevons, Menger, Walras); well documented."
+    },
+    "ev-pe-marx-capital": {
+      "who": "Wikipedia (Karl Marx)",
+      "year": 1867,
+      "title": "Das Kapital",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Das_Kapital",
+      "kind": "reference",
+      "strength": "Marx's Capital; influential and heavily contested."
+    },
+    "ev-pe-historical-materialism": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Historical materialism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Historical_materialism",
+      "kind": "reference",
+      "strength": "Marx/Engels framework; influential in sociology, criticised for economic determinism."
+    },
+    "ev-pe-keynes": {
+      "who": "Wikipedia (J.M. Keynes)",
+      "year": 1936,
+      "title": "The General Theory of Employment, Interest and Money",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_General_Theory_of_Employment,_Interest_and_Money",
+      "kind": "reference",
+      "strength": "Keynes's 1936 work; the demand-deficient-slump argument is standard macro."
+    },
+    "ev-pe-paradox-thrift": {
+      "who": "Wikipedia",
+      "year": 1936,
+      "title": "Paradox of thrift",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Paradox_of_thrift",
+      "kind": "reference",
+      "strength": "A fallacy-of-composition result; standard Keynesian point, disputed by some schools."
+    },
+    "ev-pe-friedman": {
+      "who": "Wikipedia (Milton Friedman)",
+      "year": 0,
+      "title": "Monetarism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Monetarism",
+      "kind": "reference",
+      "strength": "Friedman's monetarism; influential, though the money-inflation link proved unstable after the 1980s."
+    },
+    "ev-pe-hayek": {
+      "who": "Wikipedia (F.A. Hayek)",
+      "year": 1945,
+      "title": "The Use of Knowledge in Society",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Use_of_Knowledge_in_Society",
+      "kind": "reference",
+      "strength": "Hayek's 1945 essay — the canonical statement of the knowledge problem."
+    },
+    "ev-cs-binary": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Binary number",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Binary_number",
+      "kind": "reference",
+      "strength": "Standard computing reference."
+    },
+    "ev-cs-bigo": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Big O notation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+      "kind": "reference",
+      "strength": "Standard CS reference."
+    },
+    "ev-cs-halting": {
+      "who": "Wikipedia (after Turing)",
+      "year": 1936,
+      "title": "Halting problem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Halting_problem",
+      "kind": "reference",
+      "strength": "Turing's 1936 undecidability result — a proven theorem."
+    },
+    "ev-stat-lln": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Law of large numbers",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Law_of_large_numbers",
+      "kind": "reference",
+      "strength": "Proven probability theorem; the gambler's-fallacy corollary is standard."
+    },
+    "ev-stat-clt": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Central limit theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Central_limit_theorem",
+      "kind": "reference",
+      "strength": "Proven theorem under stated conditions (independence, finite variance)."
+    },
+    "ev-stat-correlation": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Correlation does not imply causation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation",
+      "kind": "reference",
+      "strength": "Standard methodological point (confounders, reverse causation)."
+    },
+    "ev-code-naming": {
+      "who": "Martin Fowler",
+      "year": 0,
+      "title": "TwoHardThings",
+      "where": "",
+      "url": "https://martinfowler.com/bliki/TwoHardThings.html",
+      "kind": "reference",
+      "strength": "Fowler's note on the well-known 'naming things' adage (Karlton) — craft consensus, not an empirical claim."
+    },
+    "ev-code-dry": {
+      "who": "Wikipedia (Hunt & Thomas)",
+      "year": 1999,
+      "title": "Don't repeat yourself",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Don%27t_repeat_yourself",
+      "kind": "reference",
+      "strength": "DRY principle from The Pragmatic Programmer; a widely-held craft principle."
+    },
+    "ev-code-complexity": {
+      "who": "Martin Fowler",
+      "year": 0,
+      "title": "Is High Quality Software Worth the Cost?",
+      "where": "",
+      "url": "https://martinfowler.com/articles/is-quality-worth-cost.html",
+      "kind": "article",
+      "strength": "Fowler's argument that internal quality lowers cost-of-change; reasoned craft view with some empirical support (DORA)."
+    },
+    "ev-math-infinities": {
+      "who": "Wikipedia (Georg Cantor)",
+      "year": 1891,
+      "title": "Cantor's diagonal argument",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument",
+      "kind": "reference",
+      "strength": "Cantor's 1891 proof — a rigorous theorem."
+    },
+    "ev-math-godel": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 1931,
+      "title": "Gödel's Incompleteness Theorems",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/goedel-incompleteness/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry on the proven 1931 theorems."
+    },
+    "ev-math-base-rate": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Base rate fallacy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Base_rate_fallacy",
+      "kind": "reference",
+      "strength": "Standard probability result; worked rare-disease example."
+    },
+    "ev-math-simpson": {
+      "who": "Wikipedia",
+      "year": 1951,
+      "title": "Simpson's paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Simpson%27s_paradox",
+      "kind": "reference",
+      "strength": "Well-known statistical phenomenon (Simpson, 1951)."
+    },
+    "ev-philo-falsifiability": {
+      "who": "Wikipedia (Karl Popper)",
+      "year": 1934,
+      "title": "Falsifiability",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Falsifiability",
+      "kind": "reference",
+      "strength": "Popper's demarcation criterion; influential but contested (Kuhn, Lakatos)."
+    },
+    "ev-philo-is-ought": {
+      "who": "Wikipedia (David Hume)",
+      "year": 1739,
+      "title": "Is–ought problem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem",
+      "kind": "reference",
+      "strength": "Hume's classic problem; widely accepted, with naturalist counter-arguments."
+    },
+    "ev-philo-veil": {
+      "who": "Wikipedia (John Rawls)",
+      "year": 1971,
+      "title": "Original position (veil of ignorance)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Veil_of_ignorance",
+      "kind": "reference",
+      "strength": "Rawls's thought experiment; influential, criticised by Nozick, Sandel and empirical work."
+    },
+    "ev-logic-validity": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Validity (logic)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Validity_(logic)",
+      "kind": "reference",
+      "strength": "Standard logic definitions (validity vs soundness)."
+    },
+    "ev-logic-modus-ponens": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Modus ponens",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Modus_ponens",
+      "kind": "reference",
+      "strength": "Standard valid inference rule (with modus tollens)."
+    },
+    "ev-logic-affirming-consequent": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Affirming the consequent",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Affirming_the_consequent",
+      "kind": "reference",
+      "strength": "Standard formal fallacy."
     }
   }
 }

@@ -184,6 +184,7 @@
     },
     {
       "id": "logic-validity", "field": "philo", "depth": "concept", "level": 1,
+      "src": ["ev-logic-validity"],
       "title": "Valid vs true: the shape of an argument",
       "fact": "An argument can be perfectly valid yet completely false — validity is about form, not facts.",
       "detail": "An argument is valid if its conclusion must be true whenever its premises are — the logic holds regardless of content. It is sound only if it is valid AND its premises are actually true. 'All cats are robots; Felix is a cat; so Felix is a robot' is valid but unsound.",
@@ -195,6 +196,7 @@
     },
     {
       "id": "logic-modus-ponens", "field": "philo", "depth": "concept", "level": 2,
+      "src": ["ev-logic-modus-ponens"],
       "title": "Modus ponens and modus tollens",
       "fact": "Two reliable inference rules: affirm the 'if' (modus ponens) or deny the 'then' (modus tollens).",
       "detail": "Modus ponens: from 'if P then Q' and 'P', conclude 'Q'. Modus tollens: from 'if P then Q' and 'not Q', conclude 'not P'. Both are valid forms — the backbone of everyday and mathematical reasoning. Popper's falsification is modus tollens: if a theory predicts Q and we observe not-Q, the theory fails.",
@@ -207,6 +209,7 @@
     },
     {
       "id": "logic-affirming-consequent", "field": "philo", "depth": "concept", "level": 2,
+      "src": ["ev-logic-affirming-consequent"],
       "title": "Affirming the consequent",
       "fact": "'If P then Q; Q; therefore P' is a fallacy — a true consequence doesn't prove the cause.",
       "detail": "Affirming the consequent confuses 'P implies Q' with 'Q implies P'. 'If it rained, the street is wet; the street is wet; so it rained' ignores sprinklers and hoses. It is one of the commonest reasoning errors — including in reading evidence: a result merely consistent with a theory doesn't confirm it.",
@@ -219,6 +222,7 @@
     },
     {
       "id": "cs-binary", "field": "math", "depth": "concept", "level": 1,
+      "src": ["ev-cs-binary"],
       "title": "It's all bits",
       "fact": "Everything in a computer — text, images, sound — is ultimately just numbers in binary (0s and 1s).",
       "detail": "A bit is one on/off switch; eight bits make a byte. Numbers are written in base 2; text maps characters to numbers (ASCII/Unicode); images are grids of numbers for colour; sound is numbers sampled over time. The machine only ever shuffles patterns of bits — meaning is something we layer on top.",
@@ -230,6 +234,7 @@
     },
     {
       "id": "cs-bigo", "field": "math", "depth": "concept", "level": 2,
+      "src": ["ev-cs-bigo"],
       "title": "Big-O: how algorithms scale",
       "fact": "Big-O notation describes how an algorithm's cost grows as the input gets bigger — not how fast it runs today.",
       "detail": "An algorithm is a step-by-step recipe. Big-O captures scaling: O(n) doubles work when input doubles; O(n²) quadruples it; O(log n) barely grows. For large inputs a better Big-O beats a faster computer — an O(n log n) sort crushes an O(n²) one on a million items, whatever the hardware.",
@@ -241,6 +246,7 @@
     },
     {
       "id": "cs-halting", "field": "math", "depth": "concept", "level": 3,
+      "src": ["ev-cs-halting"],
       "title": "The halting problem",
       "fact": "Some problems are provably impossible for any computer: no program can decide, in general, whether another program will halt.",
       "detail": "Alan Turing proved in 1936 that there is no general algorithm to decide whether an arbitrary program halts or loops forever — the halting problem. It set a hard limit on computation, echoing Gödel's incompleteness: formal systems and machines alike have questions they can't answer from the inside.",
@@ -252,6 +258,7 @@
     },
     {
       "id": "stat-lln", "field": "math", "depth": "concept", "level": 2,
+      "src": ["ev-stat-lln"],
       "title": "Law of large numbers (and the gambler's fallacy)",
       "fact": "Averages settle down over many trials — but a fair coin has no memory, so 'due' outcomes are a fallacy.",
       "detail": "The law of large numbers says the average of many independent trials converges to the true probability — flip a fair coin enough and heads approaches 50%. But each flip is independent: a run of tails doesn't make heads 'due'. Confusing the long-run average with short-run correction is the gambler's fallacy.",
@@ -263,6 +270,7 @@
     },
     {
       "id": "stat-clt", "field": "math", "depth": "concept", "level": 2,
+      "src": ["ev-stat-clt"],
       "title": "The central limit theorem",
       "fact": "Add up many small independent effects and you tend to get a bell curve — the normal distribution.",
       "detail": "The central limit theorem says sums or averages of many independent influences converge to a normal (Gaussian) shape, whatever the underlying distribution. That's why heights, measurement errors and sample averages cluster symmetrically around a mean — and why the bell curve and the standard deviation are everywhere in statistics.",
@@ -274,6 +282,7 @@
     },
     {
       "id": "stat-correlation", "field": "math", "depth": "concept", "level": 1,
+      "src": ["ev-stat-correlation"],
       "title": "Correlation isn't causation",
       "fact": "Two things moving together may share a hidden common cause rather than one causing the other.",
       "detail": "Ice-cream sales and drownings rise together — because both rise with summer heat, a confounder. To infer cause you need more: a plausible mechanism, controlled experiments (randomisation breaks confounding), or careful natural experiments. 'X correlates with Y' is the start of an investigation, not its conclusion.",
@@ -285,6 +294,7 @@
     },
     {
       "id": "code-naming", "field": "math", "depth": "concept", "level": 1,
+      "src": ["ev-code-naming"],
       "title": "Good names are the cheapest documentation",
       "fact": "Code is read far more often than it's written, so clear names are the highest-leverage documentation there is.",
       "detail": "A variable called daysSinceLastLogin needs no comment; d needs a paragraph. Good names state intent — what something is or does — so the next reader (often you, months later) doesn't have to reverse-engineer it. Renaming for clarity is one of the safest, most valuable edits you can make.",
@@ -296,6 +306,7 @@
     },
     {
       "id": "code-dry", "field": "math", "depth": "concept", "level": 2,
+      "src": ["ev-code-dry"],
       "title": "Don't repeat yourself (DRY)",
       "fact": "Every piece of knowledge should have one authoritative place in the code.",
       "detail": "When the same logic is copied in several spots, changing it means finding every copy — and missing one creates bugs. DRY says capture it once (a function, a constant, a single source of truth) so a change happens in exactly one place. It's about duplicated knowledge, not just identical text.",
@@ -307,6 +318,7 @@
     },
     {
       "id": "code-complexity", "field": "math", "depth": "concept", "level": 2,
+      "src": ["ev-code-complexity"],
       "title": "Code is for humans: manage complexity",
       "fact": "The hard part of programming isn't writing code — it's keeping complexity low enough to keep changing it.",
       "detail": "As software grows the limit isn't the computer but the human: how much you can hold in your head. Small functions, clear boundaries between parts, and hiding details behind simple surfaces keep local changes local. The aim is code you can safely modify without understanding all of it at once.",
@@ -369,7 +381,7 @@
       "title": "Some infinities are bigger than others",
       "fact": "There are strictly more real numbers than whole numbers — infinity comes in different sizes.",
       "detail": "Cantor's diagonal argument (1891) shows you can't list all real numbers even with an infinite list: given any list, you can build a real number missing from it. So the reals are 'uncountable' and outnumber the (countable) integers.",
-      "src": ["ev-georg-cantor"],
+      "src": ["ev-math-infinities"],
       "year": 1891,
       "tags": ["infinity", "set theory"],
       "deploy": "Stops loose appeals to infinity: 'infinite' does not mean 'all the same' or 'anything goes'.",
@@ -382,7 +394,7 @@
       "title": "Gödel's incompleteness theorems",
       "fact": "Any consistent maths system rich enough for arithmetic contains true statements it can never prove.",
       "detail": "Gödel (1931) showed such a system can't be both complete and consistent, and can't prove its own consistency from within. Truth outruns provability.",
-      "src": ["ev-kurt-g-del"],
+      "src": ["ev-math-godel"],
       "year": 1931,
       "tags": ["logic", "limits"],
       "deploy": "A hard limit on formal systems — useful against claims that 'anything true can, in principle, be proven'.",
@@ -395,7 +407,7 @@
       "title": "The base-rate fallacy",
       "fact": "A 99%-accurate test for a rare disease still produces mostly false positives.",
       "detail": "If a disease affects 1 in 1,000 and a test is 99% accurate, a positive result is far more likely to be a false alarm than a real case, because there are so many more healthy people to misclassify. The prior (base rate) dominates.",
-      "src": ["ev-bayes-theorem-thomas-bayes"],
+      "src": ["ev-math-base-rate"],
       "year": 1763,
       "tags": ["probability", "bayes"],
       "deploy": "Demand the base rate before accepting 'the test/study says X'. Accuracy figures alone can badly mislead.",
@@ -408,7 +420,7 @@
       "title": "Simpson's paradox",
       "fact": "A trend can hold in every subgroup yet reverse when the groups are combined.",
       "detail": "In Berkeley's 1973 graduate admissions, men appeared admitted at higher rates overall, yet within most departments women were admitted at equal-or-higher rates — women applied more to competitive departments. Aggregation flipped the picture.",
-      "src": ["ev-bickel-hammel-o-connell"],
+      "src": ["ev-math-simpson"],
       "year": 1975,
       "tags": ["statistics", "confounding"],
       "deploy": "Aggregate numbers can mislead — always ask whether a confounder is hiding inside the average.",
@@ -709,7 +721,7 @@
       "title": "Hume's is–ought gap",
       "fact": "You can't logically derive what ought to be purely from what is.",
       "detail": "Hume (1739) noticed writers slide from describing facts ('is') to prescribing duties ('ought') without justifying the jump. Facts alone don't entail values.",
-      "src": ["ev-david-hume"],
+      "src": ["ev-philo-is-ought"],
       "year": 1739,
       "tags": ["ethics", "logic"],
       "deploy": "A precision tool for spotting when an opponent smuggles a value claim in under cover of 'the science says'.",
@@ -721,7 +733,7 @@
       "title": "Falsifiability",
       "fact": "A claim that nothing could ever disprove isn't really scientific.",
       "detail": "Popper argued the mark of a scientific theory is that it sticks its neck out — it forbids certain observations, so it could be proven wrong. 'What would change your mind?' is the key question.",
-      "src": ["ev-karl-popper"],
+      "src": ["ev-philo-falsifiability"],
       "year": 1959,
       "tags": ["epistemology", "science"],
       "deploy": "A sharp test against unfalsifiable claims ('it's true, you just can't see the evidence').",
@@ -734,7 +746,7 @@
       "title": "Rawls's veil of ignorance",
       "fact": "To find fair rules, choose them not knowing who you'll be in the society.",
       "detail": "Rawls (1971): behind a 'veil' that hides your wealth, talents, race and class, you'd pick principles that protect everyone — because you might end up at the bottom.",
-      "src": ["ev-john-rawls"],
+      "src": ["ev-philo-veil"],
       "year": 1971,
       "tags": ["justice", "ethics"],
       "deploy": "A portable fairness test for any institution or policy: would you accept it not knowing your place in it?",
@@ -842,7 +854,7 @@
         { "d": "debate", "t": "Neutral science?", "body": "Is economics a neutral, technical science or an inescapably political one? Mainstream economists stress method and evidence; critics argue every model embeds a view of human nature and a politics of distribution. The very word you choose — 'economics' or 'political economy' — already takes a side." }
       ],
       "detail": "The classical writers studied 'political economy' — wealth and its distribution between classes. Around 1900 the field rebranded as 'economics' on the model of physics, pushing power to the margins; 'political economy' names the traditions that keep it central.",
-      "src": ["ev-history-of-economic-thought-general"],
+      "src": ["ev-pe-what-is"],
       "tags": ["political economy", "basics", "method"],
       "deploy": "Reminds an opponent that 'just the economics' is rarely just the economics.",
       "counter": "Naming the politics doesn't settle the facts — efficiency and distribution can still be studied with evidence."
@@ -858,7 +870,7 @@
         { "d": "debate", "t": "One paradigm taught as truth", "body": "Mainstream teaching is dominated by the neoclassical–Keynesian synthesis, and students often meet it simply as 'economics'. Pluralist movements argue this narrows the imagination, and that the 2008 crisis exposed the cost of teaching one paradigm as settled truth." }
       ],
       "detail": "Economics is plural: classical, Marxian, neoclassical, Keynesian, monetarist, Austrian, behavioural and ecological schools give different answers to the same questions. The mainstream is one paradigm among several, not the last word.",
-      "src": ["ev-history-of-economic-thought-general"],
+      "src": ["ev-pe-schools"],
       "tags": ["political economy", "basics", "pluralism"],
       "deploy": "Whenever someone says 'economists agree', ask which economists — the field is plural.",
       "counter": "Pluralism can tip into 'anything goes'; some claims really are better supported by the evidence than others."
@@ -875,7 +887,7 @@
         { "d": "debate", "t": "The misread Smith", "body": "Smith is routinely flattened into a cheerleader for greed. In fact the phrase 'invisible hand' appears once in the book; his earlier Theory of Moral Sentiments (1759) roots society in sympathy, not selfishness. He distrusted merchants, warned they conspire against the public, and backed some state action. Left and right both quote him selectively." }
       ],
       "detail": "Smith (1776) argued self-interested exchange, coordinated 'as if by an invisible hand', can benefit all, powered by the division of labour. But he also rooted society in sympathy and distrusted merchants — he's far more nuanced than the caricature.",
-      "src": ["ev-adam-smith"],
+      "src": ["ev-pe-smith-wealth"],
       "year": 1776,
       "tags": ["political economy", "classical", "markets"],
       "deploy": "Useful against caricatures of 'capitalism = greed is good' — even Smith didn't say that.",
@@ -893,7 +905,7 @@
         { "d": "debate", "t": "Efficiency vs the worker", "body": "Marx pushed that worry much further, arguing extreme division of labour 'alienates' workers from their work, each other and themselves. The same mechanism that creates wealth can deskill and dull the people doing it — efficiency and human flourishing can pull apart." }
       ],
       "detail": "Splitting work into specialised steps multiplies output — Smith's pin factory is the classic example. But he and later Marx warned it can also deskill and alienate the worker.",
-      "src": ["ev-adam-smith-2"],
+      "src": ["ev-pe-division-labour"],
       "year": 1776,
       "tags": ["political economy", "classical", "labour"],
       "deploy": "Explains assembly lines, supply chains and outsourcing — and their human downside.",
@@ -911,7 +923,7 @@
         { "d": "debate", "t": "Value: labour or utility?", "body": "Ricardo's labour theory of value was picked up by Marx, then dropped by the mainstream after the 1870s 'marginal revolution', which located value in usefulness at the margin instead. Whether value is 'really' about labour or about subjective utility is an old fault line that still shapes which economics you're taught." }
       ],
       "detail": "Ricardo built ruthless logical models: comparative advantage, the theory of rent (landlords gain as population grows), and a labour theory of value later taken up by Marx and dropped by the mainstream.",
-      "src": ["ev-david-ricardo"],
+      "src": ["ev-pe-ricardo"],
       "year": 1817,
       "tags": ["political economy", "classical", "value"],
       "deploy": "Shows distribution-as-class-conflict has deep roots inside classical economics, not just in Marx.",
@@ -928,7 +940,7 @@
         { "d": "debate", "t": "The marginalist answer", "body": "From the 1870s the marginalists (Jevons, Menger, Walras) replaced it: value comes from the usefulness of the last unit to a buyer, set by supply and demand. This is now textbook orthodoxy. Heterodox and Marxian economists keep the labour theory alive, arguing marginalism hides the social relations behind prices. It's a choice of framework, not a closed case." }
       ],
       "detail": "Classical economists and Marx located value in labour; marginalists from the 1870s relocated it in usefulness at the margin. The mainstream took the second path — but the first still frames profit as extraction rather than reward.",
-      "src": ["ev-smith-ricardo-marx-vs-jevons-menger-walras"],
+      "src": ["ev-pe-ltv"],
       "tags": ["political economy", "value", "marxian"],
       "deploy": "Lets you locate an argument: profit-as-reward (marginalist) vs profit-as-extraction (Marxian).",
       "counter": "Marginalism resolved real puzzles — like why water is cheap and diamonds dear — that the labour theory struggled with."
@@ -945,7 +957,7 @@
         { "d": "debate", "t": "A political shift?", "body": "The change was intellectual and arguably political: it moved economics away from class and distribution — the classical and Marxian focus — toward individual choice and efficiency, where the system tends to a harmonious balance. Critics say this 'depoliticised' the field; defenders say it made it rigorous and testable." }
       ],
       "detail": "Around 1871–1874, Jevons, Menger and Walras relocated value in marginal utility, founding neoclassical economics and shifting the field from class and distribution toward individual optimisation and equilibrium.",
-      "src": ["ev-jevons-menger-walras"],
+      "src": ["ev-pe-marginalist"],
       "year": 1871,
       "tags": ["political economy", "neoclassical", "value"],
       "deploy": "Explains why mainstream economics talks about utility and equilibrium rather than class.",
@@ -963,7 +975,7 @@
         { "d": "debate", "t": "Critique vs prophecy", "body": "Marx's specific predictions — falling profit rates, ever-deepening worker poverty, inevitable collapse — haven't played out cleanly; living standards rose and the labour theory of value he relied on is rejected by the mainstream. Yet his analysis of inequality, crises, monopoly and capital's restlessness keeps being rediscovered, including after 2008. Influential as critique, contested as prophecy." }
       ],
       "detail": "Marx (1867) argued workers produce more value than their wage ('surplus value'), the source of profit and capital; competition drives accumulation, crises and concentration. His critique outlived his failed predictions.",
-      "src": ["ev-karl-marx"],
+      "src": ["ev-pe-marx-capital"],
       "year": 1867,
       "tags": ["political economy", "marxian", "capitalism"],
       "deploy": "A structured frame for arguments about exploitation, inequality and recurring financial crises.",
@@ -981,7 +993,7 @@
         { "d": "debate", "t": "Determinism?", "body": "Critics call it economic determinism — ideas, religion and politics plainly shape economies too (Max Weber argued Protestant culture helped birth capitalism). Most historians now reject any single master key to history. But 'follow the material interests' remains a powerful analytical habit, even for non-Marxists." }
       ],
       "detail": "Historical materialism holds that the economic base shapes a society's politics and ideas, and that history advances as productive forces outgrow old ownership arrangements. Powerful as a habit of analysis, contested as a law of history.",
-      "src": ["ev-karl-marx-friedrich-engels"],
+      "src": ["ev-pe-historical-materialism"],
       "year": 1859,
       "tags": ["political economy", "marxian", "history"],
       "deploy": "Prompts the sharp question: 'whose material interests does this idea serve?'.",
@@ -999,7 +1011,7 @@
         { "d": "debate", "t": "The pendulum swings", "body": "Keynesianism dominated until the 1970s, when 'stagflation' — high inflation and unemployment together — embarrassed the simple models and opened the door to Friedman's monetarism and a free-market revival. It roared back after 2008, when governments again propped up demand. The fight between 'markets self-correct' and 'demand must be managed' never really ends." }
       ],
       "detail": "Keynes (1936) argued economies can settle below full employment when demand collapses, so government should boost demand in slumps. Dominant until 1970s stagflation, revived after 2008.",
-      "src": ["ev-john-maynard-keynes"],
+      "src": ["ev-pe-keynes"],
       "year": 1936,
       "tags": ["political economy", "keynesian", "macro"],
       "deploy": "The canonical case for stimulus in a recession — private demand can fail to recover by itself.",
@@ -1017,7 +1029,7 @@
         { "d": "debate", "t": "When it doesn't hold", "body": "Free-market economists reply that saving funds investment, so thrift isn't wasted — it lowers interest rates and builds future capacity. The paradox bites mainly in a slump with idle resources and rock-bottom rates; in a booming economy, more saving really can mean more investment." }
       ],
       "detail": "Saving is prudent for one household but, if everyone does it at once in a slump, spending and incomes fall and total saving can drop — a 'fallacy of composition' Keynes used to justify stimulus.",
-      "src": ["ev-john-maynard-keynes-and-earlier-writers"],
+      "src": ["ev-pe-paradox-thrift"],
       "tags": ["political economy", "keynesian", "macro"],
       "deploy": "Explains why 'everyone should just budget like a household' fails for a whole economy at once.",
       "counter": "In normal times saving does finance investment; the paradox is a slump phenomenon, not a general law."
@@ -1033,7 +1045,7 @@
         { "d": "debate", "t": "Strict monetarism stumbles", "body": "Strict monetarism faltered in the 1980s when the link between money supply and inflation proved unstable, and central banks quietly switched from money-supply targets to interest-rate rules. Friedman's broader free-market politics became the orthodoxy of the 'neoliberal' era — credited with taming inflation, blamed by critics for rising inequality and deregulation." }
       ],
       "detail": "Friedman argued inflation is fundamentally monetary and government meddling does more harm than good. Strict monetarism failed in practice, but his free-market politics shaped the neoliberal era.",
-      "src": ["ev-milton-friedman"],
+      "src": ["ev-pe-friedman"],
       "year": 1963,
       "tags": ["political economy", "monetarist", "macro"],
       "deploy": "The standard hawkish case that loose money, not greedy sellers, drives inflation.",
@@ -1050,7 +1062,7 @@
         { "d": "debate", "t": "When prices lie", "body": "Critics point to where prices carry bad or missing information: pollution and other externalities, monopoly power, advertising, bubbles, and 'lemons' markets where buyers can't judge quality (Akerlof). Prices coordinate brilliantly — and also misfire in ways that can justify regulation. Hayek's insight is real, but not the whole story." }
       ],
       "detail": "Hayek (1945) argued that dispersed knowledge makes central planning impossible, while prices coordinate it automatically — a deep case for markets that critics qualify with externalities, monopoly and information failures.",
-      "src": ["ev-friedrich-hayek"],
+      "src": ["ev-pe-hayek"],
       "year": 1945,
       "tags": ["political economy", "austrian", "markets"],
       "deploy": "The strongest principled argument against detailed central planning — it's a knowledge problem, not just a motivation one.",
