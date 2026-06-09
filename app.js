@@ -1117,14 +1117,21 @@ function wireNav(){
 (function(){
   const bar=document.querySelector(".tabbar"); if(!bar) return; let offset=0, maxOff=120;
   const EASE="transform .3s cubic-bezier(.4,0,.2,1)";
-  function measure(){ maxOff=Math.round((bar.offsetHeight||100)*1.18); }
+  // px needed to tuck the bar fully off-screen. Re-measured whenever the height can change (safe-area inset
+  // resolves after first paint, orientation, viewport chrome) so the bar always clears — and keep it clamped.
+  function measure(){ const m=Math.round((bar.offsetHeight||100)*1.18); maxOff=m; if(offset>m){ offset=m; render(false); } }
+  window.__barMeasure=measure;
   function render(snap){ bar.style.transition=snap?EASE:"none"; bar.style.transform=offset>0?"translateY("+offset+"px)":""; bar.style.pointerEvents=offset>=maxOff-1?"none":""; }
   window.__revealBar=function(){ offset=0; render(true); const a=document.querySelector(".page.active"); if(a) a._barLastY=a.scrollTop; };
   function onScroll(e){ const el=e.target; if(!el||!el.classList||!el.classList.contains("page")||!el.classList.contains("active")) return;
     const y=el.scrollTop, prev=(el._barLastY==null)?y:el._barLastY; el._barLastY=y;
     if(y+el.clientHeight>=el.scrollHeight-4){ if(offset!==0){ offset=0; render(true); } return; }
     const dy=y-prev; if(dy===0) return; offset=clamp(offset-dy,0,maxOff); render(false); }
-  measure(); window.addEventListener("resize",measure);
+  measure();
+  window.addEventListener("resize",measure);
+  window.addEventListener("load",measure);
+  window.addEventListener("orientationchange",()=>setTimeout(measure,300));
+  if(window.visualViewport) window.visualViewport.addEventListener("resize",measure);
   document.querySelectorAll(".page").forEach(p=> p.addEventListener("scroll",onScroll,{passive:true}));
 })();
 // finger-drag the four pages 1:1, snapping to nearest on release
@@ -1191,7 +1198,7 @@ async function init(){
   hideSplash();
 }
 let splashGone=false;
-function hideSplash(){ if(splashGone) return; splashGone=true; const s=$("splash"); if(s){ s.classList.add("gone"); setTimeout(()=>s.remove(),500); } }
+function hideSplash(){ if(splashGone) return; splashGone=true; const s=$("splash"); if(s){ s.classList.add("gone"); setTimeout(()=>s.remove(),500); } if(window.__barMeasure) window.__barMeasure(); }
 setTimeout(hideSplash, 4000);   // backstop so a thrown init never traps the splash
 // register service worker
 if("serviceWorker" in navigator){ window.addEventListener("load",()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); }); }
