@@ -207,6 +207,39 @@
       "quiz": { "q": "'The street is wet, so it must have rained' commits which error?", "choices": ["Modus ponens", "Affirming the consequent", "Circular reasoning", "Straw man"], "answer": 1 }
     },
     {
+      "id": "cs-binary", "field": "math", "depth": "concept", "level": 1,
+      "title": "It's all bits",
+      "fact": "Everything in a computer — text, images, sound — is ultimately just numbers in binary (0s and 1s).",
+      "detail": "A bit is one on/off switch; eight bits make a byte. Numbers are written in base 2; text maps characters to numbers (ASCII/Unicode); images are grids of numbers for colour; sound is numbers sampled over time. The machine only ever shuffles patterns of bits — meaning is something we layer on top.",
+      "deploy": "Demystifies computers: no magic, just a very fast machine moving 0s and 1s under layers of convention.",
+      "counter": "'It's all just bits' is true but unhelpful for understanding software — the interesting structure lives in the abstractions above.",
+      "tags": ["computer science", "binary", "information"],
+      "xref": ["cs-bigo"],
+      "quiz": { "q": "At the lowest level, a computer stores text and images as…", "choices": ["Tiny pictures", "Numbers in binary (bits)", "Words", "Pure electricity"], "answer": 1 }
+    },
+    {
+      "id": "cs-bigo", "field": "math", "depth": "concept", "level": 2,
+      "title": "Big-O: how algorithms scale",
+      "fact": "Big-O notation describes how an algorithm's cost grows as the input gets bigger — not how fast it runs today.",
+      "detail": "An algorithm is a step-by-step recipe. Big-O captures scaling: O(n) doubles work when input doubles; O(n²) quadruples it; O(log n) barely grows. For large inputs a better Big-O beats a faster computer — an O(n log n) sort crushes an O(n²) one on a million items, whatever the hardware.",
+      "deploy": "Explains why 'use a better algorithm' often beats 'buy a faster computer' as data grows.",
+      "counter": "Big-O hides constant factors and real-world effects; for small inputs a 'worse' algorithm can be faster in practice.",
+      "tags": ["computer science", "algorithms", "complexity"],
+      "xref": ["sys-powerlaw", "cs-binary"],
+      "quiz": { "q": "Big-O notation describes an algorithm's…", "choices": ["Exact runtime in seconds", "How its cost scales with input size", "Memory brand", "Lines of code"], "answer": 1 }
+    },
+    {
+      "id": "cs-halting", "field": "math", "depth": "concept", "level": 3,
+      "title": "The halting problem",
+      "fact": "Some problems are provably impossible for any computer: no program can decide, in general, whether another program will halt.",
+      "detail": "Alan Turing proved in 1936 that there is no general algorithm to decide whether an arbitrary program halts or loops forever — the halting problem. It set a hard limit on computation, echoing Gödel's incompleteness: formal systems and machines alike have questions they can't answer from the inside.",
+      "deploy": "Shows that 'undecidable' is a real, proven category — some questions have no algorithmic answer, however much power you throw at them.",
+      "counter": "Undecidability is about the general case; many specific instances are perfectly decidable, and approximations often suffice.",
+      "tags": ["computer science", "computability", "turing"],
+      "xref": ["math-godel", "cs-bigo"],
+      "quiz": { "q": "The halting problem shows that…", "choices": ["Computers are slow", "No program can decide in general whether any program halts", "Binary is inefficient", "Algorithms always finish"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
