@@ -176,6 +176,7 @@
   .panelfoot{ padding:6px 18px 16px; font-size:13px; color:var(--l2); line-height:1.4; }
   /* feed status toggle: brand-coloured active segment to match the field chips */
   #feedStatus{ margin:10px 0 16px; }
+  #feedStatus .s{ flex:1 1 0; min-width:0; }   /* equal thirds, not ragged content-width segments */
 
   /* field-balance breakdown rows (tap radar to open) */
   .fieldrow{ display:flex; align-items:center; gap:13px; width:100%; padding:12px 4px; background:none; border:none; border-bottom:.5px solid var(--line); text-align:left; cursor:pointer; }

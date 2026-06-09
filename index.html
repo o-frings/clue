@@ -27,7 +27,6 @@
   document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, {passive:false});
 }catch(e){}})();
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -305,9 +304,13 @@
     document.head.appendChild(s);
   }catch(e){}
 })();
-// KaTeX (math rendering) — non-blocking; the app falls back to plain text if it never loads.
+// KaTeX (math rendering) — fully non-blocking; injected via JS so a slow/blocked CDN can never
+// stall app startup. The app falls back to plain-text equations if KaTeX never loads.
 (function(){
   try{
+    var css=document.createElement("link");
+    css.rel="stylesheet"; css.href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css";
+    document.head.appendChild(css);
     var k=document.createElement("script");
     k.src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js";
     k.async=true;
