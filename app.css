@@ -488,7 +488,7 @@
 
   /* featured hero card — vivid field colour, white text */
   .fcard.feat{ color:#fff; border-color:transparent; padding:22px 20px 18px;
-    background:linear-gradient(150deg, rgba(255,255,255,.18), rgba(0,0,0,.26)), var(--fc,var(--accent));
+    background:linear-gradient(150deg, color-mix(in srgb, var(--fc,var(--accent)) 80%, #fff) 0%, var(--fc,var(--accent)) 50%, color-mix(in srgb, var(--fc,var(--accent)) 78%, #000) 100%);
     box-shadow:0 16px 40px -18px var(--fc,var(--accent-glow)); }
   .fcard.feat::before{ display:none; }
   .fcard.feat .fcfield{ color:rgba(255,255,255,.95); }
