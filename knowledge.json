@@ -240,6 +240,39 @@
       "quiz": { "q": "The halting problem shows that…", "choices": ["Computers are slow", "No program can decide in general whether any program halts", "Binary is inefficient", "Algorithms always finish"], "answer": 1 }
     },
     {
+      "id": "stat-lln", "field": "math", "depth": "concept", "level": 2,
+      "title": "Law of large numbers (and the gambler's fallacy)",
+      "fact": "Averages settle down over many trials — but a fair coin has no memory, so 'due' outcomes are a fallacy.",
+      "detail": "The law of large numbers says the average of many independent trials converges to the true probability — flip a fair coin enough and heads approaches 50%. But each flip is independent: a run of tails doesn't make heads 'due'. Confusing the long-run average with short-run correction is the gambler's fallacy.",
+      "deploy": "Two lessons in one: trust large samples, and never expect chance to 'balance out' in the short run.",
+      "counter": "Convergence can be slow and assumes independence; with dependence or fat tails the average stays unstable far longer than intuition expects.",
+      "tags": ["statistics", "probability", "gambler's fallacy"],
+      "xref": ["math-base-rate", "stat-clt"],
+      "quiz": { "q": "After five tails in a row, the chance of heads on a fair coin is…", "choices": ["Higher — it's 'due'", "Still 50%", "Lower", "Impossible to say"], "answer": 1 }
+    },
+    {
+      "id": "stat-clt", "field": "math", "depth": "concept", "level": 2,
+      "title": "The central limit theorem",
+      "fact": "Add up many small independent effects and you tend to get a bell curve — the normal distribution.",
+      "detail": "The central limit theorem says sums or averages of many independent influences converge to a normal (Gaussian) shape, whatever the underlying distribution. That's why heights, measurement errors and sample averages cluster symmetrically around a mean — and why the bell curve and the standard deviation are everywhere in statistics.",
+      "deploy": "Explains why so many quantities are bell-shaped, and licenses much of standard statistics.",
+      "counter": "It fails when effects aren't independent or one factor dominates — then you get fat tails (power laws), where rare extremes are far commoner than the bell curve predicts.",
+      "tags": ["statistics", "normal distribution", "clt"],
+      "xref": ["sys-powerlaw", "stat-lln"],
+      "quiz": { "q": "The central limit theorem says sums of many independent effects tend toward a…", "choices": ["Flat line", "Normal (bell) curve", "Power law", "Single value"], "answer": 1 }
+    },
+    {
+      "id": "stat-correlation", "field": "math", "depth": "concept", "level": 1,
+      "title": "Correlation isn't causation",
+      "fact": "Two things moving together may share a hidden common cause rather than one causing the other.",
+      "detail": "Ice-cream sales and drownings rise together — because both rise with summer heat, a confounder. To infer cause you need more: a plausible mechanism, controlled experiments (randomisation breaks confounding), or careful natural experiments. 'X correlates with Y' is the start of an investigation, not its conclusion.",
+      "deploy": "A precise check on causal claims from observational data — ask 'what's the confounder?' and 'was it randomised?'",
+      "counter": "Overused as a thought-stopper: correlation is real evidence, and good design (instrumental variables, natural experiments) can infer causation without a lab.",
+      "tags": ["statistics", "causation", "confounding"],
+      "xref": ["math-simpson", "logic-affirming-consequent"],
+      "quiz": { "q": "Ice-cream sales correlate with drownings mainly because…", "choices": ["Ice cream is dangerous", "Both rise with summer heat (a confounder)", "Drowning causes hunger", "Pure coincidence"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
