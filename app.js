@@ -327,16 +327,26 @@ function candidateScore(c){
   s += (hashStr(c.id+todayStr())%12);                            // gentle daily shuffle
   return s;
 }
+// a card is unlocked once everything it BUILDS ON is learned (missing/unknown prereq ids count as met)
+function prereqsMet(c){ return (c.prereq||[]).every(id=> !byId[id] || isLearned(id)); }
+function lockedBy(c){ return (c.prereq||[]).filter(id=> byId[id] && !isLearned(id)).map(id=>byId[id]); }
+// round-robin the (already score-sorted) cards by field so a session mixes subjects
+// (interleaving/mixed practice beats blocked practice for retention)
+function interleaveByField(cards){
+  const byF={}, order=[];
+  cards.forEach(c=>{ if(!byF[c.field]){ byF[c.field]=[]; order.push(c.field); } byF[c.field].push(c); });
+  const out=[];
+  while(out.length<cards.length){ for(const f of order){ if(byF[f].length) out.push(byF[f].shift()); } }
+  return out;
+}
 function buildDiscoverQueue(limit){
-  const cand = KN.cards.filter(c=>isNew(c.id));
+  // prerequisite-aware: only surface cards whose prereqs are already learned, so the
+  // "builds on" chain unlocks in order. Foundational cards (no prereq) are always eligible.
+  const cand = KN.cards.filter(c=> isNew(c.id) && prereqsMet(c));
   cand.sort((a,b)=> candidateScore(b)-candidateScore(a));
-  // for the broad goals, spread across fields: round-robin the sorted list by field
-  if(settings.objective==="everything" || settings.objective==="general" || settings.objective==="sharp"){
-    const seen={}, out=[], rest=[];
-    cand.forEach(c=>{ if(!seen[c.field]){ seen[c.field]=1; out.push(c); } else rest.push(c); });
-    return out.concat(rest).slice(0,limit).map(c=>c.id);
-  }
-  return cand.slice(0,limit).map(c=>c.id);
+  // specialise = stay blocked on the focus field; every other objective interleaves
+  const ordered = settings.objective==="specialise" ? cand : interleaveByField(cand);
+  return ordered.slice(0,limit).map(c=>c.id);
 }
 function buildReviewQueue(){
   return dueCards().sort((a,b)=> progress[a].due-progress[b].due).slice(0,40);
@@ -761,12 +771,14 @@ function feedCardHtml(c, featured){
   const depthN=layersOf(c).length, st=cardState(c.id);
   const saved=(settings.saved||[]).includes(c.id);
   const isTheory = c.depth==='concept'||c.depth==='book';
+  const locks = isNew(c.id) ? lockedBy(c) : [];
   return '<button class="fcard'+(featured?' feat':'')+'" data-id="'+c.id+'" style="--fc:'+col+';">'+
     '<div class="fctop"><span class="fcfield">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+'</span>'+
       (isTheory?'<span class="fctag">theory</span>':'')+
       (saved?'<span class="fcsaved">🔖</span>':'')+'</div>'+
     '<div class="fctitle">'+esc(c.title)+'</div>'+
     '<div class="fchook">'+esc(teaser(c))+'</div>'+
+    (locks.length?('<div class="fclock">'+ICON.lock+'Builds on '+esc(locks.map(p=>p.title).join(', '))+'</div>'):'')+
     '<div class="fcfoot"><span class="fcdepth">▽ '+depthN+' level'+(depthN===1?'':'s')+'</span>'+
       '<span class="fcstate '+st.cls+'">'+st.txt+'</span></div>'+
     '</button>';

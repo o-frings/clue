@@ -479,6 +479,9 @@
   .fcsaved{ margin-left:auto; font-size:14px; }
   .fctitle{ font-size:19px; font-weight:750; letter-spacing:-.4px; line-height:1.2; }
   .fchook{ font-size:15px; color:var(--l2); line-height:1.46; margin-top:7px; }
+  .fclock{ display:flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:600; color:var(--l3); }
+  .fclock svg{ width:13px; height:13px; flex:0 0 auto; }
+  .fcard.feat .fclock{ color:rgba(255,255,255,.9); }
   .fcfoot{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
   .fcdepth{ font-size:12px; font-weight:800; color:var(--fc,var(--accent)); }
   .fcstate{ font-size:11px; font-weight:700; padding:4px 9px; border-radius:10px; }
