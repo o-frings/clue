@@ -172,6 +172,41 @@
       "quiz": { "q": "Why can repetition sustain cooperation in a prisoner's dilemma?", "choices": ["Players forget past moves", "Future retaliation deters betrayal today", "The payoffs change", "A referee enforces it"], "answer": 1 }
     },
     {
+      "id": "logic-validity", "field": "philo", "depth": "concept", "level": 1,
+      "title": "Valid vs true: the shape of an argument",
+      "fact": "An argument can be perfectly valid yet completely false — validity is about form, not facts.",
+      "detail": "An argument is valid if its conclusion must be true whenever its premises are — the logic holds regardless of content. It is sound only if it is valid AND its premises are actually true. 'All cats are robots; Felix is a cat; so Felix is a robot' is valid but unsound.",
+      "deploy": "Lets you separate two different complaints: 'your logic doesn't follow' vs 'your premise is false'.",
+      "counter": "Validity is necessary but cheap; in real debate the action is usually whether the premises are true, which logic alone can't settle.",
+      "tags": ["logic", "reasoning", "argument"],
+      "xref": ["philo-falsifiability", "logic-modus-ponens"],
+      "quiz": { "q": "An argument is valid when…", "choices": ["its premises are true", "if the premises are true, the conclusion must be too", "it sounds convincing", "its conclusion is well known"], "answer": 1 }
+    },
+    {
+      "id": "logic-modus-ponens", "field": "philo", "depth": "concept", "level": 2,
+      "title": "Modus ponens and modus tollens",
+      "fact": "Two reliable inference rules: affirm the 'if' (modus ponens) or deny the 'then' (modus tollens).",
+      "detail": "Modus ponens: from 'if P then Q' and 'P', conclude 'Q'. Modus tollens: from 'if P then Q' and 'not Q', conclude 'not P'. Both are valid forms — the backbone of everyday and mathematical reasoning. Popper's falsification is modus tollens: if a theory predicts Q and we observe not-Q, the theory fails.",
+      "deploy": "Names the moves so you can check whether a conclusion actually follows — and spot when someone only looks like they're using them.",
+      "counter": "Garbage in, garbage out: a valid form with a false 'if…then' premise still gives you nothing.",
+      "tags": ["logic", "inference", "reasoning"],
+      "prereq": ["logic-validity"],
+      "xref": ["philo-falsifiability"],
+      "quiz": { "q": "Modus tollens reasons from 'if P then Q' and 'not Q' to…", "choices": ["P", "not P", "Q", "nothing"], "answer": 1 }
+    },
+    {
+      "id": "logic-affirming-consequent", "field": "philo", "depth": "concept", "level": 2,
+      "title": "Affirming the consequent",
+      "fact": "'If P then Q; Q; therefore P' is a fallacy — a true consequence doesn't prove the cause.",
+      "detail": "Affirming the consequent confuses 'P implies Q' with 'Q implies P'. 'If it rained, the street is wet; the street is wet; so it rained' ignores sprinklers and hoses. It is one of the commonest reasoning errors — including in reading evidence: a result merely consistent with a theory doesn't confirm it.",
+      "deploy": "A precise label for a very common bad move — useful when someone treats 'consistent with' as 'proves'.",
+      "counter": "Such inferences can still raise the probability of P (that's Bayesian evidence) — they're just not deductively valid.",
+      "tags": ["logic", "fallacy", "reasoning"],
+      "prereq": ["logic-modus-ponens"],
+      "xref": ["math-base-rate", "philo-falsifiability"],
+      "quiz": { "q": "'The street is wet, so it must have rained' commits which error?", "choices": ["Modus ponens", "Affirming the consequent", "Circular reasoning", "Straw man"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
