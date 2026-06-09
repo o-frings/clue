@@ -9,6 +9,7 @@
 // ================= tiny helpers =================
 const $  = (id) => document.getElementById(id);
 const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 function hashStr(s){ let h=2166136261; s=String(s); for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); }
@@ -282,6 +283,7 @@ async function loadKnowledge(){
   // glossary registry (optional, separate file — jargon & canonical symbols)
   try{ const r=await fetch("glossary.json",{cache:"no-cache"}); const gl=await r.json(); GL=gl.terms||gl||{}; }
   catch(e){ GL={}; }
+  glossIndex=null;
   byId={}; byField={}; fieldById={}; depthById={};
   KN.fields.forEach(f=>{ fieldById[f.id]=f; byField[f.id]=[]; });
   (KN.depths||[]).forEach(d=> depthById[d.id]=d);
@@ -560,6 +562,72 @@ function relatedHtml(c){
   return h;
 }
 
+// ================= glossary tooltips (Phase 2) =================
+// Wrap the first occurrence of each known glossary term/symbol in rendered text
+// with a tappable chip that opens a definition popover. Pure DOM pass — safe against
+// the already-escaped HTML, and conservative (one link per term per render).
+let glossIndex=null;
+function buildGlossIndex(){
+  const entries=[];
+  for(const id in GL){ const g=GL[id]||{};
+    if(g.term) entries.push({id, text:g.term, sym:false});
+    if(g.symbol) entries.push({id, text:g.symbol, sym:true}); }
+  entries.sort((a,b)=> b.text.length-a.text.length); // longest first so "GDP" wins over "GD"
+  glossIndex=entries;
+}
+function decorateGlossary(root){
+  if(!root) return;
+  if(!glossIndex) buildGlossIndex();
+  if(!glossIndex.length) return;
+  const used=new Set();
+  const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(n){
+    if(!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+    const p=n.parentElement;
+    if(!p || p.closest('a,button,.glossterm,.rdLabel,.rdField,.kmedia,.ksource,.rdrel')) return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT; } });
+  const nodes=[]; let n; while((n=walker.nextNode())) nodes.push(n);
+  for(const node of nodes){
+    const text=node.nodeValue;
+    let best=null;
+    for(const e of glossIndex){
+      if(used.has(e.id)) continue;
+      let idx;
+      if(e.sym) idx=text.indexOf(e.text);
+      else { const m=text.match(new RegExp('\\b'+escRe(e.text)+'\\b','i')); idx=m?m.index:-1; }
+      if(idx>=0 && (!best || idx<best.idx)) best={e, idx};
+    }
+    if(!best) continue;
+    const {e, idx}=best, len=e.text.length;
+    const span=document.createElement('button'); span.className='glossterm'; span.dataset.gl=e.id; span.textContent=text.slice(idx,idx+len);
+    const frag=document.createDocumentFragment();
+    if(idx>0) frag.appendChild(document.createTextNode(text.slice(0,idx)));
+    frag.appendChild(span);
+    if(idx+len<text.length) frag.appendChild(document.createTextNode(text.slice(idx+len)));
+    node.parentNode.replaceChild(frag, node);
+    used.add(e.id);
+  }
+  root.querySelectorAll('.glossterm').forEach(b=> b.onclick=(ev)=>{ ev.stopPropagation(); showGloss(b.dataset.gl, b); });
+}
+function showGloss(id, anchor){
+  const g=GL[id]; if(!g) return;
+  const fl=fieldById[g.field]||{};
+  let pop=$("glossPop");
+  if(!pop){ pop=document.createElement('div'); pop.id='glossPop'; pop.className='glosspop'; document.body.appendChild(pop);
+    pop.addEventListener('click', e=>e.stopPropagation()); }
+  pop.style.setProperty('--fc', fl.color||'var(--accent)');
+  pop.innerHTML='<div class="gpterm">'+(g.symbol?('<span class="gpsym">'+esc(g.symbol)+'</span>'):'')+esc(g.term)+'</div><div class="gpdef">'+esc(g.def||'')+'</div>';
+  const pw=Math.min(300, window.innerWidth-24);
+  pop.style.width=pw+'px'; pop.style.display='block';
+  const r=anchor.getBoundingClientRect();
+  const left=clamp(r.left+r.width/2-pw/2, 12, window.innerWidth-pw-12);
+  pop.style.left=left+'px';
+  const ph=pop.offsetHeight;
+  const below=r.bottom+8, above=r.top-8-ph;
+  pop.style.top=(below+ph>window.innerHeight-12 && above>12 ? above : below)+'px';
+  setTimeout(()=> document.addEventListener('click', dismissGloss, {once:true}), 0);
+}
+function dismissGloss(){ const p=$("glossPop"); if(p) p.style.display='none'; }
+
 function gradeCurrent(q){
   const id=session.review[session.reviewIdx]; schedule(id,q,false);
   session.stats.reviewed++; touchDay('review');
@@ -755,6 +823,7 @@ function renderReader(){
   $("rdBody").innerHTML=body;
   // tap anywhere on the card to peel the next layer (links / buttons excepted)
   $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')) return; rdRevealed++; renderReader(); }) : null;
+  decorateGlossary($("rdBody"));
   // related-card chips (prereq / xref) navigate the reader to that card
   document.querySelectorAll("#rdBody .rdrel").forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); openReader(b.dataset.id); });
   // foot: a persistent "go deeper" affordance while peeling; empty once fully open

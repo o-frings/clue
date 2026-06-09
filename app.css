@@ -551,6 +551,16 @@
     font-size:14px; font-weight:600; text-align:left; color:var(--ink); font-family:inherit;
     background:color-mix(in srgb, var(--fc,var(--accent)) 9%, var(--card)); border:.5px solid color-mix(in srgb, var(--fc,var(--accent)) 26%, transparent); }
   .rdrel:active{ transform:scale(.96); }
+  /* glossary terms + definition popover (Phase 2) */
+  .glossterm{ font:inherit; color:inherit; background:none; border:none; padding:0; cursor:pointer;
+    border-bottom:1.5px dotted color-mix(in srgb, var(--accent) 60%, var(--l3)); }
+  .glossterm:active{ background:var(--accent-soft); }
+  .glosspop{ position:fixed; z-index:9998; display:none; background:var(--sheetbg); color:var(--ink);
+    border:.5px solid var(--line); border-left:3px solid var(--fc,var(--accent)); border-radius:14px;
+    padding:13px 15px; box-shadow:0 10px 34px -10px rgba(0,0,0,.4); }
+  .glosspop .gpterm{ font-size:15px; font-weight:700; letter-spacing:-.2px; margin-bottom:5px; }
+  .glosspop .gpsym{ display:inline-block; margin-right:7px; color:var(--fc,var(--accent)); font-weight:800; }
+  .glosspop .gpdef{ font-size:14px; line-height:1.5; color:var(--l2); }
   .rddone{ text-align:center; font-size:14px; font-weight:700; color:var(--green); padding:10px 0 4px; }
   .rdquiz{ margin-top:6px; }
   .readerFoot{ flex:0 0 auto; padding:12px 22px calc(16px + env(safe-area-inset-bottom));
