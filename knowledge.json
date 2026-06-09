@@ -83,6 +83,61 @@
       "quiz": { "q": "Which mission first landed humans on the Moon (1969)?", "choices": ["Apollo 8", "Apollo 11", "Apollo 13", "Gemini 4"], "answer": 1 }
     },
     {
+      "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
+      "title": "The Hijra and year one of the Islamic calendar",
+      "fact": "622 CE: Muhammad's migration (the Hijra) from Mecca to Medina marks year 1 of the Islamic calendar.",
+      "detail": "Facing persecution in Mecca, Muhammad and his followers relocated to Yathrib (Medina), where the first Muslim community and polity took shape. The Islamic lunar calendar (AH, 'after Hijra') counts from this year — not from Muhammad's birth or the first revelation.",
+      "deploy": "A reminder that the world's major calendars start from different events — dating itself encodes a worldview.",
+      "counter": "The year is firm, but precise days are reconstructed from later sources.",
+      "tags": ["islam", "middle east", "calendar"],
+      "xref": ["date-constantinople-1453"],
+      "quiz": { "q": "The Islamic calendar counts its years from…", "choices": ["Muhammad's birth", "The Hijra (migration to Medina)", "The fall of Mecca", "The first Crusade"], "answer": 1 }
+    },
+    {
+      "id": "date-sykes-picot-1916", "field": "geo", "kind": "date", "depth": "event", "level": 2, "year": 1916, "when": "1916",
+      "title": "Sykes–Picot carves up the Middle East",
+      "fact": "1916: the secret Sykes–Picot agreement split the Ottoman Middle East into British and French spheres.",
+      "detail": "During WWI, Britain and France (with Russian assent) secretly agreed how to divide the Ottoman Arab lands. The mandates and borders that followed — Iraq, Syria, Lebanon, Jordan, Palestine — were drawn largely in European capitals, cutting across communities. The legacy still shapes Middle Eastern politics and grievances.",
+      "deploy": "Concrete evidence that many modern state borders were imposed from outside, not grown organically.",
+      "counter": "Later deals (San Remo, the mandate system) reshaped the lines; blaming all regional conflict on one 1916 map oversimplifies.",
+      "tags": ["middle east", "colonialism", "ottoman", "borders"],
+      "xref": ["date-constantinople-1453", "geo-hormuz", "date-year-of-africa-1960"],
+      "quiz": { "q": "The 1916 Sykes–Picot agreement secretly divided…", "choices": ["Africa among European powers", "the Ottoman Middle East between Britain and France", "India and Pakistan", "the Americas"], "answer": 1 }
+    },
+    {
+      "id": "date-prc-1949", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1949, "when": "1 Oct 1949",
+      "title": "The founding of the People's Republic of China",
+      "fact": "1 October 1949: Mao Zedong proclaimed the People's Republic of China.",
+      "detail": "After decades of warlordism, Japanese invasion and civil war, the Communists under Mao defeated the Nationalists (who fled to Taiwan). The new state launched land reform and later the Great Leap Forward and Cultural Revolution; from 1978 Deng Xiaoping's reforms opened the economy that made China a superpower.",
+      "deploy": "The starting point for understanding modern China's politics, economy and rise.",
+      "counter": "1949 is a founding, not a steady state: Maoist and reform-era China differ so sharply they are almost different systems.",
+      "tags": ["china", "revolution", "communism"],
+      "xref": ["pe-marx-capital", "geo-thucydides"],
+      "quiz": { "q": "What was founded on 1 October 1949?", "choices": ["The Republic of China", "The People's Republic of China", "The Soviet Union", "The Qing dynasty"], "answer": 1 }
+    },
+    {
+      "id": "date-year-of-africa-1960", "field": "geo", "kind": "date", "depth": "event", "level": 1, "year": 1960, "when": "1960",
+      "title": "The Year of Africa",
+      "fact": "1960, the 'Year of Africa': 17 African countries gained independence from colonial rule.",
+      "detail": "In a single year a wave of mostly French and British colonies became sovereign states — Nigeria, Senegal, Mali, the Congo and others. Independence often came with borders inherited from the colonisers and economies built to export raw materials, shaping later challenges (including across the Sahel).",
+      "deploy": "Shows how recent decolonisation is — within living memory — and how colonial borders and economies outlast empire.",
+      "counter": "Formal independence didn't end external influence: Cold War rivalry, debt and 'Françafrique' ties kept shaping these states.",
+      "tags": ["africa", "decolonisation", "colonialism", "sahel"],
+      "xref": ["date-sykes-picot-1916", "geo-heartland"],
+      "quiz": { "q": "Why is 1960 called the 'Year of Africa'?", "choices": ["The African Union formed", "17 African countries became independent", "Apartheid ended", "The Sahara was first mapped"], "answer": 1 }
+    },
+    {
+      "id": "date-berlin-wall-1989", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1989, "when": "9 Nov 1989",
+      "title": "The fall of the Berlin Wall",
+      "fact": "9 November 1989: the Berlin Wall fell, symbolising the end of the Cold War division of Europe.",
+      "detail": "Mounting protest and a botched East German announcement sent crowds to the checkpoints; the guards stood aside. Within two years Germany reunified and the Soviet Union dissolved. It marked the collapse of the Eastern Bloc and, for a time, a sense that liberal democracy had 'won'.",
+      "deploy": "The emblematic end of the bipolar Cold War order and the start of a US-led 'unipolar moment'.",
+      "counter": "The 'end of history' optimism faded — authoritarian revival, great-power rivalry and the 2008 crisis complicated the triumphal story.",
+      "tags": ["cold war", "germany", "1989"],
+      "xref": ["eh-neoliberal-turn", "geo-thucydides", "date-prc-1949"],
+      "quiz": { "q": "The fall of the Berlin Wall (1989) symbolised…", "choices": ["the start of WWII", "the end of the Cold War division of Europe", "the rejection of German reunification", "the founding of the EU"], "answer": 1 }
+    },
+    {
       "id": "fun-octopus-hearts", "field": "fun", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "Octopuses have three hearts",
