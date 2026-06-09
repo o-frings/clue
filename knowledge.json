@@ -105,6 +105,7 @@
     },
     {
       "id": "fun-1816-no-summer", "field": "fun", "depth": "event", "level": 2,
+      "xref": ["eco-planetary-boundaries"],
       "title": "The Year Without a Summer (1816)",
       "fact": "In 1816 a volcano half a world away caused snow in June and famine across the Northern Hemisphere.",
       "detail": "The 1815 eruption of Mount Tambora in Indonesia — the largest in recorded history — threw sulfate aerosols into the stratosphere, dimming the sun and crashing temperatures. Crops failed across Europe and North America. The gloom of that summer also gave us Mary Shelley's 'Frankenstein'.",
@@ -127,6 +128,7 @@
 
     {
       "id": "math-infinities", "field": "math", "depth": "concept", "level": 2,
+      "xref": ["math-godel"],
       "title": "Some infinities are bigger than others",
       "fact": "There are strictly more real numbers than whole numbers — infinity comes in different sizes.",
       "detail": "Cantor's diagonal argument (1891) shows you can't list all real numbers even with an infinite list: given any list, you can build a real number missing from it. So the reals are 'uncountable' and outnumber the (countable) integers.",
@@ -139,6 +141,7 @@
     },
     {
       "id": "math-godel", "field": "math", "depth": "book", "level": 3,
+      "xref": ["math-infinities"],
       "title": "Gödel's incompleteness theorems",
       "fact": "Any consistent maths system rich enough for arithmetic contains true statements it can never prove.",
       "detail": "Gödel (1931) showed such a system can't be both complete and consistent, and can't prove its own consistency from within. Truth outruns provability.",
@@ -164,6 +167,7 @@
     },
     {
       "id": "math-simpson", "field": "math", "depth": "concept", "level": 3,
+      "xref": ["math-base-rate","sys-powerlaw"],
       "title": "Simpson's paradox",
       "fact": "A trend can hold in every subgroup yet reverse when the groups are combined.",
       "detail": "In Berkeley's 1973 graduate admissions, men appeared admitted at higher rates overall, yet within most departments women were admitted at equal-or-higher rates — women applied more to competitive departments. Aggregation flipped the picture.",
@@ -187,6 +191,7 @@
     },
     {
       "id": "phys-light-speed", "field": "physics", "depth": "concept", "level": 2,
+      "xref": ["phys-cmb"],
       "title": "The speed of light is the same for everyone",
       "fact": "Light travels at the same speed for all observers, no matter how they move.",
       "detail": "Einstein's 1905 special relativity takes this as a postulate. The consequences are strange but measured: moving clocks run slow (time dilation), moving lengths contract, and simultaneity is relative.",
@@ -211,6 +216,7 @@
     },
     {
       "id": "phys-cmb", "field": "physics", "depth": "event", "level": 2,
+      "xref": ["phys-light-speed","phys-entropy"],
       "title": "We can still see the Big Bang's afterglow",
       "fact": "The whole sky glows faintly at ~2.7 K — leftover heat from the early universe.",
       "detail": "Penzias and Wilson detected the cosmic microwave background in 1964 (published 1965), a relic of when the universe cooled enough for light to travel freely ~380,000 years after the Big Bang. It's some of the strongest evidence for the hot Big Bang model.",
@@ -223,6 +229,7 @@
 
     {
       "id": "hist-printing", "field": "history", "depth": "event", "level": 1,
+      "xref": ["date-constantinople-1453"],
       "title": "Gutenberg's printing press (~1440)",
       "fact": "Cheap printed books in the 1400s helped trigger the Reformation and the Scientific Revolution.",
       "detail": "Movable-type printing in Europe (~1440) collapsed the cost of copying text. Literacy spread, ideas travelled faster than authorities could suppress them, and standardised knowledge accumulated.",
@@ -234,6 +241,7 @@
     },
     {
       "id": "hist-blackdeath", "field": "history", "depth": "event", "level": 2,
+      "xref": ["eh-enclosure","date-constantinople-1453"],
       "title": "The Black Death (1347–1351)",
       "fact": "A plague that killed a third or more of Europe also raised the wages of those who survived.",
       "detail": "With labour suddenly scarce, surviving workers could demand more, accelerating the decline of serfdom in parts of Western Europe. Catastrophe restructured the economy.",
@@ -245,6 +253,7 @@
     },
     {
       "id": "hist-westphalia", "field": "history", "depth": "event", "level": 3,
+      "xref": ["geo-thucydides","date-french-revolution-1789"],
       "title": "The Peace of Westphalia (1648)",
       "fact": "The 1648 treaties ending the Thirty Years' War are often called the birth of the sovereign state.",
       "detail": "They're cited as the origin of 'Westphalian sovereignty' — the principle that states are supreme within their own borders and don't answer to outside authority.",
@@ -268,6 +277,7 @@
     },
     {
       "id": "geo-hormuz", "field": "geo", "depth": "fact", "level": 1,
+      "xref": ["geo-heartland"],
       "title": "Chokepoint: the Strait of Hormuz",
       "fact": "Roughly a fifth of the world's oil passes through one narrow strait.",
       "detail": "About 20–21 million barrels a day move through the Strait of Hormuz between the Persian Gulf and open ocean — a single point of geographic leverage.",
@@ -278,6 +288,7 @@
     },
     {
       "id": "geo-heartland", "field": "geo", "depth": "concept", "level": 3,
+      "xref": ["geo-thucydides","geo-hormuz"],
       "title": "Mackinder's Heartland theory (1904)",
       "fact": "Whoever controls the Eurasian 'Heartland' could dominate the world — a classic land-power doctrine.",
       "detail": "Halford Mackinder argued that control of inner Eurasia (the 'World-Island') was the key to global power, because it was beyond the reach of sea power.",
@@ -289,6 +300,7 @@
     },
     {
       "id": "geo-demographic", "field": "geo", "depth": "concept", "level": 2,
+      "xref": ["eco-planetary-boundaries"],
       "title": "The demographic transition",
       "fact": "As countries develop, they shift from high birth-and-death rates to low — then they age.",
       "detail": "Falling child mortality and development first cause a population boom, then birth rates fall and the population stabilises and greys, raising the ratio of retirees to workers.",
@@ -300,6 +312,7 @@
 
     {
       "id": "bio-natural-selection", "field": "bio", "depth": "book", "level": 1,
+      "xref": ["bio-crispr","philo-falsifiability"],
       "title": "Natural selection",
       "fact": "Heritable variation plus differential survival produces design without a designer.",
       "detail": "Darwin (1859): organisms vary, some variations are inherited, and those that aid survival and reproduction become more common over generations — yielding apparent design.",
@@ -312,6 +325,7 @@
     },
     {
       "id": "bio-microbiome", "field": "bio", "depth": "fact", "level": 2,
+      "xref": ["bio-natural-selection"],
       "title": "You're about half bacteria (by cell count)",
       "fact": "Your body holds roughly as many bacterial cells as human cells — about 1:1, not the old '10:1'.",
       "detail": "A 2016 re-estimate put it near 38 trillion bacteria to 30 trillion human cells. The widely-repeated '10 times more bacteria than your own cells' was never well-founded.",
@@ -323,6 +337,7 @@
     },
     {
       "id": "bio-crispr", "field": "bio", "depth": "event", "level": 2,
+      "xref": ["bio-natural-selection"],
       "title": "CRISPR: programmable gene editing",
       "fact": "Since 2012 we've been able to cut and edit DNA at a chosen spot, cheaply and precisely.",
       "detail": "Doudna and Charpentier showed the bacterial CRISPR-Cas9 system can be guided by a custom RNA to cut DNA wherever you point it (Nobel Prize 2020). It transformed biotech almost overnight.",
@@ -335,6 +350,7 @@
 
     {
       "id": "eco-yellowstone", "field": "eco", "depth": "event", "level": 2,
+      "xref": ["sys-feedback","bio-natural-selection"],
       "title": "Wolves reshaped Yellowstone",
       "fact": "Reintroducing wolves in 1995 rippled all the way down to the rivers.",
       "detail": "With wolves back, elk grazed differently, letting willow and aspen recover, which helped beavers and stabilised some streambanks — a 'trophic cascade' from a top predator.",
@@ -346,6 +362,7 @@
     },
     {
       "id": "eco-planetary-boundaries", "field": "eco", "depth": "book", "level": 3,
+      "xref": ["sys-commons","econ-externalities"],
       "title": "Planetary boundaries",
       "fact": "Scientists have mapped nine limits for a stable planet — and we've crossed several.",
       "detail": "The framework defines a 'safe operating space' across climate, biodiversity, the nitrogen and phosphorus cycles, freshwater, land use, and more. A 2023 update found six of nine boundaries transgressed.",
@@ -357,6 +374,7 @@
     },
     {
       "id": "eco-haber-bosch", "field": "eco", "depth": "event", "level": 2,
+      "xref": ["eco-planetary-boundaries","eh-industrial-revolution"],
       "title": "Half the nitrogen in you came from one factory process",
       "fact": "The Haber-Bosch process (1909) pulls nitrogen from the air to make fertiliser — and now feeds roughly half the world.",
       "detail": "Before it, crop yields were capped by natural nitrogen. Synthetic ammonia broke that ceiling; a large share of the nitrogen atoms in your body passed through this industrial reaction.",
@@ -369,6 +387,7 @@
 
     {
       "id": "sys-feedback", "field": "systems", "depth": "book", "level": 1,
+      "xref": ["sys-commons","sys-powerlaw"],
       "title": "Reinforcing vs balancing feedback",
       "fact": "Two loop types explain most system behaviour: one amplifies, one stabilises.",
       "detail": "Reinforcing (positive) loops compound — interest, viral spread, arms races. Balancing (negative) loops push back toward a target — a thermostat, hunger, market correction.",
@@ -380,6 +399,7 @@
     },
     {
       "id": "sys-commons", "field": "systems", "depth": "concept", "level": 2,
+      "xref": ["econ-externalities","poli-collective-action"],
       "title": "The tragedy of the commons — and its rebuttal",
       "fact": "Shared resources get overused when each user pockets the gain but shares the cost — yet communities often solve this without the state or markets.",
       "detail": "Hardin (1968) argued a shared pasture is doomed to overgrazing. Elinor Ostrom (Nobel 2009) then documented many real communities that govern shared fisheries, forests and irrigation sustainably through their own rules.",
@@ -391,6 +411,7 @@
     },
     {
       "id": "sys-powerlaw", "field": "systems", "depth": "concept", "level": 2,
+      "xref": ["math-simpson"],
       "title": "Heavy tails: when the average lies",
       "fact": "Wealth, city sizes, and word frequencies follow heavy-tailed distributions where a few cases dominate.",
       "detail": "In a power-law-like distribution, the 'typical' value and the average can be wildly different — think the 80/20 rule. A handful of extreme cases carry most of the total.",
@@ -446,6 +467,7 @@
 
     {
       "id": "philo-is-ought", "field": "philo", "depth": "book", "level": 2,
+      "xref": ["philo-falsifiability"],
       "title": "Hume's is–ought gap",
       "fact": "You can't logically derive what ought to be purely from what is.",
       "detail": "Hume (1739) noticed writers slide from describing facts ('is') to prescribing duties ('ought') without justifying the jump. Facts alone don't entail values.",
@@ -470,6 +492,7 @@
     },
     {
       "id": "philo-veil", "field": "philo", "depth": "book", "level": 2,
+      "xref": ["philo-is-ought","date-french-revolution-1789"],
       "title": "Rawls's veil of ignorance",
       "fact": "To find fair rules, choose them not knowing who you'll be in the society.",
       "detail": "Rawls (1971): behind a 'veil' that hides your wealth, talents, race and class, you'd pick principles that protect everyone — because you might end up at the bottom.",
@@ -482,6 +505,7 @@
 
     {
       "id": "poli-median-voter", "field": "polisci", "depth": "concept", "level": 2,
+      "xref": ["poli-duverger"],
       "title": "The median voter theorem",
       "fact": "In a simple two-way majority vote, the middle voter decides — so parties drift to the centre.",
       "detail": "If opinion lines up on one axis and the winner needs a majority, the option preferred by the median voter beats all others. Candidates converge toward that voter to win.",
@@ -493,6 +517,7 @@
     },
     {
       "id": "poli-duverger", "field": "polisci", "depth": "concept", "level": 2,
+      "xref": ["poli-median-voter"],
       "title": "Duverger's law",
       "fact": "Winner-take-all elections tend to produce two big parties; proportional systems produce many.",
       "detail": "Under first-past-the-post, votes for small parties are 'wasted', so voters and donors consolidate around two contenders. Proportional representation rewards smaller parties, so more survive.",
@@ -504,6 +529,7 @@
     },
     {
       "id": "poli-collective-action", "field": "polisci", "depth": "book", "level": 3,
+      "xref": ["sys-commons"],
       "title": "The collective action problem",
       "fact": "Even when everyone would benefit, large groups often fail to act — because each person can free-ride.",
       "detail": "Olson (1965): if you'll get the benefit whether or not you contribute, the rational move is to let others do the work. So big diffuse groups under-organise while small concentrated interests punch above their weight.",
@@ -550,6 +576,7 @@
     },
     {
       "id": "econ-gdp", "field": "econ", "depth": "concept", "level": 1,
+      "xref": ["econ-externalities"],
       "title": "What GDP measures",
       "fact": "GDP measures the money value of what a country produces — and quietly leaves a lot out.",
       "layers": [
@@ -705,6 +732,7 @@
     },
     {
       "id": "pe-historical-materialism", "field": "polecon", "depth": "concept", "level": 2,
+      "xref": ["pe-marx-capital","eh-industrial-revolution"],
       "title": "Historical materialism",
       "fact": "Marx's big bet: to understand history, follow how people make their living.",
       "layers": [
@@ -791,6 +819,7 @@
 
     {
       "id": "eh-industrial-revolution", "field": "echist", "depth": "event", "level": 1,
+      "xref": ["eh-enclosure","eco-haber-bosch"],
       "title": "The hockey stick",
       "fact": "For most of history, ordinary living standards barely moved. Then, around 1800, they exploded.",
       "layers": [
@@ -808,6 +837,7 @@
     },
     {
       "id": "eh-enclosure", "field": "echist", "depth": "event", "level": 2,
+      "xref": ["pe-smith-wealth","hist-blackdeath"],
       "title": "Enclosure and the making of workers",
       "fact": "Before there were factory workers, common land had to be fenced off — and people pushed into wage labour.",
       "layers": [
@@ -823,6 +853,7 @@
     },
     {
       "id": "eh-bretton-woods", "field": "echist", "depth": "event", "level": 2,
+      "xref": ["eh-great-depression","pe-keynes"],
       "title": "Bretton Woods and the end of gold",
       "fact": "For 27 years the world's money was anchored to gold through the dollar — until one night in 1971 it wasn't.",
       "layers": [
@@ -891,6 +922,7 @@
     },
     {
       "id": "eh-2008", "field": "echist", "depth": "event", "level": 2,
+      "xref": ["pe-keynes","econ-externalities"],
       "title": "The 2008 financial crisis",
       "fact": "In 2008 the financial system nearly stopped — and the faith that markets police themselves took a beating.",
       "layers": [
