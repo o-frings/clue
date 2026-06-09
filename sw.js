@@ -9,8 +9,8 @@
  * new service worker; the new SW then re-fetches the shell with cache:"reload" and deletes the old
  * cache on activate, so the update lands on next open.
  */
-const CACHE = "clue-v3";
-const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json"];
+const CACHE = "clue-v4";
+const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json", "./evidence.json"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(

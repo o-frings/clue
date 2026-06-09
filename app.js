@@ -248,6 +248,7 @@ function renderAccount(){
 
 // ================= state =================
 let KN = { fields:[], cards:[], motions:[], depths:[] };
+let EV = {};                     // evidence registry: id -> {who,year,title,where,url,kind,strength}
 let byId={}, byField={}, fieldById={}, depthById={};
 let progress = {};               // cardId -> SRS record
 let session = null;              // active learn session
@@ -274,6 +275,9 @@ async function loadKnowledge(){
   catch(e){ try{ const r=await fetch("knowledge.json"); data=await r.json(); }catch(e2){ data=null; } }
   if(!data){ return false; }
   KN.fields=data.fields||[]; KN.cards=data.cards||[]; KN.motions=data.motions||[]; KN.depths=data.depths||[];
+  // evidence registry (optional, separate file — every source logged once, referenced by card.src[])
+  try{ const r=await fetch("evidence.json",{cache:"no-cache"}); const ev=await r.json(); EV=ev.sources||ev||{}; }
+  catch(e){ EV={}; }
   byId={}; byField={}; fieldById={}; depthById={};
   KN.fields.forEach(f=>{ fieldById[f.id]=f; byField[f.id]=[]; });
   (KN.depths||[]).forEach(d=> depthById[d.id]=d);
@@ -503,11 +507,25 @@ function renderCardPlayer(c, mode){
 function schedPeek(c,q){ const cur=progress[c.id]; const save=cur?JSON.parse(JSON.stringify(cur)):null;
   const p=schedule(c.id,q,true); const days=p.interval; if(save) progress[c.id]=save; else delete progress[c.id];
   return days>=1?(days+'d'):'soon'; }
-function sourceLine(c){ const s=c.source||{}; if(!s.who && !s.title) return '';
+// resolve a card's sources from the evidence registry (falls back to a legacy inline source)
+function cardSources(c){
+  if(Array.isArray(c.src)) return c.src.map(id=>EV[id]).filter(Boolean);
+  if(c.source) return [c.source];
+  return [];
+}
+function cardSourceText(c){ return cardSources(c).map(s=>(s.who||'')+' '+(s.title||'')).join(' '); }
+function fmtSource(s){
   const bits=[]; if(s.who) bits.push(esc(s.who)); if(s.year) bits.push(s.year);
   let txt=bits.join(', '); if(s.title) txt+= (txt?' — ':'')+'<i>'+esc(s.title)+'</i>'; if(s.where) txt+=', '+esc(s.where);
   if(s.url) txt='<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+txt+'</a>';
-  return '<div class="ksource">'+ICON.source+'<span>'+txt+'</span></div>'; }
+  if(s.strength) txt+=' <span class="ksrcstr">· '+esc(s.strength)+'</span>';
+  return txt;
+}
+function sourceLine(c){
+  const srcs=cardSources(c).filter(s=> s.who||s.title);
+  if(!srcs.length) return '';
+  return '<div class="ksource">'+ICON.source+'<span>'+srcs.map(fmtSource).join('<br>')+'</span></div>';
+}
 function debateBox(c){ if(!c.deploy && !c.counter) return '';
   return '<div class="kdebate">'+
     (c.deploy?('<div class="karg deploy"><div class="klabel">'+ICON.deploy+'Use it</div><p>'+esc(c.deploy)+'</p></div>'):'')+
@@ -660,7 +678,7 @@ function cardState(id){ if(isNew(id)) return {cls:"new",txt:"New"}; if(isDue(id)
 function renderLibList(){
   const q=libQuery.trim().toLowerCase();
   let list=KN.cards.filter(c=> libFieldFilter==="all" || c.field===libFieldFilter);
-  if(q){ list=list.filter(c=> (c.title+' '+c.fact+' '+(c.detail||'')+' '+((c.source||{}).who||'')+' '+(c.tags||[]).join(' ')).toLowerCase().includes(q)); }
+  if(q){ list=list.filter(c=> (c.title+' '+c.fact+' '+(c.detail||'')+' '+cardSourceText(c)+' '+(c.tags||[]).join(' ')).toLowerCase().includes(q)); }
   if(!list.length){ $("libList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>No cards match.</p></div>'; return; }
   $("libList").innerHTML=list.map(c=>{ const fl=fieldById[c.field]||{}, st=cardState(c.id);
     return '<div class="libcard" data-id="'+c.id+'"><span class="lcdot" style="background:'+(fl.color||'#888')+'"></span>'+
@@ -770,7 +788,7 @@ function renderDebate(){
     return '<div class="argcard '+side+'" data-id="'+c.id+'">'+
       '<div class="actitle">'+esc(c.title)+'</div>'+
       '<div class="acbody">'+(locked?'<span style="filter:blur(4px)">'+esc(body)+'</span>':esc(body))+'</div>'+
-      (locked?('<div class="aclock">'+ICON.lock+'Learn this card to unlock</div>'):('<div class="acsrc">'+esc((c.source||{}).who||'')+((c.source||{}).year?(', '+c.source.year):'')+'</div>'))+
+      (locked?('<div class="aclock">'+ICON.lock+'Learn this card to unlock</div>'):(function(){ const s0=cardSources(c)[0]||{}; return '<div class="acsrc">'+esc(s0.who||'')+(s0.year?(', '+s0.year):'')+'</div>'; })())+
       '</div>'; }).join('');
   $("dbBody").innerHTML=`
     <div class="motioncard"><div class="mk">Motion</div><div class="mt">${esc(m.text)}</div></div>

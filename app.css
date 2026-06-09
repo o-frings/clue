@@ -262,6 +262,7 @@
   .ksource{ display:flex; gap:8px; align-items:flex-start; margin-top:14px; font-size:13px; color:var(--l2); line-height:1.4; }
   .ksource svg{ width:15px; height:15px; flex:0 0 auto; color:var(--l3); margin-top:1px; }
   .ksource a{ color:var(--accent); text-decoration:none; }
+  .ksource .ksrcstr{ color:var(--l3); font-style:italic; }
   .kdebate{ margin-top:16px; border-radius:14px; overflow:hidden; border:.5px solid var(--line); }
   .karg{ padding:14px 16px; }
   .karg + .karg{ border-top:.5px solid var(--sep); }

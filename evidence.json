@@ -1,0 +1,536 @@
+{
+  "_meta": {
+    "purpose": "Evidence registry — every source logged once, referenced by id from card.src[].",
+    "version": 1,
+    "status": "MIGRATED from knowledge.json source objects. url + kind + strength need backfill.",
+    "schema": {
+      "sources": "map of id -> {who,year,title,where,url,kind,strength}",
+      "strength": "describes how THICK the evidence is, concretely (e.g. 'two RCTs, n≈12k'; 'single case study') — never a bare 'strong'/'weak'",
+      "kind": "book | paper | dataset | report | reference | news"
+    }
+  },
+  "sources": {
+    "ev-cephalopod-physiology-general": {
+      "who": "Cephalopod physiology (general)",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-nasa-planetary-fact-sheet": {
+      "who": "NASA NSSDC",
+      "year": 0,
+      "title": "Planetary Fact Sheet",
+      "where": "",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+      "kind": "reference",
+      "strength": "authoritative reference table compiled from spacecraft and observational data"
+    },
+    "ev-climatology-history": {
+      "who": "Climatology / history",
+      "year": 1816,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-food-chemistry-archaeology": {
+      "who": "Food chemistry / archaeology",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-georg-cantor": {
+      "who": "Georg Cantor",
+      "year": 1891,
+      "title": "Diagonal argument",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-kurt-g-del": {
+      "who": "Kurt Gödel",
+      "year": 1931,
+      "title": "On Formally Undecidable Propositions",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-bayes-theorem-thomas-bayes": {
+      "who": "Bayes' theorem (Thomas Bayes)",
+      "year": 1763,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-bickel-hammel-o-connell": {
+      "who": "Bickel, Hammel & O'Connell",
+      "year": 1975,
+      "title": "Sex Bias in Graduate Admissions",
+      "where": "Science",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-clausius-boltzmann": {
+      "who": "Clausius / Boltzmann",
+      "year": 1865,
+      "title": "Second law of thermodynamics",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-albert-einstein": {
+      "who": "Albert Einstein",
+      "year": 1905,
+      "title": "On the Electrodynamics of Moving Bodies",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-werner-heisenberg": {
+      "who": "Werner Heisenberg",
+      "year": 1927,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-penzias-wilson": {
+      "who": "Penzias & Wilson",
+      "year": 1965,
+      "title": "A Measurement of Excess Antenna Temperature at 4080 Mc/s",
+      "where": "Astrophysical Journal",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-history-of-technology-general": {
+      "who": "History of technology (general)",
+      "year": 1440,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-historical-demography-general": {
+      "who": "Historical demography (general)",
+      "year": 1347,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-international-relations-general": {
+      "who": "International relations (general)",
+      "year": 1648,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-graham-allison": {
+      "who": "Graham Allison",
+      "year": 2017,
+      "title": "Destined for War",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-u-s-energy-information-administration": {
+      "who": "U.S. Energy Information Administration",
+      "year": 2023,
+      "title": "World Oil Transit Chokepoints",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-halford-mackinder": {
+      "who": "Halford Mackinder",
+      "year": 1904,
+      "title": "The Geographical Pivot of History",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-demography-general-model": {
+      "who": "Demography (general model)",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-charles-darwin": {
+      "who": "Charles Darwin",
+      "year": 1859,
+      "title": "On the Origin of Species",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-sender-fuchs-milo": {
+      "who": "Sender, Fuchs & Milo",
+      "year": 2016,
+      "title": "Revised Estimates for the Number of Human and Bacteria Cells",
+      "where": "PLOS Biology",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-jinek-charpentier-doudna-et-al": {
+      "who": "Jinek, Charpentier, Doudna et al.",
+      "year": 2012,
+      "title": "A Programmable Dual-RNA–Guided DNA Endonuclease",
+      "where": "Science",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-ripple-beschta": {
+      "who": "Ripple & Beschta",
+      "year": 2012,
+      "title": "Trophic cascades in Yellowstone: the first 15 years after wolf reintroduction",
+      "where": "Biological Conservation",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-rockstr-m-et-al-2009-richardson-et-al-2023": {
+      "who": "Rockström et al. (2009); Richardson et al. (2023)",
+      "year": 2009,
+      "title": "Planetary boundaries",
+      "where": "Nature / Science Advances",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-vaclav-smil": {
+      "who": "Vaclav Smil",
+      "year": 2001,
+      "title": "Enriching the Earth",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-donella-meadows": {
+      "who": "Donella Meadows",
+      "year": 2008,
+      "title": "Thinking in Systems",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-hardin-1968-ostrom-1990": {
+      "who": "Hardin (1968); Ostrom (1990)",
+      "year": 1968,
+      "title": "The Tragedy of the Commons / Governing the Commons",
+      "where": "Science",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-pareto-zipf-classic-observations": {
+      "who": "Pareto / Zipf (classic observations)",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-david-ricardo": {
+      "who": "David Ricardo",
+      "year": 1817,
+      "title": "On the Principles of Political Economy and Taxation",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-arthur-pigou": {
+      "who": "Arthur Pigou",
+      "year": 1920,
+      "title": "The Economics of Welfare",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-kahneman-tversky": {
+      "who": "Kahneman & Tversky",
+      "year": 1979,
+      "title": "Prospect Theory: An Analysis of Decision under Risk",
+      "where": "Econometrica",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-david-hume": {
+      "who": "David Hume",
+      "year": 1739,
+      "title": "A Treatise of Human Nature",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-karl-popper": {
+      "who": "Karl Popper",
+      "year": 1959,
+      "title": "The Logic of Scientific Discovery",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-john-rawls": {
+      "who": "John Rawls",
+      "year": 1971,
+      "title": "A Theory of Justice",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-black-1948-downs-1957": {
+      "who": "Black (1948); Downs (1957)",
+      "year": 1957,
+      "title": "An Economic Theory of Democracy",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-maurice-duverger": {
+      "who": "Maurice Duverger",
+      "year": 1951,
+      "title": "Political Parties",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-mancur-olson": {
+      "who": "Mancur Olson",
+      "year": 1965,
+      "title": "The Logic of Collective Action",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-lionel-robbins-classic-definition": {
+      "who": "Lionel Robbins (classic definition)",
+      "year": 1932,
+      "title": "An Essay on the Nature and Significance of Economic Science",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-alfred-marshall-classic-exposition": {
+      "who": "Alfred Marshall (classic exposition)",
+      "year": 1890,
+      "title": "Principles of Economics",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-simon-kuznets-and-later-national-accounts-work": {
+      "who": "Simon Kuznets (and later national-accounts work)",
+      "year": 1934,
+      "title": "National Income, 1929–1932",
+      "where": "US Congress report",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-history-of-economic-thought-general": {
+      "who": "History of economic thought (general)",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-adam-smith": {
+      "who": "Adam Smith",
+      "year": 1776,
+      "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-adam-smith-2": {
+      "who": "Adam Smith",
+      "year": 1776,
+      "title": "The Wealth of Nations",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-smith-ricardo-marx-vs-jevons-menger-walras": {
+      "who": "Smith / Ricardo / Marx vs Jevons / Menger / Walras",
+      "year": 1870,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-jevons-menger-walras": {
+      "who": "Jevons, Menger, Walras",
+      "year": 1871,
+      "title": "The marginal revolution",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-karl-marx": {
+      "who": "Karl Marx",
+      "year": 1867,
+      "title": "Das Kapital, Volume I",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-karl-marx-friedrich-engels": {
+      "who": "Karl Marx & Friedrich Engels",
+      "year": 1859,
+      "title": "A Contribution to the Critique of Political Economy (preface)",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-john-maynard-keynes": {
+      "who": "John Maynard Keynes",
+      "year": 1936,
+      "title": "The General Theory of Employment, Interest and Money",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-john-maynard-keynes-and-earlier-writers": {
+      "who": "John Maynard Keynes (and earlier writers)",
+      "year": 1936,
+      "title": "The General Theory",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-milton-friedman": {
+      "who": "Milton Friedman",
+      "year": 1963,
+      "title": "A Monetary History of the United States (with Anna Schwartz)",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-friedrich-hayek": {
+      "who": "Friedrich Hayek",
+      "year": 1945,
+      "title": "The Use of Knowledge in Society",
+      "where": "American Economic Review",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history-e-g-angus-maddison-data": {
+      "who": "Economic history (e.g. Angus Maddison data)",
+      "year": 1800,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history-karl-marx-capital-part-viii": {
+      "who": "Economic history; Karl Marx (Capital, Part VIII)",
+      "year": 0,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-monetary-history": {
+      "who": "Monetary history",
+      "year": 1944,
+      "title": "Bretton Woods Agreement",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history": {
+      "who": "Economic history",
+      "year": 1929,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history-2": {
+      "who": "Economic history",
+      "year": 1973,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history-3": {
+      "who": "Economic history",
+      "year": 1979,
+      "title": "",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    },
+    "ev-economic-history-4": {
+      "who": "Economic history",
+      "year": 2008,
+      "title": "Global Financial Crisis",
+      "where": "",
+      "url": "",
+      "kind": "",
+      "strength": ""
+    }
+  }
+}
