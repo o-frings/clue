@@ -756,6 +756,33 @@
       "url": "https://en.wikipedia.org/wiki/Affirming_the_consequent",
       "kind": "reference",
       "strength": "Standard formal fallacy."
+    },
+    "ev-china-reform-opening": {
+      "who": "World Bank",
+      "year": 0,
+      "title": "China Overview",
+      "where": "",
+      "url": "https://www.worldbank.org/en/country/china/overview",
+      "kind": "report",
+      "strength": "World Bank country data; the 'almost 800 million out of extreme poverty since 1978' figure is its official estimate."
+    },
+    "ev-china-party-state": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Chinese Communist Party",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Chinese_Communist_Party",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the Party's supremacy over the state, army and courts is well documented."
+    },
+    "ev-china-century-humiliation": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Century of humiliation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Century_of_humiliation",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the period is well documented and the narrative's political use by the CCP is noted."
     }
   }
 }

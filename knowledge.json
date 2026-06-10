@@ -86,6 +86,42 @@
       "quiz": { "q": "Which mission first landed humans on the Moon (1969)?", "choices": ["Apollo 8", "Apollo 11", "Apollo 13", "Gemini 4"], "answer": 1 }
     },
     {
+      "id": "china-reform-opening", "field": "echist", "kind": "date", "depth": "event", "level": 1, "year": 1978, "when": "1978",
+      "src": ["ev-china-reform-opening"],
+      "title": "China's reform and opening up",
+      "fact": "From 1978, Deng Xiaoping's market reforms turned a poor planned economy into the world's factory.",
+      "detail": "At the 1978 third plenum the CCP began 'reform and opening up' — de-collectivising farms, allowing private business, welcoming foreign investment and creating special economic zones, while keeping one-party rule. The World Bank credits the era with lifting almost 800 million people out of extreme poverty — the largest, fastest poverty reduction in history.",
+      "deploy": "The headline case that market mechanisms, even under an authoritarian state, can drive vast growth and poverty reduction.",
+      "counter": "It came with sharp inequality, environmental damage, suppressed labour rights and no political liberalisation — the growth was neither shared nor free.",
+      "tags": ["china", "reform", "growth", "poverty"],
+      "xref": ["date-prc-1949", "eh-neoliberal-turn", "econ-comparative-advantage"],
+      "quiz": { "q": "The World Bank credits China's post-1978 reforms with…", "choices": ["Ending one-party rule", "Lifting ~800 million people out of extreme poverty", "Joining NATO", "Abolishing all state-owned firms"], "answer": 1 }
+    },
+    {
+      "id": "china-party-state", "field": "polisci", "depth": "concept", "level": 2,
+      "src": ["ev-china-party-state"],
+      "title": "China's party-state",
+      "fact": "China is a one-party state: the Communist Party sits above the government, the courts and the army.",
+      "detail": "The People's Republic is a Leninist party-state. The CCP — not the state — holds ultimate authority: it runs parallel structures throughout government, controls the military and courts, and selects leaders internally through 'democratic centralism'. Under Xi Jinping, power has re-centralised around the top leader.",
+      "deploy": "Essential for reading Chinese politics: 'the government' is subordinate to the Party, so Western state-vs-society models fit poorly.",
+      "counter": "One-party doesn't mean monolithic — there are factions, technocratic competence and local experimentation; and the model leans heavily on continued growth for legitimacy.",
+      "tags": ["china", "politics", "party-state"],
+      "xref": ["date-prc-1949", "pe-marx-capital"],
+      "quiz": { "q": "In China's system, ultimate authority rests with…", "choices": ["An elected parliament", "The Communist Party", "The Supreme Court", "Provincial governors"], "answer": 1 }
+    },
+    {
+      "id": "china-century-humiliation", "field": "history", "depth": "concept", "level": 2,
+      "src": ["ev-china-century-humiliation"],
+      "title": "China's 'century of humiliation'",
+      "fact": "China frames 1839–1949 as a 'century of humiliation' — and it still shapes its foreign policy.",
+      "detail": "From the First Opium War (1839) to 1949, China suffered military defeats, 'unequal treaties', lost territory and foreign extraterritoriality. The CCP makes this narrative central: national rejuvenation means never being humiliated again. It frames disputes over Taiwan, the South China Sea and sovereignty as righting historical wrongs.",
+      "deploy": "Decodes Chinese rhetoric: many positions are cast as recovering from a century of foreign domination, not as naked expansion.",
+      "counter": "The narrative is also a state-curated tool — it can justify assertiveness and recast criticism as renewed 'humiliation'.",
+      "tags": ["china", "history", "nationalism", "geopolitics"],
+      "xref": ["date-sykes-picot-1916", "geo-thucydides", "date-prc-1949"],
+      "quiz": { "q": "China's 'century of humiliation' refers to…", "choices": ["1949 to 2049", "~1839–1949 of foreign defeats and unequal treaties", "The Cultural Revolution", "The Ming dynasty"], "answer": 1 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",
