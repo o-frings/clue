@@ -494,6 +494,7 @@
     },
     {
       "id": "logic-modus-ponens", "field": "philo", "depth": "concept", "level": 2,
+      "prereq": ["logic-validity"],
       "src": ["ev-logic-modus-ponens"],
       "title": "Modus ponens and modus tollens",
       "fact": "Two reliable inference rules: affirm the 'if' (modus ponens) or deny the 'then' (modus tollens).",
@@ -501,12 +502,12 @@
       "deploy": "Names the moves so you can check whether a conclusion actually follows — and spot when someone only looks like they're using them.",
       "counter": "Garbage in, garbage out: a valid form with a false 'if…then' premise still gives you nothing.",
       "tags": ["logic", "inference", "reasoning"],
-      "prereq": ["logic-validity"],
       "xref": ["philo-falsifiability"],
       "quiz": { "q": "Modus tollens reasons from 'if P then Q' and 'not Q' to…", "choices": ["P", "not P", "Q", "nothing"], "answer": 1 }
     },
     {
-      "id": "logic-affirming-consequent", "field": "philo", "depth": "concept", "level": 2,
+      "id": "logic-affirming-consequent", "field": "philo", "depth": "concept", "level": 3,
+      "prereq": ["logic-modus-ponens"],
       "src": ["ev-logic-affirming-consequent"],
       "title": "Affirming the consequent",
       "fact": "'If P then Q; Q; therefore P' is a fallacy — a true consequence doesn't prove the cause.",
@@ -514,7 +515,6 @@
       "deploy": "A precise label for a very common bad move — useful when someone treats 'consistent with' as 'proves'.",
       "counter": "Such inferences can still raise the probability of P (that's Bayesian evidence) — they're just not deductively valid.",
       "tags": ["logic", "fallacy", "reasoning"],
-      "prereq": ["logic-modus-ponens"],
       "xref": ["math-base-rate", "philo-falsifiability"],
       "quiz": { "q": "'The street is wet, so it must have rained' commits which error?", "choices": ["Modus ponens", "Affirming the consequent", "Circular reasoning", "Straw man"], "answer": 1 }
     },
@@ -532,6 +532,7 @@
     },
     {
       "id": "cs-bigo", "field": "math", "depth": "concept", "level": 2,
+      "prereq": ["cs-binary"],
       "src": ["ev-cs-bigo"],
       "title": "Big-O: how algorithms scale",
       "fact": "Big-O notation describes how an algorithm's cost grows as the input gets bigger — not how fast it runs today.",
@@ -544,6 +545,7 @@
     },
     {
       "id": "cs-halting", "field": "math", "depth": "concept", "level": 3,
+      "prereq": ["cs-bigo"],
       "src": ["ev-cs-halting"],
       "title": "The halting problem",
       "fact": "Some problems are provably impossible for any computer: no program can decide, in general, whether another program will halt.",
@@ -555,7 +557,7 @@
       "quiz": { "q": "The halting problem shows that…", "choices": ["Computers are slow", "No program can decide in general whether any program halts", "Binary is inefficient", "Algorithms always finish"], "answer": 1 }
     },
     {
-      "id": "stat-lln", "field": "math", "depth": "concept", "level": 2,
+      "id": "stat-lln", "field": "math", "depth": "concept", "level": 1,
       "src": ["ev-stat-lln"],
       "title": "Law of large numbers (and the gambler's fallacy)",
       "fact": "Averages settle down over many trials — but a fair coin has no memory, so 'due' outcomes are a fallacy.",
@@ -568,6 +570,7 @@
     },
     {
       "id": "stat-clt", "field": "math", "depth": "concept", "level": 2,
+      "prereq": ["stat-lln"],
       "src": ["ev-stat-clt"],
       "title": "The central limit theorem",
       "fact": "Add up many small independent effects and you tend to get a bell curve — the normal distribution.",
@@ -579,7 +582,8 @@
       "quiz": { "q": "The central limit theorem says sums of many independent effects tend toward a…", "choices": ["Flat line", "Normal (bell) curve", "Power law", "Single value"], "answer": 1 }
     },
     {
-      "id": "stat-correlation", "field": "math", "depth": "concept", "level": 1,
+      "id": "stat-correlation", "field": "math", "depth": "concept", "level": 2,
+      "prereq": ["math-simpson"],
       "src": ["ev-stat-correlation"],
       "title": "Correlation isn't causation",
       "fact": "Two things moving together may share a hidden common cause rather than one causing the other.",
@@ -604,6 +608,7 @@
     },
     {
       "id": "code-dry", "field": "math", "depth": "concept", "level": 2,
+      "prereq": ["code-naming"],
       "src": ["ev-code-dry"],
       "title": "Don't repeat yourself (DRY)",
       "fact": "Every piece of knowledge should have one authoritative place in the code.",
@@ -615,7 +620,8 @@
       "quiz": { "q": "DRY is mainly about avoiding duplication of…", "choices": ["Whitespace", "Knowledge/logic (one source of truth)", "Variable names", "Files"], "answer": 1 }
     },
     {
-      "id": "code-complexity", "field": "math", "depth": "concept", "level": 2,
+      "id": "code-complexity", "field": "math", "depth": "concept", "level": 3,
+      "prereq": ["code-dry"],
       "src": ["ev-code-complexity"],
       "title": "Code is for humans: manage complexity",
       "fact": "The hard part of programming isn't writing code — it's keeping complexity low enough to keep changing it.",
@@ -674,7 +680,7 @@
     },
 
     {
-      "id": "math-infinities", "field": "math", "depth": "concept", "level": 2,
+      "id": "math-infinities", "field": "math", "depth": "concept", "level": 1,
       "xref": ["math-godel"],
       "title": "Some infinities are bigger than others",
       "fact": "There are strictly more real numbers than whole numbers — infinity comes in different sizes.",
@@ -687,7 +693,8 @@
       "quiz": [{ "q": "Cantor's diagonal argument shows the real numbers are…", "choices": ["Countable", "Uncountable", "Finite", "The same size as the integers"], "answer": 1 }, {"q":"Which set is the 'bigger', uncountable infinity?","choices":["The integers","The rational numbers","The real numbers","The even numbers"],"answer":2}]
     },
     {
-      "id": "math-godel", "field": "math", "depth": "book", "level": 3,
+      "id": "math-godel", "field": "math", "depth": "book", "level": 2,
+      "prereq": ["math-infinities"],
       "xref": ["math-infinities"],
       "title": "Gödel's incompleteness theorems",
       "fact": "Any consistent maths system rich enough for arithmetic contains true statements it can never prove.",
@@ -699,7 +706,7 @@
       "counter": "Routinely overstated. It applies to specific formal systems, not to 'all reasoning'; it does not imply 'nothing is knowable' or license mysticism."
     },
     {
-      "id": "math-base-rate", "field": "math", "depth": "concept", "level": 2,
+      "id": "math-base-rate", "field": "math", "depth": "concept", "level": 1,
       "xref": ["math-simpson","econ-loss-aversion"],
       "media": [{ "type": "equation", "tex": "P(A \\mid B) = \\dfrac{P(B \\mid A)\\,P(A)}{P(B)}", "plain": "P(A|B) = P(B|A)·P(A) / P(B)", "caption": "Bayes' theorem. Read the bar '|' as 'given'. It updates the chance of A once you've seen B — and P(A), the base rate, never drops out, which is exactly what the fallacy forgets." }],
       "title": "The base-rate fallacy",
@@ -713,7 +720,8 @@
       "quiz": { "q": "For a rare condition, a positive result on a highly accurate test is…", "choices": ["Almost certainly correct", "Often a false positive", "Impossible", "Irrelevant"], "answer": 1 }
     },
     {
-      "id": "math-simpson", "field": "math", "depth": "concept", "level": 3,
+      "id": "math-simpson", "field": "math", "depth": "concept", "level": 2,
+      "prereq": ["math-base-rate"],
       "xref": ["math-base-rate","sys-powerlaw"],
       "title": "Simpson's paradox",
       "fact": "A trend can hold in every subgroup yet reverse when the groups are combined.",
