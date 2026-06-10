@@ -1125,6 +1125,42 @@
       "url": "https://en.wikipedia.org/wiki/Anarchy,_State,_and_Utopia",
       "kind": "reference",
       "strength": "Canonical libertarian reply to Rawls; entitlement theory and the minimal state are well documented, the acquisition principle widely criticised."
+    },
+    "ev-geo-rimland": {
+      "who": "Wikipedia (Nicholas Spykman)",
+      "year": 1942,
+      "title": "Rimland",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Rimland",
+      "kind": "reference",
+      "strength": "Influential geopolitical doctrine that shaped US containment; a sweeping theory, not an empirical law."
+    },
+    "ev-geo-security-dilemma": {
+      "who": "Wikipedia (Herz 1950; Jervis)",
+      "year": 1950,
+      "title": "Security dilemma",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Security_dilemma",
+      "kind": "reference",
+      "strength": "Core IR concept, well theorised; defensive vs offensive realists debate how escapable it is."
+    },
+    "ev-geo-malacca": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Strait of Malacca",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Strait_of_Malacca",
+      "kind": "reference",
+      "strength": "Well documented: ~80% of China's crude imports transit it; 'Malacca dilemma' is Hu Jintao's 2003 framing."
+    },
+    "ev-geo-population-decline": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Population decline",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Population_decline",
+      "kind": "reference",
+      "strength": "Well-documented sub-replacement fertility trends (global ~2.2, S. Korea ~0.7); long-range projections are uncertain."
     }
   }
 }

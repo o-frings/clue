@@ -868,7 +868,7 @@
     },
 
     {
-      "id": "geo-thucydides", "field": "geo", "depth": "book", "level": 2,
+      "id": "geo-thucydides", "field": "geo", "depth": "book", "level": 1,
       "xref": ["geo-heartland","hist-westphalia"],
       "title": "The Thucydides Trap",
       "fact": "When a rising power threatens a ruling one, the result is often war.",
@@ -891,7 +891,7 @@
       "counter": "Shares and volumes shift; new pipelines and changing demand steadily reduce any one chokepoint's leverage."
     },
     {
-      "id": "geo-heartland", "field": "geo", "depth": "concept", "level": 3,
+      "id": "geo-heartland", "field": "geo", "depth": "concept", "level": 1,
       "xref": ["geo-thucydides","geo-hormuz"],
       "title": "Mackinder's Heartland theory (1904)",
       "fact": "Whoever controls the Eurasian 'Heartland' could dominate the world — a classic land-power doctrine.",
@@ -903,7 +903,59 @@
       "counter": "Airpower, nuclear weapons, and globalised trade undercut pure land-centric determinism; geography constrains but doesn't dictate."
     },
     {
-      "id": "geo-demographic", "field": "geo", "depth": "concept", "level": 2,
+      "id": "geo-rimland", "field": "geo", "depth": "concept", "level": 2,
+      "prereq": ["geo-heartland"],
+      "src": ["ev-geo-rimland"],
+      "title": "Rimland: the reply to Heartland",
+      "fact": "The rival to Heartland theory: control the coastal 'rim' of Eurasia, not its core.",
+      "detail": "Nicholas Spykman (1940s) inverted Mackinder: power lies not in the inaccessible Eurasian Heartland but in the 'Rimland' — the densely populated coastal fringe (Europe, the Middle East, South and East Asia). 'Who controls the Rimland rules Eurasia.' It shaped US Cold War containment, which ringed the Soviet and Chinese landmass with alliances and bases.",
+      "deploy": "Decodes US grand strategy: containment and the alliance network around Eurasia's rim are Rimland thinking in action.",
+      "counter": "Like Heartland, it's a sweeping doctrine, not a law — air power, nuclear weapons and economics complicate any neat geography-determines-power story.",
+      "tags": ["geopolitics", "strategy", "rimland"],
+      "xref": ["geo-heartland"],
+      "quiz": { "q": "Spykman's Rimland theory says power lies in…", "choices": ["The Eurasian interior", "Eurasia's populated coastal fringe", "The polar regions", "Outer space"], "answer": 1 }
+    },
+    {
+      "id": "geo-security-dilemma", "field": "geo", "depth": "concept", "level": 2,
+      "prereq": ["geo-thucydides"],
+      "src": ["ev-geo-security-dilemma"],
+      "title": "The security dilemma",
+      "fact": "Arming to feel safer can make everyone less safe — the 'security dilemma'.",
+      "detail": "Even with no aggressive intent, one state's defensive build-up looks threatening to others, who arm in response, leaving all less secure — a spiral driven by fear and uncertainty about intentions (Herz, 1950; Jervis). It's a core reason rising-power tensions (the Thucydides Trap) can escalate without anyone actually wanting war.",
+      "deploy": "Explains how war can come from fear, not aggression — and why signalling restraint and intentions matters so much.",
+      "counter": "It's not inevitable: arms control, transparency, and clearly non-threatening 'defensive' postures can defuse the spiral; not every build-up is misread.",
+      "tags": ["geopolitics", "IR", "security"],
+      "xref": ["geo-thucydides"],
+      "quiz": { "q": "The 'security dilemma' is when…", "choices": ["A state is invaded", "Defensive arming makes others feel threatened, spiralling insecurity", "Two states form an alliance", "A war ends"], "answer": 1 }
+    },
+    {
+      "id": "geo-malacca", "field": "geo", "depth": "concept", "level": 2,
+      "prereq": ["geo-hormuz"],
+      "src": ["ev-geo-malacca"],
+      "title": "The Malacca dilemma",
+      "fact": "Most of East Asia's oil squeezes through one narrow strait — the 'Malacca dilemma'.",
+      "detail": "The Strait of Malacca, between Malaysia and Indonesia, is the world's busiest — around 80% of China's imported crude passes through it, plus much of Japan's and Korea's trade. China's reliance on a single chokepoint a rival navy could blockade is its 'Malacca dilemma' (Hu Jintao's term, 2003), and a driver of overland pipelines, a bigger navy and the Belt and Road.",
+      "deploy": "A concrete lens on China's strategy: much of its energy security hangs on a strait it doesn't control.",
+      "counter": "A blockade would be an act of war with huge costs to all sides, so the vulnerability is more strategic anxiety than likely event — and alternatives (pipelines, reserves) are being built.",
+      "tags": ["geopolitics", "chokepoint", "china", "trade"],
+      "xref": ["geo-hormuz", "china-growth-model"],
+      "quiz": { "q": "The 'Malacca dilemma' refers to…", "choices": ["A border war", "East Asia's reliance on one strait for oil and trade", "A trade treaty", "An oil price cap"], "answer": 1 }
+    },
+    {
+      "id": "geo-population-decline", "field": "geo", "depth": "concept", "level": 2,
+      "prereq": ["geo-demographic"],
+      "src": ["ev-geo-population-decline"],
+      "title": "When populations shrink",
+      "fact": "The demographic transition's final twist: much of the world is now ageing and shrinking.",
+      "detail": "Past the transition, fertility in many countries has fallen below replacement (~2.1). Japan, South Korea, much of Europe and now China face ageing and then shrinking populations — fewer workers supporting more retirees, strained pensions and slower growth. South Korea's fertility (~0.7) is the world's lowest. Migration can offset it but is politically fraught.",
+      "deploy": "Reframes the population debate: for a growing share of the world the worry is too few people, not too many.",
+      "counter": "It's uneven — much of sub-Saharan Africa is still growing fast — and forecasts are uncertain; policy, migration and changing norms could shift fertility.",
+      "tags": ["geography", "demographics", "population"],
+      "xref": ["geo-demographic", "china-hukou"],
+      "quiz": { "q": "Below-replacement fertility leads to…", "choices": ["Endless growth", "Ageing and eventually shrinking populations", "No change", "More children per family"], "answer": 1 }
+    },
+    {
+      "id": "geo-demographic", "field": "geo", "depth": "concept", "level": 1,
       "xref": ["eco-planetary-boundaries"],
       "title": "The demographic transition",
       "fact": "As countries develop, they shift from high birth-and-death rates to low — then they age.",
