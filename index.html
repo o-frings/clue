@@ -116,7 +116,7 @@
       <div class="stat"><div class="n" id="stDue">0</div><div class="k">Due</div></div>
     </div>
     <div class="pad" style="padding-top:0;">
-      <div class="ed-label" style="margin-top:16px;">Level <span id="stXpToGo" class="subhint"></span></div>
+      <div class="ed-label" style="margin-top:var(--sp-4);">Level <span id="stXpToGo" class="subhint"></span></div>
       <div class="bar"><i id="xpBar" style="width:0%"></i></div>
     </div>
   </div>
@@ -148,9 +148,9 @@
         <button class="chip" data-v="debate">Debate prep</button>
         <button class="chip" data-v="sharp">Stay sharp</button>
       </div>
-      <div class="ed-label" style="margin-top:14px;">Focus fields <span class="subhint">— weighted higher in your daily mix</span></div>
+      <div class="ed-label" style="margin-top:var(--sp-4);">Focus fields <span class="subhint">— weighted higher in your daily mix</span></div>
       <div class="chips wrap" id="focusChips"></div>
-      <div class="ed-label" style="margin-top:14px;">New cards per day <span class="subhint" id="paceVal"></span></div>
+      <div class="ed-label" style="margin-top:var(--sp-4);">New cards per day <span class="subhint" id="paceVal"></span></div>
       <div class="seg compact" id="paceSeg">
         <div class="s" data-pace="3">3</div><div class="s" data-pace="5">5</div>
         <div class="s" data-pace="10">10</div><div class="s" data-pace="20">20</div>
@@ -176,8 +176,8 @@
   <div class="sheethdr"><span class="t">Library</span><button class="btn plain sm" id="libClose">Done</button></div>
   <div class="sheetbody">
     <input id="libSearch" type="search" placeholder="Search facts, fields, sources…" autocapitalize="none" autocorrect="off">
-    <div class="chips wrap" id="libFieldChips" style="margin-top:10px;"></div>
-    <div id="libList" style="margin-top:6px;"></div>
+    <div class="chips wrap" id="libFieldChips" style="margin-top:var(--sp-3);"></div>
+    <div id="libList" style="margin-top:var(--sp-2);"></div>
   </div>
 </div>
 
@@ -217,7 +217,7 @@
         <span class="sctitle">Appearance<span class="scsub"> — light, dark, auto</span></span>
       </summary>
       <div class="scbody">
-        <div class="seg compact" id="themeSeg" style="margin-top:14px;">
+        <div class="seg compact" id="themeSeg" style="margin-top:var(--sp-4);">
           <div class="s" data-theme="auto">Auto</div><div class="s" data-theme="light">Light</div><div class="s" data-theme="dark">Dark</div>
         </div>
       </div>
@@ -237,10 +237,10 @@
         <span class="sctitle">Your data<span class="scsub"> — backup &amp; reset</span></span>
       </summary>
       <div class="scbody">
-        <button class="btn tinted wide sm" id="exportBtn" style="margin-top:14px;">Export a backup</button>
-        <button class="btn tinted wide sm" id="importBtn" style="margin-top:8px;">Restore from backup</button>
+        <button class="btn tinted wide sm" id="exportBtn" style="margin-top:var(--sp-4);">Export a backup</button>
+        <button class="btn tinted wide sm" id="importBtn" style="margin-top:var(--sp-2);">Restore from backup</button>
         <input type="file" id="importFile" accept="application/json" style="display:none;">
-        <button class="btn red wide sm" id="resetBtn" style="margin-top:8px;">Reset all progress</button>
+        <button class="btn red wide sm" id="resetBtn" style="margin-top:var(--sp-2);">Reset all progress</button>
       </div>
     </details>
 
