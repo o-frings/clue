@@ -302,6 +302,66 @@
       "quiz": { "q": "The Iran–Saudi rivalry is mostly fought…", "choices": ["In direct war between their armies", "Through proxies in other countries", "Only at the United Nations", "Through trade tariffs"], "answer": 1 }
     },
     {
+      "id": "colonial-scramble-africa", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1884, "when": "1884–85",
+      "src": ["ev-colonial-scramble-africa"],
+      "title": "The Scramble for Africa",
+      "fact": "In the 1880s, European powers carved up almost all of Africa among themselves — often by lines on a map.",
+      "detail": "At the Berlin Conference (1884–85), European states set rules for claiming African territory, accelerating a 'Scramble' that by 1914 left only Ethiopia and Liberia uncolonised. Borders were drawn for European convenience — straight lines cutting across peoples and merging rivals — and economies were reorganised to extract raw materials. Those imposed borders and extractive patterns outlived empire and still shape African states.",
+      "deploy": "The root behind many of Africa's borders, ethnic tensions and commodity-export economies — designed externally, not grown.",
+      "counter": "Colonialism isn't the sole cause of later problems — pre-colonial states, geography and post-independence choices matter too; mono-causal accounts oversimplify.",
+      "tags": ["africa", "colonialism", "borders", "history"],
+      "xref": ["date-year-of-africa-1960", "date-sykes-picot-1916"],
+      "quiz": { "q": "The 1884–85 Berlin Conference…", "choices": ["Ended slavery worldwide", "Set rules for Europeans to partition Africa", "Founded the UN", "Granted African independence"], "answer": 1 }
+    },
+    {
+      "id": "sahel-region", "field": "geo", "depth": "concept", "level": 1,
+      "src": ["ev-sahel-region"],
+      "title": "The Sahel",
+      "fact": "The Sahel is the dry belt below the Sahara — and one of the world's most stressed regions.",
+      "detail": "A semi-arid band running ~5,900 km from the Atlantic to the Red Sea, the Sahel (Mali, Niger, Burkina Faso, Chad and others) sits between desert and savanna. Rainfall is low and erratic, droughts recur, and the population is growing fast — squeezing land and water and fuelling herder–farmer conflict. By 2021 the Sahel accounted for a large and rising share of the world's terrorism deaths, making it both a humanitarian and a security crisis.",
+      "deploy": "Explains why the Sahel is a flashpoint: climate stress + fast population growth + weak states + spreading insurgency.",
+      "counter": "It isn't destined to fail — framing it only through terrorism and famine misses local resilience, and militarised outside responses have often made things worse.",
+      "tags": ["sahel", "africa", "climate", "geography"],
+      "xref": ["sahel-alliance", "date-year-of-africa-1960"],
+      "quiz": { "q": "The Sahel is best described as…", "choices": ["A rainforest", "A semi-arid belt south of the Sahara", "A mountain range", "A river delta"], "answer": 1 }
+    },
+    {
+      "id": "sahel-alliance", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-sahel-alliance"],
+      "title": "The Sahel's turn from France to Russia",
+      "fact": "Since 2020, coups across the Sahel have thrown out French troops and turned toward Russia.",
+      "detail": "A wave of military coups hit Mali, Burkina Faso and Niger from 2020. The juntas blamed France and the West for failing to stop jihadist insurgencies, expelled French and Western forces, quit the regional bloc ECOWAS, and formed the Alliance of Sahel States — bringing in Russian military contractors instead. It marks a sharp unwinding of post-colonial Western influence in the region.",
+      "deploy": "Captures the Sahel's geopolitical realignment: out with France and ECOWAS, in with juntas and Russia.",
+      "counter": "Supporters call it reclaiming sovereignty from neo-colonial control; critics note the juntas haven't improved security and Russian forces bring their own abuses.",
+      "tags": ["sahel", "coups", "france", "russia"],
+      "xref": ["africa-francafrique", "sahel-region"],
+      "quiz": { "q": "After their coups, Mali, Burkina Faso and Niger…", "choices": ["Joined the EU", "Expelled French forces and turned toward Russia", "Restored colonial rule", "Abolished their armies"], "answer": 1 }
+    },
+    {
+      "id": "africa-francafrique", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-africa-francafrique"],
+      "title": "Françafrique",
+      "fact": "'Françafrique' is the name for France's continued grip on its former African colonies after independence.",
+      "detail": "After 1960 France kept deep influence over its former colonies: the CFA franc pegged to the French franc (now euro) under French oversight; defence pacts that brought frequent French military interventions; an opaque presidential 'African Cell'; and personal networks linking elites. Critics coined 'Françafrique' for this clientelist, often corrupt system. It has weakened lately — budget limits, public scrutiny and rivals (China, Russia) — with Sahel states now expelling French troops.",
+      "deploy": "Explains how formal independence in 1960 left real economic and military dependence — and why anti-French feeling now runs high in the Sahel.",
+      "counter": "Defenders argue the ties also brought stability, investment and a stable currency; and blaming France alone can let local elites off the hook for their own choices.",
+      "tags": ["africa", "colonialism", "france", "cfa franc"],
+      "xref": ["sahel-alliance", "date-year-of-africa-1960"],
+      "quiz": { "q": "'Françafrique' refers to…", "choices": ["A French region", "France's continued post-independence sway over former African colonies", "An African airline", "A trade treaty"], "answer": 1 }
+    },
+    {
+      "id": "libya-collapse", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-libya-collapse"],
+      "title": "Libya after Gaddafi",
+      "fact": "Libya went from one of Africa's richest states to a fractured war zone after Gaddafi fell in 2011.",
+      "detail": "Muammar Gaddafi ruled Libya for 42 years on oil wealth and tight control. In 2011, Arab Spring protests and a NATO-backed uprising toppled and killed him — but no stable order replaced him. Rival governments and militias fought two civil wars, the country split between east and west, and Libya became a major transit route for migrants heading to Europe. Oil still flows, but power is contested.",
+      "deploy": "A cautionary case on regime change: removing a dictator without a workable successor state can produce lasting collapse.",
+      "counter": "Whether the 2011 intervention 'caused' the chaos or merely removed the lid is debated; Gaddafi's own rule and deep regional divisions set the stage.",
+      "tags": ["libya", "gaddafi", "intervention", "civil war"],
+      "xref": ["me-oil-rentier", "sahel-region"],
+      "quiz": { "q": "Since Gaddafi's fall in 2011, Libya has…", "choices": ["Become a stable democracy", "Fractured into rival governments and civil war", "Rejoined the Ottoman Empire", "Banned oil exports"], "answer": 1 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",

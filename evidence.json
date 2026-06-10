@@ -918,6 +918,51 @@
       "url": "https://en.wikipedia.org/wiki/Iran%E2%80%93Saudi_Arabia_proxy_conflict",
       "kind": "reference",
       "strength": "Encyclopaedic; the proxy rivalry and 2023 China-brokered restoration of ties are well documented."
+    },
+    "ev-colonial-scramble-africa": {
+      "who": "Wikipedia",
+      "year": 1884,
+      "title": "Scramble for Africa",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Scramble_for_Africa",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the Berlin Conference (1884–85) and the partition leaving only Ethiopia and Liberia free by 1914 are well documented."
+    },
+    "ev-sahel-region": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Sahel",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Sahel",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the geography, rapid population growth and the ~35%-of-global-terrorism-deaths (2021) figure are cited."
+    },
+    "ev-sahel-alliance": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Alliance of Sahel States",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Alliance_of_Sahel_States",
+      "kind": "reference",
+      "strength": "Documents the post-coup bloc, the ECOWAS exit, expulsion of Western forces and the 2024 turn to Russian contractors."
+    },
+    "ev-africa-francafrique": {
+      "who": "Wikipedia (term coined by F-X Verschave)",
+      "year": 0,
+      "title": "Françafrique",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fran%C3%A7afrique",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the CFA franc, defence pacts and intervention record are documented — 'Françafrique' is itself a critical framing."
+    },
+    "ev-libya-collapse": {
+      "who": "Wikipedia",
+      "year": 2011,
+      "title": "Libyan crisis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Libyan_crisis_(2011%E2%80%93present)",
+      "kind": "reference",
+      "strength": "Encyclopaedic; Gaddafi's 2011 fall and the two civil wars / east-west split are well documented."
     }
   }
 }
