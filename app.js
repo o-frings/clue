@@ -943,6 +943,14 @@ function shareCard(){ const c=byId[rdId]; if(!c) return; const text=c.title+' �
 // keep older call sites working — every card opens in the immersive reader now
 function openCard(id){ feedReaderList=[]; openReader(id); }
 
+// zero-friction launch: drop straight into the first "For you" card (not the list overview),
+// with the rest of the feed queued behind it for "Next concept →". Close to see the feed.
+function openFirstFeedCard(){
+  const list=feedCandidates(); if(!list.length) return;
+  feedOrder=list.map(c=>c.id); feedReaderList=feedOrder.slice();
+  openReader(feedOrder[0]);
+}
+
 // ================= DEBATE =================
 let dbMotion=null, dbSide="for";
 function renderDebate(){
@@ -1214,7 +1222,7 @@ function renderOnboarding(step){
       <div class="chips wrap" id="obFocus">${KN.fields.map(f=>'<button class="chip'+((settings.focus||[]).includes(f.id)?' on':'')+'" data-f="'+f.id+'">'+esc(f.icon)+' '+esc(f.label)+'</button>').join('')}</div>
       <button class="btn wide" id="obDone" style="margin-top:18px;">Start learning</button>`;
     document.querySelectorAll("#obFocus .chip").forEach(ch=> ch.onclick=()=>{ const f=ch.dataset.f; settings.focus=settings.focus||[]; const i=settings.focus.indexOf(f); if(i>=0) settings.focus.splice(i,1); else { if(settings.focus.length>=3){ toast("Up to 3"); return; } settings.focus.push(f); } ch.classList.toggle("on"); });
-    $("obDone").onclick=async()=>{ settings.onboarded=true; await persistAll(); $("onboardWrap").classList.remove("show"); refreshAll(); toast("Welcome to Clue 📖", true); };
+    $("obDone").onclick=async()=>{ settings.onboarded=true; await persistAll(); $("onboardWrap").classList.remove("show"); refreshAll(); openFirstFeedCard(); };
   }
 }
 
@@ -1351,6 +1359,7 @@ async function init(){
   wireNav(); wireSettings();
   renderWeb(); renderFeed(); renderMe(); updateRotateGuard();
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
+  else if(ok){ openFirstFeedCard(); }
   hideSplash();
 }
 let splashGone=false;
