@@ -86,7 +86,8 @@
       "quiz": { "q": "Which mission first landed humans on the Moon (1969)?", "choices": ["Apollo 8", "Apollo 11", "Apollo 13", "Gemini 4"], "answer": 1 }
     },
     {
-      "id": "china-reform-opening", "field": "echist", "kind": "date", "depth": "event", "level": 1, "year": 1978, "when": "1978",
+      "id": "china-reform-opening", "field": "echist", "kind": "date", "depth": "event", "level": 2, "year": 1978, "when": "1978",
+      "prereq": ["date-prc-1949"],
       "layers": [{"d":"basics","t":"Reform and opening","body":"At the 1978 third plenum, Deng Xiaoping's leadership began dismantling the planned economy: de-collectivising farms, letting peasants sell their surplus, allowing private business, and opening 'special economic zones' to foreign investment — while keeping one-party rule firmly in place."},{"d":"deeper","t":"The scale of it","body":"Growth then ran near 10% a year for three decades. The World Bank credits the era with lifting almost 800 million people out of extreme poverty — the largest, fastest poverty reduction in history — and turning China into the world's manufacturing hub."},{"d":"debate","t":"At what cost?","body":"Admirers see proof that markets plus a capable state can transform a poor country. Critics point to soaring inequality, environmental devastation, suppressed labour rights and no political opening — growth that was neither shared nor free."}],
       "src": ["ev-china-reform-opening"],
       "title": "China's reform and opening up",
@@ -100,6 +101,7 @@
     },
     {
       "id": "china-party-state", "field": "polisci", "depth": "concept", "level": 2,
+      "prereq": ["date-prc-1949"],
       "layers": [{"d":"basics","t":"The Party above the state","body":"The People's Republic is a Leninist party-state: the CCP, not the government, holds ultimate power. Party committees shadow every state body — ministries, courts, even the army (the PLA answers to the Party, not the state). The top state jobs are filled by Party decision."},{"d":"deeper","t":"Democratic centralism","body":"The Party runs on 'democratic centralism': an issue can be argued internally, but once the leadership decides, everyone must implement it and open dissent stops. Power flows down from the centre, and the General Secretary — currently Xi Jinping — sits at the apex, also chairing the military commission and holding the state presidency."},{"d":"debate","t":"Monolith or machine?","body":"Supporters call it a disciplined system that can plan for decades; critics see power with no legal check above the Party and a fragile, opaque succession. Even sympathetic analysts stress it isn't monolithic — factions, provinces and technocrats bargain behind the unified public face."}],
       "src": ["ev-china-party-state"],
       "title": "China's party-state",
@@ -113,6 +115,7 @@
     },
     {
       "id": "china-century-humiliation", "field": "history", "depth": "concept", "level": 2,
+      "prereq": ["date-prc-1949"],
       "layers": [{"d":"basics","t":"A century of defeats","body":"From the First Opium War (1839) to 1949, China was repeatedly beaten by Western powers, Russia and Japan, forced into 'unequal treaties', stripped of territory, and made to grant foreigners special legal rights on its own soil."},{"d":"deeper","t":"Why it still matters","body":"The CCP makes this narrative central: 'national rejuvenation' means never being humiliated again. It frames disputes over Taiwan, the South China Sea and sovereignty as righting historical wrongs, and casts the Party as the force that finally ended the humiliation."},{"d":"debate","t":"History or tool?","body":"The events are real and well documented. But the framing is also a state instrument: it can justify assertive foreign policy and recast outside criticism as a fresh attempt at 'humiliation', which helps shut down debate at home."}],
       "src": ["ev-china-century-humiliation"],
       "title": "China's 'century of humiliation'",
@@ -125,7 +128,8 @@
       "quiz": { "q": "China's 'century of humiliation' refers to…", "choices": ["1949 to 2049", "~1839–1949 of foreign defeats and unequal treaties", "The Cultural Revolution", "The Ming dynasty"], "answer": 1 }
     },
     {
-      "id": "china-state-structure", "field": "polisci", "depth": "concept", "level": 2,
+      "id": "china-state-structure", "field": "polisci", "depth": "concept", "level": 3,
+      "prereq": ["china-party-state"],
       "layers": [{"d":"basics","t":"People's congresses","body":"On paper the National People's Congress (~2,900 delegates) is the supreme organ of state power: it sets the constitution, passes laws and decides the State Council (the government). It meets about two weeks a year, with a Standing Committee acting between sessions."},{"d":"deeper","t":"Tiers, and the parallel Party","body":"Below the NPC sit people's congresses at province, prefecture/city, county and township, each overseeing its level's government. At every tier a CCP committee runs in parallel and sets direction — so 'the state' and 'the Party' are two interlocking ladders, with the Party's the senior one."},{"d":"debate","t":"Rubber stamp or working body?","body":"Because the NPC almost never rejects a Party proposal, critics call it a rubber stamp. Defenders reply that the real bargaining happens earlier — in drafting and consultation — and that the congress genuinely refines detail and airs grievances."}],
       "src": ["ev-china-state-structure"],
       "title": "How China's state is structured",
@@ -138,7 +142,8 @@
       "quiz": { "q": "China's supreme organ of state power is…", "choices": ["The Politburo", "The National People's Congress", "The Supreme Court", "The State Council"], "answer": 1 }
     },
     {
-      "id": "china-cadre-appointment", "field": "polisci", "depth": "concept", "level": 3,
+      "id": "china-cadre-appointment", "field": "polisci", "depth": "concept", "level": 4,
+      "prereq": ["china-state-structure"],
       "layers": [{"d":"basics","t":"The nomenklatura","body":"Senior officials aren't elected. The Party's Organization Department appoints them from a 'nomenklatura' — a list of the top several thousand posts across the party-state, including ministers, provincial leaders, and even big state-enterprise and university heads."},{"d":"deeper","t":"Climbing the ladder","body":"Cadres are scored on loyalty, ideology and measured performance (long the local growth and stability targets), plus patronage ties. Careers climb county → city (mayor or party secretary) → province; a few reach the ~200-member Central Committee, then the Politburo, then its Standing Committee — formally 'elected' by the tier below but in practice selected at the very top."},{"d":"debate","t":"Meritocracy or loyalty test?","body":"Boosters call it 'political meritocracy' — decades of vetting for competence before anyone reaches the top. Critics counter that target-chasing invites faked data and short-termism, and that near the summit loyalty and faction outweigh merit; Xi's anti-corruption drive also conveniently removed rivals."}],
       "src": ["ev-china-cadre-appointment"],
       "title": "How China appoints its officials",
@@ -151,7 +156,8 @@
       "quiz": { "q": "Senior Chinese officials are chosen mainly by…", "choices": ["Popular national elections", "The Party's nomenklatura appointment system", "The courts", "Lottery"], "answer": 1 }
     },
     {
-      "id": "china-local-elections", "field": "polisci", "depth": "concept", "level": 2,
+      "id": "china-local-elections", "field": "polisci", "depth": "concept", "level": 4,
+      "prereq": ["china-cadre-appointment"],
       "layers": [{"d":"basics","t":"Where you actually vote","body":"Direct elections reach only the grassroots: village committees (since the 1987 Organic Law) and county and township people's congresses. Every level above that is chosen indirectly, by the congress one tier below."},{"d":"deeper","t":"Vetting and the parallel secretary","body":"The CCP pre-approves candidate nominations at every level, so the slate is screened in advance. In a village, the elected committee sits alongside the appointed village Party secretary, who often holds the real authority — so being 'elected' doesn't always mean being in charge."},{"d":"debate","t":"Real democracy at the base?","body":"Supporters see genuine local accountability and a school for participation; sceptics note that candidate vetting and the parallel secretary cap how much elected bodies decide, and that village voting has never been allowed to scale upward."}],
       "src": ["ev-china-local-elections"],
       "title": "Where Chinese voters actually vote",
@@ -164,7 +170,8 @@
       "quiz": { "q": "In China, directly-elected bodies exist mainly at the level of…", "choices": ["The national legislature", "Villages and counties/townships", "Provinces", "The Politburo"], "answer": 1 }
     },
     {
-      "id": "china-whole-process-democracy", "field": "polisci", "depth": "concept", "level": 2,
+      "id": "china-whole-process-democracy", "field": "polisci", "depth": "concept", "level": 5,
+      "prereq": ["china-local-elections"],
       "layers": [{"d":"basics","t":"Democracy, redefined","body":"The CCP calls China a democracy — 'whole-process people's democracy', a term Xi raised in 2019 and written into law in 2021. It claims democracy is not just voting but the whole cycle: consultation, decision, management and oversight, through the people's congresses and the political consultative conference."},{"d":"deeper","t":"Judged by outcomes","body":"Its test is consequentialist: a system counts as democratic if it delivers for citizens, not if power alternates between parties. The Party contrasts this with what it calls the merely 'formal' Western democracy that ends at the ballot box."},{"d":"debate","t":"Democracy or relabelling?","body":"Supporters argue consultative, outcome-based democracy fits China and works. Critics argue that without competitive elections, a free press or any way to remove rulers, the word 'democracy' is being stretched to legitimise one-party rule."}],
       "src": ["ev-china-whole-process-democracy"],
       "title": "'Whole-process people's democracy'",
@@ -178,6 +185,7 @@
     },
     {
       "id": "china-marxism", "field": "polecon", "depth": "concept", "level": 3,
+      "prereq": ["china-party-state"],
       "layers": [{"d":"basics","t":"The official creed","body":"The CCP's guiding ideology is Marxism–Leninism, 'adapted to China'. Its lineage runs Marxism–Leninism → Mao Zedong Thought → Deng Xiaoping Theory → the Three Represents → the Scientific Outlook on Development → Xi Jinping Thought, all under 'socialism with Chinese characteristics'."},{"d":"deeper","t":"How markets fit Marx","body":"The bridge to markets is the 'primary stage of socialism': China's productive forces are still developing, so markets and private firms are tools on a long road to communism. From Marx it keeps historical materialism, class analysis and the vanguard party; Xi Jinping Thought is billed as 'Marxism for the 21st century'."},{"d":"debate","t":"Still Marxist?","body":"The Party says this is living Marxism, creatively applied. Critics — some of them Marxists — argue that private capital, billionaires and deep inequality make 'socialist' more a legitimacy label than Marx's classless aim; others say the Marxist vocabulary mainly justifies the Party's monopoly on power."}],
       "src": ["ev-china-marxism"],
       "title": "How the CCP's ideology references Marx",
@@ -191,6 +199,7 @@
     },
     {
       "id": "china-growth-model", "field": "econ", "depth": "concept", "level": 3,
+      "prereq": ["china-reform-opening"],
       "layers": [{"d":"basics","t":"The engine","body":"China's boom ran on extraordinarily high investment and saving (gross saving ~43% of GDP), a vast manufacturing export sector, and state-directed bank credit — with state-owned firms (~40% of GDP) alongside a fast-growing private sector."},{"d":"deeper","t":"The imbalance","body":"That model built world-class infrastructure at speed, but kept household consumption a low share of GDP and bred overcapacity and debt. Since the 2010s, plan after plan has promised to 'rebalance' toward consumption and services — yet the shift has been slow."},{"d":"debate","t":"Sustainable?","body":"Optimists point to tech upgrading, sheer scale and state coordination; pessimists to the property bust, local-government debt and a shrinking workforce. The same state direction is praised for building fast and blamed for misallocating capital."}],
       "src": ["ev-china-growth-model"],
       "title": "China's growth model",
@@ -203,7 +212,8 @@
       "quiz": { "q": "China's growth has leaned most heavily on…", "choices": ["High consumer spending", "High investment and exports", "Foreign aid", "Tourism"], "answer": 1 }
     },
     {
-      "id": "china-hukou", "field": "econ", "depth": "concept", "level": 2,
+      "id": "china-hukou", "field": "econ", "depth": "concept", "level": 4,
+      "prereq": ["china-growth-model"],
       "layers": [{"d":"basics","t":"Registered, not resident","body":"Hukou registers every citizen as rural or urban and to a specific place. Public services — schooling, healthcare, housing support — follow your registered locality, not where you actually live and work."},{"d":"deeper","t":"The floating population","body":"Roughly 200–300 million rural migrants work in cities but can't easily get urban services for themselves or their children, creating a large internal-migrant underclass. Reforms have eased registration in smaller cities, but big-city hukou stays hard to obtain."},{"d":"debate","t":"Order or second-class citizenship?","body":"Supporters say it let China urbanise fast without sprawling mega-slums and manage city growth. Critics call it a system of second-class citizenship that splits families and entrenches the rural–urban divide."}],
       "src": ["ev-china-hukou"],
       "title": "China's hukou system",
@@ -216,7 +226,8 @@
       "quiz": { "q": "China's hukou system mainly determines…", "choices": ["Voting rights", "Access to local public services by registered locality", "Income-tax rates", "Military service"], "answer": 1 }
     },
     {
-      "id": "china-local-debt", "field": "econ", "depth": "concept", "level": 3,
+      "id": "china-local-debt", "field": "econ", "depth": "concept", "level": 4,
+      "prereq": ["china-growth-model"],
       "layers": [{"d":"basics","t":"Borrowing in the shadows","body":"Local governments can't easily run deficits or raise much tax, yet were ordered to deliver growth and infrastructure. Many borrowed through 'local government financing vehicles' (LGFVs) — state-owned companies that take loans and issue bonds off the official books."},{"d":"deeper","t":"Built on land","body":"LGFVs typically used land-use rights as collateral and repaid from land sales, which made up 60–80% of local revenue in 2018. The IMF estimated LGFV debt near $8 trillion — about 47% of GDP — by the end of 2023."},{"d":"debate","t":"How dangerous?","body":"Optimists note the debt is mostly domestic and state-owned, so easier to restructure than a foreign-creditor crisis. Pessimists see years of misallocated investment and a slow-burning drag now exposed by the property slump and falling land sales."}],
       "src": ["ev-china-local-debt"],
       "title": "China's hidden local-government debt",
@@ -229,7 +240,8 @@
       "quiz": { "q": "Chinese local governments largely funded infrastructure by…", "choices": ["Income taxes", "Off-budget financing vehicles backed by land sales", "Foreign aid", "Printing money"], "answer": 1 }
     },
     {
-      "id": "china-provinces", "field": "geo", "depth": "concept", "level": 1,
+      "id": "china-provinces", "field": "geo", "depth": "concept", "level": 2,
+      "prereq": ["date-prc-1949"],
       "layers": [{"d":"basics","t":"The units","body":"China has 34 provincial-level units: 22 provinces (it also claims Taiwan as a 23rd), 5 'autonomous regions' for large minority populations (Xinjiang, Tibet, Inner Mongolia, Guangxi, Ningxia), 4 directly-governed municipalities (Beijing, Shanghai, Tianjin, Chongqing), and 2 special administrative regions (Hong Kong, Macau)."},{"d":"deeper","t":"Down the tiers","body":"Below provinces come prefectures, counties and townships — the rungs officials climb. 'One country, two systems' gives Hong Kong and Macau their own legal and economic systems, while autonomous regions are meant to grant minorities a degree of self-rule."},{"d":"debate","t":"How autonomous, really?","body":"In practice 'autonomous' is largely nominal — real authority stays with the central Party, and policy in Xinjiang and Tibet is tightly controlled. Taiwan's status and the erosion of Hong Kong's promised autonomy are among the sharpest disputes in world politics."}],
       "src": ["ev-china-provinces"],
       "title": "How China is divided up",
@@ -242,7 +254,8 @@
       "quiz": { "q": "Xinjiang, Tibet and Inner Mongolia are classed as China's…", "choices": ["Provinces", "Autonomous regions", "Municipalities", "Special administrative regions"], "answer": 1 }
     },
     {
-      "id": "china-hu-line", "field": "geo", "depth": "concept", "level": 2,
+      "id": "china-hu-line", "field": "geo", "depth": "concept", "level": 3,
+      "prereq": ["china-provinces"],
       "layers": [{"d":"basics","t":"The line","body":"In 1935 the geographer Hu Huanyong drew a diagonal line from Heihe in the northeast to Tengchong in the southwest. East of it lies 43% of the land — and about 94% of the people."},{"d":"deeper","t":"Why it holds","body":"The east has the fertile, watered, coast-facing lowlands; the west (Tibet, Xinjiang and other dry, mountainous regions) holds only ~6% of the population on 57% of the land. Despite decades of 'develop the west' campaigns, the split has barely moved in about 90 years."},{"d":"debate","t":"Destiny or challenge?","body":"It's a striking regularity, not a law of nature. Mega-infrastructure, water-transfer projects and rapid urbanisation are slowly testing whether the line can shift — at real environmental and social cost."}],
       "src": ["ev-china-hu-line"],
       "title": "The line that splits China in two",
@@ -255,7 +268,8 @@
       "quiz": { "q": "China's Hu line marks that ~94% of people live…", "choices": ["In the west", "In the eastern half of the country", "Along the northern border", "Spread evenly"], "answer": 1 }
     },
     {
-      "id": "china-megaregions", "field": "geo", "depth": "concept", "level": 2,
+      "id": "china-megaregions", "field": "geo", "depth": "concept", "level": 4,
+      "prereq": ["china-hu-line"],
       "layers": [{"d":"basics","t":"Where the growth is","body":"China's economy concentrates in a few planned megaregions: the Pearl River Delta / Greater Bay Area (Guangzhou–Shenzhen–Hong Kong; ~86 million people), the Yangtze River Delta (Shanghai–Suzhou–Hangzhou), and Jing-Jin-Ji (Beijing–Tianjin–Hebei)."},{"d":"deeper","t":"Tiers and planning","body":"Cities are informally ranked in 'tiers', with Beijing, Shanghai, Guangzhou and Shenzhen as 'tier 1'. The state deliberately steers people, industry and infrastructure into these clusters to capture the gains of agglomeration."},{"d":"debate","t":"Engine and divide","body":"Concentration drives innovation and growth, but it also widens the coastal–interior gap and strains the hukou system as migrants pour into the biggest cities for jobs whose residency they can't obtain."}],
       "src": ["ev-china-megaregions"],
       "title": "China's giant city-clusters",
