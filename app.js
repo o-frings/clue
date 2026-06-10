@@ -1063,7 +1063,7 @@ function roundRect(ctx,x,y,w,h,r){ r=Math.min(r,w/2,h/2); ctx.beginPath(); ctx.m
 //  - frontier        = dim hollow stubs (unlearned neighbours of what you know — the open loops)
 // Deterministic cluster layout (no physics): fields sit around a circle, their cards spiral
 // out from the field centroid. Pan by dragging; tap a node to open it.
-let webPan={x:0,y:0}, _webNodes=[], _webWired=false;
+let webPan={x:0,y:0}, webZoom=1, _webNodes=[], _webView=null;
 function neighborsOf(id){ const c=byId[id]; if(!c) return []; return [...(c.prereq||[]),...(c.xref||[])].filter(n=>byId[n]&&n!==id); }
 function buildWebNodes(){
   const learned=new Set(learnedIds());
@@ -1101,50 +1101,75 @@ function buildWebNodes(){
 }
 function drawWeb(){
   const cv=$("webCanvas"); if(!cv) return;
-  const DPR=2, cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.72,360,900);
-  if(cv.width!==cssW*DPR){ cv.width=cssW*DPR; cv.height=cssH*DPR; }
+  const DPR=2, cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.78,360,1000);
+  if(cv.width!==cssW*DPR||cv.height!==cssH*DPR){ cv.width=cssW*DPR; cv.height=cssH*DPR; }
   const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
   const css=getComputedStyle(document.documentElement);
-  const sep=(css.getPropertyValue('--sep')||'rgba(0,0,0,.1)'), l3=(css.getPropertyValue('--l3')||'#999').trim();
+  const l3=(css.getPropertyValue('--l3')||'#999').trim();
   const {nodes,edges}=buildWebNodes();
-  const cx=cssW/2+webPan.x, cy=cssH*0.46+webPan.y;
+  // auto-fit: scale + centre the graph's bounding box into the canvas, then apply the user's zoom/pan
+  let minX=1e9,maxX=-1e9,minY=1e9,maxY=-1e9;
+  nodes.forEach(n=>{ if(n.x<minX)minX=n.x; if(n.x>maxX)maxX=n.x; if(n.y<minY)minY=n.y; if(n.y>maxY)maxY=n.y; });
+  if(!nodes.length){ minX=maxX=minY=maxY=0; }
+  const bw=Math.max(1,maxX-minX), bh=Math.max(1,maxY-minY), pad=64;
+  const fit=clamp(Math.min((cssW-pad*2)/bw,(cssH-pad*2)/bh), 0.25, 3.2);
+  const scale=fit*webZoom, gcx=(minX+maxX)/2, gcy=(minY+maxY)/2;
+  const SX=x=>(x-gcx)*scale + cssW/2 + webPan.x, SY=y=>(y-gcy)*scale + cssH/2 + webPan.y;
+  _webView={scale,gcx,gcy,cssW,cssH};
   // edges
-  edges.forEach(e=>{ ctx.beginPath(); ctx.moveTo(cx+e.a.x,cy+e.a.y); ctx.lineTo(cx+e.b.x,cy+e.b.y);
+  edges.forEach(e=>{ ctx.beginPath(); ctx.moveTo(SX(e.a.x),SY(e.a.y)); ctx.lineTo(SX(e.b.x),SY(e.b.y));
     ctx.strokeStyle=e.dim?hexA('#888888',0.12):hexA('#888888',0.32); ctx.lineWidth=e.dim?1:1.4; ctx.stroke(); });
-  // nodes
-  ctx.textAlign="center"; ctx.textBaseline="top"; ctx.font='600 11px -apple-system,sans-serif';
+  // nodes — radii are fixed in screen px so they stay tappable & legible at any zoom
+  ctx.textAlign="center"; ctx.textBaseline="top"; ctx.font='600 12px -apple-system,sans-serif';
+  const showLabels = scale>=0.5;
   nodes.forEach(n=>{ const c=byId[n.id], fl=fieldById[n.field]||{color:'#888'}, col=(fl.color||'#888').trim();
-    const x=cx+n.x, y=cy+n.y; let r;
-    if(n.state==='frontier'){ r=5; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.10); ctx.fill(); ctx.strokeStyle=hexA(col,0.45); ctx.lineWidth=1.4; ctx.setLineDash([2,3]); ctx.stroke(); ctx.setLineDash([]); }
-    else if(n.state==='due'){ r=8; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.35); ctx.fill(); ctx.strokeStyle=hexA(col,0.6); ctx.lineWidth=1.5; ctx.stroke(); }
-    else { r=8; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=col; ctx.fill(); }
-    n._r=r;
-    if(n.state!=='frontier'){ const t=(c.title||'').length>16?c.title.slice(0,15)+'…':c.title; ctx.fillStyle=l3; ctx.fillText(t, x, y+r+3); }
+    const x=SX(n.x), y=SY(n.y); let r;
+    if(n.state==='frontier'){ r=6; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.10); ctx.fill(); ctx.strokeStyle=hexA(col,0.5); ctx.lineWidth=1.6; ctx.setLineDash([2,3]); ctx.stroke(); ctx.setLineDash([]); }
+    else if(n.state==='due'){ r=9; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.35); ctx.fill(); ctx.strokeStyle=hexA(col,0.65); ctx.lineWidth=1.6; ctx.stroke(); }
+    else { r=9; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=col; ctx.fill(); }
+    n._sx=x; n._sy=y; n._r=r;
+    if(showLabels && n.state!=='frontier'){ const t=(c.title||'').length>18?c.title.slice(0,17)+'…':c.title; ctx.fillStyle=l3; ctx.fillText(t, x, y+r+3); }
   });
 }
 function renderWeb(){
   $("lnTitle").textContent="Web";
   const sub=$("lnSub"); const learned=learnedIds().length;
-  if(sub) sub.textContent = learned? (learned+' learned · pull a thread to grow it') : 'Tap a glowing thread to begin your web';
+  if(sub) sub.textContent = learned? (learned+' learned · pinch to zoom, drag to explore') : 'Tap a glowing thread to begin your web';
   $("lnSessBar").style.display="none"; $("lnPhase").style.display="none";
   const restart=$("lnRestart"); if(restart) restart.style.display="none";
   if(!KN.cards.length){ $("lnStage").innerHTML='<div class="emptystate"><div class="ei">🕸️</div><p>The library didn’t load.</p></div>'; return; }
   $("lnStage").innerHTML='<div class="webwrap"><canvas id="webCanvas"></canvas></div>';
-  const cv=$("webCanvas");
-  // pan + tap (canvas is in the pager\'s blocked list, so dragging here never turns the page)
-  if(cv){
-    let px=0,py=0,ox=0,oy=0,down=false,moved=0;
-    const xy=ev=>{ const t=ev.touches?ev.touches[0]:ev; const rt=cv.getBoundingClientRect(); return {x:t.clientX-rt.left,y:t.clientY-rt.top}; };
-    const start=ev=>{ const p=xy(ev); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; };
-    const move=ev=>{ if(!down) return; const p=xy(ev); const dx=p.x-px, dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); if(ev.cancelable) ev.preventDefault(); };
-    const up=ev=>{ if(!down) return; down=false; if(moved>8) return;            // it was a pan, not a tap
-      const t=ev.changedTouches?ev.changedTouches[0]:ev; const rt=cv.getBoundingClientRect(); const mx=t.clientX-rt.left, my=t.clientY-rt.top;
-      const cssW=cv.clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.72,360,900); const cx=cssW/2+webPan.x, cy=cssH*0.46+webPan.y;
-      let hit=null,best=1e9; _webNodes.forEach(n=>{ const d=Math.hypot(mx-(cx+n.x),my-(cy+n.y)); if(d<(n._r||7)+10 && d<best){best=d; hit=n;} });
-      if(hit) openCard(hit.id); };
-    cv.addEventListener("touchstart",start,{passive:true}); cv.addEventListener("touchmove",move,{passive:false}); cv.addEventListener("touchend",up,{passive:true});
-    cv.addEventListener("mousedown",start); cv.addEventListener("mousemove",move); cv.addEventListener("mouseup",up);
+  webZoom=1; webPan={x:0,y:0};                 // open fitted every time — zero friction
+  const cv=$("webCanvas"); if(!cv){ drawWeb(); return; }
+  const rect=()=>cv.getBoundingClientRect();
+  const dist=(a,b)=>Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
+  const mid=(a,b)=>{ const r=rect(); return {x:(a.clientX+b.clientX)/2-r.left, y:(a.clientY+b.clientY)/2-r.top}; };
+  let px=0,py=0,ox=0,oy=0,down=false,moved=0,mode=null,pinchD=0,pinchZ=1,pinchM=null;
+  function startPinch(t0,t1){ mode='pinch'; pinchD=dist(t0,t1); pinchZ=webZoom; pinchM=mid(t0,t1); }
+  function onPinch(t0,t1){
+    const d=dist(t0,t1); if(pinchD<=0) return;
+    const nz=clamp(pinchZ*(d/pinchD), 0.4, 6);
+    // keep the layout point under the pinch midpoint stationary while zooming
+    const v=_webView; if(v){ const Lx=(pinchM.x - v.cssW/2 - webPan.x)/v.scale + v.gcx, Ly=(pinchM.y - v.cssH/2 - webPan.y)/v.scale + v.gcy;
+      const ns=(v.scale/webZoom)*nz; webPan.x=pinchM.x - v.cssW/2 - (Lx-v.gcx)*ns; webPan.y=pinchM.y - v.cssH/2 - (Ly-v.gcy)*ns; }
+    webZoom=nz; drawWeb();
   }
+  const xy=t=>{ const r=rect(); return {x:t.clientX-r.left, y:t.clientY-r.top}; };
+  cv.addEventListener("touchstart",e=>{ if(e.touches.length>=2){ startPinch(e.touches[0],e.touches[1]); return; }
+    const p=xy(e.touches[0]); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; mode='pan'; },{passive:true});
+  cv.addEventListener("touchmove",e=>{ if(mode==='pinch'&&e.touches.length>=2){ onPinch(e.touches[0],e.touches[1]); if(e.cancelable)e.preventDefault(); return; }
+    if(!down) return; const p=xy(e.touches[0]); const dx=p.x-px,dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); if(e.cancelable)e.preventDefault(); },{passive:false});
+  cv.addEventListener("touchend",e=>{ if(mode==='pinch'){ if(e.touches.length===0) mode=null; return; }
+    if(!down) return; down=false; if(moved>9){ mode=null; return; }    // it was a pan, not a tap
+    const t=e.changedTouches[0]; const p=xy(t); hitTap(p.x,p.y); mode=null; },{passive:true});
+  // desktop: drag to pan, wheel to zoom, click to open
+  cv.addEventListener("mousedown",e=>{ const p=xy(e); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; });
+  cv.addEventListener("mousemove",e=>{ if(!down) return; const p=xy(e); const dx=p.x-px,dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); });
+  cv.addEventListener("mouseup",e=>{ if(!down) return; down=false; if(moved>9) return; const p=xy(e); hitTap(p.x,p.y); });
+  cv.addEventListener("wheel",e=>{ e.preventDefault(); const v=_webView; if(!v) return; const r=rect(); const m={x:e.clientX-r.left,y:e.clientY-r.top};
+    const nz=clamp(webZoom*(e.deltaY<0?1.12:0.89),0.4,6); const Lx=(m.x-v.cssW/2-webPan.x)/v.scale+v.gcx, Ly=(m.y-v.cssH/2-webPan.y)/v.scale+v.gcy;
+    const ns=(v.scale/webZoom)*nz; webPan.x=m.x-v.cssW/2-(Lx-v.gcx)*ns; webPan.y=m.y-v.cssH/2-(Ly-v.gcy)*ns; webZoom=nz; drawWeb(); },{passive:false});
+  function hitTap(mx,my){ let hit=null,best=1e9; _webNodes.forEach(n=>{ const d=Math.hypot(mx-n._sx,my-n._sy); if(d<(n._r||7)+12 && d<best){best=d; hit=n;} }); if(hit) openCard(hit.id); }
   drawWeb();
 }
 
