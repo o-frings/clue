@@ -269,6 +269,7 @@
     },
     {
       "id": "me-sunni-shia", "field": "history", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"The split","body":"When Muhammad died in 632 with no agreed heir, most Muslims (Sunnis) accepted leaders chosen by the community; a minority (Shia, 'partisans of Ali') held that leadership belonged to his family line through his cousin and son-in-law Ali."},{"d":"deeper","t":"What divides them","body":"They share Islam's core — one God, the Quran, the five pillars — but differ on religious authority, law and ritual. The killing of Ali's son Hussein at Karbala in 680 became Shia Islam's defining trauma. Sunnis are ~85% of Muslims, Shia ~15%, but Shia form the majority in Iran and Iraq."},{"d":"debate","t":"Faith or power?","body":"Headlines blame 'ancient sectarian hatred', yet Sunni and Shia coexisted for centuries. Modern rulers and rivals frequently weaponise the label — sect is often the costume on what is really a struggle for power."}],
       "src": ["ev-me-sunni-shia"],
       "title": "The Sunni–Shia split",
       "fact": "Islam's main split — Sunni and Shia — began as a 7th-century dispute over who should lead after Muhammad.",
@@ -281,6 +282,7 @@
     },
     {
       "id": "me-oil-rentier", "field": "geo", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"The rentier bargain","body":"Gulf states like Saudi Arabia, the UAE, Kuwait and Qatar fund themselves mainly by selling oil and gas, not by taxing citizens. With little tax there's little pressure for representation — rulers provide welfare and public jobs in return for political quiet."},{"d":"deeper","t":"Why outsiders care","body":"Oil also made the region strategically vital, drawing in great powers, and gave producers leverage through OPEC, which can move world prices by adjusting output. The wealth underwrites everything from sovereign-wealth funds to regional influence."},{"d":"debate","t":"Curse or strategy?","body":"'Rentier state theory' links oil to durable autocracy — no taxation, no representation. But scholars like Michael Herb question how tight that link is, and low prices, youth unemployment and the energy transition now push states (Saudi 'Vision 2030') to diversify and even to tax."}],
       "src": ["ev-me-oil-rentier"],
       "title": "Oil and the rentier state",
       "fact": "Many Middle Eastern states live off oil revenue, not taxes — which reshapes the deal between rulers and ruled.",
@@ -293,6 +295,7 @@
     },
     {
       "id": "me-israel-palestine", "field": "geo", "depth": "concept", "level": 3,
+      "layers": [{"d":"basics","t":"Two national claims","body":"Both Jews and Palestinian Arabs claim national rights in the land between the Jordan River and the Mediterranean. Modern Zionism and Arab nationalism collided under Ottoman and then British rule, and have contested the territory ever since."},{"d":"deeper","t":"The turning points","body":"The 1948 creation of Israel was, for Israelis, independence; for Palestinians the 'Nakba', when over 750,000 were displaced. The 1967 war left Israel governing the West Bank and Gaza. Disputes centre on borders, settlements, refugees, Jerusalem and security; the 'two-state solution' along the 1967 lines remains unrealised."},{"d":"debate","t":"Contested to the core","body":"There is no neutral vocabulary here — 'occupation', 'terrorism', 'self-defence', even casualty figures are narrated differently by each side, and each has its own historiography. Any single-source account, including this one, should be read with that in mind."}],
       "src": ["ev-me-israel-palestine"],
       "title": "The Israeli–Palestinian conflict",
       "fact": "Two peoples claim national rights in one land — the core of the Israeli–Palestinian conflict.",
@@ -305,6 +308,7 @@
     },
     {
       "id": "me-iran-saudi", "field": "geo", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"A regional cold war","body":"Since Iran's 1979 Islamic revolution, Shia-led Iran and Sunni-led Saudi Arabia have competed to lead the Middle East. They rarely fight directly; instead they back opposing sides in other countries."},{"d":"deeper","t":"The proxy map","body":"Their rivalry plays out in Syria, Yemen, Iraq, Lebanon and Bahrain, turning local conflicts into proxy battlegrounds. It blends sect (Shia vs Sunni), nationalism (Persian vs Arab) and raw power politics. In 2023 a China-brokered deal restored diplomatic ties and cooled things."},{"d":"debate","t":"Not just sect","body":"Calling it simply 'Shia vs Sunni' overstates religion — it is also a Persian–Arab and great-power contest, and the two have repeatedly sought détente when it suited them. Sect is one axis, not the whole story."}],
       "src": ["ev-me-iran-saudi"],
       "title": "The Iran–Saudi rivalry",
       "fact": "Iran and Saudi Arabia wage a cold war across the Middle East — usually through proxies.",
@@ -317,6 +321,7 @@
     },
     {
       "id": "colonial-scramble-africa", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1884, "when": "1884–85",
+      "layers": [{"d":"basics","t":"The carve-up","body":"In the 1880s Europe's powers raced to claim African territory. The Berlin Conference of 1884–85 set the ground rules, and by 1914 only Ethiopia and Liberia remained uncolonised."},{"d":"deeper","t":"Lines and extraction","body":"Borders were drawn for European convenience — straight lines slicing through peoples or forcing rivals together — and colonial economies were built to extract raw materials for the metropole, not to develop the colony."},{"d":"debate","t":"How much does it explain?","body":"Those imposed borders and extractive patterns outlived empire and still shape African states. But colonialism isn't the sole cause of every later problem — pre-colonial history, geography and post-independence choices matter too; mono-causal accounts mislead."}],
       "src": ["ev-colonial-scramble-africa"],
       "title": "The Scramble for Africa",
       "fact": "In the 1880s, European powers carved up almost all of Africa among themselves — often by lines on a map.",
@@ -329,6 +334,7 @@
     },
     {
       "id": "sahel-region", "field": "geo", "depth": "concept", "level": 1,
+      "layers": [{"d":"basics","t":"The belt","body":"The Sahel is a semi-arid band running ~5,900 km from the Atlantic to the Red Sea — Mali, Niger, Burkina Faso, Chad and others — sitting between the Sahara to the north and wetter savanna to the south."},{"d":"deeper","t":"Pressures stacking up","body":"Rainfall is low and erratic, droughts recur, and the population is growing fast, squeezing land and water and fuelling herder–farmer conflict. By 2021 the Sahel accounted for a large and rising share of the world's terrorism deaths."},{"d":"debate","t":"Doomed?","body":"It's tempting to see only famine and jihadism, but that misses local resilience and adaptation — and militarised outside interventions have often deepened the crisis rather than ending it."}],
       "src": ["ev-sahel-region"],
       "title": "The Sahel",
       "fact": "The Sahel is the dry belt below the Sahara — and one of the world's most stressed regions.",
@@ -341,6 +347,7 @@
     },
     {
       "id": "sahel-alliance", "field": "geo", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"The coup wave","body":"From 2020, military coups toppled governments in Mali, Burkina Faso and Niger. The new juntas blamed France and the West for failing to stop jihadist insurgencies."},{"d":"deeper","t":"Realignment","body":"They expelled French and Western forces, quit the regional bloc ECOWAS, and formed the Alliance of Sahel States — bringing in Russian military contractors instead. It's a sharp unwinding of decades of Western, especially French, influence."},{"d":"debate","t":"Liberation or worse?","body":"Supporters frame it as reclaiming sovereignty from neo-colonial control. Critics note the juntas haven't actually improved security, and Russian forces bring their own record of abuses."}],
       "src": ["ev-sahel-alliance"],
       "title": "The Sahel's turn from France to Russia",
       "fact": "Since 2020, coups across the Sahel have thrown out French troops and turned toward Russia.",
@@ -353,6 +360,7 @@
     },
     {
       "id": "africa-francafrique", "field": "geo", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"The system","body":"'Françafrique' names France's continued grip on its former African colonies after their 1960 independence — a web of economic, military and personal ties that kept real power partly in Paris."},{"d":"deeper","t":"The mechanisms","body":"It worked through the CFA franc (African currencies pegged and overseen by France), defence pacts that produced frequent French interventions, an opaque presidential 'African Cell', and personal networks linking elites — a system critics call clientelist and corrupt."},{"d":"debate","t":"Fading — for better or worse?","body":"Defenders argue the ties also brought stability, investment and a stable currency; critics that they smothered sovereignty. Either way it's weakening — budget limits, scrutiny and rivals (China, Russia), with Sahel states now expelling French troops."}],
       "src": ["ev-africa-francafrique"],
       "title": "Françafrique",
       "fact": "'Françafrique' is the name for France's continued grip on its former African colonies after independence.",
@@ -365,6 +373,7 @@
     },
     {
       "id": "libya-collapse", "field": "geo", "depth": "concept", "level": 2,
+      "layers": [{"d":"basics","t":"From strongman to collapse","body":"Muammar Gaddafi ruled Libya for 42 years on oil wealth and tight control. In 2011, Arab Spring protests and a NATO-backed uprising toppled and killed him."},{"d":"deeper","t":"No state to replace him","body":"No stable order followed. Rival governments and militias fought two civil wars, the country split between east and west, and Libya became a major transit route for migrants heading to Europe. Oil keeps flowing, but power is contested by force."},{"d":"debate","t":"Did intervention cause it?","body":"Some argue the 2011 NATO intervention created the chaos by removing a ruler with no plan for what came next; others that it merely lifted the lid on a state Gaddafi had hollowed out. Both his rule and deep regional divisions set the stage."}],
       "src": ["ev-libya-collapse"],
       "title": "Libya after Gaddafi",
       "fact": "Libya went from one of Africa's richest states to a fractured war zone after Gaddafi fell in 2011.",
