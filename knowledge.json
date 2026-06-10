@@ -989,7 +989,7 @@
     },
 
     {
-      "id": "eco-yellowstone", "field": "eco", "depth": "event", "level": 2,
+      "id": "eco-yellowstone", "field": "eco", "depth": "event", "level": 1,
       "xref": ["sys-feedback","bio-natural-selection"],
       "title": "Wolves reshaped Yellowstone",
       "fact": "Reintroducing wolves in 1995 rippled all the way down to the rivers.",
@@ -1001,7 +1001,7 @@
       "counter": "The popular 'wolves changed the rivers' story is partly overstated; recovery had multiple drivers and the magnitude is debated."
     },
     {
-      "id": "eco-planetary-boundaries", "field": "eco", "depth": "book", "level": 3,
+      "id": "eco-planetary-boundaries", "field": "eco", "depth": "book", "level": 1,
       "xref": ["sys-commons","econ-externalities"],
       "title": "Planetary boundaries",
       "fact": "Scientists have mapped nine limits for a stable planet — and we've crossed several.",
@@ -1013,7 +1013,7 @@
       "counter": "The specific boundary values carry real uncertainty, and some boundaries are global while others are really regional — the numbers are estimates, not constants."
     },
     {
-      "id": "eco-haber-bosch", "field": "eco", "depth": "event", "level": 2,
+      "id": "eco-haber-bosch", "field": "eco", "depth": "event", "level": 1,
       "xref": ["eco-planetary-boundaries","eh-industrial-revolution"],
       "title": "Half the nitrogen in you came from one factory process",
       "fact": "The Haber-Bosch process (1909) pulls nitrogen from the air to make fertiliser — and now feeds roughly half the world.",
@@ -1038,7 +1038,7 @@
       "counter": "Real systems chain many loops with delays; reading off a single loop usually misleads."
     },
     {
-      "id": "sys-commons", "field": "systems", "depth": "concept", "level": 2,
+      "id": "sys-commons", "field": "systems", "depth": "concept", "level": 1,
       "xref": ["econ-externalities","poli-collective-action"],
       "title": "The tragedy of the commons — and its rebuttal",
       "fact": "Shared resources get overused when each user pockets the gain but shares the cost — yet communities often solve this without the state or markets.",
@@ -1050,7 +1050,7 @@
       "counter": "Hardin overgeneralised from a model; Ostrom showed the 'tragedy' is not inevitable when users can communicate and make binding rules."
     },
     {
-      "id": "sys-powerlaw", "field": "systems", "depth": "concept", "level": 2,
+      "id": "sys-powerlaw", "field": "systems", "depth": "concept", "level": 1,
       "xref": ["math-simpson"],
       "title": "Heavy tails: when the average lies",
       "fact": "Wealth, city sizes, and word frequencies follow heavy-tailed distributions where a few cases dominate.",
@@ -1059,6 +1059,83 @@
       "tags": ["statistics", "complexity"],
       "deploy": "Warns against reasoning from the mean in unequal systems — 'average income' or 'average user' can be meaningless.",
       "counter": "True power laws are statistically hard to distinguish from lognormal distributions, and the label is often slapped on data that doesn't fit it."
+    },
+    {
+      "id": "sys-preferential-attachment", "field": "systems", "depth": "concept", "level": 2,
+      "prereq": ["sys-powerlaw"],
+      "src": ["ev-sys-preferential-attachment"],
+      "title": "Why the rich get richer",
+      "fact": "Why do a few get so much? Often because 'the rich get richer' — preferential attachment.",
+      "detail": "Power-law distributions frequently arise from one simple rule: the more you already have, the more you attract. New web pages link to already-popular pages; citations flow to already-cited papers; wealth begets wealth. Barabási and Albert (1999) showed this 'preferential attachment' generates the heavy-tailed, 'scale-free' patterns seen across many networks.",
+      "deploy": "A mechanism behind heavy tails: unequal outcomes can emerge from a neutral 'rich-get-richer' process, not just from differences in merit.",
+      "counter": "It's one route to power laws, not the only one; real systems mix it with chance, fitness and resets, so pure preferential attachment rarely fits perfectly.",
+      "tags": ["systems", "networks", "power law"],
+      "quiz": { "q": "Preferential attachment ('rich get richer') tends to produce…", "choices": ["A bell curve", "A power-law / heavy-tailed distribution", "A flat distribution", "A single value"], "answer": 1 }
+    },
+    {
+      "id": "sys-leverage-points", "field": "systems", "depth": "concept", "level": 2,
+      "prereq": ["sys-feedback"],
+      "src": ["ev-sys-leverage-points"],
+      "title": "Where to push a system",
+      "fact": "There are places to push a system for big change — and the obvious ones are usually the weakest.",
+      "detail": "Donella Meadows ranked twelve 'leverage points' for intervening in a system. Tweaking numbers (taxes, subsidies) is low leverage; changing feedback loops and rules is stronger; the highest leverage is shifting the system's goals and the underlying paradigm. People sense these points but often push them the wrong way.",
+      "deploy": "A change toolkit: stop fiddling with parameters and aim at goals and mindsets, where leverage is greatest.",
+      "counter": "High-leverage points (paradigms) are exactly the hardest to move and easiest to get catastrophically wrong; the ranking is a heuristic, not a formula.",
+      "tags": ["systems", "leverage", "meadows"],
+      "xref": ["sys-feedback"],
+      "quiz": { "q": "In Meadows' framework, the highest-leverage intervention is…", "choices": ["Adjusting a tax rate", "Changing the system's goals or paradigm", "Adding a buffer", "Changing a constant"], "answer": 1 }
+    },
+    {
+      "id": "sys-ostrom", "field": "systems", "depth": "concept", "level": 2,
+      "prereq": ["sys-commons"],
+      "src": ["ev-sys-ostrom"],
+      "title": "Governing the commons",
+      "fact": "Elinor Ostrom showed communities can govern shared resources themselves — and found the rules that make it work.",
+      "detail": "Against the idea that commons inevitably collapse, Ostrom's fieldwork on fisheries, forests and irrigation found communities sustainably self-governing for generations. Her eight design principles include clear boundaries, rules fitted to local conditions, participation in rule-making, monitoring, graduated sanctions, cheap conflict resolution and nested governance. She won the 2009 Nobel in economics.",
+      "deploy": "The empirical rebuttal to 'tragedy of the commons': self-organised governance is a real third option beyond the state and the market.",
+      "counter": "Her principles aren't a guarantee — they work best for bounded, local resources; scaling them to global commons like the climate is far harder.",
+      "tags": ["systems", "commons", "ostrom", "governance"],
+      "xref": ["sys-commons"],
+      "quiz": { "q": "Ostrom showed commons can be sustained by…", "choices": ["Only privatisation", "Only state control", "Community self-governance with the right rules", "Doing nothing"], "answer": 2 }
+    },
+    {
+      "id": "eco-tipping-points", "field": "eco", "depth": "concept", "level": 2,
+      "prereq": ["eco-planetary-boundaries"],
+      "src": ["ev-eco-tipping-points"],
+      "title": "Climate tipping points",
+      "fact": "Push a natural system too far and it can flip — abruptly, and sometimes for good.",
+      "detail": "Some Earth systems have thresholds where change becomes self-reinforcing: melting ice exposes dark water that absorbs more heat; a drying Amazon can flip toward savanna; the Atlantic overturning circulation (AMOC) could slow sharply. Past a tipping point the shift can be fast and effectively irreversible, and crossing one can nudge others — a cascade.",
+      "deploy": "Why climate risk isn't smoothly proportional: some changes don't ease back once you stop pushing.",
+      "counter": "Exact thresholds are uncertain and hotly debated — some 'tipping' claims outrun the evidence, and timescales range from years to centuries.",
+      "tags": ["ecology", "climate", "tipping points"],
+      "xref": ["eco-planetary-boundaries"],
+      "quiz": { "q": "A climate 'tipping point' is…", "choices": ["A gradual, reversible change", "A threshold past which change is self-reinforcing and often irreversible", "A daily temperature swing", "A measurement error"], "answer": 1 }
+    },
+    {
+      "id": "eco-keystone-species", "field": "eco", "depth": "concept", "level": 2,
+      "prereq": ["eco-yellowstone"],
+      "src": ["ev-eco-keystone-species"],
+      "title": "Keystone species",
+      "fact": "Some species hold a whole ecosystem together — far out of proportion to their numbers.",
+      "detail": "A 'keystone species' has an outsized effect relative to its abundance (Robert Paine, 1969). Remove sea otters and urchins strip the kelp forests; remove the ochre sea star and mussels crowd everyone out; remove wolves and herbivores reshape the land. Like the keystone of an arch, pull it and the structure can collapse.",
+      "deploy": "Explains why protecting one species can matter for a whole ecosystem — and why Yellowstone's wolves rippled so far.",
+      "counter": "The label is overused (200+ claimed keystones) and context-dependent; real food webs are messier than a single linchpin.",
+      "tags": ["ecology", "biodiversity", "keystone"],
+      "xref": ["eco-yellowstone"],
+      "quiz": { "q": "A keystone species is one that…", "choices": ["Is the most abundant", "Has an outsized effect relative to its abundance", "Lives the longest", "Eats only plants"], "answer": 1 }
+    },
+    {
+      "id": "eco-eutrophication", "field": "eco", "depth": "concept", "level": 2,
+      "prereq": ["eco-haber-bosch"],
+      "src": ["ev-eco-eutrophication"],
+      "title": "Fertiliser's dead zones",
+      "fact": "The fertiliser that feeds the world also chokes its waters — creating ocean 'dead zones'.",
+      "detail": "Nitrogen and phosphorus runoff from farms (and sewage) over-fertilise rivers, lakes and coasts. The nutrients trigger algal blooms; when the algae die and decompose they strip oxygen from the water, creating hypoxic 'dead zones' (like the Gulf of Mexico's) where fish can't survive. It's the downstream cost of Haber–Bosch abundance.",
+      "deploy": "The other half of the fertiliser story: the reactive nitrogen that feeds billions also pollutes the water that receives the runoff.",
+      "counter": "It's manageable, not inevitable — better nutrient timing, buffer strips and treatment cut runoff; the obstacle is mostly cost and governance, not chemistry.",
+      "tags": ["ecology", "nitrogen", "pollution", "water"],
+      "xref": ["eco-haber-bosch"],
+      "quiz": { "q": "Eutrophication creates 'dead zones' by…", "choices": ["Adding oxygen", "Nutrient runoff → algal blooms → oxygen depletion", "Cooling the water", "Removing all nutrients"], "answer": 1 }
     },
 
     {

@@ -1026,6 +1026,60 @@
       "url": "https://en.wikipedia.org/wiki/He_Jiankui_affair",
       "kind": "reference",
       "strength": "Well-documented 2018 case (twins, condemnation, 3-year sentence) and the somatic-vs-germline distinction."
+    },
+    "ev-eco-tipping-points": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Tipping points in the climate system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tipping_points_in_the_climate_system",
+      "kind": "reference",
+      "strength": "Active climate-science synthesis (IPCC-tracked); the existence of tipping elements is well supported, exact thresholds uncertain."
+    },
+    "ev-eco-keystone-species": {
+      "who": "Wikipedia (after Robert Paine, 1969)",
+      "year": 1969,
+      "title": "Keystone species",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Keystone_species",
+      "kind": "reference",
+      "strength": "Established ecological concept with classic experiments (sea stars, otters); the label is sometimes over-applied."
+    },
+    "ev-eco-eutrophication": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Eutrophication",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Eutrophication",
+      "kind": "reference",
+      "strength": "Well-established mechanism; nutrient-runoff dead zones (e.g. Gulf of Mexico) are extensively documented."
+    },
+    "ev-sys-leverage-points": {
+      "who": "Donella Meadows",
+      "year": 1999,
+      "title": "Twelve leverage points",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Twelve_leverage_points",
+      "kind": "reference",
+      "strength": "Influential systems-thinking heuristic from Meadows; a framework, not an empirical law."
+    },
+    "ev-sys-ostrom": {
+      "who": "Wikipedia (Elinor Ostrom)",
+      "year": 1990,
+      "title": "Elinor Ostrom",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Elinor_Ostrom",
+      "kind": "reference",
+      "strength": "Nobel-winning (2009) empirical work across many real commons; principles best evidenced for bounded local resources."
+    },
+    "ev-sys-preferential-attachment": {
+      "who": "Wikipedia (Barabási & Albert, 1999)",
+      "year": 1999,
+      "title": "Preferential attachment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Preferential_attachment",
+      "kind": "reference",
+      "strength": "Well-studied generative mechanism for power laws; one of several routes, not the only one."
     }
   }
 }
