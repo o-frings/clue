@@ -928,7 +928,7 @@
       "quiz": { "q": "Natural selection requires variation that is…", "choices": ["Acquired in a lifetime", "Heritable", "Always beneficial", "Identical in all individuals"], "answer": 1 }
     },
     {
-      "id": "bio-microbiome", "field": "bio", "depth": "fact", "level": 2,
+      "id": "bio-microbiome", "field": "bio", "depth": "fact", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "You're about half bacteria (by cell count)",
       "fact": "Your body holds roughly as many bacterial cells as human cells — about 1:1, not the old '10:1'.",
@@ -940,7 +940,7 @@
       "counter": "These are estimates with wide ranges and they vary person to person; function matters more than raw counts."
     },
     {
-      "id": "bio-crispr", "field": "bio", "depth": "event", "level": 2,
+      "id": "bio-crispr", "field": "bio", "depth": "event", "level": 1,
       "xref": ["bio-natural-selection"],
       "title": "CRISPR: programmable gene editing",
       "fact": "Since 2012 we've been able to cut and edit DNA at a chosen spot, cheaply and precisely.",
@@ -950,6 +950,42 @@
       "tags": ["genetics", "biotech"],
       "deploy": "Cheap, precise editing changes every debate about medicine, agriculture, and 'designer' organisms.",
       "counter": "Off-target edits and the ethics of heritable (germline) changes remain serious, unresolved caveats."
+    },
+    {
+      "id": "bio-genetic-drift", "field": "bio", "depth": "concept", "level": 2,
+      "prereq": ["bio-natural-selection"],
+      "src": ["ev-bio-genetic-drift"],
+      "title": "Evolution by pure chance",
+      "fact": "Evolution isn't only survival of the fittest — pure chance ('genetic drift') also shapes which genes survive.",
+      "detail": "Beyond selection, gene frequencies wander randomly across generations through sheer sampling luck — who happens to reproduce. This 'genetic drift' is strongest in small populations, where it can fix or erase a gene regardless of fitness, and (per Kimura's neutral theory) it drives much molecular evolution. Selection and drift act together, not in opposition.",
+      "deploy": "Corrects the 'everything is an adaptation' reflex — much genetic change is just noise, not design.",
+      "counter": "Drift and selection are partners, not rivals; their relative weight depends on population size, and teasing them apart is genuinely hard.",
+      "tags": ["biology", "evolution", "genetics"],
+      "quiz": { "q": "Genetic drift changes gene frequencies through…", "choices": ["Natural selection", "Random chance, especially in small populations", "Mutation alone", "Migration alone"], "answer": 1 }
+    },
+    {
+      "id": "bio-microbiome-role", "field": "bio", "depth": "concept", "level": 2,
+      "prereq": ["bio-microbiome"],
+      "src": ["ev-bio-microbiome-role"],
+      "title": "What your microbes do for you",
+      "fact": "Your resident microbes earn their keep — digesting fibre, making vitamins and training your immune system.",
+      "detail": "Gut microbes ferment dietary fibre into short-chain fatty acids, help synthesise vitamins (K and several B's), and help calibrate the immune system, while crowding out invaders. Disruption ('dysbiosis') — e.g. from broad-spectrum antibiotics — is associated with conditions from inflammatory bowel disease to metabolic problems, though much of the 'gut–brain' story is still emerging.",
+      "deploy": "Reframes microbes as partners, not passengers — and explains why broad antibiotics have side effects.",
+      "counter": "The field is hot and over-hyped: many microbiome–disease links are correlations, and popular 'gut–brain axis' claims often run ahead of the evidence.",
+      "tags": ["biology", "microbiome", "health"],
+      "quiz": { "q": "A well-supported role of the gut microbiome is…", "choices": ["Producing all your DNA", "Digesting fibre and training the immune system", "Replacing the liver", "Setting eye colour"], "answer": 1 }
+    },
+    {
+      "id": "bio-germline-editing", "field": "bio", "depth": "concept", "level": 2,
+      "prereq": ["bio-crispr"],
+      "src": ["ev-bio-germline-editing"],
+      "title": "The gene-edited babies line",
+      "fact": "In 2018 a scientist edited the genes of babies — crossing a line the field had agreed not to.",
+      "detail": "CRISPR can edit body cells (somatic) to treat one patient, or the germline (eggs, sperm, embryos), whose changes pass to all descendants. In 2018 He Jiankui announced gene-edited twins in China; the work drew near-universal condemnation and a prison sentence — it was unsafe, the consent forged, the ethics indefensible. Most countries ban heritable germline editing while allowing somatic gene therapies.",
+      "deploy": "Marks the bright line in gene editing: treating a patient vs. permanently altering the human lineage.",
+      "counter": "The line is contested at the edges — heritable editing to prevent devastating genetic disease has serious advocates, so 'never' isn't a settled consensus.",
+      "tags": ["biology", "crispr", "ethics", "gene editing"],
+      "quiz": { "q": "The 2018 He Jiankui case involved editing…", "choices": ["Adult body cells only", "The germline (heritable embryo edits)", "Plants", "Bacteria"], "answer": 1 }
     },
 
     {

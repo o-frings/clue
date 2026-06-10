@@ -999,6 +999,33 @@
       "url": "https://en.wikipedia.org/wiki/Dark_energy",
       "kind": "reference",
       "strength": "Accelerating expansion seen since 1998 (Type Ia supernovae, CMB, structure); the cause remains unknown."
+    },
+    "ev-bio-genetic-drift": {
+      "who": "Wikipedia (after Kimura)",
+      "year": 1968,
+      "title": "Genetic drift",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Genetic_drift",
+      "kind": "reference",
+      "strength": "Established population genetics; drift and Kimura's neutral theory are well evidenced."
+    },
+    "ev-bio-microbiome-role": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Human microbiome",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Human_microbiome",
+      "kind": "reference",
+      "strength": "Core functions (fibre fermentation, vitamins, immune training) well established; many disease links are still correlational."
+    },
+    "ev-bio-germline-editing": {
+      "who": "Wikipedia",
+      "year": 2018,
+      "title": "He Jiankui affair",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/He_Jiankui_affair",
+      "kind": "reference",
+      "strength": "Well-documented 2018 case (twins, condemnation, 3-year sentence) and the somatic-vs-germline distinction."
     }
   }
 }
