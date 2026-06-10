@@ -782,15 +782,44 @@ let feedFilter="all";   // "all" or a field id
 let feedStatus="all";   // "all" | "unlearned" | "learned"
 let feedOrder=[];       // current visible order, for the Reader's "next"
 
+// how "heavy" a card is to digest, 0 (quick fun fact) .. 1 (dense concept/book).
+// Drives the slot-machine weave: level + depth-kind + layer count, with the dedicated
+// "fun" field always treated as a light hit.
+function cardHeft(c){
+  let h = (((c.level||1)-1)/5);
+  h += ({fact:0, event:0.05, concept:0.30, book:0.45})[c.depth] || 0;
+  const L=(layersOf(c)||[]).length; if(L>=4) h+=0.15; else if(L>=3) h+=0.08;
+  if(c.field==='fun') h*=0.25;
+  return clamp(h,0,1);
+}
 function feedCandidates(){
   let list;
   if(feedFilter==="__saved"){ const s=new Set(settings.saved||[]); list=KN.cards.filter(c=>s.has(c.id)); }
   else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter); }
   if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
   else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
-  // basics first, with a gentle daily shuffle so the feed feels fresh and fields mix
-  list.sort((a,b)=> ((a.level||1)-(b.level||1)) || ((hashStr(a.id+todayStr())%97)-(hashStr(b.id+todayStr())%97)) );
-  return list;
+  if(list.length<3) return list;
+  // within-bucket order: unseen first, focus fields a little earlier, then a stable daily shuffle
+  const focus=new Set(settings.focus||[]);
+  const skey=c=> (isNew(c.id)?0:1000) + (focus.has(c.field)?-60:0) + (hashStr(c.id+todayStr())%40);
+  const sortInterleave=arr=> interleaveByField(arr.sort((a,b)=>skey(a)-skey(b)));
+  // split into light hits vs heavier payoffs
+  const light=[], heavy=[];
+  list.forEach(c=> (cardHeft(c) < 0.42 ? light : heavy).push(c));
+  const L=sortInterleave(light), H=sortInterleave(heavy);
+  // slot-machine weave: mostly light, a heavier payoff dropped in every 2–4 cards (variable ratio)
+  const out=[]; let li=0, hi=0, sinceHeavy=0;
+  while(li<L.length || hi<H.length){
+    const gap = 2 + (hashStr('g'+out.length+todayStr())%3);   // 2..4 light between payoffs
+    if(hi<H.length && (sinceHeavy>=gap || li>=L.length)){ out.push(H[hi++]); sinceHeavy=0; }
+    else if(li<L.length){ out.push(L[li++]); sinceHeavy++; }
+    else if(hi<H.length){ out.push(H[hi++]); sinceHeavy=0; }
+  }
+  // open on a grabby light hit — prefer an unseen fun fact for the hook
+  let op=out.findIndex(c=> c.field==='fun' && isNew(c.id));
+  if(op<0) op=out.findIndex(c=> cardHeft(c)<0.3);
+  if(op>0){ const [hook]=out.splice(op,1); out.unshift(hook); }
+  return out;
 }
 function renderFeed(){
   $("feedSub").textContent = greeting()+" — what do you want to understand today?";
