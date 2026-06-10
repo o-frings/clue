@@ -207,9 +207,7 @@ async function cloudReconcile(){
 async function reloadFromStore(){
   settings = Object.assign(settings, (await sget("settings"))||{});
   progress = (await sget("progress")) || {};
-  if(settings.achUnlocked==null) settings.achUnlocked=unlockedIds();
-  resetDailyIfNeeded(); session=null;
-  applyTheme(); refreshAll(); renderLearn();
+  applyTheme(); refreshAll(); renderWeb();
 }
 
 function renderAccount(){
@@ -910,7 +908,7 @@ function renderReader(){
     ? '<button class="btn wide rddeeper" id="rdDeeper"><span>Go deeper</span><span class="rddsub">'+esc(layers[rdRevealed].t||'')+' · '+(rdRevealed+1)+' of '+total+'</span></button>'
     : '';
   const dp=$("rdDeeper"); if(dp) dp.onclick=()=>{ rdRevealed++; renderReader(); };
-  const lr=$("rdLearn"); if(lr) lr.onclick=()=>{ schedule(rdId,2,true); resetDailyIfNeeded(); settings.daily.count++; touchDay('learn'); awardXp(10); persistAll(); checkAchievements(); celebrate(); toast("Added — "+esc(c.title)); renderReader(); };
+  const lr=$("rdLearn"); if(lr) lr.onclick=()=>{ schedule(rdId,2,true); persistAll(); toast("Added to your web — "+esc(c.title)); renderReader(); };
   const nn=$("rdNext"); if(nn) nn.onclick=readerNext;
   const qz=$("rdQuiz"); if(qz) qz.onclick=()=>readerQuiz(c);
 }
@@ -926,7 +924,9 @@ function readerQuiz(c){
       '<div class="rdquiz"><div class="quizq">'+esc(qz.q)+'</div><div class="quizopts">'+opts+'</div>'+
       (answered!=null?'<button class="btn wide sm" id="rdQzBack" style="margin-top:14px;">Back to card</button>':'')+'</div>';
     if(answered==null){ document.querySelectorAll("#rdBody .quizopt").forEach(b=> b.onclick=()=>{ answered=+b.dataset.i;
-      if(answered===qz.answer){ settings.quizCorrectTotal=(settings.quizCorrectTotal||0)+1; awardXp(8); touchDay('quiz'); persistAll(); checkAchievements(); celebrate(); }
+      // retrieval feeds the invisible scheduler — no points, no streak, no toast
+      if(isLearned(rdId)) schedule(rdId, answered===qz.answer?2:1, false);
+      persistAll();
       draw(); }); }
     else { $("rdBody").scrollTop=0; $("rdQzBack").onclick=()=>{ rdRevealed=layersOf(c).length; renderReader(); }; }
   }
@@ -973,35 +973,22 @@ function renderDebate(){
     <div class="seg" id="dbSideSeg"><div class="s${side==='for'?' active':''}" data-side="for">Arguments for</div><div class="s${side==='against'?' active':''}" data-side="against">Against / rebuttal</div></div>
     <div class="steelman"><div class="smk">${side==='for'?'Make your case':'Steelman the other side'}</div><p>${side==='for'?'Lead with your strongest sourced point, then stack support. The opponent will attack your weakest link — pick points you can defend.':'Before you argue, state the other side as strongly as they would. Anticipating these is how you win the rebuttal.'}</p></div>
     ${items||'<div class="emptystate"><div class="ei">📭</div><p>No cards in this motion’s fields yet.</p></div>'}`;
-  document.querySelectorAll("#dbSideSeg .s").forEach(s=> s.onclick=()=>{ dbSide=s.dataset.side; if(dbSide==='against'){ settings.countersRead=(settings.countersRead||0)+ pool.filter(c=>c.counter && isLearned(c.id)).length; persistAll(); checkAchievements(); } renderDebate(); });
+  document.querySelectorAll("#dbSideSeg .s").forEach(s=> s.onclick=()=>{ dbSide=s.dataset.side; renderDebate(); });
   document.querySelectorAll("#dbBody .argcard").forEach(el=> el.onclick=()=>openCard(el.dataset.id));
 }
-function pickMotion(id){ dbMotion=id; dbSide="for"; settings.debatesBuilt=(settings.debatesBuilt||0)+1; awardXp(5); persistAll(); checkAchievements(); renderDebate(); }
+function pickMotion(id){ dbMotion=id; dbSide="for"; renderDebate(); }
 
-// ================= ME =================
+// ================= YOU =================
 function renderMe(){
-  // profile
+  // profile — no level/XP; what you've built is the web, summarised here
   const initials=(settings.name||'').trim().split(/\s+/).filter(Boolean).map(s=>s[0]).slice(0,2).join('').toUpperCase()||'🙂';
-  $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint">Level '+levelFor(settings.xp)+' · '+(settings.xp||0)+' XP</div></div>';
+  const learned=learnedIds().length, fieldsStarted=new Set(learnedIds().map(id=>byId[id].field)).size;
+  $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint">'+(learned? (learned+' card'+(learned===1?'':'s')+' in your web · '+fieldsStarted+' field'+(fieldsStarted===1?'':'s')) : 'Your web is empty — pull a thread to begin')+'</div></div>';
   $("meProfile").onclick=()=>{ openSheet("Settings"); };
-  // stats
-  $("stLevel").textContent=levelFor(settings.xp);
-  $("stLearned").textContent=learnedIds().length;
-  $("stStreak").textContent=settings.streak||0;
-  const due=dueCards().length; $("stDue").textContent=due; $("stDue").classList.toggle("due",due>0);
-  // xp bar
-  const L=levelFor(settings.xp), lo=levelFloor(L), hi=levelCeil(L);
-  $("xpBar").style.width = clamp((settings.xp-lo)/(hi-lo)*100,2,100)+"%";
-  $("stXpToGo").textContent = '· '+(hi-(settings.xp||0))+' XP to level '+(L+1);
-  // radar + chart
-  drawFieldRadar(); drawProgress();
-  $("meRadarFoot").textContent = (learnedIds().length? (new Set(learnedIds().map(id=>byId[id].field)).size+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.')+' · Tap to see the breakdown.';
-  const wk=lastNDaysActivity(14).reduce((a,d)=>a+d.l,0);
-  $("meProgFoot").textContent = wk+' learned in the last 14 days · '+learnedIds().length+' total';
-  // objective UI
+  // field balance (a coverage breakdown; the web is the full map)
+  drawFieldRadar();
+  $("meRadarFoot").textContent = (learned? (fieldsStarted+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.')+' · Tap to see the breakdown.';
   renderObjUI();
-  // achievements
-  renderAchievements();
 }
 function renderObjUI(){
   document.querySelectorAll("#objChips .chip").forEach(ch=> ch.classList.toggle("on", ch.dataset.v===settings.objective));
@@ -1010,14 +997,6 @@ function renderObjUI(){
   document.querySelectorAll("#focusChips .chip").forEach(ch=> ch.onclick=()=>{ const f=ch.dataset.f; settings.focus=settings.focus||[];
     const i=settings.focus.indexOf(f); if(i>=0) settings.focus.splice(i,1); else { if(settings.focus.length>=3){ toast("Up to 3 focus fields"); return; } settings.focus.push(f); }
     persistAll(); renderObjUI(); setSub(); });
-  document.querySelectorAll("#paceSeg .s").forEach(s=> s.classList.toggle("active", +s.dataset.pace===settings.pace));
-  $("paceVal").textContent='· '+settings.pace+' a day';
-}
-function renderAchievements(){
-  const have=new Set(unlockedIds());
-  $("achGrid").innerHTML=ACHIEVEMENTS.map(a=>{ const on=have.has(a.id);
-    return '<div class="ach'+(on?' on':'')+'"><div class="achi">'+(on?a.icon:'🔒')+'</div><div class="acht">'+esc(a.t)+'</div><div class="achd">'+esc(a.d)+'</div></div>'; }).join('');
-  $("achCap").innerHTML='<b>'+have.size+'</b> of '+ACHIEVEMENTS.length+' unlocked';
 }
 
 // ================= canvas drawing =================
@@ -1077,6 +1056,98 @@ function drawProgress(){ const cv=$("progChart"); if(!cv) return; const ctx=cv.g
 }
 function roundRect(ctx,x,y,w,h,r){ r=Math.min(r,w/2,h/2); ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
+// ================= THE WEB (your living knowledge map — North star) =================
+// Renders ONLY your known region + its frontier, so it never becomes a hairball:
+//  - learned cards  = bright field-coloured nodes
+//  - due-for-refresh = faded nodes (the soft-retrieval invitation)
+//  - frontier        = dim hollow stubs (unlearned neighbours of what you know — the open loops)
+// Deterministic cluster layout (no physics): fields sit around a circle, their cards spiral
+// out from the field centroid. Pan by dragging; tap a node to open it.
+let webPan={x:0,y:0}, _webNodes=[], _webWired=false;
+function neighborsOf(id){ const c=byId[id]; if(!c) return []; return [...(c.prereq||[]),...(c.xref||[])].filter(n=>byId[n]&&n!==id); }
+function buildWebNodes(){
+  const learned=new Set(learnedIds());
+  const shown=new Map();                 // id -> state
+  learned.forEach(id=> shown.set(id, isDue(id)?'due':'learned'));
+  // frontier: unlearned neighbours of learned cards (the threads to pull)
+  if(learned.size){
+    learned.forEach(id=> neighborsOf(id).forEach(n=>{ if(!learned.has(n)&&!shown.has(n)) shown.set(n,'frontier'); }));
+  } else {
+    // cold start: seed with foundational cards (no prereqs) so there's something to pull
+    KN.cards.filter(c=>!(c.prereq||[]).length).slice(0,24).forEach(c=> shown.set(c.id,'frontier'));
+  }
+  // group by field, lay each field's nodes on a spiral around a centroid on a big circle
+  const fids=[...new Set([...shown.keys()].map(id=>byId[id].field))];
+  const FR=Math.max(150, fids.length*42);          // field-ring radius
+  const nodes=[]; const pos={};
+  fids.forEach((f,fi)=>{
+    const a=-Math.PI/2 + fi/fids.length*Math.PI*2;
+    const fcx=Math.cos(a)*FR, fcy=Math.sin(a)*FR;
+    const ids=[...shown.keys()].filter(id=>byId[id].field===f).sort((x,y)=>hashStr(x)-hashStr(y));
+    ids.forEach((id,i)=>{
+      const ring=Math.floor((Math.sqrt(i+0.5))*1.6), step=2.399963*i;     // golden-angle phyllotaxis
+      const rr=ring? 30+Math.sqrt(i)*16 : 0;
+      const x=fcx+Math.cos(step)*rr, y=fcy+Math.sin(step)*rr;
+      pos[id]={x,y};
+      nodes.push({id, state:shown.get(id), field:f, x, y});
+    });
+  });
+  // edges between shown nodes (prereq + xref), de-duped
+  const edges=[], seen=new Set();
+  nodes.forEach(n=> neighborsOf(n.id).forEach(m=>{ if(!pos[m]) return; const k=n.id<m?n.id+'|'+m:m+'|'+n.id; if(seen.has(k)) return; seen.add(k);
+    edges.push({a:pos[n.id], b:pos[m], dim:(shown.get(n.id)==='frontier'||shown.get(m)==='frontier')}); }));
+  _webNodes=nodes;
+  return {nodes, edges};
+}
+function drawWeb(){
+  const cv=$("webCanvas"); if(!cv) return;
+  const DPR=2, cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.72,360,900);
+  if(cv.width!==cssW*DPR){ cv.width=cssW*DPR; cv.height=cssH*DPR; }
+  const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
+  const css=getComputedStyle(document.documentElement);
+  const sep=(css.getPropertyValue('--sep')||'rgba(0,0,0,.1)'), l3=(css.getPropertyValue('--l3')||'#999').trim();
+  const {nodes,edges}=buildWebNodes();
+  const cx=cssW/2+webPan.x, cy=cssH*0.46+webPan.y;
+  // edges
+  edges.forEach(e=>{ ctx.beginPath(); ctx.moveTo(cx+e.a.x,cy+e.a.y); ctx.lineTo(cx+e.b.x,cy+e.b.y);
+    ctx.strokeStyle=e.dim?hexA('#888888',0.12):hexA('#888888',0.32); ctx.lineWidth=e.dim?1:1.4; ctx.stroke(); });
+  // nodes
+  ctx.textAlign="center"; ctx.textBaseline="top"; ctx.font='600 11px -apple-system,sans-serif';
+  nodes.forEach(n=>{ const c=byId[n.id], fl=fieldById[n.field]||{color:'#888'}, col=(fl.color||'#888').trim();
+    const x=cx+n.x, y=cy+n.y; let r;
+    if(n.state==='frontier'){ r=5; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.10); ctx.fill(); ctx.strokeStyle=hexA(col,0.45); ctx.lineWidth=1.4; ctx.setLineDash([2,3]); ctx.stroke(); ctx.setLineDash([]); }
+    else if(n.state==='due'){ r=8; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=hexA(col,0.35); ctx.fill(); ctx.strokeStyle=hexA(col,0.6); ctx.lineWidth=1.5; ctx.stroke(); }
+    else { r=8; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle=col; ctx.fill(); }
+    n._r=r;
+    if(n.state!=='frontier'){ const t=(c.title||'').length>16?c.title.slice(0,15)+'…':c.title; ctx.fillStyle=l3; ctx.fillText(t, x, y+r+3); }
+  });
+}
+function renderWeb(){
+  $("lnTitle").textContent="Web";
+  const sub=$("lnSub"); const learned=learnedIds().length;
+  if(sub) sub.textContent = learned? (learned+' learned · pull a thread to grow it') : 'Tap a glowing thread to begin your web';
+  $("lnSessBar").style.display="none"; $("lnPhase").style.display="none";
+  const restart=$("lnRestart"); if(restart) restart.style.display="none";
+  if(!KN.cards.length){ $("lnStage").innerHTML='<div class="emptystate"><div class="ei">🕸️</div><p>The library didn’t load.</p></div>'; return; }
+  $("lnStage").innerHTML='<div class="webwrap"><canvas id="webCanvas"></canvas></div>';
+  const cv=$("webCanvas");
+  // pan + tap (canvas is in the pager\'s blocked list, so dragging here never turns the page)
+  if(cv){
+    let px=0,py=0,ox=0,oy=0,down=false,moved=0;
+    const xy=ev=>{ const t=ev.touches?ev.touches[0]:ev; const rt=cv.getBoundingClientRect(); return {x:t.clientX-rt.left,y:t.clientY-rt.top}; };
+    const start=ev=>{ const p=xy(ev); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; };
+    const move=ev=>{ if(!down) return; const p=xy(ev); const dx=p.x-px, dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); if(ev.cancelable) ev.preventDefault(); };
+    const up=ev=>{ if(!down) return; down=false; if(moved>8) return;            // it was a pan, not a tap
+      const t=ev.changedTouches?ev.changedTouches[0]:ev; const rt=cv.getBoundingClientRect(); const mx=t.clientX-rt.left, my=t.clientY-rt.top;
+      const cssW=cv.clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.72,360,900); const cx=cssW/2+webPan.x, cy=cssH*0.46+webPan.y;
+      let hit=null,best=1e9; _webNodes.forEach(n=>{ const d=Math.hypot(mx-(cx+n.x),my-(cy+n.y)); if(d<(n._r||7)+10 && d<best){best=d; hit=n;} });
+      if(hit) openCard(hit.id); };
+    cv.addEventListener("touchstart",start,{passive:true}); cv.addEventListener("touchmove",move,{passive:false}); cv.addEventListener("touchend",up,{passive:true});
+    cv.addEventListener("mousedown",start); cv.addEventListener("mousemove",move); cv.addEventListener("mouseup",up);
+  }
+  drawWeb();
+}
+
 // ================= appearance =================
 function applyTheme(){ const m=settings.theme||'auto';
   const dark = m==='dark' || (m!=='light' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
@@ -1095,7 +1166,7 @@ function renderOnboarding(step){
   const ob=$("obCard");
   if(step===1){
     ob.innerHTML=`<div class="obbrand"><span class="wordmark">Clue</span></div>
-      <p class="obtag">A feed for your brain. Scroll real ideas across every field, tap to go as deep as you like — from the basics to where the experts still disagree. A few a day, remembered for good.</p>
+      <p class="obtag">A feed for your brain. Scroll real ideas across every field, tap to go as deep as you like — from the basics to where the experts still disagree. No streaks, no targets — just follow your curiosity.</p>
       <div class="oblabel">First, your name</div>
       <input id="obName" type="text" autocapitalize="words" placeholder="Your first name">
       <button class="btn wide" id="obNext" style="margin-top:18px;">Continue</button>`;
@@ -1105,16 +1176,16 @@ function renderOnboarding(step){
     const opts=[{v:"everything",b:"Just show me everything",s:"No focus needed — explore it all, from the basics up"},
                 {v:"specialise",b:"Specialise",s:"Go deep in the fields you choose"},
                 {v:"debate",b:"Debate prep",s:"Arguments, evidence and rebuttals"},
-                {v:"sharp",b:"Stay sharp",s:"Light daily review to keep it fresh"}];
+                {v:"sharp",b:"Stay sharp",s:"Resurface what you’ve seen so it sticks"}];
     ob.innerHTML=`<div class="obtitle">How do you want to learn?</div>
-      <p class="obp">This only nudges your daily mix — you can change it (or ignore it) anytime in Me. Not sure? Leave it on “everything”.</p>
+      <p class="obp">This only nudges what your feed surfaces — change it or ignore it anytime in You. Not sure? Leave it on “everything”.</p>
       <div class="obopts">${opts.map(o=>'<button class="obopt'+(settings.objective===o.v?' on':'')+'" data-v="'+o.v+'"><b>'+o.b+'</b><span>'+o.s+'</span></button>').join('')}</div>
       <button class="btn wide" id="obNext" style="margin-top:18px;">Continue</button>`;
     document.querySelectorAll("#obCard .obopt").forEach(o=> o.onclick=()=>{ settings.objective=o.dataset.v; document.querySelectorAll("#obCard .obopt").forEach(x=>x.classList.toggle("on",x===o)); });
     $("obNext").onclick=()=> renderOnboarding(3);
   } else {
     ob.innerHTML=`<div class="obtitle">Pick a few favourites</div>
-      <p class="obp">Fields you tap get weighted higher in your daily cards. Optional — skip to get a balanced mix.</p>
+      <p class="obp">Fields you tap show up more often in your feed. Optional — skip to get a balanced mix.</p>
       <div class="chips wrap" id="obFocus">${KN.fields.map(f=>'<button class="chip'+((settings.focus||[]).includes(f.id)?' on':'')+'" data-f="'+f.id+'">'+esc(f.icon)+' '+esc(f.label)+'</button>').join('')}</div>
       <button class="btn wide" id="obDone" style="margin-top:18px;">Start learning</button>`;
     document.querySelectorAll("#obFocus .chip").forEach(ch=> ch.onclick=()=>{ const f=ch.dataset.f; settings.focus=settings.focus||[]; const i=settings.focus.indexOf(f); if(i>=0) settings.focus.splice(i,1); else { if(settings.focus.length>=3){ toast("Up to 3"); return; } settings.focus.push(f); } ch.classList.toggle("on"); });
@@ -1133,17 +1204,17 @@ function wireSettings(){
   $("exportBtn").onclick=doExport;
   $("importBtn").onclick=()=> $("importFile").click();
   $("importFile").onchange=doImport;
-  $("resetBtn").onclick=async()=>{ if(!confirm("Reset all progress, XP and streak? Your library stays. This cannot be undone.")) return;
-    progress={}; settings=Object.assign(settings,{ xp:0,streak:0,bestStreak:0,lastSessionDay:"",sessionsDone:0,quizCorrectTotal:0,debatesBuilt:0,countersRead:0,achUnlocked:[],daily:{day:"",count:0},activity:{},fotd:null });
-    await persistAll(); session=null; toast("Progress reset"); refreshAll(); renderLearn(); };
+  $("resetBtn").onclick=async()=>{ if(!confirm("Reset your whole web? Every card goes back to unlearned. Your library stays. This cannot be undone.")) return;
+    progress={}; settings=Object.assign(settings,{ saved:[], fotd:null });
+    await persistAll(); toast("Your web was reset"); refreshAll(); renderWeb(); };
 }
 function renderAbout(){ $("aboutBody").innerHTML='<p style="font-size:14px;color:var(--l2);line-height:1.55;margin:14px 0;">'+
-  '<b>Clue</b> is a knowledge & argument trainer. Discover a few cards a day, lock them in with spaced-repetition review and quizzes, and assemble the facts into a case in Debate mode.</p>'+
+  '<b>Clue</b> is a place to follow ideas as far as you like. Scroll the feed, pull a thread, and watch your web of understanding grow — no streaks, no targets, no homework. What you learn quietly resurfaces so it sticks, and you can assemble the facts into a case in Debate mode.</p>'+
   '<p style="font-size:14px;color:var(--l2);line-height:1.55;">'+KN.cards.length+' cards across '+KN.fields.length+' fields in this build. Content is a curated seed — verify and expand it in <b>knowledge.json</b>.</p>'; }
 async function doExport(){ const blob=new Blob([JSON.stringify({ _app:"clue", _v:1, when:new Date().toISOString(), settings, progress },null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="debate-backup-"+todayStr()+".json"; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000); toast("Backup downloaded"); }
 function doImport(e){ const f=e.target.files&&e.target.files[0]; if(!f) return; const r=new FileReader();
-  r.onload=async()=>{ try{ const d=JSON.parse(r.result); if(d.settings) settings=Object.assign(settings,d.settings); if(d.progress) progress=d.progress; await persistAll(); applyTheme(); toast("Backup restored"); refreshAll(); renderLearn(); }catch(err){ toast("Couldn’t read that file"); } };
+  r.onload=async()=>{ try{ const d=JSON.parse(r.result); if(d.settings) settings=Object.assign(settings,d.settings); if(d.progress) progress=d.progress; await persistAll(); applyTheme(); toast("Backup restored"); refreshAll(); renderWeb(); }catch(err){ toast("Couldn’t read that file"); } };
   r.readAsText(f); e.target.value=""; }
 
 // ================= pages / tab bar / swipe pager =================
@@ -1153,7 +1224,7 @@ function showTab(name){
   document.querySelectorAll(".tabitem").forEach(t=> t.classList.toggle("active", t.dataset.tab===name));
   if(window.__pageGo) window.__pageGo(name); else { try{ window.scrollTo(0,0); }catch(e){} }
   if(name==="feed") renderFeed();
-  else if(name==="learn") renderLearn();
+  else if(name==="learn") renderWeb();
   else if(name==="debate") renderDebate();
   else if(name==="me") renderMe();
 }
@@ -1169,9 +1240,8 @@ function wireNav(){
   $("coachX").onclick=()=> $("coach").classList.remove("show");
   $("lnRestart").onclick=()=>{ if(session && session.phase!=='done'){ if(!confirm("End this session?")) return; } session=null; renderLearn(); };
   $("dbBack").onclick=()=>{ if(dbMotion){ dbMotion=null; renderDebate(); } };
-  // objective chips
-  document.querySelectorAll("#objChips .chip").forEach(ch=> ch.onclick=()=>{ settings.objective=ch.dataset.v; persistAll(); renderObjUI(); setSub(); checkAchievements(); });
-  document.querySelectorAll("#paceSeg .s").forEach(s=> s.onclick=()=>{ settings.pace=+s.dataset.pace; persistAll(); renderObjUI(); setSub(); renderFeed(); });
+  // objective chips (a soft feed-weighting preference — no targets, no achievements)
+  document.querySelectorAll("#objChips .chip").forEach(ch=> ch.onclick=()=>{ settings.objective=ch.dataset.v; persistAll(); renderObjUI(); renderFeed(); });
 }
 // scroll-linked tab bar (reveal on scroll down, hide on scroll up; stays at bottom of content)
 (function(){
@@ -1215,11 +1285,14 @@ function wireNav(){
   place(idx,false); window.addEventListener("resize",()=>place(idx,false));
   const blocked=el=>{ for(let n=el;n&&n!==document.body;n=n.parentElement){ if(n.matches&&n.matches('input,textarea,select,canvas,.seg,.chips,.tabbar,.sheet,.quizopts,.radarwrap,.progwrap')) return true;
     const ox=getComputedStyle(n).overflowX; if((ox==="auto"||ox==="scroll")&&n.scrollWidth>n.clientWidth+4) return true; } return false; };
-  let x0=0,y0=0,armed=false,locked=false,dragging=false,lastX=0,lastT=0,vx=0;
+  const EDGE=32;   // px from either side where a horizontal page-turn wins more readily (iOS-style)
+  let x0=0,y0=0,armed=false,locked=false,dragging=false,lastX=0,lastT=0,vx=0,fromEdge=false;
   pager.addEventListener("touchstart",e=>{ if(e.touches.length!==1||document.querySelector(".sheet.show, #onboardWrap.show, .reader.show")||blocked(e.target)){ armed=false; return; }
-    cancelAnimationFrame(raf); x0=lastX=e.touches[0].clientX; y0=e.touches[0].clientY; lastT=Date.now(); vx=0; armed=true; locked=false; dragging=false; track.style.transition="none"; },{passive:true});
+    cancelAnimationFrame(raf); x0=lastX=e.touches[0].clientX; y0=e.touches[0].clientY; fromEdge=(x0<EDGE||x0>W()-EDGE); lastT=Date.now(); vx=0; armed=true; locked=false; dragging=false; track.style.transition="none"; },{passive:true});
   pager.addEventListener("touchmove",e=>{ if(!armed) return; const x=e.touches[0].clientX,y=e.touches[0].clientY,dx=x-x0,dy=y-y0;
-    if(!locked){ const adx=Math.abs(dx),ady=Math.abs(dy); if(adx<6&&ady<6) return; if(adx<=ady*1.2){ armed=false; return; } locked=true; dragging=true; }
+    // Lock to a horizontal page-turn at the natural 45° boundary (adx>ady); from a screen edge,
+    // lock with far less horizontal dominance so the gesture is reliable on the scrollable feed.
+    if(!locked){ const adx=Math.abs(dx),ady=Math.abs(dy); if(adx<5&&ady<5) return; const ratio=fromEdge?0.4:1.0; if(adx<=ady*ratio){ armed=false; return; } locked=true; dragging=true; }
     e.preventDefault(); const tm=Date.now(),dt=tm-lastT; if(dt>0){ vx=0.8*((x-lastX)/dt)+0.2*vx; lastX=x; lastT=tm; }
     const W0=W(); let nx=-idx*W0+dx; if(nx>0) nx=rubber(nx,W0); else if(nx<-last*W0) nx=-last*W0+rubber(nx+last*W0,W0); tx=nx; apply(); },{passive:false});
   const end=e=>{ if(!armed) return; armed=false; if(!dragging) return; dragging=false;
@@ -1249,11 +1322,9 @@ async function init(){
   applyTheme();
   const ok=await loadKnowledge();
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }
-  resetDailyIfNeeded();
-  if(settings.achUnlocked==null) settings.achUnlocked=unlockedIds();
   await persistAll();
   wireNav(); wireSettings();
-  renderLearn(); renderFeed(); renderMe(); updateRotateGuard();
+  renderWeb(); renderFeed(); renderMe(); updateRotateGuard();
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
   hideSplash();
 }

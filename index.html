@@ -102,35 +102,17 @@
 <!-- ===================== ME ===================== -->
 <div class="page" id="pageMe" data-tab="me">
   <div class="largeTitle"><div class="ltmain">
-    <span class="titleBtn" style="cursor:default;"><span>Me</span></span>
+    <span class="titleBtn" style="cursor:default;"><span>You</span></span>
     <button class="iconbtn" id="openSettings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
   </div></div>
 
   <div class="profcard" id="meProfile"></div>
-
-  <div class="group">
-    <div class="stats">
-      <div class="stat"><div class="n" id="stLevel">1</div><div class="k">Level</div></div>
-      <div class="stat"><div class="n" id="stLearned">0</div><div class="k">Learned</div></div>
-      <div class="stat"><div class="n" id="stStreak">0</div><div class="k">Day streak</div></div>
-      <div class="stat"><div class="n" id="stDue">0</div><div class="k">Due</div></div>
-    </div>
-    <div class="pad" style="padding-top:0;">
-      <div class="ed-label" style="margin-top:var(--sp-4);">Level <span id="stXpToGo" class="subhint"></span></div>
-      <div class="bar"><i id="xpBar" style="width:0%"></i></div>
-    </div>
-  </div>
 
   <div class="mezone">Knowledge</div>
   <div class="panel">
     <div class="panelhd"><span class="panelt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg>Field balance</span></div>
     <div class="radarwrap"><canvas id="fieldRadar" width="520" height="520"></canvas></div>
     <div class="panelfoot" id="meRadarFoot"></div>
-  </div>
-  <div class="panel">
-    <div class="panelhd"><span class="panelt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/></svg>Cards learned</span></div>
-    <div class="progwrap"><canvas id="progChart" width="660" height="240"></canvas></div>
-    <div class="panelfoot" id="meProgFoot"></div>
   </div>
 
   <div class="mezone">Objective</div>
@@ -148,19 +130,10 @@
         <button class="chip" data-v="debate">Debate prep</button>
         <button class="chip" data-v="sharp">Stay sharp</button>
       </div>
-      <div class="ed-label" style="margin-top:var(--sp-4);">Focus fields <span class="subhint">— weighted higher in your daily mix</span></div>
+      <div class="ed-label" style="margin-top:var(--sp-4);">Focus fields <span class="subhint">— surfaced more often in your feed</span></div>
       <div class="chips wrap" id="focusChips"></div>
-      <div class="ed-label" style="margin-top:var(--sp-4);">New cards per day <span class="subhint" id="paceVal"></span></div>
-      <div class="seg compact" id="paceSeg">
-        <div class="s" data-pace="3">3</div><div class="s" data-pace="5">5</div>
-        <div class="s" data-pace="10">10</div><div class="s" data-pace="20">20</div>
-      </div>
     </div>
   </details>
-
-  <div class="mezone">Achievements</div>
-  <div class="achgrid" id="achGrid"></div>
-  <div class="achcap" id="achCap"></div>
 
   <div class="foot" id="meFoot"></div>
 </div>
@@ -283,10 +256,10 @@
 
 <!-- ===================== BOTTOM TAB BAR ===================== -->
 <nav class="tabbar">
-  <button class="tabitem active" data-tab="learn" aria-label="Learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H11v15H5.5A2.5 2.5 0 0 0 3 21.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H13v15h5.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg><span>Learn</span></button>
+  <button class="tabitem active" data-tab="learn" aria-label="Web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="13" r="2.4"/><circle cx="6.5" cy="19" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M7.7 7.3 10.6 11M16.3 8.2 13.5 11.4M11 14.7l-3.2 2.7M13.4 14.9l3.4 2.6"/></svg><span>Web</span></button>
   <button class="tabitem" data-tab="feed" aria-label="Explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m14.6 9.4-1.9 4.5-4.5 1.9 1.9-4.5z"/></svg><span>Explore</span></button>
   <button class="tabitem" data-tab="debate" aria-label="Debate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5a5.5 4.5 0 1 1 3 4v3l-3.2-2.1A5.5 4.5 0 0 1 8 10.5z"/><path d="M16.5 8.5a4 3.4 0 0 1 .5 6.4v2.6l-2.6-1.7"/></svg><span>Debate</span></button>
-  <button class="tabitem" data-tab="me" aria-label="Me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg><span>Me</span></button>
+  <button class="tabitem" data-tab="me" aria-label="You"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg><span>You</span></button>
 </nav>
 
 <script>
