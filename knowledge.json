@@ -443,6 +443,7 @@
     },
     {
       "id": "game-prisoners-dilemma", "field": "econ", "depth": "concept", "level": 2,
+      "prereq": ["econ-what-is"],
       "src": ["ev-game-prisoners-dilemma"],
       "title": "The prisoner's dilemma",
       "fact": "Two people each acting in their own interest can both end up worse off than if they'd cooperated.",
@@ -454,7 +455,8 @@
       "quiz": { "q": "In a one-shot prisoner's dilemma, two self-interested players tend to…", "choices": ["Both cooperate", "Both defect, ending up worse off", "Split the difference", "Refuse to play"], "answer": 1 }
     },
     {
-      "id": "game-nash-equilibrium", "field": "econ", "depth": "concept", "level": 2,
+      "id": "game-nash-equilibrium", "field": "econ", "depth": "concept", "level": 3,
+      "prereq": ["game-prisoners-dilemma"],
       "src": ["ev-game-nash-equilibrium"],
       "title": "Nash equilibrium",
       "fact": "A Nash equilibrium is a situation where no player can do better by changing their move alone.",
@@ -467,6 +469,7 @@
     },
     {
       "id": "game-repeated", "field": "econ", "depth": "concept", "level": 3,
+      "prereq": ["game-prisoners-dilemma"],
       "src": ["ev-game-repeated"],
       "title": "Repeated games and tit-for-tat",
       "fact": "If a game is played again and again, cooperation can become rational — strategies like 'tit-for-tat' reward it and punish betrayal.",
@@ -474,7 +477,6 @@
       "deploy": "Explains how cooperation emerges without a central enforcer — among firms, nations, even unrelated animals.",
       "counter": "It needs a credible future: if the end is known and near, cooperation can unravel backwards from the final round.",
       "tags": ["game theory", "cooperation", "tit-for-tat"],
-      "prereq": ["game-prisoners-dilemma"],
       "xref": ["sys-commons"],
       "quiz": { "q": "Why can repetition sustain cooperation in a prisoner's dilemma?", "choices": ["Players forget past moves", "Future retaliation deters betrayal today", "The payoffs change", "A referee enforces it"], "answer": 1 }
     },
@@ -968,16 +970,11 @@
     },
 
     {
-      "id": "econ-comparative-advantage", "field": "econ", "depth": "book", "level": 2,
-      "prereq": ["econ-what-is"],
+      "id": "econ-comparative-advantage", "field": "econ", "depth": "book", "level": 3,
+      "prereq": ["econ-supply-demand"],
       "xref": ["pe-ricardo"],
       "title": "Comparative advantage",
       "fact": "Two countries can both gain from trade even if one is better at making everything.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Say one country is better at making both wine and cloth. It still pays both sides to specialise and trade. What matters isn't who's better in absolute terms, but who gives up the least to make a thing — its opportunity cost." },
-        { "d": "deeper", "t": "Where it comes from", "body": "David Ricardo set this out in 1817. If each country makes the good it sacrifices least to produce, and trades for the rest, total output rises and both can end up with more than they could alone. It is the textbook case for free trade." },
-        { "d": "debate", "t": "Why it's contested", "body": "The clean result leans on strong assumptions: full employment, resources that move easily between industries, and no account of who wins or loses inside a country. In the real world trade can grow the pie while specific workers and regions are hollowed out — a theory about totals, not about distribution." }
-      ],
       "detail": "Ricardo (1817): what matters is opportunity cost, not absolute skill. Each side specialises where it gives up the least, and total output rises. It's the core case for trade.",
       "src": ["ev-econ-comparative-advantage"],
       "year": 1817,
@@ -987,7 +984,8 @@
       "quiz": [{ "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }, {"q":"A country should specialise where it has the lowest…","choices":["Absolute cost","Opportunity cost","Tax rate","Wage bill"],"answer":1}]
     },
     {
-      "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 2,
+      "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 3,
+      "prereq": ["econ-supply-demand"],
       "xref": ["sys-commons","eco-planetary-boundaries","eh-2008"],
       "title": "Externalities",
       "fact": "When a cost or benefit lands on third parties, the market price gets it wrong.",
@@ -1000,6 +998,7 @@
     },
     {
       "id": "econ-loss-aversion", "field": "econ", "depth": "book", "level": 2,
+      "prereq": ["econ-what-is"],
       "xref": ["math-base-rate"],
       "title": "Loss aversion",
       "fact": "Losing $100 hurts about twice as much as gaining $100 feels good.",
@@ -1091,11 +1090,6 @@
       "xref": ["pe-what-is","econ-supply-demand"],
       "title": "What economics is about",
       "fact": "Economics starts from one awkward fact: we have unlimited wants and limited means.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Because you can't have everything, every choice means giving something up. Economics studies how people, firms and societies make those trade-offs — what gets produced, how, and for whom." },
-        { "d": "deeper", "t": "The core habit", "body": "The cost of any choice is the best thing you gave up to get it: its opportunity cost. An hour studying is an hour not earning; money for one programme is money not spent on another. Thinking in opportunity costs is the discipline's signature move." },
-        { "d": "debate", "t": "Just a lens", "body": "How far this 'scarcity and choice' frame should reach is itself disputed. Critics argue it quietly assumes wants are fixed and that everything trades off against everything, while sidelining power, history and institutions. It's a useful lens on economic life, not the whole of it." }
-      ],
       "detail": "Because you can't have everything, every choice means giving something up. Economics studies how people and societies handle those trade-offs — and the cost of any choice is the best alternative you gave up (its opportunity cost).",
       "src": ["ev-econ-what-is"],
       "tags": ["economics", "basics", "scarcity"],
@@ -1104,16 +1098,11 @@
       "quiz": [{ "q": "The opportunity cost of a choice is…", "choices": ["Its money price", "The best alternative you gave up", "Always zero", "The sales tax on it"], "answer": 1 }, {"q":"Economics begins from the problem of…","choices":["Inflation","Scarcity — unlimited wants, limited means","Taxation","The money supply"],"answer":1}]
     },
     {
-      "id": "econ-supply-demand", "field": "econ", "depth": "concept", "level": 1,
+      "id": "econ-supply-demand", "field": "econ", "depth": "concept", "level": 2,
       "prereq": ["econ-what-is"],
       "xref": ["pe-marginalist","econ-loss-aversion"],
       "title": "Supply and demand",
       "fact": "In the basic model, price isn't set by cost or fairness — it's where supply meets demand.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "When something gets pricier, people tend to want less of it and producers want to make more. The price moves until the amount buyers want equals the amount sellers offer. That balance point is the market 'equilibrium'." },
-        { "d": "deeper", "t": "Why it's powerful", "body": "Shift either side and the price moves: a frost cuts the coffee supply and prices rise; a fad lifts demand and prices rise too. Two simple curves explain a huge range of everyday price moves — which is why it's the first thing taught." },
-        { "d": "debate", "t": "What it assumes", "body": "The neat diagram assumes many small buyers and sellers, good information, and no one big enough to set prices. Real markets have monopolies, advertising, habit, and 'sticky' wages and rents that don't budge. Supply and demand is a starting model, not a law of nature." }
-      ],
       "detail": "When price rises, buyers want less and sellers offer more; the price settles where the two meet. It's a powerful starting model — but it assumes competition, good information and flexible prices that real markets often lack.",
       "src": ["ev-econ-supply-demand"],
       "tags": ["economics", "basics", "markets"],
@@ -1122,15 +1111,11 @@
       "quiz": { "q": "In the basic model, the market price settles where…", "choices": ["Costs are lowest", "Supply equals demand", "The government sets it", "Profit is zero"], "answer": 1 }
     },
     {
-      "id": "econ-gdp", "field": "econ", "depth": "concept", "level": 1,
+      "id": "econ-gdp", "field": "econ", "depth": "concept", "level": 2,
+      "prereq": ["econ-what-is"],
       "xref": ["econ-externalities"],
       "title": "What GDP measures",
       "fact": "GDP measures the money value of what a country produces — and quietly leaves a lot out.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Gross Domestic Product adds up the market value of all the goods and services a country makes in a year. It's the headline number for 'the size of the economy' and whether it's growing." },
-        { "d": "deeper", "t": "What it misses", "body": "Because it counts only what's bought and sold, GDP ignores unpaid care and housework, says nothing about who gets the income, and even counts cleaning up pollution as a gain. Simon Kuznets, who helped build it in the 1930s, warned it should never be mistaken for national wellbeing." },
-        { "d": "debate", "t": "Growth on trial", "body": "Whether to chase GDP growth is one of economics' sharpest fault lines. Some argue growth lifts living standards and funds everything else; ecological and feminist economists argue it counts the wrong things and can't continue forever on a finite planet. The proposed alternatives — the Human Development Index, 'doughnut' economics, wellbeing budgets — are contested too." }
-      ],
       "detail": "GDP totals the market value of a country's output. It misses unpaid work, ignores distribution, and treats some harms as gains — which is why 'growth' is one of economics' biggest arguments.",
       "src": ["ev-econ-gdp"],
       "tags": ["economics", "basics", "growth"],
@@ -1144,11 +1129,6 @@
       "xref": ["econ-what-is","pe-schools"],
       "title": "Why 'political economy'?",
       "fact": "Before it was 'economics', it was 'political economy' — and the politics never really left.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "For Smith, Ricardo and Marx the subject was 'political economy': how wealth is produced and, above all, how it's divided between landlords, workers and owners. Economics and power were studied together." },
-        { "d": "deeper", "t": "The renaming", "body": "Around 1900 the field renamed itself 'economics' and modelled itself on physics — equilibrium, optimisation, mathematics. Questions of class and power moved to the margins. 'Political economy' survived as the name for approaches that put them back at the centre." },
-        { "d": "debate", "t": "Neutral science?", "body": "Is economics a neutral, technical science or an inescapably political one? Mainstream economists stress method and evidence; critics argue every model embeds a view of human nature and a politics of distribution. The very word you choose — 'economics' or 'political economy' — already takes a side." }
-      ],
       "detail": "The classical writers studied 'political economy' — wealth and its distribution between classes. Around 1900 the field rebranded as 'economics' on the model of physics, pushing power to the margins; 'political economy' names the traditions that keep it central.",
       "src": ["ev-pe-what-is"],
       "tags": ["political economy", "basics", "method"],
@@ -1156,15 +1136,11 @@
       "counter": "Naming the politics doesn't settle the facts — efficiency and distribution can still be studied with evidence."
     },
     {
-      "id": "pe-schools", "field": "polecon", "depth": "concept", "level": 1,
+      "id": "pe-schools", "field": "polecon", "depth": "concept", "level": 6,
+      "prereq": ["pe-marx-capital","pe-keynes"],
       "xref": ["pe-keynes","pe-friedman","pe-marx-capital","pe-hayek"],
       "title": "The rival schools",
       "fact": "There is no single 'economics' — there are rival schools that disagree about how the economy works.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Ask 'what causes unemployment?' or 'what is money?' and the answer depends on the tradition: classical, Marxian, neoclassical, Keynesian, monetarist, Austrian, behavioural, ecological. Each has its own assumptions and its own heroes." },
-        { "d": "deeper", "t": "A rough map", "body": "Classical (Smith, Ricardo) on growth and value; Marxian on class and exploitation; neoclassical on rational choice and equilibrium; Keynesian on demand and slumps; monetarist (Friedman) on the money supply; Austrian (Hayek) on prices as information; behavioural on how real people actually decide; ecological on the economy nested inside the biosphere." },
-        { "d": "debate", "t": "One paradigm taught as truth", "body": "Mainstream teaching is dominated by the neoclassical–Keynesian synthesis, and students often meet it simply as 'economics'. Pluralist movements argue this narrows the imagination, and that the 2008 crisis exposed the cost of teaching one paradigm as settled truth." }
-      ],
       "detail": "Economics is plural: classical, Marxian, neoclassical, Keynesian, monetarist, Austrian, behavioural and ecological schools give different answers to the same questions. The mainstream is one paradigm among several, not the last word.",
       "src": ["ev-pe-schools"],
       "tags": ["political economy", "basics", "pluralism"],
@@ -1172,16 +1148,11 @@
       "counter": "Pluralism can tip into 'anything goes'; some claims really are better supported by the evidence than others."
     },
     {
-      "id": "pe-smith-wealth", "field": "polecon", "depth": "book", "level": 1,
+      "id": "pe-smith-wealth", "field": "polecon", "depth": "book", "level": 2,
       "prereq": ["pe-what-is"],
       "xref": ["pe-division-labour","pe-ltv"],
       "title": "Adam Smith and the invisible hand",
       "fact": "Smith argued a butcher feeds you not from kindness but from self-interest — and somehow it works.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "In The Wealth of Nations (1776), Smith argued that people pursuing their own gain, guided 'as if by an invisible hand', can produce outcomes that benefit everyone. Markets coordinate millions of strangers without anyone planning the whole." },
-        { "d": "deeper", "t": "The real engine", "body": "Smith's deeper mechanism was the division of labour — splitting work into specialised tasks multiplies output enormously — and free exchange lets that specialisation spread. He is claimed as the founder of free-market economics." },
-        { "d": "debate", "t": "The misread Smith", "body": "Smith is routinely flattened into a cheerleader for greed. In fact the phrase 'invisible hand' appears once in the book; his earlier Theory of Moral Sentiments (1759) roots society in sympathy, not selfishness. He distrusted merchants, warned they conspire against the public, and backed some state action. Left and right both quote him selectively." }
-      ],
       "detail": "Smith (1776) argued self-interested exchange, coordinated 'as if by an invisible hand', can benefit all, powered by the division of labour. But he also rooted society in sympathy and distrusted merchants — he's far more nuanced than the caricature.",
       "src": ["ev-pe-smith-wealth"],
       "year": 1776,
@@ -1191,15 +1162,10 @@
       "quiz": { "q": "Smith's 'invisible hand' is the idea that…", "choices": ["Government must guide markets", "Self-interested action can benefit all", "Greed is morally good", "Prices are always fair"], "answer": 1 }
     },
     {
-      "id": "pe-division-labour", "field": "polecon", "depth": "concept", "level": 1,
+      "id": "pe-division-labour", "field": "polecon", "depth": "concept", "level": 3,
       "prereq": ["pe-smith-wealth"],
       "title": "The division of labour",
       "fact": "Smith watched a pin factory and saw the secret of modern wealth: split the job up.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "One worker doing every step might make a handful of pins a day. Split the work into around eighteen specialised steps and a small team makes tens of thousands. Specialisation, not harder effort, is what explodes output." },
-        { "d": "deeper", "t": "The hidden cost", "body": "Division of labour raises skill, saves time switching tasks, and invites machinery. Smith made it the foundation of growth — but he also warned that a worker repeating one motion all day could become 'as stupid and ignorant as it is possible for a human creature to become'." },
-        { "d": "debate", "t": "Efficiency vs the worker", "body": "Marx pushed that worry much further, arguing extreme division of labour 'alienates' workers from their work, each other and themselves. The same mechanism that creates wealth can deskill and dull the people doing it — efficiency and human flourishing can pull apart." }
-      ],
       "detail": "Splitting work into specialised steps multiplies output — Smith's pin factory is the classic example. But he and later Marx warned it can also deskill and alienate the worker.",
       "src": ["ev-pe-division-labour"],
       "year": 1776,
@@ -1208,16 +1174,11 @@
       "counter": "Specialisation also lifted billions out of subsistence; the gains are real, not just the costs."
     },
     {
-      "id": "pe-ricardo", "field": "polecon", "depth": "concept", "level": 2,
+      "id": "pe-ricardo", "field": "polecon", "depth": "concept", "level": 3,
       "prereq": ["pe-smith-wealth"],
       "xref": ["econ-comparative-advantage"],
       "title": "Ricardo and the logic machine",
       "fact": "David Ricardo turned economics into a machine of pure logic — and reached unsettling conclusions.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "A stockbroker turned theorist, Ricardo (1817) built spare models from a few assumptions and followed them ruthlessly. He gave us comparative advantage, the theory of rent, and a labour-based theory of value." },
-        { "d": "deeper", "t": "Distribution as conflict", "body": "His theory of rent: as population grows, worse land gets farmed, so rents rise and landlords gain at everyone else's expense — an early model of distribution as a conflict between classes. And he argued a good's value comes mainly from the labour needed to produce it." },
-        { "d": "debate", "t": "Value: labour or utility?", "body": "Ricardo's labour theory of value was picked up by Marx, then dropped by the mainstream after the 1870s 'marginal revolution', which located value in usefulness at the margin instead. Whether value is 'really' about labour or about subjective utility is an old fault line that still shapes which economics you're taught." }
-      ],
       "detail": "Ricardo built ruthless logical models: comparative advantage, the theory of rent (landlords gain as population grows), and a labour theory of value later taken up by Marx and dropped by the mainstream.",
       "src": ["ev-pe-ricardo"],
       "year": 1817,
@@ -1226,15 +1187,11 @@
       "counter": "The labour theory of value faces hard problems (capital, time, skill) that marginalism was designed to solve."
     },
     {
-      "id": "pe-ltv", "field": "polecon", "depth": "concept", "level": 2,
+      "id": "pe-ltv", "field": "polecon", "depth": "concept", "level": 4,
+      "prereq": ["pe-ricardo"],
       "xref": ["pe-marx-capital","pe-marginalist"],
       "title": "Where does value come from?",
       "fact": "Is a thing valuable because of the work in it, or because of how much you want it?",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "The classical economists (Smith, Ricardo) and then Marx held a labour theory of value: a good's value reflects the socially necessary labour time to produce it. A diamond is dear because it's hard to find and cut, not just because it sparkles." },
-        { "d": "deeper", "t": "Marx's twist", "body": "Marx used it to argue that workers produce more value than they're paid; the gap — 'surplus value' — becomes profit and the source of capital. On this view profit isn't a reward for risk but a claim on others' labour." },
-        { "d": "debate", "t": "The marginalist answer", "body": "From the 1870s the marginalists (Jevons, Menger, Walras) replaced it: value comes from the usefulness of the last unit to a buyer, set by supply and demand. This is now textbook orthodoxy. Heterodox and Marxian economists keep the labour theory alive, arguing marginalism hides the social relations behind prices. It's a choice of framework, not a closed case." }
-      ],
       "detail": "Classical economists and Marx located value in labour; marginalists from the 1870s relocated it in usefulness at the margin. The mainstream took the second path — but the first still frames profit as extraction rather than reward.",
       "src": ["ev-pe-ltv"],
       "tags": ["political economy", "value", "marxian"],
@@ -1242,16 +1199,11 @@
       "counter": "Marginalism resolved real puzzles — like why water is cheap and diamonds dear — that the labour theory struggled with."
     },
     {
-      "id": "pe-marginalist", "field": "polecon", "depth": "event", "level": 2,
+      "id": "pe-marginalist", "field": "polecon", "depth": "event", "level": 5,
       "prereq": ["pe-ltv"],
       "xref": ["econ-supply-demand"],
       "title": "The marginal revolution (1870s)",
       "fact": "In the 1870s economics quietly changed its mind about what value even is.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Within a few years Jevons in England, Menger in Austria and Walras in Switzerland independently argued that value comes from marginal utility — the usefulness of one more unit — not from labour. This 'marginal revolution' founded neoclassical economics." },
-        { "d": "deeper", "t": "What it reframed", "body": "It rebuilt the subject around individuals maximising satisfaction subject to constraints, expressed in calculus. Water is cheap because the last glass is barely needed; diamonds are dear because each is highly wanted at the margin. Markets became a story about optimising agents meeting in equilibrium." },
-        { "d": "debate", "t": "A political shift?", "body": "The change was intellectual and arguably political: it moved economics away from class and distribution — the classical and Marxian focus — toward individual choice and efficiency, where the system tends to a harmonious balance. Critics say this 'depoliticised' the field; defenders say it made it rigorous and testable." }
-      ],
       "detail": "Around 1871–1874, Jevons, Menger and Walras relocated value in marginal utility, founding neoclassical economics and shifting the field from class and distribution toward individual optimisation and equilibrium.",
       "src": ["ev-pe-marginalist"],
       "year": 1871,
@@ -1260,16 +1212,11 @@
       "counter": "The marginalist tools genuinely unified price theory and remain the workhorse of applied economics."
     },
     {
-      "id": "pe-marx-capital", "field": "polecon", "depth": "book", "level": 2,
+      "id": "pe-marx-capital", "field": "polecon", "depth": "book", "level": 5,
       "prereq": ["pe-ltv"],
       "xref": ["pe-historical-materialism"],
       "title": "Marx's Capital",
       "fact": "Marx didn't just dislike capitalism — he tried to reverse-engineer its hidden machinery.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "In Das Kapital (volume 1, 1867) Marx set out to explain how capitalism actually works. Workers sell their labour for a wage but produce more value than they're paid; that 'surplus value' becomes profit and is reinvested as ever-growing capital." },
-        { "d": "deeper", "t": "The system's drive", "body": "Competition forces owners to accumulate, mechanise and cut costs, which Marx argued tends to push down the rate of profit, throw workers out of jobs, and produce recurring crises of overproduction. Capitalism, on his account, is dynamic and revolutionary but unstable and prone to concentration." },
-        { "d": "debate", "t": "Critique vs prophecy", "body": "Marx's specific predictions — falling profit rates, ever-deepening worker poverty, inevitable collapse — haven't played out cleanly; living standards rose and the labour theory of value he relied on is rejected by the mainstream. Yet his analysis of inequality, crises, monopoly and capital's restlessness keeps being rediscovered, including after 2008. Influential as critique, contested as prophecy." }
-      ],
       "detail": "Marx (1867) argued workers produce more value than their wage ('surplus value'), the source of profit and capital; competition drives accumulation, crises and concentration. His critique outlived his failed predictions.",
       "src": ["ev-pe-marx-capital"],
       "year": 1867,
@@ -1279,15 +1226,11 @@
       "quiz": { "q": "For Marx, profit ('surplus value') comes from…", "choices": ["Clever investment", "Value workers produce above their wage", "Government subsidy", "Lucky trades"], "answer": 1 }
     },
     {
-      "id": "pe-historical-materialism", "field": "polecon", "depth": "concept", "level": 2,
+      "id": "pe-historical-materialism", "field": "polecon", "depth": "concept", "level": 6,
+      "prereq": ["pe-marx-capital"],
       "xref": ["pe-marx-capital","eh-industrial-revolution"],
       "title": "Historical materialism",
       "fact": "Marx's big bet: to understand history, follow how people make their living.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Historical materialism is the idea that a society's economic base — how it produces and who owns what — shapes its politics, law, religion and ideas more than the other way round. Change how a society makes its living and the rest eventually shifts." },
-        { "d": "deeper", "t": "History in stages", "body": "On this view history moves through stages — feudalism, capitalism, and Marx hoped socialism — as new productive forces strain against old ownership arrangements until the tensions break. Ideas and institutions are partly 'superstructure' resting on that economic base." },
-        { "d": "debate", "t": "Determinism?", "body": "Critics call it economic determinism — ideas, religion and politics plainly shape economies too (Max Weber argued Protestant culture helped birth capitalism). Most historians now reject any single master key to history. But 'follow the material interests' remains a powerful analytical habit, even for non-Marxists." }
-      ],
       "detail": "Historical materialism holds that the economic base shapes a society's politics and ideas, and that history advances as productive forces outgrow old ownership arrangements. Powerful as a habit of analysis, contested as a law of history.",
       "src": ["ev-pe-historical-materialism"],
       "year": 1859,
@@ -1296,16 +1239,11 @@
       "counter": "Culture, religion and ideas have driven huge changes no economic base predicted."
     },
     {
-      "id": "pe-keynes", "field": "polecon", "depth": "book", "level": 2,
-      "prereq": ["pe-what-is"],
+      "id": "pe-keynes", "field": "polecon", "depth": "book", "level": 3,
+      "prereq": ["pe-smith-wealth"],
       "xref": ["pe-paradox-thrift","eh-great-depression","pe-friedman"],
       "title": "Keynes and the stuck economy",
       "fact": "Keynes argued a market economy can get stuck in a slump — and just sit there.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "In the General Theory (1936), written amid mass unemployment, Keynes argued economies don't automatically bounce back to full employment. If everyone cuts spending at once, demand collapses and the slump can persist. The cure is to lift total demand — often through government spending." },
-        { "d": "deeper", "t": "Why demand fails", "body": "Output depends on aggregate demand. In bad times fearful households and firms save and hoard cash (a 'liquidity trap'), so private demand won't revive on its own. Government can fill the gap; that spending circulates and multiplies. This justified the post-war welfare state and counter-cyclical policy." },
-        { "d": "debate", "t": "The pendulum swings", "body": "Keynesianism dominated until the 1970s, when 'stagflation' — high inflation and unemployment together — embarrassed the simple models and opened the door to Friedman's monetarism and a free-market revival. It roared back after 2008, when governments again propped up demand. The fight between 'markets self-correct' and 'demand must be managed' never really ends." }
-      ],
       "detail": "Keynes (1936) argued economies can settle below full employment when demand collapses, so government should boost demand in slumps. Dominant until 1970s stagflation, revived after 2008.",
       "src": ["ev-pe-keynes"],
       "year": 1936,
@@ -1315,15 +1253,10 @@
       "quiz": [{ "q": "Keynes argued that in a slump, the economy…", "choices": ["Always self-corrects fast", "Can stay stuck below full employment", "Needs higher interest rates", "Should cut all spending"], "answer": 1 }, {"q":"Keynes's prescription for a demand-deficient slump was…","choices":["Cut public spending to balance the budget","Government spending to lift aggregate demand","Raise interest rates sharply","Wait for wages to fall on their own"],"answer":1}]
     },
     {
-      "id": "pe-paradox-thrift", "field": "polecon", "depth": "concept", "level": 1,
+      "id": "pe-paradox-thrift", "field": "polecon", "depth": "concept", "level": 4,
       "prereq": ["pe-keynes"],
       "title": "The paradox of thrift",
       "fact": "If everyone saves more at once, the country can end up saving less.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Saving is wise for one household. But your spending is someone else's income. If everyone tightens their belt at the same time, businesses lose customers, lay people off, and incomes fall — so total saving can actually drop. That's the paradox of thrift." },
-        { "d": "deeper", "t": "A fallacy of composition", "body": "What's true for one isn't true for all together. Keynes used this to explain why a recession can feed on itself, and why government may need to spend when everyone else is cutting back, to break the downward spiral." },
-        { "d": "debate", "t": "When it doesn't hold", "body": "Free-market economists reply that saving funds investment, so thrift isn't wasted — it lowers interest rates and builds future capacity. The paradox bites mainly in a slump with idle resources and rock-bottom rates; in a booming economy, more saving really can mean more investment." }
-      ],
       "detail": "Saving is prudent for one household but, if everyone does it at once in a slump, spending and incomes fall and total saving can drop — a 'fallacy of composition' Keynes used to justify stimulus.",
       "src": ["ev-pe-paradox-thrift"],
       "tags": ["political economy", "keynesian", "macro"],
@@ -1331,15 +1264,11 @@
       "counter": "In normal times saving does finance investment; the paradox is a slump phenomenon, not a general law."
     },
     {
-      "id": "pe-friedman", "field": "polecon", "depth": "book", "level": 2,
+      "id": "pe-friedman", "field": "polecon", "depth": "book", "level": 4,
+      "prereq": ["pe-keynes"],
       "xref": ["pe-keynes","eh-stagflation","pe-hayek"],
       "title": "Friedman and monetarism",
       "fact": "Milton Friedman's counter-revolution: inflation is always, everywhere, about money.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Friedman led the monetarist challenge to Keynes. His core claim: 'inflation is always and everywhere a monetary phenomenon' — too much money chasing too few goods. So control the money supply, not demand, and otherwise let markets work." },
-        { "d": "deeper", "t": "The Chicago surge", "body": "With 1970s stagflation discrediting simple Keynesianism, Friedman's Chicago school surged. He argued government 'fine-tuning' does more harm than good, championed floating exchange rates and school vouchers, and reframed the Great Depression as a monetary blunder by the central bank." },
-        { "d": "debate", "t": "Strict monetarism stumbles", "body": "Strict monetarism faltered in the 1980s when the link between money supply and inflation proved unstable, and central banks quietly switched from money-supply targets to interest-rate rules. Friedman's broader free-market politics became the orthodoxy of the 'neoliberal' era — credited with taming inflation, blamed by critics for rising inequality and deregulation." }
-      ],
       "detail": "Friedman argued inflation is fundamentally monetary and government meddling does more harm than good. Strict monetarism failed in practice, but his free-market politics shaped the neoliberal era.",
       "src": ["ev-pe-friedman"],
       "year": 1963,
@@ -1348,15 +1277,11 @@
       "counter": "The money–inflation link is loose in practice; supply shocks and expectations matter, and central banks abandoned strict monetary targets."
     },
     {
-      "id": "pe-hayek", "field": "polecon", "depth": "book", "level": 2,
+      "id": "pe-hayek", "field": "polecon", "depth": "book", "level": 4,
+      "prereq": ["pe-smith-wealth"],
       "xref": ["pe-friedman","pe-schools"],
       "title": "Hayek and the knowledge problem",
       "fact": "Hayek's argument against central planning: nobody knows enough — but prices do.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "In 'The Use of Knowledge in Society' (1945), Hayek argued the economy's crucial knowledge is scattered across millions of people and never sits in one place, so no planner can gather it. Prices solve this: they quietly compress everyone's local knowledge into a single signal." },
-        { "d": "deeper", "t": "Markets as computers", "body": "A rise in the price of tin tells users worldwide to economise, without anyone explaining why. The market is, for Hayek, a giant information-processing system. This 'knowledge problem' is his deepest case against socialism — not that planners are bad people, but that the task is impossible." },
-        { "d": "debate", "t": "When prices lie", "body": "Critics point to where prices carry bad or missing information: pollution and other externalities, monopoly power, advertising, bubbles, and 'lemons' markets where buyers can't judge quality (Akerlof). Prices coordinate brilliantly — and also misfire in ways that can justify regulation. Hayek's insight is real, but not the whole story." }
-      ],
       "detail": "Hayek (1945) argued that dispersed knowledge makes central planning impossible, while prices coordinate it automatically — a deep case for markets that critics qualify with externalities, monopoly and information failures.",
       "src": ["ev-pe-hayek"],
       "year": 1945,
@@ -1366,15 +1291,11 @@
     },
 
     {
-      "id": "eh-industrial-revolution", "field": "echist", "depth": "event", "level": 1,
+      "id": "eh-industrial-revolution", "field": "echist", "depth": "event", "level": 2,
+      "prereq": ["eh-enclosure"],
       "xref": ["eh-enclosure","eco-haber-bosch"],
       "title": "The hockey stick",
       "fact": "For most of history, ordinary living standards barely moved. Then, around 1800, they exploded.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "For millennia, output per person crept along — your distant ancestors lived much like theirs. From the late 1700s in Britain, coal, steam, factories and machines broke that ceiling, and sustained growth in living standards began for the first time in human history." },
-        { "d": "deeper", "t": "The central fact", "body": "The 'hockey stick' is the headline of economic history: world output per person was roughly flat for centuries, then rose perhaps ten- to fifteen-fold. Cotton mills, the steam engine and later railways and electricity turned scarcity into mass production. Why it began in Britain — coal, colonies, wages, institutions, science — is hotly argued." },
-        { "d": "debate", "t": "Liberation or catastrophe?", "body": "The same revolution brought child labour, brutal hours, slums and environmental wreckage, and its early decades may have squeezed workers' living standards before they rose. It also rested partly on slavery and empire. 'Progress' and 'exploitation' are both true of the same event — which is exactly why it's debated." }
-      ],
       "detail": "After millennia of near-flat living standards, sustained growth began with Britain's Industrial Revolution (~1800), lifting output per person many-fold — at an immense early human and environmental cost.",
       "src": ["ev-eh-industrial-revolution"],
       "year": 1800,
@@ -1384,15 +1305,10 @@
       "quiz": { "q": "The 'hockey stick' of economic history refers to…", "choices": ["Steadily falling prices", "Living standards flat for millennia then rising sharply", "The economics of sport", "A series of stock crashes"], "answer": 1 }
     },
     {
-      "id": "eh-enclosure", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-enclosure", "field": "echist", "depth": "event", "level": 1,
       "xref": ["pe-smith-wealth","hist-blackdeath"],
       "title": "Enclosure and the making of workers",
       "fact": "Before there were factory workers, common land had to be fenced off — and people pushed into wage labour.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "In England, from the 1500s and accelerating into the 1800s, 'enclosure' turned common fields — shared for grazing and farming — into private, fenced property. Many rural people lost access to land they had relied on and had to sell their labour for wages instead." },
-        { "d": "deeper", "t": "Primitive accumulation", "body": "Enclosure raised farm productivity and helped create a landless workforce — a precondition for the factories of the Industrial Revolution. Marx called this 'primitive accumulation': the often-violent process that turned land and people into capital and labour markets." },
-        { "d": "debate", "t": "Efficiency or expropriation?", "body": "Defenders see enclosure as a painful but necessary efficiency gain that fed a growing population and freed labour for industry. Critics see dispossession — a commons taken from the many and handed to the few. How you tell this story shapes how you see capitalism's origins: spontaneous trade, or organised expropriation." }
-      ],
       "detail": "English enclosure (1500s–1800s) privatised common land, creating a wage-dependent workforce — Marx's 'primitive accumulation'. Read either as an efficiency gain or as mass dispossession.",
       "src": ["ev-eh-enclosure"],
       "tags": ["economic history", "capitalism", "land"],
@@ -1400,15 +1316,11 @@
       "counter": "Enclosure also raised food output sharply at a time of rising population; it wasn't pure loss."
     },
     {
-      "id": "eh-bretton-woods", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-bretton-woods", "field": "echist", "depth": "event", "level": 3,
+      "prereq": ["eh-great-depression"],
       "xref": ["eh-great-depression","pe-keynes"],
       "title": "Bretton Woods and the end of gold",
       "fact": "For 27 years the world's money was anchored to gold through the dollar — until one night in 1971 it wasn't.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "At Bretton Woods (1944) the Allies built the post-war money system: currencies were pegged to the US dollar, and the dollar was convertible to gold at $35 an ounce. It also created the IMF and the World Bank. Stable exchange rates underpinned the post-war boom." },
-        { "d": "deeper", "t": "The Nixon shock", "body": "By 1971, US spending meant far more dollars circulated abroad than there was gold to back them. President Nixon suspended gold convertibility — the 'Nixon shock' — and by 1973 major currencies floated freely against each other, as they still do. Money became, finally, purely 'fiat': backed by trust and the state, not metal." },
-        { "d": "debate", "t": "Should money be anchored?", "body": "Some see floating money as freedom — countries can run their own monetary policy — and the gold standard as a deflationary straitjacket that worsened the Great Depression. Others (some Austrians, gold bugs) see 1971 as the moment money lost its discipline, enabling chronic inflation and debt. The 'anchor money to something?' debate is alive again in the crypto era." }
-      ],
       "detail": "Bretton Woods (1944) pegged currencies to a gold-backed dollar; Nixon ended gold convertibility in 1971 and money became pure fiat. Whether money needs a hard anchor is still argued.",
       "src": ["ev-eh-bretton-woods"],
       "year": 1944,
@@ -1417,15 +1329,11 @@
       "counter": "Gold standards impose harsh discipline that can deepen depressions; 'sound money' has real costs too."
     },
     {
-      "id": "eh-great-depression", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-great-depression", "field": "echist", "depth": "event", "level": 3,
+      "prereq": ["eh-industrial-revolution"],
       "xref": ["pe-keynes","eh-bretton-woods"],
       "title": "The Great Depression",
       "fact": "The 1930s slump was so deep it rewrote economics — and economists still argue about why.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "After the 1929 Wall Street crash, the US and much of the world fell into the Great Depression: output collapsed and roughly a quarter of American workers lost their jobs. It was the worst downturn of the industrial age and shattered faith in self-correcting markets." },
-        { "d": "deeper", "t": "What it birthed", "body": "It gave us Keynesian economics and the activist state — the New Deal, public works, financial regulation. The lesson many drew was that markets can stay broken for years, and that government must manage demand and backstop the banks." },
-        { "d": "debate", "t": "Why so bad?", "body": "Keynes blamed collapsing demand. Friedman and Schwartz blamed the Federal Reserve for letting the money supply shrink as banks failed. Others stress the gold standard, which forced countries to tighten into the slump. Each diagnosis implies a different cure — which is why this one event still shapes how central banks act today." }
-      ],
       "detail": "The 1930s Depression — mass unemployment after the 1929 crash — birthed Keynesianism and the activist state. Its causes (demand collapse, monetary contraction, the gold standard) remain contested.",
       "src": ["ev-eh-great-depression"],
       "year": 1929,
@@ -1434,15 +1342,11 @@
       "counter": "There's no settled single cause — demand, money, banking and the gold standard all played a part."
     },
     {
-      "id": "eh-stagflation", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-stagflation", "field": "echist", "depth": "event", "level": 4,
+      "prereq": ["eh-bretton-woods"],
       "xref": ["pe-friedman","eh-neoliberal-turn"],
       "title": "The 1970s stagflation",
       "fact": "In the 1970s, prices and unemployment rose together — which the textbooks said couldn't happen.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "Post-war economics assumed a trade-off: more inflation bought less unemployment (the Phillips curve). The 1970s broke it. Oil shocks and other pressures produced 'stagflation' — stagnant growth, high unemployment and high inflation all at once." },
-        { "d": "deeper", "t": "The turning point", "body": "The failure discredited the simple Keynesian models and handed the initiative to Friedman's monetarists and the free-market right. Central banks (notably under Volcker in the US) then crushed inflation with brutally high interest rates and a deep recession around 1980, and a new orthodoxy took hold." },
-        { "d": "debate", "t": "Opposite lessons", "body": "Stagflation is the hinge between the Keynesian post-war era and the 'neoliberal' one that followed. Free-marketeers read it as proof that demand management fails and markets must be freed; the left reads the cure — mass unemployment to discipline inflation — as a political choice that shifted power from labour to capital. Same event, opposite lessons." }
-      ],
       "detail": "1970s stagflation — high inflation and unemployment together — broke the simple Phillips curve, discredited naive Keynesianism, and ushered in monetarism and the free-market turn.",
       "src": ["ev-eh-stagflation"],
       "year": 1973,
@@ -1451,16 +1355,11 @@
       "counter": "Stagflation was driven heavily by oil shocks; it didn't prove demand management is always wrong."
     },
     {
-      "id": "eh-neoliberal-turn", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-neoliberal-turn", "field": "echist", "depth": "event", "level": 4,
       "prereq": ["eh-stagflation"],
       "xref": ["pe-hayek","pe-friedman"],
       "title": "The neoliberal turn",
       "fact": "Around 1980, the rich world swung from 'manage the market' to 'free the market'.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "From the late 1970s, Thatcher in Britain and Reagan in the US led a sharp turn: privatise state firms, cut taxes (especially at the top), deregulate finance, weaken unions, and trust markets over governments. The era is often labelled 'neoliberalism'." },
-        { "d": "deeper", "t": "Where it came from", "body": "Intellectually it drew on Friedman and Hayek; politically it answered the stagflation crisis of the 1970s. It reshaped the world — globalisation, financial deregulation, and the spread of market reforms from Chile to China to the post-Soviet states. Inflation fell and some economies revived." },
-        { "d": "debate", "t": "Praise word or slur?", "body": "Supporters credit it with taming inflation, reviving enterprise and lifting hundreds of millions out of poverty through global trade. Critics blame it for soaring inequality, hollowed-out industry, financial instability culminating in 2008, and eroded public services. 'Neoliberalism' is now used as praise, as a slur, and as a serious analytical term — sometimes in the same argument." }
-      ],
       "detail": "From ~1980, Thatcher and Reagan drove privatisation, tax cuts, deregulation and weaker unions, drawing on Friedman and Hayek. Credited with taming inflation, blamed for inequality and the 2008 crisis.",
       "src": ["ev-eh-neoliberal-turn"],
       "year": 1979,
@@ -1469,15 +1368,11 @@
       "counter": "'Neoliberalism' is a loose label; the period's policies and results varied enormously by country."
     },
     {
-      "id": "eh-2008", "field": "echist", "depth": "event", "level": 2,
+      "id": "eh-2008", "field": "echist", "depth": "event", "level": 5,
+      "prereq": ["eh-neoliberal-turn"],
       "xref": ["pe-keynes","econ-externalities"],
       "title": "The 2008 financial crisis",
       "fact": "In 2008 the financial system nearly stopped — and the faith that markets police themselves took a beating.",
-      "layers": [
-        { "d": "basics", "t": "The basics", "body": "A US housing bubble, built on risky mortgages sliced into complex securities, burst and spread through a tightly linked global banking system. Major banks failed or were bailed out, credit froze, and the world fell into the worst recession since the 1930s." },
-        { "d": "deeper", "t": "The response", "body": "Governments and central banks answered with bank rescues, near-zero interest rates and 'quantitative easing' (creating money to buy assets) — and, at first, Keynesian stimulus. It revived Keynes, dented the strong 'efficient markets' faith that prices always get it right, and exposed how fragile and interconnected modern finance had become." },
-        { "d": "debate", "t": "What did it prove?", "body": "Still fought over. For some it showed markets need far tighter regulation; for others, that government-backed mortgages and loose central-bank money inflated the bubble in the first place. The turn to austerity after 2010, rather than sustained stimulus, is blamed by Keynesians for a weak recovery and the political backlash that followed." }
-      ],
       "detail": "A 2008 mortgage bubble froze global finance and triggered the worst slump since the 1930s. The bailout-and-stimulus response revived Keynes and dented 'efficient markets' faith; its causes and the later austerity remain contested.",
       "src": ["ev-eh-2008"],
       "year": 2008,
