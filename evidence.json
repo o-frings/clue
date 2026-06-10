@@ -1080,6 +1080,51 @@
       "url": "https://en.wikipedia.org/wiki/Preferential_attachment",
       "kind": "reference",
       "strength": "Well-studied generative mechanism for power laws; one of several routes, not the only one."
+    },
+    "ev-poli-arrow": {
+      "who": "Wikipedia (Kenneth Arrow, 1951)",
+      "year": 1951,
+      "title": "Arrow's impossibility theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem",
+      "kind": "reference",
+      "strength": "A proven theorem in social choice; the rated-voting exception is well noted."
+    },
+    "ev-poli-proportional": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Proportional representation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Proportional_representation",
+      "kind": "reference",
+      "strength": "Well-documented electoral systems; the representativeness-vs-governability trade-off is a tendency, not a law."
+    },
+    "ev-philo-duhem-quine": {
+      "who": "Wikipedia (Duhem; Quine)",
+      "year": 0,
+      "title": "Duhem–Quine thesis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Duhem%E2%80%93Quine_thesis",
+      "kind": "reference",
+      "strength": "Influential epistemology; confirmation holism is widely accepted, its strong 'anything goes' reading is contested."
+    },
+    "ev-philo-naturalistic-fallacy": {
+      "who": "Wikipedia (G.E. Moore, 1903)",
+      "year": 1903,
+      "title": "Naturalistic fallacy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Naturalistic_fallacy",
+      "kind": "reference",
+      "strength": "Classic metaethics (Principia Ethica); the 'fallacy' label is itself debated (Frankena)."
+    },
+    "ev-philo-nozick": {
+      "who": "Wikipedia (Robert Nozick, 1974)",
+      "year": 1974,
+      "title": "Anarchy, State, and Utopia",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Anarchy,_State,_and_Utopia",
+      "kind": "reference",
+      "strength": "Canonical libertarian reply to Rawls; entitlement theory and the minimal state are well documented, the acquisition principle widely criticised."
     }
   }
 }

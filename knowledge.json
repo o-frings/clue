@@ -1180,7 +1180,7 @@
     },
 
     {
-      "id": "philo-is-ought", "field": "philo", "depth": "book", "level": 2,
+      "id": "philo-is-ought", "field": "philo", "depth": "book", "level": 1,
       "xref": ["philo-falsifiability"],
       "title": "Hume's is–ought gap",
       "fact": "You can't logically derive what ought to be purely from what is.",
@@ -1192,7 +1192,7 @@
       "counter": "Some philosophers (ethical naturalists) argue the gap can be bridged; it's a powerful warning, not a settled proof that values float free of facts."
     },
     {
-      "id": "philo-falsifiability", "field": "philo", "depth": "book", "level": 2,
+      "id": "philo-falsifiability", "field": "philo", "depth": "book", "level": 1,
       "xref": ["philo-is-ought"],
       "title": "Falsifiability",
       "fact": "A claim that nothing could ever disprove isn't really scientific.",
@@ -1205,7 +1205,7 @@
       "quiz": [{ "q": "For Popper, a scientific theory must be…", "choices": ["Proven true", "Falsifiable", "Popular", "Mathematical"], "answer": 1 }, {"q":"By Popper's criterion, which claim is LEAST scientific (unfalsifiable)?","choices":["Heavy objects fall at g in a vacuum","Light bends near the Sun","Whatever happens was meant to be","Water boils at 100°C at sea level"],"answer":2}]
     },
     {
-      "id": "philo-veil", "field": "philo", "depth": "book", "level": 2,
+      "id": "philo-veil", "field": "philo", "depth": "book", "level": 1,
       "xref": ["philo-is-ought","date-french-revolution-1789"],
       "title": "Rawls's veil of ignorance",
       "fact": "To find fair rules, choose them not knowing who you'll be in the society.",
@@ -1218,7 +1218,7 @@
     },
 
     {
-      "id": "poli-median-voter", "field": "polisci", "depth": "concept", "level": 2,
+      "id": "poli-median-voter", "field": "polisci", "depth": "concept", "level": 1,
       "xref": ["poli-duverger"],
       "title": "The median voter theorem",
       "fact": "In a simple two-way majority vote, the middle voter decides — so parties drift to the centre.",
@@ -1230,7 +1230,7 @@
       "counter": "It assumes one dimension, two options, and full turnout. Primaries, multidimensional issues, and abstention routinely break it."
     },
     {
-      "id": "poli-duverger", "field": "polisci", "depth": "concept", "level": 2,
+      "id": "poli-duverger", "field": "polisci", "depth": "concept", "level": 1,
       "xref": ["poli-median-voter"],
       "title": "Duverger's law",
       "fact": "Winner-take-all elections tend to produce two big parties; proportional systems produce many.",
@@ -1252,6 +1252,71 @@
       "tags": ["incentives", "organising"],
       "deploy": "Explains why concentrated lobbies beat diffuse majorities, and why obvious public goods get under-provided.",
       "counter": "Selective incentives, social pressure, leadership, and repeated interaction (Ostrom) routinely overcome free-riding — it's a hurdle, not a wall."
+    },
+    {
+      "id": "poli-arrow", "field": "polisci", "depth": "concept", "level": 2,
+      "prereq": ["poli-median-voter"],
+      "src": ["ev-poli-arrow"],
+      "title": "Arrow's impossibility theorem",
+      "fact": "No voting system can be perfectly fair — Arrow proved it's mathematically impossible.",
+      "detail": "Arrow's impossibility theorem (1951): with three or more options, no ranked voting method can satisfy a short list of reasonable conditions at once — no dictator, respect unanimity, and 'independence of irrelevant alternatives'. Every ranked system trades something off (and has a spoiler effect). It's a foundational result in social choice.",
+      "deploy": "Ends the hunt for a 'perfect' voting system — the real question is which trade-offs you accept, not whether you can avoid them.",
+      "counter": "It applies to ranked orderings; rated systems (approval, score voting) that use grades rather than rankings sidestep the exact theorem, so it's not a counsel of despair.",
+      "tags": ["political science", "voting", "social choice"],
+      "xref": ["poli-median-voter"],
+      "quiz": { "q": "Arrow's impossibility theorem shows that…", "choices": ["One party always wins", "No ranked voting rule can meet all fairness criteria at once", "Voting is pointless", "The median voter always wins"], "answer": 1 }
+    },
+    {
+      "id": "poli-proportional", "field": "polisci", "depth": "concept", "level": 2,
+      "prereq": ["poli-duverger"],
+      "src": ["ev-poli-proportional"],
+      "title": "Proportional representation's trade-off",
+      "fact": "Proportional representation trades the stability of two big parties for fuller representation.",
+      "detail": "Where winner-take-all tends toward two parties (Duverger), proportional representation allocates seats in line with vote share, so smaller parties win seats and parliaments hold many. That mirrors diverse views more faithfully and wastes fewer votes, but usually means coalition governments — more inclusive, sometimes less decisive. It's the central trade-off in electoral-system design.",
+      "deploy": "Frames the electoral-system choice: representativeness (PR) versus governability and clear accountability (FPTP) — no free lunch.",
+      "counter": "It's a tendency, not a law: PR systems vary hugely (thresholds, district size) and many are perfectly stable; 'PR equals chaos' is a caricature.",
+      "tags": ["political science", "elections", "representation"],
+      "xref": ["poli-duverger"],
+      "quiz": { "q": "Compared with winner-take-all, proportional representation tends to produce…", "choices": ["Two big parties", "Many parties and coalition governments", "No parties", "One-party rule"], "answer": 1 }
+    },
+    {
+      "id": "philo-duhem-quine", "field": "philo", "depth": "concept", "level": 2,
+      "prereq": ["philo-falsifiability"],
+      "src": ["ev-philo-duhem-quine"],
+      "title": "You never test one idea alone",
+      "fact": "A failed experiment never cleanly refutes a single hypothesis — you always test a whole bundle.",
+      "detail": "The Duhem–Quine thesis: any prediction leans on a web of auxiliary assumptions (the instrument works, no other forces, the background theory holds). When a test fails, logic alone can't say which link broke — you can always save the core idea by blaming an auxiliary. This complicates Popper's clean falsification and feeds Kuhn's picture of theories defended within a 'paradigm' until anomalies pile up.",
+      "deploy": "A check on naive falsification: 'the experiment disproved it' is rarely as clean as it sounds.",
+      "counter": "It can be overstated into 'anything goes' — in practice scientists do reach justified verdicts; the holism is real but not paralysing.",
+      "tags": ["philosophy", "science", "epistemology"],
+      "xref": ["philo-falsifiability"],
+      "quiz": { "q": "The Duhem–Quine thesis says a failed test…", "choices": ["Cleanly refutes one hypothesis", "Can't pinpoint which assumption failed — you test a whole web", "Proves the theory", "Is impossible"], "answer": 1 }
+    },
+    {
+      "id": "philo-naturalistic-fallacy", "field": "philo", "depth": "concept", "level": 2,
+      "prereq": ["philo-is-ought"],
+      "src": ["ev-philo-naturalistic-fallacy"],
+      "title": "The naturalistic fallacy",
+      "fact": "Calling something 'natural' doesn't make it good — and defining 'good' as any natural property is a trap.",
+      "detail": "G.E. Moore's naturalistic fallacy (1903): you can't define 'good' as identical to a natural property (pleasure, survival, what evolution favours), because his 'open question' always remains — 'this is pleasant, but is it good?' still makes sense, so the two aren't the same. It's cousin to Hume's is–ought gap and to the everyday 'appeal to nature' (natural = better).",
+      "deploy": "Disarms 'it's natural, therefore good/right' arguments — and warns against reading ethics straight off biology.",
+      "counter": "Ethical naturalists reject Moore's argument and hold that moral facts can be natural facts; the 'fallacy' label is itself contested (Frankena).",
+      "tags": ["philosophy", "ethics", "fallacy"],
+      "xref": ["philo-is-ought"],
+      "quiz": { "q": "The 'naturalistic fallacy' warns against…", "choices": ["Studying nature", "Equating 'good' with a natural property (e.g. 'natural = good')", "Using logic", "Believing in ethics"], "answer": 1 }
+    },
+    {
+      "id": "philo-nozick", "field": "philo", "depth": "concept", "level": 2,
+      "prereq": ["philo-veil"],
+      "src": ["ev-philo-nozick"],
+      "title": "Nozick's reply to Rawls",
+      "fact": "Nozick's reply to Rawls: a just outcome is whatever free exchanges produce — even if unequal.",
+      "detail": "In Anarchy, State, and Utopia (1974), Robert Nozick countered Rawls with an 'entitlement theory': holdings are just if they were acquired and transferred justly, whatever pattern results. His 'Wilt Chamberlain' example: if fans freely pay to watch a star, the resulting inequality is just, and forcibly redistributing it violates liberty. He defends only a 'minimal state'.",
+      "deploy": "The libertarian counterweight to Rawls: justice as fair process and liberty, not as a fair distribution pattern.",
+      "counter": "Critics say 'just steps' ignore tainted starting points (conquest, slavery) and that pure process can entrench injustice; the initial-acquisition principle is the weak link.",
+      "tags": ["philosophy", "justice", "libertarianism"],
+      "xref": ["philo-veil"],
+      "quiz": { "q": "Nozick's entitlement theory judges a distribution by…", "choices": ["How equal it is", "Whether it arose through just acquisition and free transfer", "A central plan", "Majority vote"], "answer": 1 }
     },
 
     {
