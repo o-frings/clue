@@ -1242,6 +1242,60 @@
       "url": "https://en.wikipedia.org/wiki/Denying_the_antecedent",
       "kind": "reference",
       "strength": "Standard formal-fallacy reference; valid only if the conditional is a biconditional."
+    },
+    "ev-logic-quantifiers": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Quantifier (logic)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quantifier_(logic)",
+      "kind": "reference",
+      "strength": "Standard first-order-logic reference (∀/∃, domains, quantifier order)."
+    },
+    "ev-logic-quantifier-negation": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Quantifier (logic)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quantifier_(logic)",
+      "kind": "reference",
+      "strength": "States the proven duality ¬∀x P ≡ ∃x ¬P."
+    },
+    "ev-logic-counterexample": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Counterexample",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Counterexample",
+      "kind": "reference",
+      "strength": "Standard reference; one counterexample disproves a universal (a logical fact)."
+    },
+    "ev-logic-syllogism": {
+      "who": "Wikipedia (after Aristotle)",
+      "year": 0,
+      "title": "Syllogism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Syllogism",
+      "kind": "reference",
+      "strength": "Classical logic reference; Aristotle's valid forms catalogued."
+    },
+    "ev-logic-proof-contradiction": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Proof by contradiction",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Proof_by_contradiction",
+      "kind": "reference",
+      "strength": "Standard proof method; classically valid, restricted in intuitionistic logic."
+    },
+    "ev-logic-induction": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Mathematical induction",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mathematical_induction",
+      "kind": "reference",
+      "strength": "Rigorous proof method over the natural numbers."
     }
   }
 }
