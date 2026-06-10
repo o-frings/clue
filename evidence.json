@@ -783,6 +783,51 @@
       "url": "https://en.wikipedia.org/wiki/Century_of_humiliation",
       "kind": "reference",
       "strength": "Encyclopaedic; the period is well documented and the narrative's political use by the CCP is noted."
+    },
+    "ev-china-state-structure": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "National People's Congress",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/National_People%27s_Congress",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the congress hierarchy and the NPC's formal supremacy are well documented."
+    },
+    "ev-china-cadre-appointment": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Cadre system of the Chinese Communist Party",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cadre_system_of_the_Chinese_Communist_Party",
+      "kind": "reference",
+      "strength": "Encyclopaedic account of the nomenklatura/Organization-Department appointment system; well sourced to China-studies scholarship."
+    },
+    "ev-china-local-elections": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Elections in China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Elections_in_China",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the direct-village / indirect-above structure and the 1987 Organic Law are well documented."
+    },
+    "ev-china-whole-process-democracy": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Whole-process people's democracy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Whole-process_people%27s_democracy",
+      "kind": "reference",
+      "strength": "Documents the CCP's own concept (Xi 2019; in law 2021) and the debate around it."
+    },
+    "ev-china-marxism": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Socialism with Chinese characteristics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Socialism_with_Chinese_characteristics",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the Marxism-Leninism lineage and 'primary stage of socialism' doctrine are well documented."
     }
   }
 }

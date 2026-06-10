@@ -122,6 +122,66 @@
       "quiz": { "q": "China's 'century of humiliation' refers to…", "choices": ["1949 to 2049", "~1839–1949 of foreign defeats and unequal treaties", "The Cultural Revolution", "The Ming dynasty"], "answer": 1 }
     },
     {
+      "id": "china-state-structure", "field": "polisci", "depth": "concept", "level": 2,
+      "src": ["ev-china-state-structure"],
+      "title": "How China's state is structured",
+      "fact": "China's state runs through tiered 'people's congresses', from the local level up to the National People's Congress.",
+      "detail": "Formally, the National People's Congress (NPC) — the world's largest legislature (~2,900 delegates) — is the supreme organ of state power. It elects the president and decides the State Council (the government), meets briefly each spring (the 'Two Sessions'), and leaves a Standing Committee to act between sessions. Below it sit people's congresses at province, prefecture/city, county and township levels, each overseeing the government at its tier. Running in parallel at every level is a CCP committee that sets direction — so the state and the Party form two interlocking hierarchies.",
+      "deploy": "Gives you the real map of Chinese governance: a layered congress-and-government system shadowed at each level by a Party committee.",
+      "counter": "Supporters call the NPC a working deliberative body that refines policy; others note it almost never rejects Party proposals, so its role is more ratifying and consultative than legislating in the Western sense.",
+      "tags": ["china", "politics", "government", "npc"],
+      "xref": ["china-party-state", "china-cadre-appointment"],
+      "quiz": { "q": "China's supreme organ of state power is…", "choices": ["The Politburo", "The National People's Congress", "The Supreme Court", "The State Council"], "answer": 1 }
+    },
+    {
+      "id": "china-cadre-appointment", "field": "polisci", "depth": "concept", "level": 3,
+      "src": ["ev-china-cadre-appointment"],
+      "title": "How China appoints its officials",
+      "fact": "Most senior officials in China aren't elected — they're selected and promoted by the Party through the 'nomenklatura' system.",
+      "detail": "The CCP's Organization Department manages a 'nomenklatura' — roughly the top several thousand party-state posts (ministers, provincial leaders, even major university and state-enterprise heads). Cadres are appointed and promoted on assessed criteria: loyalty to the Party, ideological standing and measured performance (historically growth and stability targets), alongside patronage networks. A typical career climbs the rungs — county, then a city (e.g. mayor or city party secretary), then a province — before a few reach the Central Committee, the Politburo, and its Standing Committee, which the Central Committee formally 'elects' but the leadership in practice selects.",
+      "deploy": "Explains how China picks its rulers: an internal Party personnel system that rewards measured performance and loyalty — often described as 'political meritocracy'.",
+      "counter": "Supporters call it meritocratic selection that filters for competence over decades; others say targets invite gaming and faked data, and that loyalty and factional patronage can outweigh merit near the top.",
+      "tags": ["china", "officials", "nomenklatura", "meritocracy"],
+      "xref": ["china-party-state", "china-state-structure"],
+      "quiz": { "q": "Senior Chinese officials are chosen mainly by…", "choices": ["Popular national elections", "The Party's nomenklatura appointment system", "The courts", "Lottery"], "answer": 1 }
+    },
+    {
+      "id": "china-local-elections", "field": "polisci", "depth": "concept", "level": 2,
+      "src": ["ev-china-local-elections"],
+      "title": "Where Chinese voters actually vote",
+      "fact": "Chinese voters directly elect only the lowest levels — village committees and county/township congresses; everything above is indirect.",
+      "detail": "Under the 1987 Organic Law, villages directly elect village committees and chiefs — China's main experiment in grassroots elections. County, district and township people's congresses are also directly elected. But every level above (city, province, NPC) is elected indirectly by the congress one tier below, and the CCP pre-approves candidate nominations throughout. In a village, an elected committee operates alongside the appointed village Party secretary, who often holds the real authority.",
+      "deploy": "Shows where direct voting exists in China (the grassroots) and where it stops (everything above the county).",
+      "counter": "Supporters see grassroots elections as genuine local accountability and a training ground; others note that candidate vetting and the parallel Party secretary limit how much elected bodies actually decide.",
+      "tags": ["china", "elections", "local government", "democracy"],
+      "xref": ["china-whole-process-democracy", "china-state-structure"],
+      "quiz": { "q": "In China, directly-elected bodies exist mainly at the level of…", "choices": ["The national legislature", "Villages and counties/townships", "Provinces", "The Politburo"], "answer": 1 }
+    },
+    {
+      "id": "china-whole-process-democracy", "field": "polisci", "depth": "concept", "level": 2,
+      "src": ["ev-china-whole-process-democracy"],
+      "title": "'Whole-process people's democracy'",
+      "fact": "The CCP calls China a democracy — 'whole-process people's democracy' — judged by results, not by multiparty elections.",
+      "detail": "Introduced by Xi Jinping in 2019 and written into law in 2021, 'whole-process people's democracy' is the Party's own democratic theory. It claims democracy runs through the entire cycle of governance — consultation, decision, management and oversight, via the people's congresses and the political consultative conference — rather than ending at the ballot box. Its test of success is consequentialist: how well government improves citizens' lives, not whether power alternates between parties.",
+      "deploy": "Lets you engage Chinese politics on its own terms: it doesn't claim to be a liberal democracy but defines democracy as effective, consultative governance under Party leadership.",
+      "counter": "Supporters argue outcome-based, consultative democracy fits China and delivers; others argue that without competitive elections, a free press, or a way to remove rulers, the word 'democracy' is being redefined to fit one-party rule.",
+      "tags": ["china", "democracy", "ideology", "politics"],
+      "xref": ["china-local-elections", "china-party-state"],
+      "quiz": { "q": "'Whole-process people's democracy' judges success mainly by…", "choices": ["How power alternates between parties", "How well government improves citizens' lives", "Voter turnout", "Press-freedom rankings"], "answer": 1 }
+    },
+    {
+      "id": "china-marxism", "field": "polecon", "depth": "concept", "level": 3,
+      "src": ["ev-china-marxism"],
+      "title": "How the CCP's ideology references Marx",
+      "fact": "The CCP's official ideology is Marxism–Leninism — adapted, it says, to China through a lineage ending in 'Xi Jinping Thought'.",
+      "detail": "The Party's guiding ideology runs Marxism–Leninism → Mao Zedong Thought → Deng Xiaoping Theory → the Three Represents → the Scientific Outlook on Development → Xi Jinping Thought, all under 'socialism with Chinese characteristics'. The bridge to markets is the doctrine of the 'primary stage of socialism': China is still building its productive forces, so markets and private enterprise are tools on a long road to communism. From Marx it keeps historical materialism (the economic base shapes society), class analysis, and the Party as a vanguard; Xi Jinping Thought is presented as 'Marxism for the 21st century'.",
+      "deploy": "Explains how a market-driven economy squares with a Communist Party: the 'primary stage of socialism' frames markets as a means, with the Party steering toward communism.",
+      "counter": "Supporters call it living Marxism, creatively applied; others — including some Marxists — argue that markets, private capital and deep inequality make the 'socialist' label more about legitimacy and Party control than Marx's classless aim.",
+      "tags": ["china", "marxism", "ideology", "communism"],
+      "xref": ["pe-marx-capital", "pe-historical-materialism", "china-party-state"],
+      "quiz": { "q": "How does CCP doctrine square markets with Marxism?", "choices": ["It rejects Marx entirely", "Via the 'primary stage of socialism' — markets as a tool toward communism", "By banning private firms", "It says Marx supported capitalism"], "answer": 1 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",
