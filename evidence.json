@@ -855,6 +855,33 @@
       "url": "https://en.wikipedia.org/wiki/Local_government_financing_vehicle",
       "kind": "reference",
       "strength": "Encyclopaedic, citing IMF estimates (~$8tn LGFV debt, ≈47% of GDP, end-2023) and the land-finance mechanism."
+    },
+    "ev-china-provinces": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Administrative divisions of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Administrative_divisions_of_China",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the 22 provinces / 5 autonomous regions / 4 municipalities / 2 SARs structure is official and well documented."
+    },
+    "ev-china-hu-line": {
+      "who": "Wikipedia (Hu Huanyong, 1935)",
+      "year": 1935,
+      "title": "Heihe–Tengchong Line",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Heihe%E2%80%93Tengchong_Line",
+      "kind": "reference",
+      "strength": "Long-standing demographic regularity; ~94% east / ~6% west of the line, stable since 1935 (2015 figures)."
+    },
+    "ev-china-megaregions": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Megalopolises in China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Megalopolises_in_China",
+      "kind": "reference",
+      "strength": "Encyclopaedic list of officially-recognised city clusters with population/area figures."
     }
   }
 }

@@ -218,6 +218,42 @@
       "quiz": { "q": "Chinese local governments largely funded infrastructure by…", "choices": ["Income taxes", "Off-budget financing vehicles backed by land sales", "Foreign aid", "Printing money"], "answer": 1 }
     },
     {
+      "id": "china-provinces", "field": "geo", "depth": "concept", "level": 1,
+      "src": ["ev-china-provinces"],
+      "title": "How China is divided up",
+      "fact": "China has 34 provincial-level units — provinces, autonomous regions, municipalities and two special regions.",
+      "detail": "There are 22 provinces (China also claims Taiwan as a 23rd), 5 'autonomous regions' for large minority populations (Xinjiang, Tibet, Inner Mongolia, Guangxi, Ningxia), 4 directly-governed municipalities (Beijing, Shanghai, Tianjin, Chongqing), and 2 special administrative regions (Hong Kong, Macau) under 'one country, two systems'. Below provinces sit prefectures, counties and townships — the rungs officials climb.",
+      "deploy": "The basic political map of China — and why 'autonomous region' and 'SAR' flag special arrangements for minority areas and for Hong Kong/Macau.",
+      "counter": "'Autonomous' is largely nominal — real authority stays with the central Party; and Taiwan's status and the degree of Hong Kong's autonomy are sharply contested.",
+      "tags": ["china", "geography", "provinces", "administration"],
+      "xref": ["china-state-structure", "china-cadre-appointment"],
+      "quiz": { "q": "Xinjiang, Tibet and Inner Mongolia are classed as China's…", "choices": ["Provinces", "Autonomous regions", "Municipalities", "Special administrative regions"], "answer": 1 }
+    },
+    {
+      "id": "china-hu-line", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-china-hu-line"],
+      "title": "The line that splits China in two",
+      "fact": "A line drawn in 1935 still splits China: about 94% of people live on the eastern half.",
+      "detail": "The Hu Huanyong line (Heihe–Tengchong line) runs diagonally from Heihe in the northeast to Tengchong in the southwest. East of it lies 43% of the land but ~94% of the people — the fertile, watered, coast-facing lowlands. West of it lies 57% of the land (Tibet, Xinjiang and other dry, mountainous regions) with only ~6%. Despite decades of 'develop the west' drives, the divide has barely moved since 1935.",
+      "deploy": "A single line that explains China's population, farming, cities and even its development politics.",
+      "counter": "It's a striking regularity, not destiny — infrastructure, water-transfer projects and urbanisation are slowly testing whether the line can shift.",
+      "tags": ["china", "geography", "population", "hu line"],
+      "xref": ["china-provinces", "geo-demographic"],
+      "quiz": { "q": "China's Hu line marks that ~94% of people live…", "choices": ["In the west", "In the eastern half of the country", "Along the northern border", "Spread evenly"], "answer": 1 }
+    },
+    {
+      "id": "china-megaregions", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-china-megaregions"],
+      "title": "China's giant city-clusters",
+      "fact": "China's economy clusters into a few giant city-regions, each bigger than most countries.",
+      "detail": "Growth concentrates in planned megaregions: the Pearl River Delta / Greater Bay Area (Guangzhou–Shenzhen–Hong Kong; ~86 million people, manufacturing and tech), the Yangtze River Delta (Shanghai–Suzhou–Hangzhou; finance and trade), and Jing-Jin-Ji (Beijing–Tianjin–Hebei; politics and heavy industry). Cities are informally ranked in 'tiers', and the state deliberately steers people and industry into these clusters.",
+      "deploy": "Shows where China's people and wealth actually concentrate — a handful of coastal city-clusters, not evenly across the provinces.",
+      "counter": "Concentration drives growth but widens the coastal–interior gap and strains the hukou system as migrants pour into tier-1 cities.",
+      "tags": ["china", "cities", "megaregions", "urbanisation"],
+      "xref": ["china-hu-line", "china-hukou", "china-growth-model"],
+      "quiz": { "q": "Which is a major Chinese megaregion?", "choices": ["The Greater Bay Area (Guangzhou–Shenzhen–Hong Kong)", "Silicon Valley", "The Ruhr", "Kansai"], "answer": 0 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",
