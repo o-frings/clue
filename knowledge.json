@@ -44,8 +44,9 @@
     { "id": "econ",    "label": "Economics",         "blurb": "Trade-offs, incentives, markets — models, not laws.","icon": "📈", "color": "#e8551c" },
     { "id": "polecon", "label": "Political economy",  "blurb": "Smith to Marx to Keynes — the schools that argue about who gets what.", "icon": "⚖️", "color": "#d6336c" },
     { "id": "echist",  "label": "Economic history",  "blurb": "How we got the economy we have — and how it keeps changing.", "icon": "🏭", "color": "#9c6644" },
-    { "id": "philo",   "label": "Philosophy",        "blurb": "Logic, ethics, knowledge, justice.",                "icon": "🤔", "color": "#868e96" },
-    { "id": "polisci", "label": "Political science", "blurb": "Voting, institutions, collective action.",          "icon": "🏛", "color": "#e64980" }
+    { "id": "philo",   "label": "Philosophy",        "blurb": "Ethics, knowledge, justice, mind.",                 "icon": "🤔", "color": "#868e96" },
+    { "id": "polisci", "label": "Political science", "blurb": "Voting, institutions, collective action.",          "icon": "🏛", "color": "#e64980" },
+    { "id": "logic",   "label": "Formal logic",      "blurb": "Argument, proof, inference, and the fallacies.",     "icon": "∴", "color": "#4263eb" }
   ],
 
   "cards": [
@@ -481,7 +482,9 @@
       "quiz": { "q": "Why can repetition sustain cooperation in a prisoner's dilemma?", "choices": ["Players forget past moves", "Future retaliation deters betrayal today", "The payoffs change", "A referee enforces it"], "answer": 1 }
     },
     {
-      "id": "logic-validity", "field": "philo", "depth": "concept", "level": 1,
+      "id": "logic-validity", "field": "logic", "depth": "concept", "level": 3,
+      "prereq": ["logic-connectives"],
+      "media": [{ "type": "equation", "tex": "P_1,\\ P_2,\\ \\ldots \\vdash C", "plain": "P₁, P₂, … ⊢ C", "caption": "Valid: if the premises hold, the conclusion must." }],
       "src": ["ev-logic-validity"],
       "title": "Valid vs true: the shape of an argument",
       "fact": "An argument can be perfectly valid yet completely false — validity is about form, not facts.",
@@ -493,7 +496,8 @@
       "quiz": { "q": "An argument is valid when…", "choices": ["its premises are true", "if the premises are true, the conclusion must be too", "it sounds convincing", "its conclusion is well known"], "answer": 1 }
     },
     {
-      "id": "logic-modus-ponens", "field": "philo", "depth": "concept", "level": 2,
+      "id": "logic-modus-ponens", "field": "logic", "depth": "concept", "level": 4,
+      "media": [{ "type": "equation", "tex": "P \\rightarrow Q,\\ P \\vdash Q", "plain": "P→Q, P ⊢ Q", "caption": "Modus ponens (and modus tollens: P→Q, ¬Q ⊢ ¬P)." }],
       "prereq": ["logic-validity"],
       "src": ["ev-logic-modus-ponens"],
       "title": "Modus ponens and modus tollens",
@@ -506,7 +510,8 @@
       "quiz": { "q": "Modus tollens reasons from 'if P then Q' and 'not Q' to…", "choices": ["P", "not P", "Q", "nothing"], "answer": 1 }
     },
     {
-      "id": "logic-affirming-consequent", "field": "philo", "depth": "concept", "level": 3,
+      "id": "logic-affirming-consequent", "field": "logic", "depth": "concept", "level": 5,
+      "media": [{ "type": "equation", "tex": "P \\rightarrow Q,\\ Q \\nvdash P", "plain": "P→Q, Q ⊬ P", "caption": "Invalid — Q can have other causes." }],
       "prereq": ["logic-modus-ponens"],
       "src": ["ev-logic-affirming-consequent"],
       "title": "Affirming the consequent",
@@ -517,6 +522,122 @@
       "tags": ["logic", "fallacy", "reasoning"],
       "xref": ["math-base-rate", "philo-falsifiability"],
       "quiz": { "q": "'The street is wet, so it must have rained' commits which error?", "choices": ["Modus ponens", "Affirming the consequent", "Circular reasoning", "Straw man"], "answer": 1 }
+    },
+    {
+      "id": "logic-proposition", "field": "logic", "depth": "concept", "level": 1,
+      "src": ["ev-logic-proposition"],
+      "title": "What a proposition is",
+      "fact": "A proposition is a statement that's either true or false — logic's basic building block.",
+      "detail": "Logic works with propositions: declarative statements that bear a truth value, not questions, commands or exclamations. 'Snow is white' is a proposition; 'Close the door!' isn't. Different sentences can express the same proposition, and propositions are what we combine and reason about.",
+      "deploy": "The first move in any logical analysis: isolate the actual truth-apt claims before judging an argument.",
+      "counter": "Natural language is messy — vagueness, context and words like 'I' or 'now' mean real sentences don't always map to one fixed proposition.",
+      "tags": ["logic", "proposition"],
+      "media": [{ "type": "equation", "tex": "P,\\ Q,\\ R \\in \\{\\top,\\ \\bot\\}", "plain": "P, Q, R ∈ {⊤, ⊥}", "caption": "Each proposition is true (⊤) or false (⊥)." }],
+      "quiz": { "q": "Which of these is a proposition?", "choices": ["'Close the door!'", "'Is it raining?'", "'Paris is in France.'", "'Ouch!'"], "answer": 2 }
+    },
+    {
+      "id": "logic-connectives", "field": "logic", "depth": "concept", "level": 2,
+      "prereq": ["logic-proposition"],
+      "src": ["ev-logic-connectives"],
+      "title": "The five connectives",
+      "fact": "Five little symbols build every compound statement: not, and, or, if–then, if-and-only-if.",
+      "detail": "Propositional logic joins propositions with connectives: ¬ (not), ∧ (and), ∨ (or), → (if…then), ↔ (iff). Each is truth-functional — the truth of the whole depends only on the truth of its parts. They are the grammar of formal reasoning.",
+      "deploy": "Lets you translate tangled prose into precise structure you can actually test.",
+      "counter": "The logician's '→' isn't everyday 'if': 'if P then Q' counts as true whenever P is false, which feels odd (the 'paradoxes of material implication').",
+      "tags": ["logic", "connectives"],
+      "media": [{ "type": "equation", "tex": "\\neg \\quad \\wedge \\quad \\vee \\quad \\rightarrow \\quad \\leftrightarrow", "plain": "¬  ∧  ∨  →  ↔", "caption": "not, and, or, if–then, iff." }],
+      "quiz": { "q": "The symbol ∧ means…", "choices": ["or", "not", "and", "implies"], "answer": 2 }
+    },
+    {
+      "id": "logic-truth-tables", "field": "logic", "depth": "concept", "level": 3,
+      "prereq": ["logic-connectives"],
+      "src": ["ev-logic-truth-tables"],
+      "title": "Truth tables",
+      "fact": "A truth table lays out a statement's truth for every combination of its inputs.",
+      "detail": "List every true/false combination of the variables, then compute the compound's value in each row. For n variables there are 2ⁿ rows. Truth tables define each connective exactly and let you check equivalence and validity mechanically — no intuition required.",
+      "deploy": "The brute-force lie detector for propositional arguments: build the table and read off the answer.",
+      "counter": "They blow up fast — 2ⁿ rows — so they're impractical for many variables, and don't extend to 'all/some' (quantified) statements.",
+      "tags": ["logic", "truth tables"],
+      "media": [{ "type": "equation", "tex": "P \\wedge Q:\\ TT\\to T,\\ TF\\to F,\\ FT\\to F,\\ FF\\to F", "plain": "P∧Q: TT→T, TF→F, FT→F, FF→F", "caption": "The truth table for AND." }],
+      "quiz": { "q": "A truth table for a statement with 3 variables has how many rows?", "choices": ["3", "6", "8", "9"], "answer": 2 }
+    },
+    {
+      "id": "logic-tautology", "field": "logic", "depth": "concept", "level": 4,
+      "prereq": ["logic-truth-tables"],
+      "src": ["ev-logic-tautology"],
+      "title": "Tautology and contradiction",
+      "fact": "Some statements are true no matter what (tautologies) and some are false no matter what (contradictions).",
+      "detail": "A tautology is true in every row of its truth table (e.g. P ∨ ¬P — 'either it's raining or it isn't'). Its opposite is a contradiction (always false); everything else is contingent (depends on the facts). Tautologies are the logical truths — true by form alone.",
+      "deploy": "Separates claims true by logic alone from claims that actually say something about the world.",
+      "counter": "Logical truth isn't informative truth — a tautology tells you nothing about reality, which is why 'it is what it is' explains nothing.",
+      "tags": ["logic", "tautology"],
+      "media": [{ "type": "equation", "tex": "P \\vee \\neg P \\equiv \\top", "plain": "P ∨ ¬P ≡ ⊤", "caption": "Law of excluded middle — a tautology." }],
+      "quiz": { "q": "A tautology is a statement that is…", "choices": ["Always false", "True in every case", "Sometimes true", "Meaningless"], "answer": 1 }
+    },
+    {
+      "id": "logic-demorgan", "field": "logic", "depth": "concept", "level": 3,
+      "prereq": ["logic-connectives"],
+      "src": ["ev-logic-demorgan"],
+      "title": "De Morgan's laws",
+      "fact": "'Not (A and B)' equals 'not A or not B' — negation flips and/or.",
+      "detail": "¬(P ∧ Q) ≡ ¬P ∨ ¬Q, and ¬(P ∨ Q) ≡ ¬P ∧ ¬Q: pushing a negation inside a bracket swaps AND with OR. The rule is everywhere — simplifying logic, database queries and programming conditions.",
+      "deploy": "A reliable rewrite for negating compound conditions correctly — vital in code and contracts alike.",
+      "counter": "Easy to misapply: people negate 'A and B' to 'not A and not B' (wrong) instead of 'not A or not B'.",
+      "tags": ["logic", "de morgan"],
+      "media": [{ "type": "equation", "tex": "\\neg(P \\wedge Q) \\equiv \\neg P \\vee \\neg Q", "plain": "¬(P∧Q) ≡ ¬P ∨ ¬Q   (and ¬(P∨Q) ≡ ¬P ∧ ¬Q)", "caption": "Negation swaps AND and OR." }],
+      "quiz": { "q": "'Not (rich and famous)' is equivalent to…", "choices": ["not rich and not famous", "not rich or not famous", "rich or famous", "rich and famous"], "answer": 1 }
+    },
+    {
+      "id": "logic-contrapositive", "field": "logic", "depth": "concept", "level": 3,
+      "prereq": ["logic-connectives"],
+      "src": ["ev-logic-contrapositive"],
+      "title": "The contrapositive",
+      "fact": "'If P then Q' is identical to 'if not Q then not P' — its contrapositive.",
+      "detail": "A conditional and its contrapositive are logically equivalent: (P → Q) ≡ (¬Q → ¬P). 'If it's a dog, it's a mammal' equals 'if it's not a mammal, it's not a dog'. Beware the converse (Q → P) and inverse (¬P → ¬Q) — those are NOT equivalent to the original.",
+      "deploy": "A proof tool: when a conditional is hard to show directly, prove its contrapositive instead.",
+      "counter": "The common error is swapping in the converse — 'if it's a mammal it's a dog' — which simply doesn't follow.",
+      "tags": ["logic", "conditional"],
+      "media": [{ "type": "equation", "tex": "(P \\rightarrow Q) \\equiv (\\neg Q \\rightarrow \\neg P)", "plain": "(P→Q) ≡ (¬Q→¬P)", "caption": "A conditional equals its contrapositive." }],
+      "quiz": { "q": "The contrapositive of 'if P then Q' is…", "choices": ["if Q then P", "if not P then not Q", "if not Q then not P", "P and Q"], "answer": 2 }
+    },
+    {
+      "id": "logic-disjunctive-syllogism", "field": "logic", "depth": "concept", "level": 4,
+      "prereq": ["logic-validity"],
+      "src": ["ev-logic-disjunctive-syllogism"],
+      "title": "Disjunctive syllogism",
+      "fact": "Either P or Q; not P; therefore Q — reasoning by elimination.",
+      "detail": "A valid rule: from 'P ∨ Q' and '¬P', conclude Q. 'It's in the kitchen or the garage; it's not the kitchen; so the garage.' It's how you reason by ruling options out.",
+      "deploy": "Formalises elimination — rule the alternatives out and the survivor follows.",
+      "counter": "It needs a genuine, complete 'or': if the disjunction misses a third possibility, eliminating one option doesn't establish another.",
+      "tags": ["logic", "inference"],
+      "media": [{ "type": "equation", "tex": "P \\vee Q,\\ \\neg P \\vdash Q", "plain": "P∨Q, ¬P ⊢ Q", "caption": "Disjunctive syllogism (valid)." }],
+      "quiz": { "q": "From 'P or Q' and 'not P', you may conclude…", "choices": ["not Q", "Q", "P", "nothing"], "answer": 1 }
+    },
+    {
+      "id": "logic-hypothetical-syllogism", "field": "logic", "depth": "concept", "level": 5,
+      "prereq": ["logic-modus-ponens"],
+      "src": ["ev-logic-hypothetical-syllogism"],
+      "title": "Hypothetical syllogism",
+      "fact": "If P then Q, and if Q then R — so if P then R. Conditionals chain.",
+      "detail": "From 'P → Q' and 'Q → R', conclude 'P → R'. 'If I oversleep I miss the train; if I miss the train I'm late; so if I oversleep I'm late.' It's the engine of step-by-step deductive chains.",
+      "deploy": "Justifies stringing implications into a chain — the backbone of multi-step proofs and arguments.",
+      "counter": "Real conditionals carry hidden exceptions, so long chains accumulate 'other things being equal' caveats and can break in practice.",
+      "tags": ["logic", "inference"],
+      "media": [{ "type": "equation", "tex": "P \\rightarrow Q,\\ Q \\rightarrow R \\vdash P \\rightarrow R", "plain": "P→Q, Q→R ⊢ P→R", "caption": "Conditionals chain (valid)." }],
+      "quiz": { "q": "From 'P→Q' and 'Q→R' you can conclude…", "choices": ["Q→P", "P→R", "R→P", "not P"], "answer": 1 }
+    },
+    {
+      "id": "logic-denying-antecedent", "field": "logic", "depth": "concept", "level": 5,
+      "prereq": ["logic-modus-ponens"],
+      "src": ["ev-logic-denying-antecedent"],
+      "title": "Denying the antecedent",
+      "fact": "'If P then Q; not P; therefore not Q' is a fallacy — P isn't the only road to Q.",
+      "detail": "Denying the antecedent invalidly infers ¬Q from a conditional plus ¬P. 'If you're a ski instructor you have a job; you're not a ski instructor; so you have no job' — but you could have another job. It mirrors affirming the consequent; both confuse a conditional with a biconditional.",
+      "deploy": "Names a common slip: 'the cause didn't happen, so the effect can't' ignores other causes.",
+      "counter": "If the 'if' really means 'if and only if' (a biconditional), then denying the antecedent does work — so check whether 'if' means 'only if'.",
+      "tags": ["logic", "fallacy"],
+      "media": [{ "type": "equation", "tex": "P \\rightarrow Q,\\ \\neg P \\nvdash \\neg Q", "plain": "P→Q, ¬P ⊬ ¬Q", "caption": "Invalid — other causes can give Q." }],
+      "quiz": { "q": "'If P then Q; not P; so not Q' is…", "choices": ["Valid (modus tollens)", "The denying-the-antecedent fallacy", "Modus ponens", "A tautology"], "answer": 1 }
     },
     {
       "id": "cs-binary", "field": "math", "depth": "concept", "level": 1,

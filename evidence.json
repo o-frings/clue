@@ -1161,6 +1161,87 @@
       "url": "https://en.wikipedia.org/wiki/Population_decline",
       "kind": "reference",
       "strength": "Well-documented sub-replacement fertility trends (global ~2.2, S. Korea ~0.7); long-range projections are uncertain."
+    },
+    "ev-logic-proposition": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Proposition",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Proposition",
+      "kind": "reference",
+      "strength": "Standard logic/philosophy reference on truth-bearers."
+    },
+    "ev-logic-connectives": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Logical connective",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Logical_connective",
+      "kind": "reference",
+      "strength": "Standard reference defining the truth-functional connectives."
+    },
+    "ev-logic-truth-tables": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Truth table",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Truth_table",
+      "kind": "reference",
+      "strength": "Standard reference; truth tables are a definitional tool, not an empirical claim."
+    },
+    "ev-logic-tautology": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Tautology (logic)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tautology_(logic)",
+      "kind": "reference",
+      "strength": "Standard logic reference (tautology/contradiction/contingency)."
+    },
+    "ev-logic-demorgan": {
+      "who": "Wikipedia (Augustus De Morgan)",
+      "year": 1847,
+      "title": "De Morgan's laws",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/De_Morgan%27s_laws",
+      "kind": "reference",
+      "strength": "Proven logical equivalences, foundational to Boolean algebra."
+    },
+    "ev-logic-contrapositive": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Contraposition",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Contraposition",
+      "kind": "reference",
+      "strength": "Proven equivalence (P→Q ≡ ¬Q→¬P); converse/inverse distinguished."
+    },
+    "ev-logic-disjunctive-syllogism": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Disjunctive syllogism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Disjunctive_syllogism",
+      "kind": "reference",
+      "strength": "Valid rule of inference in classical and intuitionistic logic."
+    },
+    "ev-logic-hypothetical-syllogism": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Hypothetical syllogism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hypothetical_syllogism",
+      "kind": "reference",
+      "strength": "Valid in classical logic; fails in some non-monotonic/probabilistic systems."
+    },
+    "ev-logic-denying-antecedent": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Denying the antecedent",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Denying_the_antecedent",
+      "kind": "reference",
+      "strength": "Standard formal-fallacy reference; valid only if the conditional is a biconditional."
     }
   }
 }
