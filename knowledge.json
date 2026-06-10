@@ -182,6 +182,42 @@
       "quiz": { "q": "How does CCP doctrine square markets with Marxism?", "choices": ["It rejects Marx entirely", "Via the 'primary stage of socialism' — markets as a tool toward communism", "By banning private firms", "It says Marx supported capitalism"], "answer": 1 }
     },
     {
+      "id": "china-growth-model", "field": "econ", "depth": "concept", "level": 3,
+      "src": ["ev-china-growth-model"],
+      "title": "China's growth model",
+      "fact": "China grew by investing and exporting at a scale no big economy had tried — and now struggles to rebalance toward consumption.",
+      "detail": "The boom ran on extraordinarily high investment and savings (gross savings around 43% of GDP), a large manufacturing export sector (exports ~20% of GDP), and state-owned enterprises (~40% of GDP) alongside a dynamic private sector — financed largely by state-directed bank credit. It built world-class infrastructure fast, but kept household consumption a low share of GDP and bred overcapacity and debt. Since the 2010s, plans have aimed to 'rebalance' toward consumption and services — slowly.",
+      "deploy": "Explains both China's speed and its strains: an investment-and-export engine that's powerful but hard to turn toward consumer-led growth.",
+      "counter": "Sustainability is debated — optimists point to tech upgrading and scale; pessimists to the property bust, debt and demographics. State direction is credited for coordination and blamed for misallocation.",
+      "tags": ["china", "economy", "growth", "investment"],
+      "xref": ["china-reform-opening", "china-local-debt", "econ-comparative-advantage"],
+      "quiz": { "q": "China's growth has leaned most heavily on…", "choices": ["High consumer spending", "High investment and exports", "Foreign aid", "Tourism"], "answer": 1 }
+    },
+    {
+      "id": "china-hukou", "field": "econ", "depth": "concept", "level": 2,
+      "src": ["ev-china-hukou"],
+      "title": "China's hukou system",
+      "fact": "Where you're registered in China sets your access to schools, healthcare and benefits — the hukou system.",
+      "detail": "Hukou registers every citizen as rural or urban and to a specific place; public services — schooling, healthcare, housing support — are tied to your registered locality. Roughly 200–300 million rural migrants work in cities but can't easily get urban services for themselves or their children, creating a large internal-migrant underclass (the 'floating population'). Reforms have eased registration in smaller cities, but big-city hukou stays hard to obtain.",
+      "deploy": "Explains a core source of Chinese inequality and the 'floating population': rights and services follow your registration, not where you live and work.",
+      "counter": "Supporters say it let China urbanise fast without sprawling mega-slums and manage city growth; critics call it a system of second-class citizenship for rural migrants.",
+      "tags": ["china", "hukou", "migration", "inequality"],
+      "xref": ["china-growth-model", "geo-demographic"],
+      "quiz": { "q": "China's hukou system mainly determines…", "choices": ["Voting rights", "Access to local public services by registered locality", "Income-tax rates", "Military service"], "answer": 1 }
+    },
+    {
+      "id": "china-local-debt", "field": "econ", "depth": "concept", "level": 3,
+      "src": ["ev-china-local-debt"],
+      "title": "China's hidden local-government debt",
+      "fact": "Chinese cities funded their boom by borrowing through off-the-books companies — now a major debt risk.",
+      "detail": "Local governments can't easily run deficits or raise much tax, yet were tasked with growth and infrastructure. Many borrowed via 'local government financing vehicles' (LGFVs) — state-owned companies that take loans and issue bonds, typically using land-use rights as collateral and repaying from land sales (60–80% of local revenue in 2018). This funded rapid building but piled up large, partly hidden debts; the IMF estimated LGFV debt near $8 trillion (about 47% of GDP) by end-2023. When property prices and land sales fell, repayment became a systemic worry.",
+      "deploy": "Explains how China's infrastructure was financed — and why local-government and property debt is now a central economic risk.",
+      "counter": "Optimists note the debt is mostly domestic and state-owned, so easier to restructure; pessimists see misallocated investment and a slow-burning drag on growth.",
+      "tags": ["china", "debt", "local government", "property"],
+      "xref": ["china-growth-model", "eh-2008"],
+      "quiz": { "q": "Chinese local governments largely funded infrastructure by…", "choices": ["Income taxes", "Off-budget financing vehicles backed by land sales", "Foreign aid", "Printing money"], "answer": 1 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",

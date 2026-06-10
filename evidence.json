@@ -828,6 +828,33 @@
       "url": "https://en.wikipedia.org/wiki/Socialism_with_Chinese_characteristics",
       "kind": "reference",
       "strength": "Encyclopaedic; the Marxism-Leninism lineage and 'primary stage of socialism' doctrine are well documented."
+    },
+    "ev-china-growth-model": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Economy of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economy_of_China",
+      "kind": "reference",
+      "strength": "Encyclopaedic with cited figures (savings ~43% of GDP, SOEs ~40%, exports ~20%); the rebalancing debate is well covered."
+    },
+    "ev-china-hukou": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Hukou",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hukou",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the rural/urban registration and ~200–300M migrant 'floating population' are well documented."
+    },
+    "ev-china-local-debt": {
+      "who": "Wikipedia (citing IMF)",
+      "year": 0,
+      "title": "Local government financing vehicle",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Local_government_financing_vehicle",
+      "kind": "reference",
+      "strength": "Encyclopaedic, citing IMF estimates (~$8tn LGFV debt, ≈47% of GDP, end-2023) and the land-finance mechanism."
     }
   }
 }
