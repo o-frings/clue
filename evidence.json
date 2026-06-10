@@ -963,6 +963,42 @@
       "url": "https://en.wikipedia.org/wiki/Libyan_crisis_(2011%E2%80%93present)",
       "kind": "reference",
       "strength": "Encyclopaedic; Gaddafi's 2011 fall and the two civil wars / east-west split are well documented."
+    },
+    "ev-phys-time-dilation": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Time dilation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Time_dilation",
+      "kind": "reference",
+      "strength": "Established relativity; confirmed by muons, the Hafele–Keating atomic-clock flights and GPS corrections."
+    },
+    "ev-phys-heat-death": {
+      "who": "Wikipedia (after Kelvin, 1852)",
+      "year": 1852,
+      "title": "Heat death of the universe",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Heat_death_of_the_universe",
+      "kind": "reference",
+      "strength": "A hypothesis that follows from the second law if expansion continues; the cosmic application is debated."
+    },
+    "ev-phys-entanglement": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Quantum entanglement",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quantum_entanglement",
+      "kind": "reference",
+      "strength": "Repeatedly confirmed by Bell-test experiments (2022 Nobel); no-faster-than-light-signalling is well established."
+    },
+    "ev-phys-dark-energy": {
+      "who": "Wikipedia",
+      "year": 1998,
+      "title": "Dark energy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Dark_energy",
+      "kind": "reference",
+      "strength": "Accelerating expansion seen since 1998 (Type Ia supernovae, CMB, structure); the cause remains unknown."
     }
   }
 }

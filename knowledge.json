@@ -734,7 +734,7 @@
     },
 
     {
-      "id": "phys-entropy", "field": "physics", "depth": "concept", "level": 2,
+      "id": "phys-entropy", "field": "physics", "depth": "concept", "level": 1,
       "xref": ["phys-cmb"],
       "title": "Entropy and the arrow of time",
       "fact": "In an isolated system, entropy never decreases — which is why time has a direction.",
@@ -745,7 +745,7 @@
       "counter": "Local order can increase (life, fridges, crystals) as long as total entropy rises — a frequent misuse is citing the second law against evolution."
     },
     {
-      "id": "phys-light-speed", "field": "physics", "depth": "concept", "level": 2,
+      "id": "phys-light-speed", "field": "physics", "depth": "concept", "level": 1,
       "xref": ["phys-cmb"],
       "title": "The speed of light is the same for everyone",
       "fact": "Light travels at the same speed for all observers, no matter how they move.",
@@ -757,7 +757,7 @@
       "counter": "Newtonian mechanics remains an excellent approximation at everyday speeds; relativity refines it, it doesn't make it 'useless'."
     },
     {
-      "id": "phys-uncertainty", "field": "physics", "depth": "concept", "level": 2,
+      "id": "phys-uncertainty", "field": "physics", "depth": "concept", "level": 1,
       "xref": ["phys-light-speed"],
       "media": [{ "type": "equation", "tex": "\\Delta x \\cdot \\Delta p \\geq \\frac{\\hbar}{2}", "plain": "Δx · Δp ≥ ħ/2", "caption": "The more precisely you fix position (Δx), the less precisely momentum (Δp) is fixed." }],
       "title": "Heisenberg's uncertainty principle",
@@ -770,7 +770,7 @@
       "counter": "Frequently abused by analogy ('the observer changes everything') in social or business arguments where it simply doesn't apply."
     },
     {
-      "id": "phys-cmb", "field": "physics", "depth": "event", "level": 2,
+      "id": "phys-cmb", "field": "physics", "depth": "event", "level": 1,
       "xref": ["phys-light-speed","phys-entropy"],
       "title": "We can still see the Big Bang's afterglow",
       "fact": "The whole sky glows faintly at ~2.7 K — leftover heat from the early universe.",
@@ -780,6 +780,54 @@
       "tags": ["cosmology"],
       "deploy": "The Big Bang is evidence-backed, not mere speculation — we literally observe its relic radiation.",
       "counter": "'Big Bang' describes the expansion from a hot, dense state — it does not claim to explain the ultimate origin or 'what banged'."
+    },
+    {
+      "id": "phys-time-dilation", "field": "physics", "depth": "concept", "level": 2,
+      "prereq": ["phys-light-speed"],
+      "src": ["ev-phys-time-dilation"],
+      "title": "Moving clocks run slow",
+      "fact": "Moving clocks run slow — and GPS has to correct for it every day.",
+      "detail": "If the speed of light is the same for everyone, then time itself must stretch: a clock moving fast (or sitting deeper in gravity) ticks slower than one at rest. It's tiny at everyday speeds but real — fast-decaying muons reaching the ground, atomic clocks flown around the world, and astronauts ageing a few milliseconds less all confirm it, and GPS satellites would drift kilometres off without relativistic corrections.",
+      "deploy": "The most concrete proof that time is relative, not absolute — your phone's navigation depends on it.",
+      "counter": "It's only sizeable near light-speed or strong gravity; at human speeds the effect is real but minuscule, which is why intuition misses it.",
+      "tags": ["physics", "relativity", "time"],
+      "quiz": { "q": "Time dilation means a fast-moving clock…", "choices": ["Runs fast", "Runs slow relative to one at rest", "Stops entirely", "Is unaffected"], "answer": 1 }
+    },
+    {
+      "id": "phys-heat-death", "field": "physics", "depth": "concept", "level": 2,
+      "prereq": ["phys-entropy"],
+      "src": ["ev-phys-heat-death"],
+      "title": "The universe's heat death",
+      "fact": "If entropy always rises, the universe drifts toward a cold, featureless 'heat death'.",
+      "detail": "Run the second law forward forever: usable energy keeps dissipating until temperature differences vanish and no work is possible — maximum entropy, the 'Big Freeze'. Proposed by Lord Kelvin in 1852, it implies a far-future universe of near-uniform cold, perhaps after 10^100 years, once even black holes have evaporated.",
+      "deploy": "Takes the arrow of time to its cosmic conclusion — order is borrowed, and the loan eventually comes due.",
+      "counter": "It assumes the universe keeps expanding and that entropy is even well-defined for the whole cosmos (including gravity) — both are debated, and the timescale is so vast as to be almost meaningless.",
+      "tags": ["physics", "entropy", "cosmology"],
+      "quiz": { "q": "The 'heat death' of the universe is a state of…", "choices": ["Maximum usable energy", "Maximum entropy and no usable energy", "Infinite heat", "Total vacuum"], "answer": 1 }
+    },
+    {
+      "id": "phys-entanglement", "field": "physics", "depth": "concept", "level": 2,
+      "prereq": ["phys-uncertainty"],
+      "src": ["ev-phys-entanglement"],
+      "title": "Quantum entanglement",
+      "fact": "Entangled particles stay linked across any distance — yet you still can't send a message faster than light.",
+      "detail": "Two particles can be 'entangled' so that measuring one instantly fixes the state of the other, however far apart — Einstein's 'spooky action at a distance'. Bell-test experiments confirm the correlations are real and can't be explained by hidden pre-set values. But because each result looks random on its own, entanglement can't transmit information faster than light; it underpins quantum computing and cryptography.",
+      "deploy": "The sharpest break with classical intuition — reality's correlations are non-local, yet relativity's speed limit still holds.",
+      "counter": "'Instant link' is easily over-hyped: no usable signal travels faster than light, so it enables no sci-fi communication.",
+      "tags": ["physics", "quantum", "entanglement"],
+      "quiz": { "q": "Quantum entanglement allows…", "choices": ["Faster-than-light messaging", "Correlations across distance, but no faster-than-light signal", "Time travel", "Perpetual motion"], "answer": 1 }
+    },
+    {
+      "id": "phys-dark-energy", "field": "physics", "depth": "concept", "level": 2,
+      "prereq": ["phys-cmb"],
+      "src": ["ev-phys-dark-energy"],
+      "title": "Dark energy",
+      "fact": "Most of the universe is 'dark energy' — and it's pushing the cosmos apart faster and faster.",
+      "detail": "Since 1998, supernova measurements have shown the universe's expansion is accelerating, driven by a mysterious 'dark energy' that makes up ~68% of everything (dark matter ~27%, ordinary matter just ~5%). Its nature is unknown — a cosmological constant, or something stranger — and the cosmic microwave background and large-scale structure independently support it.",
+      "deploy": "A humbling headline: about 95% of the universe (dark energy plus dark matter) is stuff we can't directly see or explain.",
+      "counter": "'Dark energy' is a placeholder for an unknown — some physicists suspect it signals that our theory of gravity is incomplete rather than a real new substance.",
+      "tags": ["physics", "cosmology", "dark energy"],
+      "quiz": { "q": "Dark energy is associated with…", "choices": ["Slowing the universe's expansion", "Accelerating the universe's expansion", "Black holes only", "The Sun's heat"], "answer": 1 }
     },
 
     {
