@@ -254,6 +254,54 @@
       "quiz": { "q": "Which is a major Chinese megaregion?", "choices": ["The Greater Bay Area (Guangzhou–Shenzhen–Hong Kong)", "Silicon Valley", "The Ruhr", "Kansai"], "answer": 0 }
     },
     {
+      "id": "me-sunni-shia", "field": "history", "depth": "concept", "level": 2,
+      "src": ["ev-me-sunni-shia"],
+      "title": "The Sunni–Shia split",
+      "fact": "Islam's main split — Sunni and Shia — began as a 7th-century dispute over who should lead after Muhammad.",
+      "detail": "When Muhammad died in 632 with no agreed successor, Muslims divided: most (Sunnis) accepted leaders chosen by the community; a minority (Shia, 'partisans of Ali') held that leadership belonged to Muhammad's family through his cousin and son-in-law Ali. The two share Islam's core but differ on authority, law and ritual; the killing of Ali's son Hussein at Karbala (680) deepened it. Sunnis are ~85% of Muslims worldwide, Shia ~15% — but Shia are the majority in Iran and Iraq.",
+      "deploy": "A key to reading the region: many 'sectarian' conflicts are power struggles wearing a Sunni/Shia label.",
+      "counter": "Calling every conflict 'ancient sectarian hatred' misleads — Sunni and Shia have long coexisted, and the split is frequently politicised by modern states, not a constant of history.",
+      "tags": ["middle east", "islam", "sunni", "shia"],
+      "xref": ["date-hijra-622", "me-iran-saudi"],
+      "quiz": { "q": "The Sunni–Shia split originally arose over…", "choices": ["The text of the Quran", "Who should lead the community after Muhammad", "Whether to pray", "The date of Ramadan"], "answer": 1 }
+    },
+    {
+      "id": "me-oil-rentier", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-me-oil-rentier"],
+      "title": "Oil and the rentier state",
+      "fact": "Many Middle Eastern states live off oil revenue, not taxes — which reshapes the deal between rulers and ruled.",
+      "detail": "Gulf states (Saudi Arabia, the UAE, Kuwait, Qatar) are 'rentier states': most government income comes from selling oil and gas, not taxing citizens. With little taxation there's little leverage to demand representation — rulers fund generous welfare and public jobs in exchange for political quiet ('no taxation, no representation'). Oil also made the region strategically vital, pulling in outside powers, and gave producers leverage through OPEC.",
+      "deploy": "Explains both the durability of Gulf monarchies and why outside powers stay so invested in the region.",
+      "counter": "The model is strained — low oil prices, youth unemployment and the energy transition push states (e.g. Saudi 'Vision 2030') to diversify and, cautiously, to tax; and scholars debate how tightly oil really locks in autocracy.",
+      "tags": ["middle east", "oil", "rentier state", "opec"],
+      "xref": ["geo-hormuz", "eh-stagflation"],
+      "quiz": { "q": "A 'rentier state' funds itself mainly from…", "choices": ["Income taxes", "Resource revenue such as oil", "Tourism", "Foreign aid"], "answer": 1 }
+    },
+    {
+      "id": "me-israel-palestine", "field": "geo", "depth": "concept", "level": 3,
+      "src": ["ev-me-israel-palestine"],
+      "title": "The Israeli–Palestinian conflict",
+      "fact": "Two peoples claim national rights in one land — the core of the Israeli–Palestinian conflict.",
+      "detail": "Both Jews and Palestinian Arabs claim the land between the Jordan River and the Mediterranean. Modern Zionism and Arab nationalism collided under Ottoman then British rule; the 1948 creation of Israel was, for Israelis, independence, and for Palestinians the 'Nakba' — over 750,000 displaced. Wars in 1948 and 1967 left Israel governing the West Bank and Gaza; disputes centre on borders, settlements, refugees, Jerusalem and security. A 'two-state solution' along the 1967 lines has been the main proposed framework but remains unrealised.",
+      "deploy": "Lays out the conflict's structure — competing national claims to the same land — without scoring it for either side.",
+      "counter": "Almost every fact here is narrated differently by each side; even basic terms ('occupation', 'terrorism', 'self-defence') are contested, so treat any single-source account with care.",
+      "tags": ["middle east", "israel", "palestine", "conflict"],
+      "xref": ["date-sykes-picot-1916", "me-oil-rentier"],
+      "quiz": { "q": "The 'two-state solution' refers to…", "choices": ["An Israeli and a Palestinian state side by side", "A two-party political system", "Two religions sharing one government", "A UN trusteeship"], "answer": 0 }
+    },
+    {
+      "id": "me-iran-saudi", "field": "geo", "depth": "concept", "level": 2,
+      "src": ["ev-me-iran-saudi"],
+      "title": "The Iran–Saudi rivalry",
+      "fact": "Iran and Saudi Arabia wage a cold war across the Middle East — usually through proxies.",
+      "detail": "Since Iran's 1979 revolution, Shia-led Iran and Sunni-led Saudi Arabia have competed for regional leadership. They rarely fight directly; instead they back opposing sides in Syria, Yemen, Iraq, Lebanon and elsewhere, turning local conflicts into proxy battlegrounds. The rivalry blends sect (Shia vs Sunni), nationalism (Persian vs Arab) and raw power politics; a 2023 China-brokered deal restored diplomatic ties and cooled it.",
+      "deploy": "A master key to many regional wars: ask which side Tehran and Riyadh are backing.",
+      "counter": "Framing it as purely 'Shia vs Sunni' overstates religion — it's also Persian–Arab and great-power rivalry, and the two have periodically sought détente.",
+      "tags": ["middle east", "iran", "saudi arabia", "proxy war"],
+      "xref": ["me-sunni-shia", "me-oil-rentier"],
+      "quiz": { "q": "The Iran–Saudi rivalry is mostly fought…", "choices": ["In direct war between their armies", "Through proxies in other countries", "Only at the United Nations", "Through trade tariffs"], "answer": 1 }
+    },
+    {
       "id": "date-hijra-622", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 622, "when": "622 CE",
       "src": ["ev-date-hijra-622"],
       "title": "The Hijra and year one of the Islamic calendar",

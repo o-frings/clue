@@ -882,6 +882,42 @@
       "url": "https://en.wikipedia.org/wiki/Megalopolises_in_China",
       "kind": "reference",
       "strength": "Encyclopaedic list of officially-recognised city clusters with population/area figures."
+    },
+    "ev-me-sunni-shia": {
+      "who": "Wikipedia",
+      "year": 632,
+      "title": "Shia–Sunni relations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Shia%E2%80%93Sunni_relations",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the 632 succession origin and ~85% Sunni / ~15% Shia split are well documented."
+    },
+    "ev-me-oil-rentier": {
+      "who": "Wikipedia (El Beblawi; Luciani)",
+      "year": 0,
+      "title": "Rentier state",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Rentier_state",
+      "kind": "reference",
+      "strength": "Established political-economy theory; the resource-revenue-not-taxes bargain is well evidenced, though its tie to autocracy is debated (Herb)."
+    },
+    "ev-me-israel-palestine": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Israeli–Palestinian conflict",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Israeli%E2%80%93Palestinian_conflict",
+      "kind": "reference",
+      "strength": "Encyclopaedic overview; core dates well documented, but framing and many facts are narrated differently by each side."
+    },
+    "ev-me-iran-saudi": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Iran–Saudi Arabia proxy war",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Iran%E2%80%93Saudi_Arabia_proxy_conflict",
+      "kind": "reference",
+      "strength": "Encyclopaedic; the proxy rivalry and 2023 China-brokered restoration of ties are well documented."
     }
   }
 }
