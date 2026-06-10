@@ -1296,6 +1296,78 @@
       "url": "https://en.wikipedia.org/wiki/Mathematical_induction",
       "kind": "reference",
       "strength": "Rigorous proof method over the natural numbers."
+    },
+    "ev-logic-informal-fallacies": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Fallacy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fallacy",
+      "kind": "reference",
+      "strength": "Standard reference; formal/informal distinction and the 'fallacy fallacy' are well covered."
+    },
+    "ev-logic-straw-man": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Straw man",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Straw_man",
+      "kind": "reference",
+      "strength": "Standard informal-fallacy reference; notes steelmanning as the honest opposite."
+    },
+    "ev-logic-ad-hominem": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Ad hominem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Ad_hominem",
+      "kind": "reference",
+      "strength": "Standard reference; notes it's not mere insult and can be legitimate for credibility."
+    },
+    "ev-logic-false-dilemma": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "False dilemma",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/False_dilemma",
+      "kind": "reference",
+      "strength": "Standard reference; distinguishes genuine from false binaries."
+    },
+    "ev-logic-slippery-slope": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Slippery slope",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Slippery_slope",
+      "kind": "reference",
+      "strength": "Standard reference; fallacious only when the causal chain is asserted, not shown."
+    },
+    "ev-logic-begging-the-question": {
+      "who": "Wikipedia (after Aristotle)",
+      "year": 0,
+      "title": "Begging the question",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Begging_the_question",
+      "kind": "reference",
+      "strength": "Standard reference; the circular-reasoning sense, distinct from 'raises the question'."
+    },
+    "ev-logic-equivocation": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Equivocation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Equivocation",
+      "kind": "reference",
+      "strength": "Standard reference; the fallacy is the illegitimate meaning-shift, not ambiguity itself."
+    },
+    "ev-logic-appeal-authority": {
+      "who": "Wikipedia",
+      "year": 0,
+      "title": "Argument from authority",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Argument_from_authority",
+      "kind": "reference",
+      "strength": "Standard reference; distinguishes legitimate expert consensus from misplaced authority."
     }
   }
 }
