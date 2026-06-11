@@ -616,7 +616,7 @@ function mediaHtml(c){
   return c.media.map(m=>{
     if(!m || !m.type) return '';
     if(m.type==='equation'){ const tex=m.tex||m.body||'', plain=m.plain||tex;
-      return '<div class="kmedia eq"><span class="katexeq" data-tex="'+esc(tex)+'" data-display="1">'+esc(plain)+'</span>'+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>'; }
+      return '<div class="kmedia eq"><span class="katexeq" data-tex="'+esc(tex)+'" data-display="1">'+esc(plain)+'</span>'+(m.say?'<div class="kmsay"><span>reads as</span> '+esc(m.say)+'</div>':'')+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>'; }
     if(m.type==='image'||m.type==='figure'||m.type==='map'){ if(!m.src) return '';
       return '<figure class="kmedia"><img src="'+esc(m.src)+'" alt="'+esc(m.alt||m.caption||'')+'" loading="lazy">'+(m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'')+'</figure>'; }
     if(m.type==='plot'){ // dynamic SVG graph; spec rendered by renderViz()
@@ -752,7 +752,7 @@ function renderViz(root){
   });
 }
 function buildViz(fig, spec){
-  const svg=svgEl('svg',{viewBox:'0 0 '+VZ_W+' '+VZ_H,class:'kvizsvg','aria-hidden':'true'});
+  const svg=svgEl('svg',{viewBox:'0 0 '+VZ_W+' '+VZ_H,class:'kvizsvg',role:'img','aria-label':(spec.caption||('graph: '+(spec.kind||'plot')))});
   const plot=svgEl('g',{}); svg.appendChild(plot);
   // controls/state
   const state={}; (spec.controls||[]).forEach(c=>state[c.name]=(c.value==null?0:+c.value));
@@ -770,6 +770,7 @@ function buildViz(fig, spec){
       const nm=document.createElement('span'); nm.className='kvizcn'; nm.textContent=c.label||c.name;
       const val=document.createElement('span'); val.className='kvizcv'; val.textContent=fmtNum(state[c.name]);
       const inp=document.createElement('input'); inp.type='range'; inp.min=c.min; inp.max=c.max; inp.step=(c.step==null?0.1:c.step); inp.value=state[c.name];
+      inp.setAttribute('aria-label', c.label||c.name);
       inp.addEventListener('input',()=>{ state[c.name]=+inp.value; val.textContent=fmtNum(state[c.name]); draw(); });
       row.appendChild(nm); row.appendChild(inp); row.appendChild(val); ctr.appendChild(row);
     });
@@ -787,16 +788,26 @@ function vzScales(xr,yr){
   const x0=VZ_PAD.l,x1=VZ_W-VZ_PAD.r,y0=VZ_PAD.t,y1=VZ_H-VZ_PAD.b;
   return { sx:v=>x0+(v-xr[0])/(xr[1]-xr[0])*(x1-x0), sy:v=>y1-(v-yr[0])/(yr[1]-yr[0])*(y1-y0), box:{x0,x1,y0,y1} };
 }
-function vzAxes(g,sc,xr,yr){
+function niceStep(r){ const span=Math.abs(r[1]-r[0])||1, raw=span/4, mag=Math.pow(10,Math.floor(Math.log10(raw))), n=raw/mag; return (n<1.5?1:n<3?2:n<7?5:10)*mag; }
+function vzAxes(g,sc,xr,yr,opts){
+  opts=opts||{};
   const line=vzCss('--line'), l3=vzCss('--l3');
-  g.appendChild(svgEl('rect',{x:sc.box.x0,y:sc.box.y0,width:sc.box.x1-sc.box.x0,height:sc.box.y1-sc.box.y0,fill:'none',stroke:line,'stroke-width':1}));
-  // zero axes if in range
-  if(yr[0]<0&&yr[1]>0){ const y=sc.sy(0); g.appendChild(svgEl('line',{x1:sc.box.x0,y1:y,x2:sc.box.x1,y2:y,stroke:l3,'stroke-width':1})); }
-  if(xr[0]<0&&xr[1]>0){ const x=sc.sx(0); g.appendChild(svgEl('line',{x1:x,y1:sc.box.y0,x2:x,y2:sc.box.y1,stroke:l3,'stroke-width':1})); }
-  // a couple of tick labels
-  const tick=(vx,vy,txt,dx,dy,anchor)=>{ const t=svgEl('text',{x:sc.sx(vx)+(dx||0),y:sc.sy(vy)+(dy||0),fill:l3,'font-size':9,'text-anchor':anchor||'middle'}); t.textContent=txt; g.appendChild(t); };
-  tick(xr[0],yr[0],fmtNum(xr[0]),0,11); tick(xr[1],yr[0],fmtNum(xr[1]),0,11);
-  tick(xr[0],yr[1],fmtNum(yr[1]),-4,3,'end'); tick(xr[0],yr[0],fmtNum(yr[0]),-4,3,'end');
+  const bx=sc.box;
+  // soft graph-paper gridlines (skipped where a plot draws its own grid)
+  if(opts.grid!==false){
+    const xs=niceStep(xr), ys=niceStep(yr);
+    for(let x=Math.ceil(xr[0]/xs)*xs; x<=xr[1]+1e-9; x+=xs){ const px=sc.sx(x); g.appendChild(svgEl('line',{x1:px.toFixed(1),y1:bx.y0,x2:px.toFixed(1),y2:bx.y1,stroke:line,'stroke-width':1})); }
+    for(let y=Math.ceil(yr[0]/ys)*ys; y<=yr[1]+1e-9; y+=ys){ const py=sc.sy(y); g.appendChild(svgEl('line',{x1:bx.x0,y1:py.toFixed(1),x2:bx.x1,y2:py.toFixed(1),stroke:line,'stroke-width':1})); }
+  }
+  // zero axes, a touch stronger than the grid
+  if(yr[0]<0&&yr[1]>0){ const y=sc.sy(0); g.appendChild(svgEl('line',{x1:bx.x0,y1:y,x2:bx.x1,y2:y,stroke:l3,'stroke-width':1.2})); }
+  if(xr[0]<0&&xr[1]>0){ const x=sc.sx(0); g.appendChild(svgEl('line',{x1:x,y1:bx.y0,x2:x,y2:bx.y1,stroke:l3,'stroke-width':1.2})); }
+  // muted extent labels (kept minimal for a clean look)
+  if(opts.labels!==false){
+    const tick=(vx,vy,txt,dx,dy,anchor)=>{ const t=svgEl('text',{x:(sc.sx(vx)+(dx||0)).toFixed(1),y:(sc.sy(vy)+(dy||0)).toFixed(1),fill:l3,'font-size':8.5,'text-anchor':anchor||'middle','font-weight':500}); t.textContent=txt; g.appendChild(t); };
+    tick(xr[0],yr[0],fmtNum(xr[0]),2,12,'start'); tick(xr[1],yr[0],fmtNum(xr[1]),-2,12,'end');
+    tick(xr[0],yr[1],fmtNum(yr[1]),-4,3,'end'); tick(xr[0],yr[0],fmtNum(yr[0]),-4,3,'end');
+  }
 }
 function vzPath(sc,fn,p,xr,n){ n=n||80; let d=''; for(let i=0;i<=n;i++){ const x=xr[0]+(xr[1]-xr[0])*i/n, y=fn(x,p); if(!isFinite(y)) continue; d+=(d?'L':'M')+sc.sx(x).toFixed(1)+' '+sc.sy(y).toFixed(1)+' '; } return d; }
 function arrow(g,x1,y1,x2,y2,color,w){ g.appendChild(svgEl('line',{x1,y1,x2,y2,stroke:color,'stroke-width':w||2,'stroke-linecap':'round'}));
@@ -885,7 +896,7 @@ function drawViz(g, spec, st, readout){
     const a=st.a==null?1:st.a,b=st.b==null?0:st.b,c=st.c==null?0:st.c,d=st.d==null?1:st.d;
     const line=vzCss('--line'); // faint original grid
     for(let i=-R;i<=R;i++){ g.appendChild(svgEl('line',{x1:sc.sx(i),y1:sc.sy(-R),x2:sc.sx(i),y2:sc.sy(R),stroke:line,'stroke-width':1})); g.appendChild(svgEl('line',{x1:sc.sx(-R),y1:sc.sy(i),x2:sc.sx(R),y2:sc.sy(i),stroke:line,'stroke-width':1})); }
-    vzAxes(g,sc,xr,yr);
+    vzAxes(g,sc,xr,yr,{grid:false,labels:false});
     const T=(x,y)=>[a*x+b*y,c*x+d*y]; // transformed grid (a few lines)
     const tcol=vzCss('--l3');
     for(let i=-R;i<=R;i++){ const p1=T(i,-R),p2=T(i,R),p3=T(-R,i),p4=T(R,i);
@@ -921,7 +932,7 @@ function drawViz(g, spec, st, readout){
       const v=f2(xv,yv); vals[i][j]=v; if(v>mx)mx=v; } }
     for(let i=0;i<N;i++)for(let j=0;j<N;j++){ const op=Math.max(0,Math.min(0.85,vals[i][j]/mx));
       g.appendChild(svgEl('rect',{x:(bx.x0+i*cw).toFixed(1),y:(bx.y0+j*ch).toFixed(1),width:(cw+0.5).toFixed(1),height:(ch+0.5).toFixed(1),fill:accent,'fill-opacity':op.toFixed(3),stroke:'none'})); }
-    vzAxes(g,sc,xr,yr);
+    vzAxes(g,sc,xr,yr,{grid:false,labels:false});
     if(spec.arrow!==false){ const px=spec.point?spec.point[0]:1.4, py=spec.point?spec.point[1]:1.1, h=0.01;
       const gx=(f2(px+h,py)-f2(px-h,py))/(2*h), gy=(f2(px,py+h)-f2(px,py-h))/(2*h);
       const len=Math.hypot(gx,gy)||1, L=R*0.32;
@@ -948,6 +959,8 @@ function drawViz(g, spec, st, readout){
 function descentStep(spec,st,draw,btn){
   const p=spec.params||{a:0.5,b:0,c:0}; const eta=st.eta==null?0.1:st.eta;
   if(st._x==null) st._x=(spec.start==null?-4:spec.start);
+  const reduce=(typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if(reduce){ for(let k=0;k<12;k++){ st._x-=eta*(2*p.a*st._x+(p.b||0)); } draw(); return; }
   let i=0; const tick=()=>{ const slope=2*p.a*st._x+(p.b||0); st._x=st._x-eta*slope; draw(); i++;
     if(i<12 && Math.abs(eta*slope)>0.002) requestAnimationFrame(()=>setTimeout(tick,90)); };
   tick();

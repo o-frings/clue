@@ -2115,6 +2115,7 @@
           "type": "equation",
           "tex": "a^{m}\\cdot a^{n} = a^{m+n}",
           "plain": "aᵐ · aⁿ = aᵐ⁺ⁿ",
+          "say": "a-to-the-m times a-to-the-n equals a-to-the-(m plus n).",
           "caption": "Multiplying powers adds the exponents."
         },
         {
@@ -2173,6 +2174,7 @@
           "type": "equation",
           "tex": "\\log_b(xy) = \\log_b x + \\log_b y",
           "plain": "log_b(xy) = log_b x + log_b y",
+          "say": "log-base-b of x-times-y equals log of x plus log of y.",
           "caption": "Logs convert products into sums."
         },
         {
@@ -2374,6 +2376,7 @@
           "type": "equation",
           "tex": "\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n",
           "plain": "Σ xᵢ = x₁ + x₂ + ⋯ + xₙ",
+          "say": "the sum of x-one, x-two, and so on up to x-n.",
           "caption": "Sigma says: run the counter and add."
         },
         {
@@ -2490,6 +2493,7 @@
           "type": "equation",
           "tex": "f'(x) = \\lim_{h\\to 0}\\frac{f(x+h) - f(x)}{h}",
           "plain": "f'(x) = lim(h→0) [f(x+h) − f(x)] / h",
+          "say": "f-prime of x equals the limit, as h shrinks to zero, of the change in f divided by h.",
           "caption": "The slope between two points, as they merge."
         },
         {
@@ -2617,6 +2621,7 @@
           "type": "equation",
           "tex": "\\frac{d}{dx}\\,f\\big(g(x)\\big) = f'\\big(g(x)\\big)\\cdot g'(x)",
           "plain": "d/dx f(g(x)) = f'(g(x)) · g'(x)",
+          "say": "the rate of f-of-g equals f's rate (at g) times g's rate.",
           "caption": "Outer rate times inner rate."
         }
       ],
@@ -2660,6 +2665,7 @@
           "type": "equation",
           "tex": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\ \\frac{\\partial f}{\\partial y}\\right)",
           "plain": "∇f = (∂f/∂x, ∂f/∂y)",
+          "say": "grad-f is the pair of slopes: how f changes along x, and along y.",
           "caption": "A vector of partial slopes, pointing uphill."
         },
         {
@@ -2837,6 +2843,7 @@
           "type": "equation",
           "tex": "\\vec a \\cdot \\vec b = \\sum_i a_i b_i = |\\vec a|\\,|\\vec b|\\cos\\theta",
           "plain": "a · b = Σ aᵢbᵢ = |a||b|cos θ",
+          "say": "a dot b: multiply matching entries and add — also the lengths times the cosine of the angle between them.",
           "caption": "Two views: entry-by-entry, and angle-based."
         },
         {
@@ -2911,6 +2918,7 @@
           "type": "equation",
           "tex": "\\|\\vec v\\| = \\sqrt{v_1^2 + v_2^2 + \\cdots + v_n^2}",
           "plain": "‖v‖ = √(v₁² + v₂² + ⋯ + vₙ²)",
+          "say": "the length of v is the square root of the sum of its squared entries.",
           "caption": "Pythagoras, in any number of dimensions."
         },
         {
@@ -3128,6 +3136,7 @@
           "type": "equation",
           "tex": "A\\,A^{-1} = I",
           "plain": "A · A⁻¹ = I",
+          "say": "A times A-inverse gives the identity — the do-nothing matrix.",
           "caption": "The inverse cancels the transformation."
         }
       ],
@@ -3170,6 +3179,7 @@
           "type": "equation",
           "tex": "A\\vec x = \\vec b \\;\\Rightarrow\\; \\vec x = A^{-1}\\vec b",
           "plain": "Ax = b ⇒ x = A⁻¹b",
+          "say": "A times x equals b, so x equals A-inverse times b.",
           "caption": "When A is invertible, the system has one solution."
         },
         {
@@ -3305,6 +3315,7 @@
           "type": "equation",
           "tex": "A\\vec v = \\lambda \\vec v",
           "plain": "A v = λ v",
+          "say": "A times v equals lambda times v — the matrix only stretches v by the factor lambda.",
           "caption": "Same direction, scaled by λ."
         },
         {

@@ -556,20 +556,34 @@
   .kmedia{ margin:16px 0; }
   .kmedia img{ display:block; width:100%; height:auto; border-radius:14px; border:.5px solid var(--line); }
   .kmedia figcaption, .kmedia .kmcap{ font-size:13px; color:var(--l2); line-height:1.4; margin-top:8px; text-align:center; }
-  .kmedia.eq{ background:var(--field); border:.5px solid var(--line); border-radius:12px; padding:14px 16px; overflow-x:auto; }
+  .kmedia.eq{ background:var(--field); border:.5px solid var(--line); border-radius:14px; padding:18px 18px; overflow-x:auto; text-align:center; }
   .kmedia.eq code{ font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:15px; color:var(--ink); white-space:pre; }
-  /* dynamic SVG graphs (viz engine) */
-  .kviz{ background:var(--field); border:.5px solid var(--line); border-radius:14px; padding:12px 12px 10px; }
-  .kviz .kvizsvg{ display:block; width:100%; height:auto; touch-action:pan-y; }
-  .kviz .kvizread{ font-size:12.5px; color:var(--l2); text-align:center; margin-top:6px; font-variant-numeric:tabular-nums; min-height:1em; }
-  .kviz .kvizctrls{ display:flex; flex-direction:column; gap:8px; margin-top:10px; }
-  .kviz .kvizctrl{ display:flex; align-items:center; gap:10px; }
-  .kviz .kvizcn{ flex:0 0 auto; min-width:54px; font-size:12.5px; font-weight:700; color:var(--ink); }
-  .kviz .kvizcv{ flex:0 0 auto; min-width:38px; text-align:right; font-size:12.5px; color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums; }
-  .kviz .kvizctrl input[type=range]{ flex:1 1 auto; width:auto; margin:0; padding:0; accent-color:var(--accent); background:transparent; box-shadow:none; }
-  .kviz .kvizctrl input[type=range]:focus{ box-shadow:none; }
-  .kviz .kvizbtn{ align-self:flex-start; background:var(--accent-soft); color:var(--accent); border:none; font-family:inherit; font-size:13px; font-weight:700; padding:7px 14px; border-radius:14px; cursor:pointer; margin-top:2px; }
-  .kviz figcaption{ margin-top:10px; }
+  .kmedia.eq .katex{ font-size:1.18em; }
+  .kmedia.eq .kmsay{ font-size:13px; color:var(--ink); line-height:1.45; margin-top:12px; padding-top:11px; border-top:.5px solid var(--line); text-align:center; }
+  .kmedia.eq .kmsay span{ display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--accent); margin-right:6px; vertical-align:1px; }
+  .kdetail .katex{ font-size:1.05em; }
+  /* dynamic SVG graphs (viz engine) — calm, card-like, theme-aware */
+  .kviz{ background:transparent; border:none; padding:0; margin:18px 0; }
+  .kviz .kvizsvg{ display:block; width:100%; height:auto; touch-action:pan-y;
+    background:var(--row); border:.5px solid var(--line); border-radius:16px; padding:8px; box-sizing:border-box; }
+  .kviz .kvizread{ font-size:13px; color:var(--l2); text-align:center; margin-top:10px; font-variant-numeric:tabular-nums; min-height:1.1em; line-height:1.4; }
+  .kviz .kvizread b, .kviz .kvizcv{ color:var(--accent); }
+  .kviz .kvizctrls{ display:flex; flex-direction:column; gap:13px; margin-top:14px; padding:0 2px; }
+  .kviz .kvizctrl{ display:flex; align-items:center; gap:12px; }
+  .kviz .kvizcn{ flex:0 0 auto; min-width:58px; font-size:11px; font-weight:700; color:var(--l2); text-transform:uppercase; letter-spacing:.4px; }
+  .kviz .kvizcv{ flex:0 0 auto; min-width:42px; text-align:right; font-size:14px; font-weight:700; font-variant-numeric:tabular-nums; }
+  /* custom range slider: hairline track, accent thumb, generous touch target */
+  .kviz input[type=range]{ -webkit-appearance:none; appearance:none; flex:1 1 auto; width:auto; height:22px; margin:0; padding:0; background:transparent; box-shadow:none; cursor:pointer; }
+  .kviz input[type=range]:focus{ box-shadow:none; outline:none; }
+  .kviz input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow:0 0 0 4px var(--accent-soft); }
+  .kviz input[type=range]::-webkit-slider-runnable-track{ height:4px; border-radius:3px; background:var(--line); }
+  .kviz input[type=range]::-moz-range-track{ height:4px; border-radius:3px; background:var(--line); }
+  .kviz input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:20px; height:20px; margin-top:-8px; border-radius:50%; background:var(--accent); border:2px solid var(--card); box-shadow:0 1px 4px rgba(0,0,0,.28); }
+  .kviz input[type=range]::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--accent); border:2px solid var(--card); box-shadow:0 1px 4px rgba(0,0,0,.28); }
+  .kviz .kvizbtn{ align-self:flex-start; display:inline-flex; align-items:center; gap:7px; background:var(--accent); color:#fff; border:none; font-family:inherit; font-size:13px; font-weight:700; padding:9px 16px; border-radius:16px; cursor:pointer; margin-top:2px; box-shadow:0 4px 12px -5px var(--accent-glow); transition:transform .12s; }
+  .kviz .kvizbtn:active{ transform:scale(.96); }
+  .kviz figcaption{ margin-top:11px; }
+  @media (prefers-reduced-motion: reduce){ .kviz .kvizbtn{ transition:none; } }
   /* cross-reference web: "Builds on" / "Connects to" chips */
   .rdrelblock{ margin-top:18px; }
   .rdrelh{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin-bottom:9px; }
