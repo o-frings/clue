@@ -39,6 +39,7 @@
     { "id": "prob",    "label": "Probability & statistics", "blurb": "Chance, distributions, inference, and what the data supports.", "icon": "📊", "color": "#1c7ed6" },
     { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
     { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and writing code that lasts.", "icon": "⌨", "color": "#0b7285" },
+    { "id": "qfin",    "label": "Quantitative finance",  "blurb": "The maths of money: time value, risk, portfolios and pricing.", "icon": "📈", "color": "#099268" },
     { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
     { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
     { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
@@ -4887,6 +4888,692 @@
           "Dot product",
           "Derivative",
           "Median"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "fin-time-value",
+      "src": ["ev-fin-time-value"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "math-powers"
+      ],
+      "title": "A dollar today beats a dollar tomorrow",
+      "fact": "Money now is worth more than the same money later, because it can be invested to grow.",
+      "detail": "Put a present value \\(PV\\) in at interest rate \\(r\\), and after \\(n\\) years it grows to \\(FV = PV(1+r)^n\\). At 5% a year, \\$100 today becomes \\(100\\times1.05 = \\$105\\) next year — so a promise of \\$105 next year is worth only \\$100 now. Timing changes value. This one idea sits under every loan, investment, mortgage and valuation in finance.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "FV = PV\\,(1+r)^{n}",
+          "plain": "FV = PV·(1+r)ⁿ",
+          "say": "future value is the present value times one-plus-the-rate, compounded for n years.",
+          "caption": "Money today grows at rate r over n years."
+        }
+      ],
+      "deploy": "The root of interest, discounting and every 'what is it worth today?' calculation.",
+      "counter": "It assumes you can actually earn that rate safely; with negative real rates or high inflation, 'more later' can be worth less in real terms — the logic can invert.",
+      "tags": [
+        "time value of money",
+        "interest",
+        "foundations"
+      ],
+      "xref": [
+        "fin-compound-interest",
+        "fin-present-value"
+      ],
+      "quiz": {
+        "q": "Why is money today worth more than the same amount next year?",
+        "choices": [
+          "Prices always fall",
+          "It can be invested to grow",
+          "Banks forbid waiting",
+          "It never is"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "fin-compound-interest",
+      "src": ["ev-fin-compound-interest"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "fin-time-value",
+        "math-powers"
+      ],
+      "title": "Compound interest: interest on interest",
+      "fact": "Compounding pays interest on your interest, so growth feeds on itself and snowballs.",
+      "detail": "Simple interest pays only on the original sum. Compound interest pays on the sum plus all the interest earned so far, so it grows exponentially: \\(FV = PV(1+r)^n\\). The 'Rule of 72' is the handy shortcut — money doubles in roughly \\(72/r\\) years (about 12 years at 6%). Over decades the gap between simple and compound growth becomes huge, which is why starting to save early matters far more than saving a little extra later.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.07,
+                "b": 1
+              },
+              "label": "simple"
+            },
+            {
+              "fn": "exp",
+              "params": {
+                "k": 0.0677
+              },
+              "label": "compound"
+            }
+          ],
+          "domain": [
+            0,
+            30
+          ],
+          "yrange": [
+            1,
+            8
+          ],
+          "caption": "Same 7% rate over 30 years: compound (curve) pulls away from simple (line)."
+        }
+      ],
+      "deploy": "Explains why long-horizon saving, and long-horizon debt, both balloon.",
+      "counter": "Compounding cuts both ways: the same maths that builds a pension turns a 20%-APR credit-card balance into a trap. It rewards savers and punishes borrowers identically.",
+      "tags": [
+        "compound interest",
+        "exponential growth",
+        "foundations"
+      ],
+      "xref": [
+        "fin-time-value",
+        "math-log"
+      ],
+      "quiz": {
+        "q": "By the Rule of 72, money at 6% a year doubles in about…",
+        "choices": [
+          "6 years",
+          "12 years",
+          "36 years",
+          "72 years"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "fin-present-value",
+      "src": ["ev-fin-present-value"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "fin-compound-interest"
+      ],
+      "title": "Present value: discounting the future",
+      "fact": "Present value runs compounding backwards — what is future money worth today?",
+      "detail": "Discounting is the reverse of compounding. To value \\(FV\\) received in \\(n\\) years, divide by the growth factor: \\(PV = \\frac{FV}{(1+r)^n}\\). Here \\(r\\) is the 'discount rate' — your required return or cost of capital. A higher discount rate shrinks the value of distant cash, which is exactly why rising interest rates hit long-dated bonds and growth stocks hardest: most of their value sits far in the future.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "PV = \\frac{FV}{(1+r)^{n}}",
+          "plain": "PV = FV / (1+r)ⁿ",
+          "say": "present value is the future amount divided by one-plus-the-rate, n times over.",
+          "caption": "Discount future money back to today."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": -0.0677
+          },
+          "domain": [
+            0,
+            30
+          ],
+          "yrange": [
+            0,
+            1.05
+          ],
+          "caption": "The discount factor: a dollar far in the future is worth little today."
+        }
+      ],
+      "deploy": "The core move in valuing anything that pays off over time — bonds, projects, companies.",
+      "counter": "The answer is only as good as the chosen \\(r\\): small changes in the discount rate swing long-term valuations wildly, so 'what's it worth' is often really a hidden argument about \\(r\\).",
+      "tags": [
+        "present value",
+        "discounting",
+        "foundations"
+      ],
+      "xref": [
+        "fin-npv-irr",
+        "qf-bond-yield"
+      ],
+      "quiz": {
+        "q": "Raising the discount rate makes the present value of future cash…",
+        "choices": [
+          "Larger",
+          "Smaller",
+          "Unchanged",
+          "Negative"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "fin-npv-irr",
+      "src": ["ev-fin-npv-irr"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "fin-present-value",
+        "math-summation"
+      ],
+      "title": "NPV and IRR: is an investment worth it?",
+      "fact": "NPV sums an investment's discounted cash flows; IRR is the rate at which it breaks even.",
+      "detail": "A project throws off cash \\(CF_t\\) over the years. Net present value discounts each back to today and adds them up, minus the upfront cost \\(C_0\\): \\(NPV = \\sum_t \\frac{CF_t}{(1+r)^t} - C_0\\). If \\(NPV > 0\\), the project beats your discount rate, so take it. The internal rate of return (IRR) is the special rate that makes \\(NPV = 0\\) — the project's own break-even return. Together they are finance's standard 'should we do this?' test.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "NPV = \\sum_{t} \\frac{CF_t}{(1+r)^{t}} - C_0",
+          "plain": "NPV = Σ CFₜ/(1+r)ᵗ − C₀",
+          "say": "net present value is every future cash flow discounted to today and summed, minus the upfront cost.",
+          "caption": "Discount every cash flow, add them, subtract the cost."
+        }
+      ],
+      "deploy": "The decision rule for capital projects, acquisitions and big purchases.",
+      "counter": "IRR misleads when cash flows change sign more than once (it can have several values) or when ranking projects of different size; Brealey & Myers' standard text argues NPV is the sounder rule.",
+      "tags": [
+        "NPV",
+        "IRR",
+        "valuation"
+      ],
+      "xref": [
+        "fin-present-value",
+        "qf-bond-yield"
+      ],
+      "quiz": {
+        "q": "A project should be accepted (on the NPV rule) when its NPV is…",
+        "choices": [
+          "Negative",
+          "Zero",
+          "Greater than zero",
+          "Equal to the IRR"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "fin-risk-return",
+      "src": ["ev-fin-risk-return"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-expectation",
+        "prob-variance"
+      ],
+      "title": "Risk and return: no free lunch",
+      "fact": "Higher expected return is the reward for bearing more risk — you rarely get one without the other.",
+      "detail": "An asset's return is uncertain, so we summarise it with two numbers: the expected return (its mean \\(\\mu\\)) and its risk (the standard deviation of returns \\(\\sigma\\), called volatility). Treasury bills offer low \\(\\mu\\) and low \\(\\sigma\\); stocks offer higher \\(\\mu\\) but a bumpier \\(\\sigma\\). The extra expected return for taking on risk is the 'risk premium'. Plot \\(\\mu\\) against \\(\\sigma\\) and you see the trade-off every investor faces.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              15,
+              9
+            ],
+            [
+              22,
+              11
+            ]
+          ],
+          "fit": true,
+          "caption": "Risk (σ, across) vs expected return (up): more of one tends to mean more of the other."
+        }
+      ],
+      "deploy": "The mental model behind every portfolio choice: what return am I paid for this risk?",
+      "counter": "The neat trade-off assumes investors are rational and that risk is fully captured by σ; behavioural economists (Kahneman, Thaler) show people feel losses about twice as hard as gains, so real 'risk' isn't symmetric.",
+      "tags": [
+        "risk",
+        "return",
+        "volatility"
+      ],
+      "xref": [
+        "qf-diversification",
+        "qf-capm"
+      ],
+      "quiz": {
+        "q": "In finance, an asset's 'volatility' usually refers to its…",
+        "choices": [
+          "Expected return",
+          "Standard deviation of returns",
+          "Price",
+          "Dividend"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-diversification",
+      "src": ["ev-qf-diversification"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-risk-return",
+        "prob-variance",
+        "stat-correlation"
+      ],
+      "title": "Diversification: the only free lunch",
+      "fact": "Combining assets that don't move together cuts risk without cutting expected return.",
+      "detail": "Mix two assets and the portfolio's expected return is just the weighted average — but its risk is not. Variances combine through correlation: \\(\\sigma_p^2 = w_1^2\\sigma_1^2 + w_2^2\\sigma_2^2 + 2w_1 w_2\\,\\rho\\,\\sigma_1\\sigma_2\\). When the correlation \\(\\rho\\) is low or negative, that last cross term shrinks the total. Harry Markowitz (1952) built modern portfolio theory on this: spreading across uncorrelated assets is the closest thing to a free lunch in finance.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\sigma_p^2 = w_1^2\\sigma_1^2 + w_2^2\\sigma_2^2 + 2w_1 w_2\\,\\rho\\,\\sigma_1\\sigma_2",
+          "plain": "σ²ₚ = w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρσ₁σ₂",
+          "say": "portfolio variance is each asset's weighted variance plus a cross term that shrinks when the correlation rho is low.",
+          "caption": "Low correlation ρ shrinks the cross term — and the risk."
+        }
+      ],
+      "deploy": "The mathematical case for not betting everything on one stock, sector or country.",
+      "counter": "It only removes asset-specific risk; market-wide ('systematic') risk stays. Worse, in a crash correlations jump toward 1 — so diversification fails exactly when it's needed most (2008).",
+      "tags": [
+        "diversification",
+        "portfolio",
+        "correlation"
+      ],
+      "xref": [
+        "qf-capm",
+        "fin-risk-return"
+      ],
+      "quiz": {
+        "q": "Diversification reduces a portfolio's risk most when the assets' returns are…",
+        "choices": [
+          "Perfectly correlated",
+          "Uncorrelated or negatively correlated",
+          "Identical",
+          "Very volatile"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-capm",
+      "src": ["ev-qf-capm"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "qf-diversification"
+      ],
+      "title": "CAPM: pricing risk with beta",
+      "fact": "An asset should be paid a return for its market risk — measured by beta — and nothing for risk you could diversify away.",
+      "detail": "Since diversification removes asset-specific risk, only market risk deserves a reward. The Capital Asset Pricing Model sets expected return as the risk-free rate plus a premium proportional to beta: \\(E[R] = R_f + \\beta\\,(E[R_m] - R_f)\\). Beta measures how strongly the asset swings with the market: \\(\\beta = 1\\) moves with it, \\(\\beta > 1\\) amplifies it, \\(\\beta < 1\\) dampens it. William Sharpe won a Nobel for it, and it is still the workhorse for estimating the 'cost of equity'.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "E[R] = R_f + \\beta\\,\\big(E[R_m] - R_f\\big)",
+          "plain": "E[R] = R_f + β·(E[R_m] − R_f)",
+          "say": "expected return is the risk-free rate plus beta times the market's excess return.",
+          "caption": "More market risk (beta) earns more expected return."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "line",
+          "params": {
+            "m": 5,
+            "b": 2
+          },
+          "domain": [
+            0,
+            2.5
+          ],
+          "yrange": [
+            0,
+            16
+          ],
+          "caption": "The security market line: expected return rises with beta."
+        }
+      ],
+      "deploy": "The standard way to turn 'how risky is this?' into a required return for valuing a company.",
+      "counter": "Empirically, beta predicts returns poorly. Fama & French (1992) showed company size and value explain more, and many quants treat single-factor CAPM as a teaching model rather than how markets really price risk.",
+      "tags": [
+        "CAPM",
+        "beta",
+        "cost of capital"
+      ],
+      "xref": [
+        "qf-efficient-market",
+        "qf-diversification"
+      ],
+      "quiz": {
+        "q": "In CAPM, an asset with beta greater than 1…",
+        "choices": [
+          "Moves opposite the market",
+          "Amplifies market moves",
+          "Is risk-free",
+          "Pays no return"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-efficient-market",
+      "src": ["ev-qf-efficient-market"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-risk-return"
+      ],
+      "title": "The efficient-market hypothesis",
+      "fact": "If prices already reflect all known information, you can't reliably beat the market.",
+      "detail": "Eugene Fama's efficient-market hypothesis (1970) holds that prices instantly absorb available information, so consistent outperformance is impossible without luck or inside knowledge. It comes in strengths: 'weak' (past prices don't predict future ones), 'semi-strong' (all public news is already priced in), and 'strong' (even private information is). It is the central argument for cheap, passive index funds over costly stock-picking.",
+      "deploy": "The case for index investing — and a sharp test to apply to anyone promising to beat the market.",
+      "counter": "Robert Shiller (who shared the 2013 Nobel with Fama) argues markets show 'excess volatility' and psychology-driven bubbles; the dot-com and 2008 housing manias look hard to square with efficiency. Fama's efficiency versus Shiller's behavioural view remains an open dispute.",
+      "tags": [
+        "efficient markets",
+        "Fama",
+        "index investing"
+      ],
+      "xref": [
+        "qf-random-walk",
+        "qf-capm"
+      ],
+      "quiz": {
+        "q": "The efficient-market hypothesis implies that beating the market consistently is…",
+        "choices": [
+          "Easy with effort",
+          "Very hard without luck or inside information",
+          "Guaranteed",
+          "Illegal"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-random-walk",
+      "src": ["ev-qf-random-walk"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "qf-efficient-market",
+        "stat-clt"
+      ],
+      "title": "Random walks: why prices resist prediction",
+      "fact": "If today's price already holds all information, tomorrow's move depends on tomorrow's news — which is random.",
+      "detail": "When prices reflect what's known, the next change is driven by the next surprise, so prices wander like a 'random walk': each step is a random shock added to the last. Finance models this as geometric Brownian motion — the continuous-time random walk underneath option pricing. Burton Malkiel popularised the provocation that a blindfolded monkey throwing darts could pick stocks about as well as many professionals.",
+      "deploy": "Explains why short-term price forecasts and most 'technical' chart-reading fail to beat chance.",
+      "counter": "Pure randomness is an idealisation: documented momentum and mean-reversion effects, and the fat-tailed jumps Benoit Mandelbrot and Nassim Taleb emphasise, mean real prices are not a tidy Gaussian random walk.",
+      "tags": [
+        "random walk",
+        "Brownian motion",
+        "prediction"
+      ],
+      "xref": [
+        "qf-black-scholes",
+        "stat-clt"
+      ],
+      "quiz": {
+        "q": "A 'random walk' in prices means the next change is mostly…",
+        "choices": [
+          "Predictable from the trend",
+          "An unpredictable shock",
+          "Always upward",
+          "Zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-options",
+      "src": ["ev-qf-options"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-time-value"
+      ],
+      "title": "Options: the right, not the obligation",
+      "fact": "An option is the right — but not the duty — to buy or sell at a fixed price.",
+      "detail": "A call option lets you buy an asset at a fixed 'strike' price \\(K\\); a put lets you sell at \\(K\\). You exercise only if it pays. A call's payoff at expiry is \\(\\max(0,\\ S - K)\\), where \\(S\\) is the market price: worthless if \\(S < K\\), then climbing one-for-one above \\(K\\) — the famous 'hockey stick'. Options let you hedge a risk or speculate with a capped, known downside: the premium you paid.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "call",
+          "params": {
+            "k": 5
+          },
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            -0.3,
+            5
+          ],
+          "caption": "A call's payoff vs price S: flat until the strike K, then a 45° climb."
+        }
+      ],
+      "deploy": "The building block of hedging and of every structured payoff in modern markets.",
+      "counter": "The capped downside is sold by someone with uncapped risk: option sellers can lose far more than any premium, as 2008 and the 2021 meme-stock squeezes showed.",
+      "tags": [
+        "options",
+        "calls and puts",
+        "derivatives"
+      ],
+      "xref": [
+        "qf-black-scholes",
+        "qf-leverage-risk"
+      ],
+      "quiz": {
+        "q": "A call option's payoff at expiry is max(0, S − K). If S is below the strike K, the payoff is…",
+        "choices": [
+          "S − K (negative)",
+          "Zero",
+          "K",
+          "Unlimited"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-black-scholes",
+      "src": ["ev-qf-black-scholes"],
+      "field": "qfin",
+      "depth": "book",
+      "level": 5,
+      "prereq": [
+        "qf-options",
+        "qf-random-walk",
+        "prob-normal"
+      ],
+      "title": "Black–Scholes: pricing an option",
+      "fact": "A formula prices an option using the bell curve and the idea that you can hedge it perfectly.",
+      "detail": "Fischer Black, Myron Scholes and Robert Merton (1973) found the fair value of a call before expiry. It blends the stock price, strike, time, interest rate and volatility, weighting outcomes by the normal distribution: \\(C = S\\,N(d_1) - K e^{-rt} N(d_2)\\), where \\(N(\\cdot)\\) is the normal cumulative probability. The deep insight: you can replicate an option by continuously rebalancing stock and cash, so no-arbitrage pins down its price. It won the 1997 Nobel and launched the modern derivatives industry.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "C = S\\,N(d_1) - K e^{-rt} N(d_2)",
+          "plain": "C = S·N(d₁) − K·e^(−rt)·N(d₂)",
+          "say": "the call value is the stock weighted by a normal probability, minus the discounted strike weighted by another.",
+          "caption": "Outcomes weighted by the normal curve N(·)."
+        },
+        {
+          "type": "plot",
+          "kind": "gaussian",
+          "params": {
+            "mu": 0,
+            "sigma": 1
+          },
+          "domain": [
+            -4,
+            4
+          ],
+          "shade": true,
+          "caption": "Black–Scholes weights future outcomes by the normal (Gaussian) curve."
+        }
+      ],
+      "deploy": "The foundation of derivatives pricing — and a clean example of the no-arbitrage idea.",
+      "counter": "Its assumptions — constant volatility, no jumps, a Gaussian world — break in crises: 1987 and 2008 revealed far fatter tails, and the market's 'volatility smile' prices in exactly what the formula omits. LTCM's 1998 collapse, with Scholes and Merton aboard, is the cautionary tale.",
+      "tags": [
+        "Black-Scholes",
+        "options pricing",
+        "derivatives"
+      ],
+      "xref": [
+        "prob-normal",
+        "qf-options"
+      ],
+      "quiz": {
+        "q": "The Black–Scholes formula weights outcomes using which distribution?",
+        "choices": [
+          "Uniform",
+          "Binomial",
+          "Normal (Gaussian)",
+          "Power law"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "qf-bond-yield",
+      "src": ["ev-qf-bond-yield"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-present-value"
+      ],
+      "title": "Bonds: price and yield seesaw",
+      "fact": "A bond's price and its yield always move in opposite directions.",
+      "detail": "A bond pays fixed coupons plus its face value at maturity, so its price is the present value of those cash flows: \\(P = \\sum_t \\frac{CF_t}{(1+y)^t}\\). Because \\(y\\) sits in the denominator, a higher yield means a lower price — they are locked on a seesaw. 'Duration' measures how sharp the seesaw is: long-dated bonds swing far more when yields move, which is why a rate rise punishes 30-year bonds much harder than 2-year ones.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": -2
+          },
+          "domain": [
+            0,
+            1.2
+          ],
+          "yrange": [
+            0,
+            1.1
+          ],
+          "caption": "Bond price falls (and convexly) as the yield rises."
+        }
+      ],
+      "deploy": "The key to reading the bond market and why central-bank rate moves ripple through everything.",
+      "counter": "The seesaw is exact only for default-free bonds held to maturity; credit risk, inflation and call features complicate it — 2022's bond rout caught many who underestimated how hard duration bites.",
+      "tags": [
+        "bonds",
+        "yield",
+        "duration"
+      ],
+      "xref": [
+        "fin-present-value",
+        "fin-npv-irr"
+      ],
+      "quiz": {
+        "q": "When market yields rise, existing bond prices generally…",
+        "choices": [
+          "Rise",
+          "Fall",
+          "Stay flat",
+          "Double"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-leverage-risk",
+      "src": ["ev-qf-leverage-risk"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "qf-diversification"
+      ],
+      "title": "Leverage and tail risk",
+      "fact": "Borrowing to invest magnifies gains and losses alike — and can wipe you out entirely.",
+      "detail": "Leverage means investing with borrowed money. Put in \\$1 of your own plus \\$9 borrowed, and a 10% gain on the \\$10 doubles your stake — but a 10% loss erases it. The multiplier runs both ways. 'Value at Risk' (VaR) tries to cap the danger by estimating the most you'd lose, say, 99 days in 100 — but it says nothing about the 100th day. Long-Term Capital Management (1998) and the 2008 banks were destroyed by leverage meeting a tail event.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 1,
+                "b": 0
+              },
+              "label": "unlevered"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": 5,
+                "b": 0
+              },
+              "label": "5× levered"
+            }
+          ],
+          "domain": [
+            -2,
+            2
+          ],
+          "yrange": [
+            -10,
+            10
+          ],
+          "caption": "Leverage steepens the line: bigger gains, and bigger losses."
+        }
+      ],
+      "deploy": "Why a 'safe' strategy plus heavy borrowing can still blow up — the anatomy of financial crises.",
+      "counter": "Nassim Taleb argues VaR is dangerous precisely because it ignores the fat tail beyond its cutoff, breeding false confidence; most firms that blew up in 2008 were inside their VaR limits.",
+      "tags": [
+        "leverage",
+        "value at risk",
+        "tail risk"
+      ],
+      "xref": [
+        "qf-black-scholes",
+        "stat-clt"
+      ],
+      "quiz": {
+        "q": "Value at Risk (VaR) is criticised mainly because it…",
+        "choices": [
+          "Overstates everyday risk",
+          "Ignores the extreme tail beyond its cutoff",
+          "Is illegal",
+          "Only works for bonds"
         ],
         "answer": 1
       }

@@ -1836,6 +1836,123 @@
       "url": "https://arxiv.org/abs/1706.03762",
       "kind": "paper",
       "strength": "The primary, foundational transformer paper (>100k citations); defines scaled dot-product attention softmax(QKᵀ/√d)V used by modern LLMs. The interpretability caveat cites Jain & Wallace (2019)."
+    },
+    "ev-fin-time-value": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Time value of money",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Time_value_of_money",
+      "kind": "reference",
+      "strength": "Tertiary article giving FV = PV(1+r)ⁿ and the discounting logic. Settled finance fundamentals; well-referenced to standard texts."
+    },
+    "ev-fin-compound-interest": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Compound interest",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "kind": "reference",
+      "strength": "Tertiary article covering compounding, the exponential formula and the Rule of 72. Settled maths of money; the borrower/saver symmetry the card notes is uncontested."
+    },
+    "ev-fin-present-value": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Present value",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Present_value",
+      "kind": "reference",
+      "strength": "Tertiary article giving PV = FV/(1+r)ⁿ and the discount-rate sensitivity the card flags. Settled definition; well-cited."
+    },
+    "ev-fin-npv-irr": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Net present value",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Net_present_value",
+      "kind": "reference",
+      "strength": "Tertiary article with the NPV sum and the NPV-vs-IRR caveats (multiple IRRs, scale) the card raises. Standard corporate-finance content."
+    },
+    "ev-fin-risk-return": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Risk–return spectrum",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Risk%E2%80%93return_spectrum",
+      "kind": "reference",
+      "strength": "Tertiary article on the risk premium and the μ–σ trade-off. The behavioural caveat (loss aversion) is a separate, well-documented finding."
+    },
+    "ev-qf-diversification": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 1990,
+      "title": "Harry M. Markowitz — Facts (1990 Prize in Economic Sciences)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/1990/markowitz/facts/",
+      "kind": "reference",
+      "strength": "Official Nobel page recognising Markowitz's 1952 portfolio theory — the primary attribution for diversification as risk reduction. The 'correlations spike in a crash' caveat is a documented empirical pattern."
+    },
+    "ev-qf-capm": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 1990,
+      "title": "William F. Sharpe — Facts (1990 Prize in Economic Sciences)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/1990/sharpe/facts/",
+      "kind": "reference",
+      "strength": "Official Nobel page for Sharpe's CAPM. The card's caveat that beta predicts returns poorly cites Fama & French (1992), the standard empirical challenge."
+    },
+    "ev-qf-efficient-market": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 2013,
+      "title": "Eugene F. Fama — Facts (2013 Prize in Economic Sciences)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2013/fama/facts/",
+      "kind": "reference",
+      "strength": "Official Nobel page for Fama's efficient-markets work; the 2013 prize was shared with Robert Shiller, whose opposing behavioural view the card names — the dispute is genuinely live."
+    },
+    "ev-qf-random-walk": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Random walk hypothesis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Random_walk_hypothesis",
+      "kind": "reference",
+      "strength": "Tertiary article on the random-walk model of prices and Malkiel's argument, plus the documented momentum/fat-tail challenges the card's counter raises."
+    },
+    "ev-qf-options": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Option (finance)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Option_(finance)",
+      "kind": "reference",
+      "strength": "Tertiary article defining calls/puts, strike, and the max(0,S−K) payoff. Settled definitions; the seller's uncapped-risk caveat is uncontested."
+    },
+    "ev-qf-black-scholes": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 1997,
+      "title": "The Prize in Economic Sciences 1997 — Press release (Scholes & Merton)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/1997/press-release/",
+      "kind": "reference",
+      "strength": "Official Nobel announcement of the Black–Scholes–Merton method (Black having died in 1995). Authoritative attribution; the assumptions-fail-in-crises caveat (1987, LTCM 1998) is well-documented history."
+    },
+    "ev-qf-bond-yield": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Bond valuation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Bond_valuation",
+      "kind": "reference",
+      "strength": "Tertiary article giving the present-value bond price and the inverse price–yield relationship plus duration. Settled fixed-income maths."
+    },
+    "ev-qf-leverage-risk": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Leverage (finance)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Leverage_(finance)",
+      "kind": "reference",
+      "strength": "Tertiary article on how borrowing magnifies returns and losses. The VaR/tail-risk critique the card attributes to Taleb, and the LTCM/2008 cases, are documented."
     }
   }
 }

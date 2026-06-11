@@ -737,6 +737,8 @@ const VIZ_FN={
   log:(x)=>Math.log(x),
   sine:(x)=>Math.sin(x),
   sinc:(x)=>Math.abs(x)<1e-9?1:Math.sin(x)/x,
+  call:(x,p)=>Math.max(0,x-(p.k==null?0:+p.k)),   // long-call option payoff
+  put:(x,p)=>Math.max(0,(p.k==null?0:+p.k)-x),    // long-put option payoff
 };
 // two-input surfaces, for the contour/heatmap kind
 const VIZ_FN2D={
