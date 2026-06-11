@@ -955,6 +955,20 @@ function drawViz(g, spec, st, readout){
       if(readout) readout.textContent='solution: x = '+fmtNum(ix)+',  y = '+fmtNum(iy); } }
     return;
   }
+  // ---- curves: several named functions overlaid, with a legend ----
+  if(kind==='curves'){
+    const curves=spec.curves||[], xr=spec.domain||[-6,6];
+    let lo=Infinity,hi=-Infinity;
+    curves.forEach(cv=>{ const fn=VIZ_FN[cv.fn||'line']; for(let i=0;i<=60;i++){ const y=fn(xr[0]+(xr[1]-xr[0])*i/60,cv.params||{}); if(isFinite(y)){lo=Math.min(lo,y);hi=Math.max(hi,y);} } });
+    if(!isFinite(lo)){lo=-1;hi=1;} const pad=(hi-lo||1)*0.12; const yr=spec.yrange||[lo<0?lo-pad:0, hi+pad];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    const cols=[accent,'#1c7ed6','#37b24d','#ae3ec9'];
+    curves.forEach((cv,i)=> g.appendChild(svgEl('path',{d:vzPath(sc,VIZ_FN[cv.fn||'line'],cv.params||{},xr),fill:'none',stroke:cols[i%cols.length],'stroke-width':2.4,'stroke-linejoin':'round'})));
+    curves.forEach((cv,i)=>{ if(!cv.label) return; const ly=sc.box.y0+11+i*14, lx=sc.box.x0+8;
+      g.appendChild(svgEl('line',{x1:lx,y1:ly,x2:lx+14,y2:ly,stroke:cols[i%cols.length],'stroke-width':3,'stroke-linecap':'round'}));
+      vzText(g,lx+19,ly+3.5,cv.label,ink,9.5); });
+    return;
+  }
   // ---- network: a neuron / layered neural net as nodes-and-edges ----
   if(kind==='network'){
     const layers=spec.layers||[3,4,2], nL=layers.length;

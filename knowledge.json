@@ -2640,6 +2640,21 @@
           "plain": "d/dx f(g(x)) = f'(g(x)) · g'(x)",
           "say": "the rate of f-of-g equals f's rate (at g) times g's rate.",
           "caption": "Outer rate times inner rate."
+        },
+        {
+          "type": "plot",
+          "kind": "network",
+          "layers": [
+            1,
+            1,
+            1
+          ],
+          "labels": [
+            "x",
+            "u = g(x)",
+            "y = f(u)"
+          ],
+          "caption": "A chain x → u → y; the rates multiply along it."
         }
       ],
       "deploy": "Differentiates any composition — and underpins backpropagation, the engine of modern AI training.",
@@ -3471,6 +3486,23 @@
           "plain": "P(A and B) = P(A)·P(B)  (if independent)",
           "say": "the chance of both, when neither affects the other, is the two chances multiplied.",
           "caption": "Independent events: multiply."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "labels": [
+            "HH",
+            "HT",
+            "TH",
+            "TT"
+          ],
+          "caption": "Two fair coins: each combination is ½ × ½ = ¼."
         }
       ],
       "deploy": "Lets you build the odds of complex events from simple ones.",
@@ -3513,6 +3545,19 @@
           "plain": "P(A | B) = P(A and B) / P(B)",
           "say": "the chance of A given B is the chance of both, divided by the chance of B.",
           "caption": "Restrict the world to the cases where B happened."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            0.3,
+            0.9
+          ],
+          "labels": [
+            "P(wet)",
+            "P(wet | rained)"
+          ],
+          "caption": "Knowing it rained lifts the chance the ground is wet."
         }
       ],
       "deploy": "The formal way to update a probability when new information arrives.",
@@ -3690,6 +3735,33 @@
           "plain": "σ² = E[(X − μ)²]",
           "say": "variance is the average squared distance from the mean.",
           "caption": "Square the distances from the mean, then average."
+        },
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "gaussian",
+              "params": {
+                "mu": 0,
+                "sigma": 0.7
+              },
+              "label": "small σ — tight"
+            },
+            {
+              "fn": "gaussian",
+              "params": {
+                "mu": 0,
+                "sigma": 1.8
+              },
+              "label": "large σ — spread"
+            }
+          ],
+          "domain": [
+            -6,
+            6
+          ],
+          "caption": "Same mean, different spread: σ sets the width."
         }
       ],
       "deploy": "Quantifies risk, noise and consistency — the second number (after the mean) you reach for.",
@@ -4082,6 +4154,40 @@
       "title": "Machine learning: fitting a function to data",
       "fact": "Instead of writing the rule by hand, you let the machine find a function that fits examples.",
       "detail": "A model is a function \\(f\\) with adjustable numbers inside it, called parameters (or weights). 'Training' means tuning those numbers until \\(f\\) maps inputs to the right outputs on example data — learning the rule from cases rather than being told it. Show it thousands of labelled photos and it adjusts its weights until it separates cats from dogs. The input is a vector of features; the output is a prediction.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              1.2
+            ],
+            [
+              2,
+              2.6
+            ],
+            [
+              3,
+              2.4
+            ],
+            [
+              4,
+              3.9
+            ],
+            [
+              5,
+              4.2
+            ],
+            [
+              6,
+              5.6
+            ]
+          ],
+          "fit": true,
+          "caption": "Learning = finding the function that best fits the examples."
+        }
+      ],
       "deploy": "The core idea behind modern AI: learn the function from data instead of programming it.",
       "counter": "A model only learns patterns present in its training data — including the biases and gaps in that data, which it will faithfully reproduce and even amplify.",
       "tags": [
