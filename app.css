@@ -558,6 +558,18 @@
   .kmedia figcaption, .kmedia .kmcap{ font-size:13px; color:var(--l2); line-height:1.4; margin-top:8px; text-align:center; }
   .kmedia.eq{ background:var(--field); border:.5px solid var(--line); border-radius:12px; padding:14px 16px; overflow-x:auto; }
   .kmedia.eq code{ font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:15px; color:var(--ink); white-space:pre; }
+  /* dynamic SVG graphs (viz engine) */
+  .kviz{ background:var(--field); border:.5px solid var(--line); border-radius:14px; padding:12px 12px 10px; }
+  .kviz .kvizsvg{ display:block; width:100%; height:auto; touch-action:pan-y; }
+  .kviz .kvizread{ font-size:12.5px; color:var(--l2); text-align:center; margin-top:6px; font-variant-numeric:tabular-nums; min-height:1em; }
+  .kviz .kvizctrls{ display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+  .kviz .kvizctrl{ display:flex; align-items:center; gap:10px; }
+  .kviz .kvizcn{ flex:0 0 auto; min-width:54px; font-size:12.5px; font-weight:700; color:var(--ink); }
+  .kviz .kvizcv{ flex:0 0 auto; min-width:38px; text-align:right; font-size:12.5px; color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums; }
+  .kviz .kvizctrl input[type=range]{ flex:1 1 auto; width:auto; margin:0; padding:0; accent-color:var(--accent); background:transparent; box-shadow:none; }
+  .kviz .kvizctrl input[type=range]:focus{ box-shadow:none; }
+  .kviz .kvizbtn{ align-self:flex-start; background:var(--accent-soft); color:var(--accent); border:none; font-family:inherit; font-size:13px; font-weight:700; padding:7px 14px; border-radius:14px; cursor:pointer; margin-top:2px; }
+  .kviz figcaption{ margin-top:10px; }
   /* cross-reference web: "Builds on" / "Connects to" chips */
   .rdrelblock{ margin-top:18px; }
   .rdrelh{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin-bottom:9px; }

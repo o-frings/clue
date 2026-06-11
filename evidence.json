@@ -1395,6 +1395,222 @@
       "url": "https://en.wikipedia.org/wiki/How_Europe_Underdeveloped_Africa",
       "kind": "book",
       "strength": "Foundational dependency-theory text arguing colonial extraction caused African underdevelopment."
+    },
+    "ev-math-variable": {
+      "who": "OpenStax (Lynn Marecek et al.)",
+      "year": 2020,
+      "title": "Prealgebra 2e — 2.1 Use the Language of Algebra",
+      "where": "",
+      "url": "https://openstax.org/books/prealgebra-2e/pages/2-1-use-the-language-of-algebra",
+      "kind": "book",
+      "strength": "Peer-reviewed open textbook (Rice University/OpenStax); the standard introductory treatment of variables and algebraic expressions. Expository, not a research claim — the right kind of source for a settled definition."
+    },
+    "ev-math-equation-balance": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: Linear Equations",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/solvelineareqns.aspx",
+      "kind": "reference",
+      "strength": "Widely used free university lecture notes; lays out the 'do the same to both sides' procedure step by step. Expository teaching reference for a settled method, not a primary source."
+    },
+    "ev-math-function": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: The Definition of a Function",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/functiondefn.aspx",
+      "kind": "reference",
+      "strength": "Standard definition of a function (exactly one output per input) with worked examples; established free university notes. Definitional, not contested."
+    },
+    "ev-math-powers": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: Integer Exponents",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/integerexponents.aspx",
+      "kind": "reference",
+      "strength": "Covers exponent rules including a^m·a^n=a^(m+n) with proofs and examples; standard expository notes. The laws are settled algebra."
+    },
+    "ev-math-log": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: Logarithm Functions",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/logfunctions.aspx",
+      "kind": "reference",
+      "strength": "Defines logs as inverses of exponentials and derives log(xy)=log x+log y; established free university notes. Definitional content."
+    },
+    "ev-math-linear-equation": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: Lines",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/lines.aspx",
+      "kind": "reference",
+      "strength": "Derives slope and the slope-intercept form y=mx+b with worked graphs; standard expository notes for settled material."
+    },
+    "ev-math-quadratic": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Algebra: Parabolas",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/alg/parabolas.aspx",
+      "kind": "reference",
+      "strength": "Treats y=ax^2+bx+c, the parabola's shape and the role of a, b, c; established free notes. The quadratic formula it relies on is a proven identity."
+    },
+    "ev-math-summation": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus I: Summation Notation",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/summationnotation.aspx",
+      "kind": "reference",
+      "strength": "Defines sigma notation and its index conventions with examples; standard expository notes. Pure notation, not contested."
+    },
+    "ev-math-limit": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus I: The Limit",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/thelimit.aspx",
+      "kind": "reference",
+      "strength": "Builds the intuitive notion of a limit, including the sin(x)/x example, before the formal definition; established free university notes."
+    },
+    "ev-math-derivative": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus I: The Definition of the Derivative",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofderivative.aspx",
+      "kind": "reference",
+      "strength": "Defines the derivative as the limit of the difference quotient (slope of the tangent) and computes f(x)=x^2 → 2x; standard, proven calculus."
+    },
+    "ev-math-integral": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus I: Definition of the Definite Integral",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/defnofdefiniteintegral.aspx",
+      "kind": "reference",
+      "strength": "Defines the definite integral as the limit of Riemann sums (area under a curve) and states the fundamental theorem link; established notes, settled content."
+    },
+    "ev-math-chain-rule": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus I: Chain Rule",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calci/chainrule.aspx",
+      "kind": "reference",
+      "strength": "States and applies the chain rule d/dx f(g(x))=f'(g(x))g'(x) with worked examples; a proven theorem, expository source."
+    },
+    "ev-math-gradient": {
+      "who": "Paul Dawkins (Lamar University)",
+      "year": 2018,
+      "title": "Paul's Online Notes — Calculus III: Directional Derivatives",
+      "where": "",
+      "url": "https://tutorial.math.lamar.edu/classes/calciii/directionalderiv.aspx",
+      "kind": "reference",
+      "strength": "Defines the gradient as the vector of partial derivatives and proves it points in the direction of steepest increase; standard multivariable-calculus notes."
+    },
+    "ev-la-vector": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Vectors",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/vectors",
+      "kind": "reference",
+      "strength": "Widely cited visual lesson establishing the arrow/list duality of vectors; expository (teaching), but a well-regarded canonical explainer for the geometric view."
+    },
+    "ev-la-vector-add": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Linear combinations, span, and basis vectors",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/span",
+      "kind": "reference",
+      "strength": "Visual treatment of vector addition, scaling and linear combinations; canonical explainer, expository rather than primary."
+    },
+    "ev-la-dot-product": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Dot products and duality",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/dot-products",
+      "kind": "reference",
+      "strength": "Explains a·b = Σaᵢbᵢ = |a||b|cosθ and the alignment interpretation; well-known explainer. The identity itself is a proven theorem."
+    },
+    "ev-la-norm": {
+      "who": "Dan Margalit & Joseph Rabinoff",
+      "year": 2019,
+      "title": "Interactive Linear Algebra — Dot Products and Orthogonality",
+      "where": "",
+      "url": "https://textbooks.math.gatech.edu/ila/dot-product.html",
+      "kind": "book",
+      "strength": "Open Georgia Tech textbook chapter defining vector length/norm via the dot product and Euclidean distance; standard, proven definitions."
+    },
+    "ev-la-matrix": {
+      "who": "Dan Margalit & Joseph Rabinoff",
+      "year": 2019,
+      "title": "Interactive Linear Algebra — Matrix Equations",
+      "where": "",
+      "url": "https://textbooks.math.gatech.edu/ila/matrix-equations.html",
+      "kind": "book",
+      "strength": "Open Georgia Tech textbook chapter introducing matrices and the matrix-vector product Ax as a combination of columns; established definitional content."
+    },
+    "ev-la-matrix-vector": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Linear transformations and matrices",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/linear-transformations",
+      "kind": "reference",
+      "strength": "Canonical visual explanation that a matrix is a linear transformation whose columns are where the basis vectors land; expository explainer of settled theory."
+    },
+    "ev-la-matrix-mult": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Matrix multiplication as composition",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/matrix-multiplication",
+      "kind": "reference",
+      "strength": "Shows (AB)x = A(Bx) — multiplication as composing transformations — and why order matters; well-known explainer of a proven property."
+    },
+    "ev-la-identity-inverse": {
+      "who": "Dan Margalit & Joseph Rabinoff",
+      "year": 2019,
+      "title": "Interactive Linear Algebra — Matrix Inverses",
+      "where": "",
+      "url": "https://textbooks.math.gatech.edu/ila/matrix-inverses.html",
+      "kind": "book",
+      "strength": "Open Georgia Tech textbook chapter defining the identity, the inverse (AA⁻¹=I) and when an inverse exists; standard proven results."
+    },
+    "ev-la-linear-system": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Inverse matrices, column space and null space",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/inverse-matrices",
+      "kind": "reference",
+      "strength": "Frames Ax=b geometrically and explains solving via the inverse, and when no/many solutions exist; canonical explainer of settled theory."
+    },
+    "ev-la-determinant": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — The determinant",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/determinant",
+      "kind": "reference",
+      "strength": "Explains det as the area/volume scaling factor and det=0 as collapse of a dimension; well-known explainer. The ad−bc formula is a proven identity."
+    },
+    "ev-la-eigen": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2016,
+      "title": "Essence of Linear Algebra — Eigenvectors and eigenvalues",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/eigenvalues",
+      "kind": "reference",
+      "strength": "Defines Av=λv as the directions a transformation only scales, with the rotation/complex-eigenvalue caveat; canonical explainer of settled theory."
     }
   }
 }

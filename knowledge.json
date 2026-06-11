@@ -34,7 +34,10 @@
 
   "fields": [
     { "id": "fun",     "label": "Fun facts & dates", "blurb": "Surprising findings and the dates things happened.", "icon": "✨", "color": "#f59f00" },
-    { "id": "math",    "label": "Mathematics",       "blurb": "Proof, infinity, probability, paradox.",            "icon": "√",  "color": "#4dabf7" },
+    { "id": "math",    "label": "Mathematics",       "blurb": "Numbers, algebra, calculus, infinity — built from zero.", "icon": "√",  "color": "#4dabf7" },
+    { "id": "linalg",  "label": "Linear algebra",    "blurb": "Vectors, matrices, transformations — the language of data.", "icon": "⊞", "color": "#ae3ec9" },
+    { "id": "prob",    "label": "Probability & statistics", "blurb": "Chance, distributions, inference, and what the data supports.", "icon": "📊", "color": "#1c7ed6" },
+    { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
     { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
     { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
     { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
@@ -1963,6 +1966,1307 @@
       "tags": ["economic history", "crisis", "finance"],
       "deploy": "The modern reference point for financial regulation, bailouts and 'too big to fail'.",
       "counter": "Causes are contested — reckless private finance, or government distortions and easy money, or both."
+    },
+    {
+      "id": "math-variable",
+      "src": ["ev-math-variable"],
+      "field": "math",
+      "depth": "concept",
+      "level": 1,
+      "title": "A letter is a number you don't know yet",
+      "fact": "A variable like x is just a placeholder standing in for a number.",
+      "detail": "A variable is a name for a number. Writing \\(2x\\) means 'two times x', whatever x turns out to be. An expression like \\(3x + 5\\) is a recipe: feed in a number for \\(x\\) and it gives one out — if \\(x = 4\\), then \\(3x + 5 = 17\\). The point of a letter is generality: \\(A = \\pi r^2\\) gives the area of every circle in one line, instead of a separate sum for each radius.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "3x + 5 \\quad\\text{at } x=4 \\;\\Rightarrow\\; 17",
+          "plain": "3x + 5 at x=4 ⇒ 17",
+          "caption": "An expression is a recipe; plug in a value."
+        }
+      ],
+      "deploy": "Lets one statement cover every case at once — the move from arithmetic to algebra.",
+      "counter": "A symbol only helps if you track what it stands for and its units; the same letter meaning two different things inside one argument is a classic error.",
+      "tags": [
+        "algebra",
+        "variables",
+        "basics"
+      ],
+      "xref": [
+        "math-function",
+        "math-equation-balance"
+      ],
+      "quiz": {
+        "q": "If x = 4, what is 3x + 5?",
+        "choices": [
+          "12",
+          "17",
+          "20",
+          "7"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-equation-balance",
+      "src": ["ev-math-equation-balance"],
+      "field": "math",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "math-variable"
+      ],
+      "title": "An equation is a balance scale",
+      "fact": "Whatever you do to one side of an equation, do to the other — and it stays true.",
+      "detail": "An equation says two things are equal. \\(x + 3 = 7\\) reads 'some number plus 3 equals 7'. Think of \\(=\\) as the pivot of a balance: the two sides weigh the same. To find \\(x\\), undo what surrounds it by doing the same thing to both sides. Subtract 3 from each: \\(x + 3 - 3 = 7 - 3\\), so \\(x = 4\\). The scale never tips because you changed both sides equally. That single habit — do the same to both sides — solves most of school algebra.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "x + 3 = 7 \\;\\Rightarrow\\; x = 4",
+          "plain": "x + 3 = 7 ⇒ x = 4",
+          "caption": "Subtract 3 from both sides to isolate x."
+        }
+      ],
+      "deploy": "Turns 'solving for x' into a mechanical routine: isolate the unknown by undoing operations symmetrically.",
+      "counter": "Balance holds only for reversible operations applied equally. Multiplying both sides by zero, or by an unknown that might be zero, can erase real solutions or invent fake ones.",
+      "tags": [
+        "algebra",
+        "equations",
+        "basics"
+      ],
+      "xref": [
+        "math-variable",
+        "math-linear-equation"
+      ],
+      "quiz": {
+        "q": "To solve x + 3 = 7, you…",
+        "choices": [
+          "Add 3 to the left only",
+          "Subtract 3 from both sides",
+          "Multiply both sides by 0",
+          "Swap x and 7"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-function",
+      "src": ["ev-math-function"],
+      "field": "math",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "math-variable"
+      ],
+      "title": "A function is a machine",
+      "fact": "Put a number in, get exactly one number out — that's a function.",
+      "detail": "Write \\(f(x)\\) — read 'f of x' — for the output when the input is \\(x\\). The rule \\(f(x) = 2x + 1\\) doubles the input and adds one, so \\(f(3) = 7\\). 'Exactly one output' is the whole idea: a function never returns two answers for the same input. Lay the input along the bottom and the output up the side and you get a graph — a picture of the rule. Functions are the things calculus and machine learning act on.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "line",
+          "params": {
+            "m": 2,
+            "b": 1
+          },
+          "domain": [
+            -3,
+            3
+          ],
+          "caption": "f(x) = 2x + 1 — one output for every input."
+        }
+      ],
+      "deploy": "Names the basic object of all higher maths: a dependable input→output rule you can graph, combine and analyse.",
+      "counter": "A relation that gives two outputs for one input (like 'a number's square roots', ±) is not a function — distinguishing the two avoids real mistakes.",
+      "tags": [
+        "functions",
+        "graphs",
+        "basics"
+      ],
+      "xref": [
+        "math-linear-equation",
+        "ml-what"
+      ],
+      "quiz": {
+        "q": "For f(x) = 2x + 1, what is f(3)?",
+        "choices": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "math-powers",
+      "src": ["ev-math-powers"],
+      "field": "math",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "math-variable"
+      ],
+      "title": "Powers and roots",
+      "fact": "A power is repeated multiplication; a root undoes it.",
+      "detail": "\\(a^n\\) means multiply \\(a\\) by itself \\(n\\) times: \\(2^3 = 2\\times2\\times2 = 8\\), and \\(2^{10} = 1024\\). The square root undoes squaring: \\(\\sqrt{9} = 3\\) because \\(3^2 = 9\\). Powers of the same base add when you multiply: \\(a^m \\cdot a^n = a^{m+n}\\). This is what lets us write the huge and the tiny compactly — scientific notation: \\(6.02\\times10^{23}\\) particles, or \\(10^{-9}\\) for a billionth.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "a^{m}\\cdot a^{n} = a^{m+n}",
+          "plain": "aᵐ · aⁿ = aᵐ⁺ⁿ",
+          "caption": "Multiplying powers adds the exponents."
+        }
+      ],
+      "deploy": "Compresses repeated multiplication and gives a clean way to handle very large or very small numbers.",
+      "counter": "Sign and fraction rules trip people up: \\(a^0 = 1\\), a negative exponent means a reciprocal (\\(a^{-1} = 1/a\\)), and a fractional one means a root (\\(a^{1/2} = \\sqrt a\\)).",
+      "tags": [
+        "exponents",
+        "powers",
+        "roots"
+      ],
+      "xref": [
+        "math-log"
+      ],
+      "quiz": {
+        "q": "What is 2¹⁰?",
+        "choices": [
+          "100",
+          "512",
+          "1000",
+          "1024"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "math-log",
+      "src": ["ev-math-log"],
+      "field": "math",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-powers"
+      ],
+      "title": "Logarithms: the inverse of powers",
+      "fact": "A logarithm answers one question: what power produces this number?",
+      "detail": "\\(\\log_{10} 1000 = 3\\) because \\(10^3 = 1000\\). The log is the exponent. Its key trick is turning multiplication into addition: \\(\\log(ab) = \\log a + \\log b\\). A log scale (decibels, the Richter scale, pH) spaces powers of ten evenly, so 10 and 1000 sit the same distance apart, which tames quantities that span many orders of magnitude. In machine learning logs are everywhere — they turn long products of probabilities into manageable sums.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\log_b(xy) = \\log_b x + \\log_b y",
+          "plain": "log_b(xy) = log_b x + log_b y",
+          "caption": "Logs convert products into sums."
+        }
+      ],
+      "deploy": "Lets you read quantities that span orders of magnitude, and replace awkward products with sums.",
+      "counter": "Logs are only defined for positive numbers, and the base matters: base 10, base 2 and the natural base \\(e\\) differ by a constant factor, so always say which you mean.",
+      "tags": [
+        "logarithms",
+        "exponents",
+        "scales"
+      ],
+      "xref": [
+        "math-powers",
+        "ml-loss",
+        "prob-bayes"
+      ],
+      "quiz": {
+        "q": "What is log₁₀(1000)?",
+        "choices": [
+          "2",
+          "3",
+          "10",
+          "100"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-linear-equation",
+      "src": ["ev-math-linear-equation"],
+      "field": "math",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "math-function",
+        "math-equation-balance"
+      ],
+      "title": "The straight line: y = mx + b",
+      "fact": "Every straight line is y = mx + b: m is the slope, b is where it crosses the axis.",
+      "detail": "The slope \\(m\\) is rise over run — how much \\(y\\) climbs for each step right. The intercept \\(b\\) is the value of \\(y\\) when \\(x = 0\\), where the line meets the vertical axis. So \\(y = 2x + 1\\) starts at 1 and climbs 2 for every 1 across. A bigger \\(m\\) tilts the line steeper; a negative \\(m\\) sends it downhill. This is the simplest model in all of statistics and machine learning — a prediction that changes at a constant rate.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "linline",
+          "controls": [
+            {
+              "name": "m",
+              "min": -3,
+              "max": 3,
+              "step": 0.5,
+              "value": 1,
+              "label": "slope m"
+            },
+            {
+              "name": "b",
+              "min": -3,
+              "max": 3,
+              "step": 0.5,
+              "value": 1,
+              "label": "intercept b"
+            }
+          ],
+          "domain": [
+            -5,
+            5
+          ],
+          "yrange": [
+            -6,
+            6
+          ],
+          "caption": "Drag m and b: the line tilts and shifts."
+        }
+      ],
+      "deploy": "The default first model whenever one quantity changes steadily with another.",
+      "counter": "Most real relationships aren't straight; a line is a deliberately simple approximation, useful precisely because it has just two numbers to find.",
+      "tags": [
+        "linear",
+        "slope",
+        "graphs"
+      ],
+      "xref": [
+        "stat-regression",
+        "ml-linear-regression"
+      ],
+      "quiz": {
+        "q": "In y = mx + b, what does b represent?",
+        "choices": [
+          "The slope",
+          "Where the line crosses the y-axis",
+          "The steepness",
+          "The x-value"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-quadratic",
+      "src": ["ev-math-quadratic"],
+      "field": "math",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-linear-equation"
+      ],
+      "title": "Curves and the quadratic",
+      "fact": "Add an x² term and the straight line bends into a parabola.",
+      "detail": "\\(y = ax^2 + bx + c\\) traces a parabola — a U-shaped curve. The coefficient \\(a\\) sets how narrow it is and which way it opens (up if \\(a>0\\), down if \\(a<0\\)); \\(c\\) shifts it vertically. To find where it crosses zero, the quadratic formula gives the answer for any quadratic: \\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\). Parabolas describe thrown objects, and the U-shape is exactly the kind of curve machine learning slides down to find its best fit.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "quadratic",
+          "controls": [
+            {
+              "name": "a",
+              "min": -2,
+              "max": 2,
+              "step": 0.5,
+              "value": 1,
+              "label": "a"
+            },
+            {
+              "name": "b",
+              "min": -3,
+              "max": 3,
+              "step": 0.5,
+              "value": 0,
+              "label": "b"
+            },
+            {
+              "name": "c",
+              "min": -3,
+              "max": 3,
+              "step": 0.5,
+              "value": -2,
+              "label": "c"
+            }
+          ],
+          "domain": [
+            -3,
+            3
+          ],
+          "yrange": [
+            -6,
+            8
+          ],
+          "caption": "y = ax² + bx + c — change a, b, c to reshape the parabola."
+        }
+      ],
+      "deploy": "The first step beyond straight lines, and the shape of the cost surfaces optimisers descend.",
+      "counter": "The quadratic formula's discriminant \\(b^2 - 4ac\\) can be negative — then the curve never crosses zero and the (real) solutions don't exist.",
+      "tags": [
+        "quadratic",
+        "parabola",
+        "curves"
+      ],
+      "xref": [
+        "math-linear-equation",
+        "ml-loss"
+      ],
+      "quiz": {
+        "q": "The graph of y = ax² + bx + c is a…",
+        "choices": [
+          "Straight line",
+          "Parabola",
+          "Circle",
+          "Spiral"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-summation",
+      "src": ["ev-math-summation"],
+      "field": "math",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-variable"
+      ],
+      "title": "Sigma notation: add up a list",
+      "fact": "The symbol Σ is shorthand for 'add up all of these'.",
+      "detail": "\\(\\sum_{i=1}^{n} x_i\\) means add \\(x_1 + x_2 + \\cdots + x_n\\). The \\(i\\) is a counter that runs from the bottom number to the top one. For example \\(\\sum_{i=1}^{4} i = 1 + 2 + 3 + 4 = 10\\). The average of \\(n\\) numbers is just \\(\\frac{1}{n}\\sum_i x_i\\). This one symbol runs through all of statistics and machine learning: every total error, mean, and dot product is a sum written this way.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n",
+          "plain": "Σ xᵢ = x₁ + x₂ + ⋯ + xₙ",
+          "caption": "Sigma says: run the counter and add."
+        }
+      ],
+      "deploy": "Compresses 'add up many terms' into one symbol you'll meet in every quantitative field.",
+      "counter": "The limits and the index matter: \\(\\sum_{i=0}\\) versus \\(\\sum_{i=1}\\), or summing the wrong variable, silently changes the result.",
+      "tags": [
+        "summation",
+        "notation",
+        "statistics"
+      ],
+      "xref": [
+        "prob-expectation",
+        "la-dot-product",
+        "ml-loss"
+      ],
+      "quiz": {
+        "q": "What does Σ (from i=1 to 4) of i equal?",
+        "choices": [
+          "4",
+          "10",
+          "24",
+          "16"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-limit",
+      "src": ["ev-math-limit"],
+      "field": "math",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-function"
+      ],
+      "title": "The limit: getting infinitely close",
+      "fact": "A limit is the value a function heads toward as the input creeps up to a point.",
+      "detail": "Sometimes a function misbehaves exactly at one point but behaves perfectly all around it. \\(\\frac{\\sin x}{x}\\) reads as \\(0/0\\) at \\(x = 0\\), yet as \\(x\\) shrinks toward zero the ratio heads steadily to 1. The limit, written \\(\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1\\), captures that destination without ever dividing by zero. Making 'infinitely close' precise is the foundation the rest of calculus stands on.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1",
+          "plain": "lim(x→0) sin(x)/x = 1",
+          "caption": "Undefined at 0, yet it heads to 1."
+        }
+      ],
+      "deploy": "Lets you reason about behaviour at a point a function can't actually reach — the gateway to derivatives and integrals.",
+      "counter": "A limit can fail to exist: if a function jumps, or approaches different values from the left and the right, there is no single destination.",
+      "tags": [
+        "limits",
+        "calculus",
+        "infinity"
+      ],
+      "xref": [
+        "math-derivative",
+        "math-infinities"
+      ],
+      "quiz": {
+        "q": "A limit describes the value a function…",
+        "choices": [
+          "Reaches exactly",
+          "Heads toward as the input approaches a point",
+          "Has at infinity only",
+          "Can never have"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-derivative",
+      "src": ["ev-math-derivative"],
+      "field": "math",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "math-limit"
+      ],
+      "title": "The derivative: the slope of a curve",
+      "fact": "The derivative is how fast something is changing right now — the slope of a curve at a point.",
+      "detail": "A straight line has one slope everywhere. A curve's steepness keeps changing. The derivative \\(\\frac{dy}{dx}\\) (also written \\(f'(x)\\)) is the slope of the tangent line that just grazes the curve at a single point. You find it by taking the slope between two nearby points and letting them slide together — a limit. For \\(f(x) = x^2\\), the derivative is \\(f'(x) = 2x\\): at \\(x = 3\\) the curve climbs with slope 6. Speed is the derivative of distance; acceleration is the derivative of speed.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "f'(x) = \\lim_{h\\to 0}\\frac{f(x+h) - f(x)}{h}",
+          "plain": "f'(x) = lim(h→0) [f(x+h) − f(x)] / h",
+          "caption": "The slope between two points, as they merge."
+        },
+        {
+          "type": "plot",
+          "kind": "tangent",
+          "fn": "quadratic",
+          "params": {
+            "a": 0.25,
+            "b": 0,
+            "c": 0
+          },
+          "controls": [
+            {
+              "name": "x",
+              "min": -5,
+              "max": 5,
+              "step": 0.25,
+              "value": 2,
+              "label": "point x"
+            }
+          ],
+          "domain": [
+            -5,
+            5
+          ],
+          "yrange": [
+            -1,
+            7
+          ],
+          "caption": "Slide the point — the tangent's slope is the derivative."
+        }
+      ],
+      "deploy": "The universal tool for rates of change: speed, growth, marginal cost, and the direction to adjust a model.",
+      "counter": "A derivative needs a smooth curve. At a sharp corner or a jump the slope isn't defined — the function is not differentiable there.",
+      "tags": [
+        "derivative",
+        "calculus",
+        "rate of change"
+      ],
+      "xref": [
+        "math-gradient",
+        "ml-gradient-descent"
+      ],
+      "quiz": {
+        "q": "The derivative of a function at a point is the…",
+        "choices": [
+          "Area under it",
+          "Slope of its tangent line",
+          "Its highest value",
+          "Its average"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-integral",
+      "src": ["ev-math-integral"],
+      "field": "math",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "math-derivative"
+      ],
+      "title": "The integral: area under a curve",
+      "fact": "The integral adds up infinitely many thin slivers to measure the area under a curve.",
+      "detail": "To find the area under a graph, slice the region into thin rectangles, add their areas, then let the slices grow infinitely thin so the answer becomes exact. That limit is the integral, \\(\\int_a^b f(x)\\,dx\\). The fundamental theorem of calculus ties it to the derivative: integration and differentiation undo each other. Distance is the integral of speed over time; in probability, the chance of landing in a range is the area under a curve.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "quadratic",
+          "params": {
+            "a": -0.25,
+            "b": 0,
+            "c": 2
+          },
+          "domain": [
+            -2.5,
+            2.5
+          ],
+          "yrange": [
+            0,
+            2.4
+          ],
+          "shade": true,
+          "caption": "The shaded area is the integral ∫ f(x) dx."
+        }
+      ],
+      "deploy": "Turns a rate into a total: accumulate speed into distance, a density into a probability, a flow into a quantity.",
+      "counter": "Many functions have no tidy antiderivative formula — real integrals are often computed numerically rather than solved on paper.",
+      "tags": [
+        "integral",
+        "calculus",
+        "area"
+      ],
+      "xref": [
+        "math-derivative",
+        "prob-normal"
+      ],
+      "quiz": {
+        "q": "An integral computes the…",
+        "choices": [
+          "Slope at a point",
+          "Area under a curve",
+          "Highest point",
+          "Number of solutions"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-chain-rule",
+      "src": ["ev-math-chain-rule"],
+      "field": "math",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "math-derivative"
+      ],
+      "title": "The chain rule: rates that pass through layers",
+      "fact": "To differentiate a function inside a function, multiply the two rates of change.",
+      "detail": "If \\(y\\) depends on \\(u\\), and \\(u\\) depends on \\(x\\), then a small nudge in \\(x\\) ripples through both: \\(\\frac{dy}{dx} = \\frac{dy}{du}\\cdot\\frac{du}{dx}\\). Take \\(y = (3x+1)^2\\): the outer squaring contributes \\(2(3x+1)\\), the inner \\(3x+1\\) contributes \\(3\\), and the product is \\(6(3x+1)\\). The chain rule is how rates compose through nested steps — and it is exactly the mechanism that trains deep neural networks, where the error is passed back layer by layer (backpropagation).",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\frac{d}{dx}\\,f\\big(g(x)\\big) = f'\\big(g(x)\\big)\\cdot g'(x)",
+          "plain": "d/dx f(g(x)) = f'(g(x)) · g'(x)",
+          "caption": "Outer rate times inner rate."
+        }
+      ],
+      "deploy": "Differentiates any composition — and underpins backpropagation, the engine of modern AI training.",
+      "counter": "It's easy to forget the inner derivative \\(g'(x)\\); leaving it out is one of the most common calculus mistakes.",
+      "tags": [
+        "chain rule",
+        "calculus",
+        "derivative"
+      ],
+      "xref": [
+        "math-derivative",
+        "ml-backprop"
+      ],
+      "quiz": {
+        "q": "The chain rule differentiates f(g(x)) as…",
+        "choices": [
+          "f'(x)·g'(x)",
+          "f'(g(x))·g'(x)",
+          "f(g'(x))",
+          "f'(g(x))"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "math-gradient",
+      "src": ["ev-math-gradient"],
+      "field": "math",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "math-derivative",
+        "la-vector"
+      ],
+      "title": "The gradient: which way is uphill",
+      "fact": "The gradient bundles a function's slopes in every direction into one arrow pointing straight uphill.",
+      "detail": "When a function has several inputs, say \\(f(x, y)\\), it has a separate slope in the x-direction and in the y-direction — its partial derivatives. The gradient \\(\\nabla f\\) collects them into a vector: \\(\\nabla f = \\left(\\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y}\\right)\\). That vector points in the direction of steepest increase, and its length tells you how steep. Walk in the opposite direction and you go downhill fastest — the single idea behind training almost every machine-learning model.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\ \\frac{\\partial f}{\\partial y}\\right)",
+          "plain": "∇f = (∂f/∂x, ∂f/∂y)",
+          "caption": "A vector of partial slopes, pointing uphill."
+        }
+      ],
+      "deploy": "Gives the direction to step when tuning many numbers at once — the basis of gradient descent.",
+      "counter": "The gradient only shows the best local direction; on a bumpy surface, following it can stall in a dip that isn't the lowest point overall.",
+      "tags": [
+        "gradient",
+        "calculus",
+        "optimisation"
+      ],
+      "xref": [
+        "math-derivative",
+        "la-vector",
+        "ml-gradient-descent"
+      ],
+      "quiz": {
+        "q": "The gradient of a function points in the direction of…",
+        "choices": [
+          "Steepest increase",
+          "Zero change",
+          "The nearest axis",
+          "Steepest decrease"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "la-vector",
+      "src": ["ev-la-vector"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 1,
+      "title": "A vector is an arrow and a list",
+      "fact": "A vector is at once an arrow with direction and length, and a list of numbers.",
+      "detail": "In the plane, a vector points from the origin to a spot: \\(\\vec v = \\begin{bmatrix} 3 \\\\ 2 \\end{bmatrix}\\) means 'go 3 right and 2 up'. The arrow picture (direction and length) and the column of numbers are the same object — and holding both views at once is what makes linear algebra work. A data point with many features (age, height, income…) is simply a vector with many entries: a single point in a high-dimensional space.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "vectors",
+          "vecs": [
+            [
+              3,
+              2,
+              "v"
+            ]
+          ],
+          "range": 5,
+          "caption": "The vector [3, 2] as an arrow from the origin."
+        }
+      ],
+      "deploy": "The basic unit of data and geometry alike: one object you can picture as an arrow or compute with as numbers.",
+      "counter": "The arrow picture is honest only up to three dimensions; beyond that you must trust the numbers, since a 300-feature vector has no drawable shape.",
+      "tags": [
+        "vectors",
+        "linear algebra",
+        "basics"
+      ],
+      "xref": [
+        "la-vector-add",
+        "ml-what"
+      ],
+      "quiz": {
+        "q": "The vector [3, 2] describes…",
+        "choices": [
+          "3 up and 2 right",
+          "3 right and 2 up",
+          "The number 32",
+          "A 3-by-2 grid"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-vector-add",
+      "src": ["ev-la-vector-add"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "la-vector"
+      ],
+      "title": "Adding and scaling vectors",
+      "fact": "Add vectors tip-to-tail; scale one by stretching or flipping it.",
+      "detail": "To add \\(\\vec a + \\vec b\\), set \\(\\vec b\\)'s tail at \\(\\vec a\\)'s tip; the sum runs from the very start to the very end. In numbers you just add matching entries: \\(\\begin{bmatrix}3\\\\1\\end{bmatrix} + \\begin{bmatrix}1\\\\2\\end{bmatrix} = \\begin{bmatrix}4\\\\3\\end{bmatrix}\\). Multiplying by a plain number (a scalar) stretches or flips: \\(2\\vec a\\) is twice as long, \\(-\\vec a\\) points the other way. Any weighted mix \\(c_1\\vec a + c_2\\vec b\\) — a 'linear combination' — is the core move of the whole subject.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "vectoradd",
+          "controls": [
+            {
+              "name": "ax",
+              "min": -4,
+              "max": 4,
+              "step": 1,
+              "value": 3,
+              "label": "a x"
+            },
+            {
+              "name": "ay",
+              "min": -4,
+              "max": 4,
+              "step": 1,
+              "value": 1,
+              "label": "a y"
+            },
+            {
+              "name": "bx",
+              "min": -4,
+              "max": 4,
+              "step": 1,
+              "value": 1,
+              "label": "b x"
+            },
+            {
+              "name": "by",
+              "min": -4,
+              "max": 4,
+              "step": 1,
+              "value": 2,
+              "label": "b y"
+            }
+          ],
+          "range": 6,
+          "caption": "a + b, tip-to-tail."
+        }
+      ],
+      "deploy": "The two operations every later idea is built from: combine vectors and rescale them.",
+      "counter": "You can only add vectors of the same length (same number of entries); a 2-D and a 3-D vector have no defined sum.",
+      "tags": [
+        "vectors",
+        "addition",
+        "linear combination"
+      ],
+      "xref": [
+        "la-dot-product",
+        "la-matrix-vector"
+      ],
+      "quiz": {
+        "q": "What is [3, 1] + [1, 2]?",
+        "choices": [
+          "[4, 3]",
+          "[3, 2]",
+          "[2, 3]",
+          "[4, 2]"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "la-dot-product",
+      "src": ["ev-la-dot-product"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "la-vector-add",
+        "math-summation"
+      ],
+      "title": "The dot product: how aligned are two vectors",
+      "fact": "The dot product is one number saying how much two vectors point the same way.",
+      "detail": "Multiply matching entries and add them up: \\(\\vec a \\cdot \\vec b = \\sum_i a_i b_i\\). The same number also equals \\(|\\vec a|\\,|\\vec b|\\cos\\theta\\), where \\(\\theta\\) is the angle between the vectors. So the dot product is large when they align, zero when they're perpendicular (\\(\\cos 90^\\circ = 0\\)), and negative when they oppose. It is the standard measure of similarity: search engines and language models compare meanings by taking dot products of vectors.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\vec a \\cdot \\vec b = \\sum_i a_i b_i = |\\vec a|\\,|\\vec b|\\cos\\theta",
+          "plain": "a · b = Σ aᵢbᵢ = |a||b|cos θ",
+          "caption": "Two views: entry-by-entry, and angle-based."
+        },
+        {
+          "type": "plot",
+          "kind": "dotproduct",
+          "controls": [
+            {
+              "name": "theta",
+              "min": 0,
+              "max": 180,
+              "step": 5,
+              "value": 45,
+              "label": "angle θ"
+            },
+            {
+              "name": "la",
+              "min": 1,
+              "max": 4,
+              "step": 0.5,
+              "value": 3,
+              "label": "|a|"
+            },
+            {
+              "name": "lb",
+              "min": 1,
+              "max": 4,
+              "step": 0.5,
+              "value": 3,
+              "label": "|b|"
+            }
+          ],
+          "range": 5,
+          "caption": "Swing θ: the dot product peaks when aligned, hits 0 at 90°."
+        }
+      ],
+      "deploy": "The workhorse of similarity and projection — and the operation inside every matrix multiply and attention score.",
+      "counter": "A dot product near zero means the vectors are merely perpendicular, not that either is small; alignment and magnitude are different things.",
+      "tags": [
+        "dot product",
+        "similarity",
+        "vectors"
+      ],
+      "xref": [
+        "la-norm",
+        "ml-attention"
+      ],
+      "quiz": {
+        "q": "The dot product of two perpendicular vectors is…",
+        "choices": [
+          "Their length",
+          "Zero",
+          "Negative",
+          "One"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-norm",
+      "src": ["ev-la-norm"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "la-dot-product"
+      ],
+      "title": "Length and distance",
+      "fact": "A vector's norm is its length — and the gap between two points is the norm of their difference.",
+      "detail": "The norm \\(\\|\\vec v\\| = \\sqrt{v_1^2 + v_2^2 + \\cdots}\\) is the Pythagorean theorem in any number of dimensions. The distance between two points is the norm of their difference, \\(\\|\\vec a - \\vec b\\|\\). 'Nearest neighbour' methods, clustering, and the size of an error all rest on this. Neatly, \\(\\|\\vec v\\|^2 = \\vec v \\cdot \\vec v\\): a vector's squared length is its dot product with itself.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\|\\vec v\\| = \\sqrt{v_1^2 + v_2^2 + \\cdots + v_n^2}",
+          "plain": "‖v‖ = √(v₁² + v₂² + ⋯ + vₙ²)",
+          "caption": "Pythagoras, in any number of dimensions."
+        }
+      ],
+      "deploy": "Defines size and closeness for data — the basis of distance, error magnitude and similarity searches.",
+      "counter": "The straight-line (Euclidean) norm is only one choice; others, like summing absolute values (the 'taxicab' norm), measure distance differently and suit different problems.",
+      "tags": [
+        "norm",
+        "distance",
+        "vectors"
+      ],
+      "xref": [
+        "la-dot-product",
+        "stat-regression"
+      ],
+      "quiz": {
+        "q": "The norm of a vector measures its…",
+        "choices": [
+          "Direction only",
+          "Length",
+          "Number of entries",
+          "Angle"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-matrix",
+      "src": ["ev-la-matrix"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "la-vector"
+      ],
+      "title": "A matrix is a grid of numbers",
+      "fact": "A matrix is a rectangular grid of numbers — a table, or a row of vectors side by side.",
+      "detail": "A matrix has rows and columns: \\(A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}\\) is 2 by 2. You can read it as a spreadsheet — each row a record, each column a feature — or as several column vectors standing together. Its real power, though, is as an action: a matrix is a rule that takes a vector in and gives a transformed vector out, which is the next step.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}",
+          "plain": "A = [[1, 2], [3, 4]]",
+          "caption": "A 2×2 matrix: rows and columns."
+        }
+      ],
+      "deploy": "The container for data tables and for transformations alike — the central object of linear algebra.",
+      "counter": "Shape is everything: a 2×3 and a 3×2 matrix hold the same six numbers but behave completely differently, and most operations demand matching shapes.",
+      "tags": [
+        "matrix",
+        "linear algebra",
+        "data"
+      ],
+      "xref": [
+        "la-matrix-vector",
+        "la-matrix-mult"
+      ],
+      "quiz": {
+        "q": "A matrix is best described as…",
+        "choices": [
+          "A single number",
+          "A grid of numbers in rows and columns",
+          "A curved line",
+          "An angle"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-matrix-vector",
+      "src": ["ev-la-matrix-vector"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "la-matrix",
+        "la-vector-add"
+      ],
+      "title": "A matrix transforms space",
+      "fact": "Multiplying a matrix by a vector moves the whole grid — it rotates, stretches and shears space.",
+      "detail": "\\(A\\vec x\\) builds a new vector by combining \\(A\\)'s columns, each weighted by an entry of \\(\\vec x\\). Picture it geometrically: the matrix moves every point of the plane at once, so the square grid tilts and stretches — yet straight lines stay straight and the origin stays fixed. That is a 'linear transformation'. The columns of \\(A\\) are nothing more than where the two basis arrows land after the move.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "lintransform",
+          "controls": [
+            {
+              "name": "a",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1,
+              "label": "a"
+            },
+            {
+              "name": "b",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0.5,
+              "label": "b"
+            },
+            {
+              "name": "c",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0,
+              "label": "c"
+            },
+            {
+              "name": "d",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1,
+              "label": "d"
+            }
+          ],
+          "range": 4,
+          "caption": "Move the matrix [[a, b], [c, d]] — watch the grid transform."
+        }
+      ],
+      "deploy": "Reframes a matrix as a verb, not a table: it does something to space. This view unlocks the rest of the subject.",
+      "counter": "Only transformations that keep grid lines straight and evenly spaced, fixing the origin, are 'linear' — bends, curves and shifts of the origin are not matrix multiplication.",
+      "tags": [
+        "matrix",
+        "transformation",
+        "vectors"
+      ],
+      "xref": [
+        "la-matrix-mult",
+        "ml-neural-net"
+      ],
+      "quiz": {
+        "q": "Multiplying a vector by a matrix geometrically…",
+        "choices": [
+          "Leaves it unchanged",
+          "Transforms space (rotate/stretch/shear)",
+          "Adds a number",
+          "Bends lines into curves"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-matrix-mult",
+      "src": ["ev-la-matrix-mult"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "la-matrix-vector",
+        "la-dot-product"
+      ],
+      "title": "Matrix multiplication = doing one transform after another",
+      "fact": "Multiplying matrices means applying one transformation, then the next.",
+      "detail": "The product \\(AB\\) is the single transformation 'do \\(B\\) first, then \\(A\\)': \\((AB)\\vec x = A(B\\vec x)\\). Each entry of the product is a dot product of a row of \\(A\\) with a column of \\(B\\). Order matters — \\(AB \\neq BA\\) in general, just as rotating then stretching differs from stretching then rotating. Chaining matrices this way is exactly how a neural network stacks its layers.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "(AB)\\,\\vec x = A\\,(B\\,\\vec x)",
+          "plain": "(AB)x = A(Bx)",
+          "caption": "The product is composition: B first, then A."
+        }
+      ],
+      "deploy": "Lets you collapse a whole pipeline of transformations into one matrix — and explains layered models.",
+      "counter": "Matrix multiplication is not commutative: swapping the order usually changes the result, and often isn't even allowed if the shapes stop matching.",
+      "tags": [
+        "matrix",
+        "multiplication",
+        "composition"
+      ],
+      "xref": [
+        "la-matrix-vector",
+        "ml-neural-net"
+      ],
+      "quiz": {
+        "q": "In general, for matrices, AB is…",
+        "choices": [
+          "Always equal to BA",
+          "Not the same as BA",
+          "Always zero",
+          "Undefined"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-identity-inverse",
+      "src": ["ev-la-identity-inverse"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "la-matrix-mult"
+      ],
+      "title": "Identity and inverse: undoing a transformation",
+      "fact": "The identity matrix changes nothing; the inverse runs a transformation backwards.",
+      "detail": "The identity matrix \\(I\\) has 1s down the diagonal and 0s elsewhere, so \\(I\\vec x = \\vec x\\) — the linear-algebra version of multiplying by 1. The inverse \\(A^{-1}\\) reverses whatever \\(A\\) did: \\(A A^{-1} = I\\). Not every matrix has one. If a transformation squashes space flat — collapsing a dimension — there is no way back, and no inverse exists. That collapse is detected by the determinant being zero.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "A\\,A^{-1} = I",
+          "plain": "A · A⁻¹ = I",
+          "caption": "The inverse cancels the transformation."
+        }
+      ],
+      "deploy": "The formal 'undo' button — and the route to solving equations and reversing models.",
+      "counter": "Inverting a matrix that is nearly singular (almost flattening) is numerically unstable; in practice solvers avoid forming \\(A^{-1}\\) directly.",
+      "tags": [
+        "inverse",
+        "identity",
+        "matrix"
+      ],
+      "xref": [
+        "la-determinant",
+        "la-linear-system"
+      ],
+      "quiz": {
+        "q": "A matrix times its inverse gives the…",
+        "choices": [
+          "Zero matrix",
+          "Identity matrix",
+          "Original matrix",
+          "Determinant"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "la-linear-system",
+      "src": ["ev-la-linear-system"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "la-identity-inverse"
+      ],
+      "title": "Solving many equations at once: Ax = b",
+      "fact": "A pile of linear equations packs into one tidy matrix equation, Ax = b.",
+      "detail": "Two equations like \\(2x + y = 5\\) and \\(x - y = 1\\) fold into \\(A\\vec x = \\vec b\\), with \\(A = \\begin{bmatrix} 2 & 1 \\\\ 1 & -1 \\end{bmatrix}\\) and \\(\\vec b = \\begin{bmatrix} 5 \\\\ 1 \\end{bmatrix}\\). Solving asks: which input \\(\\vec x\\) does \\(A\\) send to \\(\\vec b\\)? If \\(A\\) is invertible, \\(\\vec x = A^{-1}\\vec b\\); otherwise there may be no solution, or infinitely many. Fitting a model, balancing a chemical equation and rendering 3-D graphics all reduce to solving \\(A\\vec x = \\vec b\\).",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "A\\vec x = \\vec b \\;\\Rightarrow\\; \\vec x = A^{-1}\\vec b",
+          "plain": "Ax = b ⇒ x = A⁻¹b",
+          "caption": "When A is invertible, the system has one solution."
+        }
+      ],
+      "deploy": "The standard form that an enormous range of practical problems gets rewritten into and solved.",
+      "counter": "Real systems are often 'overdetermined' — more equations than unknowns, no exact solution — so we settle for the closest fit instead (least squares).",
+      "tags": [
+        "linear system",
+        "equations",
+        "matrix"
+      ],
+      "xref": [
+        "stat-regression",
+        "la-identity-inverse"
+      ],
+      "quiz": {
+        "q": "In Ax = b, if A is invertible the solution is…",
+        "choices": [
+          "x = Ab",
+          "x = b/A",
+          "x = A⁻¹b",
+          "x = b − A"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "la-determinant",
+      "src": ["ev-la-determinant"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "la-matrix-vector"
+      ],
+      "title": "The determinant: how much area gets scaled",
+      "fact": "The determinant says how much a transformation scales area — and zero means it flattens space.",
+      "detail": "For \\(A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}\\), the determinant is \\(\\det A = ad - bc\\). It is the factor by which areas grow or shrink under the transformation: \\(\\det = 2\\) doubles every area, \\(\\det = 1\\) preserves it, and a negative determinant flips orientation (like a mirror). When \\(\\det A = 0\\) the grid has been squashed onto a line — a dimension is lost, information is destroyed, and the matrix has no inverse.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "lintransform",
+          "controls": [
+            {
+              "name": "a",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1,
+              "label": "a"
+            },
+            {
+              "name": "b",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0.5,
+              "label": "b"
+            },
+            {
+              "name": "c",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0.5,
+              "label": "c"
+            },
+            {
+              "name": "d",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1,
+              "label": "d"
+            }
+          ],
+          "range": 4,
+          "caption": "The shaded unit square's area equals |det A|."
+        }
+      ],
+      "deploy": "A one-number test for whether a transformation is reversible, and by how much it expands or shrinks.",
+      "counter": "A large determinant doesn't mean a matrix is 'well-behaved' for computation; a separate measure (the condition number) governs numerical reliability.",
+      "tags": [
+        "determinant",
+        "area",
+        "matrix"
+      ],
+      "xref": [
+        "la-identity-inverse",
+        "la-eigen"
+      ],
+      "quiz": {
+        "q": "If det A = 0, the transformation…",
+        "choices": [
+          "Doubles area",
+          "Preserves area",
+          "Flattens space onto a line",
+          "Rotates only"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "la-eigen",
+      "src": ["ev-la-eigen"],
+      "field": "linalg",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "la-determinant",
+        "la-matrix-vector"
+      ],
+      "title": "Eigenvectors: the directions that don't turn",
+      "fact": "An eigenvector is a direction a transformation only stretches — it never rotates it.",
+      "detail": "Under a matrix \\(A\\), most vectors swing off to a new direction. A special few hold their direction and are merely scaled: \\(A\\vec v = \\lambda\\vec v\\). Such a \\(\\vec v\\) is an eigenvector, and the stretch factor \\(\\lambda\\) is its eigenvalue. These reveal a transformation's natural axes — the skeleton it acts along. Google's original PageRank found an eigenvector of the web's link matrix; principal component analysis finds the eigenvectors of data to compress it.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "A\\vec v = \\lambda \\vec v",
+          "plain": "A v = λ v",
+          "caption": "Same direction, scaled by λ."
+        },
+        {
+          "type": "plot",
+          "kind": "lintransform",
+          "controls": [
+            {
+              "name": "a",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1.5,
+              "label": "a"
+            },
+            {
+              "name": "b",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0.5,
+              "label": "b"
+            },
+            {
+              "name": "c",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 0.5,
+              "label": "c"
+            },
+            {
+              "name": "d",
+              "min": -2,
+              "max": 2,
+              "step": 0.25,
+              "value": 1.5,
+              "label": "d"
+            }
+          ],
+          "range": 4,
+          "caption": "Look for an arrow that stays on its own line — that's an eigenvector."
+        }
+      ],
+      "deploy": "Finds the hidden axes of a transformation or dataset — behind PCA, PageRank, and stability analysis.",
+      "counter": "Not every real matrix has real eigenvectors — a pure rotation turns every direction, so its eigenvalues are complex numbers, with no real axis it leaves alone.",
+      "tags": [
+        "eigenvector",
+        "eigenvalue",
+        "matrix"
+      ],
+      "xref": [
+        "la-matrix-mult",
+        "la-determinant"
+      ],
+      "quiz": {
+        "q": "For an eigenvector v of A, Av equals…",
+        "choices": [
+          "A number",
+          "λv (v scaled)",
+          "Zero always",
+          "v rotated 90°"
+        ],
+        "answer": 1
+      }
     }
   ],
 

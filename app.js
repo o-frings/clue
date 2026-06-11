@@ -619,6 +619,8 @@ function mediaHtml(c){
       return '<div class="kmedia eq"><span class="katexeq" data-tex="'+esc(tex)+'" data-display="1">'+esc(plain)+'</span>'+(m.caption?'<div class="kmcap">'+esc(m.caption)+'</div>':'')+'</div>'; }
     if(m.type==='image'||m.type==='figure'||m.type==='map'){ if(!m.src) return '';
       return '<figure class="kmedia"><img src="'+esc(m.src)+'" alt="'+esc(m.alt||m.caption||'')+'" loading="lazy">'+(m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'')+'</figure>'; }
+    if(m.type==='plot'){ // dynamic SVG graph; spec rendered by renderViz()
+      return '<figure class="kmedia kviz" data-viz="'+esc(JSON.stringify(m))+'">'+(m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'')+'</figure>'; }
     return '';
   }).join('');
 }
@@ -716,6 +718,200 @@ function renderMath(root){
 }
 // re-render the open Reader once KaTeX finishes loading after the fact
 window.__mathReady=()=>{ if(rdId) renderMath($("rdBody")); };
+
+// ================= dynamic graphs (SVG viz engine — no dependencies) =================
+// Renders media {type:'plot', kind, ...} slots into themed SVG. Static kinds draw once;
+// interactive kinds add slider controls (and, for 'descent', a Play button) that redraw.
+// All colours come from CSS vars so it tracks light/dark. Falls back to caption-only on error.
+const SVGNS="http://www.w3.org/2000/svg";
+function svgEl(tag,attrs){ const e=document.createElementNS(SVGNS,tag); for(const k in (attrs||{})) e.setAttribute(k,attrs[k]); return e; }
+const VZ_W=340, VZ_H=240, VZ_PAD={l:34,r:14,t:14,b:30};
+function vzCss(name){ try{ return getComputedStyle(document.documentElement).getPropertyValue(name).trim()||name; }catch(_){ return name; } }
+// named curves f(x, params)
+const VIZ_FN={
+  line:(x,p)=>(p.m==null?1:+p.m)*x+(p.b==null?0:+p.b),
+  quadratic:(x,p)=>(p.a==null?1:+p.a)*x*x+(p.b==null?0:+p.b)*x+(p.c==null?0:+p.c),
+  sigmoid:(x,p)=>1/(1+Math.exp(-(p.k==null?1:+p.k)*x)),
+  gaussian:(x,p)=>{const mu=p.mu==null?0:+p.mu,s=Math.max(1e-6,p.sigma==null?1:+p.sigma);return Math.exp(-((x-mu)*(x-mu))/(2*s*s))/(s*Math.sqrt(2*Math.PI));},
+  exp:(x,p)=>Math.exp((p.k==null?1:+p.k)*x),
+  log:(x)=>Math.log(x),
+  sine:(x)=>Math.sin(x),
+};
+function renderViz(root){
+  if(!root) return;
+  root.querySelectorAll('.kviz[data-viz]').forEach(el=>{
+    if(el.dataset.vizDone) return; el.dataset.vizDone='1';
+    let spec; try{ spec=JSON.parse(el.dataset.viz); }catch(e){ return; }
+    try{ buildViz(el, spec); }catch(e){ /* leave caption only */ }
+  });
+}
+function buildViz(fig, spec){
+  const svg=svgEl('svg',{viewBox:'0 0 '+VZ_W+' '+VZ_H,class:'kvizsvg','aria-hidden':'true'});
+  const plot=svgEl('g',{}); svg.appendChild(plot);
+  // controls/state
+  const state={}; (spec.controls||[]).forEach(c=>state[c.name]=(c.value==null?0:+c.value));
+  // insert svg before the caption (figcaption is last child if present)
+  const cap=fig.querySelector('figcaption');
+  fig.insertBefore(svg, cap||null);
+  const readout=document.createElement('div'); readout.className='kvizread';
+  if(cap) fig.insertBefore(readout, cap); else fig.appendChild(readout);
+  const draw=()=>{ while(plot.firstChild) plot.removeChild(plot.firstChild); drawViz(plot, spec, state, readout); };
+  // controls UI
+  if((spec.controls||[]).length || spec.kind==='descent'){
+    const ctr=document.createElement('div'); ctr.className='kvizctrls';
+    (spec.controls||[]).forEach(c=>{
+      const row=document.createElement('label'); row.className='kvizctrl';
+      const nm=document.createElement('span'); nm.className='kvizcn'; nm.textContent=c.label||c.name;
+      const val=document.createElement('span'); val.className='kvizcv'; val.textContent=fmtNum(state[c.name]);
+      const inp=document.createElement('input'); inp.type='range'; inp.min=c.min; inp.max=c.max; inp.step=(c.step==null?0.1:c.step); inp.value=state[c.name];
+      inp.addEventListener('input',()=>{ state[c.name]=+inp.value; val.textContent=fmtNum(state[c.name]); draw(); });
+      row.appendChild(nm); row.appendChild(inp); row.appendChild(val); ctr.appendChild(row);
+    });
+    if(spec.kind==='descent'){
+      const btn=document.createElement('button'); btn.type='button'; btn.className='kvizbtn'; btn.textContent='▶ Step downhill';
+      btn.addEventListener('click',()=>descentStep(spec,state,draw,btn)); ctr.appendChild(btn);
+    }
+    fig.insertBefore(ctr, cap||null);
+  }
+  draw();
+}
+function fmtNum(v){ const n=+v; if(!isFinite(n)) return '—'; return (Math.abs(n)>=100||Number.isInteger(n))?String(Math.round(n*100)/100):n.toFixed(2); }
+// coordinate scales for a data box
+function vzScales(xr,yr){
+  const x0=VZ_PAD.l,x1=VZ_W-VZ_PAD.r,y0=VZ_PAD.t,y1=VZ_H-VZ_PAD.b;
+  return { sx:v=>x0+(v-xr[0])/(xr[1]-xr[0])*(x1-x0), sy:v=>y1-(v-yr[0])/(yr[1]-yr[0])*(y1-y0), box:{x0,x1,y0,y1} };
+}
+function vzAxes(g,sc,xr,yr){
+  const line=vzCss('--line'), l3=vzCss('--l3');
+  g.appendChild(svgEl('rect',{x:sc.box.x0,y:sc.box.y0,width:sc.box.x1-sc.box.x0,height:sc.box.y1-sc.box.y0,fill:'none',stroke:line,'stroke-width':1}));
+  // zero axes if in range
+  if(yr[0]<0&&yr[1]>0){ const y=sc.sy(0); g.appendChild(svgEl('line',{x1:sc.box.x0,y1:y,x2:sc.box.x1,y2:y,stroke:l3,'stroke-width':1})); }
+  if(xr[0]<0&&xr[1]>0){ const x=sc.sx(0); g.appendChild(svgEl('line',{x1:x,y1:sc.box.y0,x2:x,y2:sc.box.y1,stroke:l3,'stroke-width':1})); }
+  // a couple of tick labels
+  const tick=(vx,vy,txt,dx,dy,anchor)=>{ const t=svgEl('text',{x:sc.sx(vx)+(dx||0),y:sc.sy(vy)+(dy||0),fill:l3,'font-size':9,'text-anchor':anchor||'middle'}); t.textContent=txt; g.appendChild(t); };
+  tick(xr[0],yr[0],fmtNum(xr[0]),0,11); tick(xr[1],yr[0],fmtNum(xr[1]),0,11);
+  tick(xr[0],yr[1],fmtNum(yr[1]),-4,3,'end'); tick(xr[0],yr[0],fmtNum(yr[0]),-4,3,'end');
+}
+function vzPath(sc,fn,p,xr,n){ n=n||80; let d=''; for(let i=0;i<=n;i++){ const x=xr[0]+(xr[1]-xr[0])*i/n, y=fn(x,p); if(!isFinite(y)) continue; d+=(d?'L':'M')+sc.sx(x).toFixed(1)+' '+sc.sy(y).toFixed(1)+' '; } return d; }
+function arrow(g,x1,y1,x2,y2,color,w){ g.appendChild(svgEl('line',{x1,y1,x2,y2,stroke:color,'stroke-width':w||2,'stroke-linecap':'round'}));
+  const a=Math.atan2(y2-y1,x2-x1),h=7; [a+2.7,a-2.7].forEach(ang=>g.appendChild(svgEl('line',{x1:x2,y1:y2,x2:x2+h*Math.cos(ang),y2:y2+h*Math.sin(ang),stroke:color,'stroke-width':w||2,'stroke-linecap':'round'}))); }
+function vzText(g,x,y,txt,color,size,anchor){ const t=svgEl('text',{x,y,fill:color,'font-size':size||10,'text-anchor':anchor||'start','font-weight':600}); t.textContent=txt; g.appendChild(t); }
+
+function drawViz(g, spec, st, readout){
+  const accent=vzCss('--accent'), ink=vzCss('--ink'), l2=vzCss('--l2');
+  const kind=spec.kind;
+  if(readout) readout.textContent='';
+  // ---- function family (function / linline / sigmoid / gaussian) ----
+  if(kind==='function'||kind==='linline'||kind==='sigmoid'||kind==='gaussian'){
+    const fnName = kind==='linline'?'line':(kind==='gaussian'?'gaussian':(kind==='sigmoid'?'sigmoid':spec.fn||'line'));
+    const fn=VIZ_FN[fnName]||VIZ_FN.line;
+    const xr=spec.domain||[-6,6]; const p=Object.assign({},spec.params||{},st);
+    // y-range: explicit or sampled
+    let yr=spec.yrange; if(!yr){ let lo=Infinity,hi=-Infinity; for(let i=0;i<=60;i++){ const y=fn(xr[0]+(xr[1]-xr[0])*i/60,p); if(isFinite(y)){lo=Math.min(lo,y);hi=Math.max(hi,y);} } if(!isFinite(lo)){lo=-1;hi=1;} const pad=(hi-lo||1)*0.15; yr=[lo-pad,hi+pad]; }
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    if(spec.shade){ // area under curve to y=0 (or yr[0])
+      const base=Math.max(yr[0],0); let d='M'+sc.sx(xr[0])+' '+sc.sy(base)+' ';
+      for(let i=0;i<=80;i++){ const x=xr[0]+(xr[1]-xr[0])*i/80,y=fn(x,p); if(isFinite(y)) d+='L'+sc.sx(x).toFixed(1)+' '+sc.sy(y).toFixed(1)+' '; }
+      d+='L'+sc.sx(xr[1])+' '+sc.sy(base)+' Z'; g.appendChild(svgEl('path',{d,fill:accent,'fill-opacity':0.14,stroke:'none'})); }
+    g.appendChild(svgEl('path',{d:vzPath(sc,fn,p,xr),fill:'none',stroke:accent,'stroke-width':2.4,'stroke-linejoin':'round'}));
+    if(kind==='linline'&&readout) readout.textContent='y = '+fmtNum(p.m==null?1:p.m)+'·x '+((p.b==null?0:+p.b)>=0?'+ ':'− ')+fmtNum(Math.abs(p.b==null?0:p.b));
+    if(kind==='gaussian'&&readout) readout.textContent='μ = '+fmtNum(p.mu||0)+',  σ = '+fmtNum(p.sigma==null?1:p.sigma);
+    return;
+  }
+  // ---- tangent: curve + draggable point + tangent line (derivative) ----
+  if(kind==='tangent'){
+    const fn=VIZ_FN[spec.fn||'quadratic'], p=spec.params||{a:0.25,b:0,c:0};
+    const xr=spec.domain||[-6,6]; let lo=Infinity,hi=-Infinity; for(let i=0;i<=60;i++){const y=fn(xr[0]+(xr[1]-xr[0])*i/60,p);lo=Math.min(lo,y);hi=Math.max(hi,y);} const pad=(hi-lo||1)*0.12; const yr=spec.yrange||[lo-pad,hi+pad];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    g.appendChild(svgEl('path',{d:vzPath(sc,fn,p,xr),fill:'none',stroke:l2,'stroke-width':2}));
+    const x0=st.x==null?1:st.x, h=0.001, slope=(fn(x0+h,p)-fn(x0-h,p))/(2*h), y0=fn(x0,p);
+    const tx0=xr[0],tx1=xr[1]; // tangent across view
+    g.appendChild(svgEl('line',{x1:sc.sx(tx0),y1:sc.sy(y0+slope*(tx0-x0)),x2:sc.sx(tx1),y2:sc.sy(y0+slope*(tx1-x0)),stroke:accent,'stroke-width':2.2}));
+    g.appendChild(svgEl('circle',{cx:sc.sx(x0),cy:sc.sy(y0),r:4.5,fill:accent}));
+    if(readout) readout.textContent='slope at x='+fmtNum(x0)+'  →  dy/dx = '+fmtNum(slope);
+    return;
+  }
+  // ---- points: scatter (+ optional least-squares fit) ----
+  if(kind==='points'){
+    const pts=spec.pts||[]; const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+    const xr=spec.domain||[Math.min(...xs)-1,Math.max(...xs)+1], yr=spec.yrange||[Math.min(...ys)-1,Math.max(...ys)+1];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    if(spec.fit&&pts.length>1){ const n=pts.length,sX=xs.reduce((a,b)=>a+b,0),sY=ys.reduce((a,b)=>a+b,0),sXY=pts.reduce((a,p)=>a+p[0]*p[1],0),sXX=xs.reduce((a,x)=>a+x*x,0);
+      const m=(n*sXY-sX*sY)/(n*sXX-sX*sX), b=(sY-m*sX)/n;
+      g.appendChild(svgEl('line',{x1:sc.sx(xr[0]),y1:sc.sy(m*xr[0]+b),x2:sc.sx(xr[1]),y2:sc.sy(m*xr[1]+b),stroke:accent,'stroke-width':2.2}));
+      if(readout) readout.textContent='best fit: y = '+fmtNum(m)+'·x '+(b>=0?'+ ':'− ')+fmtNum(Math.abs(b)); }
+    pts.forEach(pt=>g.appendChild(svgEl('circle',{cx:sc.sx(pt[0]),cy:sc.sy(pt[1]),r:3.5,fill:ink,'fill-opacity':0.75})));
+    return;
+  }
+  // ---- bars: values or softmax(values) ----
+  if(kind==='bars'){
+    let vals=(spec.values||[]).slice(); const labels=spec.labels||vals.map((_,i)=>String(i+1));
+    if(spec.softmax){ const mx=Math.max(...vals); const ex=vals.map(v=>Math.exp(v-mx)); const s=ex.reduce((a,b)=>a+b,0); vals=ex.map(v=>v/s); }
+    const hi=Math.max(...vals,spec.softmax?1:0.0001); const x0=VZ_PAD.l,x1=VZ_W-VZ_PAD.r,y0=VZ_PAD.t,y1=VZ_H-VZ_PAD.b;
+    g.appendChild(svgEl('line',{x1:x0,y1:y1,x2:x1,y2:y1,stroke:vzCss('--l3'),'stroke-width':1}));
+    const n=vals.length, gap=8, bw=(x1-x0-gap*(n+1))/n;
+    vals.forEach((v,i)=>{ const bx=x0+gap+i*(bw+gap), bh=(v/hi)*(y1-y0);
+      g.appendChild(svgEl('rect',{x:bx,y:y1-bh,width:bw,height:bh,rx:3,fill:accent,'fill-opacity':0.85}));
+      vzText(g,bx+bw/2,y1+11,labels[i],vzCss('--l2'),9,'middle');
+      vzText(g,bx+bw/2,y1-bh-4,spec.softmax?v.toFixed(2):fmtNum(v),ink,9,'middle'); });
+    return;
+  }
+  // ---- vectors: arrows from origin ----
+  if(kind==='vectors'||kind==='vectoradd'||kind==='dotproduct'){
+    const R=spec.range||5; const xr=[-R,R],yr=[-R,R]; const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    const colors=[accent,vzCss('--l2'),'#37b24d','#ae3ec9'];
+    if(kind==='vectors'){ (spec.vecs||[]).forEach((v,i)=>{ arrow(g,sc.sx(0),sc.sy(0),sc.sx(v[0]),sc.sy(v[1]),colors[i%colors.length],2.4); if(v[2])vzText(g,sc.sx(v[0])+4,sc.sy(v[1]),v[2],colors[i%colors.length],11);}); return; }
+    if(kind==='vectoradd'){ const ax=st.ax==null?3:st.ax,ay=st.ay==null?1:st.ay,bx=st.bx==null?1:st.bx,by=st.by==null?2:st.by;
+      arrow(g,sc.sx(0),sc.sy(0),sc.sx(ax),sc.sy(ay),accent,2.4); vzText(g,sc.sx(ax)+3,sc.sy(ay),'a',accent,11);
+      arrow(g,sc.sx(ax),sc.sy(ay),sc.sx(ax+bx),sc.sy(ay+by),colors[1],2); vzText(g,sc.sx(ax+bx/2)+3,sc.sy(ay+by/2),'b',colors[1],10);
+      arrow(g,sc.sx(0),sc.sy(0),sc.sx(ax+bx),sc.sy(ay+by),'#37b24d',2.4); vzText(g,sc.sx(ax+bx)+3,sc.sy(ay+by),'a+b','#37b24d',11);
+      if(readout) readout.textContent='a+b = ('+fmtNum(ax+bx)+', '+fmtNum(ay+by)+')'; return; }
+    if(kind==='dotproduct'){ const la=st.la==null?3:st.la, lb=st.lb==null?3:st.lb, th=(st.theta==null?45:st.theta)*Math.PI/180;
+      const ax=la,ay=0,bx=lb*Math.cos(th),by=lb*Math.sin(th);
+      arrow(g,sc.sx(0),sc.sy(0),sc.sx(ax),sc.sy(ay),accent,2.4); vzText(g,sc.sx(ax)+3,sc.sy(ay)+12,'a',accent,11);
+      arrow(g,sc.sx(0),sc.sy(0),sc.sx(bx),sc.sy(by),colors[1],2.4); vzText(g,sc.sx(bx)+3,sc.sy(by),'b',colors[1],11);
+      const proj=lb*Math.cos(th); g.appendChild(svgEl('line',{x1:sc.sx(proj),y1:sc.sy(0),x2:sc.sx(bx),y2:sc.sy(by),stroke:vzCss('--l3'),'stroke-width':1,'stroke-dasharray':'3 3'}));
+      if(readout) readout.textContent='a·b = '+fmtNum(la*lb*Math.cos(th))+'   (|a||b|cosθ, θ='+fmtNum(st.theta==null?45:st.theta)+'°)'; return; }
+  }
+  // ---- lintransform: unit grid + square under a 2x2 matrix ----
+  if(kind==='lintransform'){
+    const R=spec.range||4; const xr=[-R,R],yr=[-R,R]; const sc=vzScales(xr,yr);
+    const a=st.a==null?1:st.a,b=st.b==null?0:st.b,c=st.c==null?0:st.c,d=st.d==null?1:st.d;
+    const line=vzCss('--line'); // faint original grid
+    for(let i=-R;i<=R;i++){ g.appendChild(svgEl('line',{x1:sc.sx(i),y1:sc.sy(-R),x2:sc.sx(i),y2:sc.sy(R),stroke:line,'stroke-width':1})); g.appendChild(svgEl('line',{x1:sc.sx(-R),y1:sc.sy(i),x2:sc.sx(R),y2:sc.sy(i),stroke:line,'stroke-width':1})); }
+    vzAxes(g,sc,xr,yr);
+    const T=(x,y)=>[a*x+b*y,c*x+d*y]; // transformed grid (a few lines)
+    const tcol=vzCss('--l3');
+    for(let i=-R;i<=R;i++){ const p1=T(i,-R),p2=T(i,R),p3=T(-R,i),p4=T(R,i);
+      g.appendChild(svgEl('line',{x1:sc.sx(p1[0]),y1:sc.sy(p1[1]),x2:sc.sx(p2[0]),y2:sc.sy(p2[1]),stroke:tcol,'stroke-width':i===0?1.5:0.7,'stroke-opacity':0.6}));
+      g.appendChild(svgEl('line',{x1:sc.sx(p3[0]),y1:sc.sy(p3[1]),x2:sc.sx(p4[0]),y2:sc.sy(p4[1]),stroke:tcol,'stroke-width':i===0?1.5:0.7,'stroke-opacity':0.6})); }
+    // transformed unit square (area = |det|)
+    const sq=[[0,0],[1,0],[1,1],[0,1]].map(P=>T(P[0],P[1]));
+    g.appendChild(svgEl('polygon',{points:sq.map(P=>sc.sx(P[0])+','+sc.sy(P[1])).join(' '),fill:accent,'fill-opacity':0.18,stroke:accent,'stroke-width':1.5}));
+    const e1=T(1,0),e2=T(0,1); arrow(g,sc.sx(0),sc.sy(0),sc.sx(e1[0]),sc.sy(e1[1]),accent,2.4); arrow(g,sc.sx(0),sc.sy(0),sc.sx(e2[0]),sc.sy(e2[1]),'#37b24d',2.4);
+    if(readout) readout.textContent='det = ad − bc = '+fmtNum(a*d-b*c)+'   (area of the shaded square)';
+    return;
+  }
+  // ---- descent: convex curve with a ball that steps downhill ----
+  if(kind==='descent'){
+    const fn=VIZ_FN.quadratic, p=spec.params||{a:0.5,b:0,c:0}; const xr=spec.domain||[-5,5];
+    let lo=Infinity,hi=-Infinity; for(let i=0;i<=60;i++){const y=fn(xr[0]+(xr[1]-xr[0])*i/60,p);lo=Math.min(lo,y);hi=Math.max(hi,y);} const yr=spec.yrange||[lo-0.5,hi*1.05];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    g.appendChild(svgEl('path',{d:vzPath(sc,fn,p,xr),fill:'none',stroke:l2,'stroke-width':2}));
+    if(st._x==null) st._x=(spec.start==null?-4:spec.start);
+    const x=st._x, y=fn(x,p); g.appendChild(svgEl('circle',{cx:sc.sx(x),cy:sc.sy(y),r:5.5,fill:accent}));
+    const slope=2*p.a*x+(p.b||0);
+    if(readout) readout.textContent='x = '+fmtNum(x)+',  loss = '+fmtNum(y)+',  slope = '+fmtNum(slope)+',  η = '+fmtNum(st.eta==null?0.1:st.eta);
+    return;
+  }
+}
+function descentStep(spec,st,draw,btn){
+  const p=spec.params||{a:0.5,b:0,c:0}; const eta=st.eta==null?0.1:st.eta;
+  if(st._x==null) st._x=(spec.start==null?-4:spec.start);
+  let i=0; const tick=()=>{ const slope=2*p.a*st._x+(p.b||0); st._x=st._x-eta*slope; draw(); i++;
+    if(i<12 && Math.abs(eta*slope)>0.002) requestAnimationFrame(()=>setTimeout(tick,90)); };
+  tick();
+}
 
 function gradeCurrent(q){
   const id=session.review[session.reviewIdx]; schedule(id,q,false);
@@ -927,8 +1123,9 @@ function renderReader(){
   }
   $("rdBody").innerHTML=body;
   // tap anywhere on the card to peel the next layer (links / buttons excepted)
-  $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')) return; rdRevealed++; renderReader(); }) : null;
+  $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')||e.target.closest('.kviz')) return; rdRevealed++; renderReader(); }) : null;
   renderMath($("rdBody"));
+  renderViz($("rdBody"));
   decorateGlossary($("rdBody"));
   // related-card chips (prereq / xref) navigate the reader to that card
   document.querySelectorAll("#rdBody .rdrel").forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); openReader(b.dataset.id); });
