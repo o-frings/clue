@@ -1611,6 +1611,231 @@
       "url": "https://www.3blue1brown.com/lessons/eigenvalues",
       "kind": "reference",
       "strength": "Defines Av=λv as the directions a transformation only scales, with the rotation/complex-eigenvalue caveat; canonical explainer of settled theory."
+    },
+    "ev-prob-basics": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Basic Probability",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/basic-probability/index.html",
+      "kind": "reference",
+      "strength": "Interactive visual probability textbook from Brown; introduces sample spaces and P=favourable/total. Expository teaching reference for settled definitions."
+    },
+    "ev-prob-rules": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Compound Probability",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/compound-probability/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive stats text; covers the addition/multiplication rules and independence with animations. Definitional, not contested."
+    },
+    "ev-prob-conditional": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Conditional probability",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Conditional_probability",
+      "kind": "reference",
+      "strength": "Tertiary encyclopaedia article giving the standard definition P(A|B)=P(A∩B)/P(B) and the prosecutor's-fallacy caveat. Settled maths; well-cited."
+    },
+    "ev-prob-bayes": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Bayesian Inference",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/bayesian-inference/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text on priors, likelihoods and posteriors; visualises updating. The theorem is proven; the frequentist/Bayesian interpretive split noted in the card is a real, live debate."
+    },
+    "ev-prob-random-variable": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Probability Distributions",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/probability-distributions/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text introducing random variables (discrete vs continuous) and their distributions. Expository, settled content."
+    },
+    "ev-prob-expectation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Expected value",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Expected_value",
+      "kind": "reference",
+      "strength": "Tertiary article giving E[X]=Σ xᵢpᵢ, the fair-die example and the utility caveat. Settled definition; heavily referenced."
+    },
+    "ev-prob-variance": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Variance",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Variance",
+      "kind": "reference",
+      "strength": "Tertiary article defining σ²=E[(X−μ)²] and its outlier-sensitivity. Settled maths; well-sourced to standard texts."
+    },
+    "ev-prob-distributions": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Probability Distributions",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/probability-distributions/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text covering the uniform, Bernoulli and binomial shapes with animated sampling. Definitional."
+    },
+    "ev-prob-normal": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Normal distribution",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Normal_distribution",
+      "kind": "reference",
+      "strength": "Tertiary article giving the Gaussian density, the 68–95 rule and the fat-tails caveat. Settled maths; extensively referenced."
+    },
+    "ev-stat-descriptive": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Median",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Median",
+      "kind": "reference",
+      "strength": "Tertiary article that directly contrasts mean vs median on skewed (e.g. income) data — the card's central point. Settled descriptive statistics."
+    },
+    "ev-stat-sampling": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Frequentist Inference",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/frequentist-inference/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text on estimating a population from a sample and how error shrinks with n. The 1936 Literary Digest bias example is a documented historical case."
+    },
+    "ev-stat-hypothesis": {
+      "who": "Wasserstein & Lazar / American Statistical Association",
+      "year": 2016,
+      "title": "ASA Statement on p-Values and Statistical Significance",
+      "where": "",
+      "url": "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+      "kind": "paper",
+      "strength": "The professional body's formal consensus statement; directly defines the p-value and lists its common misuses — primary authority for the card's caveat."
+    },
+    "ev-stat-confidence": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Frequentist Inference",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/frequentist-inference/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text visualising confidence intervals across repeated samples — exactly the long-run interpretation (vs the common misreading) the card flags."
+    },
+    "ev-stat-regression": {
+      "who": "Daniel Kunin et al. (Brown University)",
+      "year": 2018,
+      "title": "Seeing Theory — Regression Analysis",
+      "where": "",
+      "url": "https://seeing-theory.brown.edu/regression-analysis/index.html",
+      "kind": "reference",
+      "strength": "Brown's interactive text on least-squares regression, minimising squared residuals, with the line fitted live. Expository, settled method."
+    },
+    "ev-ml-what": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning — What is Machine Learning?",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+      "kind": "reference",
+      "strength": "Google's maintained ML course; frames a model as a learned function with parameters and notes data-driven bias. Authoritative practitioner reference."
+    },
+    "ev-ml-linear-regression": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning Crash Course — Linear Regression",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/crash-course/linear-regression",
+      "kind": "reference",
+      "strength": "Google's ML course chapter presenting ŷ as a weighted sum of features with learned weights and bias. Standard treatment."
+    },
+    "ev-ml-loss": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning Crash Course — Linear Regression: Loss",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/loss",
+      "kind": "reference",
+      "strength": "Google's ML course chapter defining MSE and why squaring penalises large errors. Standard, with the loss-choice caveat the card raises."
+    },
+    "ev-ml-gradient-descent": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning Crash Course — Linear Regression: Gradient Descent",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent",
+      "kind": "reference",
+      "strength": "Google's ML course chapter on the w ← w − η∇L update and the learning-rate trade-off, including local-minimum risk. Authoritative."
+    },
+    "ev-ml-logistic": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning Crash Course — Logistic Regression",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/crash-course/logistic-regression",
+      "kind": "reference",
+      "strength": "Google's ML course chapter on the sigmoid squashing a weighted sum into a 0–1 probability, plus calibration caveats. Standard treatment."
+    },
+    "ev-ml-perceptron": {
+      "who": "Michael Nielsen",
+      "year": 2015,
+      "title": "Neural Networks and Deep Learning — Ch. 1",
+      "where": "",
+      "url": "http://neuralnetworksanddeeplearning.com/chap1.html",
+      "kind": "book",
+      "strength": "Widely used free online book; Ch. 1 builds the perceptron and sigmoid neuron (weighted sum + activation) from scratch. Expository, with the loose brain-analogy caveat the card flags."
+    },
+    "ev-ml-neural-net": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2017,
+      "title": "Neural Networks — But what is a Neural Network?",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/neural-networks",
+      "kind": "reference",
+      "strength": "Canonical visual lesson showing a layer as a matrix multiply plus bias plus activation. Expository explainer; the universal-approximation point is a known existence result."
+    },
+    "ev-ml-backprop": {
+      "who": "Grant Sanderson (3Blue1Brown)",
+      "year": 2017,
+      "title": "Neural Networks — What is backpropagation really doing?",
+      "where": "",
+      "url": "https://www.3blue1brown.com/lessons/backpropagation",
+      "kind": "reference",
+      "strength": "Well-known visual lesson presenting backprop as the chain rule applied backward through layers. Expository; vanishing-gradient caveat is established."
+    },
+    "ev-ml-softmax-crossentropy": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Softmax function",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Softmax_function",
+      "kind": "reference",
+      "strength": "Tertiary article giving the softmax formula and its use as a normalised probability output (incl. the link to cross-entropy). Settled, well-referenced."
+    },
+    "ev-ml-overfitting": {
+      "who": "Google",
+      "year": 2024,
+      "title": "Machine Learning Crash Course — Overfitting",
+      "where": "",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+      "kind": "reference",
+      "strength": "Google's ML course chapter on overfitting, generalisation and held-out evaluation. Standard; the double-descent caveat the card adds is a recognised modern finding."
+    },
+    "ev-ml-attention": {
+      "who": "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin",
+      "year": 2017,
+      "title": "Attention Is All You Need",
+      "where": "",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "kind": "paper",
+      "strength": "The primary, foundational transformer paper (>100k citations); defines scaled dot-product attention softmax(QKᵀ/√d)V used by modern LLMs. The interpretability caveat cites Jain & Wallace (2019)."
     }
   }
 }

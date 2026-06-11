@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Canonical, machine-readable knowledge base for Clue. The app reads this for the explorative Feed, the immersive layered Reader, the Learn loop (Discover / Review / Quiz), the Library, and Debate mode. A few cards a day, remembered for good — starting at the very basics and going as deep as you like.",
     "version": 3,
-    "updated": "2026-06-09",
+    "updated": "2026-06-11",
     "status": "SEED CONTENT — hand-curated to exercise the engine, weighted toward foundations you can build on. Economics and political economy are presented as competing theories and traditions, not settled truth. Every card should be re-verified and the set expanded (target: hundreds of cards, many sourced to specific papers/books with working links).",
     "schema": {
       "fields": "ordered list for the Library + the Me radar; each {id,label,blurb,icon,color}.",
@@ -858,7 +858,7 @@
       "quiz": { "q": "The halting problem shows that…", "choices": ["Computers are slow", "No program can decide in general whether any program halts", "Binary is inefficient", "Algorithms always finish"], "answer": 1 }
     },
     {
-      "id": "stat-lln", "field": "math", "depth": "concept", "level": 1,
+      "id": "stat-lln", "field": "prob", "depth": "concept", "level": 1,
       "src": ["ev-stat-lln"],
       "title": "Law of large numbers (and the gambler's fallacy)",
       "fact": "Averages settle down over many trials — but a fair coin has no memory, so 'due' outcomes are a fallacy.",
@@ -870,7 +870,7 @@
       "quiz": { "q": "After five tails in a row, the chance of heads on a fair coin is…", "choices": ["Higher — it's 'due'", "Still 50%", "Lower", "Impossible to say"], "answer": 1 }
     },
     {
-      "id": "stat-clt", "field": "math", "depth": "concept", "level": 2,
+      "id": "stat-clt", "field": "prob", "depth": "concept", "level": 2,
       "prereq": ["stat-lln"],
       "src": ["ev-stat-clt"],
       "title": "The central limit theorem",
@@ -883,7 +883,7 @@
       "quiz": { "q": "The central limit theorem says sums of many independent effects tend toward a…", "choices": ["Flat line", "Normal (bell) curve", "Power law", "Single value"], "answer": 1 }
     },
     {
-      "id": "stat-correlation", "field": "math", "depth": "concept", "level": 2,
+      "id": "stat-correlation", "field": "prob", "depth": "concept", "level": 2,
       "prereq": ["math-simpson"],
       "src": ["ev-stat-correlation"],
       "title": "Correlation isn't causation",
@@ -3377,6 +3377,1280 @@
           "λv (v scaled)",
           "Zero always",
           "v rotated 90°"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-basics",
+      "src": ["ev-prob-basics"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 1,
+      "title": "Probability: a number from 0 to 1",
+      "fact": "A probability scores how likely something is, from 0 (never) to 1 (certain).",
+      "detail": "List everything that could happen — the 'sample space'. If each outcome is equally likely, the probability of an event is just the share that counts as a success: \\(P(A) = \\frac{\\text{favourable outcomes}}{\\text{all outcomes}}\\). A fair die has six faces, so \\(P(\\text{roll a 4}) = \\tfrac{1}{6}\\). 0 means impossible, 1 means certain, and 0.5 is an even chance. Everything else in probability builds on this.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "labels": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "caption": "A fair die: six equally likely outcomes, each 1/6."
+        }
+      ],
+      "deploy": "Turns vague talk of 'likely' and 'rare' into a number you can compare and combine.",
+      "counter": "The 'equally likely' shortcut only works for symmetric setups like dice; for real events (rain tomorrow) probability means a long-run frequency or a degree of belief — a split between the frequentist and Bayesian schools.",
+      "tags": [
+        "probability",
+        "basics",
+        "sample space"
+      ],
+      "xref": [
+        "prob-conditional",
+        "stat-lln"
+      ],
+      "quiz": {
+        "q": "A probability of 1 means an event is…",
+        "choices": [
+          "Impossible",
+          "An even chance",
+          "Certain",
+          "Unlikely"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "prob-rules",
+      "src": ["ev-prob-rules"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-basics"
+      ],
+      "title": "Adding and multiplying probabilities",
+      "fact": "Use OR to add chances, AND to multiply them.",
+      "detail": "For the chance of A or B, add — then subtract the overlap so it isn't counted twice: \\(P(A\\text{ or }B) = P(A) + P(B) - P(A\\text{ and }B)\\). For A and B both happening, multiply — and if they're independent (one doesn't affect the other), it's simply \\(P(A\\text{ and }B) = P(A)\\,P(B)\\). Two fair coins both landing heads: \\(\\tfrac12 \\times \\tfrac12 = \\tfrac14\\).",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "P(A\\text{ and }B) = P(A)\\,P(B)\\quad(\\text{if independent})",
+          "plain": "P(A and B) = P(A)·P(B)  (if independent)",
+          "say": "the chance of both, when neither affects the other, is the two chances multiplied.",
+          "caption": "Independent events: multiply."
+        }
+      ],
+      "deploy": "Lets you build the odds of complex events from simple ones.",
+      "counter": "The multiply rule fails when events are linked: P(rain) and P(I carry an umbrella) aren't independent, so multiplying understates the truth.",
+      "tags": [
+        "probability",
+        "rules",
+        "independence"
+      ],
+      "xref": [
+        "prob-conditional"
+      ],
+      "quiz": {
+        "q": "For two independent events, P(A and B) equals…",
+        "choices": [
+          "P(A) + P(B)",
+          "P(A) − P(B)",
+          "P(A) × P(B)",
+          "P(A) / P(B)"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "prob-conditional",
+      "src": ["ev-prob-conditional"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-rules"
+      ],
+      "title": "Conditional probability: given that…",
+      "fact": "The probability of A changes once you know B has happened.",
+      "detail": "Written \\(P(A \\mid B)\\) — 'the probability of A given B' — it narrows the world to the cases where B is true: \\(P(A \\mid B) = \\frac{P(A\\text{ and }B)}{P(B)}\\). Knowing it rained (B) changes the chance the ground is wet (A). When \\(P(A \\mid B) = P(A)\\), knowing B told you nothing — that's exactly what independence means.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "P(A \\mid B) = \\frac{P(A\\text{ and }B)}{P(B)}",
+          "plain": "P(A | B) = P(A and B) / P(B)",
+          "say": "the chance of A given B is the chance of both, divided by the chance of B.",
+          "caption": "Restrict the world to the cases where B happened."
+        }
+      ],
+      "deploy": "The formal way to update a probability when new information arrives.",
+      "counter": "People routinely confuse P(A|B) with P(B|A) — the 'prosecutor's fallacy'; the chance of a match given innocence is not the chance of innocence given a match.",
+      "tags": [
+        "probability",
+        "conditional",
+        "independence"
+      ],
+      "xref": [
+        "prob-bayes",
+        "math-base-rate"
+      ],
+      "quiz": {
+        "q": "P(A | B) is read as…",
+        "choices": [
+          "A or B",
+          "A and B",
+          "A given B",
+          "A times B"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "prob-bayes",
+      "src": ["ev-prob-bayes"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "prob-conditional"
+      ],
+      "title": "Bayes' theorem: updating beliefs with evidence",
+      "fact": "Bayes' rule flips a conditional probability — turning a test result into an updated belief.",
+      "detail": "It connects \\(P(H \\mid E)\\) (a hypothesis given the evidence) to \\(P(E \\mid H)\\) (the evidence given the hypothesis): \\(P(H \\mid E) = \\frac{P(E \\mid H)\\,P(H)}{P(E)}\\). The starting belief \\(P(H)\\) is the 'prior'; the answer \\(P(H \\mid E)\\) is the 'posterior'. Its sting is the base rate: a 99%-accurate test for a disease that 1 in 1000 people have still gives mostly false alarms, because healthy people vastly outnumber sick ones.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "P(H \\mid E) = \\frac{P(E \\mid H)\\,P(H)}{P(E)}",
+          "plain": "P(H | E) = P(E | H)·P(H) / P(E)",
+          "say": "the updated belief is the evidence's likelihood times the prior, divided by how likely the evidence was overall.",
+          "caption": "Prior belief × evidence → updated (posterior) belief."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            0.01,
+            0.16
+          ],
+          "labels": [
+            "before test",
+            "after + test"
+          ],
+          "caption": "A rare disease (1%): even a positive test leaves you far from certain."
+        }
+      ],
+      "deploy": "The engine of rational updating — and of spam filters, medical screening and Bayesian machine learning.",
+      "counter": "Bayesians treat the prior as a real degree of belief to be updated; frequentists object that priors are subjective. The maths is agreed; what a probability *means* is not.",
+      "tags": [
+        "bayes",
+        "probability",
+        "inference"
+      ],
+      "xref": [
+        "math-base-rate",
+        "prob-conditional"
+      ],
+      "quiz": {
+        "q": "In Bayes' theorem, the starting belief P(H) before seeing evidence is the…",
+        "choices": [
+          "Posterior",
+          "Prior",
+          "Likelihood",
+          "Margin"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-random-variable",
+      "src": ["ev-prob-random-variable"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-basics"
+      ],
+      "title": "Random variables: numbers from chance",
+      "fact": "A random variable attaches a number to each uncertain outcome.",
+      "detail": "Call it \\(X\\). For one die roll, \\(X\\) is the face shown; for a coin, you might set heads \\(= 1\\), tails \\(= 0\\). A discrete random variable takes separate values (0, 1, 2…); a continuous one can be any value in a range (a height, a wait time). Its 'distribution' lists how much probability sits on each value — the bridge from single outcomes to averages and spread.",
+      "deploy": "Lets you do arithmetic — averages, sums, spreads — on the outcomes of chance.",
+      "counter": "The number you assign is a modelling choice: coding categories as 1, 2, 3 can smuggle in a false sense that the gaps between them are equal.",
+      "tags": [
+        "random variable",
+        "probability",
+        "distribution"
+      ],
+      "xref": [
+        "prob-expectation",
+        "prob-distributions"
+      ],
+      "quiz": {
+        "q": "A random variable that can take any value in a range is…",
+        "choices": [
+          "Discrete",
+          "Continuous",
+          "Constant",
+          "Binary"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-expectation",
+      "src": ["ev-prob-expectation"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-random-variable",
+        "math-summation"
+      ],
+      "title": "Expected value: the long-run average",
+      "fact": "The expected value is the average you'd get from many repeats — each outcome weighted by its probability.",
+      "detail": "Multiply each value by its probability and add: \\(E[X] = \\sum_i x_i\\,p_i\\). A fair die's expected roll is \\(\\tfrac16(1+2+\\dots+6) = 3.5\\) — a value you can never actually roll, but the long-run average. It's the foundation of fair prices, insurance and betting: a bet is 'fair' when its expected gain is zero.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "E[X] = \\sum_i x_i\\,p_i",
+          "plain": "E[X] = Σ xᵢ·pᵢ",
+          "say": "the expected value is each outcome times its probability, all added up.",
+          "caption": "Each outcome, weighted by how likely it is."
+        }
+      ],
+      "deploy": "The single best summary of a random quantity — and the thing rational decisions try to maximise.",
+      "counter": "Expected value ignores risk: a 1-in-a-million shot at a billion has a high expectation, but few would stake their house on it. That gap is why utility, not raw money, often guides choices.",
+      "tags": [
+        "expectation",
+        "mean",
+        "probability"
+      ],
+      "xref": [
+        "prob-variance",
+        "stat-descriptive"
+      ],
+      "quiz": {
+        "q": "The expected value of a fair six-sided die is…",
+        "choices": [
+          "3",
+          "3.5",
+          "4",
+          "6"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-variance",
+      "src": ["ev-prob-variance"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "prob-expectation"
+      ],
+      "title": "Variance and standard deviation: the spread",
+      "fact": "Variance measures how far outcomes typically stray from the average.",
+      "detail": "Take each value's distance from the mean \\(\\mu\\), square it (so positives and negatives don't cancel), and average: \\(\\sigma^2 = E[(X-\\mu)^2]\\). The standard deviation \\(\\sigma = \\sqrt{\\sigma^2}\\) brings it back to the original units. Two classes can share a mean score of 60 yet feel completely different — one tightly bunched, the other spread from 20 to 95. That difference is the standard deviation.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\sigma^2 = E\\big[(X-\\mu)^2\\big]",
+          "plain": "σ² = E[(X − μ)²]",
+          "say": "variance is the average squared distance from the mean.",
+          "caption": "Square the distances from the mean, then average."
+        }
+      ],
+      "deploy": "Quantifies risk, noise and consistency — the second number (after the mean) you reach for.",
+      "counter": "Squaring makes variance hypersensitive to outliers; a single freak value can dominate it, which is why robust measures (like the interquartile range) are sometimes preferred.",
+      "tags": [
+        "variance",
+        "standard deviation",
+        "spread"
+      ],
+      "xref": [
+        "prob-normal",
+        "stat-clt"
+      ],
+      "quiz": {
+        "q": "The standard deviation is the…",
+        "choices": [
+          "Square of the variance",
+          "Square root of the variance",
+          "Mean of the data",
+          "Largest value"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-distributions",
+      "src": ["ev-prob-distributions"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-random-variable"
+      ],
+      "title": "Distributions: uniform, Bernoulli, binomial",
+      "fact": "A distribution is the shape of how probability is spread across outcomes.",
+      "detail": "A few shapes recur everywhere. The uniform puts equal weight on each outcome (a fair die). The Bernoulli is a single yes/no trial with success probability \\(p\\) (one coin flip). The binomial counts successes in \\(n\\) independent trials — flip 4 coins and the number of heads follows it, peaking in the middle. Recognising the shape tells you what to expect.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            0.0625,
+            0.25,
+            0.375,
+            0.25,
+            0.0625
+          ],
+          "labels": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "caption": "Heads in 4 coin flips (binomial): the middle is likeliest."
+        }
+      ],
+      "deploy": "Names the common patterns so you can pick the right model instead of starting from scratch.",
+      "counter": "Reaching for a textbook distribution can impose a shape the data doesn't have — real counts are often more skewed or heavy-tailed than the binomial or normal assume.",
+      "tags": [
+        "distribution",
+        "binomial",
+        "bernoulli"
+      ],
+      "xref": [
+        "prob-normal",
+        "prob-expectation"
+      ],
+      "quiz": {
+        "q": "The number of heads in several independent coin flips follows the…",
+        "choices": [
+          "Uniform distribution",
+          "Binomial distribution",
+          "Normal distribution",
+          "Bernoulli distribution"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "prob-normal",
+      "src": ["ev-prob-normal"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "prob-variance"
+      ],
+      "title": "The normal (Gaussian) distribution",
+      "fact": "The bell curve: a smooth hump set by just two numbers — its mean and its spread.",
+      "detail": "The normal distribution's density is \\(f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\,e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\\). The mean \\(\\mu\\) slides the peak left or right; the standard deviation \\(\\sigma\\) makes it wide or narrow. About 68% of values land within one \\(\\sigma\\) of the mean, 95% within two. It appears so often because sums of many small independent effects tend toward it — the reason it underpins so much of statistics.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "gaussian",
+          "controls": [
+            {
+              "name": "mu",
+              "min": -3,
+              "max": 3,
+              "step": 0.5,
+              "value": 0,
+              "label": "mean μ"
+            },
+            {
+              "name": "sigma",
+              "min": 0.4,
+              "max": 2.5,
+              "step": 0.1,
+              "value": 1,
+              "label": "spread σ"
+            }
+          ],
+          "domain": [
+            -6,
+            6
+          ],
+          "shade": true,
+          "caption": "Slide μ to move the peak, σ to widen or narrow it."
+        }
+      ],
+      "deploy": "The default model for measurement error, natural variation and sample averages.",
+      "counter": "Assuming normality is dangerous in the tails: finance learned in 2008 that 'impossible' extreme moves happen far more often than the bell curve allows (fat tails).",
+      "tags": [
+        "normal",
+        "gaussian",
+        "bell curve"
+      ],
+      "xref": [
+        "stat-clt",
+        "prob-variance"
+      ],
+      "quiz": {
+        "q": "Two numbers fully define a normal distribution: the mean and the…",
+        "choices": [
+          "Median",
+          "Standard deviation",
+          "Maximum",
+          "Count"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-descriptive",
+      "src": ["ev-stat-descriptive"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 1,
+      "title": "Mean, median, and mode",
+      "fact": "Three ways to name the 'typical' value — and they can tell different stories.",
+      "detail": "The mean is the arithmetic average (add up, divide by how many). The median is the middle value when sorted. The mode is the most common value. They agree for symmetric data, but a few extreme values pull the mean while leaving the median put: most people earn below the mean income, because a handful of huge earners drag the average up. The median is the fairer 'typical' there.",
+      "deploy": "The first summary of any dataset — and choosing mean vs median can change the headline.",
+      "counter": "Any single number hides the shape: the same mean can describe steady data or wildly volatile data. Always ask about spread too.",
+      "tags": [
+        "mean",
+        "median",
+        "statistics"
+      ],
+      "xref": [
+        "prob-expectation",
+        "prob-variance"
+      ],
+      "quiz": {
+        "q": "For incomes with a few very high earners, the 'typical' value is best given by the…",
+        "choices": [
+          "Mean",
+          "Median",
+          "Maximum",
+          "Sum"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-sampling",
+      "src": ["ev-stat-sampling"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "stat-descriptive"
+      ],
+      "title": "Population vs sample: estimating from a piece",
+      "fact": "Statistics infers the whole from a part — and a biased part lies.",
+      "detail": "You rarely measure everyone (the 'population'), so you take a 'sample' and estimate. The catch is sampling error: any sample differs from the whole by chance, and that wobble shrinks roughly as \\(1/\\sqrt{n}\\) — to halve the error you need four times the data. Worse than random error is bias: a sample that systematically over-represents some group. The 1936 Literary Digest poll surveyed millions yet called the US election wrongly, because its phone-and-car owners skewed wealthy.",
+      "deploy": "The basis of all polling, testing and science: how to learn about the many from the few.",
+      "counter": "A bigger sample cuts random error but not bias — a huge skewed sample is confidently wrong. Size is no substitute for representativeness.",
+      "tags": [
+        "sampling",
+        "bias",
+        "statistics"
+      ],
+      "xref": [
+        "stat-clt",
+        "stat-hypothesis"
+      ],
+      "quiz": {
+        "q": "To halve a sample's random error, you roughly need to…",
+        "choices": [
+          "Double the sample",
+          "Quadruple the sample",
+          "Add 50%",
+          "Nothing — size doesn't matter"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-hypothesis",
+      "src": ["ev-stat-hypothesis"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "stat-sampling"
+      ],
+      "title": "Hypothesis testing and the p-value",
+      "fact": "A p-value asks: if nothing were going on, how surprising would this data be?",
+      "detail": "Start with a 'null hypothesis' — no effect. The p-value is the probability of seeing data at least this extreme if the null were true. A small p (often \\(p < 0.05\\)) means the data would be surprising under 'no effect', so researchers reject the null. It does not give the probability that the hypothesis is true, nor the size or importance of an effect.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "p = P(\\text{data this extreme} \\mid \\text{null is true})",
+          "plain": "p = P(data this extreme | null hypothesis true)",
+          "say": "the p-value is the chance of data this extreme, assuming nothing is going on.",
+          "caption": "Small p → the data is surprising if there's really no effect."
+        }
+      ],
+      "deploy": "The standard gatekeeper for 'is this result more than noise?' across the sciences.",
+      "counter": "The American Statistical Association warned in 2016 that p-values are widely misused: p < 0.05 is an arbitrary line, says nothing about effect size, and 'p-hacking' can manufacture it. A small p is not proof.",
+      "tags": [
+        "p-value",
+        "hypothesis testing",
+        "statistics"
+      ],
+      "xref": [
+        "stat-confidence",
+        "stat-correlation"
+      ],
+      "quiz": {
+        "q": "A small p-value means the data would be… if the null hypothesis were true.",
+        "choices": [
+          "Expected",
+          "Surprising",
+          "Impossible",
+          "Certain"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-confidence",
+      "src": ["ev-stat-confidence"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "stat-sampling"
+      ],
+      "title": "Confidence intervals: the margin of error",
+      "fact": "A confidence interval reports a range for an estimate, not a single false-precise number.",
+      "detail": "Rather than '52% support', a poll says '52% ± 3%'. The 95% confidence interval is built so that, across many repeated samples, about 95% of such intervals would contain the true value. A wider interval means more uncertainty; more data narrows it. It keeps you honest about how much the single estimate could be off.",
+      "deploy": "Communicates uncertainty alongside an estimate — essential for reading polls and studies.",
+      "counter": "The 95% refers to the long-run behaviour of the method, not to one interval: it's wrong to say 'there's a 95% chance the truth is in this particular range' — a subtlety frequentists stress and Bayesians sidestep with credible intervals.",
+      "tags": [
+        "confidence interval",
+        "uncertainty",
+        "statistics"
+      ],
+      "xref": [
+        "stat-hypothesis",
+        "stat-sampling"
+      ],
+      "quiz": {
+        "q": "A wider confidence interval indicates…",
+        "choices": [
+          "More certainty",
+          "More uncertainty",
+          "A larger sample",
+          "A bigger effect"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-regression",
+      "src": ["ev-stat-regression"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-linear-equation",
+        "la-norm"
+      ],
+      "title": "Least-squares regression: the best-fit line",
+      "fact": "Regression draws the straight line that comes closest to a cloud of points.",
+      "detail": "Fit \\(\\hat{y} = \\beta_0 + \\beta_1 x\\) — an intercept and a slope — to data. 'Closest' means smallest total squared vertical gap between the line and the points: minimise \\(\\sum_i (y_i - \\hat{y}_i)^2\\). The slope \\(\\beta_1\\) estimates how much \\(y\\) rises per unit of \\(x\\). This is the workhorse of empirical science and the simplest machine-learning model there is.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              2.1
+            ],
+            [
+              2,
+              2.7
+            ],
+            [
+              3,
+              3.4
+            ],
+            [
+              4,
+              3.8
+            ],
+            [
+              5,
+              4.9
+            ],
+            [
+              6,
+              5.3
+            ]
+          ],
+          "fit": true,
+          "caption": "The line that minimises the total squared gap to the points."
+        }
+      ],
+      "deploy": "The standard tool for measuring how one quantity moves with another, and predicting from it.",
+      "counter": "A fitted line can mislead: it assumes a straight relationship, is dragged by outliers, and — as the correlation/causation card warns — a good fit never proves x causes y.",
+      "tags": [
+        "regression",
+        "least squares",
+        "statistics"
+      ],
+      "xref": [
+        "stat-correlation",
+        "ml-linear-regression"
+      ],
+      "quiz": {
+        "q": "Least-squares regression chooses the line that minimises the total…",
+        "choices": [
+          "Number of points",
+          "Squared vertical distance to the points",
+          "Slope",
+          "Horizontal distance"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-what",
+      "src": ["ev-ml-what"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "math-function",
+        "la-vector"
+      ],
+      "title": "Machine learning: fitting a function to data",
+      "fact": "Instead of writing the rule by hand, you let the machine find a function that fits examples.",
+      "detail": "A model is a function \\(f\\) with adjustable numbers inside it, called parameters (or weights). 'Training' means tuning those numbers until \\(f\\) maps inputs to the right outputs on example data — learning the rule from cases rather than being told it. Show it thousands of labelled photos and it adjusts its weights until it separates cats from dogs. The input is a vector of features; the output is a prediction.",
+      "deploy": "The core idea behind modern AI: learn the function from data instead of programming it.",
+      "counter": "A model only learns patterns present in its training data — including the biases and gaps in that data, which it will faithfully reproduce and even amplify.",
+      "tags": [
+        "machine learning",
+        "model",
+        "training"
+      ],
+      "xref": [
+        "ml-linear-regression",
+        "ml-loss"
+      ],
+      "quiz": {
+        "q": "In machine learning, 'training' adjusts a model's…",
+        "choices": [
+          "Inputs",
+          "Parameters (weights)",
+          "Outputs",
+          "Hardware"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-linear-regression",
+      "src": ["ev-ml-linear-regression"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "stat-regression",
+        "la-dot-product"
+      ],
+      "title": "Linear regression as your first model",
+      "fact": "Predict with a weighted sum of the inputs: ŷ = w·x + b.",
+      "detail": "Give each input feature a weight, multiply, add, and add a bias: \\(\\hat{y} = \\vec{w}\\cdot\\vec{x} + b\\). That dot product is the whole model — a price predicted from size, location and age is just their weighted sum. 'Learning' means finding the weights \\(\\vec{w}\\) and bias \\(b\\) that fit the data best. Simple, fast, and the template every fancier model extends.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\hat{y} = \\vec{w}\\cdot\\vec{x} + b",
+          "plain": "ŷ = w·x + b",
+          "say": "the prediction is the weights dotted with the inputs, plus a bias.",
+          "caption": "A prediction is a weighted sum of the features."
+        },
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              1.5
+            ],
+            [
+              2,
+              2.4
+            ],
+            [
+              3,
+              2.6
+            ],
+            [
+              4,
+              3.7
+            ],
+            [
+              5,
+              4.0
+            ],
+            [
+              6,
+              5.1
+            ]
+          ],
+          "fit": true,
+          "caption": "One feature: the model is just the best-fit line."
+        }
+      ],
+      "deploy": "The clearest place to see what 'a model' and 'weights' actually mean before things get deep.",
+      "counter": "A straight weighted sum can't capture curves or interactions; its honesty about that limit is also why it rarely overfits and stays easy to interpret.",
+      "tags": [
+        "linear regression",
+        "weights",
+        "model"
+      ],
+      "xref": [
+        "ml-loss",
+        "la-dot-product"
+      ],
+      "quiz": {
+        "q": "In ŷ = w·x + b, the vector w holds the…",
+        "choices": [
+          "Inputs",
+          "Weights",
+          "Outputs",
+          "Errors"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-loss",
+      "src": ["ev-ml-loss"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "ml-linear-regression",
+        "math-summation"
+      ],
+      "title": "The loss function: scoring how wrong you are",
+      "fact": "A loss function turns 'how bad is this model?' into a single number to minimise.",
+      "detail": "Compare each prediction \\(\\hat{y}_i\\) to the truth \\(y_i\\), and summarise the misses in one number. The common choice for regression is the mean squared error: \\(L = \\frac{1}{n}\\sum_i (\\hat{y}_i - y_i)^2\\). Squaring punishes big mistakes harder and keeps the loss positive. Training becomes a clear goal: choose the weights that make this number as small as possible.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "L = \\frac{1}{n}\\sum_i (\\hat{y}_i - y_i)^2",
+          "plain": "L = (1/n) Σ (ŷᵢ − yᵢ)²",
+          "say": "the loss is the average of the squared gaps between prediction and truth.",
+          "caption": "Mean squared error: average of the squared misses."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "quadratic",
+          "params": {
+            "a": 0.6,
+            "b": -1.2,
+            "c": 1.2
+          },
+          "domain": [
+            -2,
+            4
+          ],
+          "yrange": [
+            0,
+            4
+          ],
+          "caption": "Loss as the weight changes: a valley to roll into."
+        }
+      ],
+      "deploy": "Defines 'best' precisely, so training is just minimising one number.",
+      "counter": "The loss you pick is a value judgement: squared error chases outliers, while other losses (absolute error, cross-entropy) reward different behaviour — optimise the wrong loss and you get the wrong model.",
+      "tags": [
+        "loss",
+        "cost function",
+        "training"
+      ],
+      "xref": [
+        "ml-gradient-descent",
+        "math-quadratic"
+      ],
+      "quiz": {
+        "q": "Mean squared error squares the errors mainly to…",
+        "choices": [
+          "Make them negative",
+          "Punish big mistakes more and stay positive",
+          "Speed up the computer",
+          "Remove the mean"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-gradient-descent",
+      "src": ["ev-ml-gradient-descent"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "math-gradient",
+        "ml-loss"
+      ],
+      "title": "Gradient descent: rolling downhill to the best fit",
+      "fact": "Take small steps in the downhill direction of the loss until you reach the bottom.",
+      "detail": "The gradient \\(\\nabla L\\) points uphill on the loss surface, so step the opposite way: \\(\\vec{w} \\leftarrow \\vec{w} - \\eta\\,\\nabla L\\). The learning rate \\(\\eta\\) sets the step size — too small and training crawls, too large and it overshoots and diverges. Repeat, and the weights roll down into a valley of low loss. This one rule trains almost every model in modern machine learning.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\vec{w} \\leftarrow \\vec{w} - \\eta\\,\\nabla L",
+          "plain": "w ← w − η·∇L",
+          "say": "new weights equal old weights minus the learning rate times the uphill gradient.",
+          "caption": "Step against the gradient — downhill on the loss."
+        },
+        {
+          "type": "plot",
+          "kind": "descent",
+          "params": {
+            "a": 0.4,
+            "b": 0,
+            "c": 1
+          },
+          "start": -4.2,
+          "domain": [
+            -5,
+            5
+          ],
+          "controls": [
+            {
+              "name": "eta",
+              "min": 0.05,
+              "max": 0.95,
+              "step": 0.05,
+              "value": 0.2,
+              "label": "rate η"
+            }
+          ],
+          "caption": "Press step: the ball rolls toward the minimum. Try a big η."
+        }
+      ],
+      "deploy": "The universal training algorithm — understand this and you understand how models learn.",
+      "counter": "On a bumpy, non-convex loss it can stall in a local dip or a saddle far from the best solution; momentum and adaptive methods (like Adam) are patches for that, not cures.",
+      "tags": [
+        "gradient descent",
+        "optimisation",
+        "learning rate"
+      ],
+      "xref": [
+        "math-gradient",
+        "ml-backprop"
+      ],
+      "quiz": {
+        "q": "Gradient descent updates weights by stepping…",
+        "choices": [
+          "Along the gradient (uphill)",
+          "Against the gradient (downhill)",
+          "Randomly",
+          "To zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-logistic",
+      "src": ["ev-ml-logistic"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "ml-linear-regression"
+      ],
+      "title": "Logistic regression and the sigmoid",
+      "fact": "Squash a weighted sum through an S-curve to get a probability between 0 and 1.",
+      "detail": "For yes/no questions you want a probability, not an unbounded number. The sigmoid \\(\\sigma(z) = \\frac{1}{1 + e^{-z}}\\) takes any value and bends it into the range 0 to 1: large positive \\(z\\) → near 1, large negative → near 0, zero → exactly 0.5. Feed it the weighted sum \\(z = \\vec{w}\\cdot\\vec{x} + b\\) and you have logistic regression — a classifier that outputs calibrated probabilities.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "sigmoid",
+          "controls": [
+            {
+              "name": "k",
+              "min": 0.3,
+              "max": 4,
+              "step": 0.1,
+              "value": 1,
+              "label": "steepness k"
+            }
+          ],
+          "domain": [
+            -6,
+            6
+          ],
+          "yrange": [
+            -0.05,
+            1.05
+          ],
+          "caption": "The sigmoid squashes any number into a 0–1 probability."
+        }
+      ],
+      "deploy": "The standard way to turn a score into a probability — and the classic activation in a neuron.",
+      "counter": "Its probabilities are only as honest as the model: a confident sigmoid output can still be badly miscalibrated if the features or data are skewed.",
+      "tags": [
+        "logistic regression",
+        "sigmoid",
+        "classification"
+      ],
+      "xref": [
+        "ml-perceptron",
+        "ml-softmax-crossentropy"
+      ],
+      "quiz": {
+        "q": "The sigmoid function maps any input to a value between…",
+        "choices": [
+          "−1 and 1",
+          "0 and 1",
+          "0 and 100",
+          "−∞ and ∞"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-perceptron",
+      "src": ["ev-ml-perceptron"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "ml-logistic",
+        "la-dot-product"
+      ],
+      "title": "The artificial neuron",
+      "fact": "A neuron weighs its inputs, adds them up, and fires through an activation function.",
+      "detail": "The basic unit: take inputs \\(\\vec{x}\\), weight and sum them with a bias, then pass the result through a non-linear activation: \\(y = \\sigma(\\vec{w}\\cdot\\vec{x} + b)\\). The weighted sum is a dot product; the activation (a sigmoid, or today usually a ReLU) lets the unit bend, not just draw a straight line. One neuron is a tiny logistic regression — the Lego brick everything bigger is built from.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "y = \\sigma\\!\\left(\\vec{w}\\cdot\\vec{x} + b\\right)",
+          "plain": "y = σ(w·x + b)",
+          "say": "the output is the activation of the weighted sum of inputs plus a bias.",
+          "caption": "Weigh, sum, then squash: one artificial neuron."
+        }
+      ],
+      "deploy": "The atom of neural networks — every deep model is millions of these wired together.",
+      "counter": "The brain analogy is loose marketing: a biological neuron is vastly more complex, and this unit is better understood as a tunable mathematical function than as a model of a cell.",
+      "tags": [
+        "perceptron",
+        "neuron",
+        "activation"
+      ],
+      "xref": [
+        "ml-neural-net",
+        "ml-logistic"
+      ],
+      "quiz": {
+        "q": "An artificial neuron applies an activation function to the…",
+        "choices": [
+          "Raw inputs",
+          "Weighted sum of inputs plus bias",
+          "Output label",
+          "Learning rate"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-neural-net",
+      "src": ["ev-ml-neural-net"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "ml-perceptron",
+        "la-matrix-vector"
+      ],
+      "title": "A neural network: layers of neurons",
+      "fact": "Stack neurons into layers and a network becomes matrices squashed through activations.",
+      "detail": "A layer computes many neurons at once: collect their weights into a matrix \\(W\\) and the whole layer is \\(\\vec{h} = \\sigma(W\\vec{x} + \\vec{b})\\) — a matrix-vector product, then an activation, applied entry by entry. Stack layers and the output of one feeds the next. Without the non-linear activations the stack would collapse into a single linear map; with them, the network can approximate almost any function. This is deep learning's core.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\vec{h} = \\sigma\\!\\left(W\\vec{x} + \\vec{b}\\right)",
+          "plain": "h = σ(W·x + b)",
+          "say": "a layer is the activation of a matrix times the inputs, plus a bias vector.",
+          "caption": "One layer: a matrix multiply, a bias, then a squash."
+        }
+      ],
+      "deploy": "Explains why linear algebra and calculus are the language of AI: a net is matrices and activations composed.",
+      "counter": "'Can approximate any function' is an existence result, not a recipe — it says nothing about how much data, compute, or luck it takes to actually find the right weights.",
+      "tags": [
+        "neural network",
+        "deep learning",
+        "layers"
+      ],
+      "xref": [
+        "la-matrix-mult",
+        "ml-backprop"
+      ],
+      "quiz": {
+        "q": "A neural-network layer is essentially a matrix multiply followed by…",
+        "choices": [
+          "Another matrix",
+          "A non-linear activation",
+          "A sort",
+          "Nothing"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-backprop",
+      "src": ["ev-ml-backprop"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "math-chain-rule",
+        "ml-gradient-descent",
+        "ml-neural-net"
+      ],
+      "title": "Backpropagation: the chain rule that trains the net",
+      "fact": "Backprop sends the error backwards through the layers to find every weight's gradient.",
+      "detail": "Gradient descent needs the gradient of the loss with respect to every weight — and a deep net has millions. Backpropagation computes them all efficiently by applying the chain rule layer by layer, from the output error back toward the input. Each layer passes the blame for the error to the one before it. It's just the chain rule, organised — and its rediscovery in the 1980s is what made training deep networks practical.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\frac{\\partial L}{\\partial w} = \\frac{\\partial L}{\\partial \\hat{y}}\\cdot\\frac{\\partial \\hat{y}}{\\partial w}",
+          "plain": "∂L/∂w = (∂L/∂ŷ)·(∂ŷ/∂w)",
+          "say": "a weight's effect on the loss is the chain of how it changes the output, times how that changes the loss.",
+          "caption": "The chain rule, applied backwards through every layer."
+        }
+      ],
+      "deploy": "The reason deep networks are trainable at all — the algorithm that powers the whole field.",
+      "counter": "Backprop finds gradients, not good solutions: it can suffer vanishing or exploding gradients in deep stacks, which architectures (ReLUs, residual connections, normalisation) were invented to tame.",
+      "tags": [
+        "backpropagation",
+        "chain rule",
+        "training"
+      ],
+      "xref": [
+        "math-chain-rule",
+        "ml-gradient-descent"
+      ],
+      "quiz": {
+        "q": "Backpropagation is fundamentally an application of the…",
+        "choices": [
+          "Quadratic formula",
+          "Chain rule",
+          "Dot product",
+          "Central limit theorem"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-softmax-crossentropy",
+      "src": ["ev-ml-softmax-crossentropy"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "ml-logistic",
+        "math-log"
+      ],
+      "title": "Softmax and cross-entropy",
+      "fact": "Softmax turns a list of scores into probabilities that sum to 1; cross-entropy scores how good they are.",
+      "detail": "For many classes, softmax exponentiates each score and divides by the total: \\(\\text{softmax}(z)_i = \\frac{e^{z_i}}{\\sum_j e^{z_j}}\\). The biggest score gets the most probability, but all stay positive and sum to 1. Cross-entropy then measures the gap from the true label — heavily punishing confident wrong answers via the logarithm. Together they are the standard output and loss for classification, from image labels to the next-word predictions of a language model.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\text{softmax}(z)_i = \\frac{e^{z_i}}{\\sum_j e^{z_j}}",
+          "plain": "softmax(z)ᵢ = e^{zᵢ} / Σⱼ e^{zⱼ}",
+          "say": "each score is exponentiated, then divided by the total — giving probabilities that add to one.",
+          "caption": "Scores in, probabilities (summing to 1) out."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            3.1,
+            1.0,
+            2.2,
+            0.3
+          ],
+          "labels": [
+            "cat",
+            "dog",
+            "fox",
+            "owl"
+          ],
+          "softmax": true,
+          "caption": "Raw scores → softmax probabilities that sum to 1."
+        }
+      ],
+      "deploy": "The standard final layer of a classifier — including the token probabilities an LLM samples from.",
+      "counter": "Softmax always returns a confident-looking distribution even on nonsense input; it never says 'none of the above', which is one root of AI models' overconfidence.",
+      "tags": [
+        "softmax",
+        "cross-entropy",
+        "classification"
+      ],
+      "xref": [
+        "ml-attention",
+        "math-log"
+      ],
+      "quiz": {
+        "q": "Softmax converts a list of scores into…",
+        "choices": [
+          "A single number",
+          "Probabilities that sum to 1",
+          "Their squares",
+          "A sorted list"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-overfitting",
+      "src": ["ev-ml-overfitting"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "ml-loss"
+      ],
+      "title": "Overfitting and the bias–variance trade-off",
+      "fact": "A model that memorises its training data can fail completely on new data.",
+      "detail": "Push a model hard enough and it fits the training points perfectly — including their noise. That's overfitting: low error on data it has seen, high error on data it hasn't. The opposite, underfitting, is a model too simple to catch the real pattern. This is the bias–variance trade-off: too simple misses the signal (bias), too flexible chases the noise (variance). You judge a model on held-out test data, and rein in flexibility with regularisation.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              1.2
+            ],
+            [
+              2,
+              1.9
+            ],
+            [
+              3,
+              3.2
+            ],
+            [
+              4,
+              3.6
+            ],
+            [
+              5,
+              5.1
+            ],
+            [
+              6,
+              5.7
+            ]
+          ],
+          "fit": true,
+          "caption": "The simple straight line generalises; a wiggly curve through every point would not."
+        }
+      ],
+      "deploy": "The central discipline of machine learning: build models that generalise, not memorise.",
+      "counter": "More data and bigger models complicate the neat trade-off — very large networks can fit noise yet still generalise ('double descent'), a phenomenon classical theory didn't predict.",
+      "tags": [
+        "overfitting",
+        "bias-variance",
+        "generalisation"
+      ],
+      "xref": [
+        "ml-loss",
+        "stat-sampling"
+      ],
+      "quiz": {
+        "q": "A model with low training error but high test error is…",
+        "choices": [
+          "Underfitting",
+          "Overfitting",
+          "Unbiased",
+          "Well-calibrated"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ml-attention",
+      "src": ["ev-ml-attention"],
+      "field": "ml",
+      "depth": "concept",
+      "level": 5,
+      "prereq": [
+        "la-dot-product",
+        "ml-softmax-crossentropy",
+        "ml-neural-net"
+      ],
+      "title": "Attention and transformers: the maths behind LLMs",
+      "fact": "Attention lets each word pull in the others most relevant to it — by dot products and softmax.",
+      "detail": "A transformer represents each token as a vector and lets tokens look at one another. Each forms a query \\(Q\\), key \\(K\\) and value \\(V\\). The relevance of one token to another is their dot product (alignment); softmax turns those scores into weights that sum to 1; the output is the weighted blend of values: \\(\\text{Attention}(Q,K,V) = \\text{softmax}\\!\\left(\\frac{QK^\\top}{\\sqrt{d}}\\right)V\\). Stacked in layers, this is the architecture (Vaswani et al., 2017) behind GPT and modern large language models.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\text{Attention}(Q,K,V) = \\text{softmax}\\!\\left(\\frac{QK^\\top}{\\sqrt{d}}\\right)V",
+          "plain": "Attention(Q,K,V) = softmax(QKᵀ/√d)·V",
+          "say": "score every pair by a dot product, soften the scores into weights, then blend the values.",
+          "caption": "Dot-product similarity → softmax weights → weighted mix of values."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            2.8,
+            0.4,
+            1.2,
+            3.3
+          ],
+          "labels": [
+            "The",
+            "cat",
+            "sat",
+            "___"
+          ],
+          "softmax": true,
+          "caption": "Attention weights: how much the blank word draws on each earlier word."
+        }
+      ],
+      "deploy": "Connects the whole maths ladder to today's AI: dot products, softmax and matrices are literally how an LLM reads.",
+      "counter": "Attention shows which tokens a model weighted, not why, and not whether it 'understands' — reading attention maps as explanations of a model's reasoning is contested (Jain & Wallace, 2019).",
+      "tags": [
+        "attention",
+        "transformer",
+        "LLM"
+      ],
+      "xref": [
+        "la-dot-product",
+        "ml-softmax-crossentropy"
+      ],
+      "quiz": {
+        "q": "The core similarity score inside attention is computed with a…",
+        "choices": [
+          "Determinant",
+          "Dot product",
+          "Derivative",
+          "Median"
         ],
         "answer": 1
       }
