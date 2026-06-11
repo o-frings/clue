@@ -7523,6 +7523,938 @@
         ],
         "answer": 1
       }
+    },
+    {
+      "id": "macro-inflation",
+      "src": ["ev-macro-inflation"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-gdp"
+      ],
+      "title": "Inflation: when money buys less",
+      "fact": "Inflation is a sustained rise in the general price level — each unit of money buys a little less.",
+      "detail": "Inflation is measured by tracking a basket of goods over time, usually as the consumer price index (CPI). A 3% inflation rate means prices are, on average, 3% higher than a year ago. Mild, steady inflation is the target of most central banks (around 2%); the danger is at the extremes — deflation (falling prices) can freeze spending, while runaway inflation destroys savings and trust.",
+      "deploy": "The number behind 'cost of living', wage demands and every central-bank rate decision.",
+      "counter": "A single index hides wide variation — the inflation a renter or a car-buyer feels can differ sharply from the headline — and economists dispute how much of any given burst is demand, supply shocks, or expectations.",
+      "tags": [
+        "inflation",
+        "CPI",
+        "prices"
+      ],
+      "xref": [
+        "macro-real-nominal",
+        "macro-quantity-theory"
+      ],
+      "quiz": {
+        "q": "Inflation means that over time, a unit of money…",
+        "choices": [
+          "Buys more",
+          "Buys less",
+          "Stays equal",
+          "Disappears"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-real-nominal",
+      "src": ["ev-macro-real-nominal"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "macro-inflation"
+      ],
+      "title": "Real vs nominal: stripping out inflation",
+      "fact": "A 'nominal' figure is in today's money; a 'real' one is adjusted for inflation — and only real numbers compare across time.",
+      "detail": "A 5% pay rise feels good until you learn prices rose 7% — your 'real' wage fell. Nominal values are the raw money amounts; real values divide them by a price index so you compare apples to apples. The same split gives the real interest rate: roughly the nominal rate minus inflation, \\(r \\approx i - \\pi\\). A 6% loan during 4% inflation costs about 2% in real terms.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "r \\approx i - \\pi",
+          "plain": "r ≈ i − π",
+          "say": "the real interest rate is roughly the nominal rate minus inflation.",
+          "caption": "The Fisher relation: real return after inflation."
+        }
+      ],
+      "deploy": "The correction that stops you being fooled by figures that aren't adjusted for inflation.",
+      "counter": "Which price index you deflate by changes the answer, and the real rate uses expected inflation, which nobody knows in advance — so 'real' figures are estimates, not hard facts.",
+      "tags": [
+        "real vs nominal",
+        "Fisher equation",
+        "interest"
+      ],
+      "xref": [
+        "macro-inflation",
+        "qf-bond-yield"
+      ],
+      "quiz": {
+        "q": "If your wage rises 5% but prices rise 7%, your real wage…",
+        "choices": [
+          "Rose 5%",
+          "Fell about 2%",
+          "Rose 12%",
+          "Was unchanged"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-unemployment",
+      "src": ["ev-macro-unemployment"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-gdp"
+      ],
+      "title": "Unemployment and its types",
+      "fact": "Not all unemployment is the same — some is people between jobs, some is the economy falling short.",
+      "detail": "The unemployment rate is the share of people who want work and are looking but can't find it. Economists split it: 'frictional' (briefly between jobs), 'structural' (skills or location don't match the jobs), and 'cyclical' (a slump means too few jobs overall). Some unemployment is normal even in a healthy economy — the 'natural rate'. It's cyclical unemployment that policy tries to fight in a recession.",
+      "deploy": "Distinguishes the unemployment policy can fix (cyclical) from the kind it can't easily (structural).",
+      "counter": "The headline rate misses discouraged workers who've stopped looking and the underemployed stuck in part-time work, so it can understate real distress — and the 'natural rate' is estimated after the fact, not observed.",
+      "tags": [
+        "unemployment",
+        "labour",
+        "natural rate"
+      ],
+      "xref": [
+        "macro-phillips-curve",
+        "micro-labour-market"
+      ],
+      "quiz": {
+        "q": "Unemployment caused by a general economic downturn is called…",
+        "choices": [
+          "Frictional",
+          "Structural",
+          "Cyclical",
+          "Natural"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "macro-phillips-curve",
+      "src": ["ev-macro-phillips-curve"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-inflation",
+        "macro-unemployment"
+      ],
+      "title": "The Phillips curve and its breakdown",
+      "fact": "Lower unemployment once seemed to buy higher inflation — until the 1970s broke the deal.",
+      "detail": "A.W. Phillips (1958) found an inverse relation: when unemployment fell, wage inflation rose, suggesting a menu policymakers could pick from. Then the 1970s delivered 'stagflation' — high unemployment and high inflation together. Milton Friedman and Edmund Phelps had predicted it: once people expect inflation, they bake it into wages and prices, so the trade-off vanishes in the long run. Only the short-run curve, with expectations fixed, still tilts.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": -0.35
+          },
+          "domain": [
+            1,
+            9
+          ],
+          "yrange": [
+            0,
+            1.1
+          ],
+          "caption": "The original short-run trade-off: lower unemployment (left), higher inflation."
+        }
+      ],
+      "deploy": "A caution against any 'we can just trade a bit more inflation for jobs' claim — it's temporary at best.",
+      "counter": "Friedman and Phelps argued there's no long-run trade-off because expectations adjust; yet the curve's recent flatness (inflation barely moving as unemployment swung) has economists debating whether it's even useful any more.",
+      "tags": [
+        "Phillips curve",
+        "inflation",
+        "stagflation"
+      ],
+      "xref": [
+        "eh-stagflation",
+        "pe-friedman"
+      ],
+      "quiz": {
+        "q": "The 1970s 'stagflation' undermined the Phillips curve by combining high inflation with high…",
+        "choices": [
+          "Growth",
+          "Unemployment",
+          "Exports",
+          "Savings"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-money-creation",
+      "src": ["ev-macro-money-creation"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-gdp"
+      ],
+      "title": "Where money comes from",
+      "fact": "Most money isn't printed by the state — it's created by commercial banks when they lend.",
+      "detail": "Physical cash is a small slice of the money supply (measured as M0, M1, M2…). The bulk is bank deposits, and these are created when banks make loans: lend you money and they simply credit your account, conjuring a new deposit. Central banks influence how much through interest rates and reserve rules. The Bank of England spelled this out in 2014, correcting the textbook story that banks just lend out savers' deposits.",
+      "deploy": "Demystifies 'money printing' — and explains why credit booms expand the money supply.",
+      "counter": "How much control the central bank really has is disputed: monetarists see it steering money tightly, while post-Keynesians argue money is 'endogenous' — driven by demand for loans, with the central bank mostly following.",
+      "tags": [
+        "money supply",
+        "banks",
+        "money creation"
+      ],
+      "xref": [
+        "macro-quantity-theory",
+        "pf-monetary-vs-fiscal"
+      ],
+      "quiz": {
+        "q": "In modern economies, most new money is created when…",
+        "choices": [
+          "The mint prints cash",
+          "Commercial banks make loans",
+          "People save",
+          "Taxes are paid"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-quantity-theory",
+      "src": ["ev-macro-quantity-theory"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-money-creation"
+      ],
+      "title": "The quantity theory of money",
+      "fact": "Print far more money than the economy grows, and prices tend to rise to match.",
+      "detail": "The identity \\(M V = P Y\\) links the money supply \\(M\\), how fast it circulates (velocity \\(V\\)), the price level \\(P\\) and real output \\(Y\\). If velocity and output are roughly stable, extra money \\(M\\) shows up as higher prices \\(P\\). Milton Friedman built monetarism on this: 'inflation is always and everywhere a monetary phenomenon.' It's the clearest reason why printing money to fund deficits risks inflation.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "M V = P Y",
+          "plain": "M·V = P·Y",
+          "say": "the money supply times its velocity equals the price level times real output.",
+          "caption": "More money, with stable velocity and output, means higher prices."
+        }
+      ],
+      "deploy": "The core monetarist argument linking money growth to inflation.",
+      "counter": "Velocity is not stable — it collapsed after 2008 and during QE, when huge money creation produced little inflation — so Keynesians argue the link is loose and context-dependent, not mechanical.",
+      "tags": [
+        "quantity theory",
+        "monetarism",
+        "Friedman"
+      ],
+      "xref": [
+        "pe-friedman",
+        "macro-inflation"
+      ],
+      "quiz": {
+        "q": "In MV = PY, if money (M) surges while velocity and output hold steady, then…",
+        "choices": [
+          "Prices (P) rise",
+          "Output (Y) doubles",
+          "Velocity falls",
+          "Nothing changes"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "macro-business-cycle",
+      "src": ["ev-macro-business-cycle"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-gdp"
+      ],
+      "title": "The business cycle",
+      "fact": "Economies don't grow smoothly — they swing through booms and busts around a long-run trend.",
+      "detail": "Output, employment and spending rise in an expansion, peak, fall in a recession, hit a trough, and recover — the business cycle. A recession is commonly marked by two straight quarters of falling GDP (though official bodies judge it more broadly). The swings come from shifts in demand, credit, confidence and shocks. Smoothing them is a central aim of monetary and fiscal policy.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "sine",
+          "domain": [
+            0,
+            12
+          ],
+          "yrange": [
+            -1.4,
+            1.4
+          ],
+          "caption": "Output swings above and below its long-run trend: boom, bust, repeat."
+        }
+      ],
+      "deploy": "The frame for reading 'are we heading into recession?' and what policy can do about it.",
+      "counter": "Schools disagree on the cause: Keynesians blame swings in demand, monetarists blame money, 'real business cycle' theorists (Kydland & Prescott) blame technology shocks and call the cycle efficient — not something to fight.",
+      "tags": [
+        "business cycle",
+        "recession",
+        "booms"
+      ],
+      "xref": [
+        "eh-great-depression",
+        "pe-keynes"
+      ],
+      "quiz": {
+        "q": "A recession is commonly identified by consecutive quarters of falling…",
+        "choices": [
+          "Inflation",
+          "GDP",
+          "Population",
+          "Exports"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-ad-as",
+      "src": ["ev-macro-ad-as"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "econ-supply-demand",
+        "macro-business-cycle"
+      ],
+      "title": "Aggregate demand and aggregate supply",
+      "fact": "Scale supply and demand up to the whole economy and you get the model behind output and inflation.",
+      "detail": "Aggregate demand (AD) is total spending across the economy at each price level — it slopes down. Aggregate supply (AS) is total output firms will produce — upward in the short run, vertical in the long run at the economy's capacity. Their intersection sets national output and the price level. A demand slump (AD shifts left) causes recession and disinflation; a supply shock (AS shifts left) causes the nastier mix of falling output and rising prices — stagflation.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.7,
+                "b": 8
+              },
+              "label": "AD"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.7,
+                "b": 1
+              },
+              "label": "AS"
+            }
+          ],
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            0,
+            9
+          ],
+          "caption": "Output (across) and the price level (up): where aggregate demand meets aggregate supply."
+        }
+      ],
+      "deploy": "The workhorse diagram for tracing how shocks and policy move output and prices.",
+      "counter": "It papers over deep disputes: how steep is short-run AS, how fast do prices adjust, and are the 'curves' stable enough to use? Different schools draw them very differently.",
+      "tags": [
+        "AD-AS",
+        "aggregate demand",
+        "macro model"
+      ],
+      "xref": [
+        "macro-phillips-curve",
+        "econ-supply-demand"
+      ],
+      "quiz": {
+        "q": "A negative supply shock (AS shifts left) tends to cause…",
+        "choices": [
+          "Lower prices and more output",
+          "Higher prices and less output",
+          "No change",
+          "A boom"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-multiplier",
+      "src": ["ev-macro-multiplier"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-ad-as"
+      ],
+      "title": "The multiplier: spending begets spending",
+      "fact": "One person's spending is another's income — so an injection can ripple into a larger rise in output.",
+      "detail": "When you spend, the shopkeeper earns; they spend part of it, the next person earns, and so on. How much each round re-spends is the 'marginal propensity to consume' \\(c\\). Summing the fading rounds gives the multiplier \\(\\dfrac{1}{1-c}\\): if people re-spend 0.6 of each dollar, a dollar of new spending eventually adds about 2.50 to output. It's the engine behind Keynesian stimulus.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\text{multiplier} = \\frac{1}{1 - c}",
+          "plain": "multiplier = 1 / (1 − c)",
+          "say": "the multiplier is one divided by one minus the fraction people re-spend.",
+          "caption": "A higher propensity to spend means a bigger ripple."
+        }
+      ],
+      "deploy": "Shows why a given stimulus can move GDP by more than its sticker price.",
+      "counter": "The simple multiplier ignores leakage to imports and savings, crowding-out of private spending, and the state of the economy; its real size is hotly contested (see the fiscal-multiplier debate).",
+      "tags": [
+        "multiplier",
+        "MPC",
+        "stimulus"
+      ],
+      "xref": [
+        "pf-fiscal-multiplier",
+        "pe-keynes"
+      ],
+      "quiz": {
+        "q": "If people re-spend 0.5 of each extra dollar, the simple multiplier is…",
+        "choices": [
+          "0.5",
+          "1",
+          "2",
+          "5"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "macro-growth-solow",
+      "src": ["ev-macro-growth-solow"],
+      "field": "macro",
+      "depth": "book",
+      "level": 4,
+      "prereq": [
+        "macro-business-cycle"
+      ],
+      "title": "Long-run growth: the Solow model",
+      "fact": "In the long run, living standards rise mainly through technology — not just piling up more capital.",
+      "detail": "Robert Solow's growth model writes output as \\(Y = A\\,K^{\\alpha} L^{1-\\alpha}\\): it depends on capital \\(K\\), labour \\(L\\), and a productivity term \\(A\\) for technology. Capital has diminishing returns — the tenth machine per worker adds less than the first — so saving and investing alone can't grow income forever. Sustained growth in income per person must come from rising \\(A\\): better technology and know-how. It also predicts poorer countries can grow faster and 'converge'.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "log",
+          "domain": [
+            1,
+            20
+          ],
+          "yrange": [
+            -0.2,
+            3.2
+          ],
+          "caption": "Diminishing returns to capital: more machines per worker help less and less."
+        }
+      ],
+      "deploy": "Explains why technology and education, not mere investment, drive long-run prosperity.",
+      "counter": "Solow leaves the key driver — technology \\(A\\) — unexplained, falling 'like manna from heaven'. Paul Romer's endogenous growth theory (2018 Nobel) made ideas and R&D the engine, and convergence has been patchy in practice.",
+      "tags": [
+        "growth",
+        "Solow model",
+        "productivity"
+      ],
+      "xref": [
+        "eh-industrial-revolution",
+        "macro-business-cycle"
+      ],
+      "quiz": {
+        "q": "In the Solow model, sustained growth in income per person comes mainly from…",
+        "choices": [
+          "More capital alone",
+          "Technological progress",
+          "Population growth",
+          "Higher prices"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-exchange-rates",
+      "src": ["ev-macro-exchange-rates"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-inflation"
+      ],
+      "title": "Exchange rates: fixed, floating, and PPP",
+      "fact": "An exchange rate is the price of one currency in another — and how it's set shapes a whole economy.",
+      "detail": "Under a 'floating' rate, markets set the price by supply and demand for the currency; under a 'fixed' (pegged) rate, the government holds it at a target, spending reserves to defend it. One anchor is purchasing-power parity (PPP): in the long run, rates should drift so a basket of goods costs the same everywhere (the basis of the Big Mac index). A peg gives stability but surrenders control of monetary policy.",
+      "deploy": "The key to reading currency moves, trade competitiveness and why pegs sometimes shatter.",
+      "counter": "PPP fails badly in the short and medium run — rates 'overshoot' (Rudiger Dornbusch) and can stay 'wrong' for years — and defended pegs invite speculative attacks, as the 1992 ERM crisis and 1997 Asian crisis showed.",
+      "tags": [
+        "exchange rates",
+        "PPP",
+        "currency"
+      ],
+      "xref": [
+        "macro-balance-of-payments",
+        "macro-inflation"
+      ],
+      "quiz": {
+        "q": "Purchasing-power parity says exchange rates should adjust so that…",
+        "choices": [
+          "Rates never change",
+          "A basket of goods costs the same across countries",
+          "Exports always rise",
+          "Inflation is zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-balance-of-payments",
+      "src": ["ev-macro-balance-of-payments"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-exchange-rates"
+      ],
+      "title": "The balance of payments",
+      "fact": "A country's dealings with the world split into a current account (trade) and a capital account (investment) that must balance.",
+      "detail": "The balance of payments records every transaction with the rest of the world. The current account tracks trade in goods and services plus income; the financial/capital account tracks flows of investment and assets. By construction they offset: a country running a current-account deficit (importing more than it exports) must be a net borrower from abroad — money flows in on the capital account to match. A 'trade deficit' is thus also a capital-account surplus.",
+      "deploy": "Cuts through 'trade deficit' panic: a deficit is mirrored by foreign investment flowing in.",
+      "counter": "Whether persistent deficits are dangerous is disputed — they can signal either a vibrant magnet for investment (the US) or a fragile dependence on foreign lending that can reverse suddenly (the 'sudden stops' of emerging-market crises).",
+      "tags": [
+        "balance of payments",
+        "trade deficit",
+        "capital flows"
+      ],
+      "xref": [
+        "macro-exchange-rates",
+        "econ-comparative-advantage"
+      ],
+      "quiz": {
+        "q": "A country with a current-account (trade) deficit must be a net…",
+        "choices": [
+          "Lender to the world",
+          "Borrower from the world",
+          "Exporter",
+          "Saver"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-liquidity-trap",
+      "src": ["ev-macro-liquidity-trap"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "macro-money-creation",
+        "pf-monetary-vs-fiscal"
+      ],
+      "title": "The liquidity trap",
+      "fact": "When interest rates hit zero, cutting them further does nothing — monetary policy runs out of road.",
+      "detail": "Normally a central bank fights a slump by cutting rates. But rates can't fall much below zero: at that point people and banks just hold cash rather than lend, so extra money piles up unused and rate cuts lose their bite — a 'liquidity trap'. Keynes named it in the 1930s; Japan lived it from the 1990s and much of the West did after 2008. The standard escape is fiscal policy — direct government spending.",
+      "deploy": "Explains why, after 2008, central banks turned to QE and economists called for fiscal stimulus.",
+      "counter": "Monetarists like Friedman denied a true liquidity trap, arguing a determined central bank can always create inflation (via QE or 'helicopter money'); the post-2008 experience is read by both sides as supporting their view.",
+      "tags": [
+        "liquidity trap",
+        "zero lower bound",
+        "Keynes"
+      ],
+      "xref": [
+        "pe-keynes",
+        "pf-monetary-vs-fiscal"
+      ],
+      "quiz": {
+        "q": "A liquidity trap occurs when interest rates are so low that…",
+        "choices": [
+          "Inflation soars",
+          "Further rate cuts stop working",
+          "Banks lend freely",
+          "Output booms"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-hyperinflation",
+      "src": ["ev-macro-hyperinflation"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-quantity-theory"
+      ],
+      "title": "Hyperinflation: when money dies",
+      "fact": "Once people lose faith in a currency, prices can double in days and the money becomes worthless.",
+      "detail": "Hyperinflation — often defined as 50%+ inflation per month — strikes when governments print money to cover spending they can't fund, and confidence collapses. People rush to spend before prices rise again, velocity explodes, and the spiral feeds itself: Weimar Germany (1923), Zimbabwe (2008) and Venezuela (2010s) all printed their way into it. It usually ends only with a new currency or a hard fiscal anchor.",
+      "deploy": "The cautionary extreme of monetary finance — and why central-bank independence is prized.",
+      "counter": "Pure monetarists blame the money printing alone; others (the 'fiscal theory of the price level') argue hyperinflation is ultimately a collapse of confidence in the government's solvency, with printing the symptom rather than the root cause.",
+      "tags": [
+        "hyperinflation",
+        "Weimar",
+        "confidence"
+      ],
+      "xref": [
+        "macro-quantity-theory",
+        "pf-debt-sustainability"
+      ],
+      "quiz": {
+        "q": "Hyperinflation is typically triggered by governments…",
+        "choices": [
+          "Raising taxes",
+          "Printing money to fund spending",
+          "Cutting spending",
+          "Pegging the currency"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-gdp-critique",
+      "src": ["ev-macro-gdp-critique"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-gdp"
+      ],
+      "title": "What GDP misses",
+      "fact": "GDP counts market output — not wellbeing, unpaid work, inequality, or the environment.",
+      "detail": "GDP adds up the market value of what a country produces, and it rises whether the spending is on schools or on cleaning up an oil spill. It ignores unpaid care and housework, says nothing about how income is shared, and treats depleting forests or fisheries as pure gain. Even Simon Kuznets, who helped build it, warned in 1934 that 'the welfare of a nation can scarcely be inferred from' it. Alternatives include the Human Development Index and the Genuine Progress Indicator.",
+      "deploy": "Arms you to question 'growth = progress' and to ask what a rising GDP is actually counting.",
+      "counter": "Defenders (the IMF, most statisticians) reply that GDP was never meant to measure welfare, that it correlates strongly with health and education, and that the proposed alternatives are more subjective and harder to compare. The debate is about what to measure, not whether to.",
+      "tags": [
+        "GDP",
+        "wellbeing",
+        "beyond GDP"
+      ],
+      "xref": [
+        "econ-gdp",
+        "macro-growth-debate"
+      ],
+      "quiz": {
+        "q": "Which does GDP NOT capture?",
+        "choices": [
+          "Market output",
+          "Unpaid care work",
+          "Government spending",
+          "Exports"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "macro-growth-debate",
+      "src": ["ev-macro-growth-debate"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "macro-gdp-critique"
+      ],
+      "title": "Growth vs degrowth",
+      "fact": "Can a finite planet sustain endless economic growth — or must rich economies stop chasing it?",
+      "detail": "The mainstream view holds that growth lifts living standards and can be 'decoupled' from environmental harm through clean technology and efficiency. 'Degrowth' scholars like Jason Hickel and Giorgos Kallis argue that absolute decoupling at the needed scale isn't happening, so rich countries should deliberately shrink resource use and reorganise around wellbeing rather than GDP. Ecomodernists counter that technology and growth are the way out, not the problem.",
+      "deploy": "Frames the deepest argument in environmental economics: grow greener, or grow less?",
+      "counter": "The dispute is empirical and contested: defenders of growth point to falling emissions per dollar in some rich economies (relative decoupling), while degrowthers stress that absolute global resource use keeps rising. Neither side has settled the evidence.",
+      "tags": [
+        "degrowth",
+        "green growth",
+        "sustainability"
+      ],
+      "xref": [
+        "macro-gdp-critique",
+        "sys-leverage-points"
+      ],
+      "quiz": {
+        "q": "'Degrowth' advocates argue that rich economies should…",
+        "choices": [
+          "Maximise GDP",
+          "Deliberately reduce resource use",
+          "Print more money",
+          "Cut all taxes"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pe-institutions",
+      "src": ["ev-pe-institutions"],
+      "field": "polecon",
+      "depth": "book",
+      "level": 4,
+      "prereq": [
+        "pe-what-is"
+      ],
+      "title": "Why nations fail: institutions",
+      "fact": "Acemoglu, Johnson and Robinson argue prosperity hinges on whether institutions include or extract.",
+      "detail": "Why are some countries rich and others poor? Daron Acemoglu, Simon Johnson and James Robinson (2024 Nobel) argue the decisive factor is institutions. 'Inclusive' institutions — secure property rights, broad political voice, rule of law — let ordinary people invest and innovate; 'extractive' ones funnel wealth to a narrow elite and choke growth. Their natural experiment: colonisers built inclusive institutions where they settled and extractive ones where they merely plundered, and that split still shapes incomes today.",
+      "deploy": "Shifts the development question from geography or culture to who holds power and how it's constrained.",
+      "counter": "Critics (Jeffrey Sachs) insist geography and disease still matter hugely, and others note the inclusive/extractive labels can be circular — defined partly by the prosperity they're meant to explain. China's growth under extractive politics is a standing puzzle for the theory.",
+      "tags": [
+        "institutions",
+        "development",
+        "Acemoglu"
+      ],
+      "xref": [
+        "pe-hayek",
+        "eh-colonial-extraction"
+      ],
+      "quiz": {
+        "q": "Acemoglu and Robinson argue prosperity depends most on…",
+        "choices": [
+          "Geography",
+          "Inclusive vs extractive institutions",
+          "Climate",
+          "Population size"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pe-dependency",
+      "src": ["ev-pe-dependency"],
+      "field": "polecon",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "pe-schools"
+      ],
+      "title": "Dependency and world-systems theory",
+      "fact": "Dependency theorists argue poor countries stay poor because the global system is built to drain them.",
+      "detail": "Against the idea that poor nations simply lag behind, Latin American economists Raúl Prebisch and Andre Gunder Frank argued the world is split into a wealthy 'core' and a 'periphery' locked into supplying cheap raw materials, their terms of trade steadily worsening. Immanuel Wallerstein's world-systems theory generalised this into a single capitalist system that develops the core by underdeveloping the periphery. The prescription was often to industrialise behind tariffs rather than specialise in commodities.",
+      "deploy": "A counter to free-trade optimism: names who gains and who is structurally held back.",
+      "counter": "The East Asian 'tigers' — which grew rich through export-led trade, not withdrawal from it — are the standard rebuttal; mainstream economists also note that import-substitution policies often produced inefficient, protected industries. Dependency theorists reply that East Asia had unusual geopolitical backing.",
+      "tags": [
+        "dependency theory",
+        "world-systems",
+        "development"
+      ],
+      "xref": [
+        "eh-colonial-extraction",
+        "econ-comparative-advantage"
+      ],
+      "quiz": {
+        "q": "Dependency theory describes the world economy as a…",
+        "choices": [
+          "Level playing field",
+          "Wealthy 'core' and an exploited 'periphery'",
+          "Single nation",
+          "Random market"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pe-developmental-state",
+      "src": ["ev-pe-developmental-state"],
+      "field": "polecon",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "pe-dependency"
+      ],
+      "title": "The developmental state",
+      "fact": "Ha-Joon Chang and Joe Studwell argue today's rich countries got rich by guiding markets, not freeing them.",
+      "detail": "East Asia's rise — Japan, South Korea, Taiwan, then China — was led by an activist state: protecting infant industries, directing cheap credit, and forcing firms to export and compete abroad ('export discipline'). Ha-Joon Chang argues the now-rich West used the same protectionist tools while climbing, then 'kicked away the ladder' by preaching free trade to others. Joe Studwell adds that land reform and disciplined finance were decisive.",
+      "deploy": "A powerful case that industrial policy, not laissez-faire, built every late industrialiser.",
+      "counter": "Free-market economists reply that state direction also produced costly failures (much of Latin America, India's licence raj) and crony capitalism, and that East Asia succeeded partly despite, not because of, intervention. Picking winners is easy to romanticise after the fact.",
+      "tags": [
+        "developmental state",
+        "industrial policy",
+        "Chang"
+      ],
+      "xref": [
+        "eh-asian-miracle",
+        "pe-dependency"
+      ],
+      "quiz": {
+        "q": "Ha-Joon Chang's 'kicking away the ladder' accuses rich countries of…",
+        "choices": [
+          "Sharing technology freely",
+          "Denying others the protectionist tools they themselves used",
+          "Always free-trading",
+          "Avoiding industry"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pe-feminist-econ",
+      "src": ["ev-pe-feminist-econ"],
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pe-what-is"
+      ],
+      "title": "Feminist economics: the work that doesn't count",
+      "fact": "The unpaid care that sustains every economy is invisible to the standard measures of it.",
+      "detail": "Feminist economists point out that mainstream economics ignores the enormous unpaid labour — childcare, cooking, eldercare, housework — done largely by women, without which no paid economy could function. Marilyn Waring showed national accounts count a forest only when it's felled, and a person only when they're paid; care work registers as nothing. The field also studies how gendered assumptions shape models of 'rational' choice and the household.",
+      "deploy": "Reframes 'the economy' to include the unpaid foundation it actually rests on.",
+      "counter": "Critics argue assigning market prices to care work is arbitrary and that including it would make GDP even noisier; feminist economists respond that leaving it at zero is the more distorting choice — the dispute is over what counts as economic value at all.",
+      "tags": [
+        "feminist economics",
+        "unpaid care",
+        "value"
+      ],
+      "xref": [
+        "macro-gdp-critique",
+        "pe-ltv"
+      ],
+      "quiz": {
+        "q": "Feminist economics highlights that standard measures ignore…",
+        "choices": [
+          "Exports",
+          "Unpaid care and domestic work",
+          "Taxes",
+          "Interest rates"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "eh-colonial-extraction",
+      "src": ["ev-eh-colonial-extraction"],
+      "field": "echist",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "eh-enclosure"
+      ],
+      "title": "The colonial drain",
+      "fact": "Empires didn't just rule colonies — they ran them as engines of wealth extraction.",
+      "detail": "Colonial economies were reshaped to feed the metropole: land turned to cash crops, local industry suppressed, and surpluses siphoned abroad. The Indian nationalist Dadabhai Naoroji formulated the 'drain of wealth' thesis in the 19th century, estimating how much Britain pumped out of India each year; recent work by Utsa Patnaik puts the cumulative figure in the trillions. The mirror image is the Atlantic system, where enslaved labour built plantation wealth.",
+      "deploy": "Grounds 'why are some nations poor?' in a history of extraction, not just bad luck or culture.",
+      "counter": "The scale and lasting effect are debated: some economic historians (Tirthankar Roy) argue colonialism's impact is overstated relative to internal factors and that the counterfactual is murky, while others (Patnaik, the dependency school) see extraction as decisive. The numbers turn on contested assumptions.",
+      "tags": [
+        "colonialism",
+        "extraction",
+        "drain of wealth"
+      ],
+      "xref": [
+        "pe-dependency",
+        "pe-institutions"
+      ],
+      "quiz": {
+        "q": "Dadabhai Naoroji's 'drain of wealth' described…",
+        "choices": [
+          "Famine relief",
+          "Wealth siphoned from India to Britain",
+          "Free trade",
+          "Industrial growth"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "eh-asian-miracle",
+      "src": ["ev-eh-asian-miracle"],
+      "field": "echist",
+      "depth": "event",
+      "level": 3,
+      "prereq": [
+        "eh-industrial-revolution"
+      ],
+      "year": 1965,
+      "title": "The East Asian miracle",
+      "fact": "In a generation, the 'Asian tigers' went from poor to rich — the fastest catch-up in history.",
+      "detail": "From the 1960s, South Korea, Taiwan, Hong Kong and Singapore (the 'Four Tigers'), followed by Southeast Asia and China, grew at extraordinary rates, lifting hundreds of millions out of poverty. The recipe is disputed but the ingredients recur: high savings and investment, mass education, land reform, and export-oriented industrialisation. The World Bank's 1993 report 'The East Asian Miracle' tried, awkwardly, to reconcile this with free-market orthodoxy.",
+      "deploy": "The central case study for every theory of development — and the rebuttal to dependency pessimism.",
+      "counter": "The 1997 Asian financial crisis exposed the model's fragility, and economists still split: the World Bank credits markets and openness, while Alice Amsden and Robert Wade credit the guiding hand of the state. Paul Krugman argued the growth was mostly 'perspiration' (more inputs), not 'inspiration' (productivity).",
+      "tags": [
+        "Asian tigers",
+        "development",
+        "miracle"
+      ],
+      "xref": [
+        "pe-developmental-state",
+        "china-growth-model"
+      ],
+      "quiz": {
+        "q": "A common ingredient in the East Asian growth model was…",
+        "choices": [
+          "Commodity exports only",
+          "Export-oriented industrialisation",
+          "Closed autarky",
+          "Low savings"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "eh-washington-consensus",
+      "src": ["ev-eh-washington-consensus"],
+      "field": "echist",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "eh-neoliberal-turn"
+      ],
+      "title": "The Washington Consensus",
+      "fact": "In the 1980s–90s, the IMF and World Bank prescribed one package to the developing world: liberalise, privatise, stabilise.",
+      "detail": "Coined by John Williamson in 1989, the 'Washington Consensus' named a set of market reforms — fiscal discipline, privatisation, deregulation, free trade and open capital markets — attached as conditions to IMF and World Bank loans (structural adjustment). It reshaped Latin America, Africa and the post-Soviet states. Results were mixed at best: growth often disappointed and inequality frequently rose.",
+      "deploy": "The label for the era when market liberalisation was exported worldwide as loan conditions.",
+      "counter": "Joseph Stiglitz attacked it for forcing premature liberalisation that triggered crises; William Easterly mocked top-down 'planning' for the poor. Defenders reply that the worst failures came where reforms were half-done or corruptly applied, not from the prescription itself. Even Williamson said his term was widely misused.",
+      "tags": [
+        "Washington Consensus",
+        "structural adjustment",
+        "IMF"
+      ],
+      "xref": [
+        "eh-neoliberal-turn",
+        "pe-friedman"
+      ],
+      "quiz": {
+        "q": "The Washington Consensus prescribed mainly…",
+        "choices": [
+          "State ownership",
+          "Market liberalisation and privatisation",
+          "Higher tariffs",
+          "Currency pegs"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "eh-marshall-plan",
+      "src": ["ev-eh-marshall-plan"],
+      "field": "echist",
+      "depth": "event",
+      "level": 2,
+      "prereq": [
+        "eh-great-depression"
+      ],
+      "year": 1948,
+      "title": "The Marshall Plan",
+      "fact": "After 1945, the US poured aid into Western Europe — and helped rebuild both its economies and its alliances.",
+      "detail": "From 1948, the United States transferred some $13 billion (a vast sum then) to rebuild Western Europe under the European Recovery Program, named for Secretary of State George Marshall. It funded reconstruction, restarted trade, and was explicitly geopolitical — binding Western Europe to the US and against Soviet influence as the Cold War set in. Recipients were nudged toward cooperation, seeding what became the European common market.",
+      "deploy": "The canonical example of aid serving reconstruction and strategy at once.",
+      "counter": "Economic historians debate its size of effect: Alan Milward argued Europe's recovery was already under way and the aid, while helpful, was not decisive; others credit it with breaking bottlenecks and, above all, buying the political stability that made recovery durable.",
+      "tags": [
+        "Marshall Plan",
+        "reconstruction",
+        "Cold War"
+      ],
+      "xref": [
+        "eh-bretton-woods",
+        "macro-multiplier"
+      ],
+      "quiz": {
+        "q": "The Marshall Plan was US aid to rebuild…",
+        "choices": [
+          "Japan",
+          "Western Europe",
+          "Latin America",
+          "Africa"
+        ],
+        "answer": 1
+      }
     }
   ],
 

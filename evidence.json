@@ -2367,6 +2367,222 @@
       "url": "https://www.nobelprize.org/prizes/economic-sciences/2021/press-release/",
       "kind": "reference",
       "strength": "Official Nobel announcement recognising David Card's natural-experiment work, including the Card–Krueger finding that minimum-wage rises need not cut employment — the live debate the card centres on."
+    },
+    "ev-macro-inflation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Inflation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Inflation",
+      "kind": "reference",
+      "strength": "Tertiary article on inflation, CPI and central-bank targets. Settled measurement; the card's caveat that the headline hides variation and disputed causes is standard."
+    },
+    "ev-macro-real-nominal": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Fisher equation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fisher_equation",
+      "kind": "reference",
+      "strength": "Tertiary article giving r ≈ i − π and the real/nominal distinction. Settled identity; the expected-inflation caveat is standard."
+    },
+    "ev-macro-unemployment": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Unemployment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Unemployment",
+      "kind": "reference",
+      "strength": "Tertiary article on the unemployment rate and its frictional/structural/cyclical types. The under-counting and 'natural rate is estimated' caveats are well documented."
+    },
+    "ev-macro-phillips-curve": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Phillips curve",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Phillips_curve",
+      "kind": "reference",
+      "strength": "Tertiary article on the inflation-unemployment trade-off and its expectations-driven breakdown (Friedman, Phelps). The recent-flatness debate the card names is live."
+    },
+    "ev-macro-money-creation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Money creation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Money_creation",
+      "kind": "reference",
+      "strength": "Tertiary article on bank money creation, citing the Bank of England's 2014 account. The endogenous-money dispute (post-Keynesian vs monetarist) the card raises is real."
+    },
+    "ev-macro-quantity-theory": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Quantity theory of money",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quantity_theory_of_money",
+      "kind": "reference",
+      "strength": "Tertiary article on MV=PY and monetarism. The card's caveat on unstable velocity (post-2008/QE) is a documented, central objection."
+    },
+    "ev-macro-business-cycle": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Business cycle",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Business_cycle",
+      "kind": "reference",
+      "strength": "Tertiary article on expansions and recessions. The competing causal schools the card names (Keynesian, monetarist, real-business-cycle) are accurately represented."
+    },
+    "ev-macro-ad-as": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "AD–AS model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/AD%E2%80%93AS_model",
+      "kind": "reference",
+      "strength": "Tertiary article on the aggregate demand/supply model. Standard teaching framework; the card flags the genuine disputes over its curves' shape and stability."
+    },
+    "ev-macro-multiplier": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Multiplier (economics)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Multiplier_(economics)",
+      "kind": "reference",
+      "strength": "Tertiary article giving the 1/(1−c) multiplier and the role of the marginal propensity to consume. Leakage and crowding-out caveats are standard."
+    },
+    "ev-macro-growth-solow": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Solow–Swan model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Solow%E2%80%93Swan_model",
+      "kind": "reference",
+      "strength": "Tertiary article on the Solow growth model, diminishing returns to capital and the technology residual. The endogenous-growth critique (Romer, 2018 Nobel) the card names is accurate."
+    },
+    "ev-macro-exchange-rates": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Exchange rate",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Exchange_rate",
+      "kind": "reference",
+      "strength": "Tertiary article on fixed vs floating rates and purchasing-power parity. The PPP-fails-short-run / overshooting (Dornbusch) and peg-crisis caveats are documented."
+    },
+    "ev-macro-balance-of-payments": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Balance of payments",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Balance_of_payments",
+      "kind": "reference",
+      "strength": "Tertiary article on the current and capital accounts and their accounting identity. Settled; the 'are deficits dangerous?' dispute the card raises is genuine."
+    },
+    "ev-macro-liquidity-trap": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Liquidity trap",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Liquidity_trap",
+      "kind": "reference",
+      "strength": "Tertiary article on the zero-lower-bound trap (Keynes, Japan, post-2008). The monetarist denial (Friedman, helicopter money) the card names is accurately represented."
+    },
+    "ev-macro-hyperinflation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Hyperinflation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hyperinflation",
+      "kind": "reference",
+      "strength": "Tertiary article with the 50%/month benchmark and the Weimar/Zimbabwe/Venezuela cases. The monetarist-vs-fiscal-theory dispute over root cause is real."
+    },
+    "ev-macro-gdp-critique": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Gross domestic product",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+      "kind": "reference",
+      "strength": "Tertiary article whose criticism section covers GDP's blind spots, Kuznets's 1934 warning and alternatives (HDI, GPI). The 'GDP was never meant to measure welfare' defence is also noted."
+    },
+    "ev-macro-growth-debate": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Degrowth",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Degrowth",
+      "kind": "reference",
+      "strength": "Tertiary article on degrowth (Hickel, Kallis) vs green-growth/decoupling. The card presents both sides explicitly as a contested empirical debate, as the article does."
+    },
+    "ev-pe-institutions": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 2024,
+      "title": "The Prize in Economic Sciences 2024 — Press release (Acemoglu, Johnson, Robinson)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2024/press-release/",
+      "kind": "reference",
+      "strength": "Official Nobel announcement for the work on how institutions shape prosperity — primary attribution. The Sachs (geography) and China-puzzle counters the card names are well-known critiques."
+    },
+    "ev-pe-dependency": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Dependency theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Dependency_theory",
+      "kind": "reference",
+      "strength": "Tertiary article on Prebisch, Frank and Wallerstein's core-periphery analysis. The East-Asian-tigers rebuttal the card raises is the standard mainstream objection."
+    },
+    "ev-pe-developmental-state": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Developmental state",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Developmental_state",
+      "kind": "reference",
+      "strength": "Tertiary article on state-led East Asian industrialisation; names Chang and the export-discipline model. The crony-capitalism/failed-cases counter is documented."
+    },
+    "ev-pe-feminist-econ": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Feminist economics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Feminist_economics",
+      "kind": "reference",
+      "strength": "Tertiary article on unpaid care, Waring's critique of national accounts, and gendered assumptions in models. The 'pricing care is arbitrary' counter is a genuine dispute over economic value."
+    },
+    "ev-eh-colonial-extraction": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Drain of wealth theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Drain_of_wealth_theory",
+      "kind": "reference",
+      "strength": "Tertiary article on Naoroji's drain thesis and Patnaik's estimates for colonial India. The contested-scale counter (Tirthankar Roy) the card names reflects a real historiographical split."
+    },
+    "ev-eh-asian-miracle": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Four Asian Tigers",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Four_Asian_Tigers",
+      "kind": "reference",
+      "strength": "Tertiary article on the rapid East Asian catch-up. The markets-vs-state dispute (World Bank vs Amsden/Wade) and Krugman's 'perspiration' critique the card cites are well documented."
+    },
+    "ev-eh-washington-consensus": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Washington Consensus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Washington_Consensus",
+      "kind": "reference",
+      "strength": "Tertiary article on Williamson's term and structural adjustment, including the Stiglitz/Easterly critiques and Williamson's own complaint that it was misused. Mixed results are documented."
+    },
+    "ev-eh-marshall-plan": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Marshall Plan",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Marshall_Plan",
+      "kind": "reference",
+      "strength": "Tertiary article on the 1948 European Recovery Program. The debate over its decisiveness (Milward's revisionism vs the conventional view) the card names is a real historiographical dispute."
     }
   }
 }
