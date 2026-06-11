@@ -4091,7 +4091,7 @@
       ],
       "title": "Least-squares regression: the best-fit line",
       "fact": "Regression draws the straight line that comes closest to a cloud of points.",
-      "detail": "Fit \\(\\hat{y} = \\beta_0 + \\beta_1 x\\) — an intercept and a slope — to data. 'Closest' means smallest total squared vertical gap between the line and the points: minimise \\(\\sum_i (y_i - \\hat{y}_i)^2\\). The slope \\(\\beta_1\\) estimates how much \\(y\\) rises per unit of \\(x\\). This is the workhorse of empirical science and the simplest machine-learning model there is.",
+      "detail": "Fit a straight line \\(\\hat{y} = \\beta_0 + \\beta_1 x\\) — an intercept and a slope — through a cloud of points. The standard method is ordinary least squares (OLS): pick the line that makes the total squared vertical gap between the points and the line as small as possible, \\(\\sum_i (y_i - \\hat{y}_i)^2\\). Why square the gaps rather than just add them up? Squaring punishes big misses far more than small ones and — crucially — leaves exactly one best line. The fitted slope \\(\\beta_1\\) then estimates how much \\(y\\) rises per unit of \\(x\\). It is the workhorse of empirical science and the simplest machine-learning model there is.",
       "media": [
         {
           "type": "plot",
@@ -4134,6 +4134,7 @@
         "statistics"
       ],
       "xref": [
+        "stat-ols",
         "stat-correlation",
         "ml-linear-regression"
       ],
@@ -4229,7 +4230,7 @@
       ],
       "title": "Linear regression as your first model",
       "fact": "Predict with a weighted sum of the inputs: ŷ = w·x + b.",
-      "detail": "Give each input feature a weight, multiply, add, and add a bias: \\(\\hat{y} = \\vec{w}\\cdot\\vec{x} + b\\). That dot product is the whole model — a price predicted from size, location and age is just their weighted sum. 'Learning' means finding the weights \\(\\vec{w}\\) and bias \\(b\\) that fit the data best. Simple, fast, and the template every fancier model extends.",
+      "detail": "Give each input feature a weight, multiply, add them up, and add a bias: \\(\\hat{y} = \\vec{w}\\cdot\\vec{x} + b\\). That dot product is the whole model — a price predicted from size, location and age is just their weighted sum. 'Learning' means finding the weights \\(\\vec{w}\\) and bias \\(b\\) that fit the data best, by making the error as small as possible. With a handful of features you can solve for them exactly with ordinary least squares; with millions you instead descend the error surface step by step (gradient descent) — both routes chase the same minimum. Simple, fast, and the template every fancier model extends.",
       "media": [
         {
           "type": "equation",
@@ -4279,6 +4280,7 @@
         "model"
       ],
       "xref": [
+        "stat-ols",
         "ml-loss",
         "la-dot-product"
       ],
@@ -9140,6 +9142,83 @@
           "Factor large numbers quickly",
           "Flood networks",
           "Hash faster"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "stat-ols",
+      "src": ["ev-stat-ols"],
+      "field": "prob",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "stat-regression",
+        "la-linear-system"
+      ],
+      "title": "Ordinary least squares: solving for the line",
+      "fact": "OLS doesn't search for the best-fit line — it solves for it in one shot.",
+      "detail": "Ordinary least squares finds the line by calculus, not trial and error. Write the total squared error as a function of the slope and intercept; its minimum sits exactly where the derivative is zero, and that condition gives two linear 'normal equations' you can solve directly. For many features at once, the entire solution collapses to one matrix formula, \\(\\hat{\\beta} = (X^\\top X)^{-1} X^\\top y\\). The Gauss–Markov theorem adds a guarantee: under standard assumptions, OLS is the 'best linear unbiased estimator' — no other unbiased straight-line fit has smaller variance.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\hat{\\beta} = (X^\\top X)^{-1} X^\\top y",
+          "plain": "β̂ = (XᵀX)⁻¹ Xᵀy",
+          "say": "the best-fit coefficients are X-transpose-X, inverted, times X-transpose-y.",
+          "caption": "The closed-form OLS solution — one linear-algebra computation."
+        },
+        {
+          "type": "plot",
+          "kind": "points",
+          "pts": [
+            [
+              1,
+              2.1
+            ],
+            [
+              2,
+              2.7
+            ],
+            [
+              3,
+              3.4
+            ],
+            [
+              4,
+              3.8
+            ],
+            [
+              5,
+              4.9
+            ],
+            [
+              6,
+              5.3
+            ]
+          ],
+          "fit": true,
+          "caption": "OLS picks the single line that minimises the squared vertical gaps (the residuals)."
+        }
+      ],
+      "deploy": "Shows that fitting a line is exact maths, not guesswork — and ties regression straight to solving a linear system (Ax = b).",
+      "counter": "Its optimality rests on assumptions real data often breaks: errors that are independent, equal-variance, and uncorrelated with the predictors. Outliers wreck it (squared errors over-weight them), and when predictors move together ('multicollinearity') \\(X^\\top X\\) becomes nearly impossible to invert — which is why ridge, LASSO and robust regressions exist.",
+      "tags": [
+        "OLS",
+        "least squares",
+        "regression"
+      ],
+      "xref": [
+        "ml-linear-regression",
+        "ml-gradient-descent",
+        "la-linear-system"
+      ],
+      "quiz": {
+        "q": "OLS chooses the line's coefficients by minimising the…",
+        "choices": [
+          "number of data points",
+          "sum of squared residuals",
+          "slope",
+          "single largest error"
         ],
         "answer": 1
       }

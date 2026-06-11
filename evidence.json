@@ -2763,6 +2763,15 @@
       "url": "https://csrc.nist.gov/projects/post-quantum-cryptography",
       "kind": "report",
       "strength": "The official NIST programme standardising post-quantum algorithms (first standards finalised 2024) — primary, authoritative. Shor's algorithm and the 'harvest now, decrypt later' threat the card describes are the project's stated rationale; the uncertain-timeline caveat is genuine."
+    },
+    "ev-stat-ols": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Ordinary least squares",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Ordinary_least_squares",
+      "kind": "reference",
+      "strength": "Tertiary article giving the normal equations, the closed-form β̂ = (XᵀX)⁻¹Xᵀy, and the Gauss–Markov theorem. Settled estimator; the assumptions/outlier/multicollinearity caveats the card raises are standard."
     }
   }
 }
