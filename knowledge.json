@@ -49,7 +49,9 @@
     { "id": "bio",     "label": "Biology",           "blurb": "Life, evolution, genes, and the body.",             "icon": "🧬", "color": "#37b24d" },
     { "id": "eco",     "label": "Ecology",           "blurb": "Ecosystems, cycles, and planetary limits.",         "icon": "🌿", "color": "#2f9e44" },
     { "id": "systems", "label": "Systems sciences",  "blurb": "Feedback, stocks & flows, complexity.",             "icon": "🔁", "color": "#1098ad" },
-    { "id": "econ",    "label": "Economics",         "blurb": "Trade-offs, incentives, markets — models, not laws.","icon": "📈", "color": "#e8551c" },
+    { "id": "micro",   "label": "Microeconomics",     "blurb": "Markets, prices, firms — and where they fail.", "icon": "🛒", "color": "#e8551c" },
+    { "id": "macro",   "label": "Macroeconomics",     "blurb": "Growth, inflation, unemployment, and the business cycle.", "icon": "📉", "color": "#1971c2" },
+    { "id": "game",    "label": "Game theory",        "blurb": "Strategy, incentives, and the logic of interaction.", "icon": "♟️", "color": "#9c36b5" },
     { "id": "polecon", "label": "Political economy",  "blurb": "Smith to Marx to Keynes — the schools that argue about who gets what.", "icon": "⚖️", "color": "#d6336c" },
     { "id": "echist",  "label": "Economic history",  "blurb": "How we got the economy we have — and how it keeps changing.", "icon": "🏭", "color": "#9c6644" },
     { "id": "philo",   "label": "Philosophy",        "blurb": "Ethics, knowledge, justice, mind.",                 "icon": "🤔", "color": "#868e96" },
@@ -199,7 +201,7 @@
       "quiz": { "q": "How does CCP doctrine square markets with Marxism?", "choices": ["It rejects Marx entirely", "Via the 'primary stage of socialism' — markets as a tool toward communism", "By banning private firms", "It says Marx supported capitalism"], "answer": 1 }
     },
     {
-      "id": "china-growth-model", "field": "econ", "depth": "concept", "level": 3,
+      "id": "china-growth-model", "field": "macro", "depth": "concept", "level": 3,
       "prereq": ["china-reform-opening"],
       "src": ["ev-china-growth-model"],
       "title": "China's growth model",
@@ -212,7 +214,7 @@
       "quiz": { "q": "China's growth has leaned most heavily on…", "choices": ["High consumer spending", "High investment and exports", "Foreign aid", "Tourism"], "answer": 1 }
     },
     {
-      "id": "china-hukou", "field": "econ", "depth": "concept", "level": 4,
+      "id": "china-hukou", "field": "macro", "depth": "concept", "level": 4,
       "prereq": ["china-growth-model"],
       "src": ["ev-china-hukou"],
       "title": "China's hukou system",
@@ -225,7 +227,7 @@
       "quiz": { "q": "China's hukou system mainly determines…", "choices": ["Voting rights", "Access to local public services by registered locality", "Income-tax rates", "Military service"], "answer": 1 }
     },
     {
-      "id": "china-local-debt", "field": "econ", "depth": "concept", "level": 4,
+      "id": "china-local-debt", "field": "macro", "depth": "concept", "level": 4,
       "prereq": ["china-growth-model"],
       "src": ["ev-china-local-debt"],
       "title": "China's hidden local-government debt",
@@ -451,7 +453,7 @@
       "quiz": { "q": "The fall of the Berlin Wall (1989) symbolised…", "choices": ["the start of WWII", "the end of the Cold War division of Europe", "the rejection of German reunification", "the founding of the EU"], "answer": 1 }
     },
     {
-      "id": "game-prisoners-dilemma", "field": "econ", "depth": "concept", "level": 2,
+      "id": "game-prisoners-dilemma", "field": "game", "depth": "concept", "level": 2,
       "prereq": ["econ-what-is"],
       "src": ["ev-game-prisoners-dilemma"],
       "title": "The prisoner's dilemma",
@@ -464,7 +466,7 @@
       "quiz": { "q": "In a one-shot prisoner's dilemma, two self-interested players tend to…", "choices": ["Both cooperate", "Both defect, ending up worse off", "Split the difference", "Refuse to play"], "answer": 1 }
     },
     {
-      "id": "game-nash-equilibrium", "field": "econ", "depth": "concept", "level": 3,
+      "id": "game-nash-equilibrium", "field": "game", "depth": "concept", "level": 3,
       "prereq": ["game-prisoners-dilemma"],
       "src": ["ev-game-nash-equilibrium"],
       "title": "Nash equilibrium",
@@ -477,7 +479,7 @@
       "quiz": { "q": "At a Nash equilibrium…", "choices": ["everyone is happy", "no player gains by changing strategy alone", "the game has ended", "prices fall to zero"], "answer": 1 }
     },
     {
-      "id": "game-repeated", "field": "econ", "depth": "concept", "level": 3,
+      "id": "game-repeated", "field": "game", "depth": "concept", "level": 3,
       "prereq": ["game-prisoners-dilemma"],
       "src": ["ev-game-repeated"],
       "title": "Repeated games and tit-for-tat",
@@ -1513,7 +1515,7 @@
     },
 
     {
-      "id": "econ-comparative-advantage", "field": "econ", "depth": "book", "level": 3,
+      "id": "econ-comparative-advantage", "field": "micro", "depth": "book", "level": 3,
       "prereq": ["econ-supply-demand"],
       "xref": ["pe-ricardo"],
       "title": "Comparative advantage",
@@ -1527,7 +1529,7 @@
       "quiz": [{ "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }, {"q":"A country should specialise where it has the lowest…","choices":["Absolute cost","Opportunity cost","Tax rate","Wage bill"],"answer":1}]
     },
     {
-      "id": "econ-externalities", "field": "econ", "depth": "concept", "level": 3,
+      "id": "econ-externalities", "field": "micro", "depth": "concept", "level": 3,
       "prereq": ["econ-supply-demand"],
       "xref": ["sys-commons","eco-planetary-boundaries","eh-2008"],
       "title": "Externalities",
@@ -1540,7 +1542,7 @@
       "counter": "Coase (1960) showed that with clear property rights and low bargaining costs, private parties can fix externalities without taxes — the right remedy depends on the situation."
     },
     {
-      "id": "econ-loss-aversion", "field": "econ", "depth": "book", "level": 2,
+      "id": "econ-loss-aversion", "field": "micro", "depth": "book", "level": 2,
       "prereq": ["econ-what-is"],
       "xref": ["math-base-rate"],
       "title": "Loss aversion",
@@ -1694,7 +1696,7 @@
     },
 
     {
-      "id": "econ-what-is", "field": "econ", "depth": "concept", "level": 1,
+      "id": "econ-what-is", "field": "micro", "depth": "concept", "level": 1,
       "xref": ["pe-what-is","econ-supply-demand"],
       "title": "What economics is about",
       "fact": "Economics starts from one awkward fact: we have unlimited wants and limited means.",
@@ -1706,7 +1708,7 @@
       "quiz": [{ "q": "The opportunity cost of a choice is…", "choices": ["Its money price", "The best alternative you gave up", "Always zero", "The sales tax on it"], "answer": 1 }, {"q":"Economics begins from the problem of…","choices":["Inflation","Scarcity — unlimited wants, limited means","Taxation","The money supply"],"answer":1}]
     },
     {
-      "id": "econ-supply-demand", "field": "econ", "depth": "concept", "level": 2,
+      "id": "econ-supply-demand", "field": "micro", "depth": "concept", "level": 2,
       "prereq": ["econ-what-is"],
       "xref": ["pe-marginalist","econ-loss-aversion"],
       "title": "Supply and demand",
@@ -1719,7 +1721,7 @@
       "quiz": { "q": "In the basic model, the market price settles where…", "choices": ["Costs are lowest", "Supply equals demand", "The government sets it", "Profit is zero"], "answer": 1 }
     },
     {
-      "id": "econ-gdp", "field": "econ", "depth": "concept", "level": 2,
+      "id": "econ-gdp", "field": "macro", "depth": "concept", "level": 2,
       "prereq": ["econ-what-is"],
       "xref": ["econ-externalities"],
       "title": "What GDP measures",
@@ -6831,21 +6833,711 @@
         ],
         "answer": 1
       }
+    },
+    {
+      "id": "micro-opportunity-cost",
+      "src": ["ev-micro-opportunity-cost"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "econ-what-is"
+      ],
+      "title": "Opportunity cost: compared to what?",
+      "fact": "The real cost of anything is the best alternative you gave up to get it.",
+      "detail": "Economics starts from scarcity: you can't have everything, so every choice forecloses others. The opportunity cost of an option is the value of the next-best alternative you didn't take — not just the money spent, but the forgone option. An afternoon spent studying costs the leisure or paid work you skipped. Money already spent and unrecoverable (a 'sunk cost'), by contrast, should be ignored when deciding what to do next.",
+      "deploy": "Forces the honest question behind every choice and policy: compared to what?",
+      "counter": "The 'next-best alternative' is rarely clear-cut, and people systematically ignore opportunity costs (the neglect documented by Frederick and colleagues), so the principle is easier to state than to live by.",
+      "tags": [
+        "scarcity",
+        "opportunity cost",
+        "trade-offs"
+      ],
+      "xref": [
+        "econ-what-is",
+        "micro-margin"
+      ],
+      "quiz": {
+        "q": "The opportunity cost of a choice is…",
+        "choices": [
+          "The money you spent",
+          "The value of the next-best alternative forgone",
+          "The cheapest option",
+          "Always zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-margin",
+      "src": ["ev-micro-margin"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "micro-opportunity-cost"
+      ],
+      "title": "Thinking at the margin",
+      "fact": "Good decisions weigh the next unit, not the whole — act while the next step still pays.",
+      "detail": "Economists ask not 'is this worth it?' but 'is one more worth it?'. A choice is optimal when the marginal benefit of the next unit just equals its marginal cost. A firm expands output until the revenue from one more item equals the cost of making it; you keep eating until the next bite's pleasure no longer beats its cost. Reasoning 'at the margin' is the lens behind most of microeconomics.",
+      "deploy": "Turns a vague 'how much?' into a precise stopping rule: continue while marginal benefit exceeds marginal cost.",
+      "counter": "Marginal thinking assumes smooth, divisible, well-understood choices; for lumpy, one-off or deeply uncertain decisions it's hard to apply, and people often react to averages or totals instead.",
+      "tags": [
+        "marginal analysis",
+        "decisions",
+        "microeconomics"
+      ],
+      "xref": [
+        "micro-marginal-utility",
+        "micro-monopoly"
+      ],
+      "quiz": {
+        "q": "A decision is 'optimal at the margin' when the next unit's…",
+        "choices": [
+          "Total cost is zero",
+          "Marginal benefit equals its marginal cost",
+          "Average cost is lowest",
+          "Price is highest"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-marginal-utility",
+      "src": ["ev-micro-marginal-utility"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "micro-margin"
+      ],
+      "title": "Diminishing marginal utility",
+      "fact": "Each extra unit of something usually brings a little less satisfaction than the last.",
+      "detail": "The first slice of pizza delights; the fifth, less so. This 'diminishing marginal utility' — each additional unit adds less to wellbeing — is why demand curves slope down: you'll only buy more at a lower price. It also grounds the argument that a dollar matters more to a poor person than to a rich one, a key economic case for redistribution.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": -0.45
+          },
+          "domain": [
+            0,
+            8
+          ],
+          "yrange": [
+            0,
+            1.05
+          ],
+          "caption": "Marginal utility: each extra unit adds less than the one before."
+        }
+      ],
+      "deploy": "Explains downward-sloping demand and underpins the efficiency case for redistribution.",
+      "counter": "Utility can't really be measured in units, and it isn't always diminishing (collectors, addiction); economists now treat it as a convenient ranking of preferences, not a quantity in the head.",
+      "tags": [
+        "utility",
+        "demand",
+        "marginalism"
+      ],
+      "xref": [
+        "micro-surplus",
+        "econ-supply-demand"
+      ],
+      "quiz": {
+        "q": "Diminishing marginal utility helps explain why demand curves…",
+        "choices": [
+          "Slope up",
+          "Slope down",
+          "Are flat",
+          "Are vertical"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-elasticity",
+      "src": ["ev-micro-elasticity"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-supply-demand"
+      ],
+      "title": "Elasticity: how much quantity responds to price",
+      "fact": "Elasticity measures how sharply the quantity bought changes when the price moves.",
+      "detail": "Price elasticity of demand is the percentage change in quantity divided by the percentage change in price. If a 10% price rise cuts sales by 20%, demand is 'elastic' (elasticity 2) — buyers are price-sensitive. If sales barely move (elasticity below 1), demand is 'inelastic', like petrol or insulin. Elasticity decides who really bears a tax, whether a price cut raises revenue, and how much pricing power a firm has.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "E_d = \\frac{\\%\\,\\Delta Q}{\\%\\,\\Delta P}",
+          "plain": "E_d = %ΔQ / %ΔP",
+          "say": "elasticity is the percent change in quantity divided by the percent change in price.",
+          "caption": "Above 1, demand is elastic; below 1, inelastic."
+        },
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": -1.7,
+                "b": 10
+              },
+              "label": "inelastic (steep)"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.5,
+                "b": 6
+              },
+              "label": "elastic (flat)"
+            }
+          ],
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            0,
+            11
+          ],
+          "caption": "Steep demand = quantity barely moves; flat = very responsive."
+        }
+      ],
+      "deploy": "The key to predicting how buyers react to a price change, a tax, or a subsidy.",
+      "counter": "Elasticity isn't a fixed number — it varies along a demand curve, between the short and long run, and with the substitutes available — so any single figure is a snapshot.",
+      "tags": [
+        "elasticity",
+        "demand",
+        "price"
+      ],
+      "xref": [
+        "pf-tax-incidence",
+        "econ-supply-demand"
+      ],
+      "quiz": {
+        "q": "If a price rise barely changes the quantity bought, demand is…",
+        "choices": [
+          "Elastic",
+          "Inelastic",
+          "Free",
+          "Infinite"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-surplus",
+      "src": ["ev-micro-surplus"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-supply-demand"
+      ],
+      "title": "Consumer and producer surplus",
+      "fact": "The gains from trade split into a buyer's surplus and a seller's surplus.",
+      "detail": "Consumer surplus is the gap between what buyers would have been willing to pay and what they actually pay; producer surplus is the gap between the price sellers receive and the least they'd accept. At the market equilibrium their sum — the total welfare from trading — is as large as it can be. Anything that blocks mutually beneficial trades (a tax, a price cap, a monopoly) shrinks that total: the lost value is the 'deadweight loss'.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.7,
+                "b": 1
+              },
+              "label": "supply"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.7,
+                "b": 8
+              },
+              "label": "demand"
+            }
+          ],
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            0,
+            9
+          ],
+          "caption": "Supply rises, demand falls; they meet at the price that maximises the gains from trade."
+        }
+      ],
+      "deploy": "The yardstick for judging whether a policy makes society better or worse off overall.",
+      "counter": "Surplus counts dollars, not need: a rich person's willingness to pay can outweigh a poor person's greater need, so 'maximum total surplus' is efficient but not necessarily fair.",
+      "tags": [
+        "surplus",
+        "welfare",
+        "gains from trade"
+      ],
+      "xref": [
+        "pf-deadweight-laffer",
+        "micro-monopoly"
+      ],
+      "quiz": {
+        "q": "Consumer surplus is the gap between what buyers would pay and…",
+        "choices": [
+          "What they actually pay",
+          "The cost of production",
+          "The tax",
+          "Zero"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "micro-economies-of-scale",
+      "src": ["ev-micro-economies-of-scale"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "micro-margin"
+      ],
+      "title": "Economies (and diseconomies) of scale",
+      "fact": "Bigger can be cheaper per unit — until it isn't.",
+      "detail": "As output grows, fixed costs spread over more units and tasks specialise, so the average cost per unit falls — economies of scale. That's how large factories and platforms undercut small rivals. But scale eventually bites back: coordination, bureaucracy and complexity push costs up again (diseconomies of scale), giving the average-cost curve its characteristic U shape, with a 'minimum efficient scale' at the bottom.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "quadratic",
+          "params": {
+            "a": 0.18,
+            "b": -1.6,
+            "c": 5
+          },
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            0,
+            6
+          ],
+          "caption": "Average cost per unit: it falls, bottoms out, then rises again."
+        }
+      ],
+      "deploy": "Explains why some industries are dominated by giants and others by many small firms.",
+      "counter": "Where the U bottoms out varies wildly by industry; in software and network businesses near-zero marginal cost can push efficient scale so large that the market tends toward a natural monopoly.",
+      "tags": [
+        "economies of scale",
+        "costs",
+        "firms"
+      ],
+      "xref": [
+        "micro-monopoly",
+        "micro-perfect-competition"
+      ],
+      "quiz": {
+        "q": "'Economies of scale' means that as output rises, the cost per unit…",
+        "choices": [
+          "Rises",
+          "Falls",
+          "Stays fixed",
+          "Becomes zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-perfect-competition",
+      "src": ["ev-micro-perfect-competition"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-surplus"
+      ],
+      "title": "Perfect competition: price takers",
+      "fact": "In perfect competition no single firm sets the price — each just takes it.",
+      "detail": "The benchmark market: many small firms selling an identical good, free entry and exit, and full information. No one firm can move the price, so each treats it as given and produces up to where price equals marginal cost. Competition then erodes profit to a 'normal' level. Pure perfect competition rarely exists, but it's the yardstick economists hold real, messier markets up against.",
+      "deploy": "The reference point for judging how much a real market departs from the efficient ideal.",
+      "counter": "Its assumptions — identical products, perfect information, costless entry — almost never hold; treating it as how markets actually behave, rather than an idealised benchmark, is a common mistake.",
+      "tags": [
+        "perfect competition",
+        "price taker",
+        "markets"
+      ],
+      "xref": [
+        "micro-monopoly",
+        "micro-economies-of-scale"
+      ],
+      "quiz": {
+        "q": "A firm in perfect competition is a 'price taker', meaning it…",
+        "choices": [
+          "Sets its own price",
+          "Accepts the market price",
+          "Has no costs",
+          "Faces no rivals"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-monopoly",
+      "src": ["ev-micro-monopoly"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-perfect-competition"
+      ],
+      "title": "Monopoly: the price maker",
+      "fact": "A monopolist sets the price — and holds output back to keep it high.",
+      "detail": "With one seller and no close substitutes, a monopolist faces the whole market's demand curve. To sell more it must cut the price on every unit, so its marginal revenue falls below the price. Producing where marginal revenue equals marginal cost, it deliberately makes less and charges more than a competitive market would — shifting surplus from buyers to itself and creating deadweight loss. This is the core economic case for antitrust law.",
+      "deploy": "The standard argument for why monopolies are regulated, broken up or blocked.",
+      "counter": "Some argue monopolies can be efficient (scale, patent-driven innovation) and disciplined by the mere threat of entry; the Chicago school (Robert Bork) narrowed antitrust to consumer prices alone, a stance now challenged by 'neo-Brandeisians' such as Lina Khan.",
+      "tags": [
+        "monopoly",
+        "market power",
+        "antitrust"
+      ],
+      "xref": [
+        "micro-surplus",
+        "micro-oligopoly"
+      ],
+      "quiz": {
+        "q": "Compared with perfect competition, a monopoly tends to…",
+        "choices": [
+          "Produce more, charge less",
+          "Produce less, charge more",
+          "Charge nothing",
+          "Have no effect on price"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-oligopoly",
+      "src": ["ev-micro-oligopoly"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-monopoly"
+      ],
+      "title": "Oligopoly and cartels",
+      "fact": "A few big firms watch each other — and their fates tangle, like a game.",
+      "detail": "An oligopoly has just a handful of firms, each big enough that its move — a price cut, a new model — affects the others, so all must anticipate rivals' reactions. That makes pricing a strategic game: they'd all profit by colluding to keep prices high, yet each is tempted to undercut and grab share. It's the prisoner's dilemma in the marketplace; cartels like OPEC live this tension.",
+      "deploy": "Explains why a market with only a few players behaves neither like competition nor pure monopoly.",
+      "counter": "Whether oligopolists act more like rivals or a hidden cartel is empirical and varies by industry; tacit coordination is hard to prove, which is why competition authorities struggle to police it.",
+      "tags": [
+        "oligopoly",
+        "cartel",
+        "collusion"
+      ],
+      "xref": [
+        "game-prisoners-dilemma",
+        "micro-monopoly"
+      ],
+      "quiz": {
+        "q": "Oligopoly pricing resembles which game?",
+        "choices": [
+          "A pure lottery",
+          "The prisoner's dilemma",
+          "Solitaire",
+          "A coin toss"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-price-discrimination",
+      "src": ["ev-micro-price-discrimination"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-monopoly"
+      ],
+      "title": "Price discrimination",
+      "fact": "Charging different buyers different prices for the same thing can raise profit.",
+      "detail": "A seller with market power who can tell buyers apart by their willingness to pay — and prevent resale — can charge each closer to what they'd bear, capturing surplus that a single price leaves on the table. Airline fares, student and senior discounts, and 'enterprise' software tiers are all price discrimination. It can even expand output, serving customers a single high price would have shut out, so its effect on welfare is genuinely ambiguous.",
+      "deploy": "Reveals the logic behind coupons, tiered pricing and 'ask for a quote' — and when it helps or harms buyers.",
+      "counter": "It needs market power and blocked resale, and can feel unfair or shade into exploitation (surge pricing, personalised prices drawn from your data); efficiency and fairness pull in opposite directions.",
+      "tags": [
+        "price discrimination",
+        "pricing",
+        "market power"
+      ],
+      "xref": [
+        "micro-monopoly",
+        "micro-elasticity"
+      ],
+      "quiz": {
+        "q": "Price discrimination requires market power and the ability to…",
+        "choices": [
+          "Lower all prices",
+          "Prevent resale between buyers",
+          "Pay no tax",
+          "Sell identical goods"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-market-failure",
+      "src": ["ev-micro-market-failure"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-externalities"
+      ],
+      "title": "Market failure: when markets get it wrong",
+      "fact": "Even in theory, markets can fail to reach the efficient outcome — the economic case for intervention.",
+      "detail": "Markets misfire in recognised ways: externalities (costs dumped on third parties), public goods (under-supplied), market power (monopoly), and asymmetric information. Each breaks the link between private incentives and social welfare, leaving room for taxes, regulation or public provision to do better. The list is the standard menu for when 'leave it to the market' has a principled exception.",
+      "deploy": "A checklist for diagnosing when a market won't fix itself — and what kind of intervention fits.",
+      "counter": "Spotting a market failure doesn't prove government can do better: public-choice theorists (James Buchanan) and Hayek warn of 'government failure' — capture, poor information, unintended effects — that can be worse than the problem.",
+      "tags": [
+        "market failure",
+        "externalities",
+        "intervention"
+      ],
+      "xref": [
+        "econ-externalities",
+        "pf-public-goods"
+      ],
+      "quiz": {
+        "q": "Which is NOT a standard source of market failure?",
+        "choices": [
+          "Externalities",
+          "Public goods",
+          "Asymmetric information",
+          "Perfect competition"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "micro-asymmetric-info",
+      "src": ["ev-micro-asymmetric-info"],
+      "field": "micro",
+      "depth": "book",
+      "level": 3,
+      "prereq": [
+        "micro-market-failure"
+      ],
+      "title": "Asymmetric information and the market for lemons",
+      "fact": "When one side of a deal knows more, the market can unravel — Akerlof's 'lemons'.",
+      "detail": "George Akerlof showed that if sellers know their used cars' quality but buyers don't, buyers will only pay an average price — which drives the good cars out, lowering the average, until the market collapses to 'lemons'. Asymmetric information shapes insurance, credit and labour markets, and the fixes (warranties, credentials, reviews) are everywhere. Akerlof, Michael Spence and Joseph Stiglitz shared the 2001 Nobel for analysing it.",
+      "deploy": "Explains warranties, certifications, reviews and credentials as cures for a hidden-quality problem.",
+      "counter": "Signalling and screening can repair the market — Spence showed a credible signal (a costly degree) lets quality reveal itself — so asymmetric information doesn't always destroy trade, and some fixes (runaway credentialism) create new waste.",
+      "tags": [
+        "asymmetric information",
+        "lemons",
+        "Akerlof"
+      ],
+      "xref": [
+        "micro-moral-hazard",
+        "micro-adverse-selection"
+      ],
+      "quiz": {
+        "q": "Akerlof's 'market for lemons' shows that hidden quality can…",
+        "choices": [
+          "Raise average quality",
+          "Drive good products out of the market",
+          "Eliminate prices",
+          "Help buyers"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-adverse-selection",
+      "src": ["ev-micro-adverse-selection"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-asymmetric-info"
+      ],
+      "title": "Adverse selection",
+      "fact": "If mainly the high-risk buy insurance, the pool sours before it starts.",
+      "detail": "Adverse selection is hidden information acting at the moment of sale: those most likely to claim are keenest to buy insurance, so the insurer's pool is riskier than average, which pushes premiums up, which drives out the low-risk — a spiral. It's why insurers screen applicants and why many health systems mandate broad coverage: a compulsory pool stops the healthy opting out and collapsing it.",
+      "deploy": "The reason insurance is screened, priced by risk, or made compulsory.",
+      "counter": "Mandates and 'community rating' fight adverse selection but raise their own fairness questions — they force the low-risk to subsidise the high-risk — and where to draw that line is a political choice, not a purely economic one.",
+      "tags": [
+        "adverse selection",
+        "insurance",
+        "information"
+      ],
+      "xref": [
+        "micro-asymmetric-info",
+        "micro-moral-hazard"
+      ],
+      "quiz": {
+        "q": "Adverse selection in insurance means the buyers most likely to sign up are…",
+        "choices": [
+          "The lowest-risk",
+          "The highest-risk",
+          "Randomly chosen",
+          "The richest"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-moral-hazard",
+      "src": ["ev-micro-moral-hazard"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-asymmetric-info"
+      ],
+      "title": "Moral hazard",
+      "fact": "Insure or bail out a risk, and people take more of it.",
+      "detail": "Moral hazard is hidden action after a deal is struck: once you're insured against a loss you guard against it a little less; once a bank expects a rescue it gambles a little more. The party bearing the consequences can't fully watch the other's behaviour. It framed the fight over 2008's 'too big to fail' bailouts, which arguably rewarded the very recklessness that caused the crisis.",
+      "deploy": "Names the incentive trap in insurance, bailouts, and any safety net — and why deductibles and conditions exist.",
+      "counter": "Some argue moral hazard is overstated as an excuse to deny help — people don't court disaster merely because they're covered — and that in a genuine crisis the cure (refusing bailouts) can be worse than the disease.",
+      "tags": [
+        "moral hazard",
+        "incentives",
+        "bailouts"
+      ],
+      "xref": [
+        "micro-asymmetric-info",
+        "qf-leverage-risk"
+      ],
+      "quiz": {
+        "q": "Moral hazard refers to taking more risk because…",
+        "choices": [
+          "Prices fell",
+          "You're shielded from the consequences",
+          "Information is symmetric",
+          "Taxes rose"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-principal-agent",
+      "src": ["ev-micro-principal-agent"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-moral-hazard"
+      ],
+      "title": "The principal–agent problem",
+      "fact": "When you hire someone to act for you, their interests rarely match yours exactly.",
+      "detail": "The principal–agent problem arises whenever a principal (shareholders, voters, patients) delegates to an agent (managers, politicians, doctors) whose goals and information differ. The agent may shirk or pursue their own ends. Much of corporate design — performance pay, stock options, boards, audits — exists to pull the agent's incentives toward the principal's, though never perfectly.",
+      "deploy": "The lens for why CEOs are paid in stock, why contracts have clauses, and why oversight exists.",
+      "counter": "Incentive contracts can backfire: stock options encouraged short-termism and accounting fraud (Enron), and tying pay to a crude metric invites gaming it. Aligning incentives is harder than it looks.",
+      "tags": [
+        "principal-agent",
+        "incentives",
+        "governance"
+      ],
+      "xref": [
+        "micro-moral-hazard",
+        "micro-asymmetric-info"
+      ],
+      "quiz": {
+        "q": "The principal–agent problem is about misaligned interests between…",
+        "choices": [
+          "Two buyers",
+          "Someone who delegates and the person acting for them",
+          "Two governments",
+          "Rival firms"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "micro-labour-market",
+      "src": ["ev-micro-labour-market"],
+      "field": "micro",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "econ-supply-demand"
+      ],
+      "title": "Wages and the labour market",
+      "fact": "A wage is a price — set, roughly, by the supply of and demand for labour.",
+      "detail": "Treat labour like any market: firms hire workers up to the point where an extra worker's output value equals the wage, and people offer hours by weighing pay against leisure. The wage clears the two. But labour is special — it's people — so minimum wages, unions, discrimination and unequal bargaining power all bend the simple model. Whether a minimum wage costs jobs is among economics' most-tested questions.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.6,
+                "b": 1
+              },
+              "label": "labour supply"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.6,
+                "b": 8
+              },
+              "label": "labour demand"
+            }
+          ],
+          "domain": [
+            0,
+            10
+          ],
+          "yrange": [
+            0,
+            9
+          ],
+          "caption": "The wage (up) settles where the supply of labour meets the demand for it."
+        }
+      ],
+      "deploy": "The starting frame for debates on wages, unions, immigration and the minimum wage.",
+      "counter": "The textbook prediction that a minimum wage cuts jobs was upended by David Card and Alan Krueger (1994), who found little to no employment loss; Card shared the 2021 Nobel. Critics reply that effects appear at higher minimums or over longer horizons. The question stays live.",
+      "tags": [
+        "labour market",
+        "wages",
+        "minimum wage"
+      ],
+      "xref": [
+        "econ-supply-demand",
+        "micro-elasticity"
+      ],
+      "quiz": {
+        "q": "Card and Krueger's famous finding challenged the idea that a minimum wage…",
+        "choices": [
+          "Raises prices",
+          "Always cuts employment",
+          "Helps firms",
+          "Lowers taxes"
+        ],
+        "answer": 1
+      }
     }
   ],
 
   "motions": [
-    { "id": "m-growth-env",   "text": "This house would prioritise economic growth over environmental protection.", "fields": ["econ", "eco", "systems"] },
-    { "id": "m-free-trade",   "text": "Free trade does more good than harm.",                                       "fields": ["econ", "geo"] },
+    { "id": "m-growth-env",   "text": "This house would prioritise economic growth over environmental protection.", "fields": ["micro", "macro", "eco", "systems"] },
+    { "id": "m-free-trade",   "text": "Free trade does more good than harm.",                                       "fields": ["micro", "macro", "geo"] },
     { "id": "m-democracy",    "text": "Democracy is the best system of government.",                                 "fields": ["polisci", "philo", "history"] },
     { "id": "m-science-moral","text": "Science can answer moral questions.",                                        "fields": ["philo", "physics", "bio"] },
-    { "id": "m-progress",     "text": "Technological progress has made humanity better off.",                       "fields": ["history", "econ", "bio"] },
+    { "id": "m-progress",     "text": "Technological progress has made humanity better off.",                       "fields": ["history", "micro", "macro", "bio"] },
     { "id": "m-china-war",    "text": "The rise of China makes conflict with the United States likely.",            "fields": ["geo", "history"] },
-    { "id": "m-individual",   "text": "Individual action is futile against systemic problems.",                     "fields": ["systems", "eco", "econ"] },
+    { "id": "m-individual",   "text": "Individual action is futile against systemic problems.",                     "fields": ["systems", "eco", "micro", "macro"] },
     { "id": "m-experts",      "text": "We should trust experts over public opinion.",                              "fields": ["philo", "polisci", "systems"] },
-    { "id": "m-markets-gov",  "text": "Markets allocate resources better than governments.",                       "fields": ["econ", "polecon", "polisci"] },
+    { "id": "m-markets-gov",  "text": "Markets allocate resources better than governments.",                       "fields": ["micro", "macro", "polecon", "polisci"] },
     { "id": "m-marx-relevant","text": "Marx's critique of capitalism is still relevant today.",                     "fields": ["polecon", "echist", "philo"] },
-    { "id": "m-inequality",   "text": "Inequality, not poverty, is the central economic problem of our time.",       "fields": ["polecon", "econ", "echist"] },
-    { "id": "m-growth-goal",  "text": "Endless economic growth is the wrong goal for a rich society.",              "fields": ["econ", "eco", "polecon"] }
+    { "id": "m-inequality",   "text": "Inequality, not poverty, is the central economic problem of our time.",       "fields": ["polecon", "micro", "macro", "echist"] },
+    { "id": "m-growth-goal",  "text": "Endless economic growth is the wrong goal for a rich society.",              "fields": ["micro", "macro", "eco", "polecon"] }
   ]
 }

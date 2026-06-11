@@ -2223,6 +2223,150 @@
       "url": "https://en.wikipedia.org/wiki/Modern_monetary_theory",
       "kind": "reference",
       "strength": "Tertiary article on MMT and its critics. The card frames it explicitly as a live dispute — Kelton et al. vs Summers/Rogoff/Krugman — which the article documents."
+    },
+    "ev-micro-opportunity-cost": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Opportunity cost",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Opportunity_cost",
+      "kind": "reference",
+      "strength": "Tertiary article on opportunity cost and sunk costs. Settled foundational concept; the opportunity-cost-neglect finding (Frederick et al.) the card cites is documented behavioural research."
+    },
+    "ev-micro-margin": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Marginalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Marginalism",
+      "kind": "reference",
+      "strength": "Tertiary article on marginal analysis and the marginal-benefit-equals-marginal-cost rule. Core, settled microeconomic method."
+    },
+    "ev-micro-marginal-utility": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Marginal utility",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Marginal_utility",
+      "kind": "reference",
+      "strength": "Tertiary article on diminishing marginal utility and its link to demand. Standard theory; the card's caveat that utility is ordinal, not measurable, reflects the modern consensus."
+    },
+    "ev-micro-elasticity": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Price elasticity of demand",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Price_elasticity_of_demand",
+      "kind": "reference",
+      "strength": "Tertiary article giving E=%ΔQ/%ΔP and the elastic/inelastic distinction. Settled definition; the 'varies along the curve and over time' caveat is standard."
+    },
+    "ev-micro-surplus": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Economic surplus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economic_surplus",
+      "kind": "reference",
+      "strength": "Tertiary article on consumer/producer surplus and deadweight loss. Standard welfare analysis; the 'dollars not need' fairness caveat is widely made."
+    },
+    "ev-micro-economies-of-scale": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Economies of scale",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economies_of_scale",
+      "kind": "reference",
+      "strength": "Tertiary article on scale economies, the U-shaped cost curve and minimum efficient scale. Settled; the near-zero-marginal-cost natural-monopoly point is well documented."
+    },
+    "ev-micro-perfect-competition": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Perfect competition",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Perfect_competition",
+      "kind": "reference",
+      "strength": "Tertiary article on the price-taker benchmark and its assumptions. The card stresses, as the article does, that it is an idealised benchmark rather than a description of real markets."
+    },
+    "ev-micro-monopoly": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Monopoly",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Monopoly",
+      "kind": "reference",
+      "strength": "Tertiary article on monopoly pricing, deadweight loss and antitrust. The Bork/Chicago vs neo-Brandeisian (Khan) antitrust dispute the card names is a real, current debate."
+    },
+    "ev-micro-oligopoly": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Oligopoly",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Oligopoly",
+      "kind": "reference",
+      "strength": "Tertiary article on few-firm strategic interaction and collusion. The prisoner's-dilemma framing and the difficulty of proving tacit collusion are standard."
+    },
+    "ev-micro-price-discrimination": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Price discrimination",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Price_discrimination",
+      "kind": "reference",
+      "strength": "Tertiary article on charging by willingness to pay and the conditions (market power, no resale). The ambiguous-welfare and fairness caveats are standard."
+    },
+    "ev-micro-market-failure": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Market failure",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Market_failure",
+      "kind": "reference",
+      "strength": "Tertiary article cataloguing externalities, public goods, market power and information failures. The 'government failure' counter (Buchanan, Hayek) the card raises is a recognised school."
+    },
+    "ev-micro-asymmetric-info": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 2001,
+      "title": "The Prize in Economic Sciences 2001 — Press release (Akerlof, Spence, Stiglitz)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2001/press-release/",
+      "kind": "reference",
+      "strength": "Official Nobel announcement for the analysis of markets with asymmetric information, including Akerlof's 'lemons' and Spence's signalling — primary attribution for the card's claims."
+    },
+    "ev-micro-adverse-selection": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Adverse selection",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Adverse_selection",
+      "kind": "reference",
+      "strength": "Tertiary article on adverse selection in insurance and the role of screening/mandates. Settled mechanism; the fairness-of-mandates caveat is a genuine policy dispute."
+    },
+    "ev-micro-moral-hazard": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Moral hazard",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Moral_hazard",
+      "kind": "reference",
+      "strength": "Tertiary article on hidden action and the 'too big to fail' debate. Standard; the card flags the contested claim that moral hazard is overused to justify denying help."
+    },
+    "ev-micro-principal-agent": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Principal–agent problem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Principal%E2%80%93agent_problem",
+      "kind": "reference",
+      "strength": "Tertiary article on delegation, misaligned incentives and contract design. The backfiring-incentives caveat (Enron, gaming metrics) the card cites is well documented."
+    },
+    "ev-micro-labour-market": {
+      "who": "The Royal Swedish Academy of Sciences / NobelPrize.org",
+      "year": 2021,
+      "title": "The Prize in Economic Sciences 2021 — Press release (Card, Angrist, Imbens)",
+      "where": "",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2021/press-release/",
+      "kind": "reference",
+      "strength": "Official Nobel announcement recognising David Card's natural-experiment work, including the Card–Krueger finding that minimum-wage rises need not cut employment — the live debate the card centres on."
     }
   }
 }
