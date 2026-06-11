@@ -2116,6 +2116,23 @@
           "tex": "a^{m}\\cdot a^{n} = a^{m+n}",
           "plain": "aᵐ · aⁿ = aᵐ⁺ⁿ",
           "caption": "Multiplying powers adds the exponents."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": 0.6931
+          },
+          "domain": [
+            0,
+            8
+          ],
+          "yrange": [
+            0,
+            260
+          ],
+          "caption": "2ˣ explodes — each step doubles the last."
         }
       ],
       "deploy": "Compresses repeated multiplication and gives a clean way to handle very large or very small numbers.",
@@ -2157,6 +2174,20 @@
           "tex": "\\log_b(xy) = \\log_b x + \\log_b y",
           "plain": "log_b(xy) = log_b x + log_b y",
           "caption": "Logs convert products into sums."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "log",
+          "domain": [
+            0.15,
+            8
+          ],
+          "yrange": [
+            -2.1,
+            2.2
+          ],
+          "caption": "The logarithm: quick to rise, then a slow crawl."
         }
       ],
       "deploy": "Lets you read quantities that span orders of magnitude, and replace awkward products with sums.",
@@ -2344,6 +2375,23 @@
           "tex": "\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n",
           "plain": "Σ xᵢ = x₁ + x₂ + ⋯ + xₙ",
           "caption": "Sigma says: run the counter and add."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "labels": [
+            "x₁",
+            "x₂",
+            "x₃",
+            "x₄"
+          ],
+          "caption": "Σ adds the bars: 1 + 2 + 3 + 4 = 10."
         }
       ],
       "deploy": "Compresses 'add up many terms' into one symbol you'll meet in every quantitative field.",
@@ -2387,6 +2435,20 @@
           "tex": "\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1",
           "plain": "lim(x→0) sin(x)/x = 1",
           "caption": "Undefined at 0, yet it heads to 1."
+        },
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "sinc",
+          "domain": [
+            -12,
+            12
+          ],
+          "yrange": [
+            -0.3,
+            1.15
+          ],
+          "caption": "sin(x)/x has a hole at 0, yet heads to 1."
         }
       ],
       "deploy": "Lets you reason about behaviour at a point a function can't actually reach — the gateway to derivatives and integrals.",
@@ -2599,6 +2661,17 @@
           "tex": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\ \\frac{\\partial f}{\\partial y}\\right)",
           "plain": "∇f = (∂f/∂x, ∂f/∂y)",
           "caption": "A vector of partial slopes, pointing uphill."
+        },
+        {
+          "type": "plot",
+          "kind": "contour",
+          "fn": "bowl",
+          "range": 3,
+          "point": [
+            1.4,
+            1.1
+          ],
+          "caption": "On the bowl f = x² + y², ∇f points outward — straight uphill."
         }
       ],
       "deploy": "Gives the direction to step when tuning many numbers at once — the basis of gradient descent.",
@@ -2839,6 +2912,19 @@
           "tex": "\\|\\vec v\\| = \\sqrt{v_1^2 + v_2^2 + \\cdots + v_n^2}",
           "plain": "‖v‖ = √(v₁² + v₂² + ⋯ + vₙ²)",
           "caption": "Pythagoras, in any number of dimensions."
+        },
+        {
+          "type": "plot",
+          "kind": "vectors",
+          "vecs": [
+            [
+              4,
+              3,
+              "length 5"
+            ]
+          ],
+          "range": 6,
+          "caption": "‖[4, 3]‖ = √(16 + 9) = 5 — the hypotenuse."
         }
       ],
       "deploy": "Defines size and closeness for data — the basis of distance, error magnitude and similarity searches.",
@@ -3085,6 +3171,22 @@
           "tex": "A\\vec x = \\vec b \\;\\Rightarrow\\; \\vec x = A^{-1}\\vec b",
           "plain": "Ax = b ⇒ x = A⁻¹b",
           "caption": "When A is invertible, the system has one solution."
+        },
+        {
+          "type": "plot",
+          "kind": "lines",
+          "lines": [
+            [
+              -2,
+              5
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          "range": 6,
+          "caption": "Two equations, two lines — they cross at the solution (2, 1)."
         }
       ],
       "deploy": "The standard form that an enormous range of practical problems gets rewritten into and solved.",

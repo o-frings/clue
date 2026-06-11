@@ -736,6 +736,12 @@ const VIZ_FN={
   exp:(x,p)=>Math.exp((p.k==null?1:+p.k)*x),
   log:(x)=>Math.log(x),
   sine:(x)=>Math.sin(x),
+  sinc:(x)=>Math.abs(x)<1e-9?1:Math.sin(x)/x,
+};
+// two-input surfaces, for the contour/heatmap kind
+const VIZ_FN2D={
+  bowl:(x,y)=>x*x+y*y,
+  saddle:(x,y)=>x*x-y*y,
 };
 function renderViz(root){
   if(!root) return;
@@ -902,6 +908,40 @@ function drawViz(g, spec, st, readout){
     const x=st._x, y=fn(x,p); g.appendChild(svgEl('circle',{cx:sc.sx(x),cy:sc.sy(y),r:5.5,fill:accent}));
     const slope=2*p.a*x+(p.b||0);
     if(readout) readout.textContent='x = '+fmtNum(x)+',  loss = '+fmtNum(y)+',  slope = '+fmtNum(slope)+',  η = '+fmtNum(st.eta==null?0.1:st.eta);
+    return;
+  }
+  // ---- contour: a 2-D surface f(x,y) as a heatmap, with the gradient arrow ----
+  if(kind==='contour'){
+    const R=spec.range||3; const xr=[-R,R],yr=[-R,R]; const sc=vzScales(xr,yr);
+    const f2=VIZ_FN2D[spec.fn||'bowl']; const N=spec.cells||16;
+    const bx=sc.box, cw=(bx.x1-bx.x0)/N, ch=(bx.y1-bx.y0)/N;
+    let mx=1e-9; const vals=[];
+    for(let i=0;i<N;i++){ vals[i]=[]; for(let j=0;j<N;j++){
+      const xv=xr[0]+(i+0.5)/N*(xr[1]-xr[0]), yv=yr[1]-(j+0.5)/N*(yr[1]-yr[0]);
+      const v=f2(xv,yv); vals[i][j]=v; if(v>mx)mx=v; } }
+    for(let i=0;i<N;i++)for(let j=0;j<N;j++){ const op=Math.max(0,Math.min(0.85,vals[i][j]/mx));
+      g.appendChild(svgEl('rect',{x:(bx.x0+i*cw).toFixed(1),y:(bx.y0+j*ch).toFixed(1),width:(cw+0.5).toFixed(1),height:(ch+0.5).toFixed(1),fill:accent,'fill-opacity':op.toFixed(3),stroke:'none'})); }
+    vzAxes(g,sc,xr,yr);
+    if(spec.arrow!==false){ const px=spec.point?spec.point[0]:1.4, py=spec.point?spec.point[1]:1.1, h=0.01;
+      const gx=(f2(px+h,py)-f2(px-h,py))/(2*h), gy=(f2(px,py+h)-f2(px,py-h))/(2*h);
+      const len=Math.hypot(gx,gy)||1, L=R*0.32;
+      g.appendChild(svgEl('circle',{cx:sc.sx(px),cy:sc.sy(py),r:3.5,fill:ink}));
+      arrow(g,sc.sx(px),sc.sy(py),sc.sx(px+gx/len*L),sc.sy(py+gy/len*L),ink,2.4);
+      vzText(g,sc.sx(px+gx/len*L)+3,sc.sy(py+gy/len*L),'∇f',ink,11); }
+    if(readout) readout.textContent='darker = higher ground; ∇f points straight uphill';
+    return;
+  }
+  // ---- lines: several straight lines, marking where the first two cross (a linear system) ----
+  if(kind==='lines'){
+    const R=spec.range||6, xr=[-R,R], lines=spec.lines||[]; let lo=Infinity,hi=-Infinity;
+    lines.forEach(L=>[xr[0],xr[1]].forEach(x=>{ const y=L[0]*x+L[1]; lo=Math.min(lo,y); hi=Math.max(hi,y); }));
+    if(!isFinite(lo)){lo=-R;hi=R;} const pad=(hi-lo||1)*0.12; const yr=spec.yrange||[lo-pad,hi+pad];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    const cols=[accent,'#37b24d','#1c7ed6'];
+    lines.forEach((L,i)=>g.appendChild(svgEl('line',{x1:sc.sx(xr[0]),y1:sc.sy(L[0]*xr[0]+L[1]),x2:sc.sx(xr[1]),y2:sc.sy(L[0]*xr[1]+L[1]),stroke:cols[i%cols.length],'stroke-width':2.2})));
+    if(lines.length>=2){ const[m1,b1]=lines[0],[m2,b2]=lines[1]; if(Math.abs(m1-m2)>1e-9){ const ix=(b2-b1)/(m1-m2), iy=m1*ix+b1;
+      g.appendChild(svgEl('circle',{cx:sc.sx(ix),cy:sc.sy(iy),r:4.5,fill:ink}));
+      if(readout) readout.textContent='solution: x = '+fmtNum(ix)+',  y = '+fmtNum(iy); } }
     return;
   }
 }
