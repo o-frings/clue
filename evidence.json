@@ -1368,6 +1368,33 @@
       "url": "https://en.wikipedia.org/wiki/Argument_from_authority",
       "kind": "reference",
       "strength": "Standard reference; distinguishes legitimate expert consensus from misplaced authority."
+    },
+    "ev-chang-ladder": {
+      "who": "Ha-Joon Chang",
+      "year": 2002,
+      "title": "Kicking Away the Ladder",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Kicking_Away_the_Ladder",
+      "kind": "book",
+      "strength": "Influential heterodox argument that development came from state intervention/industrial policy, not free markets."
+    },
+    "ev-beijing-consensus": {
+      "who": "Wikipedia (Joshua Cooper Ramo)",
+      "year": 2004,
+      "title": "Beijing Consensus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Beijing_Consensus",
+      "kind": "reference",
+      "strength": "Frames China’s state-led model explicitly against the market-liberal Washington Consensus."
+    },
+    "ev-rodney-underdeveloped": {
+      "who": "Walter Rodney",
+      "year": 1972,
+      "title": "How Europe Underdeveloped Africa",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/How_Europe_Underdeveloped_Africa",
+      "kind": "book",
+      "strength": "Foundational dependency-theory text arguing colonial extraction caused African underdevelopment."
     }
   }
 }

@@ -89,12 +89,12 @@
     {
       "id": "china-reform-opening", "field": "echist", "kind": "date", "depth": "event", "level": 2, "year": 1978, "when": "1978",
       "prereq": ["date-prc-1949"],
-      "src": ["ev-china-reform-opening"],
+      "src": ["ev-china-reform-opening", "ev-chang-ladder", "ev-beijing-consensus"],
       "title": "China's reform and opening up",
-      "fact": "From 1978, Deng Xiaoping's market reforms turned a poor planned economy into the world's factory.",
-      "detail": "At the 1978 third plenum the CCP began 'reform and opening up' — de-collectivising farms, allowing private business, welcoming foreign investment and creating special economic zones, while keeping one-party rule. The World Bank credits the era with lifting almost 800 million people out of extreme poverty — the largest, fastest poverty reduction in history.",
-      "deploy": "The headline case that market mechanisms, even under an authoritarian state, can drive vast growth and poverty reduction.",
-      "counter": "It came with sharp inequality, environmental damage, suppressed labour rights and no political liberalisation — the growth was neither shared nor free.",
+      "fact": "From 1978, China's 'reform and opening up' under Deng Xiaoping rebuilt a poor planned economy into the world's factory.",
+      "detail": "At the 1978 third plenum the CCP began 'reform and opening up': de-collectivising farms, allowing private business, inviting foreign investment and creating special economic zones — while keeping one-party rule. The World Bank credits the era with lifting almost 800 million people from extreme poverty. How to read it is contested, and the label you pick is the bias: Beijing calls it 'socialism with Chinese characteristics' (the Party steering, not retreating); economists Ha-Joon Chang and Joe Studwell argue the real engine was state-directed industrial policy, land reform and cheap directed credit, not free markets; the economist Martin Ravallion finds the biggest early poverty fall (1978–84) came from de-collectivising farms, before global trade took off.",
+      "deploy": "A test case in development economics — was the driver the market, the state, or both? Name the reading you mean rather than assuming 'markets won'.",
+      "counter": "It also brought steep inequality (documented by Branko Milanović and Thomas Piketty), heavy environmental damage, repressed independent labour and no political opening — and the common Western 'free-market triumph' telling understates how much the state directed the whole process (the 'Beijing Consensus' reading).",
       "tags": ["china", "reform", "growth", "poverty"],
       "xref": ["date-prc-1949", "eh-neoliberal-turn", "econ-comparative-advantage"],
       "quiz": { "q": "The World Bank credits China's post-1978 reforms with…", "choices": ["Ending one-party rule", "Lifting ~800 million people out of extreme poverty", "Joining NATO", "Abolishing all state-owned firms"], "answer": 1 }
@@ -320,12 +320,12 @@
     },
     {
       "id": "colonial-scramble-africa", "field": "history", "kind": "date", "depth": "event", "level": 1, "year": 1884, "when": "1884–85",
-      "src": ["ev-colonial-scramble-africa"],
+      "src": ["ev-colonial-scramble-africa", "ev-rodney-underdeveloped"],
       "title": "The Scramble for Africa",
       "fact": "In the 1880s, European powers carved up almost all of Africa among themselves — often by lines on a map.",
       "detail": "At the Berlin Conference (1884–85), European states set rules for claiming African territory, accelerating a 'Scramble' that by 1914 left only Ethiopia and Liberia uncolonised. Borders were drawn for European convenience — straight lines cutting across peoples and merging rivals — and economies were reorganised to extract raw materials. Those imposed borders and extractive patterns outlived empire and still shape African states.",
       "deploy": "The root behind many of Africa's borders, ethnic tensions and commodity-export economies — designed externally, not grown.",
-      "counter": "Colonialism isn't the sole cause of later problems — pre-colonial states, geography and post-independence choices matter too; mono-causal accounts oversimplify.",
+      "counter": "How much it explains is itself a named debate: dependency theorists like Walter Rodney ('How Europe Underdeveloped Africa') blame colonial extraction for lasting underdevelopment; institutional economists like Daron Acemoglu and James Robinson point to the extractive institutions it left behind; others weigh pre-colonial states, geography and post-1960 choices too.",
       "tags": ["africa", "colonialism", "borders", "history"],
       "xref": ["date-year-of-africa-1960", "date-sykes-picot-1916"],
       "quiz": { "q": "The 1884–85 Berlin Conference…", "choices": ["Ended slavery worldwide", "Set rules for Europeans to partition Africa", "Founded the UN", "Granted African independence"], "answer": 1 }
@@ -337,7 +337,7 @@
       "fact": "The Sahel is the dry belt below the Sahara — and one of the world's most stressed regions.",
       "detail": "A semi-arid band running ~5,900 km from the Atlantic to the Red Sea, the Sahel (Mali, Niger, Burkina Faso, Chad and others) sits between desert and savanna. Rainfall is low and erratic, droughts recur, and the population is growing fast — squeezing land and water and fuelling herder–farmer conflict. By 2021 the Sahel accounted for a large and rising share of the world's terrorism deaths, making it both a humanitarian and a security crisis.",
       "deploy": "Explains why the Sahel is a flashpoint: climate stress + fast population growth + weak states + spreading insurgency.",
-      "counter": "It isn't destined to fail — framing it only through terrorism and famine misses local resilience, and militarised outside responses have often made things worse.",
+      "counter": "Reducing it to terrorism and famine misses local politics and resilience; and the biggest militarised response — France's Operation Barkhane (2014–2022) — is now widely judged a failure, including by French analysts, having left jihadist control wider than before.",
       "tags": ["sahel", "africa", "climate", "geography"],
       "xref": ["sahel-alliance", "date-year-of-africa-1960"],
       "quiz": { "q": "The Sahel is best described as…", "choices": ["A rainforest", "A semi-arid belt south of the Sahara", "A mountain range", "A river delta"], "answer": 1 }
@@ -350,7 +350,7 @@
       "fact": "Since 2020, coups across the Sahel have thrown out French troops and turned toward Russia.",
       "detail": "A wave of military coups hit Mali, Burkina Faso and Niger from 2020. The juntas blamed France and the West for failing to stop jihadist insurgencies, expelled French and Western forces, quit the regional bloc ECOWAS, and formed the Alliance of Sahel States — bringing in Russian military contractors instead. It marks a sharp unwinding of post-colonial Western influence in the region.",
       "deploy": "Captures the Sahel's geopolitical realignment: out with France and ECOWAS, in with juntas and Russia.",
-      "counter": "Supporters call it reclaiming sovereignty from neo-colonial control; critics note the juntas haven't improved security and Russian forces bring their own abuses.",
+      "counter": "The juntas — Mali's Assimi Goïta, Burkina Faso's Ibrahim Traoré, Niger's Abdourahamane Tchiani — and pan-Africanist supporters frame it as reclaiming sovereignty from France; ECOWAS, Paris and rights groups like Human Rights Watch counter that jihadist violence has worsened and that the Russian forces (Wagner/Africa Corps) replacing the French committed documented massacres such as Moura, Mali (2022).",
       "tags": ["sahel", "coups", "france", "russia"],
       "xref": ["africa-francafrique", "sahel-region"],
       "quiz": { "q": "After their coups, Mali, Burkina Faso and Niger…", "choices": ["Joined the EU", "Expelled French forces and turned toward Russia", "Restored colonial rule", "Abolished their armies"], "answer": 1 }
@@ -363,7 +363,7 @@
       "fact": "'Françafrique' is the name for France's continued grip on its former African colonies after independence.",
       "detail": "After 1960 France kept deep influence over its former colonies: the CFA franc pegged to the French franc (now euro) under French oversight; defence pacts that brought frequent French military interventions; an opaque presidential 'African Cell'; and personal networks linking elites. Critics coined 'Françafrique' for this clientelist, often corrupt system. It has weakened lately — budget limits, public scrutiny and rivals (China, Russia) — with Sahel states now expelling French troops.",
       "deploy": "Explains how formal independence in 1960 left real economic and military dependence — and why anti-French feeling now runs high in the Sahel.",
-      "counter": "Defenders argue the ties also brought stability, investment and a stable currency; and blaming France alone can let local elites off the hook for their own choices.",
+      "counter": "The historian François-Xavier Verschave coined Françafrique; economists Ndongo Samba Sylla and Fanny Pigeaud attack the CFA franc as a colonial leash. Its defenders — the French Treasury and the regional central banks (BCEAO/BEAC) — credit the peg with low inflation and convertibility, and note that blaming Paris alone lets local elites off the hook.",
       "tags": ["africa", "colonialism", "france", "cfa franc"],
       "xref": ["sahel-alliance", "date-year-of-africa-1960"],
       "quiz": { "q": "'Françafrique' refers to…", "choices": ["A French region", "France's continued post-independence sway over former African colonies", "An African airline", "A trade treaty"], "answer": 1 }
@@ -376,7 +376,7 @@
       "fact": "Libya went from one of Africa's richest states to a fractured war zone after Gaddafi fell in 2011.",
       "detail": "Muammar Gaddafi ruled Libya for 42 years on oil wealth and tight control. In 2011, Arab Spring protests and a NATO-backed uprising toppled and killed him — but no stable order replaced him. Rival governments and militias fought two civil wars, the country split between east and west, and Libya became a major transit route for migrants heading to Europe. Oil still flows, but power is contested.",
       "deploy": "A cautionary case on regime change: removing a dictator without a workable successor state can produce lasting collapse.",
-      "counter": "Whether the 2011 intervention 'caused' the chaos or merely removed the lid is debated; Gaddafi's own rule and deep regional divisions set the stage.",
+      "counter": "The 2016 UK House of Commons Foreign Affairs Committee found the intervention had no plan for the aftermath, and Barack Obama called that failure his 'worst mistake'; interventionists counter that Gaddafi had so hollowed out the state that collapse was likely regardless.",
       "tags": ["libya", "gaddafi", "intervention", "civil war"],
       "xref": ["me-oil-rentier", "sahel-region"],
       "quiz": { "q": "Since Gaddafi's fall in 2011, Libya has…", "choices": ["Become a stable democracy", "Fractured into rival governments and civil war", "Rejoined the Ottoman Empire", "Banned oil exports"], "answer": 1 }
@@ -1499,7 +1499,7 @@
       "year": 1817,
       "tags": ["trade", "economics", "classical"],
       "deploy": "The standard answer to 'they can make it cheaper, so trade hurts us' — gains come from specialisation, not from winning at everything.",
-      "counter": "The clean result assumes full employment, mobile resources, and ignores distribution: trade can raise the total while leaving specific workers and regions worse off.",
+      "counter": "Named critics — Friedrich List in the 1840s, Ha-Joon Chang today — argue infant industries need protection to ever become competitive; and the clean result assumes full employment and mobile resources while ignoring distribution: trade can raise the total yet leave specific workers and regions worse off.",
       "quiz": [{ "q": "Comparative advantage says gains from trade come from differences in…", "choices": ["Absolute skill", "Opportunity cost", "Population size", "Currency strength"], "answer": 1 }, {"q":"A country should specialise where it has the lowest…","choices":["Absolute cost","Opportunity cost","Tax rate","Wage bill"],"answer":1}]
     },
     {
@@ -1690,7 +1690,7 @@
       "detail": "When price rises, buyers want less and sellers offer more; the price settles where the two meet. It's a powerful starting model — but it assumes competition, good information and flexible prices that real markets often lack.",
       "src": ["ev-econ-supply-demand"],
       "tags": ["economics", "basics", "markets"],
-      "deploy": "Explains why price caps tend to cause shortages and why some subsidies just push prices up.",
+      "deploy": "Explains how a price emerges from supply and demand — and why interventions like caps or subsidies ripple into quantity (shortages or surpluses), not just price.",
       "counter": "Perfect competition is rare; with market power, information gaps or sticky prices the simple model can mislead.",
       "quiz": { "q": "In the basic model, the market price settles where…", "choices": ["Costs are lowest", "Supply equals demand", "The government sets it", "Profit is zero"], "answer": 1 }
     },
@@ -1858,7 +1858,7 @@
       "year": 1963,
       "tags": ["political economy", "monetarist", "macro"],
       "deploy": "The standard hawkish case that loose money, not greedy sellers, drives inflation.",
-      "counter": "The money–inflation link is loose in practice; supply shocks and expectations matter, and central banks abandoned strict monetary targets."
+      "counter": "Keynesian economists like James Tobin disputed the tight money–inflation link; in practice supply shocks and expectations matter, and central banks abandoned strict monetary targets when they failed to hold."
     },
     {
       "id": "pe-hayek", "field": "polecon", "depth": "book", "level": 4,
@@ -1871,7 +1871,7 @@
       "year": 1945,
       "tags": ["political economy", "austrian", "markets"],
       "deploy": "The strongest principled argument against detailed central planning — it's a knowledge problem, not just a motivation one.",
-      "counter": "Prices routinely get externalities, public goods and information gaps wrong, which is why even market economies regulate."
+      "counter": "Information economists like Joseph Stiglitz showed markets with imperfect information aren't efficient either; and prices routinely misprice externalities and public goods — which is why even market economies regulate."
     },
 
     {
@@ -1949,7 +1949,7 @@
       "year": 1979,
       "tags": ["economic history", "neoliberalism", "policy"],
       "deploy": "Names the framework most current economic arguments are still reacting for or against.",
-      "counter": "'Neoliberalism' is a loose label; the period's policies and results varied enormously by country."
+      "counter": "It's a loose, contested label: its architects (Friedman, Hayek, Thatcher, Reagan) sold it as freeing growth, while critics like Joseph Stiglitz and Naomi Klein blame it for inequality and financial crises — and results varied enormously by country."
     },
     {
       "id": "eh-2008", "field": "echist", "depth": "event", "level": 5,
