@@ -2583,6 +2583,186 @@
       "url": "https://en.wikipedia.org/wiki/Marshall_Plan",
       "kind": "reference",
       "strength": "Tertiary article on the 1948 European Recovery Program. The debate over its decisiveness (Milward's revisionism vs the conventional view) the card names is a real historiographical dispute."
+    },
+    "ev-cyber-cia-triad": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Information security",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Information_security",
+      "kind": "reference",
+      "strength": "Tertiary article that defines the confidentiality–integrity–availability triad. Settled foundational framework; the card notes the standard critique that the triad is incomplete."
+    },
+    "ev-cyber-threat-risk": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Threat (computer security)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Threat_(computer_security)",
+      "kind": "reference",
+      "strength": "Tertiary article distinguishing threat, vulnerability, attack surface and risk. Standard terminology; the 'risk numbers are estimates' caveat is widely acknowledged."
+    },
+    "ev-cyber-authentication": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Multi-factor authentication",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Multi-factor_authentication",
+      "kind": "reference",
+      "strength": "Tertiary article on authentication factors and MFA. The SIM-swap / push-fatigue weaknesses the card raises are documented attack techniques."
+    },
+    "ev-cyber-passwords-hashing": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Salt (cryptography)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Salt_(cryptography)",
+      "kind": "reference",
+      "strength": "Tertiary article on salting and password hashing against rainbow tables. Settled practice; NIST's 2017 reversal on rotation/complexity rules the card cites is well documented."
+    },
+    "ev-cyber-symmetric-encryption": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Symmetric-key algorithm",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Symmetric-key_algorithm",
+      "kind": "reference",
+      "strength": "Tertiary article on shared-key encryption (AES) and the key-distribution problem. The 'most failures are key-management failures' caveat is a standard practitioner point."
+    },
+    "ev-cyber-public-key": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Public-key cryptography",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Public-key_cryptography",
+      "kind": "reference",
+      "strength": "Tertiary article on asymmetric crypto and the public/private key pair, including RSA. The 'security rests on believed-hard problems, broken by Shor' caveat is accurate."
+    },
+    "ev-cyber-tls": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Transport Layer Security",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Transport_Layer_Security",
+      "kind": "reference",
+      "strength": "Tertiary article on the TLS handshake, certificates and the symmetric/asymmetric split. The CA-trust weakness the card flags is well documented."
+    },
+    "ev-cyber-hashing-signatures": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Digital signature",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Digital_signature",
+      "kind": "reference",
+      "strength": "Tertiary article on hashing, signing and verification. The stolen-signing-key risk (Stuxnet, SolarWinds) the card cites is documented history."
+    },
+    "ev-cyber-phishing": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Phishing",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "kind": "reference",
+      "strength": "Tertiary article on phishing, spear-phishing and business email compromise. The 'blaming users misses bad system design' counter is a recognised security-culture argument."
+    },
+    "ev-cyber-malware": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Malware",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Malware",
+      "kind": "reference",
+      "strength": "Tertiary article taxonomising viruses, worms, trojans, ransomware and more. The ransomware-as-a-service industrialisation the card notes is documented."
+    },
+    "ev-cyber-injection": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "SQL injection",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/SQL_injection",
+      "kind": "reference",
+      "strength": "Tertiary article on injection via untrusted input and the parameterised-query fix. Injection's persistence atop the OWASP risk list the card cites is well established."
+    },
+    "ev-cyber-mitm": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Man-in-the-middle attack",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Man-in-the-middle_attack",
+      "kind": "reference",
+      "strength": "Tertiary article on interception attacks and how TLS authentication defeats them. The SSL-stripping / rogue-CA caveats are documented."
+    },
+    "ev-cyber-ddos": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Denial-of-service attack",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Denial-of-service_attack",
+      "kind": "reference",
+      "strength": "Tertiary article on DoS/DDoS and botnet floods. The Mirai/IoT escalation and extortion-smokescreen points the card raises are documented."
+    },
+    "ev-cyber-buffer-overflow": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Buffer overflow",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Buffer_overflow",
+      "kind": "reference",
+      "strength": "Tertiary article on memory overflows, exploitation and mitigations (canaries, ASLR, NX). The NSA/CISA memory-safe-language push the card cites is recent official guidance."
+    },
+    "ev-cyber-zero-day": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Zero-day vulnerability",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Zero-day_vulnerability",
+      "kind": "reference",
+      "strength": "Tertiary article on zero-days, the exploit market and disclosure. The EternalBlue/WannaCry stockpiling case the card cites is documented history."
+    },
+    "ev-cyber-defense-in-depth": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Defense in depth (computing)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Defense_in_depth_(computing)",
+      "kind": "reference",
+      "strength": "Tertiary article on layered controls and least privilege. The 'security theatre' caveat the card raises is a recognised critique."
+    },
+    "ev-cyber-threat-model": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Threat model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Threat_model",
+      "kind": "reference",
+      "strength": "Tertiary article on threat modelling and frameworks like STRIDE. The 'only as good as its assumptions / rots over time' caveat is standard."
+    },
+    "ev-cyber-zero-trust": {
+      "who": "Scott Rose et al. / NIST (SP 800-207)",
+      "year": 2020,
+      "title": "NIST SP 800-207: Zero Trust Architecture",
+      "where": "",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final",
+      "kind": "report",
+      "strength": "The primary US standards document defining zero-trust architecture — authoritative, not tertiary. The card's caveat that 'zero trust' is over-marketed is a common practitioner complaint."
+    },
+    "ev-cyber-supply-chain": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Supply chain attack",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Supply_chain_attack",
+      "kind": "reference",
+      "strength": "Tertiary article on upstream-compromise attacks, citing SolarWinds and dependency risks. The unpaid-maintainer 'Log4Shell' point the card raises is documented."
+    },
+    "ev-cyber-post-quantum": {
+      "who": "NIST (Computer Security Resource Center)",
+      "year": 2024,
+      "title": "Post-Quantum Cryptography project",
+      "where": "",
+      "url": "https://csrc.nist.gov/projects/post-quantum-cryptography",
+      "kind": "report",
+      "strength": "The official NIST programme standardising post-quantum algorithms (first standards finalised 2024) — primary, authoritative. Shor's algorithm and the 'harvest now, decrypt later' threat the card describes are the project's stated rationale; the uncertain-timeline caveat is genuine."
     }
   }
 }

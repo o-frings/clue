@@ -40,6 +40,7 @@
     { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
     { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and the limits of computation.", "icon": "⌨", "color": "#0b7285" },
     { "id": "code",    "label": "Coding",               "blurb": "Writing software that humans can read and maintain.", "icon": "🧑‍💻", "color": "#5c5f66" },
+    { "id": "cyber",   "label": "Cyber security",      "blurb": "Threats, defences, and the cryptography that holds it together.", "icon": "🛡️", "color": "#3b5bdb" },
     { "id": "qfin",    "label": "Quantitative finance",  "blurb": "The maths of money: time value, risk, portfolios and pricing.", "icon": "📈", "color": "#099268" },
     { "id": "refin",   "label": "Real-estate finance",   "blurb": "Mortgages, leverage, yields and the property cycle.", "icon": "🏠", "color": "#e03131" },
     { "id": "pubfin",  "label": "Public finance",        "blurb": "Taxes, public goods, deficits and fiscal policy.", "icon": "🏦", "color": "#1864ab" },
@@ -8452,6 +8453,693 @@
           "Western Europe",
           "Latin America",
           "Africa"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-cia-triad",
+      "src": ["ev-cyber-cia-triad"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 1,
+      "title": "The CIA triad: what security protects",
+      "fact": "Security has three goals: confidentiality, integrity, and availability.",
+      "detail": "Almost every security measure serves one of three aims. Confidentiality keeps data secret from those who shouldn't see it (encryption, access control). Integrity keeps it from being altered without detection (hashes, signatures). Availability keeps it reachable when needed (backups, defence against denial-of-service). The three pull against each other — locking something down tighter can make it harder to reach — so security is always a balance, not a maximum.",
+      "deploy": "A checklist for any system: which of confidentiality, integrity and availability matters most here, and what threatens it?",
+      "counter": "The triad is a useful frame, not a complete one; practitioners add goals like authenticity, non-repudiation and privacy, and some argue it's too data-centric for modern threats like disinformation.",
+      "tags": [
+        "CIA triad",
+        "security goals",
+        "basics"
+      ],
+      "xref": [
+        "cyber-threat-risk",
+        "cyber-symmetric-encryption"
+      ],
+      "quiz": {
+        "q": "The 'A' in the CIA triad stands for…",
+        "choices": [
+          "Authentication",
+          "Availability",
+          "Authorization",
+          "Anonymity"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-threat-risk",
+      "src": ["ev-cyber-threat-risk"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 1,
+      "prereq": [
+        "cyber-cia-triad"
+      ],
+      "title": "Threat, vulnerability, risk",
+      "fact": "A vulnerability is a weakness; a threat is who'd exploit it; risk is the chance and cost if they do.",
+      "detail": "These three words are often muddled but mean different things. A vulnerability is a flaw — an unpatched server, a weak password. A threat is an actor or event that could exploit it — a criminal, an insider, a flood. Risk combines them: how likely is exploitation, and how bad would it be? The sum of all the ways in is the 'attack surface'. Security spends scarce effort where risk — not just vulnerability — is highest.",
+      "deploy": "Stops 'we found a flaw, panic' thinking: a vulnerability with no plausible threat or low impact may not be worth fixing first.",
+      "counter": "Risk numbers are estimates dressed as facts — probabilities of rare attacks are hard to know — so risk scoring can give false precision and miss the 'unknown unknowns' that cause the worst breaches.",
+      "tags": [
+        "risk",
+        "vulnerability",
+        "attack surface"
+      ],
+      "xref": [
+        "cyber-threat-model",
+        "cyber-cia-triad"
+      ],
+      "quiz": {
+        "q": "An unpatched, exploitable flaw in software is a…",
+        "choices": [
+          "Threat",
+          "Vulnerability",
+          "Risk",
+          "Patch"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-authentication",
+      "src": ["ev-cyber-authentication"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-cia-triad"
+      ],
+      "title": "Authentication vs authorization",
+      "fact": "Authentication proves who you are; authorization decides what you're allowed to do.",
+      "detail": "Logging in is authentication — proving identity by something you know (a password), something you have (a phone or token), or something you are (a fingerprint). Authorization is the next step: now that we know who you are, which files or actions may you access? Multi-factor authentication (MFA) combines two of those categories, so a stolen password alone isn't enough — one of the single most effective defences there is.",
+      "deploy": "Clarifies a constant confusion and explains why MFA blocks the bulk of account-takeover attacks.",
+      "counter": "Not all factors are equal: SMS codes can be intercepted (SIM-swapping), and 'push fatigue' attacks spam approval prompts until a tired user taps yes — so MFA reduces risk but doesn't end it.",
+      "tags": [
+        "authentication",
+        "MFA",
+        "access control"
+      ],
+      "xref": [
+        "cyber-passwords-hashing",
+        "cyber-zero-trust"
+      ],
+      "quiz": {
+        "q": "Multi-factor authentication combines factors from…",
+        "choices": [
+          "One category, twice",
+          "Two different categories (know/have/are)",
+          "Only passwords",
+          "Only biometrics"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-passwords-hashing",
+      "src": ["ev-cyber-passwords-hashing"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-authentication"
+      ],
+      "title": "How passwords should be stored",
+      "fact": "Never store passwords as text — store a salted hash you can check but can't reverse.",
+      "detail": "A cryptographic hash turns any input into a fixed fingerprint that can't be run backwards. So a site stores the hash of your password, not the password; at login it hashes what you typed and compares. To stop attackers pre-computing hashes (rainbow tables), each password gets a unique random 'salt' mixed in before hashing, and a deliberately slow algorithm (bcrypt, Argon2) makes mass guessing expensive. A breach then leaks hashes, not your actual password.",
+      "deploy": "The reason a well-run site can be breached without your password itself leaking — and why reuse across sites is dangerous.",
+      "counter": "Hashing only buys time: weak or common passwords still fall to guessing, and NIST's 2017 guidance reversed old habits — it now advises against forced periodic changes and complexity rules, which pushed users toward predictable patterns.",
+      "tags": [
+        "passwords",
+        "hashing",
+        "salt"
+      ],
+      "xref": [
+        "cyber-hashing-signatures",
+        "cyber-authentication"
+      ],
+      "quiz": {
+        "q": "A 'salt' is added before hashing a password to…",
+        "choices": [
+          "Speed up login",
+          "Stop precomputed-hash (rainbow-table) attacks",
+          "Encrypt the database",
+          "Compress the password"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-symmetric-encryption",
+      "src": ["ev-cyber-symmetric-encryption"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-cia-triad"
+      ],
+      "title": "Symmetric encryption: one shared key",
+      "fact": "Symmetric encryption scrambles data with a key; the same key unscrambles it.",
+      "detail": "With a symmetric cipher like AES, sender and receiver share one secret key: the key plus the message produces ciphertext, and the same key reverses it. It's fast and used for the bulk of encrypted data — files, disks, the actual content of a secure connection. The hard part isn't the maths; it's the logistics: how do two parties who've never met agree on a shared secret key without an eavesdropper learning it? That problem is what public-key cryptography solves.",
+      "deploy": "The workhorse that actually encrypts your data; understanding its key-sharing snag motivates everything that follows.",
+      "counter": "A symmetric scheme is only as safe as its key handling: reuse a key or a 'nonce', or leak the key, and strong maths gives no protection — most real-world crypto failures are key-management failures, not broken ciphers.",
+      "tags": [
+        "symmetric encryption",
+        "AES",
+        "keys"
+      ],
+      "xref": [
+        "cyber-public-key",
+        "cyber-tls"
+      ],
+      "quiz": {
+        "q": "In symmetric encryption, the key used to decrypt is…",
+        "choices": [
+          "Different from the encryption key",
+          "The same as the encryption key",
+          "Public",
+          "Not needed"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-public-key",
+      "src": ["ev-cyber-public-key"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-symmetric-encryption"
+      ],
+      "title": "Public-key cryptography",
+      "fact": "A public key locks; only the matching private key unlocks — so strangers can exchange secrets.",
+      "detail": "Public-key (asymmetric) cryptography gives everyone two linked keys: a public one they share freely and a private one they guard. Anyone can encrypt to you with your public key, but only your private key decrypts. It rests on 'one-way' maths — easy to do, brutally hard to reverse. RSA, for example, encrypts as \\(c = m^{e} \\bmod n\\), and reversing it requires factoring a huge number, which is believed to be infeasible. This solves symmetric encryption's key-exchange problem.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "c = m^{e} \\bmod n",
+          "plain": "c = mᵉ mod n",
+          "say": "the ciphertext is the message raised to the public exponent, wrapped around a big modulus n.",
+          "caption": "RSA: easy to compute, hard to reverse without the private key."
+        }
+      ],
+      "deploy": "The breakthrough behind secure websites, signed software and encrypted messaging.",
+      "counter": "Its security rests on problems merely *believed* hard (factoring, discrete logs), not proven so — and a large quantum computer running Shor's algorithm would break RSA outright, which is why post-quantum cryptography is being rolled out now.",
+      "tags": [
+        "public-key",
+        "RSA",
+        "asymmetric"
+      ],
+      "xref": [
+        "cyber-tls",
+        "cyber-post-quantum"
+      ],
+      "quiz": {
+        "q": "In public-key cryptography, a message encrypted with your public key can be decrypted with…",
+        "choices": [
+          "The same public key",
+          "Your private key",
+          "Anyone's key",
+          "A password"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-tls",
+      "src": ["ev-cyber-tls"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-public-key"
+      ],
+      "title": "TLS: what the padlock means",
+      "fact": "HTTPS uses public-key crypto to agree a secret key, then switches to fast symmetric encryption.",
+      "detail": "When you connect to an HTTPS site, TLS does a 'handshake': the site presents a certificate (signed by a trusted authority) vouching for its identity and public key, the two sides use public-key crypto to agree on a fresh shared secret, and then they switch to fast symmetric encryption for the actual data. The padlock means the connection is encrypted and the site's certificate checks out — not that the site itself is honest.",
+      "deploy": "Explains exactly what the browser padlock does and doesn't promise.",
+      "counter": "The whole system trusts a web of certificate authorities; a compromised or coerced CA can issue fraudulent certificates, and a padlock on a phishing site only proves the connection is encrypted, not that the site is who you want.",
+      "tags": [
+        "TLS",
+        "HTTPS",
+        "certificates"
+      ],
+      "xref": [
+        "cyber-public-key",
+        "cyber-mitm"
+      ],
+      "quiz": {
+        "q": "The HTTPS padlock guarantees that…",
+        "choices": [
+          "The website is trustworthy",
+          "The connection is encrypted and the certificate checks out",
+          "No one can hack the site",
+          "The site is malware-free"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-hashing-signatures",
+      "src": ["ev-cyber-hashing-signatures"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-public-key"
+      ],
+      "title": "Hashes and digital signatures",
+      "fact": "A hash detects tampering; signing it with a private key proves who sent it.",
+      "detail": "A cryptographic hash (like SHA-256) reduces any file to a fixed fingerprint where the tiniest change yields a wildly different output and you can't work backwards — that gives integrity: re-hash a file and compare to spot tampering. A digital signature goes further: the sender encrypts the hash with their private key, and anyone can verify it with the matching public key, proving both that the file is unaltered and who signed it. This is how software updates and documents are authenticated.",
+      "deploy": "The mechanism behind 'verified' downloads, signed code, and tamper-evident records.",
+      "counter": "A signature only proves possession of a private key, not that the right person held it — stolen signing keys (as in the Stuxnet and SolarWinds attacks) let malware masquerade as trusted software.",
+      "tags": [
+        "hashing",
+        "digital signature",
+        "integrity"
+      ],
+      "xref": [
+        "cyber-passwords-hashing",
+        "cyber-supply-chain"
+      ],
+      "quiz": {
+        "q": "A digital signature proves a message is unaltered AND…",
+        "choices": [
+          "Encrypted",
+          "Who signed it",
+          "Compressed",
+          "Anonymous"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-phishing",
+      "src": ["ev-cyber-phishing"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Phishing and social engineering",
+      "fact": "The easiest way past strong security is to trick a human into opening the door.",
+      "detail": "Social engineering attacks people, not machines: a convincing email, text or call that pressures you into clicking a link, entering a password, or wiring money. Phishing casts a wide net; 'spear-phishing' targets a specific person with tailored detail; 'business email compromise' impersonates a boss or supplier. It works because it exploits trust, urgency and authority — and no firewall stops a user who volunteers their credentials.",
+      "deploy": "Names why training, verification habits and MFA matter as much as technical defences.",
+      "counter": "Blaming 'gullible users' is a cop-out: well-designed systems reduce the damage a tricked human can do (MFA, payment call-backs, least privilege), so repeated breaches often point to bad system design, not bad people.",
+      "tags": [
+        "phishing",
+        "social engineering",
+        "human factor"
+      ],
+      "xref": [
+        "cyber-authentication",
+        "cyber-malware"
+      ],
+      "quiz": {
+        "q": "Phishing primarily exploits…",
+        "choices": [
+          "Software bugs",
+          "Human trust and urgency",
+          "Weak encryption",
+          "Network speed"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-malware",
+      "src": ["ev-cyber-malware"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Malware: viruses, worms, ransomware",
+      "fact": "Malware is software written to harm — and its types differ by how they spread and what they do.",
+      "detail": "A virus attaches to a file and spreads when that file is run; a worm spreads by itself across networks with no help; a trojan hides inside something that looks useful; ransomware encrypts your files and demands payment for the key. Spyware watches, botnets hijack machines into a remote army. The category matters because it shapes the defence — patching for worms, backups for ransomware, vetting downloads for trojans.",
+      "deploy": "A taxonomy that tells you which defence fits which threat.",
+      "counter": "The neat categories blur in practice: modern attacks chain several types, and the bigger shift is economic — ransomware-as-a-service turned malware into a criminal industry, so the threat is now organised business, not lone hackers.",
+      "tags": [
+        "malware",
+        "ransomware",
+        "worms"
+      ],
+      "xref": [
+        "cyber-phishing",
+        "cyber-defense-in-depth"
+      ],
+      "quiz": {
+        "q": "Which malware spreads across networks on its own, without user action?",
+        "choices": [
+          "Virus",
+          "Worm",
+          "Trojan",
+          "Spyware"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-injection",
+      "src": ["ev-cyber-injection"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Injection attacks: never trust input",
+      "fact": "If user input is treated as a command, attackers can rewrite what your program does.",
+      "detail": "Injection happens when data from a user is fed into an interpreter as if it were trusted code. The classic is SQL injection: type a crafted string into a login box and, if the app glues it straight into a database query, you can make the query return everything or delete the table. Cross-site scripting (XSS) does the same with JavaScript in a web page. The fix is the same idea everywhere: keep data and code separate (parameterised queries, output encoding).",
+      "deploy": "The root cause behind a huge share of web breaches — and why 'sanitise your inputs' is a mantra.",
+      "counter": "'Sanitising' by blocklisting bad characters is fragile and keeps losing; the durable fix is structural (parameterised queries, safe APIs) — yet injection has topped the OWASP risk list for two decades because the unsafe pattern is so easy to write.",
+      "tags": [
+        "injection",
+        "SQL injection",
+        "XSS"
+      ],
+      "xref": [
+        "cyber-threat-model",
+        "cyber-buffer-overflow"
+      ],
+      "quiz": {
+        "q": "SQL injection works when user input is…",
+        "choices": [
+          "Encrypted",
+          "Treated as part of a database command",
+          "Stored as a hash",
+          "Rejected"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-mitm",
+      "src": ["ev-cyber-mitm"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-public-key"
+      ],
+      "title": "Man-in-the-middle attacks",
+      "fact": "If an attacker sits between you and a server, they can read or alter everything — unless it's authenticated.",
+      "detail": "In a man-in-the-middle attack, the adversary secretly relays your traffic, posing as the server to you and as you to the server. On open Wi-Fi or a compromised router they can capture passwords and inject content. TLS defeats this by authenticating the server with a certificate and encrypting the channel — so even a relay in the middle sees only scrambled data and can't impersonate the real server without a valid certificate.",
+      "deploy": "Explains why public Wi-Fi without HTTPS is dangerous and why certificate warnings must never be clicked through.",
+      "counter": "TLS only helps if certificate checking is sound; 'SSL stripping', fake certificates from a rogue CA, or users who dismiss browser warnings all reopen the door — the maths is strong, the trust decisions around it are the weak point.",
+      "tags": [
+        "man-in-the-middle",
+        "interception",
+        "TLS"
+      ],
+      "xref": [
+        "cyber-tls",
+        "cyber-symmetric-encryption"
+      ],
+      "quiz": {
+        "q": "TLS stops a man-in-the-middle mainly by…",
+        "choices": [
+          "Hiding your IP",
+          "Authenticating the server and encrypting the channel",
+          "Blocking Wi-Fi",
+          "Speeding up traffic"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-ddos",
+      "src": ["ev-cyber-ddos"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Denial of service",
+      "fact": "You don't have to break in to take a service down — just drown it in traffic.",
+      "detail": "A denial-of-service attack overwhelms a system so real users can't reach it, attacking the 'availability' leg of the CIA triad. A distributed version (DDoS) uses a botnet of thousands of hijacked devices to flood a target from everywhere at once, which makes it hard to block by source. Defences absorb or filter the flood (content-delivery networks, scrubbing services, rate limits) rather than stopping the attackers directly.",
+      "deploy": "Explains outages that aren't 'hacks' in the data-theft sense, and why big sites sit behind traffic-scrubbing networks.",
+      "counter": "DDoS is increasingly a smokescreen or extortion tool rather than the goal itself, and the rise of insecure IoT devices (the Mirai botnet) has made huge attacks cheap — defence is now an arms race of capacity, not a one-time fix.",
+      "tags": [
+        "DDoS",
+        "denial of service",
+        "availability"
+      ],
+      "xref": [
+        "cyber-cia-triad",
+        "cyber-malware"
+      ],
+      "quiz": {
+        "q": "A DDoS attack targets which part of the CIA triad?",
+        "choices": [
+          "Confidentiality",
+          "Integrity",
+          "Availability",
+          "Authentication"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "cyber-buffer-overflow",
+      "src": ["ev-cyber-buffer-overflow"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-injection"
+      ],
+      "title": "Buffer overflows and memory safety",
+      "fact": "Write past the end of a memory buffer and you can overwrite the program's own instructions.",
+      "detail": "Low-level languages like C let a program write data into a fixed-size block of memory without checking the size. Feed in more than fits and the excess spills into adjacent memory — including, classically, the address the program will jump to next. A crafted overflow can redirect execution into the attacker's own code. It's one of the oldest and most powerful bug classes; modern defences (stack canaries, ASLR, non-executable memory) and memory-safe languages (Rust) blunt it.",
+      "deploy": "Explains a whole family of severe vulnerabilities and the industry push toward memory-safe languages.",
+      "counter": "Mitigations raise the bar but get bypassed (return-oriented programming defeats non-executable memory); agencies like the NSA and CISA now argue the real fix is rewriting critical code in memory-safe languages, which is slow and contested for legacy systems.",
+      "tags": [
+        "buffer overflow",
+        "memory safety",
+        "exploits"
+      ],
+      "xref": [
+        "cs-binary",
+        "cyber-zero-day"
+      ],
+      "quiz": {
+        "q": "A buffer overflow lets an attacker overwrite…",
+        "choices": [
+          "The screen",
+          "Adjacent memory, including control data",
+          "The keyboard",
+          "The network"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-zero-day",
+      "src": ["ev-cyber-zero-day"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Zero-days and the exploit market",
+      "fact": "A zero-day is a flaw the defenders don't yet know about — so there's no patch on day zero.",
+      "detail": "A zero-day vulnerability is one unknown to the software's maker, giving defenders 'zero days' to have fixed it before attacks begin. Because they're unpatched, they're extremely valuable — there's a market where brokers and governments pay six or seven figures for working exploits. 'Responsible disclosure' asks researchers to tell the vendor and allow time to patch before going public; not everyone does.",
+      "deploy": "Explains why even fully-updated systems can be breached and why patch speed matters so much.",
+      "counter": "Governments face a dilemma: stockpiling zero-days for spying leaves everyone exposed, since the same flaw can be found or stolen by others — the NSA's hoarded EternalBlue exploit leaked and powered the 2017 WannaCry ransomware that hit hospitals worldwide.",
+      "tags": [
+        "zero-day",
+        "exploit market",
+        "disclosure"
+      ],
+      "xref": [
+        "cyber-buffer-overflow",
+        "cyber-supply-chain"
+      ],
+      "quiz": {
+        "q": "A 'zero-day' vulnerability is one that…",
+        "choices": [
+          "Was patched today",
+          "Is unknown to the vendor, so unpatched",
+          "Lasts zero days",
+          "Affects no one"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-defense-in-depth",
+      "src": ["ev-cyber-defense-in-depth"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Defence in depth",
+      "fact": "Don't rely on one wall — stack independent layers so a single failure isn't fatal.",
+      "detail": "Defence in depth assumes any one control will eventually fail, so it layers many: a firewall, then network segmentation, then strong authentication, then least-privilege access (everyone gets the minimum rights they need), then logging and encryption of the data itself. An attacker who slips past one layer still faces the next. The aim isn't perfection at any layer but resilience across all of them.",
+      "deploy": "The organising principle of real-world security architecture — no single point of failure.",
+      "counter": "Layers add cost, complexity and friction, and poorly chosen ones give 'security theatre' — the feeling of protection without the substance; more controls aren't automatically more security if they don't address the real risks.",
+      "tags": [
+        "defence in depth",
+        "layered security",
+        "least privilege"
+      ],
+      "xref": [
+        "cyber-zero-trust",
+        "cyber-malware"
+      ],
+      "quiz": {
+        "q": "The principle of 'least privilege' means giving each user…",
+        "choices": [
+          "Admin rights",
+          "The minimum access they need",
+          "No access",
+          "Shared accounts"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-threat-model",
+      "src": ["ev-cyber-threat-model"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Threat modelling: think like an attacker",
+      "fact": "Before defending, ask: what are we protecting, from whom, and how might they get in?",
+      "detail": "Threat modelling is the disciplined version of 'what could go wrong?'. You map what's valuable (assets), who might attack (adversaries and their capabilities), and the paths in (attack vectors), then prioritise defences against the most plausible, damaging threats. A common prompt is STRIDE — Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege. It turns vague worry into a ranked to-do list.",
+      "deploy": "The first step of any serious security design: defend against your actual adversaries, not imaginary ones.",
+      "counter": "A threat model is only as good as its assumptions — it's blind to adversaries or paths you didn't imagine, and a model built once and never revisited rots as the system and threats change.",
+      "tags": [
+        "threat modelling",
+        "STRIDE",
+        "security design"
+      ],
+      "xref": [
+        "cyber-threat-risk",
+        "cyber-supply-chain"
+      ],
+      "quiz": {
+        "q": "Threat modelling primarily asks…",
+        "choices": [
+          "Which antivirus to buy",
+          "What we protect, from whom, and how they'd attack",
+          "How fast the network is",
+          "Which password to use"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-zero-trust",
+      "src": ["ev-cyber-zero-trust"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-defense-in-depth",
+        "cyber-authentication"
+      ],
+      "title": "Zero trust: never trust, always verify",
+      "fact": "Drop the idea of a safe inside network — verify every request, wherever it comes from.",
+      "detail": "The old model trusted anything inside the corporate firewall — a 'hard shell, soft centre' that an attacker who got in could roam freely. Zero trust (formalised in NIST SP 800-207) discards the trusted interior: every request to every resource is authenticated, authorised and encrypted on its own merits, regardless of network location. Access is least-privilege and continuously re-checked, so a breached laptop can't pivot across the whole network.",
+      "deploy": "The architecture behind modern remote work and cloud security — location no longer grants trust.",
+      "counter": "'Zero trust' has become a marketing label slapped on products; the real thing is an architecture and a discipline, not a box you buy, and retrofitting it onto sprawling legacy systems is hard, slow and easy to do badly.",
+      "tags": [
+        "zero trust",
+        "architecture",
+        "NIST"
+      ],
+      "xref": [
+        "cyber-defense-in-depth",
+        "cyber-authentication"
+      ],
+      "quiz": {
+        "q": "Zero trust assumes that being inside the network…",
+        "choices": [
+          "Grants full access",
+          "Does not by itself confer trust",
+          "Is impossible",
+          "Needs no password"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-supply-chain",
+      "src": ["ev-cyber-supply-chain"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-threat-model"
+      ],
+      "title": "Supply-chain attacks",
+      "fact": "Why break into the target when you can poison something it already trusts?",
+      "detail": "Modern software is built from countless third-party components and update channels. A supply-chain attack compromises one of those trusted upstream sources, so the malicious code rides in through a legitimate, signed update. The 2020 SolarWinds attack slipped a backdoor into a network-management tool that pushed it to thousands of organisations, including US government agencies. Open-source dependencies are another route — one tampered package can spread everywhere it's imported.",
+      "deploy": "Explains why securing your own perimeter isn't enough — you inherit the security of everything you depend on.",
+      "counter": "Defences (signed builds, software bills of materials, dependency pinning) help but can't fully solve a trust problem that's also social and economic — much critical open-source code is maintained unpaid by a handful of volunteers (the 'nobody's job' problem laid bare by Log4Shell).",
+      "tags": [
+        "supply chain",
+        "SolarWinds",
+        "dependencies"
+      ],
+      "xref": [
+        "cyber-hashing-signatures",
+        "cyber-zero-day"
+      ],
+      "quiz": {
+        "q": "A supply-chain attack compromises a target by…",
+        "choices": [
+          "Guessing its password",
+          "Poisoning a trusted upstream supplier or update",
+          "A DDoS flood",
+          "Phishing one user"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-post-quantum",
+      "src": ["ev-cyber-post-quantum"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 5,
+      "prereq": [
+        "cyber-public-key"
+      ],
+      "title": "The quantum threat to encryption",
+      "fact": "A large quantum computer would break today's public-key crypto — so the world is migrating now.",
+      "detail": "Public-key systems like RSA rest on problems (factoring large numbers, discrete logarithms) that ordinary computers can't crack in any reasonable time. Peter Shor's 1994 algorithm shows a sufficiently large quantum computer could solve them quickly, breaking RSA and elliptic-curve crypto. No such machine exists yet, but the fear is 'harvest now, decrypt later' — adversaries storing encrypted data today to crack once one does. NIST standardised the first post-quantum algorithms (built on harder lattice problems) in 2024.",
+      "deploy": "Explains why governments and tech firms are already swapping out encryption that still works fine today.",
+      "counter": "Timelines are deeply uncertain — a code-breaking quantum computer may be decades away or never practical at the needed scale — and the new post-quantum schemes are themselves young and less battle-tested, so the migration trades a known future risk for present-day implementation risk.",
+      "tags": [
+        "post-quantum",
+        "Shor's algorithm",
+        "cryptography"
+      ],
+      "xref": [
+        "cyber-public-key",
+        "cyber-tls"
+      ],
+      "quiz": {
+        "q": "Shor's algorithm threatens RSA because a quantum computer could…",
+        "choices": [
+          "Guess passwords",
+          "Factor large numbers quickly",
+          "Flood networks",
+          "Hash faster"
         ],
         "answer": 1
       }
