@@ -6169,6 +6169,667 @@
         ],
         "answer": 1
       }
+    },
+    {
+      "id": "qf-arbitrage",
+      "src": ["ev-qf-arbitrage"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "qf-options"
+      ],
+      "title": "No free lunch: arbitrage",
+      "fact": "Arbitrage is risk-free profit from a price gap — and the hunt for it forces prices to line up.",
+      "detail": "If identical cash flows trade at two different prices, you buy the cheap one and sell the dear one for a guaranteed gain. The 'law of one price' says that can't last: arbitrageurs pile in until the gap closes. Almost all modern pricing — Black–Scholes included — assumes no arbitrage exists, which is what pins down a 'fair' price in the first place.",
+      "deploy": "The bedrock assumption behind every derivative-pricing formula and 'fair value' argument.",
+      "counter": "Shleifer & Vishny's 'limits of arbitrage' show real arbitrage needs capital and carries risk, so mispricings can persist and even widen — LTCM was an arbitrage that ran out of time before prices converged.",
+      "tags": [
+        "arbitrage",
+        "law of one price",
+        "no-arbitrage"
+      ],
+      "xref": [
+        "qf-black-scholes",
+        "qf-put-call-parity"
+      ],
+      "quiz": {
+        "q": "The 'law of one price' says identical cash flows must…",
+        "choices": [
+          "Be taxed equally",
+          "Cost the same",
+          "Pay dividends",
+          "Be illegal"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-sharpe-ratio",
+      "src": ["ev-qf-sharpe-ratio"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-risk-return",
+        "qf-diversification"
+      ],
+      "title": "The Sharpe ratio: return per unit of risk",
+      "fact": "Don't compare returns — compare returns divided by the risk taken to get them.",
+      "detail": "Raw returns flatter risky bets. The Sharpe ratio divides the excess return over the risk-free rate by its volatility: \\(S = \\dfrac{R - R_f}{\\sigma}\\). A fund earning 12% at 20% volatility (\\(S = 0.5\\)) is risk-adjusted-worse than one earning 8% at 8% volatility (\\(S \\approx 0.75\\)). It's the standard way to rank strategies on a level field.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "S = \\frac{R - R_f}{\\sigma}",
+          "plain": "S = (R − R_f) / σ",
+          "say": "the Sharpe ratio is the return above the risk-free rate, divided by the volatility.",
+          "caption": "Excess return per unit of risk."
+        }
+      ],
+      "deploy": "The headline number for judging whether a return was skill or just leverage and risk.",
+      "counter": "It treats upside and downside volatility alike and assumes roughly normal returns; a strategy that sells insurance (or options) shows a lovely Sharpe right up until the blow-up. The Sortino ratio penalises only downside to address this.",
+      "tags": [
+        "Sharpe ratio",
+        "risk-adjusted return",
+        "volatility"
+      ],
+      "xref": [
+        "fin-risk-return",
+        "qf-efficient-frontier"
+      ],
+      "quiz": {
+        "q": "The Sharpe ratio divides excess return by…",
+        "choices": [
+          "The market return",
+          "Volatility (risk)",
+          "Beta",
+          "Time"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-efficient-frontier",
+      "src": ["ev-qf-efficient-frontier"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "qf-diversification"
+      ],
+      "title": "The efficient frontier",
+      "fact": "For every level of risk there's a best-return portfolio — together they trace the efficient frontier.",
+      "detail": "Markowitz showed that out of all possible portfolios, only those giving the most return for their risk are worth holding — plotted, they form an upward, concave curve: the efficient frontier. Add a risk-free asset and the best trade-off becomes a straight line (the capital market line) touching the frontier at one 'tangency' portfolio. In theory, everyone should hold some blend of cash and that single portfolio.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "log",
+          "domain": [
+            1,
+            20
+          ],
+          "yrange": [
+            -0.2,
+            3.2
+          ],
+          "caption": "The frontier curves: each extra unit of risk (across) buys less extra return (up)."
+        }
+      ],
+      "deploy": "The theoretical core of portfolio construction and the case for a single broad market portfolio.",
+      "counter": "Richard Michaud called it 'error maximization': the frontier is hugely sensitive to the estimated returns and correlations you feed in, so the optimal-looking portfolio is often just fitted to noise.",
+      "tags": [
+        "efficient frontier",
+        "portfolio theory",
+        "Markowitz"
+      ],
+      "xref": [
+        "qf-diversification",
+        "qf-capm"
+      ],
+      "quiz": {
+        "q": "The efficient frontier shows, for each level of risk, the portfolio with the…",
+        "choices": [
+          "Lowest return",
+          "Highest expected return",
+          "Most assets",
+          "Lowest fees"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-put-call-parity",
+      "src": ["ev-qf-put-call-parity"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "qf-options",
+        "qf-arbitrage"
+      ],
+      "title": "Put–call parity",
+      "fact": "Price a call and the matching put's price is fixed — no-arbitrage locks them together.",
+      "detail": "Buy a call and sell a put at the same strike \\(K\\) and expiry, and whatever the price does you end up buying the stock at \\(K\\) — the same as owning the stock and owing \\(K\\). No-arbitrage then forces \\(C - P = S - K e^{-rt}\\). So once you know a call's price, the put's is pinned down, and any gap is free money. It also lets you build 'synthetic' positions from the other pieces.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "C - P = S - K e^{-rt}",
+          "plain": "C − P = S − K·e^(−rt)",
+          "say": "a call minus a put equals the stock price minus the discounted strike.",
+          "caption": "No-arbitrage ties calls and puts together."
+        }
+      ],
+      "deploy": "A no-arbitrage check on option prices and the recipe for synthetic stock or bonds.",
+      "counter": "It holds tightly for European options on non-dividend stocks; dividends, early exercise (American options) and borrowing costs open small, real wedges that desks must adjust for.",
+      "tags": [
+        "put-call parity",
+        "options",
+        "no-arbitrage"
+      ],
+      "xref": [
+        "qf-options",
+        "qf-arbitrage"
+      ],
+      "quiz": {
+        "q": "Put–call parity is enforced by…",
+        "choices": [
+          "Government rules",
+          "No-arbitrage",
+          "The Sharpe ratio",
+          "Dividends"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-yield-curve",
+      "src": ["ev-qf-yield-curve"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "qf-bond-yield"
+      ],
+      "title": "The yield curve and inversion",
+      "fact": "Plot bond yields by maturity; when short rates top long rates, recessions often follow.",
+      "detail": "Normally longer bonds yield more than short ones — an upward-sloping curve — paying you for time and uncertainty. When short-term yields rise above long-term ones, the curve 'inverts': markets are betting growth and rates will fall. An inverted US Treasury curve has preceded every recession since the 1950s, which is why it's among the most watched signals in finance.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.11,
+                "b": 1.6
+              },
+              "label": "normal"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.06,
+                "b": 4.3
+              },
+              "label": "inverted"
+            }
+          ],
+          "domain": [
+            0,
+            30
+          ],
+          "yrange": [
+            0,
+            5.5
+          ],
+          "caption": "Maturity (years) across, yield up: an inverted curve slopes down."
+        }
+      ],
+      "deploy": "A market-implied recession gauge you can read off the bond market any day.",
+      "counter": "The timing is loose — a recession can be one to two years out — and some argue quantitative easing and shifting 'term premia' have muddied the signal; 'this time is different' is said before every inversion, occasionally rightly.",
+      "tags": [
+        "yield curve",
+        "inversion",
+        "recession signal"
+      ],
+      "xref": [
+        "qf-bond-yield",
+        "qf-efficient-market"
+      ],
+      "quiz": {
+        "q": "An inverted yield curve means short-term yields are…",
+        "choices": [
+          "Below long-term yields",
+          "Above long-term yields",
+          "Zero",
+          "Equal to inflation"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "qf-factor-models",
+      "src": ["ev-qf-factor-models"],
+      "field": "qfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "qf-capm"
+      ],
+      "title": "Beyond beta: factor investing",
+      "fact": "Market risk alone doesn't explain returns — size, value and other factors add to the story.",
+      "detail": "CAPM uses one factor, the market. Eugene Fama and Kenneth French (1992) showed that small-cap and 'value' (cheap) stocks had beaten what beta alone predicts, and added size and value factors; later models bolted on profitability, investment and momentum. 'Factor' or 'smart-beta' investing tries to harvest these premia systematically rather than picking stocks.",
+      "deploy": "The modern framework for explaining and engineering returns beyond the single market factor.",
+      "counter": "John Cochrane warned of a 'factor zoo' — hundreds of published factors, many of which fade out-of-sample or after publication (McLean & Pontiff), hinting at data-mining as much as genuine risk premia.",
+      "tags": [
+        "factor investing",
+        "Fama-French",
+        "smart beta"
+      ],
+      "xref": [
+        "qf-capm",
+        "qf-efficient-market"
+      ],
+      "quiz": {
+        "q": "The Fama–French model added which factors to CAPM's market factor?",
+        "choices": [
+          "Size and value",
+          "Gold and oil",
+          "Inflation and GDP",
+          "None"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "re-dscr",
+      "src": ["ev-re-dscr"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "re-noi-caprate",
+        "re-mortgage"
+      ],
+      "title": "Debt-service coverage: can the rent pay the loan?",
+      "fact": "Lenders' first test: does the property's income cover its mortgage, with room to spare?",
+      "detail": "The debt-service coverage ratio is net operating income divided by the annual loan payment: \\(\\text{DSCR} = \\dfrac{\\text{NOI}}{\\text{debt service}}\\). A DSCR of 1.0 means the rent exactly covers the mortgage; lenders usually want 1.2–1.3 for a cushion. Below 1.0 and the building doesn't pay for itself — the owner must feed it cash each month.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\text{DSCR} = \\frac{\\text{NOI}}{\\text{debt service}}",
+          "plain": "DSCR = NOI / debt service",
+          "say": "coverage is the property's net income divided by its yearly loan payment.",
+          "caption": "Above 1.0, the rent more than covers the loan."
+        }
+      ],
+      "deploy": "The number that decides how big a loan a property can carry — and an early warning of distress.",
+      "counter": "DSCR rests on current NOI, which can be flattered by temporary rents or understated expenses; post-2008 lenders learned to stress it against vacancy and rate resets.",
+      "tags": [
+        "DSCR",
+        "lending",
+        "real estate"
+      ],
+      "xref": [
+        "re-noi-caprate",
+        "re-mortgage"
+      ],
+      "quiz": {
+        "q": "A DSCR below 1.0 means the property's income…",
+        "choices": [
+          "Exceeds the loan payment",
+          "Falls short of the loan payment",
+          "Equals the price",
+          "Is tax-free"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-leverage-returns",
+      "src": ["ev-re-leverage-returns"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "re-ltv-equity",
+        "re-noi-caprate"
+      ],
+      "title": "Positive and negative leverage",
+      "fact": "Borrow below the property's yield and leverage lifts your return; borrow above it and leverage drags.",
+      "detail": "If a building yields a 7% cap rate and you borrow at 4%, that 3% spread accrues to your smaller slice of equity, magnifying its return — 'positive leverage'. If borrowing costs climb above the cap rate, the same debt now subtracts from your return: 'negative leverage'. The building hasn't changed; the rate environment has. It's why a deal that worked at 4% money can sink at 7%.",
+      "deploy": "Explains why rising rates quietly turn good property deals bad without any change to the asset.",
+      "counter": "Positive leverage assumes the cap rate holds; if rents soften or rates rise, the spread can flip overnight, and high leverage then accelerates the loss — the downside of re-ltv-equity.",
+      "tags": [
+        "leverage",
+        "cap rate",
+        "returns"
+      ],
+      "xref": [
+        "re-ltv-equity",
+        "re-rate-sensitivity"
+      ],
+      "quiz": {
+        "q": "'Negative leverage' happens when the borrowing rate is…",
+        "choices": [
+          "Below the cap rate",
+          "Above the cap rate",
+          "Zero",
+          "Fixed"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-mbs",
+      "src": ["ev-re-mbs"],
+      "field": "refin",
+      "depth": "book",
+      "level": 4,
+      "prereq": [
+        "re-bubble",
+        "re-mortgage"
+      ],
+      "title": "Mortgage-backed securities and 2008's plumbing",
+      "fact": "Securitization turns thousands of home loans into tradable bonds — and it sat at the centre of 2008.",
+      "detail": "Securitization pools mortgages and sells slices ('tranches') of their combined cash flow: senior tranches get paid first and are rated safest, junior ones absorb losses first. It spreads funding and risk — but in the 2000s, pools of subprime loans were sliced into supposedly AAA bonds (RMBS, then CDOs). When defaults hit, those ratings collapsed and the opacity froze global finance.",
+      "deploy": "The mechanism that connected suburban mortgages to a worldwide banking crisis.",
+      "counter": "Defenders argue securitization lowers borrowing costs and that the failure was reckless underwriting and conflicted rating agencies, not the structure; the US Financial Crisis Inquiry Commission and Michael Lewis blame the structure for hiding and amplifying the risk. Both readings persist.",
+      "tags": [
+        "MBS",
+        "securitization",
+        "2008"
+      ],
+      "xref": [
+        "eh-2008",
+        "re-bubble"
+      ],
+      "quiz": {
+        "q": "A 'tranche' of a mortgage-backed security is…",
+        "choices": [
+          "A single mortgage",
+          "A slice of the pool's cash flow with its own risk",
+          "A type of bank",
+          "A tax"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-property-cycle",
+      "src": ["ev-re-property-cycle"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "re-noi-caprate",
+        "re-rate-sensitivity"
+      ],
+      "title": "The property cycle: cap-rate compression and expansion",
+      "fact": "Property values move not only with rents but with cap rates — and cap rates track the rate cycle.",
+      "detail": "Since price = NOI ÷ cap rate, values can rise two ways: rents grow, or cap rates fall ('compression'). In low-rate booms investors accept ever-lower cap rates, inflating prices even when rents are flat. When rates rise, cap rates 'expand' and prices drop — a repricing that swept commercial real estate in 2022–23 and hit offices hardest.",
+      "deploy": "Separates the two engines of property value, so you can see when prices are rent-driven or just rate-driven.",
+      "counter": "Rent moves and cap-rate moves can offset or compound, and the turning points are notoriously hard to time; illiquid private valuations also lag the public signals (REITs) by quarters, masking the turn.",
+      "tags": [
+        "property cycle",
+        "cap rate",
+        "real estate"
+      ],
+      "xref": [
+        "re-noi-caprate",
+        "re-rate-sensitivity"
+      ],
+      "quiz": {
+        "q": "'Cap-rate compression' pushes property prices…",
+        "choices": [
+          "Down",
+          "Up",
+          "To zero",
+          "Sideways"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-development",
+      "src": ["ev-re-development"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "re-valuation",
+        "fin-npv-irr"
+      ],
+      "title": "Development: the residual land value",
+      "fact": "A site is worth whatever's left after building costs and the developer's profit — the residual.",
+      "detail": "Developers value land backwards: take the finished project's expected value, subtract construction, fees, finance and a required profit margin, and what remains is the most you can pay for the land — its 'residual value'. Because it's a difference of two big numbers, small errors in the end value or costs swing the residual wildly, which is why development is so cyclical and risky.",
+      "deploy": "The core appraisal for any build: what can I pay for the land and still clear a profit?",
+      "counter": "The residual is brutally sensitive to assumptions — a 5% slip in sale prices or a cost overrun can erase the entire profit, as many schemes discovered after 2008 and again after 2022.",
+      "tags": [
+        "development",
+        "residual land value",
+        "real estate"
+      ],
+      "xref": [
+        "re-valuation",
+        "fin-npv-irr"
+      ],
+      "quiz": {
+        "q": "Residual land value is found by taking the finished value and…",
+        "choices": [
+          "Adding costs and profit",
+          "Subtracting costs and required profit",
+          "Multiplying by the cap rate",
+          "Ignoring costs"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-pigouvian",
+      "src": ["ev-pf-pigouvian"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pf-taxation"
+      ],
+      "title": "Pigouvian taxes: pricing the harm",
+      "fact": "A Pigouvian tax charges an activity for the harm it does to others — so the price tells the truth.",
+      "detail": "When an activity dumps costs on others — pollution, congestion — the market overproduces it because the doer doesn't pay. Arthur Pigou's fix: tax it by the size of the external harm, so the private price finally reflects the full social cost and output falls to the efficient level. Carbon taxes are the leading example. Unusually, a well-set Pigouvian tax raises efficiency rather than lowering it.",
+      "deploy": "The textbook tool for putting a price on pollution and other spillovers.",
+      "counter": "Ronald Coase argued that with clear property rights and cheap bargaining, the parties can resolve an externality themselves without a tax — and that regulators rarely know the harm precisely enough to set the 'right' rate. Pigou versus Coase is a foundational dispute.",
+      "tags": [
+        "Pigouvian tax",
+        "externalities",
+        "carbon tax"
+      ],
+      "xref": [
+        "econ-externalities",
+        "sys-commons"
+      ],
+      "quiz": {
+        "q": "A Pigouvian tax is set equal to the…",
+        "choices": [
+          "Seller's profit",
+          "External harm caused",
+          "Buyer's income",
+          "Market price"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-redistribution-gini",
+      "src": ["ev-pf-redistribution-gini"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "pf-taxation"
+      ],
+      "title": "Inequality: the Gini coefficient",
+      "fact": "The Gini squeezes a whole income distribution into one inequality number from 0 to 1.",
+      "detail": "Draw the Lorenz curve: the share of total income held by the poorest \\(x\\%\\) of people. Perfect equality is the 45° line; reality sags below it. The Gini coefficient is the gap between the two, scaled from 0 (everyone equal) to 1 (one person has it all). Tax-and-transfer systems are judged partly by how far they pull the Gini down from its pre-tax level.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": 1,
+                "b": 0
+              },
+              "label": "equality"
+            },
+            {
+              "fn": "quadratic",
+              "params": {
+                "a": 1,
+                "b": 0,
+                "c": 0
+              },
+              "label": "actual (Lorenz)"
+            }
+          ],
+          "domain": [
+            0,
+            1
+          ],
+          "yrange": [
+            0,
+            1
+          ],
+          "caption": "Gini = the gap between the 45° equality line and the Lorenz curve."
+        }
+      ],
+      "deploy": "The standard one-number summary of inequality, and a way to judge redistribution.",
+      "counter": "One number hides where inequality sits — two countries with the same Gini can differ wildly in their middle and tails — and pre-tax versus post-tax Gini tell very different stories about the same society.",
+      "tags": [
+        "Gini",
+        "Lorenz curve",
+        "inequality"
+      ],
+      "xref": [
+        "pf-taxation",
+        "econ-gdp"
+      ],
+      "quiz": {
+        "q": "A Gini coefficient of 0 means…",
+        "choices": [
+          "One person has everything",
+          "Perfect equality",
+          "No taxes",
+          "Maximum poverty"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-fiscal-multiplier",
+      "src": ["ev-pf-fiscal-multiplier"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pf-fiscal-policy"
+      ],
+      "title": "The fiscal multiplier",
+      "fact": "A dollar of government spending can lift output by more — or less — than a dollar.",
+      "detail": "The fiscal multiplier is the change in GDP per dollar of stimulus. If recipients re-spend it, the dollar circulates and the multiplier tops 1; if it's saved or it crowds out private activity, it's below 1. Crucially, its size depends on the state of the economy: larger in a slump with idle workers and rates near zero, smaller in a boom near capacity.",
+      "deploy": "The hinge of any stimulus debate: how much GDP do you actually get per dollar spent?",
+      "counter": "The number is fiercely contested. Blanchard & Leigh (IMF, 2013) found official forecasters had badly underestimated multipliers during post-2010 austerity; Alberto Alesina argued spending multipliers are small. The evidence points to 'it depends on the state of the economy', not a fixed value.",
+      "tags": [
+        "fiscal multiplier",
+        "stimulus",
+        "Keynes"
+      ],
+      "xref": [
+        "pe-keynes",
+        "pf-fiscal-policy"
+      ],
+      "quiz": {
+        "q": "The fiscal multiplier is generally largest when the economy is…",
+        "choices": [
+          "At full capacity",
+          "In a deep slump with idle resources",
+          "Growing fast",
+          "Inflating"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-monetary-vs-fiscal",
+      "src": ["ev-pf-monetary-vs-fiscal"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "pf-fiscal-policy"
+      ],
+      "title": "Monetary vs fiscal policy",
+      "fact": "Two levers steer demand: central banks set interest rates; governments tax and spend.",
+      "detail": "Monetary policy — run by the central bank — adjusts interest rates and the money supply. Fiscal policy — run by the treasury — adjusts taxes and spending. Most rich countries lean on an independent central bank for routine demand management, saving big fiscal moves for deep slumps. Independence is meant to stop politicians from printing money to win elections.",
+      "deploy": "Sorts out who actually controls what when people argue about 'the government fixing the economy'.",
+      "counter": "The clean split blurs at the 'zero lower bound', when rates can't fall further and only fiscal policy can act, and when central banks buy government debt (QE) — critics argue that quietly merges the two and erodes independence.",
+      "tags": [
+        "monetary policy",
+        "fiscal policy",
+        "central banks"
+      ],
+      "xref": [
+        "pf-fiscal-policy",
+        "pf-mmt"
+      ],
+      "quiz": {
+        "q": "Setting interest rates is the job of…",
+        "choices": [
+          "The treasury",
+          "The central bank",
+          "Parliament",
+          "Commercial banks"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-mmt",
+      "src": ["ev-pf-mmt"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "pf-debt-sustainability"
+      ],
+      "title": "Modern Monetary Theory: the debate",
+      "fact": "MMT says a country that issues its own currency can't be forced to default — inflation, not solvency, is the real limit.",
+      "detail": "Modern Monetary Theory (Stephanie Kelton and others) argues a currency-issuing government like the US or UK funds spending by creating money, so it can never simply 'run out'. In this view taxes exist to manage inflation and demand, not to 'pay for' spending. The true constraint is real resources: push spending past the economy's capacity and you get inflation — not bankruptcy.",
+      "deploy": "A lens that reframes 'how will we pay for it?' as 'will it cause inflation?' for a sovereign currency issuer.",
+      "counter": "Larry Summers, Kenneth Rogoff and Paul Krugman call MMT dangerously loose: they accept a sovereign issuer can't be forced to default, but argue it understates how hard inflation is to rein back once unleashed — a worry the 2021–23 inflation gave fresh force.",
+      "tags": [
+        "MMT",
+        "money creation",
+        "inflation"
+      ],
+      "xref": [
+        "pf-debt-sustainability",
+        "pf-monetary-vs-fiscal"
+      ],
+      "quiz": {
+        "q": "MMT argues the real limit on a currency-issuing government's spending is…",
+        "choices": [
+          "Running out of money",
+          "Inflation / real resources",
+          "The gold standard",
+          "Tax revenue"
+        ],
+        "answer": 1
+      }
     }
   ],
 

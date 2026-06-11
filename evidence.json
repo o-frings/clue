@@ -2079,6 +2079,150 @@
       "url": "https://www.aeaweb.org/articles?id=10.1257/aer.109.4.1197",
       "kind": "paper",
       "strength": "Primary, peer-reviewed source for the r-versus-g framing and the argument that debt is less alarming when r<g. The card names the opposing view (a sudden jump in r, as in 2022) as the live counter."
+    },
+    "ev-qf-arbitrage": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Arbitrage",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Arbitrage",
+      "kind": "reference",
+      "strength": "Tertiary article on arbitrage and the law of one price. Settled principle; the 'limits of arbitrage' caveat (Shleifer & Vishny) the card names is a documented finance result."
+    },
+    "ev-qf-sharpe-ratio": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Sharpe ratio",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Sharpe_ratio",
+      "kind": "reference",
+      "strength": "Tertiary article giving S=(R−Rf)/σ and its normality assumption. Settled definition; the downside-vs-upside critique (Sortino) is standard."
+    },
+    "ev-qf-efficient-frontier": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Efficient frontier",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Efficient_frontier",
+      "kind": "reference",
+      "strength": "Tertiary article on Markowitz's frontier and the capital market line. The 'error maximization' sensitivity caveat (Michaud) the card raises is well documented."
+    },
+    "ev-qf-put-call-parity": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Put–call parity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Put%E2%80%93call_parity",
+      "kind": "reference",
+      "strength": "Tertiary article deriving C−P=S−Ke^(−rt) from no-arbitrage. A proven identity for European options; dividend/early-exercise caveats are standard."
+    },
+    "ev-qf-yield-curve": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Yield curve",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Yield_curve",
+      "kind": "reference",
+      "strength": "Tertiary article on the curve's shapes and inversion as a recession signal. The empirical inversion-recession record is documented; the timing/term-premium caveats are noted."
+    },
+    "ev-qf-factor-models": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Fama–French three-factor model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fama%E2%80%93French_three-factor_model",
+      "kind": "reference",
+      "strength": "Tertiary article on the size and value factors extending CAPM. The 'factor zoo' critique (Cochrane; McLean & Pontiff) the card names is an active research debate."
+    },
+    "ev-re-dscr": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Debt service coverage ratio",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Debt_service_coverage_ratio",
+      "kind": "reference",
+      "strength": "Tertiary article giving DSCR=NOI/debt service and typical lender thresholds. Settled lending metric; the NOI-can-be-flattered caveat is standard underwriting wisdom."
+    },
+    "ev-re-leverage-returns": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate investing",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_investing",
+      "kind": "reference",
+      "strength": "Tertiary article covering leverage and returns in property, including positive/negative leverage. The cap-rate-vs-borrowing-cost framing is settled arithmetic."
+    },
+    "ev-re-mbs": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Mortgage-backed security",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mortgage-backed_security",
+      "kind": "reference",
+      "strength": "Tertiary article on securitization, tranches and the 2008 role of MBS/CDOs. The structure-vs-underwriting blame dispute (FCIC, Lewis) the card names is documented."
+    },
+    "ev-re-property-cycle": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate cycle",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_cycle",
+      "kind": "reference",
+      "strength": "Tertiary article on the property cycle; the price=NOI/cap-rate mechanics and cap-rate compression/expansion are settled. Timing difficulty and the public/private lag are well known."
+    },
+    "ev-re-development": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate development",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_development",
+      "kind": "reference",
+      "strength": "Tertiary article on development; the residual-land-value method and its sensitivity to assumptions are standard appraisal practice."
+    },
+    "ev-pf-pigouvian": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Pigouvian tax",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Pigouvian_tax",
+      "kind": "reference",
+      "strength": "Tertiary article on taxing externalities at the social-harm rate. The Pigou-vs-Coase dispute the card names is a foundational and genuinely unsettled debate."
+    },
+    "ev-pf-redistribution-gini": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Gini coefficient",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gini_coefficient",
+      "kind": "reference",
+      "strength": "Tertiary article on the Lorenz curve and the 0–1 Gini measure. Settled definition; the 'one number hides the shape' caveat is widely made by inequality researchers."
+    },
+    "ev-pf-fiscal-multiplier": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Fiscal multiplier",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fiscal_multiplier",
+      "kind": "reference",
+      "strength": "Tertiary article on the multiplier and its state-dependence. The disputed size (Blanchard & Leigh 2013 vs Alesina) the card names is a real, ongoing macro debate."
+    },
+    "ev-pf-monetary-vs-fiscal": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Monetary policy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Monetary_policy",
+      "kind": "reference",
+      "strength": "Tertiary article on central-bank rate-setting and independence, contrasted with fiscal policy. The zero-lower-bound and QE blurring caveats are standard."
+    },
+    "ev-pf-mmt": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Modern Monetary Theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Modern_monetary_theory",
+      "kind": "reference",
+      "strength": "Tertiary article on MMT and its critics. The card frames it explicitly as a live dispute — Kelton et al. vs Summers/Rogoff/Krugman — which the article documents."
     }
   }
 }
