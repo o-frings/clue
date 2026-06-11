@@ -40,6 +40,8 @@
     { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
     { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and writing code that lasts.", "icon": "⌨", "color": "#0b7285" },
     { "id": "qfin",    "label": "Quantitative finance",  "blurb": "The maths of money: time value, risk, portfolios and pricing.", "icon": "📈", "color": "#099268" },
+    { "id": "refin",   "label": "Real-estate finance",   "blurb": "Mortgages, leverage, yields and the property cycle.", "icon": "🏠", "color": "#e03131" },
+    { "id": "pubfin",  "label": "Public finance",        "blurb": "Taxes, public goods, deficits and fiscal policy.", "icon": "🏦", "color": "#1864ab" },
     { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
     { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
     { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
@@ -4903,7 +4905,7 @@
       ],
       "title": "A dollar today beats a dollar tomorrow",
       "fact": "Money now is worth more than the same money later, because it can be invested to grow.",
-      "detail": "Put a present value \\(PV\\) in at interest rate \\(r\\), and after \\(n\\) years it grows to \\(FV = PV(1+r)^n\\). At 5% a year, \\$100 today becomes \\(100\\times1.05 = \\$105\\) next year — so a promise of \\$105 next year is worth only \\$100 now. Timing changes value. This one idea sits under every loan, investment, mortgage and valuation in finance.",
+      "detail": "Put a present value \\(PV\\) in at interest rate \\(r\\), and after \\(n\\) years it grows to \\(FV = PV(1+r)^n\\). At 5% a year, $100 today becomes \\(100\\times1.05 = 105\\) next year — so a promise of $105 next year is worth only $100 now. Timing changes value. This one idea sits under every loan, investment, mortgage and valuation in finance.",
       "media": [
         {
           "type": "equation",
@@ -5522,7 +5524,7 @@
       ],
       "title": "Leverage and tail risk",
       "fact": "Borrowing to invest magnifies gains and losses alike — and can wipe you out entirely.",
-      "detail": "Leverage means investing with borrowed money. Put in \\$1 of your own plus \\$9 borrowed, and a 10% gain on the \\$10 doubles your stake — but a 10% loss erases it. The multiplier runs both ways. 'Value at Risk' (VaR) tries to cap the danger by estimating the most you'd lose, say, 99 days in 100 — but it says nothing about the 100th day. Long-Term Capital Management (1998) and the 2008 banks were destroyed by leverage meeting a tail event.",
+      "detail": "Leverage means investing with borrowed money. Put in $1 of your own plus $9 borrowed, and a 10% gain on the $10 doubles your stake — but a 10% loss erases it. The multiplier runs both ways. 'Value at Risk' (VaR) tries to cap the danger by estimating the most you'd lose, say, 99 days in 100 — but it says nothing about the 100th day. Long-Term Capital Management (1998) and the 2008 banks were destroyed by leverage meeting a tail event.",
       "media": [
         {
           "type": "plot",
@@ -5574,6 +5576,596 @@
           "Ignores the extreme tail beyond its cutoff",
           "Is illegal",
           "Only works for bonds"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-mortgage",
+      "src": ["ev-re-mortgage"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "fin-compound-interest",
+        "fin-present-value"
+      ],
+      "title": "The mortgage: borrow now, repay for decades",
+      "fact": "A mortgage spreads a big purchase into level payments — mostly interest at first, mostly principal later.",
+      "detail": "A mortgage is a loan secured on the property. You repay it in equal instalments, but the split shifts over time. Each payment first covers the interest owed on the outstanding balance; whatever's left chips away at the principal. Early on the balance is huge, so most of the payment is interest; only near the end does it become mostly principal. The level payment on a loan \\(P\\) at periodic rate \\(r\\) over \\(n\\) periods is \\(M = P\\,\\dfrac{r(1+r)^n}{(1+r)^n - 1}\\).",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "M = P\\,\\frac{r(1+r)^n}{(1+r)^n - 1}",
+          "plain": "M = P · r(1+r)ⁿ / ((1+r)ⁿ − 1)",
+          "say": "the level payment is the loan times a factor built from the rate and the number of payments.",
+          "caption": "The fixed monthly payment that exactly clears the loan in n periods."
+        },
+        {
+          "type": "plot",
+          "kind": "curves",
+          "curves": [
+            {
+              "fn": "line",
+              "params": {
+                "m": -0.031,
+                "b": 0.95
+              },
+              "label": "interest share"
+            },
+            {
+              "fn": "line",
+              "params": {
+                "m": 0.031,
+                "b": 0.05
+              },
+              "label": "principal share"
+            }
+          ],
+          "domain": [
+            0,
+            30
+          ],
+          "yrange": [
+            0,
+            1
+          ],
+          "caption": "Across a 30-year loan, each payment shifts from mostly interest to mostly principal."
+        }
+      ],
+      "deploy": "Explains why early mortgage years build little equity, and why overpaying early saves so much interest.",
+      "counter": "The level-payment picture assumes a fixed rate; adjustable-rate mortgages reset with market rates, which is how many 2000s borrowers were caught when payments jumped.",
+      "tags": [
+        "mortgage",
+        "amortization",
+        "real estate"
+      ],
+      "xref": [
+        "fin-compound-interest",
+        "re-rate-sensitivity"
+      ],
+      "quiz": {
+        "q": "In the early years of a standard mortgage, each payment is mostly…",
+        "choices": [
+          "Principal",
+          "Interest",
+          "Fees",
+          "Taxes"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-ltv-equity",
+      "src": ["ev-re-ltv-equity"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "qf-leverage-risk"
+      ],
+      "title": "Loan-to-value: how leverage swings your equity",
+      "fact": "Put 10% down and a 10% price move doubles — or wipes out — your stake.",
+      "detail": "Your equity is the property's value minus the debt. The loan-to-value ratio (LTV) is the debt as a share of value: a 20% deposit means an 80% LTV. Because most of the purchase is borrowed, small price moves swing your equity hugely. Buy a $500k home with $50k down (90% LTV); a 10% price rise ($50k) doubles your equity, while a 10% fall erases it — 'negative equity', where the loan exceeds the home's worth.",
+      "deploy": "Shows why housing feels so lucrative on the way up and so ruinous on the way down.",
+      "counter": "Lenders treat the home as collateral, so the downside isn't symmetric for them: in a crash they can force a sale, and in non-recourse US states the owner can walk away — shifting the loss back to the bank.",
+      "tags": [
+        "leverage",
+        "loan-to-value",
+        "equity"
+      ],
+      "xref": [
+        "qf-leverage-risk",
+        "re-bubble"
+      ],
+      "quiz": {
+        "q": "With a 90% loan-to-value, a 10% fall in the property's price leaves your equity at roughly…",
+        "choices": [
+          "Unchanged",
+          "Half",
+          "Zero",
+          "Doubled"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "re-noi-caprate",
+      "src": ["ev-re-noi-caprate"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "fin-risk-return"
+      ],
+      "title": "NOI and the cap rate: a property's yield",
+      "fact": "The cap rate is a property's annual income as a percentage of its price — its rental yield.",
+      "detail": "Net operating income (NOI) is the rent a property earns minus its running costs (maintenance, taxes, insurance), before any mortgage. The capitalisation rate expresses that as a yield: \\(\\text{Cap rate} = \\dfrac{\\text{NOI}}{\\text{Price}}\\). A $1m building with $60k NOI has a 6% cap rate. It's the property world's version of an earnings yield: higher cap rates mean cheaper (or riskier) assets, lower cap rates mean pricier (or safer) ones.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\text{Cap rate} = \\frac{\\text{NOI}}{\\text{Price}}",
+          "plain": "Cap rate = NOI / Price",
+          "say": "the cap rate is yearly net income divided by the purchase price.",
+          "caption": "Income as a share of price — a property's yield."
+        }
+      ],
+      "deploy": "The quick yardstick investors use to compare income properties and spot over- or under-pricing.",
+      "counter": "Cap rate ignores financing and growth: it says nothing about your mortgage, future rent rises, or vacancy risk, so two identical cap rates can hide very different deals.",
+      "tags": [
+        "cap rate",
+        "NOI",
+        "valuation"
+      ],
+      "xref": [
+        "re-valuation",
+        "fin-risk-return"
+      ],
+      "quiz": {
+        "q": "A property earning $60k NOI and priced at $1m has a cap rate of…",
+        "choices": [
+          "6%",
+          "16%",
+          "0.6%",
+          "60%"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "re-valuation",
+      "src": ["ev-re-valuation"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "re-noi-caprate"
+      ],
+      "title": "Three ways to value a property",
+      "fact": "Appraisers value real estate by comparison, by income, or by replacement cost.",
+      "detail": "There's no ticker price for a building, so valuers triangulate. The sales-comparison approach looks at what similar nearby properties recently sold for. The income approach capitalises the rent (price = NOI ÷ cap rate) — used for rentals and commercial buildings. The cost approach asks what it would cost to rebuild from scratch, minus depreciation, plus land. Homes lean on comparables; investment property leans on income.",
+      "deploy": "A framework for sanity-checking any property price: which approach fits, and do they agree?",
+      "counter": "All three break in thin or frothy markets: comparables vanish when sales dry up, income assumes stable rents, and cost ignores what buyers will actually pay — appraisals lagged badly in both the 2008 bust and the 2021 boom.",
+      "tags": [
+        "valuation",
+        "appraisal",
+        "real estate"
+      ],
+      "xref": [
+        "re-noi-caprate",
+        "re-bubble"
+      ],
+      "quiz": {
+        "q": "Which approach values a rental building from the income it produces?",
+        "choices": [
+          "Sales-comparison",
+          "Income (capitalisation)",
+          "Cost",
+          "Auction"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-reit",
+      "src": ["ev-re-reit"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "qf-diversification"
+      ],
+      "title": "REITs: real estate you can trade like a stock",
+      "fact": "A REIT pools property into liquid shares that must pay out most of their income.",
+      "detail": "A real estate investment trust owns income property — malls, flats, warehouses, data centres — and sells shares in it. In exchange for distributing most of their taxable income (in the US, at least 90%) as dividends, REITs largely escape corporate tax. They let small investors hold diversified property without a mortgage or a leaky roof, and they trade on exchanges, so they're far more liquid than a building.",
+      "deploy": "The accessible way to add real estate to a portfolio — and a daily price signal for the property market.",
+      "counter": "That liquidity is double-edged: listed REITs trade like equities, so they swing with the stock market in the short run and don't deliver the smooth, uncorrelated returns physical property appears to (partly because buildings just aren't priced every day).",
+      "tags": [
+        "REIT",
+        "real estate",
+        "diversification"
+      ],
+      "xref": [
+        "qf-diversification",
+        "re-noi-caprate"
+      ],
+      "quiz": {
+        "q": "In exchange for tax advantages, REITs must distribute most of their…",
+        "choices": [
+          "Shares",
+          "Income as dividends",
+          "Property",
+          "Debt"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-rate-sensitivity",
+      "src": ["ev-re-rate-sensitivity"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "fin-present-value",
+        "qf-bond-yield"
+      ],
+      "title": "Why property prices hate rising rates",
+      "fact": "When interest rates rise, both mortgage affordability and property values fall.",
+      "detail": "Higher rates hit real estate twice. First, affordability: a buyer's budget is set by the monthly payment they can manage, and higher rates mean a given payment buys a smaller loan — so what people can bid falls. Second, valuation: like a bond, a property is a stream of future income, and a higher discount rate shrinks its present value. Both push prices down, which is why housing markets stall when central banks tighten.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "params": {
+            "k": -0.22
+          },
+          "domain": [
+            0,
+            12
+          ],
+          "yrange": [
+            0,
+            1.05
+          ],
+          "caption": "As mortgage rates rise, the loan a fixed payment can support (and prices) fall."
+        }
+      ],
+      "deploy": "Connects central-bank decisions to your rent, mortgage and house price.",
+      "counter": "The link is loose and lagged: tight supply, population growth or a strong jobs market can hold prices up despite high rates, as several cities found after 2022.",
+      "tags": [
+        "interest rates",
+        "affordability",
+        "real estate"
+      ],
+      "xref": [
+        "qf-bond-yield",
+        "fin-present-value"
+      ],
+      "quiz": {
+        "q": "A rise in interest rates tends to push property prices…",
+        "choices": [
+          "Up",
+          "Down",
+          "Unchanged",
+          "To zero"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "re-bubble",
+      "src": ["ev-re-bubble"],
+      "field": "refin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "re-ltv-equity",
+        "qf-efficient-market"
+      ],
+      "title": "Housing bubbles and 2008",
+      "fact": "Cheap leverage plus the belief that prices only rise is the recipe for a housing crash.",
+      "detail": "Property bubbles share a pattern: easy credit lets buyers bid with borrowed money, rising prices seem to prove the bet, and lenders relax standards because the collateral keeps appreciating. In the 2000s US, subprime mortgages were bundled into securities rated safe and sold worldwide; when prices turned, the leverage ran in reverse and the losses cascaded into the 2008 crisis. Robert Shiller's Case–Shiller index had flagged the run-up as a bubble; others insisted prices reflected fundamentals.",
+      "deploy": "A checklist for spotting froth: loosening credit, soaring leverage, and 'prices can't fall' talk.",
+      "counter": "Calling a bubble in advance is contested: Shiller warned early, but Eugene Fama denies bubbles are even identifiable beforehand, and some economists argue 2008 was a banking-and-leverage failure more than a pure housing-price one.",
+      "tags": [
+        "housing bubble",
+        "2008",
+        "leverage"
+      ],
+      "xref": [
+        "eh-2008",
+        "re-ltv-equity"
+      ],
+      "quiz": {
+        "q": "A common ingredient in housing bubbles is…",
+        "choices": [
+          "High interest rates",
+          "Cheap, easy leverage",
+          "Falling population",
+          "Strict lending"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-taxation",
+      "src": ["ev-pf-taxation"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 1,
+      "title": "Taxes: how governments raise money",
+      "fact": "Governments fund themselves mainly by taxing income, spending, property and profits.",
+      "detail": "The big revenue sources are income tax, consumption taxes (VAT or sales tax), property taxes, and corporate tax. A system is 'progressive' if higher earners pay a higher share of income, 'flat' if everyone pays the same rate, and 'regressive' if the poor pay a higher share — sales taxes tend to be regressive because the less well-off spend more of their income. How a country mixes these is one of its most consequential political choices.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            10,
+            12,
+            22,
+            32,
+            37
+          ],
+          "labels": [
+            "low",
+            "",
+            "",
+            "",
+            "high"
+          ],
+          "caption": "A progressive income tax: higher brackets face higher marginal rates."
+        }
+      ],
+      "deploy": "The starting map for any debate about who funds the state and how fairly.",
+      "counter": "What counts as 'fair' is the live dispute: flat-tax advocates (Hall & Rabushka) prize simplicity and efficiency, while others argue a progressive system is needed to offset widening inequality. Both invoke fairness.",
+      "tags": [
+        "taxation",
+        "progressive tax",
+        "public finance"
+      ],
+      "xref": [
+        "pf-tax-incidence",
+        "pf-deadweight-laffer"
+      ],
+      "quiz": {
+        "q": "A tax under which lower-income people pay a higher share of their income is…",
+        "choices": [
+          "Progressive",
+          "Flat",
+          "Regressive",
+          "Voluntary"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "pf-tax-incidence",
+      "src": ["ev-pf-tax-incidence"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pf-taxation"
+      ],
+      "title": "Who really pays a tax?",
+      "fact": "The party who hands the tax to the government isn't always the one who bears it.",
+      "detail": "Legal liability and economic burden are different things. A tax lands on whichever side of the market can least easily change its behaviour — the more 'inelastic' side. A tax on cigarettes falls mostly on addicted smokers, who keep buying; a payroll tax 'on employers' is largely passed to workers as lower wages. The seller writes the cheque, but the burden settles where it can't be dodged, regardless of who is legally charged.",
+      "deploy": "Cuts through political spin: 'we'll tax the corporations' often means workers or customers pay.",
+      "counter": "Estimating real incidence is hard and contested — economists still argue over how much of corporate tax falls on workers versus shareholders, with credible estimates ranging widely.",
+      "tags": [
+        "tax incidence",
+        "elasticity",
+        "public finance"
+      ],
+      "xref": [
+        "pf-taxation",
+        "econ-supply-demand"
+      ],
+      "quiz": {
+        "q": "The economic burden of a tax falls mainly on the side of the market that is…",
+        "choices": [
+          "Legally charged",
+          "More inelastic (can least change behaviour)",
+          "Larger",
+          "Wealthier"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-deadweight-laffer",
+      "src": ["ev-pf-deadweight-laffer"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pf-taxation"
+      ],
+      "title": "Deadweight loss and the Laffer curve",
+      "fact": "Taxes discourage the activity they fall on, so beyond some point higher rates can raise less.",
+      "detail": "A tax drives a wedge between what buyers pay and sellers receive, so some mutually beneficial trades simply don't happen — that lost value is the 'deadweight loss'. Arthur Laffer dramatised one consequence: a 0% rate raises nothing, and so does a 100% rate (no one works for nothing), so revenue must peak at some rate in between. The shape is real; where the peak sits is the fight.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "quadratic",
+          "params": {
+            "a": -4,
+            "b": 4,
+            "c": 0
+          },
+          "domain": [
+            0,
+            1
+          ],
+          "yrange": [
+            0,
+            1.15
+          ],
+          "caption": "The Laffer curve: 0% and 100% both raise nothing; revenue peaks in between."
+        }
+      ],
+      "deploy": "Names the efficiency cost of taxes — and the real question: which side of the peak are we on?",
+      "counter": "Laffer's curve is used to argue tax cuts 'pay for themselves', but most estimates (and the US Congressional Budget Office) put the revenue-maximising rate far above current top rates, so cuts usually lose revenue. The curve is sound; the political use of it often isn't.",
+      "tags": [
+        "deadweight loss",
+        "Laffer curve",
+        "efficiency"
+      ],
+      "xref": [
+        "pf-taxation",
+        "pf-tax-incidence"
+      ],
+      "quiz": {
+        "q": "The Laffer curve implies that tax revenue is zero at a rate of…",
+        "choices": [
+          "0% only",
+          "100% only",
+          "Both 0% and 100%",
+          "Neither"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "pf-public-goods",
+      "src": ["ev-pf-public-goods"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 2,
+      "title": "Public goods and the free-rider problem",
+      "fact": "Some goods everyone can use without using them up — and markets under-supply them.",
+      "detail": "Paul Samuelson defined a public good by two traits: it's 'non-rival' (my use doesn't reduce yours) and 'non-excludable' (you can't easily stop non-payers). National defence, street lighting and clean air qualify. The snag is the free-rider problem: if you'll benefit whether or not you pay, why pay? So private markets under-provide these goods, which is a core economic justification for taxation and government provision.",
+      "deploy": "The standard economic case for why some things — defence, basic research, clean air — are funded by the state.",
+      "counter": "Elinor Ostrom (Nobel 2009) showed communities often manage shared resources themselves without the state, and Ronald Coase argued some 'public goods' (lighthouses) were historically provided privately — so the market-failure case isn't automatic.",
+      "tags": [
+        "public goods",
+        "free rider",
+        "market failure"
+      ],
+      "xref": [
+        "sys-commons",
+        "sys-ostrom",
+        "econ-externalities"
+      ],
+      "quiz": {
+        "q": "A public good is non-rival and…",
+        "choices": [
+          "Non-excludable",
+          "Expensive",
+          "Profitable",
+          "Scarce"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "pf-deficit-debt",
+      "src": ["ev-pf-deficit-debt"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 1,
+      "title": "Deficits and debt: a flow and a stock",
+      "fact": "The deficit is how much a government overspends in a year; the debt is all past deficits piled up.",
+      "detail": "A deficit is a flow — this year's spending minus this year's revenue. The national debt is the stock — the accumulated total of all past deficits (minus surpluses). Running a deficit adds to the debt, like water flowing into a bath. What matters for sustainability isn't the raw number but the debt-to-GDP ratio: debt measured against the economy's size and ability to service it.",
+      "deploy": "Stops the common confusion of deficit with debt, and frames debt against the economy's size.",
+      "counter": "Whether a given debt level is dangerous is fiercely disputed — it hinges on interest rates, growth and whether a country borrows in its own currency, not on any fixed threshold.",
+      "tags": [
+        "deficit",
+        "national debt",
+        "public finance"
+      ],
+      "xref": [
+        "pf-fiscal-policy",
+        "pf-debt-sustainability"
+      ],
+      "quiz": {
+        "q": "The national debt is best described as…",
+        "choices": [
+          "This year's overspending",
+          "The accumulation of past deficits",
+          "Total taxes",
+          "The trade gap"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-fiscal-policy",
+      "src": ["ev-pf-fiscal-policy"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "pf-deficit-debt"
+      ],
+      "title": "Fiscal policy: taxing and spending to steer the economy",
+      "fact": "Governments can use their budget to cool an overheating economy or revive a slump.",
+      "detail": "Fiscal policy is the deliberate use of taxes and spending to manage demand. John Maynard Keynes argued that in a downturn the government should spend (or cut taxes) to fill the gap left by frightened households and firms, and that the boost can multiply as the money is re-spent. Against this, advocates of austerity argue that cutting deficits restores confidence and that government borrowing crowds out private investment.",
+      "deploy": "The framework behind every stimulus-versus-austerity argument after a recession.",
+      "counter": "The evidence is contested: Keynesians point to the slow recoveries after post-2010 austerity, while Alberto Alesina argued some consolidations were 'expansionary'. A famous prop for austerity — Reinhart & Rogoff's 90%-debt threshold — was undermined when Herndon et al. (2013) found a spreadsheet error.",
+      "tags": [
+        "fiscal policy",
+        "Keynes",
+        "austerity"
+      ],
+      "xref": [
+        "pe-keynes",
+        "pe-paradox-thrift"
+      ],
+      "quiz": {
+        "q": "Keynesian fiscal policy says that in a recession the government should…",
+        "choices": [
+          "Cut spending sharply",
+          "Spend more or cut taxes",
+          "Raise interest rates",
+          "Do nothing"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pf-debt-sustainability",
+      "src": ["ev-pf-debt-sustainability"],
+      "field": "pubfin",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "pf-fiscal-policy"
+      ],
+      "title": "When is government debt too much?",
+      "fact": "Debt is sustainable when the economy grows faster than the interest piling up on it.",
+      "detail": "The debt-to-GDP ratio drifts up or down depending on a race between two rates: the interest rate \\(r\\) on the debt and the growth rate \\(g\\) of the economy. Roughly, the change in the ratio is \\(\\Delta b \\approx (r - g)\\,b - s\\), where \\(b\\) is debt-to-GDP and \\(s\\) the primary surplus. If growth outruns interest (\\(g > r\\)), debt shrinks relative to the economy even while you borrow; if interest outruns growth, debt can spiral.",
+      "media": [
+        {
+          "type": "equation",
+          "tex": "\\Delta b \\approx (r - g)\\,b - s",
+          "plain": "Δb ≈ (r − g)·b − s",
+          "say": "the change in the debt ratio is the interest-minus-growth gap times the debt, less the primary surplus.",
+          "caption": "Debt as a share of GDP: the r-versus-g race."
+        }
+      ],
+      "deploy": "Reframes 'is the debt too high?' as 'is r below g?' rather than a fixed scary number.",
+      "counter": "Olivier Blanchard (2019) argued that with r persistently below g, advanced-economy debt is far less alarming than feared; others warn that r can jump suddenly (as in 2022), and that markets can lose confidence well before any formula says so.",
+      "tags": [
+        "debt sustainability",
+        "r vs g",
+        "public finance"
+      ],
+      "xref": [
+        "pf-deficit-debt",
+        "fin-time-value"
+      ],
+      "quiz": {
+        "q": "Government debt-to-GDP tends to fall over time when…",
+        "choices": [
+          "Interest rate exceeds growth",
+          "Growth exceeds the interest rate",
+          "Taxes are cut",
+          "The deficit rises"
         ],
         "answer": 1
       }

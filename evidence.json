@@ -1953,6 +1953,132 @@
       "url": "https://en.wikipedia.org/wiki/Leverage_(finance)",
       "kind": "reference",
       "strength": "Tertiary article on how borrowing magnifies returns and losses. The VaR/tail-risk critique the card attributes to Taleb, and the LTCM/2008 cases, are documented."
+    },
+    "ev-re-mortgage": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Mortgage loan",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mortgage_loan",
+      "kind": "reference",
+      "strength": "Tertiary article covering amortization and the level-payment formula; the interest-then-principal split is settled arithmetic. The ARM caveat the card raises is documented."
+    },
+    "ev-re-ltv-equity": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Loan-to-value ratio",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Loan-to-value_ratio",
+      "kind": "reference",
+      "strength": "Tertiary article defining LTV and its role in lending risk; the leverage-magnifies-equity point is straightforward arithmetic."
+    },
+    "ev-re-noi-caprate": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Capitalization rate",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Capitalization_rate",
+      "kind": "reference",
+      "strength": "Tertiary article giving cap rate = NOI/price and its use as a yield; settled definition, with the caveat that it ignores financing and growth."
+    },
+    "ev-re-valuation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate appraisal",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_appraisal",
+      "kind": "reference",
+      "strength": "Tertiary article laying out the three standard approaches (sales-comparison, income, cost). Established appraisal practice; the 'breaks in thin markets' caveat is well documented."
+    },
+    "ev-re-reit": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate investment trust",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_investment_trust",
+      "kind": "reference",
+      "strength": "Tertiary article on REIT structure and the income-distribution rule (≈90% in the US). The 'trades like equities' caveat reflects documented return correlations."
+    },
+    "ev-re-rate-sensitivity": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real estate economics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_economics",
+      "kind": "reference",
+      "strength": "Tertiary article on the determinants of property prices, including interest rates and affordability. The link is mainstream; the lag/supply caveat the card adds is real."
+    },
+    "ev-re-bubble": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Real-estate bubble",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Real_estate_bubble",
+      "kind": "reference",
+      "strength": "Tertiary article on housing bubbles and the 2000s episode. The Shiller-vs-Fama dispute over whether bubbles are identifiable in advance is genuine and named in the card."
+    },
+    "ev-pf-taxation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Tax",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tax",
+      "kind": "reference",
+      "strength": "Tertiary article surveying tax types and progressive/flat/regressive structures. Settled categories; the fairness debate the card flags is genuinely political, not settled."
+    },
+    "ev-pf-tax-incidence": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Tax incidence",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tax_incidence",
+      "kind": "reference",
+      "strength": "Tertiary article on legal vs economic incidence and the role of elasticity. Standard public economics; the corporate-tax incidence estimate range the card notes is an active research question."
+    },
+    "ev-pf-deadweight-laffer": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Laffer curve",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Laffer_curve",
+      "kind": "reference",
+      "strength": "Tertiary article on the revenue curve and its zero-at-both-ends shape. The shape is uncontested; where the peak sits (and the CBO/most-economists view that it's far above current rates) is the documented dispute the card names."
+    },
+    "ev-pf-public-goods": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Public good (economics)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Public_good_(economics)",
+      "kind": "reference",
+      "strength": "Tertiary article on Samuelson's non-rival/non-excludable definition and the free-rider problem. The Ostrom/Coase counter-examples the card cites are well established."
+    },
+    "ev-pf-deficit-debt": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Government debt",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Government_debt",
+      "kind": "reference",
+      "strength": "Tertiary article distinguishing deficit (flow) from debt (stock) and using debt-to-GDP. Settled accounting; the 'how much is too much' question is explicitly contested."
+    },
+    "ev-pf-fiscal-policy": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Fiscal policy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fiscal_policy",
+      "kind": "reference",
+      "strength": "Tertiary article on demand management, the multiplier and crowding-out. The Keynes-vs-austerity dispute, and the Reinhart-Rogoff spreadsheet error (Herndon et al. 2013), are documented and named."
+    },
+    "ev-pf-debt-sustainability": {
+      "who": "Olivier Blanchard (American Economic Review)",
+      "year": 2019,
+      "title": "Public Debt and Low Interest Rates (AEA Presidential Address)",
+      "where": "",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/aer.109.4.1197",
+      "kind": "paper",
+      "strength": "Primary, peer-reviewed source for the r-versus-g framing and the argument that debt is less alarming when r<g. The card names the opposing view (a sudden jump in r, as in 2022) as the live counter."
     }
   }
 }
