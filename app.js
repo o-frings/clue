@@ -645,7 +645,9 @@ function buildGlossIndex(){
   const entries=[];
   for(const id in GL){ const g=GL[id]||{};
     if(g.term) entries.push({id, text:g.term, sym:false});
-    if(g.symbol) entries.push({id, text:g.symbol, sym:true}); }
+    // only auto-link distinctive symbols (math glyphs, multi-char); single Latin letters
+    // like entropy's "S" are far too ambiguous and would match ordinary prose.
+    if(g.symbol && !/^[A-Za-z]$/.test(g.symbol)) entries.push({id, text:g.symbol, sym:true}); }
   entries.sort((a,b)=> b.text.length-a.text.length); // longest first so "GDP" wins over "GD"
   glossIndex=entries;
 }
@@ -666,7 +668,10 @@ function decorateGlossary(root){
     for(const e of glossIndex){
       if(used.has(e.id)) continue;
       let idx;
-      if(e.sym) idx=text.indexOf(e.text);
+      if(e.sym){ idx=text.indexOf(e.text);
+        // a symbol must stand alone — not be wedged against letters or digits
+        if(idx>=0){ const b=text[idx-1]||' ', a=text[idx+e.text.length]||' ';
+          if(/[A-Za-z0-9]/.test(b) || /[A-Za-z0-9]/.test(a)) idx=-1; } }
       else { const m=text.match(new RegExp('\\b'+escRe(e.text)+'\\b','i')); idx=m?m.index:-1; }
       if(idx>=0 && (!best || idx<best.idx)) best={e, idx};
     }
