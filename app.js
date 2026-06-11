@@ -1113,9 +1113,11 @@ function renderReader(){
   body+='<h1 class="rdTitle">'+esc(c.title)+'</h1>';
   for(let i=0;i<rdRevealed;i++){ const l=layers[i];
     body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }
+  // figures & equations are core to the concept — show them straight away, not behind the final peel
+  const mh=mediaHtml(c); if(mh) body+='<div class="rdMedia">'+mh+'</div>';
   // once every layer is open, the source / "use it & contest it" box / quiz / actions live in the scroll
   if(rdRevealed>=total){
-    body+='<div class="rdEnd">'+mediaHtml(c)+sourceLine(c)+debateBox(c)+relatedHtml(c)+'</div>';
+    body+='<div class="rdEnd">'+sourceLine(c)+debateBox(c)+relatedHtml(c)+'</div>';
     if(cardQuizzes(c).length) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
     if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
     else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
