@@ -38,7 +38,8 @@
     { "id": "linalg",  "label": "Linear algebra",    "blurb": "Vectors, matrices, transformations — the language of data.", "icon": "⊞", "color": "#ae3ec9" },
     { "id": "prob",    "label": "Probability & statistics", "blurb": "Chance, distributions, inference, and what the data supports.", "icon": "📊", "color": "#1c7ed6" },
     { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
-    { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and writing code that lasts.", "icon": "⌨", "color": "#0b7285" },
+    { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and the limits of computation.", "icon": "⌨", "color": "#0b7285" },
+    { "id": "code",    "label": "Coding",               "blurb": "Writing software that humans can read and maintain.", "icon": "🧑‍💻", "color": "#5c5f66" },
     { "id": "qfin",    "label": "Quantitative finance",  "blurb": "The maths of money: time value, risk, portfolios and pricing.", "icon": "📈", "color": "#099268" },
     { "id": "refin",   "label": "Real-estate finance",   "blurb": "Mortgages, leverage, yields and the property cycle.", "icon": "🏠", "color": "#e03131" },
     { "id": "pubfin",  "label": "Public finance",        "blurb": "Taxes, public goods, deficits and fiscal policy.", "icon": "🏦", "color": "#1864ab" },
@@ -916,7 +917,7 @@
       "quiz": { "q": "Ice-cream sales correlate with drownings mainly because…", "choices": ["Ice cream is dangerous", "Both rise with summer heat (a confounder)", "Drowning causes hunger", "Pure coincidence"], "answer": 1 }
     },
     {
-      "id": "code-naming", "field": "cs", "depth": "concept", "level": 1,
+      "id": "code-naming", "field": "code", "depth": "concept", "level": 1,
       "src": ["ev-code-naming"],
       "title": "Good names are the cheapest documentation",
       "fact": "Code is read far more often than it's written, so clear names are the highest-leverage documentation there is.",
@@ -928,7 +929,7 @@
       "quiz": { "q": "Clear names matter most because code is…", "choices": ["Written once and forgotten", "Read far more often than it's written", "Compiled slowly", "Always short"], "answer": 1 }
     },
     {
-      "id": "code-dry", "field": "cs", "depth": "concept", "level": 2,
+      "id": "code-dry", "field": "code", "depth": "concept", "level": 2,
       "prereq": ["code-naming"],
       "src": ["ev-code-dry"],
       "title": "Don't repeat yourself (DRY)",
@@ -941,7 +942,7 @@
       "quiz": { "q": "DRY is mainly about avoiding duplication of…", "choices": ["Whitespace", "Knowledge/logic (one source of truth)", "Variable names", "Files"], "answer": 1 }
     },
     {
-      "id": "code-complexity", "field": "cs", "depth": "concept", "level": 3,
+      "id": "code-complexity", "field": "code", "depth": "concept", "level": 3,
       "prereq": ["code-dry"],
       "src": ["ev-code-complexity"],
       "title": "Code is for humans: manage complexity",
