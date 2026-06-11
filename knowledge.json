@@ -9222,6 +9222,448 @@
         ],
         "answer": 1
       }
+    },
+    {
+      "id": "cyber-firewall",
+      "src": ["ev-cyber-firewall"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-defense-in-depth"
+      ],
+      "title": "Firewalls: the gate on the wire",
+      "fact": "A firewall decides which network traffic may pass, by rules on where it's from, where it's going, and how.",
+      "detail": "A firewall sits between networks and inspects each packet against a rulebook, allowing or blocking by source, destination, port and protocol. Early ones judged each packet alone; 'stateful' firewalls track whole conversations, so they only let in replies to traffic you started. Modern 'next-generation' firewalls look deeper, into the application and content. It's the classic first layer of network defence — the gate, not the whole castle.",
+      "deploy": "The first control most networks reach for, and the model for 'default deny, allow what you need'.",
+      "counter": "A firewall only sees traffic that crosses it: it does nothing against an attacker already inside, encrypted traffic it can't inspect, or a user who invites malware in — which is exactly why perimeter defence gave way to zero trust.",
+      "tags": [
+        "firewall",
+        "network security",
+        "packet filtering"
+      ],
+      "xref": [
+        "cyber-ids-ips",
+        "cyber-zero-trust"
+      ],
+      "quiz": {
+        "q": "A 'stateful' firewall improves on a basic one by…",
+        "choices": [
+          "Encrypting traffic",
+          "Tracking whole connections, not just single packets",
+          "Blocking all traffic",
+          "Scanning for viruses"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-vpn",
+      "src": ["ev-cyber-vpn"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "cyber-tls"
+      ],
+      "title": "VPNs: an encrypted tunnel",
+      "fact": "A VPN wraps your traffic in an encrypted tunnel to a server, hiding it from the local network.",
+      "detail": "A virtual private network builds an encrypted tunnel between your device and a VPN server; everything inside is scrambled, so the café Wi-Fi or your ISP sees only traffic to the VPN, not what you're doing. Companies use VPNs to let remote staff reach internal systems as if on-site. Crucially, a VPN moves your trust, it doesn't remove it — the VPN provider now sees everything the local network used to.",
+      "deploy": "Clarifies what a VPN actually protects (the local hop) versus the marketing claim of total anonymity.",
+      "counter": "Consumer-VPN ads wildly overpromise: HTTPS already encrypts most traffic, the VPN provider can log you, and a VPN does nothing against malware, phishing, or sites tracking your account — security researchers widely criticise the 'a VPN keeps you safe' pitch.",
+      "tags": [
+        "VPN",
+        "tunnel",
+        "encryption"
+      ],
+      "xref": [
+        "cyber-tls",
+        "cyber-mitm"
+      ],
+      "quiz": {
+        "q": "A VPN mainly protects your traffic from…",
+        "choices": [
+          "The websites you visit",
+          "The local network and your ISP",
+          "Malware",
+          "Phishing"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-ids-ips",
+      "src": ["ev-cyber-ids-ips"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-firewall"
+      ],
+      "title": "Intrusion detection and prevention",
+      "fact": "An IDS watches for attacks and alerts; an IPS goes further and blocks them in real time.",
+      "detail": "An intrusion detection system (IDS) monitors network or host activity for signs of attack and raises alerts; an intrusion prevention system (IPS) sits in-line and can drop malicious traffic itself. They spot trouble two ways: 'signature' detection matches known-bad patterns (fast, but blind to anything new), and 'anomaly' detection flags departures from normal behaviour (catches novelty, but cries wolf). Both feed the alerts that defenders triage.",
+      "deploy": "The layer that watches inside the gate, not just at it — turning silent intrusions into signals.",
+      "counter": "Signature systems miss every zero-day; anomaly systems drown teams in false positives, causing alert fatigue where real attacks get ignored among the noise — the 2013 Target breach famously tripped alerts that no one acted on.",
+      "tags": [
+        "IDS",
+        "IPS",
+        "detection"
+      ],
+      "xref": [
+        "cyber-logging-siem",
+        "cyber-firewall"
+      ],
+      "quiz": {
+        "q": "The key difference between an IDS and an IPS is that an IPS can…",
+        "choices": [
+          "Only log events",
+          "Block the attack in real time",
+          "Encrypt traffic",
+          "Run antivirus"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-dns",
+      "src": ["ev-cyber-dns"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-mitm"
+      ],
+      "title": "DNS attacks and spoofing",
+      "fact": "The internet's address book can be poisoned to send you to an attacker's server.",
+      "detail": "The Domain Name System translates names like example.com into the numeric IP addresses computers actually use. Because it was built without authentication, attackers can forge replies ('DNS spoofing' or cache poisoning) so a correct-looking address quietly leads to their server — perfect for phishing or interception. DNSSEC adds cryptographic signatures so resolvers can verify answers, and encrypted DNS (DoH/DoT) hides the lookups from eavesdroppers.",
+      "deploy": "Explains how you can type the right address and still land on a fake site — and why DNSSEC matters.",
+      "counter": "DNSSEC has been slow to deploy (decades on, much of the web still skips it) because it's complex and adds fragility, and encrypted DNS shifts trust to whoever runs the resolver — security gains that come with new centralisation worries.",
+      "tags": [
+        "DNS",
+        "spoofing",
+        "DNSSEC"
+      ],
+      "xref": [
+        "cyber-mitm",
+        "cyber-phishing"
+      ],
+      "quiz": {
+        "q": "DNS spoofing lets an attacker…",
+        "choices": [
+          "Crash a server",
+          "Redirect a correct-looking address to their own server",
+          "Steal a password hash",
+          "Flood a network"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-access-control",
+      "src": ["ev-cyber-access-control"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-authentication"
+      ],
+      "title": "Access control models",
+      "fact": "Once you know who someone is, access control decides exactly what they may touch.",
+      "detail": "Access control enforces the rules of who can do what. The common models: discretionary (DAC), where owners grant access to their own files; mandatory (MAC), where a central policy and security labels decide, regardless of owners (used in high-security systems); and role-based (RBAC), where permissions attach to job roles, not individuals — the workhorse of most organisations. All aim at the same goal: least privilege, granting each identity the minimum it needs.",
+      "deploy": "The framework behind file permissions, admin rights and 'you don't have access to this'.",
+      "counter": "Over time real systems suffer 'privilege creep' — people accumulate access as they change roles and nobody revokes the old grants — so the elegant models decay into sprawling, over-permissioned messes that audits keep rediscovering.",
+      "tags": [
+        "access control",
+        "RBAC",
+        "least privilege"
+      ],
+      "xref": [
+        "cyber-privilege-escalation",
+        "cyber-defense-in-depth"
+      ],
+      "quiz": {
+        "q": "In role-based access control (RBAC), permissions are attached to…",
+        "choices": [
+          "Individuals",
+          "Job roles",
+          "Files",
+          "IP addresses"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-privilege-escalation",
+      "src": ["ev-cyber-privilege-escalation"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-access-control"
+      ],
+      "title": "Privilege escalation",
+      "fact": "Attackers rarely land where they want — they break in low, then climb to admin.",
+      "detail": "A foothold is rarely the goal; power is. Privilege escalation is the move from limited access to greater rights. 'Vertical' escalation climbs from an ordinary user to administrator or root — often via an unpatched bug or misconfiguration. 'Horizontal' escalation hops sideways into another user's account at the same level. Once an attacker reaches admin, the usual game is over, which is why limiting and monitoring privileged accounts is central to defence.",
+      "deploy": "Explains why a 'minor' low-level breach can become total compromise — and why admin accounts are guarded hardest.",
+      "counter": "The lesson isn't just 'patch faster': because escalation paths are so common, modern defence assumes breach and limits the blast radius (least privilege, segmentation, just-in-time admin) rather than hoping to keep every attacker out at the door.",
+      "tags": [
+        "privilege escalation",
+        "root",
+        "admin"
+      ],
+      "xref": [
+        "cyber-buffer-overflow",
+        "cyber-access-control"
+      ],
+      "quiz": {
+        "q": "'Vertical' privilege escalation means gaining…",
+        "choices": [
+          "Another user's account at the same level",
+          "Higher rights, e.g. admin or root",
+          "A faster connection",
+          "More disk space"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-sandboxing",
+      "src": ["ev-cyber-sandboxing"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-malware"
+      ],
+      "title": "Sandboxing and isolation",
+      "fact": "Run risky code in a sealed box so that if it misbehaves, the damage stays inside.",
+      "detail": "A sandbox is a confined environment where a program runs with tightly limited access to the rest of the system — its files, network and other processes walled off. Browsers run each tab sandboxed, phones isolate every app, and analysts detonate suspected malware in sandboxes to watch it safely. The principle is containment: assume code may be hostile or buggy, and bound what it can reach so a compromise can't spread.",
+      "deploy": "The idea behind app isolation on phones, browser tab separation, and safe malware analysis.",
+      "counter": "Sandboxes leak: 'escape' bugs that break out of the box are prized and pricey (a working browser-sandbox escape can fetch a fortune), and sophisticated malware detects when it's in a sandbox and stays dormant to avoid analysis.",
+      "tags": [
+        "sandboxing",
+        "isolation",
+        "containment"
+      ],
+      "xref": [
+        "cyber-containers",
+        "cyber-malware"
+      ],
+      "quiz": {
+        "q": "The point of a sandbox is to…",
+        "choices": [
+          "Speed up code",
+          "Limit what risky code can reach",
+          "Encrypt files",
+          "Detect phishing"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-incident-response",
+      "src": ["ev-cyber-incident-response"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-threat-risk"
+      ],
+      "title": "Incident response: assume you'll be breached",
+      "fact": "Security isn't only prevention — it's a rehearsed plan for when something gets through.",
+      "detail": "Mature security plans for failure. The incident-response lifecycle (codified in NIST's guidance) runs: prepare in advance, detect and analyse the incident, contain it to stop the spread, eradicate the attacker's foothold, recover systems to normal, and review lessons learned. The slogan is 'it's not if, but when' — so the difference between a minor scare and a catastrophe is often how fast and well-rehearsed the response is.",
+      "deploy": "Reframes security from a wall to be perfected into a fire drill to be practised.",
+      "counter": "Plans that live only in a binder fail under pressure; the breaches that spiral (Equifax, 2017) usually do so through slow detection and chaotic, unpractised response — not a lack of written procedure.",
+      "tags": [
+        "incident response",
+        "NIST",
+        "containment"
+      ],
+      "xref": [
+        "cyber-logging-siem",
+        "cyber-forensics"
+      ],
+      "quiz": {
+        "q": "Containment, in incident response, aims to…",
+        "choices": [
+          "Find the attacker's identity",
+          "Stop the incident spreading further",
+          "Rebuild from backups",
+          "Write the report"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-logging-siem",
+      "src": ["ev-cyber-logging-siem"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-incident-response"
+      ],
+      "title": "Logs and the SIEM",
+      "fact": "You can't respond to what you can't see — logging and a SIEM turn scattered events into alerts.",
+      "detail": "Every system emits logs — logins, file access, network connections. A security information and event management (SIEM) platform pulls these together from across an organisation, correlates them, and raises alerts when patterns look like an attack. Good logging is also what makes investigation possible after the fact: no logs, no idea what happened. The catch is signal-to-noise — too much data, too few analysts.",
+      "deploy": "The nervous system of a security team: where detection, alerting and investigation actually happen.",
+      "counter": "SIEMs are notorious for alert overload and high cost, and attackers who reach admin often delete or tamper with logs to cover their tracks — which is why logs are increasingly shipped off-box to write-once storage the intruder can't reach.",
+      "tags": [
+        "logging",
+        "SIEM",
+        "detection"
+      ],
+      "xref": [
+        "cyber-ids-ips",
+        "cyber-forensics"
+      ],
+      "quiz": {
+        "q": "A SIEM's main job is to…",
+        "choices": [
+          "Encrypt data",
+          "Collect and correlate logs to raise alerts",
+          "Block ports",
+          "Patch software"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-forensics",
+      "src": ["ev-cyber-forensics"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-incident-response"
+      ],
+      "title": "Digital forensics",
+      "fact": "After an attack, forensics reconstructs what happened — and preserves evidence that will hold up.",
+      "detail": "Digital forensics is the careful collection and analysis of digital evidence: disk images, memory captures, logs and timelines that reveal how an attacker got in, what they touched, and what they took. Its discipline is the 'chain of custody' — documenting who handled each piece of evidence and how, so it stays trustworthy for an investigation or court. Work on copies, never the original, and record everything.",
+      "deploy": "The practice behind breach investigations, insider cases and any evidence that must survive scrutiny.",
+      "counter": "Evidence is fragile and contestable: anti-forensics tools wipe or fake traces, encrypted and cloud-hosted data may be unreachable, and timestamps can be forged — so forensic findings are reasoned inferences, not certainties, and sloppy handling can void them entirely.",
+      "tags": [
+        "forensics",
+        "chain of custody",
+        "evidence"
+      ],
+      "xref": [
+        "cyber-incident-response",
+        "cyber-logging-siem"
+      ],
+      "quiz": {
+        "q": "'Chain of custody' in forensics means documenting…",
+        "choices": [
+          "The attacker's location",
+          "Who handled each piece of evidence and how",
+          "The network speed",
+          "The encryption key"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-cloud-responsibility",
+      "src": ["ev-cyber-cloud-responsibility"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-defense-in-depth"
+      ],
+      "title": "The cloud's shared responsibility",
+      "fact": "In the cloud, the provider secures the platform — but securing what you put on it is still your job.",
+      "detail": "Moving to the cloud doesn't outsource security wholesale. The 'shared responsibility model' splits it: the provider (AWS, Azure, Google) secures the physical data centres and core infrastructure, while you remain responsible for your data, your access settings and your configuration. Most cloud breaches aren't the provider being hacked — they're customers leaving a storage bucket public or access keys exposed.",
+      "deploy": "Cuts the dangerous assumption that 'it's in the cloud, so it's secure' — the riskiest line in the misconfiguration.",
+      "counter": "The model is real but its boundary is fuzzy and shifts by service type (more is yours with raw servers, less with managed services), and critics note providers market 'security' while quietly leaving the most breach-prone parts — configuration — to often-undertrained customers.",
+      "tags": [
+        "cloud",
+        "shared responsibility",
+        "misconfiguration"
+      ],
+      "xref": [
+        "cyber-secrets",
+        "cyber-zero-trust"
+      ],
+      "quiz": {
+        "q": "Most cloud data breaches are caused by…",
+        "choices": [
+          "The provider being hacked",
+          "Customer misconfiguration (e.g. public buckets)",
+          "Power cuts",
+          "Old hardware"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-containers",
+      "src": ["ev-cyber-containers"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 4,
+      "prereq": [
+        "cyber-sandboxing"
+      ],
+      "title": "Container security",
+      "fact": "Containers share the host's kernel — lighter than virtual machines, but a thinner wall between them.",
+      "detail": "Containers (Docker, orchestrated by Kubernetes) package an app with its dependencies and run many to a machine, sharing one operating-system kernel. That makes them fast and cheap — but the isolation is weaker than a full virtual machine, so a kernel bug or a misconfigured, over-privileged container can let an attacker 'break out' onto the host or into neighbours. Security means minimal images, no running as root, scanning for known-vulnerable dependencies, and locking down the orchestrator.",
+      "deploy": "Explains the security trade-off behind modern cloud-native deployment and why 'don't run as root' is repeated.",
+      "counter": "The convenience pulls against safety: teams ship images riddled with outdated, vulnerable libraries, and Kubernetes' sprawling configuration is so easy to get wrong that misconfiguration, not exotic kernel escapes, causes most real container incidents.",
+      "tags": [
+        "containers",
+        "Kubernetes",
+        "isolation"
+      ],
+      "xref": [
+        "cyber-sandboxing",
+        "cyber-supply-chain"
+      ],
+      "quiz": {
+        "q": "Compared with a virtual machine, a container's isolation is…",
+        "choices": [
+          "Stronger",
+          "Weaker (it shares the host kernel)",
+          "Identical",
+          "Unbreakable"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "cyber-secrets",
+      "src": ["ev-cyber-secrets"],
+      "field": "cyber",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "cyber-public-key"
+      ],
+      "title": "Secrets management",
+      "fact": "Passwords, API keys and certificates are 'secrets' — and hard-coding them into your app is a classic disaster.",
+      "detail": "Modern systems are full of secrets: database passwords, API keys, signing certificates, encryption keys. The cardinal sin is putting them in source code or config files, where they leak into version control, logs and backups — bots scan public code repositories for exposed keys within minutes. Secrets managers (vaults) store them encrypted, hand them out only to authorised services at run time, rotate them regularly, and log every access.",
+      "deploy": "Names a leak source behind countless breaches — and the vault-based discipline that prevents it.",
+      "counter": "Vaults centralise the problem rather than removing it: the vault itself becomes a crown-jewel target, and 'secret sprawl' across code, CI pipelines and developer laptops means leaked keys keep turning up despite the best tooling.",
+      "tags": [
+        "secrets management",
+        "API keys",
+        "vaults"
+      ],
+      "xref": [
+        "cyber-cloud-responsibility",
+        "cyber-hashing-signatures"
+      ],
+      "quiz": {
+        "q": "The cardinal sin of secrets management is…",
+        "choices": [
+          "Rotating keys",
+          "Hard-coding secrets into source code",
+          "Using a vault",
+          "Encrypting keys"
+        ],
+        "answer": 1
+      }
     }
   ],
 

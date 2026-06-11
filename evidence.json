@@ -2772,6 +2772,123 @@
       "url": "https://en.wikipedia.org/wiki/Ordinary_least_squares",
       "kind": "reference",
       "strength": "Tertiary article giving the normal equations, the closed-form β̂ = (XᵀX)⁻¹Xᵀy, and the Gauss–Markov theorem. Settled estimator; the assumptions/outlier/multicollinearity caveats the card raises are standard."
+    },
+    "ev-cyber-firewall": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Firewall (computing)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Firewall_(computing)",
+      "kind": "reference",
+      "strength": "Tertiary article on packet-filtering, stateful and next-gen firewalls. Settled technology; the 'useless against an attacker already inside' caveat motivates the zero-trust shift the card notes."
+    },
+    "ev-cyber-vpn": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Virtual private network",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Virtual_private_network",
+      "kind": "reference",
+      "strength": "Tertiary article on VPN tunnelling and uses. The card's caveat that consumer-VPN marketing overpromises (HTTPS already encrypts; the provider can log) is a widely-made security-researcher critique."
+    },
+    "ev-cyber-ids-ips": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Intrusion detection system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Intrusion_detection_system",
+      "kind": "reference",
+      "strength": "Tertiary article on IDS/IPS and signature vs anomaly detection. The alert-fatigue failure (e.g. the 2013 Target breach) the card cites is documented."
+    },
+    "ev-cyber-dns": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "DNS spoofing",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/DNS_spoofing",
+      "kind": "reference",
+      "strength": "Tertiary article on cache poisoning and DNSSEC. The slow DNSSEC adoption and resolver-centralisation caveats the card raises are documented."
+    },
+    "ev-cyber-access-control": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Access control",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Access_control",
+      "kind": "reference",
+      "strength": "Tertiary article covering DAC/MAC/RBAC and least privilege. The 'privilege creep' decay the card flags is a well-known audit finding."
+    },
+    "ev-cyber-privilege-escalation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Privilege escalation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Privilege_escalation",
+      "kind": "reference",
+      "strength": "Tertiary article on vertical/horizontal escalation. The 'assume breach, limit blast radius' lesson the card draws is mainstream modern guidance."
+    },
+    "ev-cyber-sandboxing": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Sandbox (computer security)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Sandbox_(computer_security)",
+      "kind": "reference",
+      "strength": "Tertiary article on confinement and isolation. The valuable 'sandbox escape' bugs and sandbox-evading malware the card mentions are documented."
+    },
+    "ev-cyber-incident-response": {
+      "who": "Cichonski et al. / NIST (SP 800-61 Rev. 2)",
+      "year": 2012,
+      "title": "NIST SP 800-61: Computer Security Incident Handling Guide",
+      "where": "",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r2/final",
+      "kind": "report",
+      "strength": "The primary US standards guide defining the prepare-detect-contain-eradicate-recover lifecycle — authoritative, not tertiary. The Equifax slow-response cautionary case the card cites is documented."
+    },
+    "ev-cyber-logging-siem": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Security information and event management",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Security_information_and_event_management",
+      "kind": "reference",
+      "strength": "Tertiary article on log aggregation, correlation and alerting. The alert-overload and log-tampering caveats the card raises are standard SOC concerns."
+    },
+    "ev-cyber-forensics": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Digital forensics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Digital_forensics",
+      "kind": "reference",
+      "strength": "Tertiary article on evidence collection, analysis and chain of custody. The anti-forensics and fragile-evidence caveats the card raises are documented."
+    },
+    "ev-cyber-cloud-responsibility": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Cloud computing security",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cloud_computing_security",
+      "kind": "reference",
+      "strength": "Tertiary article covering the shared-responsibility model and misconfiguration risk. That most cloud breaches are customer misconfiguration (public buckets, exposed keys) is well documented."
+    },
+    "ev-cyber-containers": {
+      "who": "Souppaya, Morello & Scarfone / NIST (SP 800-190)",
+      "year": 2017,
+      "title": "NIST SP 800-190: Application Container Security Guide",
+      "where": "",
+      "url": "https://csrc.nist.gov/pubs/sp/800/190/final",
+      "kind": "report",
+      "strength": "The primary US standards guide on container security — authoritative. Covers shared-kernel isolation risks, image vulnerabilities and the don't-run-as-root guidance the card states."
+    },
+    "ev-cyber-secrets": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Secrets management",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Secrets_management",
+      "kind": "reference",
+      "strength": "Tertiary article on storing keys/passwords/certificates and vault tooling. The 'don't hard-code secrets / bots scan repos' point and the 'vault becomes a target / secret sprawl' caveat are documented practice."
     }
   }
 }
