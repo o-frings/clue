@@ -955,6 +955,20 @@ function drawViz(g, spec, st, readout){
       if(readout) readout.textContent='solution: x = '+fmtNum(ix)+',  y = '+fmtNum(iy); } }
     return;
   }
+  // ---- network: a neuron / layered neural net as nodes-and-edges ----
+  if(kind==='network'){
+    const layers=spec.layers||[3,4,2], nL=layers.length;
+    const x0=VZ_PAD.l, x1=VZ_W-VZ_PAD.r, y0=VZ_PAD.t+8, y1=VZ_H-VZ_PAD.b-(spec.labels?12:0);
+    const colX=i=> nL===1? (x0+x1)/2 : x0+i/(nL-1)*(x1-x0);
+    const pos=layers.map((n,i)=>{ const x=colX(i); const col=[];
+      for(let j=0;j<n;j++){ const y= n===1? (y0+y1)/2 : y0+j/(n-1)*(y1-y0); col.push([x,y]); } return col; });
+    const card=vzCss('--card');
+    for(let i=0;i<nL-1;i++) for(const a of pos[i]) for(const b of pos[i+1])
+      g.appendChild(svgEl('line',{x1:a[0].toFixed(1),y1:a[1].toFixed(1),x2:b[0].toFixed(1),y2:b[1].toFixed(1),stroke:vzCss('--line'),'stroke-width':1}));
+    pos.forEach((col,i)=> col.forEach(p=> g.appendChild(svgEl('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:8,fill:(i===nL-1?accent:card),stroke:accent,'stroke-width':2})) ));
+    if(spec.labels) spec.labels.forEach((lab,i)=> vzText(g,colX(i),y1+13,lab,l2,9,'middle'));
+    return;
+  }
 }
 function descentStep(spec,st,draw,btn){
   const p=spec.params||{a:0.5,b:0,c:0}; const eta=st.eta==null?0.1:st.eta;

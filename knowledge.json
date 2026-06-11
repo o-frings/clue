@@ -38,6 +38,7 @@
     { "id": "linalg",  "label": "Linear algebra",    "blurb": "Vectors, matrices, transformations — the language of data.", "icon": "⊞", "color": "#ae3ec9" },
     { "id": "prob",    "label": "Probability & statistics", "blurb": "Chance, distributions, inference, and what the data supports.", "icon": "📊", "color": "#1c7ed6" },
     { "id": "ml",      "label": "Machine learning & AI",    "blurb": "How machines fit functions to data — from regression to transformers.", "icon": "🤖", "color": "#fd7e14" },
+    { "id": "cs",      "label": "Computer science",      "blurb": "Bits, algorithms, and writing code that lasts.", "icon": "⌨", "color": "#0b7285" },
     { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
     { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
     { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
@@ -820,7 +821,7 @@
       "quiz": { "q": "Appeal to authority is fallacious when…", "choices": ["the authority is relevant and expert", "the authority is irrelevant or treated as proof", "you cite genuine consensus", "you check the evidence"], "answer": 1 }
     },
     {
-      "id": "cs-binary", "field": "math", "depth": "concept", "level": 1,
+      "id": "cs-binary", "field": "cs", "depth": "concept", "level": 1,
       "src": ["ev-cs-binary"],
       "title": "It's all bits",
       "fact": "Everything in a computer — text, images, sound — is ultimately just numbers in binary (0s and 1s).",
@@ -832,7 +833,7 @@
       "quiz": { "q": "At the lowest level, a computer stores text and images as…", "choices": ["Tiny pictures", "Numbers in binary (bits)", "Words", "Pure electricity"], "answer": 1 }
     },
     {
-      "id": "cs-bigo", "field": "math", "depth": "concept", "level": 2,
+      "id": "cs-bigo", "field": "cs", "depth": "concept", "level": 2,
       "prereq": ["cs-binary"],
       "src": ["ev-cs-bigo"],
       "title": "Big-O: how algorithms scale",
@@ -845,7 +846,7 @@
       "quiz": { "q": "Big-O notation describes an algorithm's…", "choices": ["Exact runtime in seconds", "How its cost scales with input size", "Memory brand", "Lines of code"], "answer": 1 }
     },
     {
-      "id": "cs-halting", "field": "math", "depth": "concept", "level": 3,
+      "id": "cs-halting", "field": "cs", "depth": "concept", "level": 3,
       "prereq": ["cs-bigo"],
       "src": ["ev-cs-halting"],
       "title": "The halting problem",
@@ -876,6 +877,22 @@
       "title": "The central limit theorem",
       "fact": "Add up many small independent effects and you tend to get a bell curve — the normal distribution.",
       "detail": "The central limit theorem says sums or averages of many independent influences converge to a normal (Gaussian) shape, whatever the underlying distribution. That's why heights, measurement errors and sample averages cluster symmetrically around a mean — and why the bell curve and the standard deviation are everywhere in statistics.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "gaussian",
+          "params": {
+            "mu": 0,
+            "sigma": 1
+          },
+          "domain": [
+            -4,
+            4
+          ],
+          "shade": true,
+          "caption": "Whatever you start with, the averages of many draws pile up into this bell."
+        }
+      ],
       "deploy": "Explains why so many quantities are bell-shaped, and licenses much of standard statistics.",
       "counter": "It fails when effects aren't independent or one factor dominates — then you get fat tails (power laws), where rare extremes are far commoner than the bell curve predicts.",
       "tags": ["statistics", "normal distribution", "clt"],
@@ -896,7 +913,7 @@
       "quiz": { "q": "Ice-cream sales correlate with drownings mainly because…", "choices": ["Ice cream is dangerous", "Both rise with summer heat (a confounder)", "Drowning causes hunger", "Pure coincidence"], "answer": 1 }
     },
     {
-      "id": "code-naming", "field": "math", "depth": "concept", "level": 1,
+      "id": "code-naming", "field": "cs", "depth": "concept", "level": 1,
       "src": ["ev-code-naming"],
       "title": "Good names are the cheapest documentation",
       "fact": "Code is read far more often than it's written, so clear names are the highest-leverage documentation there is.",
@@ -908,7 +925,7 @@
       "quiz": { "q": "Clear names matter most because code is…", "choices": ["Written once and forgotten", "Read far more often than it's written", "Compiled slowly", "Always short"], "answer": 1 }
     },
     {
-      "id": "code-dry", "field": "math", "depth": "concept", "level": 2,
+      "id": "code-dry", "field": "cs", "depth": "concept", "level": 2,
       "prereq": ["code-naming"],
       "src": ["ev-code-dry"],
       "title": "Don't repeat yourself (DRY)",
@@ -921,7 +938,7 @@
       "quiz": { "q": "DRY is mainly about avoiding duplication of…", "choices": ["Whitespace", "Knowledge/logic (one source of truth)", "Variable names", "Files"], "answer": 1 }
     },
     {
-      "id": "code-complexity", "field": "math", "depth": "concept", "level": 3,
+      "id": "code-complexity", "field": "cs", "depth": "concept", "level": 3,
       "prereq": ["code-dry"],
       "src": ["ev-code-complexity"],
       "title": "Code is for humans: manage complexity",
@@ -1007,7 +1024,7 @@
       "counter": "Routinely overstated. It applies to specific formal systems, not to 'all reasoning'; it does not imply 'nothing is knowable' or license mysticism."
     },
     {
-      "id": "math-base-rate", "field": "math", "depth": "concept", "level": 1,
+      "id": "math-base-rate", "field": "prob", "depth": "concept", "level": 1,
       "xref": ["math-simpson","econ-loss-aversion"],
       "media": [{ "type": "equation", "tex": "P(A \\mid B) = \\dfrac{P(B \\mid A)\\,P(A)}{P(B)}", "plain": "P(A|B) = P(B|A)·P(A) / P(B)", "caption": "Bayes' theorem. Read the bar '|' as 'given'. It updates the chance of A once you've seen B — and P(A), the base rate, never drops out, which is exactly what the fallacy forgets." }],
       "title": "The base-rate fallacy",
@@ -1021,7 +1038,7 @@
       "quiz": { "q": "For a rare condition, a positive result on a highly accurate test is…", "choices": ["Almost certainly correct", "Often a false positive", "Impossible", "Irrelevant"], "answer": 1 }
     },
     {
-      "id": "math-simpson", "field": "math", "depth": "concept", "level": 2,
+      "id": "math-simpson", "field": "prob", "depth": "concept", "level": 2,
       "prereq": ["math-base-rate"],
       "xref": ["math-base-rate","sys-powerlaw"],
       "title": "Simpson's paradox",
@@ -3825,6 +3842,31 @@
       "title": "Mean, median, and mode",
       "fact": "Three ways to name the 'typical' value — and they can tell different stories.",
       "detail": "The mean is the arithmetic average (add up, divide by how many). The median is the middle value when sorted. The mode is the most common value. They agree for symmetric data, but a few extreme values pull the mean while leaving the median put: most people earn below the mean income, because a handful of huge earners drag the average up. The median is the fairer 'typical' there.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            42,
+            28,
+            15,
+            8,
+            4,
+            2,
+            1
+          ],
+          "labels": [
+            "low",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "high"
+          ],
+          "caption": "A long right tail (like incomes) drags the mean past the median."
+        }
+      ],
       "deploy": "The first summary of any dataset — and choosing mean vs median can change the headline.",
       "counter": "Any single number hides the shape: the same mean can describe steady data or wildly volatile data. Always ask about spread too.",
       "tags": [
@@ -4214,6 +4256,18 @@
       "title": "Gradient descent: rolling downhill to the best fit",
       "fact": "Take small steps in the downhill direction of the loss until you reach the bottom.",
       "detail": "The gradient \\(\\nabla L\\) points uphill on the loss surface, so step the opposite way: \\(\\vec{w} \\leftarrow \\vec{w} - \\eta\\,\\nabla L\\). The learning rate \\(\\eta\\) sets the step size — too small and training crawls, too large and it overshoots and diverges. Repeat, and the weights roll down into a valley of low loss. This one rule trains almost every model in modern machine learning.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The idea",
+          "body": "The gradient \\(\\nabla L\\) points uphill on the loss surface, so step the opposite way: \\(\\vec{w} \\leftarrow \\vec{w} - \\eta\\,\\nabla L\\). The learning rate \\(\\eta\\) sets the step size — too small and training crawls, too large and it overshoots and diverges. Repeat, and the weights roll down into a valley of low loss. This one rule trains almost every model in modern machine learning."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Say the loss is \\(L(w)=(w-3)^2\\), so its slope is \\(L'(w)=2(w-3)\\). Start at \\(w=0\\) with learning rate \\(\\eta=0.1\\).\n\nStep 1: slope \\(=2(0-3)=-6\\), so \\(w \\leftarrow 0-0.1\\times(-6)=0.6\\). Step 2: slope \\(=-4.8\\), so \\(w \\leftarrow 1.08\\). Step 3: \\(w\\approx1.46\\)… each step slides \\(w\\) toward 3, where the slope is 0 — the bottom. Pick \\(\\eta=1.1\\) instead and the steps overshoot and blow up."
+        }
+      ],
       "media": [
         {
           "type": "equation",
@@ -4349,6 +4403,19 @@
           "plain": "y = σ(w·x + b)",
           "say": "the output is the activation of the weighted sum of inputs plus a bias.",
           "caption": "Weigh, sum, then squash: one artificial neuron."
+        },
+        {
+          "type": "plot",
+          "kind": "network",
+          "layers": [
+            3,
+            1
+          ],
+          "labels": [
+            "inputs",
+            "neuron"
+          ],
+          "caption": "Three weighted inputs feed one neuron."
         }
       ],
       "deploy": "The atom of neural networks — every deep model is millions of these wired together.",
@@ -4386,6 +4453,18 @@
       "title": "A neural network: layers of neurons",
       "fact": "Stack neurons into layers and a network becomes matrices squashed through activations.",
       "detail": "A layer computes many neurons at once: collect their weights into a matrix \\(W\\) and the whole layer is \\(\\vec{h} = \\sigma(W\\vec{x} + \\vec{b})\\) — a matrix-vector product, then an activation, applied entry by entry. Stack layers and the output of one feeds the next. Without the non-linear activations the stack would collapse into a single linear map; with them, the network can approximate almost any function. This is deep learning's core.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The idea",
+          "body": "A layer computes many neurons at once: collect their weights into a matrix \\(W\\) and the whole layer is \\(\\vec{h} = \\sigma(W\\vec{x} + \\vec{b})\\) — a matrix-vector product, then an activation, applied entry by entry. Stack layers and the output of one feeds the next. Without the non-linear activations the stack would collapse into a single linear map; with them, the network can approximate almost any function. This is deep learning's core."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Take one layer with 2 inputs feeding 3 neurons. The weights form a \\(3\\times2\\) matrix \\(W\\); the inputs are a length-2 vector \\(\\vec x\\). Then \\(W\\vec x\\) is length-3 (one weighted sum per neuron), you add a length-3 bias \\(\\vec b\\), and squash each of the 3 entries.\n\nSo '3 neurons on 2 inputs' is exactly: multiply by a \\(3\\times2\\) matrix, add 3 numbers, squash 3 numbers. The next layer takes those 3 outputs as its own inputs — another matrix, another squash."
+        }
+      ],
       "media": [
         {
           "type": "equation",
@@ -4393,6 +4472,23 @@
           "plain": "h = σ(W·x + b)",
           "say": "a layer is the activation of a matrix times the inputs, plus a bias vector.",
           "caption": "One layer: a matrix multiply, a bias, then a squash."
+        },
+        {
+          "type": "plot",
+          "kind": "network",
+          "layers": [
+            3,
+            4,
+            4,
+            2
+          ],
+          "labels": [
+            "in",
+            "hidden",
+            "hidden",
+            "out"
+          ],
+          "caption": "Inputs flow through hidden layers to outputs — every arrow is a weight."
         }
       ],
       "deploy": "Explains why linear algebra and calculus are the language of AI: a net is matrices and activations composed.",
@@ -4431,6 +4527,18 @@
       "title": "Backpropagation: the chain rule that trains the net",
       "fact": "Backprop sends the error backwards through the layers to find every weight's gradient.",
       "detail": "Gradient descent needs the gradient of the loss with respect to every weight — and a deep net has millions. Backpropagation computes them all efficiently by applying the chain rule layer by layer, from the output error back toward the input. Each layer passes the blame for the error to the one before it. It's just the chain rule, organised — and its rediscovery in the 1980s is what made training deep networks practical.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The idea",
+          "body": "Gradient descent needs the gradient of the loss with respect to every weight — and a deep net has millions. Backpropagation computes them all efficiently by applying the chain rule layer by layer, from the output error back toward the input. Each layer passes the blame for the error to the one before it. It's just the chain rule, organised — and its rediscovery in the 1980s is what made training deep networks practical."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Chain one neuron: \\(z=wx\\), then \\(a=\\sigma(z)\\), then loss \\(L=(a-y)^2\\). To adjust \\(w\\), multiply the rates along the chain:\n\n\\(\\dfrac{\\partial L}{\\partial w}=\\underbrace{2(a-y)}_{\\text{loss}\\to a}\\cdot\\underbrace{\\sigma(z)(1-\\sigma(z))}_{a\\to z}\\cdot\\underbrace{x}_{z\\to w}\\).\n\nEach layer passes that running product back to the layer before it — backprop just does this for every weight at once, output-side first."
+        }
+      ],
       "media": [
         {
           "type": "equation",
@@ -4438,6 +4546,16 @@
           "plain": "∂L/∂w = (∂L/∂ŷ)·(∂ŷ/∂w)",
           "say": "a weight's effect on the loss is the chain of how it changes the output, times how that changes the loss.",
           "caption": "The chain rule, applied backwards through every layer."
+        },
+        {
+          "type": "plot",
+          "kind": "network",
+          "layers": [
+            3,
+            4,
+            2
+          ],
+          "caption": "Training sends the error backward, right to left, tuning every weight."
         }
       ],
       "deploy": "The reason deep networks are trainable at all — the algorithm that powers the whole field.",
@@ -4606,6 +4724,18 @@
       "title": "Attention and transformers: the maths behind LLMs",
       "fact": "Attention lets each word pull in the others most relevant to it — by dot products and softmax.",
       "detail": "A transformer represents each token as a vector and lets tokens look at one another. Each forms a query \\(Q\\), key \\(K\\) and value \\(V\\). The relevance of one token to another is their dot product (alignment); softmax turns those scores into weights that sum to 1; the output is the weighted blend of values: \\(\\text{Attention}(Q,K,V) = \\text{softmax}\\!\\left(\\frac{QK^\\top}{\\sqrt{d}}\\right)V\\). Stacked in layers, this is the architecture (Vaswani et al., 2017) behind GPT and modern large language models.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The idea",
+          "body": "A transformer represents each token as a vector and lets tokens look at one another. Each forms a query \\(Q\\), key \\(K\\) and value \\(V\\). The relevance of one token to another is their dot product (alignment); softmax turns those scores into weights that sum to 1; the output is the weighted blend of values: \\(\\text{Attention}(Q,K,V) = \\text{softmax}\\!\\left(\\frac{QK^\\top}{\\sqrt{d}}\\right)V\\). Stacked in layers, this is the architecture (Vaswani et al., 2017) behind GPT and modern large language models."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Three words, each with a query, key and value vector. To refresh word 3, score its query against every key with a dot product — say \\(q_3\\!\\cdot\\!k_1=2,\\ q_3\\!\\cdot\\!k_2=0,\\ q_3\\!\\cdot\\!k_3=4\\).\n\nSoftmax turns \\((2,0,4)\\) into weights that sum to 1 — about \\((0.11,0.02,0.87)\\). The new word-3 vector is that weighted blend of the value vectors: mostly \\(v_3\\), a little \\(v_1\\). Score by similarity, soften into weights, mix the values."
+        }
+      ],
       "media": [
         {
           "type": "equation",
