@@ -133,7 +133,7 @@
       "fact": "China's state runs through tiered 'people's congresses', from the local level up to the National People's Congress.",
       "detail": "Formally, the National People's Congress (NPC) — the world's largest legislature (~2,900 delegates) — is the supreme organ of state power. It elects the president and decides the State Council (the government), meets briefly each spring (the 'Two Sessions'), and leaves a Standing Committee to act between sessions. Below it sit people's congresses at province, prefecture/city, county and township levels, each overseeing the government at its tier. Running in parallel at every level is a CCP committee that sets direction — so the state and the Party form two interlocking hierarchies.",
       "deploy": "Gives you the real map of Chinese governance: a layered congress-and-government system shadowed at each level by a Party committee.",
-      "counter": "Supporters call the NPC a working deliberative body that refines policy; others note it almost never rejects Party proposals, so its role is more ratifying and consultative than legislating in the Western sense.",
+      "counter": "China-law scholars like Murray Scot Tanner argue the NPC has gained real legislative substance; sceptics such as Minxin Pei note it has never rejected a Party bill, so its role is mainly to ratify and consult, not to legislate as a Western parliament would.",
       "tags": ["china", "politics", "government", "npc"],
       "xref": ["china-party-state", "china-cadre-appointment"],
       "quiz": { "q": "China's supreme organ of state power is…", "choices": ["The Politburo", "The National People's Congress", "The Supreme Court", "The State Council"], "answer": 1 }
@@ -146,7 +146,7 @@
       "fact": "Most senior officials in China aren't elected — they're selected and promoted by the Party through the 'nomenklatura' system.",
       "detail": "The CCP's Organization Department manages a 'nomenklatura' — roughly the top several thousand party-state posts (ministers, provincial leaders, even major university and state-enterprise heads). Cadres are appointed and promoted on assessed criteria: loyalty to the Party, ideological standing and measured performance (historically growth and stability targets), alongside patronage networks. A typical career climbs the rungs — county, then a city (e.g. mayor or city party secretary), then a province — before a few reach the Central Committee, the Politburo, and its Standing Committee, which the Central Committee formally 'elects' but the leadership in practice selects.",
       "deploy": "Explains how China picks its rulers: an internal Party personnel system that rewards measured performance and loyalty — often described as 'political meritocracy'.",
-      "counter": "Supporters call it meritocratic selection that filters for competence over decades; others say targets invite gaming and faked data, and that loyalty and factional patronage can outweigh merit near the top.",
+      "counter": "Daniel A. Bell ('The China Model') and Eric Li defend it as a political meritocracy that filters for competence over decades; Minxin Pei argues the targets invite gaming and faked data, and that loyalty and factional patronage increasingly outweigh merit near the top.",
       "tags": ["china", "officials", "nomenklatura", "meritocracy"],
       "xref": ["china-party-state", "china-state-structure"],
       "quiz": { "q": "Senior Chinese officials are chosen mainly by…", "choices": ["Popular national elections", "The Party's nomenklatura appointment system", "The courts", "Lottery"], "answer": 1 }
@@ -159,7 +159,7 @@
       "fact": "Chinese voters directly elect only the lowest levels — village committees and county/township congresses; everything above is indirect.",
       "detail": "Under the 1987 Organic Law, villages directly elect village committees and chiefs — China's main experiment in grassroots elections. County, district and township people's congresses are also directly elected. But every level above (city, province, NPC) is elected indirectly by the congress one tier below, and the CCP pre-approves candidate nominations throughout. In a village, an elected committee operates alongside the appointed village Party secretary, who often holds the real authority.",
       "deploy": "Shows where direct voting exists in China (the grassroots) and where it stops (everything above the county).",
-      "counter": "Supporters see grassroots elections as genuine local accountability and a training ground; others note that candidate vetting and the parallel Party secretary limit how much elected bodies actually decide.",
+      "counter": "Scholars of Chinese village elections like Kevin O'Brien saw genuine grassroots accountability and a training ground; others note that CCP candidate-vetting and the parallel village Party secretary cap how much the elected committee actually decides.",
       "tags": ["china", "elections", "local government", "democracy"],
       "xref": ["china-whole-process-democracy", "china-state-structure"],
       "quiz": { "q": "In China, directly-elected bodies exist mainly at the level of…", "choices": ["The national legislature", "Villages and counties/townships", "Provinces", "The Politburo"], "answer": 1 }
@@ -172,7 +172,7 @@
       "fact": "The CCP calls China a democracy — 'whole-process people's democracy' — judged by results, not by multiparty elections.",
       "detail": "Introduced by Xi Jinping in 2019 and written into law in 2021, 'whole-process people's democracy' is the Party's own democratic theory. It claims democracy runs through the entire cycle of governance — consultation, decision, management and oversight, via the people's congresses and the political consultative conference — rather than ending at the ballot box. Its test of success is consequentialist: how well government improves citizens' lives, not whether power alternates between parties.",
       "deploy": "Lets you engage Chinese politics on its own terms: it doesn't claim to be a liberal democracy but defines democracy as effective, consultative governance under Party leadership.",
-      "counter": "Supporters argue outcome-based, consultative democracy fits China and delivers; others argue that without competitive elections, a free press, or a way to remove rulers, the word 'democracy' is being redefined to fit one-party rule.",
+      "counter": "Beijing and scholars like Zhang Weiwei argue outcome-based, consultative democracy suits China and delivers; democracy researchers like Larry Diamond counter that without competitive elections, a free press or any way to remove rulers, it is authoritarianism relabelled.",
       "tags": ["china", "democracy", "ideology", "politics"],
       "xref": ["china-local-elections", "china-party-state"],
       "quiz": { "q": "'Whole-process people's democracy' judges success mainly by…", "choices": ["How power alternates between parties", "How well government improves citizens' lives", "Voter turnout", "Press-freedom rankings"], "answer": 1 }
@@ -185,7 +185,7 @@
       "fact": "The CCP's official ideology is Marxism–Leninism — adapted, it says, to China through a lineage ending in 'Xi Jinping Thought'.",
       "detail": "The Party's guiding ideology runs Marxism–Leninism → Mao Zedong Thought → Deng Xiaoping Theory → the Three Represents → the Scientific Outlook on Development → Xi Jinping Thought, all under 'socialism with Chinese characteristics'. The bridge to markets is the doctrine of the 'primary stage of socialism': China is still building its productive forces, so markets and private enterprise are tools on a long road to communism. From Marx it keeps historical materialism (the economic base shapes society), class analysis, and the Party as a vanguard; Xi Jinping Thought is presented as 'Marxism for the 21st century'.",
       "deploy": "Explains how a market-driven economy squares with a Communist Party: the 'primary stage of socialism' frames markets as a means, with the Party steering toward communism.",
-      "counter": "Supporters call it living Marxism, creatively applied; others — including some Marxists — argue that markets, private capital and deep inequality make the 'socialist' label more about legitimacy and Party control than Marx's classless aim.",
+      "counter": "The Party calls it living Marxism, creatively applied. Yasheng Huang ('Capitalism with Chinese Characteristics') argues it is really capitalism under a socialist label; Marxist critics like David Harvey see private capital, billionaires and deep inequality as a betrayal of Marx's classless aim; others read the Marxist vocabulary mainly as cover for the Party's monopoly on power.",
       "tags": ["china", "marxism", "ideology", "communism"],
       "xref": ["pe-marx-capital", "pe-historical-materialism", "china-party-state"],
       "quiz": { "q": "How does CCP doctrine square markets with Marxism?", "choices": ["It rejects Marx entirely", "Via the 'primary stage of socialism' — markets as a tool toward communism", "By banning private firms", "It says Marx supported capitalism"], "answer": 1 }
@@ -198,7 +198,7 @@
       "fact": "China grew by investing and exporting at a scale no big economy had tried — and now struggles to rebalance toward consumption.",
       "detail": "The boom ran on extraordinarily high investment and savings (gross savings around 43% of GDP), a large manufacturing export sector (exports ~20% of GDP), and state-owned enterprises (~40% of GDP) alongside a dynamic private sector — financed largely by state-directed bank credit. It built world-class infrastructure fast, but kept household consumption a low share of GDP and bred overcapacity and debt. Since the 2010s, plans have aimed to 'rebalance' toward consumption and services — slowly.",
       "deploy": "Explains both China's speed and its strains: an investment-and-export engine that's powerful but hard to turn toward consumer-led growth.",
-      "counter": "Sustainability is debated — optimists point to tech upgrading and scale; pessimists to the property bust, debt and demographics. State direction is credited for coordination and blamed for misallocation.",
+      "counter": "Sustainability is debated: Justin Yifu Lin (ex-World Bank chief economist) points to continued tech upgrading and catch-up, while Michael Pettis stresses the property bust, debt and demographics and calls the investment model exhausted. The same state direction is credited for coordination and blamed for misallocation.",
       "tags": ["china", "economy", "growth", "investment"],
       "xref": ["china-reform-opening", "china-local-debt", "econ-comparative-advantage"],
       "quiz": { "q": "China's growth has leaned most heavily on…", "choices": ["High consumer spending", "High investment and exports", "Foreign aid", "Tourism"], "answer": 1 }
@@ -211,7 +211,7 @@
       "fact": "Where you're registered in China sets your access to schools, healthcare and benefits — the hukou system.",
       "detail": "Hukou registers every citizen as rural or urban and to a specific place; public services — schooling, healthcare, housing support — are tied to your registered locality. Roughly 200–300 million rural migrants work in cities but can't easily get urban services for themselves or their children, creating a large internal-migrant underclass (the 'floating population'). Reforms have eased registration in smaller cities, but big-city hukou stays hard to obtain.",
       "deploy": "Explains a core source of Chinese inequality and the 'floating population': rights and services follow your registration, not where you live and work.",
-      "counter": "Supporters say it let China urbanise fast without sprawling mega-slums and manage city growth; critics call it a system of second-class citizenship for rural migrants.",
+      "counter": "Beijing presents hukou as orderly urbanisation without sprawling mega-slums; the geographer Kam Wing Chan, who studies it, calls it institutionalised discrimination that makes rural migrants second-class citizens in the cities.",
       "tags": ["china", "hukou", "migration", "inequality"],
       "xref": ["china-growth-model", "geo-demographic"],
       "quiz": { "q": "China's hukou system mainly determines…", "choices": ["Voting rights", "Access to local public services by registered locality", "Income-tax rates", "Military service"], "answer": 1 }
@@ -224,7 +224,7 @@
       "fact": "Chinese cities funded their boom by borrowing through off-the-books companies — now a major debt risk.",
       "detail": "Local governments can't easily run deficits or raise much tax, yet were tasked with growth and infrastructure. Many borrowed via 'local government financing vehicles' (LGFVs) — state-owned companies that take loans and issue bonds, typically using land-use rights as collateral and repaying from land sales (60–80% of local revenue in 2018). This funded rapid building but piled up large, partly hidden debts; the IMF estimated LGFV debt near $8 trillion (about 47% of GDP) by end-2023. When property prices and land sales fell, repayment became a systemic worry.",
       "deploy": "Explains how China's infrastructure was financed — and why local-government and property debt is now a central economic risk.",
-      "counter": "Optimists note the debt is mostly domestic and state-owned, so easier to restructure; pessimists see misallocated investment and a slow-burning drag on growth.",
+      "counter": "Nicholas Lardy argues the mostly-domestic, state-owned debt is manageable and restructurable; Michael Pettis sees years of misallocated investment and a slow-burning drag on growth.",
       "tags": ["china", "debt", "local government", "property"],
       "xref": ["china-growth-model", "eh-2008"],
       "quiz": { "q": "Chinese local governments largely funded infrastructure by…", "choices": ["Income taxes", "Off-budget financing vehicles backed by land sales", "Foreign aid", "Printing money"], "answer": 1 }
@@ -287,7 +287,7 @@
       "fact": "Many Middle Eastern states live off oil revenue, not taxes — which reshapes the deal between rulers and ruled.",
       "detail": "Gulf states (Saudi Arabia, the UAE, Kuwait, Qatar) are 'rentier states': most government income comes from selling oil and gas, not taxing citizens. With little taxation there's little leverage to demand representation — rulers fund generous welfare and public jobs in exchange for political quiet ('no taxation, no representation'). Oil also made the region strategically vital, pulling in outside powers, and gave producers leverage through OPEC.",
       "deploy": "Explains both the durability of Gulf monarchies and why outside powers stay so invested in the region.",
-      "counter": "The model is strained — low oil prices, youth unemployment and the energy transition push states (e.g. Saudi 'Vision 2030') to diversify and, cautiously, to tax; and scholars debate how tightly oil really locks in autocracy.",
+      "counter": "The model is strained — low oil prices, youth unemployment and the energy transition push states (e.g. Saudi 'Vision 2030') to diversify and, cautiously, to tax; and political scientists like Michael Herb question how tightly oil really locks in autocracy.",
       "tags": ["middle east", "oil", "rentier state", "opec"],
       "xref": ["geo-hormuz", "eh-stagflation"],
       "quiz": { "q": "A 'rentier state' funds itself mainly from…", "choices": ["Income taxes", "Resource revenue such as oil", "Tourism", "Foreign aid"], "answer": 1 }
@@ -1333,7 +1333,7 @@
       "fact": "In 2018 a scientist edited the genes of babies — crossing a line the field had agreed not to.",
       "detail": "CRISPR can edit body cells (somatic) to treat one patient, or the germline (eggs, sperm, embryos), whose changes pass to all descendants. In 2018 He Jiankui announced gene-edited twins in China; the work drew near-universal condemnation and a prison sentence — it was unsafe, the consent forged, the ethics indefensible. Most countries ban heritable germline editing while allowing somatic gene therapies.",
       "deploy": "Marks the bright line in gene editing: treating a patient vs. permanently altering the human lineage.",
-      "counter": "The line is contested at the edges — heritable editing to prevent devastating genetic disease has serious advocates, so 'never' isn't a settled consensus.",
+      "counter": "The line is contested at the edges — a 2017 US National Academies report cautiously allowed heritable editing in principle for serious disease, so 'never' isn't a settled consensus.",
       "tags": ["biology", "crispr", "ethics", "gene editing"],
       "quiz": { "q": "The 2018 He Jiankui case involved editing…", "choices": ["Adult body cells only", "The germline (heritable embryo edits)", "Plants", "Bacteria"], "answer": 1 }
     },
@@ -1663,7 +1663,7 @@
       "fact": "Nozick's reply to Rawls: a just outcome is whatever free exchanges produce — even if unequal.",
       "detail": "In Anarchy, State, and Utopia (1974), Robert Nozick countered Rawls with an 'entitlement theory': holdings are just if they were acquired and transferred justly, whatever pattern results. His 'Wilt Chamberlain' example: if fans freely pay to watch a star, the resulting inequality is just, and forcibly redistributing it violates liberty. He defends only a 'minimal state'.",
       "deploy": "The libertarian counterweight to Rawls: justice as fair process and liberty, not as a fair distribution pattern.",
-      "counter": "Critics say 'just steps' ignore tainted starting points (conquest, slavery) and that pure process can entrench injustice; the initial-acquisition principle is the weak link.",
+      "counter": "Egalitarians like G.A. Cohen argue that 'just steps' ignore tainted starting points (conquest, slavery) and that pure process can entrench injustice; Nozick's initial-acquisition principle is the weak link.",
       "tags": ["philosophy", "justice", "libertarianism"],
       "xref": ["philo-veil"],
       "quiz": { "q": "Nozick's entitlement theory judges a distribution by…", "choices": ["How equal it is", "Whether it arose through just acquisition and free transfer", "A central plan", "Majority vote"], "answer": 1 }
@@ -1866,7 +1866,7 @@
       "xref": ["pe-friedman","pe-schools"],
       "title": "Hayek and the knowledge problem",
       "fact": "Hayek's argument against central planning: nobody knows enough — but prices do.",
-      "detail": "Hayek (1945) argued that dispersed knowledge makes central planning impossible, while prices coordinate it automatically — a deep case for markets that critics qualify with externalities, monopoly and information failures.",
+      "detail": "Hayek (1945) argued that dispersed knowledge makes central planning impossible, while prices coordinate it automatically — a deep case for markets that information economists like Joseph Stiglitz later qualified, citing externalities, monopoly and imperfect information.",
       "src": ["ev-pe-hayek"],
       "year": 1945,
       "tags": ["political economy", "austrian", "markets"],
