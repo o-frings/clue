@@ -1081,9 +1081,7 @@ function cardHeft(c){
 function feedCandidates(){
   let list;
   if(feedFilter==="__saved"){ const s=new Set(settings.saved||[]); list=KN.cards.filter(c=>s.has(c.id)); }
-  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter);
-    // unlock chain: don't surface an advanced card until everything it builds on is learned
-    list=list.filter(c=> !isNew(c.id) || prereqsMet(c)); }
+  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter); }
   if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
   else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
   if(list.length<3) return list;
@@ -1107,6 +1105,9 @@ function feedCandidates(){
   let op=out.findIndex(c=> c.field==='fun' && isNew(c.id));
   if(op<0) op=out.findIndex(c=> cardHeft(c)<0.3);
   if(op>0){ const [hook]=out.splice(op,1); out.unshift(hook); }
+  // locked (not-yet-unlocked) cards stay visible but sink below what you can learn now
+  const lk=c=> isNew(c.id) && !prereqsMet(c);
+  out = out.filter(c=>!lk(c)).concat(out.filter(lk));
   return out;
 }
 function renderFeed(){
@@ -1133,14 +1134,14 @@ function feedCardHtml(c, featured){
   const saved=(settings.saved||[]).includes(c.id);
   const isTheory = c.depth==='concept'||c.depth==='book';
   const locks = isNew(c.id) ? lockedBy(c) : [];
-  return '<button class="fcard'+(featured?' feat':'')+'" data-id="'+c.id+'" style="--fc:'+col+';">'+
+  return '<button class="fcard'+(featured?' feat':'')+(locks.length?' islocked':'')+'" data-id="'+c.id+'" style="--fc:'+col+';">'+
     '<div class="fctop"><span class="fcfield">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+'</span>'+
       (isTheory?'<span class="fctag">theory</span>':'')+
       (saved?'<span class="fcsaved">🔖</span>':'')+'</div>'+
     (c.kind==='date'?'<div class="fcdate">📅 '+esc(cardDate(c))+'</div>':'')+
     '<div class="fctitle">'+esc(c.title)+'</div>'+
     '<div class="fchook">'+esc(teaser(c))+'</div>'+
-    (locks.length?('<div class="fclock">'+ICON.lock+'Builds on '+esc(locks.map(p=>p.title).join(', '))+'</div>'):'')+
+    (locks.length?('<div class="fclock">'+ICON.lock+'Not yet unlocked · builds on '+esc(locks.map(p=>p.title).join(', '))+'</div>'):'')+
     '<div class="fcfoot"><span class="fcdepth">▽ '+depthN+' level'+(depthN===1?'':'s')+'</span>'+
       '<span class="fcstate '+st.cls+'">'+st.txt+'</span></div>'+
     '</button>';

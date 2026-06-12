@@ -494,6 +494,7 @@
   .fchook{ font-size:15px; color:var(--l2); line-height:1.46; margin-top:7px; }
   .fcdate{ display:inline-block; margin:4px 0 2px; font-size:13px; font-weight:800; letter-spacing:.2px; color:var(--fc,var(--accent)); }
   .fcard.feat .fcdate{ color:rgba(255,255,255,.96); }
+  .fcard.islocked{ opacity:.66; }
   .fclock{ display:flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:600; color:var(--l3); }
   .fclock svg{ width:13px; height:13px; flex:0 0 auto; }
   .fcard.feat .fclock{ color:rgba(255,255,255,.9); }

@@ -1031,18 +1031,80 @@
       "counter": "Routinely overstated. It applies to specific formal systems, not to 'all reasoning'; it does not imply 'nothing is knowable' or license mysticism."
     },
     {
-      "id": "math-base-rate", "field": "prob", "depth": "concept", "level": 1,
-      "xref": ["math-simpson","econ-loss-aversion"],
-      "media": [{ "type": "equation", "tex": "P(A \\mid B) = \\dfrac{P(B \\mid A)\\,P(A)}{P(B)}", "plain": "P(A|B) = P(B|A)·P(A) / P(B)", "caption": "Bayes' theorem. Read the bar '|' as 'given'. It updates the chance of A once you've seen B — and P(A), the base rate, never drops out, which is exactly what the fallacy forgets." }],
-      "title": "The base-rate fallacy",
-      "fact": "A 99%-accurate test for a rare disease still produces mostly false positives.",
-      "detail": "If a disease affects 1 in 1,000 and a test is 99% accurate, a positive result is far more likely to be a false alarm than a real case, because there are so many more healthy people to misclassify. The prior (base rate) dominates.",
-      "src": ["ev-math-base-rate"],
+      "id": "math-base-rate",
+      "field": "prob",
+      "depth": "concept",
+      "level": 2,
+      "prereq": [
+        "prob-basics"
+      ],
+      "src": [
+        "ev-math-base-rate"
+      ],
       "year": 1763,
-      "tags": ["probability", "bayes"],
-      "deploy": "Demand the base rate before accepting 'the test/study says X'. Accuracy figures alone can badly mislead.",
-      "counter": "Bayesian reasoning needs a defensible prior; with a bad prior you just get confidently wrong posteriors.",
-      "quiz": { "q": "For a rare condition, a positive result on a highly accurate test is…", "choices": ["Almost certainly correct", "Often a false positive", "Impossible", "Irrelevant"], "answer": 1 }
+      "title": "The base-rate fallacy",
+      "fact": "A 99%-accurate test for a rare disease is wrong most of the time it says 'positive' — because ignoring how rare the disease is flips the odds.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The trap",
+          "body": "When a disease is rare, even an excellent test produces mostly false alarms — there are vastly more healthy people to misclassify than sick people to catch. The fallacy is to read '99% accurate' as '99% chance I'm sick', forgetting how uncommon the disease is to begin with: its base rate."
+        },
+        {
+          "d": "deeper",
+          "t": "Where the formula comes from",
+          "body": "The fix is Bayes' theorem, and it falls straight out of what 'conditional probability' means. The chance of two things both happening can be written two ways: \\(P(A \\cap B) = P(A\\mid B)\\,P(B)\\), and equally \\(P(A \\cap B) = P(B\\mid A)\\,P(A)\\). Set them equal and divide by \\(P(B)\\): \\(P(A\\mid B) = \\dfrac{P(B\\mid A)\\,P(A)}{P(B)}\\) — that is Bayes, derived in one line. Let \\(A\\) be 'sick' and \\(B\\) be 'tests positive'. The denominator \\(P(+)\\) counts every positive test, true and false: \\(P(+) = P(+\\mid\\text{sick})\\,P(\\text{sick}) + P(+\\mid\\text{healthy})\\,P(\\text{healthy})\\). The base rate \\(P(\\text{sick})\\) sits right there in the formula — and quietly dropping it is the fallacy."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example (1% disease)",
+          "body": "Plausible numbers: 1 in 100 people has the disease (base rate 1%); the test is 99% sensitive (it flags 99% of sick people) and 95% specific (a 5% false-alarm rate). Picture 10,000 people. About 100 are sick, so ~99 test positive. The other 9,900 are healthy, and 5% of them — 495 people — test positive anyway. That is 99 + 495 = 594 positive tests, of which only 99 are truly sick: \\(99/594 \\approx 0.167\\). So a positive result means roughly a 1-in-6 (about 17%) chance of actually being sick — not 99% — because the 9,900 healthy people throw off far more false alarms than the 100 sick people give true hits."
+        }
+      ],
+      "media": [
+        {
+          "type": "equation",
+          "tex": "P(\\text{sick}\\mid +) = \\dfrac{P(+\\mid\\text{sick})\\,P(\\text{sick})}{P(+)}",
+          "plain": "P(sick | +) = P(+ | sick)·P(sick) / P(+)",
+          "say": "the chance you're sick given a positive test is the test's hit-rate times how common the disease is, divided by how often anyone tests positive.",
+          "caption": "Bayes' theorem — the base rate P(sick) is the term the fallacy forgets."
+        },
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            99,
+            495
+          ],
+          "labels": [
+            "truly sick",
+            "false alarms"
+          ],
+          "caption": "Of 10,000 people, 594 test positive — but only 99 are actually sick (~17%)."
+        }
+      ],
+      "deploy": "Demand the base rate before accepting 'the test/study says X' — an accuracy figure on its own can badly mislead.",
+      "counter": "It is no licence to dismiss tests: a higher base rate (testing people with symptoms, not everyone), a more specific test, or simply repeating it swings the odds back. Kahneman and Tversky showed even doctors fall for the fallacy; Gerd Gigerenzer found that stating it in natural frequencies — '99 of 594', as above — largely cures it.",
+      "tags": [
+        "probability",
+        "bayes",
+        "base rate"
+      ],
+      "xref": [
+        "prob-bayes",
+        "prob-conditional",
+        "math-simpson"
+      ],
+      "quiz": {
+        "q": "For a rare condition, a positive result on a highly accurate test is…",
+        "choices": [
+          "Almost certainly correct",
+          "Often a false positive",
+          "Impossible",
+          "Irrelevant"
+        ],
+        "answer": 1
+      }
     },
     {
       "id": "math-simpson", "field": "prob", "depth": "concept", "level": 2,
