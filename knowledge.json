@@ -731,7 +731,7 @@
       "quiz": { "q": "Mathematical induction proves a claim for all n by…", "choices": ["checking n=1 only", "proving a base case and that n implies n+1", "trying random n", "measuring"], "answer": 1 }
     },
     {
-      "id": "logic-informal-fallacies", "field": "logic", "depth": "concept", "level": 2,
+      "id": "logic-informal-fallacies", "field": "logic", "depth": "concept", "level": 3,
       "prereq": ["logic-validity"],
       "src": ["ev-logic-informal-fallacies"],
       "title": "Formal vs informal fallacies",
@@ -878,8 +878,8 @@
       "quiz": { "q": "After five tails in a row, the chance of heads on a fair coin is…", "choices": ["Higher — it's 'due'", "Still 50%", "Lower", "Impossible to say"], "answer": 1 }
     },
     {
-      "id": "stat-clt", "field": "prob", "depth": "concept", "level": 2,
-      "prereq": ["stat-lln"],
+      "id": "stat-clt", "field": "prob", "depth": "concept", "level": 3,
+      "prereq": ["stat-lln", "prob-variance", "prob-normal"],
       "src": ["ev-stat-clt"],
       "title": "The central limit theorem",
       "fact": "Add up many small independent effects and you tend to get a bell curve — the normal distribution.",
@@ -1517,7 +1517,7 @@
 
     {
       "id": "econ-comparative-advantage", "field": "micro", "depth": "book", "level": 3,
-      "prereq": ["econ-supply-demand"],
+      "prereq": ["econ-supply-demand", "micro-opportunity-cost"],
       "xref": ["pe-ricardo"],
       "title": "Comparative advantage",
       "fact": "Two countries can both gain from trade even if one is better at making everything.",
@@ -1955,7 +1955,7 @@
     {
       "id": "eh-stagflation", "field": "echist", "depth": "event", "level": 4,
       "prereq": ["eh-bretton-woods"],
-      "xref": ["pe-friedman","eh-neoliberal-turn"],
+      "xref": ["pe-friedman", "eh-neoliberal-turn", "macro-phillips-curve"],
       "title": "The 1970s stagflation",
       "fact": "In the 1970s, prices and unemployment rose together — which the textbooks said couldn't happen.",
       "detail": "1970s stagflation — high inflation and unemployment together — broke the simple Phillips curve, discredited naive Keynesianism, and ushered in monetarism and the free-market turn.",
@@ -2313,9 +2313,7 @@
       "field": "math",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "math-linear-equation"
-      ],
+      "prereq": ["math-linear-equation", "math-powers"],
       "title": "Curves and the quadratic",
       "fact": "Add an x² term and the straight line bends into a parabola.",
       "detail": "\\(y = ax^2 + bx + c\\) traces a parabola — a U-shaped curve. The coefficient \\(a\\) sets how narrow it is and which way it opens (up if \\(a>0\\), down if \\(a<0\\)); \\(c\\) shifts it vertically. To find where it crosses zero, the quadratic formula gives the answer for any quadratic: \\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\). Parabolas describe thrown objects, and the U-shape is exactly the kind of curve machine learning slides down to find its best fit.",
@@ -2876,7 +2874,7 @@
       ],
       "title": "The dot product: how aligned are two vectors",
       "fact": "The dot product is one number saying how much two vectors point the same way.",
-      "detail": "Multiply matching entries and add them up: \\(\\vec a \\cdot \\vec b = \\sum_i a_i b_i\\). The same number also equals \\(|\\vec a|\\,|\\vec b|\\cos\\theta\\), where \\(\\theta\\) is the angle between the vectors. So the dot product is large when they align, zero when they're perpendicular (\\(\\cos 90^\\circ = 0\\)), and negative when they oppose. It is the standard measure of similarity: search engines and language models compare meanings by taking dot products of vectors.",
+      "detail": "Multiply matching entries and add them up: \\(\\vec a \\cdot \\vec b = \\sum_i a_i b_i\\). The same number also equals \\(|\\vec a|\\,|\\vec b|\\cos\\theta\\), where \\(\\theta\\) is the angle between the vectors and the cosine runs from 1 (pointing the same way), through 0 (a right angle), to −1 (opposite). So the dot product is large when they align, zero when they're perpendicular, and negative when they oppose. It is the standard measure of similarity: search engines and language models compare meanings by taking dot products of vectors.",
       "media": [
         {
           "type": "equation",
@@ -2946,9 +2944,7 @@
       "field": "linalg",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "la-dot-product"
-      ],
+      "prereq": ["la-dot-product", "math-powers"],
       "title": "Length and distance",
       "fact": "A vector's norm is its length — and the gap between two points is the norm of their difference.",
       "detail": "The norm \\(\\|\\vec v\\| = \\sqrt{v_1^2 + v_2^2 + \\cdots}\\) is the Pythagorean theorem in any number of dimensions. The distance between two points is the norm of their difference, \\(\\|\\vec a - \\vec b\\|\\). 'Nearest neighbour' methods, clustering, and the size of an error all rest on this. Neatly, \\(\\|\\vec v\\|^2 = \\vec v \\cdot \\vec v\\): a vector's squared length is its dot product with itself.",
@@ -3164,9 +3160,7 @@
       "field": "linalg",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "la-matrix-mult"
-      ],
+      "prereq": ["la-matrix-mult", "la-determinant"],
       "title": "Identity and inverse: undoing a transformation",
       "fact": "The identity matrix changes nothing; the inverse runs a transformation backwards.",
       "detail": "The identity matrix \\(I\\) has 1s down the diagonal and 0s elsewhere, so \\(I\\vec x = \\vec x\\) — the linear-algebra version of multiplying by 1. The inverse \\(A^{-1}\\) reverses whatever \\(A\\) did: \\(A A^{-1} = I\\). Not every matrix has one. If a transformation squashes space flat — collapsing a dimension — there is no way back, and no inverse exists. That collapse is detected by the determinant being zero.",
@@ -3799,9 +3793,7 @@
       "field": "prob",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "prob-random-variable"
-      ],
+      "prereq": ["prob-random-variable", "prob-rules"],
       "title": "Distributions: uniform, Bernoulli, binomial",
       "fact": "A distribution is the shape of how probability is spread across outcomes.",
       "detail": "A few shapes recur everywhere. The uniform puts equal weight on each outcome (a fair die). The Bernoulli is a single yes/no trial with success probability \\(p\\) (one coin flip). The binomial counts successes in \\(n\\) independent trials — flip 4 coins and the number of heads follows it, peaking in the middle. Recognising the shape tells you what to expect.",
@@ -3854,9 +3846,7 @@
       "field": "prob",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "prob-variance"
-      ],
+      "prereq": ["prob-variance", "math-powers"],
       "title": "The normal (Gaussian) distribution",
       "fact": "The bell curve: a smooth hump set by just two numbers — its mean and its spread.",
       "detail": "The normal distribution's density is \\(f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\,e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}\\). The mean \\(\\mu\\) slides the peak left or right; the standard deviation \\(\\sigma\\) makes it wide or narrow. About 68% of values land within one \\(\\sigma\\) of the mean, 95% within two. It appears so often because sums of many small independent effects tend toward it — the reason it underpins so much of statistics.",
@@ -4085,10 +4075,7 @@
       "field": "prob",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "math-linear-equation",
-        "la-norm"
-      ],
+      "prereq": ["math-linear-equation", "math-summation"],
       "title": "Least-squares regression: the best-fit line",
       "fact": "Regression draws the straight line that comes closest to a cloud of points.",
       "detail": "Fit a straight line \\(\\hat{y} = \\beta_0 + \\beta_1 x\\) — an intercept and a slope — through a cloud of points. The standard method is ordinary least squares (OLS): pick the line that makes the total squared vertical gap between the points and the line as small as possible, \\(\\sum_i (y_i - \\hat{y}_i)^2\\). Why square the gaps rather than just add them up? Squaring punishes big misses far more than small ones and — crucially — leaves exactly one best line. The fitted slope \\(\\beta_1\\) then estimates how much \\(y\\) rises per unit of \\(x\\). It is the workhorse of empirical science and the simplest machine-learning model there is.",
@@ -4445,9 +4432,7 @@
       "field": "ml",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "ml-linear-regression"
-      ],
+      "prereq": ["ml-linear-regression", "math-powers", "prob-basics"],
       "title": "Logistic regression and the sigmoid",
       "fact": "Squash a weighted sum through an S-curve to get a probability between 0 and 1.",
       "detail": "For yes/no questions you want a probability, not an unbounded number. The sigmoid \\(\\sigma(z) = \\frac{1}{1 + e^{-z}}\\) takes any value and bends it into the range 0 to 1: large positive \\(z\\) → near 1, large negative → near 0, zero → exactly 0.5. Feed it the weighted sum \\(z = \\vec{w}\\cdot\\vec{x} + b\\) and you have logistic regression — a classifier that outputs calibrated probabilities.",
@@ -5119,7 +5104,7 @@
       "src": ["ev-fin-risk-return"],
       "field": "qfin",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "prob-expectation",
         "prob-variance"
@@ -5413,11 +5398,7 @@
       "field": "qfin",
       "depth": "book",
       "level": 5,
-      "prereq": [
-        "qf-options",
-        "qf-random-walk",
-        "prob-normal"
-      ],
+      "prereq": ["qf-options", "qf-random-walk", "prob-normal", "qf-arbitrage"],
       "title": "Black–Scholes: pricing an option",
       "fact": "A formula prices an option using the bell curve and the idea that you can hedge it perfectly.",
       "detail": "Fischer Black, Myron Scholes and Robert Merton (1973) found the fair value of a call before expiry. It blends the stock price, strike, time, interest rate and volatility, weighting outcomes by the normal distribution: \\(C = S\\,N(d_1) - K e^{-rt} N(d_2)\\), where \\(N(\\cdot)\\) is the normal cumulative probability. The deep insight: you can replicate an option by continuously rebalancing stock and cash, so no-arbitrage pins down its price. It won the 1997 Nobel and launched the modern derivatives industry.",
@@ -5667,9 +5648,7 @@
       "field": "refin",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "qf-leverage-risk"
-      ],
+      "prereq": ["re-mortgage"],
       "title": "Loan-to-value: how leverage swings your equity",
       "fact": "Put 10% down and a 10% price move doubles — or wipes out — your stake.",
       "detail": "Your equity is the property's value minus the debt. The loan-to-value ratio (LTV) is the debt as a share of value: a 20% deposit means an 80% LTV. Because most of the purchase is borrowed, small price moves swing your equity hugely. Buy a $500k home with $50k down (90% LTV); a 10% price rise ($50k) doubles your equity, while a 10% fall erases it — 'negative equity', where the loan exceeds the home's worth.",
@@ -5700,7 +5679,7 @@
       "src": ["ev-re-noi-caprate"],
       "field": "refin",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "fin-risk-return"
       ],
@@ -5777,7 +5756,7 @@
       "src": ["ev-re-reit"],
       "field": "refin",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "qf-diversification"
       ],
@@ -6070,10 +6049,11 @@
     },
     {
       "id": "pf-deficit-debt",
+      "prereq": ["econ-gdp"],
       "src": ["ev-pf-deficit-debt"],
       "field": "pubfin",
       "depth": "concept",
-      "level": 1,
+      "level": 2,
       "title": "Deficits and debt: a flow and a stock",
       "fact": "The deficit is how much a government overspends in a year; the debt is all past deficits piled up.",
       "detail": "A deficit is a flow — this year's spending minus this year's revenue. The national debt is the stock — the accumulated total of all past deficits (minus surpluses). Running a deficit adds to the debt, like water flowing into a bath. What matters for sustainability isn't the raw number but the debt-to-GDP ratio: debt measured against the economy's size and ability to service it.",
@@ -6454,7 +6434,7 @@
       "src": ["ev-re-dscr"],
       "field": "refin",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "re-noi-caprate",
         "re-mortgage"
@@ -6774,7 +6754,7 @@
       "src": ["ev-pf-monetary-vs-fiscal"],
       "field": "pubfin",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "pf-fiscal-policy"
       ],
@@ -7160,9 +7140,7 @@
       "field": "micro",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "micro-surplus"
-      ],
+      "prereq": ["micro-surplus", "micro-margin"],
       "title": "Perfect competition: price takers",
       "fact": "In perfect competition no single firm sets the price — each just takes it.",
       "detail": "The benchmark market: many small firms selling an identical good, free entry and exit, and full information. No one firm can move the price, so each treats it as given and produces up to where price equals marginal cost. Competition then erodes profit to a 'normal' level. Pure perfect competition rarely exists, but it's the yardstick economists hold real, messier markets up against.",
@@ -7295,7 +7273,7 @@
       "src": ["ev-micro-market-failure"],
       "field": "micro",
       "depth": "concept",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "econ-externalities"
       ],
@@ -8225,9 +8203,7 @@
       "field": "polecon",
       "depth": "concept",
       "level": 4,
-      "prereq": [
-        "pe-schools"
-      ],
+      "prereq": ["pe-what-is"],
       "title": "Dependency and world-systems theory",
       "fact": "Dependency theorists argue poor countries stay poor because the global system is built to drain them.",
       "detail": "Against the idea that poor nations simply lag behind, Latin American economists Raúl Prebisch and Andre Gunder Frank argued the world is split into a wealthy 'core' and a 'periphery' locked into supplying cheap raw materials, their terms of trade steadily worsening. Immanuel Wallerstein's world-systems theory generalised this into a single capitalist system that develops the core by underdeveloping the periphery. The prescription was often to industrialise behind tariffs rather than specialise in commodities.",
@@ -8429,7 +8405,7 @@
       "src": ["ev-eh-marshall-plan"],
       "field": "echist",
       "depth": "event",
-      "level": 2,
+      "level": 3,
       "prereq": [
         "eh-great-depression"
       ],
@@ -8675,9 +8651,7 @@
       "field": "cyber",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "cyber-public-key"
-      ],
+      "prereq": ["cyber-public-key", "cyber-hashing-signatures"],
       "title": "TLS: what the padlock means",
       "fact": "HTTPS uses public-key crypto to agree a secret key, then switches to fast symmetric encryption.",
       "detail": "When you connect to an HTTPS site, TLS does a 'handshake': the site presents a certificate (signed by a trusted authority) vouching for its identity and public key, the two sides use public-key crypto to agree on a fresh shared secret, and then they switch to fast symmetric encryption for the actual data. The padlock means the connection is encrypted and the site's certificate checks out — not that the site itself is honest.",
@@ -8981,9 +8955,7 @@
       "field": "cyber",
       "depth": "concept",
       "level": 3,
-      "prereq": [
-        "cyber-threat-risk"
-      ],
+      "prereq": ["cyber-threat-risk", "cyber-authentication"],
       "title": "Defence in depth",
       "fact": "Don't rely on one wall — stack independent layers so a single failure isn't fatal.",
       "detail": "Defence in depth assumes any one control will eventually fail, so it layers many: a firewall, then network segmentation, then strong authentication, then least-privilege access (everyone gets the minimum rights they need), then logging and encryption of the data itself. An attacker who slips past one layer still faces the next. The aim isn't perfection at any layer but resilience across all of them.",
@@ -9084,9 +9056,7 @@
       "field": "cyber",
       "depth": "concept",
       "level": 4,
-      "prereq": [
-        "cyber-threat-model"
-      ],
+      "prereq": ["cyber-threat-model", "cyber-hashing-signatures"],
       "title": "Supply-chain attacks",
       "fact": "Why break into the target when you can poison something it already trusts?",
       "detail": "Modern software is built from countless third-party components and update channels. A supply-chain attack compromises one of those trusted upstream sources, so the malicious code rides in through a legitimate, signed update. The 2020 SolarWinds attack slipped a backdoor into a network-management tool that pushed it to thousands of organisations, including US government agencies. Open-source dependencies are another route — one tampered package can spread everywhere it's imported.",
@@ -9229,9 +9199,7 @@
       "field": "cyber",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "cyber-defense-in-depth"
-      ],
+      "prereq": ["cyber-threat-risk"],
       "title": "Firewalls: the gate on the wire",
       "fact": "A firewall decides which network traffic may pass, by rules on where it's from, where it's going, and how.",
       "detail": "A firewall sits between networks and inspects each packet against a rulebook, allowing or blocking by source, destination, port and protocol. Early ones judged each packet alone; 'stateful' firewalls track whole conversations, so they only let in replies to traffic you started. Modern 'next-generation' firewalls look deeper, into the application and content. It's the classic first layer of network defence — the gate, not the whole castle.",
@@ -9263,9 +9231,7 @@
       "field": "cyber",
       "depth": "concept",
       "level": 2,
-      "prereq": [
-        "cyber-tls"
-      ],
+      "prereq": ["cyber-symmetric-encryption"],
       "title": "VPNs: an encrypted tunnel",
       "fact": "A VPN wraps your traffic in an encrypted tunnel to a server, hiding it from the local network.",
       "detail": "A virtual private network builds an encrypted tunnel between your device and a VPN server; everything inside is scrambled, so the café Wi-Fi or your ISP sees only traffic to the VPN, not what you're doing. Companies use VPNs to let remote staff reach internal systems as if on-site. Crucially, a VPN moves your trust, it doesn't remove it — the VPN provider now sees everything the local network used to.",
