@@ -1094,7 +1094,7 @@ function feedCandidates(){
   list.forEach(c=> (cardHeft(c) < 0.42 ? light : heavy).push(c));
   const L=sortInterleave(light), H=sortInterleave(heavy);
   // slot-machine weave: mostly light, a heavier payoff dropped in every 2–4 cards (variable ratio)
-  const out=[]; let li=0, hi=0, sinceHeavy=0;
+  let out=[]; let li=0, hi=0, sinceHeavy=0;
   while(li<L.length || hi<H.length){
     const gap = 2 + (hashStr('g'+out.length+todayStr())%3);   // 2..4 light between payoffs
     if(hi<H.length && (sinceHeavy>=gap || li>=L.length)){ out.push(H[hi++]); sinceHeavy=0; }
