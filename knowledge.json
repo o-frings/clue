@@ -80,7 +80,7 @@
       "fact": "On 14 July 1789 a Paris crowd stormed the Bastille, igniting the French Revolution.",
       "detail": "Fiscal crisis, a rigid estates system and high bread prices brought down the absolute monarchy. The Revolution produced the Declaration of the Rights of Man, a republic, the Terror, and ultimately Napoleon — spreading the language of citizenship, rights and nationalism across Europe.",
       "deploy": "The hinge between divine-right monarchy and a modern politics of rights and citizenship.",
-      "counter": "Its ideals sat alongside the Terror and real exclusions (women, the enslaved in the colonies) — liberation and violence in one event.",
+      "counter": "Liberation and violence rode together — the Declaration of Rights sat beside the Terror. Its universalism was tested hardest in the colonies: enslaved Haitians took 'liberty and equality' at their word and revolted in 1791, winning independence in 1804. C.L.R. James ('The Black Jacobins') put that Haitian Revolution at the centre, and Michel-Rolph Trouillot argued European histories largely silenced it; the exclusion of women and the enslaved from French citizenship was no footnote.",
       "tags": ["revolution", "france", "rights"],
       "xref": ["philo-veil", "pe-historical-materialism"],
       "quiz": { "q": "The storming of the Bastille (14 July 1789) began which event?", "choices": ["The American Revolution", "The French Revolution", "The Russian Revolution", "The Industrial Revolution"], "answer": 1 }
@@ -446,11 +446,11 @@
       "src": ["ev-date-berlin-wall-1989"],
       "title": "The fall of the Berlin Wall",
       "fact": "9 November 1989: the Berlin Wall fell, symbolising the end of the Cold War division of Europe.",
-      "detail": "Mounting protest and a botched East German announcement sent crowds to the checkpoints; the guards stood aside. Within two years Germany reunified and the Soviet Union dissolved. It marked the collapse of the Eastern Bloc and, for a time, a sense that liberal democracy had 'won'.",
-      "deploy": "The emblematic end of the bipolar Cold War order and the start of a US-led 'unipolar moment'.",
-      "counter": "The 'end of history' optimism faded — authoritarian revival, great-power rivalry and the 2008 crisis complicated the triumphal story.",
+      "detail": "Mounting protest and a botched East German announcement sent crowds to the checkpoints; the guards stood aside. Within a year Germany was reunified and by 1991 the Soviet Union had dissolved. In the dominant Western telling it marked the triumph of liberal democracy and the 'end of history' (Francis Fukuyama). Seen from Moscow it reads differently — the 'common European home' Gorbachev hoped for never arrived, and Putin later called the Soviet collapse 'the greatest geopolitical catastrophe' of the century; many East Germans, too, recall loss alongside liberation.",
+      "deploy": "A hinge date — and a test of whose story you tell: Western triumph, Russian catastrophe, or Eastern dispossession.",
+      "counter": "The triumphal reading curdled: NATO expansion, the chaos of Russia's 1990s 'shock therapy', authoritarian revival and the 2008 crash all complicated any 'liberalism won' story — and reunification itself, for many in the East, was no simple homecoming.",
       "tags": ["cold war", "germany", "1989"],
-      "xref": ["eh-neoliberal-turn", "geo-thucydides", "date-prc-1949"],
+      "xref": ["eh-neoliberal-turn", "geo-thucydides", "date-prc-1949", "german-reunification"],
       "quiz": { "q": "The fall of the Berlin Wall (1989) symbolised…", "choices": ["the start of WWII", "the end of the Cold War division of Europe", "the rejection of German reunification", "the founding of the EU"], "answer": 1 }
     },
     {
@@ -1202,7 +1202,7 @@
       "year": 2017,
       "tags": ["china", "war"],
       "deploy": "A structured frame for great-power-rivalry arguments — names the mechanism (fear of a shifting balance).",
-      "counter": "The case selection and what counts as a 'rise' or 'war' are contested; 'often' is not 'inevitable', and 4 of 16 avoided war."
+      "counter": "Beyond the contested case selection (4 of 16 avoided war, and 'often' is not 'inevitable'), the frame itself is disputed: Xi Jinping flatly rejects it — 'there is no Thucydides Trap' — and liberal and constructivist scholars argue deep economic interdependence and nuclear deterrence make structural war far from fated. Reaching for the 'trap' already takes the anxious US vantage point as the neutral one."
     },
     {
       "id": "geo-hormuz", "field": "geo", "depth": "fact", "level": 1,
@@ -1235,7 +1235,7 @@
       "fact": "The rival to Heartland theory: control the coastal 'rim' of Eurasia, not its core.",
       "detail": "Nicholas Spykman (1940s) inverted Mackinder: power lies not in the inaccessible Eurasian Heartland but in the 'Rimland' — the densely populated coastal fringe (Europe, the Middle East, South and East Asia). 'Who controls the Rimland rules Eurasia.' It shaped US Cold War containment, which ringed the Soviet and Chinese landmass with alliances and bases.",
       "deploy": "Decodes US grand strategy: containment and the alliance network around Eurasia's rim are Rimland thinking in action.",
-      "counter": "Like Heartland, it's a sweeping doctrine, not a law — air power, nuclear weapons and economics complicate any neat geography-determines-power story.",
+      "counter": "It's a doctrine, not a law — air power, nuclear weapons and economics complicate any neat 'geography decides power' story. It also has a target's-eye flip side: what Washington calls 'containment', Moscow and Beijing read as hostile encirclement, and revisionist historians (the Wisconsin School around William Appleman Williams) cast US Cold War strategy as expansionist, not merely defensive.",
       "tags": ["geopolitics", "strategy", "rimland"],
       "xref": ["geo-heartland"],
       "quiz": { "q": "Spykman's Rimland theory says power lies in…", "choices": ["The Eurasian interior", "Eurasia's populated coastal fringe", "The polar regions", "Outer space"], "answer": 1 }
@@ -1274,7 +1274,7 @@
       "fact": "The demographic transition's final twist: much of the world is now ageing and shrinking.",
       "detail": "Past the transition, fertility in many countries has fallen below replacement (~2.1). Japan, South Korea, much of Europe and now China face ageing and then shrinking populations — fewer workers supporting more retirees, strained pensions and slower growth. South Korea's fertility (~0.7) is the world's lowest. Migration can offset it but is politically fraught.",
       "deploy": "Reframes the population debate: for a growing share of the world the worry is too few people, not too many.",
-      "counter": "It's uneven — much of sub-Saharan Africa is still growing fast — and forecasts are uncertain; policy, migration and changing norms could shift fertility.",
+      "counter": "It's uneven — much of sub-Saharan Africa is still growing fast — and forecasts are uncertain. The 'crisis' framing is also contested: degrowth and ecological economists (Jason Hickel) argue a smaller population eases planetary limits and isn't inherently catastrophic, and feminist demographers warn that 'too few babies' rhetoric instrumentalises women's fertility and fuels coercive pronatalism. Whether decline is a problem depends on whether endless growth is the goal.",
       "tags": ["geography", "demographics", "population"],
       "xref": ["geo-demographic", "china-hukou"],
       "quiz": { "q": "Below-replacement fertility leads to…", "choices": ["Endless growth", "Ageing and eventually shrinking populations", "No change", "More children per family"], "answer": 1 }
@@ -1833,7 +1833,7 @@
       "year": 1867,
       "tags": ["political economy", "marxian", "capitalism"],
       "deploy": "A structured frame for arguments about exploitation, inequality and recurring financial crises.",
-      "counter": "Where Marxist regimes took power, central planning produced its own shortages and repression — the cure has a grim record too.",
+      "counter": "How to read this is itself contested. Cold-War liberals point to the shortages and repression of Soviet-style central planning. Western Marxists (David Harvey) and market socialists (Oskar Lange) reply that Marx analysed capitalism, not a blueprint for command economies, and that his crisis theory is distinct from Stalinist planning; dependency theorists add that capitalism exports its crises to the periphery. Whether the USSR refutes Marx, or only one statist version of socialism, is disputed.",
       "quiz": { "q": "For Marx, profit ('surplus value') comes from…", "choices": ["Clever investment", "Value workers produce above their wage", "Government subsidy", "Lucky trades"], "answer": 1 }
     },
     {
@@ -1885,7 +1885,7 @@
       "year": 1963,
       "tags": ["political economy", "monetarist", "macro"],
       "deploy": "The standard hawkish case that loose money, not greedy sellers, drives inflation.",
-      "counter": "Keynesian economists like James Tobin disputed the tight money–inflation link; in practice supply shocks and expectations matter, and central banks abandoned strict monetary targets when they failed to hold."
+      "counter": "Keynesian economists like James Tobin disputed the tight money–inflation link; in practice supply shocks and expectations matter, and central banks abandoned strict monetary targets when they failed to hold. Critics also point to the 'Chicago Boys' in Pinochet's Chile — the view, associated with Naomi Klein's 'shock doctrine', that free-market reforms were imposed under dictatorship rather than chosen democratically."
     },
     {
       "id": "pe-hayek", "field": "polecon", "depth": "book", "level": 4,
@@ -1898,7 +1898,7 @@
       "year": 1945,
       "tags": ["political economy", "austrian", "markets"],
       "deploy": "The strongest principled argument against detailed central planning — it's a knowledge problem, not just a motivation one.",
-      "counter": "Information economists like Joseph Stiglitz showed markets with imperfect information aren't efficient either; and prices routinely misprice externalities and public goods — which is why even market economies regulate."
+      "counter": "Information economists like Joseph Stiglitz showed markets with imperfect information aren't efficient either, and prices routinely misprice externalities and public goods — which is why even market economies regulate. The socialist-calculation debate also had another side: Oskar Lange argued planners could simulate prices, and modern computational-planning advocates (and Chile's 1970s Cybersyn experiment) claim better data narrows Hayek's knowledge gap."
     },
 
     {
@@ -1912,7 +1912,7 @@
       "year": 1800,
       "tags": ["economic history", "growth", "industrialisation"],
       "deploy": "Anchors any argument about technology and growth — the modern world is a recent, fragile exception.",
-      "counter": "The early human costs were immense, and the gains spread very unevenly across people and regions.",
+      "counter": "Why Britain, and why then, is fiercely contested. The Eurocentric 'European genius' story is challenged by Kenneth Pomeranz and the California School (cheap coal and New World land broke the deadlock, not innate superiority) and by Eric Williams and Sven Beckert, who root the take-off in Atlantic slavery and colonial extraction ('war capitalism'). The early human and ecological costs were also immense and unevenly borne.",
       "quiz": { "q": "The 'hockey stick' of economic history refers to…", "choices": ["Steadily falling prices", "Living standards flat for millennia then rising sharply", "The economics of sport", "A series of stock crashes"], "answer": 1 }
     },
     {
@@ -1937,7 +1937,7 @@
       "year": 1944,
       "tags": ["economic history", "money", "monetary"],
       "deploy": "Background for any argument about fiat money, inflation, gold standards or cryptocurrencies.",
-      "counter": "Gold standards impose harsh discipline that can deepen depressions; 'sound money' has real costs too."
+      "counter": "Whether money needs a hard anchor is genuinely split. Austrian-school 'sound money' advocates (Mises, Rothbard, and today Ron Paul's 'End the Fed' current) argue fiat invites inflation and debt; Keynesians reply gold's discipline deepened the Great Depression. Robert Triffin warned a dollar anchor builds in instability, while Modern Monetary Theory takes the opposite pole — a sovereign fiat issuer faces inflation, not solvency, limits. No camp has won."
     },
     {
       "id": "eh-great-depression", "field": "echist", "depth": "event", "level": 3,
@@ -1958,12 +1958,12 @@
       "xref": ["pe-friedman", "eh-neoliberal-turn", "macro-phillips-curve"],
       "title": "The 1970s stagflation",
       "fact": "In the 1970s, prices and unemployment rose together — which the textbooks said couldn't happen.",
-      "detail": "1970s stagflation — high inflation and unemployment together — broke the simple Phillips curve, discredited naive Keynesianism, and ushered in monetarism and the free-market turn.",
+      "detail": "1970s stagflation — high inflation and unemployment together — broke the simple Phillips curve and was widely used to discredit Keynesian demand management and usher in monetarism and the free-market turn.",
       "src": ["ev-eh-stagflation"],
       "year": 1973,
       "tags": ["economic history", "inflation", "macro"],
       "deploy": "The go-to counter to naive Keynesianism — and the origin story of modern central banking.",
-      "counter": "Stagflation was driven heavily by oil shocks; it didn't prove demand management is always wrong."
+      "counter": "That 'Keynes failed, markets won' lesson is itself contested. Heavy oil shocks drove much of the inflation, and post-Keynesians in Hyman Minsky's tradition read stagflation as distributional conflict — a wage–price spiral — not proof demand management is futile. The turn to monetarism and deregulation was a political choice as much as a technical verdict; Friedman's own strict money targets were abandoned soon after."
     },
     {
       "id": "eh-neoliberal-turn", "field": "echist", "depth": "event", "level": 4,
@@ -8414,7 +8414,7 @@
       "fact": "After 1945, the US poured aid into Western Europe — and helped rebuild both its economies and its alliances.",
       "detail": "From 1948, the United States transferred some $13 billion (a vast sum then) to rebuild Western Europe under the European Recovery Program, named for Secretary of State George Marshall. It funded reconstruction, restarted trade, and was explicitly geopolitical — binding Western Europe to the US and against Soviet influence as the Cold War set in. Recipients were nudged toward cooperation, seeding what became the European common market.",
       "deploy": "The canonical example of aid serving reconstruction and strategy at once.",
-      "counter": "Economic historians debate its size of effect: Alan Milward argued Europe's recovery was already under way and the aid, while helpful, was not decisive; others credit it with breaking bottlenecks and, above all, buying the political stability that made recovery durable.",
+      "counter": "Its size-of-effect is debated — Alan Milward argued Europe's recovery was already under way — but so is its framing. From Moscow the Plan was an instrument of US economic empire and dollar dominance, which is why Stalin forced Eastern Europe to refuse it and built Comecon in reply; dependency-school writers read conditional aid as binding recipients to American markets. The 'generous reconstruction' story is told mostly from Washington's side.",
       "tags": [
         "Marshall Plan",
         "reconstruction",
@@ -9627,6 +9627,43 @@
           "Hard-coding secrets into source code",
           "Using a vault",
           "Encrypting keys"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "german-reunification",
+      "src": ["ev-german-reunification"],
+      "field": "history",
+      "kind": "event",
+      "depth": "event",
+      "level": 2,
+      "year": 1990,
+      "when": "3 Oct 1990",
+      "prereq": [
+        "date-berlin-wall-1989"
+      ],
+      "title": "German reunification — or annexation?",
+      "fact": "On 3 October 1990 East Germany joined the West. Whether that was a reunion of equals or a takeover is genuinely disputed.",
+      "detail": "The German Democratic Republic (East) dissolved and its territory joined the Federal Republic (West). In the dominant Western and West German account — Helmut Kohl, most liberal historians — this 'Wiedervereinigung' was a democratic homecoming: East Germans had toppled their regime and, in the GDR's first free election (March 1990), voted decisively for rapid unification. Others read it closer to an annexation: legally the GDR 'acceded' to the existing West German state under Article 23 of the Basic Law, rather than the two negotiating a new joint constitution (Article 146, the route Jürgen Habermas urged), so Western law, currency and elites were adopted wholesale. The Treuhand agency privatised or shut most Eastern industry within a few years, bringing mass unemployment; decades on, an East–West gap in wages, wealth and political voice — and the politics of 'Ostalgie' — persists.",
+      "deploy": "A clean test of whose word a source picks — 'reunification' or 'annexation' — and what that choice smuggles in.",
+      "counter": "The accession was lawful and electorally backed: East German voters chose the pro-unification parties, so 'annexation' is a judgement about how it was done — imposed terms, no new constitution, the Treuhand selloff — not about whether there was consent. The PDS/Die Linke and East German writers like Stefan Heym pressed the annexation reading; Kohl's camp and most Western historians reject it.",
+      "tags": [
+        "germany",
+        "reunification",
+        "cold war"
+      ],
+      "xref": [
+        "date-berlin-wall-1989",
+        "eh-neoliberal-turn"
+      ],
+      "quiz": {
+        "q": "Legally, the 1990 unification happened when the GDR…",
+        "choices": [
+          "wrote a new joint constitution with the FRG",
+          "acceded to the existing Federal Republic under Article 23",
+          "was annexed by military force",
+          "voted to remain independent"
         ],
         "answer": 1
       }

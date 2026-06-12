@@ -2889,6 +2889,15 @@
       "url": "https://en.wikipedia.org/wiki/Secrets_management",
       "kind": "reference",
       "strength": "Tertiary article on storing keys/passwords/certificates and vault tooling. The 'don't hard-code secrets / bots scan repos' point and the 'vault becomes a target / secret sprawl' caveat are documented practice."
+    },
+    "ev-german-reunification": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "German reunification",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/German_reunification",
+      "kind": "reference",
+      "strength": "Tertiary article covering the Article 23 accession vs Article 146 (new-constitution) debate, the Treuhand privatisation and lasting East–West disparities — i.e. both the 'reunification' and the 'annexation/accession' readings the card presents. Well referenced; the interpretive dispute (Kohl/liberal vs PDS/Die Linke and East German critics) is genuinely live."
     }
   }
 }
