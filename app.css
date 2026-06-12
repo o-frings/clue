@@ -351,6 +351,9 @@
   .libcard .lcstate.new{ background:var(--accent-soft); color:var(--accent); }
   .libcard .lcstate.learned{ background:rgba(47,158,68,.16); color:var(--green); }
   .libcard .lcstate.due{ background:rgba(255,59,48,.14); color:var(--red); }
+  .libcard .lcstate.locked{ background:var(--field); color:var(--l3); }
+  .libcard.islocked{ opacity:.62; }
+  .libcard.islocked .lcmeta{ color:var(--l3); }
 
   /* =========================================================================
      DEBATE mode
@@ -500,6 +503,7 @@
   .fcstate.new{ background:var(--accent-soft); color:var(--accent); }
   .fcstate.learned{ background:rgba(47,158,68,.16); color:var(--green); }
   .fcstate.due{ background:rgba(255,59,48,.14); color:var(--red); }
+  .fcstate.locked{ background:var(--field); color:var(--l3); }
 
   /* featured hero card — vivid field colour, white text */
   .fcard.feat{ color:#fff; border-color:transparent; padding:22px 20px 18px;
@@ -592,6 +596,19 @@
     font-size:14px; font-weight:600; text-align:left; color:var(--ink); font-family:inherit;
     background:color-mix(in srgb, var(--fc,var(--accent)) 9%, var(--card)); border:.5px solid color-mix(in srgb, var(--fc,var(--accent)) 26%, transparent); }
   .rdrel:active{ transform:scale(.96); }
+  .rdrel .rdrelmark{ font-size:12px; opacity:.95; }
+  .rdrel.met .rdrelmark{ color:var(--green); }
+  .rdrel.unmet{ opacity:.92; }
+  /* "builds on" lock banner shown when an advanced card is opened before its prerequisites */
+  .rdlocked{ display:flex; gap:11px; align-items:flex-start; margin:4px 0 18px; padding:13px 15px;
+    background:var(--field); border:.5px solid var(--line); border-left:3px solid var(--accent); border-radius:13px; }
+  .rdlocked > svg{ width:18px; height:18px; flex:0 0 auto; color:var(--accent); margin-top:2px; }
+  .rdlocked .rdlockedtxt{ min-width:0; }
+  .rdlocked .rdlockedrow{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:7px; }
+  .rdlocked .rdlockednote{ font-size:13px; color:var(--l2); line-height:1.4; }
+  /* reader prev/next navigation row */
+  .rdnav{ display:flex; gap:10px; margin-top:8px; }
+  .rdnav .btn{ flex:1; }
   /* glossary terms + definition popover (Phase 2) */
   /* inline links share the accent colour; dotted = tap-for-definition, solid = open a source */
   .glossterm{ font:inherit; color:var(--accent); background:none; border:none; padding:0; cursor:pointer;

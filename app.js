@@ -625,14 +625,16 @@ function mediaHtml(c){
   }).join('');
 }
 // cross-reference web: prereq (what this builds on) + xref (what it connects to)
-function cardLinkChip(id){ const t=byId[id]; if(!t) return ''; const fl=fieldById[t.field]||{};
-  return '<button class="rdrel" data-id="'+esc(id)+'" style="--fc:'+(fl.color||'#888')+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(t.title)+'</button>'; }
+function cardLinkChip(id, showState){ const t=byId[id]; if(!t) return ''; const fl=fieldById[t.field]||{};
+  let mark='', cls='rdrel';
+  if(showState){ const done=isLearned(id); cls+=done?' met':' unmet'; mark='<span class="rdrelmark">'+(done?'✓':'🔒')+'</span>'; }
+  return '<button class="'+cls+'" data-id="'+esc(id)+'" style="--fc:'+(fl.color||'#888')+'">'+mark+(fl.icon?esc(fl.icon)+' ':'')+esc(t.title)+'</button>'; }
 function relatedHtml(c){
   const pre=(c.prereq||[]).filter(id=>byId[id]);
   const xr=(c.xref||[]).filter(id=>byId[id]&&id!==c.id);
   let h='';
-  if(pre.length) h+='<div class="rdrelblock"><div class="rdrelh">Builds on</div><div class="rdrelrow">'+pre.map(cardLinkChip).join('')+'</div></div>';
-  if(xr.length) h+='<div class="rdrelblock"><div class="rdrelh">Connects to</div><div class="rdrelrow">'+xr.map(cardLinkChip).join('')+'</div></div>';
+  if(pre.length) h+='<div class="rdrelblock"><div class="rdrelh">Builds on</div><div class="rdrelrow">'+pre.map(id=>cardLinkChip(id,true)).join('')+'</div></div>';
+  if(xr.length) h+='<div class="rdrelblock"><div class="rdrelh">Connects to</div><div class="rdrelrow">'+xr.map(id=>cardLinkChip(id)).join('')+'</div></div>';
   return h;
 }
 
@@ -1079,7 +1081,9 @@ function cardHeft(c){
 function feedCandidates(){
   let list;
   if(feedFilter==="__saved"){ const s=new Set(settings.saved||[]); list=KN.cards.filter(c=>s.has(c.id)); }
-  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter); }
+  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter);
+    // unlock chain: don't surface an advanced card until everything it builds on is learned
+    list=list.filter(c=> !isNew(c.id) || prereqsMet(c)); }
   if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
   else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
   if(list.length<3) return list;
@@ -1144,7 +1148,11 @@ function feedCardHtml(c, featured){
 function renderFeedList(){
   const list=feedCandidates();
   feedOrder=list.map(c=>c.id);
-  if(!list.length){ $("feedList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>Nothing here yet.</p></div>'; return; }
+  if(!list.length){
+    const hasLocked = feedStatus!=="learned" && feedFilter!=="__saved" &&
+      KN.cards.some(c=> (feedFilter==="all"||c.field===feedFilter) && isNew(c.id) && !prereqsMet(c));
+    $("feedList").innerHTML='<div class="emptystate"><div class="ei">'+(hasLocked?'🔒':'🔍')+'</div><p>'+
+      (hasLocked?'Learn the foundations first — these cards unlock as you go.':'Nothing here yet.')+'</p></div>'; return; }
   let html=''; list.forEach((c,i)=> html+=feedCardHtml(c, i===0 && feedFilter==='all'));
   $("feedList").innerHTML=html;
   document.querySelectorAll("#feedList .fcard").forEach(el=> el.onclick=()=>{ feedReaderList=feedOrder.slice(); openReader(el.dataset.id); });
@@ -1158,27 +1166,32 @@ function renderLibChips(){
   $("libFieldChips").innerHTML=chips.map(f=>'<button class="chip'+(libFieldFilter===f.id?' on':'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
   document.querySelectorAll("#libFieldChips .chip").forEach(ch=> ch.onclick=()=>{ libFieldFilter=ch.dataset.f; renderLibChips(); renderLibList(); });
 }
-function cardState(id){ if(isNew(id)) return {cls:"new",txt:"New"}; if(isDue(id)) return {cls:"due",txt:"Due"}; return {cls:"learned",txt:"Learned"}; }
+function cardState(id){ const c=byId[id];
+  if(isNew(id)) return (c && !prereqsMet(c)) ? {cls:"locked",txt:"Locked"} : {cls:"new",txt:"New"};
+  if(isDue(id)) return {cls:"due",txt:"Due"}; return {cls:"learned",txt:"Learned"}; }
 function renderLibList(){
   const q=libQuery.trim().toLowerCase();
   let list=KN.cards.filter(c=> libFieldFilter==="all" || c.field===libFieldFilter);
   if(q){ list=list.filter(c=> (c.title+' '+c.fact+' '+(c.detail||'')+' '+cardSourceText(c)+' '+(c.tags||[]).join(' ')).toLowerCase().includes(q)); }
   if(!list.length){ $("libList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>No cards match.</p></div>'; return; }
   $("libList").innerHTML=list.map(c=>{ const fl=fieldById[c.field]||{}, st=cardState(c.id);
-    return '<div class="libcard" data-id="'+c.id+'"><span class="lcdot" style="background:'+(fl.color||'#888')+'"></span>'+
-      '<div class="lcinfo"><div class="lctitle">'+esc(c.title)+'</div><div class="lcmeta">'+esc(fl.label||'')+' · '+esc(depthLabel(c.depth))+'</div></div>'+
+    const lk = st.cls==='locked' ? lockedBy(c) : [];
+    const meta = lk.length ? ('🔒 builds on '+esc(lk.map(p=>p.title).join(', '))) : (esc(fl.label||'')+' · '+esc(depthLabel(c.depth)));
+    return '<div class="libcard'+(lk.length?' islocked':'')+'" data-id="'+c.id+'"><span class="lcdot" style="background:'+(fl.color||'#888')+'"></span>'+
+      '<div class="lcinfo"><div class="lctitle">'+esc(c.title)+'</div><div class="lcmeta">'+meta+'</div></div>'+
       '<span class="lcstate '+st.cls+'">'+st.txt+'</span></div>'; }).join('');
   document.querySelectorAll("#libList .libcard").forEach(r=> r.onclick=()=>openCard(r.dataset.id));
 }
 
 // ================= IMMERSIVE READER (peel-to-deepen) =================
-let rdId=null, rdRevealed=1, feedReaderList=[];
+let rdId=null, rdRevealed=1, feedReaderList=[], rdSwipeInit=false, rdSwiping=false, rdTouch=null;
 
 function openReader(id){
   const c=byId[id]; if(!c) return;
   rdId=id; rdRevealed=1;
   if(!feedReaderList.length) feedReaderList = feedOrder.length? feedOrder.slice() : KN.cards.map(x=>x.id);
   if(feedReaderList.indexOf(id)<0) feedReaderList.unshift(id);
+  if(!rdSwipeInit){ initReaderSwipe(); rdSwipeInit=true; }
   renderReader();
   const r=$("reader"); r.classList.add("show"); r.setAttribute("aria-hidden","false");
   document.body.classList.add("reading"); $("rdBody").scrollTop=0;
@@ -1186,6 +1199,26 @@ function openReader(id){
 function closeReader(){ const r=$("reader"); r.classList.remove("show"); r.setAttribute("aria-hidden","true");
   document.body.classList.remove("reading"); rdId=null; refreshAll(); }
 function readerNext(){ const i=feedReaderList.indexOf(rdId); let n=(i>=0?i+1:0); if(n>=feedReaderList.length) n=0; openReader(feedReaderList[n]); }
+function readerPrev(){ const i=feedReaderList.indexOf(rdId); let n=(i>=0?i-1:0); if(n<0) n=feedReaderList.length-1; openReader(feedReaderList[n]); }
+// swipe the reader left/right to move to the next/previous card (ignores sliders, equations, buttons)
+function initReaderSwipe(){
+  const r=$("reader"); if(!r) return;
+  r.addEventListener("touchstart",e=>{
+    if(e.touches.length!==1 || (e.target.closest && e.target.closest(".kviz,input,button,a,textarea"))){ rdTouch=null; return; }
+    const t=e.touches[0]; rdTouch={x:t.clientX,y:t.clientY}; rdSwiping=false;
+  },{passive:true});
+  r.addEventListener("touchmove",e=>{
+    if(!rdTouch || e.touches.length!==1) return;
+    const t=e.touches[0], dx=t.clientX-rdTouch.x, dy=t.clientY-rdTouch.y;
+    if(Math.abs(dx)>28 && Math.abs(dx)>Math.abs(dy)*1.4) rdSwiping=true;
+  },{passive:true});
+  r.addEventListener("touchend",e=>{
+    if(!rdTouch){ return; }
+    const t=e.changedTouches[0], dx=t.clientX-rdTouch.x, dy=t.clientY-rdTouch.y; rdTouch=null;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.4){ (dx<0?readerNext:readerPrev)(); setTimeout(()=>{rdSwiping=false;},80); }
+    else rdSwiping=false;
+  },{passive:true});
+}
 
 function renderReader(){
   const c=byId[rdId]; if(!c) return;
@@ -1199,6 +1232,8 @@ function renderReader(){
   let body='<div class="rdField" style="--fc:'+col+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+(c.kind!=='date'&&c.year?(' · '+c.year):'')+'</div>';
   if(c.kind==='date') body+='<div class="rddate" style="--fc:'+col+'">'+esc(cardDate(c))+'</div>';
   body+='<h1 class="rdTitle">'+esc(c.title)+'</h1>';
+  if(isNew(rdId) && !prereqsMet(c)){ const lk=lockedBy(c);
+    body+='<div class="rdlocked">'+ICON.lock+'<div class="rdlockedtxt"><div class="rdlockedrow">'+lk.map(p=>cardLinkChip(p.id,true)).join('')+'</div><div class="rdlockednote">Builds on the above — best learned first, but read on if you like.</div></div></div>'; }
   for(let i=0;i<rdRevealed;i++){ const l=layers[i];
     body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }
   // figures & equations are core to the concept — show them straight away, not behind the final peel
@@ -1209,11 +1244,11 @@ function renderReader(){
     if(cardQuizzes(c).length) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
     if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
     else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
-    body+='<button class="btn plain wide sm" id="rdNext" style="margin-top:6px;">Next concept →</button>';
+    body+='<div class="rdnav"><button class="btn plain sm" id="rdPrev">‹ Prev</button><button class="btn plain sm" id="rdNext">Next ›</button></div>';
   }
   $("rdBody").innerHTML=body;
   // tap anywhere on the card to peel the next layer (links / buttons excepted)
-  $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(e.target.closest('a')||e.target.closest('button')||e.target.closest('.kviz')) return; rdRevealed++; renderReader(); }) : null;
+  $("rdBody").onclick = (rdRevealed<total) ? (e=>{ if(rdSwiping||e.target.closest('a')||e.target.closest('button')||e.target.closest('.kviz')) return; rdRevealed++; renderReader(); }) : null;
   renderMath($("rdBody"));
   renderViz($("rdBody"));
   decorateGlossary($("rdBody"));
@@ -1226,6 +1261,7 @@ function renderReader(){
   const dp=$("rdDeeper"); if(dp) dp.onclick=()=>{ rdRevealed++; renderReader(); };
   const lr=$("rdLearn"); if(lr) lr.onclick=()=>{ schedule(rdId,2,true); persistAll(); toast("Added to your web — "+esc(c.title)); renderReader(); };
   const nn=$("rdNext"); if(nn) nn.onclick=readerNext;
+  const pv=$("rdPrev"); if(pv) pv.onclick=readerPrev;
   const qz=$("rdQuiz"); if(qz) qz.onclick=()=>readerQuiz(c);
 }
 function readerQuiz(c){
