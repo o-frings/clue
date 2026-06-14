@@ -2925,6 +2925,546 @@
       "url": "https://en.wikipedia.org/wiki/The_Price_of_Inequality",
       "kind": "reference",
       "strength": "Tertiary article on Stiglitz's 2012 book arguing inequality is policy-driven (rent-seeking) and growth-harming. The Mankiw 'Defending the One Percent' marginal-productivity rebuttal the card names is a real, opposing academic position."
+    },
+    "ev-ir-what-is": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "International relations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/International_relations",
+      "kind": "reference",
+      "strength": "Broad expository overview of the discipline. Verified against the Wikipedia articles on Man, the State, and War (book year 1959; three images; Waltz favours the third) and Alexander Wendt (1992 'Anarchy Is What States Make of It'). The discipline's boundaries and dominant theories are contested, which the article flags."
+    },
+    "ev-ir-anarchy": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Anarchy (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Anarchy_(international_relations)",
+      "kind": "reference",
+      "strength": "Fetch-verified canonical entry that explicitly distinguishes anarchy from chaos ('not a world in chaos, disorder, or conflict') and lays out the realist, liberal and constructivist readings; it names Wendt as the leading constructivist and cites his 1992 International Organization article by title. The interpretive disagreement it documents is genuine and live."
+    },
+    "ev-ir-realism": {
+      "who": "Stanford Encyclopedia of Philosophy (W. Julian Korab-Karpowicz)",
+      "year": 2023,
+      "title": "Political Realism in International Relations",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/realism-intl-relations/",
+      "kind": "reference",
+      "strength": "Peer-reviewed encyclopedia entry that directly covers Thucydides' Melian Dialogue, Hobbes, Carr and Morgenthau's 'interest defined as power', the prudence-vs-moralism distinction, and the named neoliberal (Keohane) and constructivist (Wendt, 'anarchy is what states make of it') critiques; a tertiary survey that maps the tradition and its variants rather than adjudicating between them."
+    },
+    "ev-ir-neorealism": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Neorealism (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Neorealism_(international_relations)",
+      "kind": "reference",
+      "strength": "Expository entry that sources structural realism to Waltz's 1979 Theory of International Politics, identifies defensive realism with Waltz and Jervis's 1978 security-dilemma article and offensive realism with Mearsheimer's 2001 book aiming at regional hegemony, and lists Wendt among constructivist critics; the offensive-vs-defensive debate it reports is unresolved among realists themselves."
+    },
+    "ev-ir-balance-of-power": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Balance of power (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Balance_of_power_(international_relations)",
+      "kind": "reference",
+      "strength": "Canonical encyclopedia entry covering balancing vs bandwagoning, Waltz's automatic-balancing claim, and a dedicated section on Walt's balance of threat (1985 article, 1987 book); it cites a 2021 assessment that balance of power 'is not a universal empirical law,' supporting the contested status in the counter. Walt's four threat factors and Morgenthau's treatment are corroborated by the Balance of threat entry and Politics Among Nations scholarship."
+    },
+    "ev-ir-liberalism": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Liberalism (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Liberalism_(international_relations)",
+      "kind": "reference",
+      "strength": "Tertiary survey of the tradition (Kant, commercial and republican liberalism, and Keohane and Nye's complex interdependence). Thin on the realist relative-gains rebuttal and on dependency-school criticism, and its core causal claim — does trade really pacify? — remains empirically contested."
+    },
+    "ev-ir-democratic-peace": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Democratic peace theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Democratic_peace_theory",
+      "kind": "reference",
+      "strength": "Expository entry covering Kant's Perpetual Peace, Doyle's two-part 1983 essay, Russett on normative and institutional mechanisms, the monadic/dyadic distinction, and a substantial section on Sebastian Rosato's 2003 APSR critique. It reports a genuinely contested literature: the dyadic empirical pattern is strong, but its causes (regime type vs. shared interests, alliances and US power) are disputed."
+    },
+    "ev-ir-institutions": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Liberal institutionalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Liberal_institutionalism",
+      "kind": "reference",
+      "strength": "Fetch-verified: the page states Keohane's mechanisms (transaction costs, information, credible commitments, the shadow of the future) from 'After Hegemony' (1984) and Mearsheimer's realist rebuttal in 'The False Promise of International Institutions' (International Security, 1994), so it presents the institutionalist-vs-realist debate as live rather than settled. It does not substantively cover the constructivist critique (Wendt) added in the detail, which is a separate well-documented position."
+    },
+    "ev-ir-constructivism": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Constructivism (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Constructivism_(international_relations)",
+      "kind": "reference",
+      "strength": "Tertiary survey of a major theoretical school; fetch-verified to attribute the core claims to Wendt's 1992 International Organization article and the norm life-cycle and 'norm entrepreneurs' to Finnemore and Sikkink, to record Mearsheimer's realist objection that ideas matter only on the margins, and to list non-Western (Qin Yaqing) and feminist constructivist strands. The British/North Korean nuclear example is Wendt's own and is documented in coverage of the 1992 article."
+    },
+    "ev-ir-marxist-critical": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "World-systems theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/World-systems_theory",
+      "kind": "reference",
+      "strength": "Fetch-verified: a live encyclopaedic account of Wallerstein's core/periphery/semi-periphery framework and its debt to and break from dependency theory. A contested, normatively loaded research programme, which the entry presents as one school among several rather than as established fact."
+    },
+    "ev-ir-english-school": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "English school of international relations theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/English_school_of_international_relations_theory",
+      "kind": "reference",
+      "strength": "Expository entry centred on Bull's 'The Anarchical Society' (1977) and Wight's three traditions; states Bull's five institutions (diplomacy, international law, balance of power, great powers, war) and the order/justice tension, and flags recent revisions addressing the school's Eurocentrism. Does not itself detail the Gong/Keene 'standard of civilisation' critique, which is sourced from those authors' own works named in the counter."
+    },
+    "ev-ir-hegemonic-stability": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Hegemonic stability theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hegemonic_stability_theory",
+      "kind": "reference",
+      "strength": "Tertiary overview that credits Kindleberger's 'The World in Depression' (1973) as the founding argument, names Gilpin and Krasner as generalisers, and records that Keohane coined the label in 1980 and rebutted it in 'After Hegemony' (1984); Snidal's sustainability critique is also covered, so the public-goods/necessity claim is presented as contested. Verified by fetch. Organski's 1958 'World Politics' authorship of power-transition theory and the Allison/Nye 'Thucydides Trap' dispute were cross-checked against the Power transition theory and Thucydides Trap Wikipedia entries."
+    },
+    "ev-ir-soft-power": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Soft power",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Soft_power",
+      "kind": "reference",
+      "strength": "Canonical entry; attributes the concept to Nye, quotes his 1990 'Bound to Lead' coinage and his three resources (culture, political values, foreign policies), and names critics — Niall Ferguson (dismisses it), neorealists (force/incentives only), and Janice Bially Mattern (some attraction is disguised coercion). Verified by fetch June 2026."
+    },
+    "ev-ir-deterrence": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Deterrence theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Deterrence_theory",
+      "kind": "reference",
+      "strength": "Tertiary survey covering Schelling's game-theoretic framing, MAD, second-strike credibility and the stability-instability paradox; fetch-verified to confirm the second-strike and stability-instability content. Whether deterrence 'worked' or Cold War survival was luck remains genuinely contested (Waltz vs Sagan); the Schelling dates, the Snyder attribution of the stability-instability paradox, and Sagan's 'Limits of Safety' (1993) were cross-checked against their own Wikipedia and publisher pages."
+    },
+    "ev-ir-collective-security": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Collective security",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Collective_security",
+      "kind": "reference",
+      "strength": "Tertiary overview that defines the concept, contrasts it explicitly with alliances (universal one-for-all membership vs. two blocs), and traces the League (first large-scale attempt) and the UN (a balance between collective action and the states system). It is light on Chapter VII veto mechanics and on free-riding, and it cites Inis Claude mainly on balance of power; the realist (Carr) vs. liberal verdict on whether collective security can ever work is openly contested, so dates and named thinkers here were cross-checked against sources on Carr's Twenty Years' Crisis (1939) and Claude's Power and International Relations (1962)."
+    },
+    "ev-ir-international-law": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "International law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/International_law",
+      "kind": "reference",
+      "strength": "Tertiary reference; fetch-verified to cover pacta sunt servanda ('states create legal obligations on themselves through consent'), customary law as state practice plus opinio juris, treaties (VCLT Art. 2), and the absence of a universal authority to enforce law on sovereign states. The competing realist/liberal/constructivist explanations for *why* states comply, and the TWAIL critique of the framing, are a live scholarly debate the article only sketches."
+    },
+    "ev-ir-global-governance": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Global governance",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Global_governance",
+      "kind": "reference",
+      "strength": "Tertiary overview defining governance without an overarching authority and naming the UN, WTO, and international regimes. It does not itself cover the democratic-deficit debate, so the critique and counter rest on the named scholars (Keohane and Nye; global-South commentators), and what counts as legitimate global authority is genuinely disputed."
+    },
+    "ev-ir-feminist": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Feminism in international relations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Feminism_in_international_relations",
+      "kind": "reference",
+      "strength": "Tertiary survey covering Enloe, Tickner, the gendering of war/security/the state, the masculine 'rational actor' critique, the liberal/difference/poststructural splits, and the Keohane critique that feminists should proceed 'scientifically'. The Tickner-Keohane exchange (ISQ 1997-1998) and the Enloe edition dates are corroborated by the dedicated 'Bananas, Beaches and Bases' page and journal records. As living critical theory its claims are openly contested by both mainstream IR and rival feminist camps."
+    },
+    "ev-ir-postcolonial": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Postcolonialism (international relations)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Postcolonialism_(international_relations)",
+      "kind": "reference",
+      "strength": "Fetch-verified tertiary reference covering Said's Orientalism (1978), Spivak's subaltern, and Du Bois's colour line and Fanon in IR. It does not name Acharya's 'Global IR'; that is attributed in the card to his 2014 ISA presidential address 'Global International Relations (IR) and Regional Worlds', later published in International Studies Quarterly 58(4):647-659. The Shilliam critique reflects the 'radicalising Global IR' strand. A contested, actively developing critical field."
+    },
+    "ev-poli-what-is": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Political science",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Political_science",
+      "kind": "reference",
+      "strength": "Tertiary/expository; the page explicitly contrasts the discipline's descriptive/explanatory 'what is' with normative political philosophy ('emphasizes descriptive and explanatory means of articulating what is ... favors empirical evidence over ethical judgements') and lists its empirical methods (surveys, case studies, experiments, process tracing). It also notes the behavioral revolution and the 'is it a science?' debate (quoting Lawrence Lowell that politics is observational, not experimental). Lasswell's 1936 title and Strauss's critique of Weber are verified against Britannica/APSR and the SEP entry on Leo Strauss respectively."
+    },
+    "ev-poli-power": {
+      "who": "Allen, Amy (Stanford Encyclopedia of Philosophy)",
+      "year": 2022,
+      "title": "Feminist Perspectives on Power",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/feminist-power/",
+      "kind": "reference",
+      "strength": "Strong tertiary/peer-reviewed reference. Explicitly attributes the one-dimensional view to Dahl (quoting his 1957 'get B to do something B would not otherwise do'), the two-dimensional view to Bachrach & Baratz, and the three-dimensional view to Lukes (1974, 2005), and notes Lukes frames all three as one underlying conception of power. Power is described as an essentially contested concept; the reality and measurability of the third face remain genuinely disputed between Lukes and the pluralists, and feminists critique its residual 'power over' framing."
+    },
+    "ev-poli-state": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Monopoly on violence",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Monopoly_on_violence",
+      "kind": "reference",
+      "strength": "Tertiary but quotes Weber's definition directly ('claim to the monopoly of the legitimate use of physical force'), traced to the 1919 lecture 'Politics as a Vocation' and 'Economy and Society' (1921-22). Canonical in the field; the page itself notes the monopoly is contested empirically (e.g. Raymond Aron on inter-state force) and by anarchists."
+    },
+    "ev-poli-sovereignty": {
+      "who": "Stanford Encyclopedia of Philosophy (Daniel Philpott)",
+      "year": 2024,
+      "title": "Sovereignty",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/sovereignty/",
+      "kind": "reference",
+      "strength": "Authoritative SEP entry by Daniel Philpott (substantive revision Sept 2024). Verified by fetch to cover Bodin's above-the-law sovereign, Hobbes's contractual transfer of rights to the Leviathan, the internal/external distinction, the Westphalian model and its circumscription by human rights, the EU and R2P, and to report (via Krasner) the live contestation over whether Westphalia deserves its foundational status."
+    },
+    "ev-poli-legitimacy": {
+      "who": "Stanford Encyclopedia of Philosophy (Fabienne Peter)",
+      "year": 2024,
+      "title": "Political Legitimacy",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/legitimacy/",
+      "kind": "reference",
+      "strength": "Fetch-verified. SEP entry states Weber's three sources verbatim ('tradition… charisma… legality—specifically the rationality of the rule of law') and explicitly separates the descriptive concept ('people's beliefs about political authority') from the normative one, naming Rawls (1993) and Raz's service conception as normative accounts. Pateman's feminist critique is from a separate, well-documented source (The Sexual Contract, 1988)."
+    },
+    "ev-poli-regime-types": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Competitive authoritarianism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Competitive_authoritarianism",
+      "kind": "reference",
+      "strength": "Tertiary but accurate for this card. The page sets out Levitsky & Way's concept (2002 Journal of Democracy article; 2010 book Competitive Authoritarianism) as a subtype of authoritarianism / hybrid regime: real multiparty elections combined with an unfair playing field, situated against democracy, authoritarianism and totalitarianism. Friedrich & Brzezinski's 1956 six-point totalitarian 'syndrome', Arendt's 1951 Origins of Totalitarianism, and Sartori's 1970 'concept stretching' are well-documented standard attributions verified separately. Whether to use discrete types or a continuous scale is genuinely debated in the field."
+    },
+    "ev-poli-democracy": {
+      "who": "SEP",
+      "year": 2024,
+      "title": "Democracy",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/democracy/",
+      "kind": "reference",
+      "strength": "Authoritative SEP entry (first published 2006, substantively revised 18 June 2024) covering procedural vs substantive and instrumental vs intrinsic justifications; explicitly discusses Schumpeter's elite/competitive view and Dahl, and foregrounds that the definition itself is contested rather than settling it."
+    },
+    "ev-poli-authoritarianism": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Selectorate theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Selectorate_theory",
+      "kind": "reference",
+      "strength": "Encyclopaedic summary of the model from Bueno de Mesquita, Smith, Siverson and Morrow's The Logic of Political Survival (2003), including the selectorate/winning-coalition distinction and named criticism by Jessica Weeks on its measurability and behavioural assumptions; an influential but contested formalisation."
+    },
+    "ev-poli-democratization": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Waves of democracy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Waves_of_democracy",
+      "kind": "reference",
+      "strength": "Tertiary overview of Huntington's wave thesis (first wave 1828-1926, third from 1974) and reverse waves; the periodisation and the modernization-theory link are named interpretive frameworks (Huntington 1991; Lipset 1959; Przeworski-Limongi 1997), not settled fact."
+    },
+    "ev-poli-backsliding": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Democratic backsliding",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Democratic_backsliding",
+      "kind": "reference",
+      "strength": "Canonical overview that names Bermeo's 'executive aggrandizement' and Levitsky & Ziblatt's norms, and cites V-Dem data showing more countries autocratizing than democratizing since c. 2010 (Hungary, Turkey, India, Poland, Brazil, US among cases). The concept and its case list are actively contested, and the article itself flags disagreement over which countries qualify."
+    },
+    "ev-poli-separation-powers": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Separation of powers",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Separation_of_powers",
+      "kind": "reference",
+      "strength": "Tertiary source; fetch-verified to cover the doctrine from Polybius and Locke through Montesquieu's 1748 'Spirit of the Laws' (including the cited quote) to modern checks-and-balances. The core principle is settled; how strictly to separate versus fuse powers stays a live design debate the article covers."
+    },
+    "ev-poli-presidential-parliamentary": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Presidential system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Presidential_system",
+      "kind": "reference",
+      "strength": "Expository overview contrasting presidential and parliamentary forms and presenting Linz's 'perils' critique (rigidity, zero-sum elections) with the named scholarly debate around it; the breakdown claim is a prominent but actively disputed hypothesis (see Cheibub 2007, Mainwaring), not settled consensus."
+    },
+    "ev-poli-federalism": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2022,
+      "title": "Federalism",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/federalism/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry (first published 2003, substantive revision Nov 2022); covers the division of sovereignty and subsidiarity directly. Expository on a settled concept while flagging real disputes; Riker's 1964 bargaining thesis and Stepan's 1999 'demos-constraining' argument are verified against their original sources, not just the SEP."
+    },
+    "ev-poli-veto-players": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Veto player",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Veto_player",
+      "kind": "reference",
+      "strength": "Tertiary summary of Tsebelis's 2002 book Veto Players: How Political Institutions Work (Princeton UP); accurately states the core stability result and the spatial-model basis, but does not mention Immergut's earlier 'veto points' lineage, which was verified separately against her 1990 Journal of Public Policy article."
+    },
+    "ev-poli-bureaucracy": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Bureaucracy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Bureaucracy",
+      "kind": "reference",
+      "strength": "Fetch-verified tertiary source: accurately lays out Weber's ideal-type features, rational-legal authority and the 'iron cage', and names Merton's dysfunctions. It does not cover Lipsky's street-level discretion, Niskanen's budget-maximizing model, Dunleavy's bureau-shaping rebuttal or Ferguson's feminist critique — those attributions were verified against the books' own descriptions and the dedicated Wikipedia pages (Budget-maximizing model, Bureau-shaping model)."
+    },
+    "ev-poli-rule-of-law": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2016,
+      "title": "The Rule of Law",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/rule-of-law/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry by Jeremy Waldron (first published 2016); authoritative on the formal/procedural vs substantive split, the rule-of-law vs rule-by-law contrast, Fuller's and Raz's formal accounts, and explicit that the thick conception is contested. Thompson's 'unqualified human good' phrase verified to the conclusion of Whigs and Hunters (1975)."
+    },
+    "ev-poli-ideologies": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Left–right political spectrum",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Left%E2%80%93right_political_spectrum",
+      "kind": "reference",
+      "strength": "Tertiary overview; fetch-verified to confirm the 1789 National Assembly origin (revolution to the president's left, Ancien Régime to his right) and the 'Criticism' section stating a single axis is too simplistic. Nolan's identity as a libertarian activist and Libertarian Party co-founder verified against the English Wikipedia 'Nolan chart' article."
+    },
+    "ev-poli-nationalism": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2020,
+      "title": "Nationalism",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/nationalism/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry that cites Gellner 1983 and Anderson 1983/1991 on the modernity of nations and A. Smith 1986 on ethnic origins, and notes a dissenting deep-roots view (Gat 2013), so it presents the modern-vs-ancient question as contested. It does not cover Chatterjee; that postcolonial critique is verified separately against his The Nation and Its Fragments (1993)."
+    },
+    "ev-poli-populism": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Populism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Populism",
+      "kind": "reference",
+      "strength": "Tertiary survey that states Mudde's 'thin-centred ideology / pure people vs corrupt elite / general will' definition, gives the same left/right examples (Le Pen, Trump; Chavez, Sanders), and lays out the ideational-vs-Laclau/Mouffe (discursive 'logic') dispute even-handedly. Verified live; no dedicated Stanford Encyclopedia entry for 'populism' exists, so Wikipedia is the correct canonical page."
+    },
+    "ev-poli-social-movements": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Social movement",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_movement",
+      "kind": "reference",
+      "strength": "Tertiary overview with dedicated sections on resource mobilization (attributed to McCarthy and Zald), political-process/opportunity theory, and Tilly's repertoire of contention (the petition/strike/demonstration/boycott menu, verified against the linked Repertoire of contention and Political opportunity articles). The Melucci/Polletta cultural critique is corroborated by their own work, not the Wikipedia page alone. A maturing-but-contested literature; the cultural critique is acknowledged as a live alternative, not a footnote."
+    },
+    "ev-poli-revolution": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "States and Social Revolutions",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/States_and_Social_Revolutions",
+      "kind": "reference",
+      "strength": "Expository page on Skocpol's 1979 book; confirms the state-breakdown-plus-peasant-revolt mechanism and the France/Russia/China cases, and records named critiques of her demotion of agency and ideology, so the contestation is on the record. Davies' 1962 J-curve, Gurr's 1970 'Why Men Rebel', the Phillips quotation, Sewell's ideology critique and Kuran's cascade account were cross-checked against their own canonical pages."
+    },
+    "ev-poli-clientelism": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Clientelism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Clientelism",
+      "kind": "reference",
+      "strength": "Tertiary entry that defines clientelism through the dyadic, contingent, hierarchical and iterated exchange of goods for support via patron-broker-client ties, sets the explicit contrast with formalised programmatic distribution, and notes the secret-ballot monitoring problem central to Stokes's work; a well-theorised comparative-politics concept."
+    },
+    "ev-poli-political-culture": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "The Civic Culture",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Civic_Culture",
+      "kind": "reference",
+      "strength": "Expository page on Almond & Verba's 1963 book and its parochial/subject/participant typology, the foundation the Putnam social-capital literature builds on; a foundational but heavily critiqued framework, and the Tarrow, Pateman and feminist critiques are named and sourced separately."
+    },
+    "ev-poli-civil-society": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Civil society",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Civil_society",
+      "kind": "reference",
+      "strength": "Tertiary entry placing civil society as the 'third sector' between state and family and covering Tocqueville's associations, Habermas's public sphere, and Gramsci's hegemony reading. The Stanford Encyclopedia has no standalone 'civil society' entry (it appears within the Hegel and Habermas entries), so Wikipedia is the right canonical page for this exact topic; the concept is long-contested, with Gramscian, 'dark side' (Berman) and postcolonial (Chatterjee) readings present in the literature."
+    },
+    "ev-epi-what-knowledge": {
+      "who": "SEP (Jonathan Jenkins Ichikawa and Matthias Steup)",
+      "year": 2026,
+      "title": "The Analysis of Knowledge",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/knowledge-analysis/",
+      "kind": "reference",
+      "strength": "Authoritative SEP entry (substantive revision Jan 2026) that lays out the tripartite JTB analysis, attributes the refuting counterexamples to Gettier (1963), covers Williamson's knowledge-first dissent, and states plainly that no analysis of knowledge has been widely accepted — confirming this is a contested research area, not a settled definition. The named Nyaya/Gangesa comparison is corroborated by SEP's 'Epistemology in Classical Indian Philosophy' (rev. 2024)."
+    },
+    "ev-epi-gettier": {
+      "who": "SEP (Jonathan Jenkins Ichikawa and Matthias Steup)",
+      "year": 2024,
+      "title": "The Analysis of Knowledge",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/knowledge-analysis/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry that quotes Gettier's 1963 Case I (Smith, Jones and the ten coins) and surveys the proposed fixes (no-false-lemmas, safety, sensitivity, virtue accounts). Honest about contestation: it states plainly that 'no analysis has been widely accepted', and notes some epistemologists now reject analysing knowledge at all."
+    },
+    "ev-epi-reliabilism": {
+      "who": "Alvin Goldman and Bob Beddor (SEP)",
+      "year": 2021,
+      "title": "Reliabilist Epistemology",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/reliabilism/",
+      "kind": "reference",
+      "strength": "Stanford Encyclopedia entry (first published 2008, substantive revision 2021) co-authored by Goldman, the view's originator — so it is expository but partisan toward reliabilism; it does lay out the generality problem (attributing it to Feldman 1985 and Conee & Feldman 1998) and BonJour's clairvoyant objection, and frames reliabilism as the 'paradigm of externalism' against evidentialism as the 'paradigm of internalism'."
+    },
+    "ev-epi-skepticism": {
+      "who": "Stanford Encyclopedia of Philosophy (Juan Comesaña; orig. Peter Klein)",
+      "year": 2026,
+      "title": "Skepticism",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/skepticism/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry (first published 2001, substantive revision Jan 2026) covering Cartesian, Pyrrhonian and closure-based skepticism. Even-handed: it lays out the skeptical argument's force and the leading anti-skeptical replies (closure-denial, contextualism, Moorean reversal) rather than declaring a winner. For Putnam's brain-in-a-vat self-refutation, the dedicated SEP entry is at /entries/brain-vat/."
+    },
+    "ev-epi-rationalism-empiricism": {
+      "who": "SEP (Peter Markie and M. Folescu)",
+      "year": 2021,
+      "title": "Rationalism vs. Empiricism",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/rationalism-empiricism/",
+      "kind": "reference",
+      "strength": "Fetch-verified canonical SEP entry (first published 2004, substantive revision 2 Sep 2021). It frames the debate via the intuition/deduction, innate-knowledge and innate-concept theses, and explicitly cautions that the rationalist/empiricist labelling oversimplifies — noting that almost no thinker falls cleanly into one camp and that figures such as Hobbes, Berkeley, Conway, du Chatelet and Shepherd resist the grouping. So it treats the dichotomy as a useful frame, not a settled taxonomy."
+    },
+    "ev-epi-a-priori": {
+      "who": "SEP (Georges Rey)",
+      "year": 2026,
+      "title": "The Analytic/Synthetic Distinction (Stanford Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/analytic-synthetic/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP survey (substantive revision June 2026) covering Kant's synthetic a priori (§1.1) and Quine's 'Two Dogmas' and confirmation holism (§3.4) in depth; the entry is explicit that whether a viable analytic/synthetic distinction survives Quine's attack remains genuinely contested, so it maps an open debate rather than delivering a verdict."
+    },
+    "ev-epi-problem-induction": {
+      "who": "Leah Henderson (Stanford Encyclopedia of Philosophy)",
+      "year": 2022,
+      "title": "The Problem of Induction (Stanford Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/induction-problem/",
+      "kind": "reference",
+      "strength": "Authoritative SEP survey (first published 2018, substantive revision 2022) reconstructing Hume's two-horned dilemma — demonstrative reasoning can't prove the Uniformity Principle, probable reasoning is circular — and surveying the major responses (Bayesian, Strawsonian dissolution, Reichenbach's pragmatic vindication, the material theory). Hume's negative argument is widely regarded as sound; what remains contested is which 'solution' or dissolution to accept, which the entry presents even-handedly."
+    },
+    "ev-epi-truth": {
+      "who": "SEP (Michael Glanzberg)",
+      "year": 2025,
+      "title": "Truth (Stanford Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/truth/",
+      "kind": "reference",
+      "strength": "Fetch-verified canonical SEP entry by Michael Glanzberg (substantive revision Jun 27, 2025). Maps correspondence (§1.1, naming Aristotle, Moore, Russell c.1910), coherence (§1.2, exemplified by Joachim 1906 and Blanshard 1939), pragmatist (§1.3, Peirce and James) and deflationary/redundancy theories incl. Ramsey and Horwich's minimalism (§5). A genuinely live dispute with no consensus winner; the entry surveys competing camps and their objections rather than endorsing one."
+    },
+    "ev-epi-bayesian": {
+      "who": "Hanti Lin (SEP; rewriting William Talbott's original entry)",
+      "year": 2024,
+      "title": "Bayesian Epistemology (Stanford Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/epistemology-bayesian/",
+      "kind": "reference",
+      "strength": "Current SEP entry, first published 2001 by Talbott, completely rewritten by Lin in 2022 and revised 2024. Fetch-verified to cover credences, probabilism, conditionalization, Bayes' theorem, Dutch-book arguments (attributing them to Ramsey 1926 and de Finetti 1937), the probability axioms, the problem of the priors (naming subjective Bayesians de Finetti/Savage vs objective Bayesians Jeffreys/Jaynes), and the problem of old evidence (Glymour 1980, Mercury case). Candid that Bayesianism's foundational arguments are themselves contested."
+    },
+    "ev-epi-testimony": {
+      "who": "Nick Leonard (SEP)",
+      "year": 2023,
+      "title": "Epistemological Problems of Testimony (Stanford Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/testimony-episprob/",
+      "kind": "reference",
+      "strength": "Peer-reviewed SEP entry (completely rewritten version first published Apr 1, 2021, by Nick Leonard; last substantively revised Feb 16, 2023; the original entry was by Jonathan Adler). Traces reductionism to Hume and non-reductionism to Reid, and surveys Coady's circularity objection, Fricker's local reductionism, and Moran's assurance view. Expository on a question that remains actively disputed; presents the camps even-handedly."
+    },
+    "ev-epi-fallibilism": {
+      "who": "Stephen Hetherington",
+      "year": 2024,
+      "title": "Fallibilism (Internet Encyclopedia of Philosophy)",
+      "where": "",
+      "url": "https://iep.utm.edu/fallibil/",
+      "kind": "reference",
+      "strength": "Dedicated, authored encyclopedia entry by epistemologist Stephen Hetherington. Confirms Peirce coined the term, names Descartes' Evil Genius as the foundationalist target, states the 'Fallible Knowledge Thesis' (knowledge from less-than-infallible justification), and discusses the 'self-doubting knowledge claim' that underlies the concessive-knowledge puzzle. Chosen over Wikipedia because it is authored and covers the philosophical detail; chosen because the Stanford Encyclopedia has no dedicated 'fallibilism' slug (the topic is handled inside its contextualism entry). The specific Rysiew/Lewis attributions in the counter are verified against Rysiew's 'Fallibilism, Epistemic Possibility, and Concessive Knowledge Attributions', not this page."
+    },
+    "ev-epi-occam": {
+      "who": "Alan Baker (Stanford Encyclopedia of Philosophy)",
+      "year": 2022,
+      "title": "Simplicity",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/simplicity/",
+      "kind": "reference",
+      "strength": "Peer-reviewed encyclopedia entry (first published 2004, substantively revised 16 May 2022). Verified to treat Occam's razor as a tie-breaker among theories that 'explain the same set of facts equally well'; to distinguish epistemic vs methodological readings; to flag the entities-vs-equations trade-off ('reducing the ontology... only possible at the price of making it syntactically more complex'); and to source the named positions used here — Popper (simpler = more falsifiable), Swinburne 1997 ('ultimate a priori epistemic principle that simplicity is evidence for truth'), and Sober (parsimony 'always depend[s] on local background assumptions for [its] rational justification'). Ockham's own wording, the John Punch 1639 origin of the Latin slogan, and the precursors (Aristotle, Ptolemy, Duns Scotus) cross-checked against the English Wikipedia 'Occam's razor' article."
+    },
+    "ev-epi-scientific-realism": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2024,
+      "title": "Scientific Realism",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/scientific-realism/",
+      "kind": "reference",
+      "strength": "Authoritative peer-reviewed expository entry on a genuinely contested debate. Fetch-verified to attribute the no-miracles argument to Putnam (1975, realism 'the only philosophy that doesn't make the success of science a miracle'), the pessimistic meta-induction to Laudan (1981, successful theories 'later rejected'), and to define van Fraassen's constructive empiricism via 'empirical adequacy' (1980). It lays out the live camps even-handedly rather than settling the question."
+    },
+    "ev-epi-kuhn": {
+      "who": "Alexander Bird (Stanford Encyclopedia of Philosophy)",
+      "year": 2025,
+      "title": "Thomas Kuhn",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/thomas-kuhn/",
+      "kind": "reference",
+      "strength": "Peer-reviewed scholarly entry by a leading Kuhn specialist (first published 2004, substantive revision 2 Sep 2025); fetch-verified to cover normal science as puzzle-solving, paradigms, crisis, revolutions, the three kinds of incommensurability (methodological, perceptual, semantic), and Kuhn's view set explicitly against Popper's falsificationism. Expository on a still-debated thesis (incommensurability remains contested). The counter's 'mob psychology' line is Lakatos's own phrase from his 1970 essay 'Falsification and the Methodology of Scientific Research Programmes', not from this SEP entry."
+    },
+    "ev-epi-underdetermination": {
+      "who": "Kyle Stanford (Stanford Encyclopedia of Philosophy)",
+      "year": 2023,
+      "title": "Underdetermination of Scientific Theory",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/scientific-underdetermination/",
+      "kind": "reference",
+      "strength": "Authoritative scholarly entry (first published 2009, substantive revision 4 Apr 2023; fetch-verified). Develops confirmational (Duhem-Quine) holism, distinguishes it explicitly from contrastive underdetermination, and notes Duhem and Quine ran the two problems together; also covers the Laudan-Leplin (1991) reply. Expository on a debate where the strength of the threat is itself contested."
+    },
+    "ev-epi-standpoint": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2024,
+      "title": "Feminist Social Epistemology",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/feminist-social-epistemology/",
+      "kind": "reference",
+      "strength": "Peer-reviewed scholarly entry; fetch-verified to cover Hartsock's Marxist-derived standpoint theory, Harding's 'strong objectivity' (examining the world from underprivileged positions), Haraway's 'situated knowledges', the epistemic-advantage thesis, the standpoint-as-'achieved stance' point, and named critics raising the relativism/internalized-oppression worries (Bar On 1993, Walby 2001, Nelson 1990). Longino's critical contextual empiricism and Haack's objectivity critique are documented in the linked SEP entries on feminist epistemology and feminist perspectives on science. Expository on a contested research programme; relativism objections are live."
+    },
+    "ev-epi-justification": {
+      "who": "Stanford Encyclopedia of Philosophy",
+      "year": 2024,
+      "title": "Foundationalist Theories of Epistemic Justification",
+      "where": "",
+      "url": "https://plato.stanford.edu/entries/justep-foundational/",
+      "kind": "reference",
+      "strength": "Authoritative peer-reviewed encyclopedia entry on the regress problem and the foundationalism/coherentism response. The reliabilist alternative the card names is a distinct, well-established externalist position."
     }
   }
 }

@@ -47,6 +47,7 @@
     { "id": "physics", "label": "Physics",           "blurb": "Energy, relativity, the quantum, the cosmos.",      "icon": "⚛",  "color": "#7048e8" },
     { "id": "history", "label": "History",           "blurb": "Turning points and how we got here.",               "icon": "🏛", "color": "#b08968" },
     { "id": "geo",     "label": "Geopolitics",       "blurb": "Power, geography, and the state system.",           "icon": "🌍", "color": "#0ca678" },
+    { "id": "ir",      "label": "International relations", "blurb": "The theories of world politics — realism, liberalism, constructivism and their critics.", "icon": "🌐", "color": "#364fc7" },
     { "id": "bio",     "label": "Biology",           "blurb": "Life, evolution, genes, and the body.",             "icon": "🧬", "color": "#37b24d" },
     { "id": "eco",     "label": "Ecology",           "blurb": "Ecosystems, cycles, and planetary limits.",         "icon": "🌿", "color": "#2f9e44" },
     { "id": "systems", "label": "Systems sciences",  "blurb": "Feedback, stocks & flows, complexity.",             "icon": "🔁", "color": "#1098ad" },
@@ -9838,6 +9839,2104 @@
           "low taxes on the poor"
         ],
         "answer": 1
+      }
+    },
+    {
+      "id": "ir-what-is",
+      "src": ["ev-ir-what-is"],
+      "field": "ir",
+      "level": 1,
+      "depth": "concept",
+      "title": "What international relations studies",
+      "fact": "International relations studies how states and other actors interact in a world with no government standing above them.",
+      "detail": "International relations (IR) is the study of politics beyond a single country's borders: war and peace, trade, alliances, diplomacy, international law and global institutions. Its defining feature is that there is no world government to enforce rules over sovereign states, so order has to emerge some other way. To organise explanations, Kenneth Waltz, in his 1959 book Man, the State, and War, sorted the causes of war into three 'images' or levels of analysis: the individual (leaders' psychology and human nature), the state (a country's domestic politics, regime type and economy — for example Lenin's claim that capitalist economies drive imperial wars), and the international system (the arrangement of states and the distribution of power among them). Asking which level is doing the explanatory work is one of the first moves in any IR argument. Today IR also studies non-state actors — firms, NGOs, terrorist networks and bodies like the UN.",
+      "deploy": "When you hear a claim about why a war happened, ask: is this a 'first image' story about a leader, a 'second image' story about a regime, or a 'third image' story about the structure of power?",
+      "counter": "Waltz himself argued the third (systemic) image does most of the explaining, treating leaders and regimes as secondary — a structural-realist bias that critics reject. Alexander Wendt, in his 1992 article \"Anarchy Is What States Make of It,\" replies that the levels are not independent: anarchy has no fixed logic, and who counts as a 'state' or a 'threat' is constituted by shared ideas, so you cannot cleanly separate the system from the actors inside it. Postcolonial and feminist scholars push further: writers like Mohammed Ayoob argue the whole 'anarchy among equal sovereign states' picture fits great powers far better than post-colonial states whose main security threats are internal, and feminists like J. Ann Tickner argue the three images leave out gender and everyday life entirely.",
+      "tags": [
+        "international relations",
+        "levels of analysis",
+        "Waltz",
+        "discipline"
+      ],
+      "prereq": [],
+      "xref": [
+        "geo-thucydides",
+        "poli-what-is"
+      ],
+      "quiz": {
+        "q": "In Kenneth Waltz's framework, explaining a war by pointing to the anarchic structure of the state system is which 'image'?",
+        "choices": [
+          "The first image (the individual)",
+          "The second image (the state)",
+          "The third image (the international system)",
+          "The fourth image (international law)"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "ir-anarchy",
+      "src": ["ev-ir-anarchy"],
+      "field": "ir",
+      "level": 1,
+      "depth": "concept",
+      "title": "International anarchy",
+      "fact": "International anarchy means there is no authority above sovereign states — not that world politics is chaotic.",
+      "detail": "In IR, 'anarchy' is a technical term: an-arkhia, the absence of a ruler. It means no body sits above states that can make law, settle disputes by force and enforce verdicts the way a domestic government does over its citizens. This is the near-universal starting premise of the field. The key nuance is that anarchy is the absence of hierarchy, not the presence of disorder — international politics can be highly ordered, with stable borders, trade and treaties, even though no one is in charge. What states make of anarchy is where the schools diverge: neorealists like Kenneth Waltz read it as a self-help world where each state must provide its own security, while liberal institutionalists like Robert Keohane argue institutions, trade and law let states cooperate despite it.",
+      "deploy": "Use it to separate two claims people conflate: 'there is no world police' (true, that's anarchy) does not by itself imply 'so it's every state for itself' (a realist inference, not a fact).",
+      "counter": "Constructivist Alexander Wendt, in his 1992 article 'Anarchy is what states make of it', rejects the idea that anarchy has any fixed logic at all: the same structural fact can produce a war-prone world (a Hobbesian culture) or a peaceful one (a Kantian culture) depending on the identities and shared understandings states develop. For Wendt, anarchy therefore explains far less than Waltz's neorealism claims.",
+      "tags": [
+        "anarchy",
+        "self-help",
+        "sovereignty",
+        "Wendt"
+      ],
+      "prereq": [
+        "ir-what-is"
+      ],
+      "xref": [
+        "ir-realism",
+        "ir-constructivism"
+      ],
+      "quiz": {
+        "q": "In IR theory, 'anarchy' most precisely means:",
+        "choices": [
+          "A state of violent chaos between nations",
+          "The absence of any authority above sovereign states",
+          "The collapse of a national government",
+          "Rule by no political ideology"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-realism",
+      "src": ["ev-ir-realism"],
+      "field": "ir",
+      "level": 2,
+      "depth": "concept",
+      "title": "Realism: power and survival",
+      "fact": "Realism holds that states pursue power and security in a dangerous, anarchic world, putting the national interest ahead of morality.",
+      "detail": "Classical realism is one of IR's oldest traditions. It starts from a sober reading of human nature and the brute fact of anarchy: because no overarching authority protects states, each must look out for itself, and the currency of survival is power. Realists trace the lineage to Thucydides, whose Athenians tell the Melians that 'the strong do what they can and the weak suffer what they must' (Melian Dialogue, 416 BC), and to Thomas Hobbes, whose 1651 Leviathan pictures life without a sovereign as a war of all against all. In the 20th century E.H. Carr's The Twenty Years' Crisis (1939) attacked 'utopian' faith in the League of Nations and a presumed harmony of interests, and Hans Morgenthau's Politics Among Nations (1948) argued the statesman 'thinks and acts in terms of interest defined as power.' Realists judge foreign policy by prudence and consequences rather than abstract moral ideals, and doubt that universal ethics can safely guide states; many, like Morgenthau, still insist this is not pure amoralism but a prudent ethic of statecraft.",
+      "deploy": "When a leader says a moral-sounding war or alliance was really 'in the national interest,' you are hearing the realist frame: power and survival first, principle second.",
+      "counter": "Liberals and neoliberal institutionalists such as Robert Keohane argue realism is too pessimistic — it cannot explain the durable cooperation, trade and institutions that persist even under anarchy. Constructivists like Alexander Wendt counter that 'anarchy is what states make of it': realism treats a fixed human nature and a single meaning of anarchy as given, when both are historically variable and socially constructed. Feminist scholars such as J. Ann Tickner add that realism's 'power and survival' lens encodes a narrowly masculine view of security and erases human and economic security, while postcolonial critics note the tradition was theorised mostly from the vantage of great powers, not the weaker states on the receiving end of power politics.",
+      "tags": [
+        "realism",
+        "power politics",
+        "Morgenthau",
+        "national interest",
+        "Thucydides"
+      ],
+      "prereq": [
+        "ir-anarchy"
+      ],
+      "xref": [
+        "ir-neorealism",
+        "geo-thucydides"
+      ],
+      "quiz": {
+        "q": "Which work is the seminal 20th-century statement of classical realism, defining the national interest 'in terms of power'?",
+        "choices": [
+          "Kant's Perpetual Peace",
+          "Morgenthau's Politics Among Nations",
+          "Wendt's Social Theory of International Politics",
+          "Keohane and Nye's Power and Interdependence"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-neorealism",
+      "src": ["ev-ir-neorealism"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Neorealism: it's the structure",
+      "fact": "Neorealism explains state behaviour by the anarchic structure of the international system, not by human nature.",
+      "detail": "Kenneth Waltz's Theory of International Politics (1979) reworked realism on scientific lines, giving 'structural realism' or neorealism. His key move: drop the appeal to flawed human nature that classical realists like Hans Morgenthau relied on, and explain conflict from the system's structure alone — anarchy (no authority above states) plus how power is distributed (one, two or many great powers). In this view, similarly placed states behave alike regardless of their leaders or regimes, because anarchy forces them to. Within neorealism a split opened over how much power states want. Defensive realists (Waltz, and Robert Jervis in his 1978 article on the security dilemma) argue states seek just enough power to be secure; grabbing too much provokes others and is self-defeating. Offensive realists, above all John Mearsheimer in The Tragedy of Great Power Politics (2001), counter that because intentions can never be known, the safest bet is to maximise relative power and aim for regional hegemony.",
+      "deploy": "Use the defensive/offensive split to read great-power moves: is a rising power (e.g. China) seeking enough security to survive, or all the power it can grab? Your answer is basically Waltz vs Mearsheimer.",
+      "counter": "Liberals (Robert Keohane, Joseph Nye) and constructivists object that pure structure under-predicts: the same bipolar or unipolar configuration has produced very different outcomes, so domestic politics, institutions and ideas must matter. Constructivist Alexander Wendt argues Waltz's 'structure' is too thin — 'anarchy is what states make of it', so the shared ideas states hold decide whether others count as rivals or friends. Classical realists like Morgenthau, in turn, fault Waltz for stripping out statecraft and prudence.",
+      "tags": [
+        "neorealism",
+        "structural realism",
+        "Waltz",
+        "Mearsheimer",
+        "offensive defensive"
+      ],
+      "prereq": [
+        "ir-realism"
+      ],
+      "xref": [
+        "ir-balance-of-power",
+        "geo-security-dilemma"
+      ],
+      "quiz": {
+        "q": "What chiefly distinguishes John Mearsheimer's offensive realism from Kenneth Waltz's defensive realism?",
+        "choices": [
+          "Offensive realism blames human nature, not structure",
+          "Offensive realism says great powers should maximise power, not just seek enough security",
+          "Offensive realism denies that anarchy exists",
+          "Offensive realism trusts international institutions"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-balance-of-power",
+      "src": ["ev-ir-balance-of-power"],
+      "field": "ir",
+      "level": 2,
+      "depth": "concept",
+      "title": "The balance of power",
+      "fact": "States tend to balance against the strongest power to avoid being dominated, rather than join it.",
+      "detail": "The balance of power is the idea that, in an anarchic system, states act to stop any one power from becoming so strong it could dominate the rest. Faced with a rising giant, a state has two basic choices: balance — build up arms or form a counter-alliance against it — or bandwagon — join the strong side hoping for safety or spoils. Hans Morgenthau (Politics Among Nations, 1948) treated the balance of power as a recurring pattern of statecraft that prudent leaders must manage, while Kenneth Waltz (Theory of International Politics, 1979) argued balances form almost automatically under anarchy, whether or not anyone intends them. Stephen Walt refined this into balance of threat — first in a 1985 International Security article, then in The Origins of Alliances (1987): states balance not against raw power alone but against the most threatening state, where threat combines aggregate power, geographic proximity, offensive capability and perceived aggressive intentions. This explains why a weaker-but-scarier neighbour gets balanced against while a distant superpower sometimes does not.",
+      "deploy": "When countries form a coalition against a rising or aggressive state, ask whether they are responding to its sheer power (balance of power) or to how threatening it seems — proximity, intentions, offensive arms (Walt's balance of threat).",
+      "counter": "Whether balances reliably form is empirically contested. Robert Gilpin's hegemonic-stability theory holds that states often bandwagon with or free-ride under a dominant power that supplies order rather than ganging up to topple it. Randall Schweller argues states frequently \"underbalance\" — failing to react to threats for domestic-political reasons — and Stephen Brooks and William Wohlforth note that no great-power coalition formed to balance US unipolar dominance after the Cold War, contrary to what the theory predicts.",
+      "tags": [
+        "balance of power",
+        "balancing",
+        "bandwagoning",
+        "Walt",
+        "alliances"
+      ],
+      "prereq": [
+        "ir-realism"
+      ],
+      "xref": [
+        "ir-neorealism",
+        "ir-hegemonic-stability"
+      ],
+      "quiz": {
+        "q": "Stephen Walt's 'balance of threat' refines balance-of-power theory by arguing that states balance against:",
+        "choices": [
+          "Raw aggregate power alone",
+          "The most threatening state, factoring in proximity and intentions",
+          "Whichever state has the largest economy",
+          "Any democracy near their borders"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-liberalism",
+      "src": ["ev-ir-liberalism"],
+      "field": "ir",
+      "level": 2,
+      "depth": "concept",
+      "title": "Liberalism: cooperation is possible",
+      "fact": "Liberal IR argues that cooperation, trade and institutions can produce peace and progress even under anarchy.",
+      "detail": "Liberalism accepts the realist premise of anarchy but rejects the conclusion that states are trapped in endless rivalry. Its roots are in Immanuel Kant's 1795 essay Perpetual Peace, which argued that republican constitutions, a federation of free states and international law could make peace durable. Modern liberalism comes in strands: republican liberalism holds that representative governments, accountable to citizens who bear war's costs, fight less; commercial liberalism holds that trade and economic interdependence raise the cost of war and so dampen it. Robert Keohane and Joseph Nye, in Power and Interdependence (1977), described 'complex interdependence' — a world with three features: states linked by multiple channels (economic, social, institutional), no fixed hierarchy among issues (security no longer always on top), and military force less usable. There, international institutions matter because they supply information, reduce cheating and let states reach gains they could not reach alone.",
+      "deploy": "When you see rival states still trading, signing treaties and staffing the same organisations, that's the liberal mechanism at work: interdependence and institutions raising the cost of conflict and the payoff of cooperation.",
+      "counter": "Realists reply that liberalism mistakes calm for a change in the rules. Kenneth Waltz argues institutions and trade reflect the underlying distribution of power and last only while great powers tolerate them; Joseph Grieco adds that even when cooperation pays, states fear relative gains (who gains more), which institutions cannot dissolve. From a different angle, dependency and world-systems writers such as Immanuel Wallerstein read 'interdependence' as asymmetric dependence: trade ties bind a poorer periphery to a richer core on unequal terms, so the same links liberals call pacifying can entrench hierarchy and can be weaponised by the stronger side.",
+      "tags": [
+        "liberalism",
+        "interdependence",
+        "Keohane",
+        "Kant",
+        "cooperation"
+      ],
+      "prereq": [
+        "ir-anarchy"
+      ],
+      "xref": [
+        "ir-institutions",
+        "ir-democratic-peace"
+      ],
+      "quiz": {
+        "q": "Keohane and Nye's idea of 'complex interdependence' describes a world in which:",
+        "choices": [
+          "States are linked by many channels and military force is less usable",
+          "A single hegemon enforces all the rules",
+          "Anarchy has been abolished by world government",
+          "Trade is irrelevant to questions of war"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "ir-democratic-peace",
+      "src": ["ev-ir-democratic-peace"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "The democratic peace",
+      "fact": "Democracies very rarely, if ever, go to war with other democracies — one of IR's most robust empirical regularities, though why it holds is contested.",
+      "detail": "The democratic peace is the finding that pairs of democracies almost never fight each other, even though democracies are not generally less war-prone overall. The idea descends from Kant's Perpetual Peace (1795), where citizens who must consent to war and pay its price restrain their rulers; political scientist Michael Doyle revived it in a two-part 1983 essay, \"Kant, Liberal Legacies, and Foreign Affairs,\" noting that constitutionally secure liberal states had not gone to war with one another. Two versions are distinguished. The monadic claim — that democracies are more peaceful in general — is weakly supported, since democracies fight non-democracies readily. The dyadic claim, which most evidence backs, says the peace holds specifically between democracies. Bruce Russett is the leading proponent and sets out two mechanisms: normative (democracies externalise habits of peaceful, lawful dispute resolution and a learned norm against fighting each other) and institutional (elections, checks and divided power slow the rush to war and make peaceful intentions credible to other democracies).",
+      "deploy": "Treat it as a dyadic, not monadic, regularity: don't expect democracies to be peaceful in general, only to avoid war with each other — and watch how borderline cases get coded as \"democracy\" or \"war\".",
+      "counter": "Sebastian Rosato's 2003 critique (American Political Science Review 97:4) argues the causal logic fails: democratic norms did not stop liberal states waging colonial and Cold War wars against weaker peoples, leaders can manufacture consent through nationalism as easily as be restrained by it, and the apparent peace may be an artefact of how 'democracy' and 'war' are defined plus shared interests and US hegemony. Rosato credits geography and power imbalances over regime type — echoing realists like John Mearsheimer, who attribute the pattern to common alliances and the distribution of power.",
+      "tags": [
+        "democratic peace",
+        "Doyle",
+        "Kant",
+        "Russett",
+        "Rosato",
+        "dyadic"
+      ],
+      "prereq": [
+        "ir-liberalism"
+      ],
+      "xref": [
+        "poli-democracy",
+        "ir-realism"
+      ],
+      "quiz": {
+        "q": "The best-supported version of the democratic peace is the:",
+        "choices": [
+          "Monadic claim: democracies are more peaceful in general",
+          "Dyadic claim: democracies rarely fight each other specifically",
+          "Claim that democracies never fight anyone",
+          "Claim that all wars are between democracies"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-institutions",
+      "src": ["ev-ir-institutions"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Institutions and regimes",
+      "fact": "Neoliberal institutionalists argue that international institutions and regimes let even self-interested states cooperate by lowering the costs and risks of doing so.",
+      "detail": "An international regime, in Stephen Krasner's standard 1982 definition, is a set of principles, norms, rules and decision procedures around which expectations converge in an issue area — trade (the WTO), money (the IMF), the sea (UNCLOS). Robert Keohane's 'After Hegemony' (1984) borrows from new institutional economics: states often want to cooperate but fear being cheated, so institutions help by reducing transaction costs, supplying information, monitoring compliance, and lengthening 'the shadow of the future' so that cheating today costs you trust tomorrow. Cooperation can then persist even after the dominant power that built the order declines — institutions outlive the hegemon that created them. Keohane shares realism's starting assumption (states are rational egoists under anarchy) but reaches a more cooperative conclusion, which is why the view is called neoLIBERAL rather than idealist. Constructivists like Alexander Wendt push back from the opposite side of realism: by treating state interests as fixed and given, Keohane and the realists share a thin rationalist frame and miss how institutions can reshape what states want and who they think they are.",
+      "deploy": "Explains why states keep funding the WTO or the climate regime even when no single power forces them to: the institution makes mutual restraint credible and cheap.",
+      "counter": "John Mearsheimer, in 'The False Promise of International Institutions' (International Security, 1994), gives the realist rebuttal: institutions are mostly a reflection of the underlying balance of power, not an independent cause of peace. On his offensive-realist account, institutions matter only when great powers find them useful and are discarded the moment vital interests collide, so they cannot make states stop behaving as power-maximisers.",
+      "tags": [
+        "institutions",
+        "regimes",
+        "neoliberalism",
+        "cooperation",
+        "keohane"
+      ],
+      "prereq": [
+        "ir-liberalism"
+      ],
+      "xref": [
+        "ir-global-governance",
+        "ir-collective-security"
+      ],
+      "quiz": {
+        "q": "On Keohane's neoliberal institutionalist view, how do regimes help self-interested states cooperate?",
+        "choices": [
+          "By replacing anarchy with a world government that enforces rules",
+          "By lowering transaction costs and supplying information so cheating becomes riskier",
+          "By making states altruistic rather than self-interested",
+          "By abolishing the balance of power"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-constructivism",
+      "src": ["ev-ir-constructivism"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Constructivism: anarchy is what states make of it",
+      "fact": "Constructivists hold that anarchy has no single fixed logic: states' interests and identities are built up by ideas, norms and interaction, not handed down by the material structure.",
+      "detail": "Alexander Wendt's 1992 article 'Anarchy Is What States Make of It', in the journal International Organization, attacks the realist claim that the mere absence of a world government forces states into a self-help struggle. For Wendt, self-help and power politics are institutions states build, not features baked into anarchy — what fills the empty container is the shared understandings states form through interaction. His own example: British nuclear weapons mean something different to the United States than North Korean ones, because the meaning of the arms depends on the relationship, not the megatonnage. Identities and interests are therefore endogenous: a state can come to see others as rivals, friends or enemies, and those self-images shape what it wants. Martha Finnemore and Kathryn Sikkink (1998) add a dynamic story — the 'norm life cycle', in which 'norm entrepreneurs' promote a new standard (say, banning landmines), it reaches a tipping point and cascades as states pressure each other to conform, then becomes so taken-for-granted that it is internalised. The school is not only Western: Qin Yaqing's 'relational' constructivism draws on Chinese thought to argue interests grow out of relations rather than fixed selves, and feminist constructivists trace how gendered ideas shape what states treat as security.",
+      "deploy": "Use it to explain change realism struggles with — why the slave trade or colonial conquest, once normal great-power behaviour, became unthinkable, or why some nuclear states alarm us and others do not.",
+      "counter": "Structural realists led by Kenneth Waltz reply that the material logic is not so plastic: under anarchy any state that ignores relative power and survival risks being conquered, so ideas operate only within hard limits set by capabilities. John Mearsheimer puts it more bluntly — ideas and norms 'matter only on the margins', and great-power competition persists whatever states believe. A further limitation, raised by rationalist critics, is that 'soft' constructivism can struggle to predict WHICH ideas will win out, making it strong on explanation after the fact but weaker on forecasting.",
+      "tags": [
+        "constructivism",
+        "wendt",
+        "norms",
+        "identity",
+        "finnemore"
+      ],
+      "prereq": [
+        "ir-anarchy"
+      ],
+      "xref": [
+        "ir-realism",
+        "ir-liberalism"
+      ],
+      "quiz": {
+        "q": "What does Wendt mean by 'anarchy is what states make of it'?",
+        "choices": [
+          "Anarchy is a myth; there is in fact a hidden world government",
+          "The absence of world government has no single fixed logic — interests and identities are socially constructed",
+          "States should embrace chaos as a strategy",
+          "Material power has no effect whatsoever on outcomes"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-marxist-critical",
+      "src": ["ev-ir-marxist-critical"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Marxist and critical IR",
+      "fact": "Marxist and critical theorists read world politics as a structure of global capitalism and hierarchy, not a level field of sovereign equals.",
+      "detail": "Immanuel Wallerstein's world-systems analysis takes the whole capitalist world economy, not the single state, as the unit of analysis. It is split into a wealthy 'core' running high-skill, capital-intensive production, a poor 'periphery' supplying cheap labour and raw materials, and a 'semi-periphery' in between that buffers the two; surplus flows from periphery to core through an unequal division of labour. This builds on dependency theory (Raul Prebisch and Andre Gunder Frank), which argued poor regions are not simply 'behind' but were actively underdeveloped by their place in the system. Robert Cox brought in Antonio Gramsci: dominance works partly through hegemony, where the ruling order's ideas come to seem like plain common sense. Cox's line, from his 1981 essay, is that 'theory is always for someone and for some purpose', so apparently neutral IR theory quietly serves existing power. Cox split 'problem-solving theory', which takes the present order as given, from 'critical theory', which asks how that order arose and how it could be changed.",
+      "deploy": "Use it to question who benefits when 'free trade' or 'global governance' is presented as natural — and to read North-South inequality as built into the system rather than a stage everyone passes through.",
+      "counter": "W. W. Rostow's modernisation theory ('stages of economic growth') gives the rival liberal reading: poor countries are 'behind' on a common ladder, not trapped, and can climb it. The rise of South Korea and Taiwan is the stock counter-example. But the developmental-state scholars who study those cases (Chalmers Johnson, Alice Amsden, Robert Wade) credit strong state intervention, not free markets, so they undercut Rostow's laissez-faire reading as much as Wallerstein's determinism. Realists such as Kenneth Waltz add that the system is driven less by class and capital than by states' enduring security competition under anarchy.",
+      "tags": [
+        "marxism",
+        "critical-theory",
+        "world-systems",
+        "wallerstein",
+        "cox",
+        "gramsci"
+      ],
+      "prereq": [
+        "ir-what-is"
+      ],
+      "xref": [
+        "pe-dependency",
+        "ir-postcolonial"
+      ],
+      "quiz": {
+        "q": "In Wallerstein's world-systems analysis, what is the 'semi-periphery'?",
+        "choices": [
+          "A region with no role in the capitalist world economy",
+          "An intermediate zone that buffers between the wealthy core and the poor periphery",
+          "The same thing as a great power",
+          "A purely cultural, non-economic category"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-english-school",
+      "src": ["ev-ir-english-school"],
+      "field": "ir",
+      "level": 4,
+      "depth": "book",
+      "title": "The English School: a society of states",
+      "fact": "Hedley Bull's 'The Anarchical Society' (1977) argues that states, despite having no government above them, form an international SOCIETY bound by shared rules and institutions.",
+      "detail": "The English School threads a 'via media' (middle way) between realism and liberalism. Against realists, Bull denies that anarchy means a pure war of all against all; against liberals, he denies that order requires a world government or the spread of democracy. Instead states form a society when, conscious of common interests, they agree to common rules and work shared institutions: diplomacy, international law, the balance of power, the management role of the great powers, and even war as an instrument of order. Order — predictable, rule-governed coexistence — is the system's primary good, but Bull sets it against justice: rules that keep the peace may freeze in place an unjust distribution, and pressing too hard for justice (say, by armed intervention) can wreck order. Martin Wight gave the school its scaffolding with 'three traditions' — Hobbesian/realist (international politics as conflict), Grotian/rationalist (the English School's own society-of-states view), and Kantian/revolutionist (a community of humankind).",
+      "deploy": "Use it to explain why sovereign states with no overlord still mostly keep treaties, respect embassies and recognise borders — and to frame debates over humanitarian intervention as a clash between order and justice.",
+      "counter": "Realist Kenneth Waltz argues the 'society' is thin window-dressing over a balance of power that does the real work, and collapses whenever great-power interests clash. From within the school's own tradition, Gerrit Gong ('The Standard of \"Civilisation\" in International Society', 1984) and Edward Keene ('Beyond the Anarchical Society', 2002) show that this 'society of states' began as a club of European empires whose 'standard of civilisation' admitted some peoples and licensed conquering others; postcolonial critics such as John M. Hobson, drawing on Edward Said's account of Orientalism, argue its claimed universality masks a Eurocentric pedigree.",
+      "tags": [
+        "english-school",
+        "international-society",
+        "bull",
+        "order",
+        "justice",
+        "wight"
+      ],
+      "prereq": [
+        "ir-realism",
+        "ir-liberalism"
+      ],
+      "xref": [
+        "ir-international-law",
+        "ir-institutions"
+      ],
+      "quiz": {
+        "q": "What is the central claim of Hedley Bull's 'The Anarchical Society'?",
+        "choices": [
+          "World government is necessary for any international order",
+          "Anarchy makes a permanent war of all against all inevitable",
+          "States with no overlord still form a society bound by shared rules and institutions",
+          "International law has no influence on state behaviour"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "ir-hegemonic-stability",
+      "src": ["ev-ir-hegemonic-stability"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Hegemonic stability and power transition",
+      "fact": "Hegemonic stability theory holds that an open, stable international order depends on one dominant power willing to underwrite it; power-transition theory warns that the decline of that power, or the rise of a challenger, breeds instability and war.",
+      "detail": "An open economic order — free-ish trade, a usable reserve currency, open sea lanes — is a public good: everyone benefits and no one can easily be excluded, so each state is tempted to free-ride rather than pay for it. Charles Kindleberger, in 'The World in Depression' (1973), argued the Great Depression spiralled because Britain could no longer act as system stabiliser and the United States was not yet willing to, so no one supplied liquidity or open markets. Robert Gilpin and Stephen Krasner generalised this beyond trade: a hegemon shoulders a disproportionate share of providing such goods because it gains most from the order it polices (Robert Keohane coined the label 'hegemonic stability theory' in 1980). A.F.K. Organski's power-transition theory, from his 1958 textbook 'World Politics', adds the conflict dynamic: the danger point comes when a fast-rising challenger approaches parity while dissatisfied with the rules the incumbent wrote — that overtaking moment, not a wide power gap, is when major war is most likely.",
+      "deploy": "Frames worries about US relative decline and China's rise: the question becomes whether a rising China is satisfied with the existing order or wants to rewrite it, and whether the transition can stay peaceful.",
+      "counter": "Robert Keohane's neoliberal institutionalism is the standing rebuttal: in 'After Hegemony' (1984) he argues cooperation can persist after the hegemon fades because the institutions it built lower the costs of cooperating on their own; Duncan Snidal similarly shows smaller states will help fund institutions they benefit from. Power-transition fatalism is also contested: Graham Allison's 'Thucydides Trap' (12 of 16 historical rivalries ended in war) is criticised by Joseph Nye and others as overstating inevitability — Allison's own list counts the early-1900s US overtaking of Britain as a peaceful transition. And Susan Strange ('The Persistent Myth of Lost Hegemony', 1987) attacks the premise itself, arguing US structural power was never actually declining the way the theory assumes.",
+      "tags": [
+        "hegemonic-stability",
+        "power-transition",
+        "public-goods",
+        "kindleberger",
+        "gilpin",
+        "organski"
+      ],
+      "prereq": [
+        "ir-balance-of-power"
+      ],
+      "xref": [
+        "geo-thucydides",
+        "ir-institutions"
+      ],
+      "quiz": {
+        "q": "According to power-transition theory, when is major war between great powers most likely?",
+        "choices": [
+          "When one power is overwhelmingly dominant and unchallenged",
+          "When a dissatisfied rising challenger approaches parity with the leading state",
+          "Only when there is no hegemon at all",
+          "When two powers share identical values and institutions"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-soft-power",
+      "src": ["ev-ir-soft-power"],
+      "field": "ir",
+      "level": 2,
+      "depth": "concept",
+      "title": "Soft power",
+      "fact": "Soft power, a term coined by Joseph Nye, is the ability to get the outcomes you want by attraction — through culture, values and legitimacy — rather than by coercion or payment.",
+      "detail": "Joseph Nye introduced the idea in 'Bound to Lead' (1990) and developed it in 'Soft Power' (2004). He splits power into hard power, which works by sticks (military or economic coercion) and carrots (payment and bribes), and soft power, which works by getting others to WANT what you want. Soft power rests on three resources: a country's culture (where it is attractive to others), its political values (when it actually lives up to them at home and abroad), and its foreign policies (when others see them as legitimate and moral). It is co-optive and slow-acting — you cannot simply buy or order it, and it can evaporate when a state's actions contradict its stated values. The related term 'smart power', for the deliberate combination of hard and soft instruments into an effective strategy, is usually credited to Suzanne Nossel (Foreign Affairs, 2004); Nye says he introduced it in 2003 and he did most to popularise it, notably when Hillary Clinton adopted it under the Obama administration.",
+      "deploy": "Explains why Hollywood, universities, the BBC or K-pop can advance a country's interests, and why heavy-handed propaganda or hypocrisy can drain soft power faster than any rival's effort.",
+      "counter": "The attribution and the value of the concept are both contested. On value, Niall Ferguson argues soft power is overrated and derivative — admiration without tanks rarely changes a state's vital decisions, and 'attraction' tends to follow hard power rather than substitute for it. Neorealists hold that states respond to force and economic incentives, not appeal. Janice Bially Mattern argues much 'attraction' is actually coercive (e.g. 'you are either with us or against us' rhetoric), so the hard/soft line blurs. Others note the concept resists measurement, making its effects hard to falsify, and that what counts as attractive 'values' is culturally loaded rather than universal — a Western liberal yardstick presented as neutral.",
+      "tags": [
+        "soft-power",
+        "nye",
+        "attraction",
+        "legitimacy",
+        "smart-power"
+      ],
+      "prereq": [
+        "ir-what-is"
+      ],
+      "xref": [
+        "ir-liberalism",
+        "geo-rimland"
+      ],
+      "quiz": {
+        "q": "In Nye's framework, soft power works mainly by…",
+        "choices": [
+          "Military coercion and the threat of force",
+          "Economic payment and sanctions",
+          "Attraction through culture, values and legitimacy",
+          "Building a larger nuclear arsenal"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "ir-deterrence",
+      "src": ["ev-ir-deterrence"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Deterrence and MAD",
+      "fact": "Deterrence prevents an attack not by physically stopping it but by making the attacker believe retaliation will cost more than any gain.",
+      "detail": "Deterrence works on the mind of the adversary: you hold something they value at risk and credibly threaten to destroy it if they strike. In the nuclear age this hardened into Mutually Assured Destruction (MAD) — if both sides keep a 'second-strike' capability (enough hidden missiles, submarines and bombers to survive a surprise hit and still annihilate the attacker), then striking first is suicide, so neither does. Thomas Schelling, in 'The Strategy of Conflict' (1960) and 'Arms and Influence' (1966), recast this as bargaining: the key variable is not raw firepower but credibility — the threat must be believable, which is hard when carrying it out would be irrational (would the US really trade New York for Berlin?). Schelling's answer was to make threats partly automatic, or to deliberately leave the outcome to chance (his 'threat that leaves something to chance'), shifting the risk of catastrophe onto the opponent. Glenn Snyder named the resulting 'stability–instability paradox': precisely because all-out war is unthinkable, states feel safer waging smaller proxy wars and crises beneath the nuclear threshold.",
+      "deploy": "Explains why two nuclear rivals rarely fight directly but clash through proxies, and why arms-control debates obsess over 'second-strike survivability' and missile defence (which can destabilise by undermining the other side's confidence in retaliating).",
+      "counter": "Whether deterrence actually 'works' is contested. Kenneth Waltz argued nuclear weapons are a powerful stabiliser and that even their spread tends to induce caution; Scott Sagan, in 'The Limits of Safety' (1993) and their joint debate 'The Spread of Nuclear Weapons', counters that organisations, false alarms, rogue commanders and accidents make safety fragile, and that Cold War near-misses (1962 Cuban crisis, the 1983 Petrov false alarm) suggest survival owed much to luck and individual judgement, not tidy MAD logic. Anti-nuclear and just-war critics (e.g. the US Catholic bishops' 1983 'The Challenge of Peace') add that 'stability' is purchased by permanently holding millions of civilians hostage to mass slaughter.",
+      "tags": [
+        "deterrence",
+        "nuclear",
+        "schelling",
+        "MAD",
+        "strategy"
+      ],
+      "prereq": [
+        "ir-neorealism"
+      ],
+      "xref": [
+        "geo-security-dilemma",
+        "ir-realism"
+      ],
+      "quiz": {
+        "q": "Why does 'Mutually Assured Destruction' require a survivable second-strike force?",
+        "choices": [
+          "So a state can win a nuclear war by striking first",
+          "So that even after absorbing a surprise attack a state can still retaliate and destroy the aggressor, making a first strike suicidal",
+          "Because international law sets a minimum arsenal size",
+          "To make missile defence systems unnecessary"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-collective-security",
+      "src": ["ev-ir-collective-security"],
+      "field": "ir",
+      "level": 2,
+      "depth": "concept",
+      "title": "Collective security",
+      "fact": "Collective security means every state in a system pledges to treat an attack on any one of them as an attack on all, and to respond together.",
+      "detail": "The idea, central to liberal internationalism, is to replace shifting alliances with one universal commitment: any aggressor faces the combined weight of everyone else, so aggression never pays. This differs sharply from an alliance. An alliance like NATO points outward at a known enemy and binds a fixed bloc; collective security points inward, has no designated foe, and is meant to discipline whichever member turns aggressor, even a former friend. The League of Nations (Covenant in force 1920) was the first large-scale attempt; the UN Charter's Chapter VII, which lets the Security Council authorise sanctions and force against threats to peace, is the second. It repeatedly underdelivers for two structural reasons. First, enforcement is a collective-good problem: each state would rather others bear the blood and treasure of confronting an aggressor, so they free-ride and the response stalls. Second, the great powers wrote in escape hatches: the five permanent Security Council members each hold a veto, so the system is paralysed exactly when a permanent member, or its client, is the aggressor.",
+      "deploy": "Use it to see why the UN can act decisively over a small state's aggression (Korea 1950, Kuwait 1991) yet does nothing when a permanent member invades a neighbour: the veto, not the principle, is doing the work.",
+      "counter": "E.H. Carr, in The Twenty Years' Crisis (1939), attacked interwar faith in collective security as a \"utopian\" illusion that ignored power: states will not risk much for distant quarrels that don't touch their interests, so it collapses into inaction or into great-power policing dressed in universal language. (Carr did not embrace pure realism either; he wanted realism tempered by some moral and institutional order.) Inis Claude, in Power and International Relations (1962), is more sympathetic, treating it as a worthy but only partially achievable middle ground between pure balance-of-power and world government. A further, often non-Western objection: because enforcement runs through the P5, \"collective\" security can legitimise selective great-power intervention, so which aggressions get punished tracks the permanent members' interests rather than any impartial rule.",
+      "tags": [
+        "collective-security",
+        "league-of-nations",
+        "UN",
+        "liberalism",
+        "institutions"
+      ],
+      "prereq": [
+        "ir-liberalism"
+      ],
+      "xref": [
+        "ir-institutions",
+        "ir-balance-of-power"
+      ],
+      "quiz": {
+        "q": "How does collective security differ from a military alliance?",
+        "choices": [
+          "It is aimed at a specific, named external enemy",
+          "It binds a fixed bloc of members permanently",
+          "It has no designated enemy and is meant to act against whichever member commits aggression",
+          "It only applies in peacetime"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "ir-international-law",
+      "src": ["ev-ir-international-law"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Why states obey international law",
+      "fact": "International law has no world police, yet states obey most of it most of the time — the puzzle is why.",
+      "detail": "International law is built on consent. Its core maxim is 'pacta sunt servanda' — agreements must be kept — and it has two main sources: treaties (written agreements states sign and ratify) and customary international law (rules that bind because states consistently follow them out of a sense of legal obligation, called 'opinio juris'). There is no central enforcer above sovereign states, so why comply at all? Realists like Hans Morgenthau ('Politics Among Nations', 1948) answer that compliance is mostly cheap: law largely codifies what powerful states already want, and it gives way the moment it cuts against a vital interest — so the law is shaped by power more than it constrains it. Liberal and rational-choice accounts (Robert Keohane, Andrew Guzman's 'How International Law Works', 2008) point instead to reputation and reciprocity: a state that breaks deals finds others won't deal with it, and most international life is repeated cooperation where today's defection raises tomorrow's costs. Constructivists like Friedrich Kratochwil ('Rules, Norms, and Decisions', 1989) and Martha Finnemore go further: states internalise norms and come to see themselves as law-abiding members of an international society, so compliance becomes a matter of identity, not just calculation.",
+      "deploy": "Lets you read a treaty violation correctly: ask whether the rule was ever more than a paper-thin reflection of power (realist), whether the violator is burning reputational capital it will need later (liberal), or whether it is being shamed as a norm-breaker (constructivist).",
+      "counter": "The hard case for any compliance theory is the great power that simply breaks the law and absorbs the reputational hit — the US over Iraq 2003, Russia over Ukraine. For realists this confirms law tracks power; defenders reply, with Louis Henkin ('How Nations Behave', 1979), that 'almost all nations observe almost all principles of international law almost all of the time', and the dramatic breaches are the rare exceptions, not the rule. Third World Approaches to International Law (TWAIL) scholars such as Antony Anghie and Makau Mutua reject the framing itself: they argue the doctrine was forged through the colonial encounter — sovereignty and the 'standard of civilisation' were tools to mark European states off from 'uncivilised' others — so asking why states 'obey' a neutral law obscures whose interests that law was built to serve.",
+      "tags": [
+        "international-law",
+        "compliance",
+        "treaties",
+        "custom",
+        "norms"
+      ],
+      "prereq": [
+        "ir-anarchy"
+      ],
+      "xref": [
+        "hist-westphalia",
+        "ir-english-school"
+      ],
+      "quiz": {
+        "q": "What does the principle 'pacta sunt servanda' mean?",
+        "choices": [
+          "Might makes right among states",
+          "Agreements must be kept — treaties create binding obligations through consent",
+          "Customary law overrides all treaties",
+          "A world government enforces all treaties"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-global-governance",
+      "src": ["ev-ir-global-governance"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Global governance",
+      "fact": "Global governance is how the world manages shared problems — trade, finance, climate, disease — through overlapping institutions, even though no world government exists.",
+      "detail": "Many problems spill across borders and no single state can solve them alone, yet there is no sovereign above states to impose solutions. Governance fills the gap through a patchwork: formal international organisations (the UN, the World Trade Organization for trade rules, the IMF for financial crises), 'regimes' (sets of agreed rules and expectations around an issue, like the climate treaties), and looser transgovernmental networks of regulators and experts. James Rosenau and Ernst-Otto Czempiel captured the idea in their 1992 book title 'Governance without Government' — steering and rule-making without a central ruler. A common critique names a 'democratic deficit': these bodies make decisions that bind billions, but the people affected never elect their officials and cannot vote them out. Weighted voting at the IMF and World Bank gives rich states outsized control — the US alone holds about 16% of IMF votes, and since major changes need 85%, that is effectively a veto — and negotiations happen far from any public that could hold them accountable, so legitimacy comes from expertise and bargaining among governments rather than from citizens.",
+      "deploy": "Use it to judge any global body by two questions: is it effective at the cross-border problem (a public-good question), and is it legitimate — who is in the room, who is bound, and who never got a vote?",
+      "counter": "Robert Keohane and Joseph Nye argue the 'democratic deficit' charge misfires (Keohane, 'Global Governance and Democratic Accountability', 2003): global bodies are accountable in other ways — to their member governments, to markets, through peer review and transparency — and demanding direct election misunderstands what they are. From the global South, scholars and movements (e.g. Oxfam and the Tricontinental Institute) counter that the deeper problem is not a missing ballot but skewed power: institutions like the IMF and WTO lock in advantages for wealthy states, so reform of voting weights matters more than electing officials.",
+      "tags": [
+        "global-governance",
+        "IMF",
+        "WTO",
+        "UN",
+        "legitimacy",
+        "democratic-deficit"
+      ],
+      "prereq": [
+        "ir-institutions"
+      ],
+      "xref": [
+        "pf-public-goods"
+      ],
+      "quiz": {
+        "q": "What does the 'democratic deficit' critique of global governance claim?",
+        "choices": [
+          "Global bodies have too many elected officials",
+          "Bodies like the IMF and WTO make binding decisions but their officials are unelected and largely unaccountable to affected populations",
+          "There are not enough international organisations",
+          "Global governance requires a single world government to function"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "ir-feminist",
+      "src": ["ev-ir-feminist"],
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "title": "Feminist IR",
+      "fact": "Feminist IR asks 'where are the women?' in world politics and argues that gender is built into war, security and the state itself.",
+      "detail": "Mainstream IR (realist and liberal alike) treats the state as a unitary, rational actor and 'high politics' as wars and diplomacy among such states. Feminist scholars argue this picture quietly writes women out and smuggles in a masculine ideal of the cold, self-interested, autonomous actor. Cynthia Enloe, in 'Bananas, Beaches and Bases' (Pandora Press, 1989; US edition 1990), keeps asking 'where are the women?' and finds them everywhere the textbooks don't look — as diplomats' wives, military-base sex workers, banana-plantation and textile labour on global supply chains, migrant domestic workers — doing the invisible work that makes international politics run. J. Ann Tickner reworks the core concepts: 'security' is not just defending borders but freedom from poverty and violence including domestic violence, and the supposedly neutral 'rational state' encodes traits culturally coded masculine (autonomy, toughness) while devaluing those coded feminine (care, interdependence). The shared move is to make the invisible visible: by asking how gender structures who fights, who is protected and who is exploited, feminist IR claims to reveal power that gender-blind theory misses.",
+      "deploy": "Apply it to any security story by asking what gendered work and assumptions are off-page: who staffs the bases, whose unpaid labour absorbs the shock of sanctions or war, and why 'rational' and 'strong' are taken to mean the same thing.",
+      "counter": "Feminist IR is itself internally divided, not a single line. Liberal feminists want women added to existing institutions (more women in militaries and foreign ministries); standpoint/difference feminists like Tickner argue women's experience yields different knowledge; poststructural feminists (e.g. Christine Sylvester) deny any fixed 'women's experience' to speak from, treating gender as discursively produced. Mainstream IR pushed back directly: Robert Keohane urged feminists to formulate testable hypotheses and gather data scientifically. Tickner replied in 'You Just Don't Understand' (International Studies Quarterly, 1997) that the disagreement is really about epistemology — what counts as legitimate knowledge — not feminists failing at positivist method; Keohane answered in 1998 ('Beyond Dichotomy').",
+      "tags": [
+        "feminist-IR",
+        "gender",
+        "enloe",
+        "tickner",
+        "keohane",
+        "security",
+        "critical-theory"
+      ],
+      "prereq": [
+        "ir-what-is"
+      ],
+      "xref": [
+        "pe-feminist-econ",
+        "epi-standpoint"
+      ],
+      "quiz": {
+        "q": "What is the central claim behind Cynthia Enloe's question 'where are the women?'",
+        "choices": [
+          "Women should be barred from military service",
+          "Gender is irrelevant to international politics",
+          "Women are everywhere in world politics doing invisible work that mainstream IR overlooks, and gender structures war, security and the state",
+          "Only women can study international relations"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "ir-postcolonial",
+      "src": ["ev-ir-postcolonial"],
+      "field": "ir",
+      "level": 4,
+      "depth": "concept",
+      "title": "Postcolonial and Global IR",
+      "fact": "Postcolonial and Global IR argue that mainstream IR was built from a European vantage point and erases race, empire and the experience of the colonised world.",
+      "detail": "Standard IR dates the modern system to the 1648 Peace of Westphalia and tells its story through European great powers, treating colonialism as a footnote rather than as the central engine of world politics. Postcolonial scholars reject this. Edward Said's 'Orientalism' (1978) showed how Western scholarship constructed 'the East' as exotic, irrational and in need of rule — a body of knowledge that justified empire. Gayatri Spivak's essay 'Can the Subaltern Speak?' (1988), drawing on the Subaltern Studies historians, presses the further point that the colonised were not merely misrepresented but denied a voice in the very categories that describe them. Decolonial and race-centred writers, recovering W.E.B. Du Bois (who named the 'global colour line') and Frantz Fanon, put empire and race back at the centre of how power, hierarchy and 'sovereignty' actually work. Amitav Acharya's 'Global IR', set out in his 2014 ISA presidential address 'Global International Relations (IR) and Regional Worlds', is a constructive response: rather than just critiquing the discipline, it calls for a worldwide field that draws on the histories and ideas of Asia, Africa and Latin America as theory, not just as raw cases to plug into Western models.",
+      "deploy": "Use it to interrogate the discipline's own categories: when a textbook says 'the international system began in 1648' or calls some states 'failed', ask whose history that centres and whose empire it hides.",
+      "counter": "The two impulses pull apart. Acharya explicitly wants Global IR to supplement and pluralise mainstream IR rather than supplant it; more radical critics such as Robbie Shilliam argue that merely adding non-Western thinkers to a Eurocentric discipline leaves its colonial foundations intact, so IR should be decolonised at the root, not broadened. Mainstream realists, for their part, contend that anarchy and the balancing of power are real constraints that operate regardless of cultural standpoint.",
+      "tags": [
+        "postcolonial",
+        "decolonial",
+        "said",
+        "orientalism",
+        "global-IR",
+        "acharya",
+        "empire",
+        "race"
+      ],
+      "prereq": [
+        "ir-marxist-critical"
+      ],
+      "xref": [
+        "pe-dependency",
+        "eh-colonial-extraction"
+      ],
+      "quiz": {
+        "q": "What is Edward Said's 'Orientalism' arguing in the context of postcolonial IR?",
+        "choices": [
+          "That Eastern states are inherently irrational",
+          "That Western knowledge constructed 'the East' as exotic and inferior, producing a body of ideas that helped justify empire",
+          "That IR theory is fully universal and culture-neutral",
+          "That the Westphalian system began in Asia"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-what-is",
+      "src": ["ev-poli-what-is"],
+      "field": "polisci",
+      "level": 1,
+      "depth": "concept",
+      "title": "What political science studies",
+      "fact": "Political science is the systematic, evidence-based study of power, the state, and how collective decisions get made — captured by Harold Lasswell's phrase, 'who gets what, when, how'.",
+      "detail": "Political scientists study how groups of people govern themselves: how power is gained, used and constrained; how states, parties, courts and electorates behave; and what shapes who wins and who loses. Harold Lasswell distilled politics in the title of his 1936 book 'Politics: Who Gets What, When, How' — a fight over scarce goods like money, status and rights. The discipline draws a working line between positive analysis (explaining what is, empirically — why turnout falls, why wars start) and normative analysis (arguing what ought to be — what justice or legitimacy requires). The positive side leans on surveys, statistics, case studies, process tracing and experiments; the aim is to test claims against evidence, not just to express opinions. It overlaps with political philosophy (which is mostly normative) and with economics, sociology and history.",
+      "deploy": "When a debate stalls, ask whether the disagreement is positive (a factual claim you could check) or normative (a value judgment) — they need different kinds of argument, and conflating them produces talking past each other.",
+      "counter": "The 'science' label is contested. Behaviouralists like David Easton pushed for a systematic, methods-driven discipline modelled on natural science. But the positive/normative line is porous, and several named camps say so: Leo Strauss, in 'Natural Right and History' (1953), traced Max Weber's fact/value distinction toward a corrosive relativism; interpretive social scientists in the Weberian 'verstehen' tradition (e.g. Charles Taylor) argue that choosing what to measure and how to interpret human action already carries values; and W.B. Gallie's idea of 'essentially contested concepts' explains why a term like 'democracy' cannot be defined neutrally. On these views a fully value-free political science is an illusion.",
+      "tags": [
+        "politics",
+        "power",
+        "method",
+        "lasswell"
+      ],
+      "prereq": [],
+      "xref": [
+        "ir-what-is",
+        "econ-what-is"
+      ],
+      "quiz": {
+        "q": "In political science, a 'positive' question is one that…",
+        "choices": [
+          "Has an optimistic answer",
+          "Asks what is, empirically, and can be tested against evidence",
+          "Asks what ought to be done",
+          "Concerns only electoral politics"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-power",
+      "src": ["ev-poli-power"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "The three faces of power",
+      "fact": "Power has three \"faces\": winning open decisions (Dahl), keeping issues off the agenda (Bachrach & Baratz), and shaping what people even want (Lukes).",
+      "detail": "Robert Dahl's first face, set out in his 1957 essay \"The Concept of Power\" and his New Haven study Who Governs? (1961), defines power behaviourally: A has power over B to the extent A can get B to do something B would not otherwise do, visible in who wins observable conflicts over decisions. Peter Bachrach and Morton Baratz added a second face in their 1962 article \"Two Faces of Power\" (American Political Science Review): power also works through \"non-decision-making\" — controlling the agenda so that grievances threatening to the powerful are quietly suppressed before they ever reach a vote. Steven Lukes, in Power: A Radical View (1974), added a third, more radical face: power can shape people's very wants and perceptions so they accept a situation against their own real interests, with no visible conflict at all. Lukes himself framed all three as variants of one underlying idea — A getting B to act against B's interests — that differ in how visible the conflict is; the third face leaves no overt losers to point to, which is why it is the most disputed. It hinges on the contested notion of \"real interests\".",
+      "deploy": "When something looks like consensus, check the deeper faces: is an issue simply absent from debate (second face), or have people been taught not to want it (third face)? Apparent agreement can mask suppressed conflict.",
+      "counter": "Dahl and the pluralists resist the third face: if there is no observable conflict and no expressed preference, claiming people have hidden \"real interests\" the analyst can read off looks unfalsifiable and paternalistic — who is the theorist to decide what citizens \"really\" want? Lukes conceded in his 2005 second edition that the third face needs a worked-out account of domination and is hard to operationalise. Feminist theorists (e.g. Amy Allen) push the other way: Lukes still treats power mainly as one agent dominating another (\"power over\") and misses the structural, internalised power in gender and other social relations that no single A imposes on a single B.",
+      "tags": [
+        "power",
+        "dahl",
+        "lukes",
+        "agenda-setting"
+      ],
+      "prereq": [
+        "poli-what-is"
+      ],
+      "xref": [
+        "poli-state",
+        "poli-authoritarianism"
+      ],
+      "quiz": {
+        "q": "Steven Lukes' 'third face' of power refers to…",
+        "choices": [
+          "Winning votes in open political contests",
+          "Keeping certain issues off the agenda entirely",
+          "Shaping people's wants so they accept things against their real interests",
+          "The military's monopoly on force"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "poli-state",
+      "src": ["ev-poli-state"],
+      "field": "polisci",
+      "level": 1,
+      "depth": "concept",
+      "title": "The modern state",
+      "fact": "Max Weber defined the state as the human community that successfully claims a monopoly on the legitimate use of physical force within a given territory.",
+      "detail": "In his 1919 lecture 'Politics as a Vocation', Max Weber argued you cannot define the state by what it does — almost every task has at some point been handled by something else — only by its specific means: force. The state is the organisation whose administrative staff upholds a successful claim to the monopoly of the legitimate use of physical violence over a territory. Three things are bundled here. Territory: a bounded patch of land the claim covers. Sovereignty/monopoly: in principle no rival (mafia, militia, neighbouring state) may legitimately use force inside it, and private violence is allowed only by the state's permission. And administration: a standing bureaucracy and coercive apparatus (police, army, courts, tax collectors) that makes the claim stick day to day. The word 'legitimate' carries the weight — others may use force, but only the state claims the recognised right to.",
+      "deploy": "Use this as a diagnostic: where armed groups openly tax, police and fight without the government's leave (failed states, contested borderlands), the Weberian monopoly has broken down, which is often a better description of 'state failure' than economic measures.",
+      "counter": "The monopoly is an ideal-type, not a fact everywhere. Joel Migdal's 'state-in-society' work ('Strong Societies and Weak States', 1988; 'State in Society', 2001) shows states routinely share real authority with chiefs, clans and local strongmen, so many functioning polities never matched the monopoly. Catharine MacKinnon, in 'Toward a Feminist Theory of the State' (1989), adds that defining the state by public force obscures the coercion inside the household that states long declined to police.",
+      "tags": [
+        "state",
+        "weber",
+        "sovereignty",
+        "monopoly-of-violence"
+      ],
+      "prereq": [
+        "poli-what-is"
+      ],
+      "xref": [
+        "poli-sovereignty",
+        "poli-legitimacy"
+      ],
+      "quiz": {
+        "q": "Weber's definition of the state hinges on its claim to a monopoly over…",
+        "choices": [
+          "Tax collection",
+          "The legitimate use of physical force within a territory",
+          "Religious authority",
+          "Economic production"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-sovereignty",
+      "src": ["ev-poli-sovereignty"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Sovereignty",
+      "fact": "Sovereignty is supreme authority within a territory — a final say with no higher earthly power above it (Bodin, Hobbes).",
+      "detail": "Jean Bodin, in his Six livres de la République (1576), gave the first systematic theory: sovereignty is the absolute, perpetual and indivisible power to make law in a commonwealth, a final authority that is not itself bound by the laws it makes. Thomas Hobbes radicalised it in Leviathan (1651): to escape the war of all against all, people contract to transfer their rights to a sovereign whose word is law and who stands above that law. Two directions matter. Internal sovereignty is supreme authority over everyone inside the borders — the buck stops with the state. External sovereignty is the flip side: independence from any higher authority abroad, so no other state may legitimately command you. The 'Westphalian' ideal — a world of equal, mutually non-interfering territorial states — is named for the 1648 Peace of Westphalia, but historian Andreas Osiander argues that link was largely read back into the treaties by later writers. Today scholars debate erosion: human-rights regimes, the WTO, the EU's 'pooling' of sovereignty, and the Responsibility to Protect doctrine all let outside bodies reach inside the once-sealed state.",
+      "deploy": "When a government invokes 'sovereignty' to block outside criticism (over human rights, trade rules or borders), recognise it is leaning on the external face — the Westphalian norm of non-interference — which is exactly the norm contemporary international law has been chipping away at.",
+      "counter": "Stephen Krasner (Sovereignty: Organized Hypocrisy, 1999) argues the Westphalian story is largely myth: sovereignty is a 'longstanding norm that is frequently violated' through intervention, conditional recognition and great-power coercion, so its supposed recent 'erosion' overstates a golden age that never existed. Postcolonial legal scholar Antony Anghie adds that the equal-sovereignty norm was, for centuries, withheld from colonised peoples by a 'standard of civilization' — sovereignty was a club non-European societies had to be admitted to, not a right they held.",
+      "tags": [
+        "sovereignty",
+        "bodin",
+        "hobbes",
+        "westphalia"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "hist-westphalia",
+        "ir-international-law"
+      ],
+      "quiz": {
+        "q": "The distinction between 'internal' and 'external' sovereignty is between…",
+        "choices": [
+          "Domestic and foreign policy budgets",
+          "Supreme authority over those inside the territory vs. independence from any higher authority abroad",
+          "Elected vs. unelected officials",
+          "Written vs. unwritten constitutions"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-legitimacy",
+      "src": ["ev-poli-legitimacy"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Legitimate authority",
+      "fact": "Legitimacy is what makes power feel rightful rather than mere force; Max Weber named three pure types — traditional, charismatic, and legal-rational.",
+      "detail": "A regime that rules by raw coercion alone is fragile and expensive; legitimacy is the belief, among the ruled, that the rulers have a rightful claim to be obeyed, which makes them obey more or less voluntarily. Max Weber distinguished three 'pure types' of legitimate domination by their source. Traditional authority rests on custom and the sanctity of long-standing arrangements — 'we obey the king because there has always been a king' (monarchy, patriarchy, inherited chieftaincy). Charismatic authority rests on devotion to the extraordinary personal gifts of a leader — a prophet, a revolutionary, a demagogue — and is unstable, since it must be 'routinised' into office or tradition to outlast the founder. Legal-rational authority rests on belief in impersonal rules: you obey the office and the law, not the person, and officials are bound by the same rules. Modern bureaucratic states lean mainly on the third, though Weber held that real regimes always mix all three.",
+      "deploy": "Read leaders by their legitimacy claim: a strongman who builds a personality cult is banking on charisma (and faces the succession problem when he goes), whereas one who endlessly invokes 'the constitution' or 'the rule of law' is claiming legal-rational authority — and can be held to those rules.",
+      "counter": "Weber's typology is descriptive (why people in fact accept rule), not normative. The Stanford Encyclopedia (Fabienne Peter) marks the split: liberal social-contract theorists — John Rawls, who ties legitimacy to the justification of coercive power, and Joseph Raz, whose 'service conception' grants authority only where obeying it helps you better follow the reasons that already apply to you — hold that whether authority is genuinely rightful is a separate moral question, so a regime widely believed rightful (Weberian legitimacy) can still be unjust and owed no real obedience. A sharper challenge comes from outside that liberal frame: feminist theorist Carole Pateman (The Sexual Contract, 1988) argues the contract tradition itself conceals an 'original' patriarchal subordination of women, so it cannot be the neutral yardstick of legitimate authority that Rawls and Raz assume.",
+      "tags": [
+        "legitimacy",
+        "weber",
+        "authority",
+        "charisma"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "poli-bureaucracy",
+        "poli-authoritarianism"
+      ],
+      "quiz": {
+        "q": "Weber's 'charismatic' authority is grounded in…",
+        "choices": [
+          "Long-standing custom and tradition",
+          "Devotion to the extraordinary personal qualities of a leader",
+          "Belief in impersonal rules and offices",
+          "Control of the economy"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-regime-types",
+      "src": ["ev-poli-regime-types"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Regime types",
+      "fact": "Political systems are classed roughly as democracies, authoritarian regimes, totalitarian regimes, and 'hybrid' ones — including competitive authoritarianism, where elections are real but the field is tilted.",
+      "detail": "A 'regime' is the basic rules deciding who holds power and how it is gained and kept. The classic poles: democracy, where rulers are chosen through free and fair, competitive elections with civil liberties intact; and authoritarianism, where power is held without genuine electoral accountability and dissent is limited. Totalitarianism is an extreme subtype that goes further — a single ideology, a mass party, terror and the attempt to control all of society and private life (Nazi Germany, Stalin's USSR). Hannah Arendt theorised it in The Origins of Totalitarianism (1951); Carl Friedrich and Zbigniew Brzezinski (Totalitarian Dictatorship and Autocracy, 1956) defined it as a six-point 'syndrome': an official ideology, a single mass party, terroristic police, monopoly of communications, monopoly of weapons, and a centrally directed economy. The big late-20th-century insight is that many regimes sit in between. Steven Levitsky and Lucan Way's 'competitive authoritarianism' (Journal of Democracy article 2002; book 2010) names regimes that hold real, contested multiparty elections — opposition can and sometimes does win — yet so abuse state power, media and the courts that the playing field is heavily, unfairly tilted toward incumbents. For Levitsky and Way these are not flawed democracies but a distinct authoritarian type wearing democratic clothes.",
+      "deploy": "Don't ask only 'are there elections?' Ask whether the field is level: if the opposition can run but faces a captured media, weaponised tax authorities and stacked courts, Levitsky and Way would call it competitive authoritarianism, not a young democracy.",
+      "counter": "Where to draw the boxes is contested. Giovanni Sartori ('Concept Misformation in Comparative Politics', 1970) warned against 'concept stretching' — overloading a category until it no longer discriminates; in that spirit, projects like V-Dem (led by Staffan Lindberg and colleagues) and Freedom House grade regimes on continuous democracy scales rather than sorting them into discrete types. Others argue the labels themselves carry a Western, liberal-democratic benchmark in which competitive elections are the test of legitimate rule. China's government advances a rival yardstick — Xi Jinping's 'whole-process people's democracy', judged by governing outcomes and consultation rather than contested elections — and academics such as Daniel A. Bell (The China Model) defend meritocratic alternatives, while critics like Larry Diamond counter that such framings relabel authoritarian control as democracy.",
+      "tags": [
+        "regimes",
+        "democracy",
+        "authoritarianism",
+        "levitsky-way"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "poli-democracy",
+        "poli-authoritarianism"
+      ],
+      "quiz": {
+        "q": "In Levitsky and Way's framework, a 'competitive authoritarian' regime is one that…",
+        "choices": [
+          "Bans all elections outright",
+          "Holds genuinely contested elections but tilts the playing field heavily toward incumbents",
+          "Is simply a young, imperfect democracy on its way to consolidating",
+          "Has no single ruling party"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-democracy",
+      "src": ["ev-poli-democracy"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "What democracy is",
+      "fact": "Democracy can be defined thinly (just competitive elections) or thickly (real participation, rights and equality) — and the two pull in different directions.",
+      "detail": "Joseph Schumpeter, in Capitalism, Socialism and Democracy (1942), offered the minimalist view: democracy is just a method, 'that institutional arrangement for arriving at political decisions in which individuals acquire the power to decide by means of a competitive struggle for the people's vote'. On this reading you have democracy if rulers compete for votes and losers hand over power — nothing more. Robert Dahl, in Polyarchy (1971), set a higher but still procedural bar he called 'polyarchy', requiring both contestation (free, fair, regular elections among rival candidates) and inclusive participation (near-universal suffrage plus free speech, free press and the right to form associations). Against both, participatory theorists like Carole Pateman and substantive thinkers like Amartya Sen hold that elections are hollow if citizens cannot really shape decisions or if basic capabilities and social goods are denied, so they judge democracy partly by its outcomes. The deep split is procedure versus outcomes: is a system democratic because of how decisions are made, or because of what they deliver?",
+      "deploy": "Tells you why people argue past each other about which countries 'count' as democracies — they are using thin (electoral) versus thick (substantive) yardsticks.",
+      "counter": "Dahl deliberately avoided calling real systems 'democracies', reserving that word for an unreachable ideal of full government responsiveness and using 'polyarchy' for actual regimes. William I. Robinson (Promoting Polyarchy, 1996) goes further, arguing polyarchy is a managed, elite-dominated 'low-intensity democracy' that legitimates inequality while limiting genuine popular power — so meeting the procedural checklist is not the same as rule by the people.",
+      "tags": [
+        "democracy",
+        "regimes",
+        "political-theory"
+      ],
+      "prereq": [
+        "poli-regime-types"
+      ],
+      "xref": [
+        "poli-democratization",
+        "ir-democratic-peace"
+      ],
+      "quiz": {
+        "q": "What distinguishes Robert Dahl's 'polyarchy' from Schumpeter's bare minimalist definition of democracy?",
+        "choices": [
+          "Polyarchy requires both electoral contestation AND inclusive participation with civil liberties, not just a competitive struggle for votes",
+          "Polyarchy requires that the government deliver good social outcomes",
+          "Polyarchy abolishes elections in favour of direct citizen assemblies",
+          "Polyarchy applies only to one-party states"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "poli-authoritarianism",
+      "src": ["ev-poli-authoritarianism"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "How autocracies survive",
+      "fact": "Dictatorships endure not by being uniquely evil but by following a survival logic: repress threats, buy off key supporters, and manufacture legitimacy.",
+      "detail": "Johannes Gerschewski (2013) synthesises the literature into three pillars of authoritarian durability: repression (jailing, surveilling or killing opponents), co-optation (rewarding potential rivals with money, jobs and access so they stay loyal), and legitimation (claiming a right to rule via performance, nationalism, religion or rigged elections). The selectorate theory of Bruce Bueno de Mesquita, Alastair Smith, Randolph Siverson and James Morrow — set out in The Logic of Political Survival (2003) — sharpens the co-optation piece: every leader survives by satisfying a 'winning coalition', the supporters whose backing is essential to staying in power. In an autocracy that coalition is tiny (a handful of generals, financiers or party bosses), so the cheapest strategy is to funnel private rewards (bribes, contracts, posts) to those few rather than provide public goods for everyone. Information control is the connective tissue: Sergei Guriev and Daniel Treisman (Spin Dictators, 2022) argue that many modern 'informational autocrats' lean less on mass terror and more on censorship, propaganda and faked competence to stop ordinary people from coordinating a revolt. The point is that these are intelligible incentives, not mere villainy — change the size of the winning coalition and the behaviour changes.",
+      "deploy": "Explains why pouring aid into a dictatorship often funds the regime rather than the people: a small winning coalition makes it rational to buy loyalty with private spoils.",
+      "counter": "Selectorate theory's clean win-set logic has been criticised as hard to measure: Jessica Weeks notes it wrongly assumes coalition members lose their independent power bases when a leader falls, and that all actors read the world the same way. Steven Levitsky and Lucan Way offer a different account — what actually keeps many regimes alive is the organisational strength and cohesion of the ruling party and coercive apparatus. A revolutionary or party-built state (their work on competitive authoritarianism and revolutionary regimes) can survive crises that a pure spoils model would predict should topple it.",
+      "tags": [
+        "authoritarianism",
+        "regimes",
+        "comparative-politics"
+      ],
+      "prereq": [
+        "poli-regime-types"
+      ],
+      "xref": [
+        "poli-legitimacy",
+        "poli-clientelism"
+      ],
+      "quiz": {
+        "q": "According to selectorate theory (Bueno de Mesquita, Smith, Siverson and Morrow), why do autocrats tend to provide private rewards rather than public goods?",
+        "choices": [
+          "Because international law forbids them from spending on public goods",
+          "Because their 'winning coalition' is small, so buying off those few essential supporters is cheaper than serving everyone",
+          "Because autocrats are inherently more corrupt by personality",
+          "Because public goods are illegal under one-party rule"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-democratization",
+      "src": ["ev-poli-democratization"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Waves of democratization",
+      "fact": "Democracy has spread in \"waves\" followed by partial \"reverse waves\" — and whether wealth reliably brings democracy is hotly disputed.",
+      "detail": "Samuel Huntington, in The Third Wave (1991), argued that democratization has come in three big waves. A long first wave (roughly 1828–1926, US and European suffrage) peaked with about 29 democracies, then ebbed after Mussolini's 1922 rise. A second wave came after World War II (decolonisation and reconstruction), cresting around 1962. A third began with Portugal's Carnation Revolution of 25 April 1974, sweeping through Southern Europe, Latin America, Asia and the post-Soviet bloc. Each wave was followed by a \"reverse wave\" in which some new democracies collapsed back into authoritarian rule. A separate strand, modernization theory, asks what causes democracy: Seymour Martin Lipset's 1959 article \"Some Social Requisites of Democracy\" claimed that economic development — wealth, education, a large middle class, urbanisation — makes democracy more likely and more stable. The link is real on average but disputed on direction and exceptions. Oil-rich states (Saudi Arabia, the Gulf monarchies) grow wealthy yet stay authoritarian: rentier-state theorists Hazem Beblawi and Giacomo Luciani argue that rulers funded by resource rents need not tax citizens, so citizens demand less accountability. China has become rich without democratizing, straining the simple \"wealth brings democracy\" story.",
+      "deploy": "Frames debates about whether economic growth will eventually \"democratize\" a country like China — and warns that resource wealth can entrench autocracy instead.",
+      "counter": "Adam Przeworski and Fernando Limongi (1997) reanalysed the data and argued modernization gets the mechanism wrong: wealth does not reliably trigger transitions to democracy (they reject the \"endogenous\" account), but once a democracy exists, higher income powerfully prevents it from dying (the \"exogenous\" survival story). On the wave imagery, Huntington's three-wave periodisation is one historian's frame, not a fixed fact, and can read history as a Western-led march. Steven Levitsky and Lucan Way counter that many third-wave transitions did not stall and \"ebb\" so much as settle into durable hybrid \"competitive authoritarian\" regimes — holding real but unfair elections — rather than completing the journey to liberal democracy.",
+      "tags": [
+        "democratization",
+        "modernization",
+        "comparative-politics"
+      ],
+      "prereq": [
+        "poli-democracy"
+      ],
+      "xref": [
+        "poli-backsliding",
+        "poli-political-culture"
+      ],
+      "quiz": {
+        "q": "Why do oil-rich states pose a challenge to Lipset's modernization theory?",
+        "choices": [
+          "They are too poor to sustain elections",
+          "They grow wealthy from resource rents yet often remain authoritarian, weakening the 'wealth brings democracy' link",
+          "They were excluded from all three of Huntington's waves",
+          "They democratize faster than any other type of state"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-backsliding",
+      "src": ["ev-poli-backsliding"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Democratic backsliding",
+      "fact": "Modern democracies usually die not by tanks but by elected leaders slowly bending the rules in their own favour while keeping a democratic facade.",
+      "detail": "The political scientist Nancy Bermeo named the shift in her 2016 article 'On Democratic Backsliding' (Journal of Democracy): the open military coup has largely given way to 'executive aggrandizement', where a leader wins power legitimately, then weakens the checks on that power one by one. Steven Levitsky and Daniel Ziblatt popularised the same idea in 'How Democracies Die' (2018). The typical playbook is to 'capture the referees' (pack courts, election commissions and regulators with loyalists), sideline or co-opt opponents and independent media, and rewrite the rules of the game (gerrymander, change term limits, restrict who can vote) — each move framed as legal and even popular. Because the steps are gradual and dressed in legal language, there is rarely a single dramatic moment that triggers resistance; by the time the system is hollowed out, elections may still happen but can no longer be lost. Levitsky and Ziblatt stress that written constitutions are not enough: democracy also depends on unwritten 'soft guardrails', especially 'mutual toleration' (accepting rivals as legitimate) and 'forbearance' (not using every legal power to the hilt). The V-Dem Institute reports that since around 2010 more countries have been autocratizing than democratizing, with Hungary, Turkey, India, Poland, Brazil and the United States cited as cases.",
+      "deploy": "Gives you a checklist for spotting erosion early — watch for capture of courts and election bodies and the breaking of norms, not just for soldiers in the streets.",
+      "counter": "The framework can over-diagnose. Comparativists such as Adam Przeworski argue democracy is more resilient than alarmist accounts assume — strong institutions and voters sometimes reverse erosion, as in Poland's 2023 turnover, when a coalition under Donald Tusk ousted Law and Justice. But International IDEA and writers in the Journal of Democracy caution that one election does not undo capture: repairing packed courts and politicised media may force the new government toward the same hardball it condemned. Separately, scholars of comparative democratization like Sheri Berman and critics of the 'global democratic recession' thesis (e.g. work questioning Freedom House and V-Dem framings) note the norms-erosion story is built largely on US and European cases; it can treat liberal-democratic norms as a fixed baseline while ignoring how those same democracies' histories of exclusion, colonialism and external interference shaped which norms ever existed.",
+      "tags": [
+        "backsliding",
+        "democracy",
+        "rule-of-law"
+      ],
+      "prereq": [
+        "poli-democratization"
+      ],
+      "xref": [
+        "poli-populism",
+        "poli-rule-of-law"
+      ],
+      "quiz": {
+        "q": "What do Levitsky and Ziblatt mean by 'capturing the referees' in democratic backsliding?",
+        "choices": [
+          "Bribing sports officials to influence elections",
+          "Staging a military coup to seize the presidency",
+          "Packing courts, election commissions and regulators with loyalists so they no longer constrain the leader",
+          "Inviting foreign monitors to certify elections"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "poli-separation-powers",
+      "src": ["ev-poli-separation-powers"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Separation of powers",
+      "fact": "Split government into legislative, executive and judicial branches that can each block the others, so no single hand holds all the power.",
+      "detail": "The doctrine is most associated with Montesquieu, who in 'The Spirit of the Laws' (1748) warned that 'when the legislative and executive powers are united in the same person... there can be no liberty.' His fix was to divide state power into three functions — making law (legislature), enforcing it (executive), and judging disputes under it (judiciary) — and house them in distinct, independent bodies. He drew on earlier ideas: Polybius described the Roman Republic as a mixed government, and John Locke (Two Treatises, 1690) had already split legislative from executive power. Montesquieu's aim was liberty through structure: by arming each branch with some power to check the others (a veto, the power of the purse, judicial review, confirmation of appointments), 'power should be a check to power' so no faction can dominate. Pure separation is rare; most constitutions blend it with 'checks and balances' in which branches share and contest powers rather than work in sealed compartments. The US Constitution is the textbook embodiment, but the logic shapes courts, legislatures and executives across many democracies.",
+      "deploy": "Explains why a court can strike down a law or a legislature can refuse a budget — these frictions are designed in, not malfunctions.",
+      "counter": "Walter Bagehot argued the opposite for Britain in 'The English Constitution' (1867): he praised the 'efficient secret' of fusing executive and legislature in the cabinet, which lets a unified majority govern decisively rather than gridlock. From another angle, Woodrow Wilson ('Congressional Government', 1885) held that the US separation diffused responsibility so much that real power drifted to unaccountable committees; legal realists and later critics make the broader point that a three-branch chart can hide where power actually sits — strong executives, party discipline, militaries, central banks or concentrated wealth can hollow out the paper separation.",
+      "tags": [
+        "institutions",
+        "constitutionalism",
+        "political-theory"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "poli-presidential-parliamentary",
+        "poli-rule-of-law"
+      ],
+      "quiz": {
+        "q": "What was Montesquieu's core reason for separating government into legislative, executive and judicial branches?",
+        "choices": [
+          "To make government cheaper to run",
+          "To prevent tyranny by stopping any one person or body from holding all powers, letting each branch check the others",
+          "To guarantee that the executive always wins disputes",
+          "To abolish the judiciary's role in lawmaking"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-presidential-parliamentary",
+      "src": ["ev-poli-presidential-parliamentary"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Presidential vs parliamentary",
+      "fact": "Either you elect a president separately for a fixed term, or you draw the executive from the legislature and let it fall when it loses the legislature's confidence — and Juan Linz argued the first is the riskier design.",
+      "detail": "These are two basic blueprints for the executive. In a presidential system the head of government is elected directly (or via an electoral college) for a fixed term, separately from the legislature, so the two can be held by opposing parties. In a parliamentary system the head of government (a prime minister) is chosen by and from the legislature and stays in office only while commanding its majority — a lost vote of confidence can bring the government down and trigger a new one or an election. Juan Linz, in \"The Perils of Presidentialism\" (Journal of Democracy, 1990), argued presidentialism is more prone to breakdown for two main reasons. First, dual legitimacy: when a president and a legislative majority from rival parties both claim a popular mandate, no constitutional umpire can resolve the deadlock, so each side is tempted to escalate. Second, rigidity: a president's fixed term cannot easily remove a failing or radical leader before the clock runs out, whereas a parliament can swap a prime minister mid-stream. Linz also argued presidential elections are \"winner-take-all,\" which can sharpen polarisation.",
+      "deploy": "Helps you read constitutional design choices in new or reforming democracies — and why coalition-friendly parliamentary systems are often recommended for divided societies.",
+      "counter": "Linz's thesis is contested. José Antonio Cheibub (Presidentialism, Parliamentarism, and Democracy, 2007) argues the correlation between presidentialism and collapse is largely spurious: presidential regimes cluster in countries with a legacy of powerful, politically involved militaries, and it is that legacy — not the constitutional form — that drives the instability. Defenders of presidentialism (and of semi-presidential hybrids like France's) add that fixed terms give stability and direct accountability, and that well-designed parties and electoral rules can blunt the deadlock and rigidity Linz feared. Even sympathetic critics like Scott Mainwaring argued the real danger is the specific combination of presidentialism with a fragmented multiparty system, not presidentialism as such.",
+      "tags": [
+        "institutions",
+        "comparative-politics",
+        "constitutionalism"
+      ],
+      "prereq": [
+        "poli-separation-powers"
+      ],
+      "xref": [
+        "poli-duverger",
+        "poli-veto-players"
+      ],
+      "quiz": {
+        "q": "What is the 'dual legitimacy' problem Juan Linz identified in presidential systems?",
+        "choices": [
+          "Two presidents are elected at the same time",
+          "Both a directly elected president and the legislature can claim a popular mandate, with no umpire to resolve deadlock between them",
+          "The judiciary and executive share the same election",
+          "Voters cast two ballots for the same office"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-federalism",
+      "src": ["ev-poli-federalism"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Federalism",
+      "fact": "Federalism splits sovereign authority between a central government and regional units, so each has powers the other cannot simply override.",
+      "detail": "In a unitary state (France, Japan) all authority flows from the centre, which can create or abolish local bodies at will. A federation (the United States, Germany, India, Brazil) instead divides sovereignty by a constitution: the central government runs things like defence and currency, while states or provinces keep guaranteed powers over matters such as schooling or policing, and neither level can unilaterally strip the other's domain. A common guide for who decides what is subsidiarity — the principle that a task should sit at the lowest level able to handle it, with the centre stepping in only when the smaller unit cannot. Large or diverse countries often federate because it lets distinct regions, languages or religions govern their own affairs while staying in one state, defusing pressure to break apart.",
+      "deploy": "Use it to explain why a US state or German Land can defy national policy on, say, drug law or immigration enforcement, and why secession crises (Catalonia, Quebec) are partly fights over the federal bargain.",
+      "counter": "William Riker (Federalism: Origin, Operation, Significance, 1964) argued federalism is less about high principle than a bargain struck by elites expanding territory, usually to meet a military or external threat, and that it can entrench the powerful: in the antebellum US, 'states' rights' shielded slavery. Alfred Stepan ('Federalism and Democracy: Beyond the U.S. Model', 1999) added that over-representing small units — as the US Senate does — makes some federations 'demos-constraining', letting a minority block the national majority.",
+      "tags": [
+        "politics",
+        "federalism",
+        "sovereignty",
+        "subsidiarity"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "poli-separation-powers",
+        "china-provinces"
+      ],
+      "quiz": {
+        "q": "What most distinguishes a federation from a unitary state?",
+        "choices": [
+          "It always has a written constitution",
+          "Regional units hold constitutionally guaranteed powers the centre cannot simply abolish",
+          "It is always a democracy",
+          "Its regions are larger than in a unitary state"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-veto-players",
+      "src": ["ev-poli-veto-players"],
+      "field": "polisci",
+      "level": 4,
+      "depth": "concept",
+      "title": "Veto players",
+      "fact": "A veto player is any actor whose agreement is needed to change policy; the more of them there are, and the further apart their views, the harder it is to change anything.",
+      "detail": "George Tsebelis built this framework (most fully in his 2002 book Veto Players: How Political Institutions Work) to compare political systems on one dimension: how easy is it to depart from the status quo? Some veto players are institutional — a president, a second chamber, a constitutional court — and some are partisan, like the parties in a coalition. Using spatial models of bargaining, where each actor has an ideal point in policy space and any change must be preferred by all of them, Tsebelis showed that policy stability rises as you add veto players and as the ideological distance between them grows. He also stressed that the count alone says little; what matters is how the number interacts with the distances between ideal points. This explains why a fragmented coalition or a divided US government produces gridlock, and why systems with few veto players can swing policy sharply. The framework deliberately cuts across the usual labels, letting you compare a presidential system and a parliamentary coalition on the same yardstick.",
+      "deploy": "Reach for it to predict where reform will stall: count who can say no and how far apart they are, rather than just asking whether a country is presidential or parliamentary.",
+      "counter": "The theory predicts stability but says little about the direction or quality of policy, and Tsebelis himself concedes that actors' preferences are hard to measure. Ellen Immergut, whose 1990 article and 1992 book on health-care politics introduced the rival language of 'veto points,' argued the blocking opportunities depend on shifting parliamentary majorities and the rules of each decision stage, not on a fixed roster of actors. Critics such as Mark Hallerberg point out that agenda-setting power and informal norms can let a determined government route around nominal veto players, so the same institutional map can yield very different reform records.",
+      "tags": [
+        "politics",
+        "comparative",
+        "institutions",
+        "gridlock"
+      ],
+      "prereq": [
+        "poli-separation-powers"
+      ],
+      "xref": [
+        "poli-collective-action",
+        "poli-presidential-parliamentary"
+      ],
+      "quiz": {
+        "q": "According to Tsebelis, policy is hardest to change when…",
+        "choices": [
+          "There is a single strong leader",
+          "There are many veto players who are ideologically far apart",
+          "The economy is growing",
+          "Voters are well informed"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-bureaucracy",
+      "src": ["ev-poli-bureaucracy"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Bureaucracy",
+      "fact": "Max Weber described modern bureaucracy as rule-bound, hierarchical and impersonal — powerful precisely because it is predictable, yet hard for politicians to control.",
+      "detail": "Writing in the late 1910s (the work was published posthumously in 1921-22, after his death in 1920), Weber distinguished rational-legal authority — obeying impersonal rules — from rule by tradition or charisma, and saw bureaucracy as its purest form. Its features are an 'ideal type', a deliberate simplification rather than a snapshot of any real office: a clear hierarchy, fixed jurisdictions, decisions made by written rules and kept in files, officials hired for qualifications and paid salaries, and the separation of the office from the person who holds it, so you obey the post, not the individual. This makes administration calculable, which is why modern states and large firms are built on it. But it concentrates expertise and information in the officials' hands, creating a principal-agent problem: elected politicians (the principals) set goals, while the administrators (the agents) who carry them out know more and may quietly pursue their own ends, so steering them is genuinely hard. Weber also feared this efficiency could harden into an 'iron cage' (Talcott Parsons' rendering of Weber's stahlhartes Gehäuse) that even rulers cannot escape.",
+      "deploy": "Use it to see why a newly elected minister cannot just snap their fingers and change a department, and why sluggish or unresponsive agencies are partly a structural feature — concentrated expertise, fixed rules, career officials who outlast ministers — and not simply sabotage by a hostile 'deep state'.",
+      "counter": "Weber's bureaucracy is an ideal type, and named critics pull against it from different directions. Robert Merton ('Bureaucratic Structure and Personality', 1940) argued rules produce 'goal displacement', where obeying the rule becomes the goal and the actual purpose suffers. Michael Lipsky (Street-Level Bureaucracy, 1980) found that front-line staff — teachers, police, caseworkers — exercise wide discretion the hierarchy never sees, so policy is really made at the counter. William Niskanen (Bureaucracy and Representative Government, 1971) claimed agencies systematically over-expand their budgets; but Patrick Dunleavy's bureau-shaping model (1991) counters that senior officials prefer interesting, low-conflict work over raw budget size, so the budget-maximizing claim is overstated. From a feminist and anarchist angle, Kathy Ferguson (The Feminist Case Against Bureaucracy, 1984) rejects the whole frame: bureaucracy is not a neutral tool that occasionally malfunctions but a structure of domination that subordinates clients and officials alike, which adding women to management will not fix.",
+      "tags": [
+        "politics",
+        "bureaucracy",
+        "weber",
+        "principal-agent"
+      ],
+      "prereq": [
+        "poli-legitimacy"
+      ],
+      "xref": [
+        "micro-principal-agent",
+        "poli-state"
+      ],
+      "quiz": {
+        "q": "For Weber, what makes bureaucratic authority 'rational-legal'?",
+        "choices": [
+          "Officials are obeyed personally because of their charisma",
+          "Authority rests on impersonal rules attached to offices, not on the person",
+          "Decisions are handed down by tradition over generations",
+          "Officials are elected by the public"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-rule-of-law",
+      "src": ["ev-poli-rule-of-law"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "The rule of law",
+      "fact": "The rule of law means the government itself is bound by law applied equally and predictably — not just that it uses law to control everyone else.",
+      "detail": "The key contrast is with 'rule by law', where rulers use law as a tool to command subjects but stand above it themselves; the rule of law instead subjects the rulers to the same general, public, stable rules as everyone, enforced by independent courts. Theorists split it into two conceptions. A thin or formal/procedural conception asks only about form: are laws clear, public, prospective, consistent and impartially applied? Lon Fuller's eight principles (his 'inner morality of law') and Joseph Raz's account both sit here — though they disagree on whether meeting those formal demands is itself a moral achievement (Fuller) or just the law working efficiently as an instrument (Raz). On the thin view even a harsh regime can satisfy the rule of law if it follows its own rules. A thick or substantive conception adds content: the laws must also protect basic rights and human dignity, so a regime that lawfully oppresses (Arthur Chaskalson and Tom Bingham cite apartheid South Africa) fails the test. The thin version is more neutral and easier to agree on; the thick version captures more of what people want but builds in contested claims about which rights count.",
+      "deploy": "Use the thin/thick distinction to cut through debates about authoritarian states that have 'lots of law': they may score well on procedure while failing any rights-based test.",
+      "counter": "Joseph Raz defends the thin view, warning that loading every good thing (democracy, rights, social justice) into the rule of law empties the phrase of distinct meaning — for him it is 'just one of the virtues' a legal system can have. From the left, the Marxist historian E.P. Thompson (in Whigs and Hunters, 1975) and the critical legal studies movement note the ideal can mask power: equal rules can still entrench unequal property and class relations — yet Thompson still judged it 'an unqualified human good' worth defending. Postcolonial critics add a further angle: rule-of-law language was used to legitimise colonial administration, so its export today can carry the same imperial baggage.",
+      "tags": [
+        "politics",
+        "law",
+        "constitutionalism",
+        "rights"
+      ],
+      "prereq": [
+        "poli-state"
+      ],
+      "xref": [
+        "poli-separation-powers",
+        "poli-backsliding"
+      ],
+      "quiz": {
+        "q": "What is the central difference between 'rule of law' and 'rule by law'?",
+        "choices": [
+          "Rule of law requires a written constitution; rule by law does not",
+          "Under rule of law the government itself is bound by the law; under rule by law the rulers stand above it",
+          "Rule by law applies only in democracies",
+          "There is no real difference; the terms are synonyms"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-ideologies",
+      "src": ["ev-poli-ideologies"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "The left–right spectrum",
+      "fact": "'Left' and 'right' come from where deputies sat in France's 1789 National Assembly — supporters of revolution to the president's left, defenders of the old order to his right.",
+      "detail": "In 1789 the National Assembly debated how much power to leave the king — chiefly whether he should keep an absolute veto. Deputies who wanted to limit the monarchy and push change sat to the president's left; those loyal to the king and the old regime sat to his right. The deputy Baron de Gauville recorded that royalists took the right \"to avoid the shouts\" from the other side. The seating label stuck and spread worldwide. Three ideological families are usually placed along the line. Liberalism (rooted in John Locke) prizes individual liberty and limits on state power. Conservatism (whose founding figure is conventionally Edmund Burke, though some historians dispute the label) prizes order, tradition and gradual change, distrusting grand redesigns of society. Socialism (Karl Marx, Friedrich Engels and many earlier figures) prizes equality and collective provision, willing to use state power to redress economic inequality. Roughly, the left favours equality and change while the right favours order and tradition — but compressing every political belief onto one line is a simplification, because it cannot separate economic views from social ones.",
+      "deploy": "Use it as quick shorthand, but watch its limits: a libertarian (economically 'right', socially permissive) or a religious socialist breaks the single line, which is why analysts often add a second axis.",
+      "counter": "The libertarian activist David Nolan — a co-founder of the US Libertarian Party, not a political scientist — popularised a two-axis 'Nolan chart' (1969) splitting economic freedom from personal freedom, arguing the single line hides where libertarians and authoritarians actually stand. Political scientists more broadly have long held that one axis is too crude to capture the real range of beliefs. And cross-national work like the World Values Survey finds that what counts as 'left' or 'right' shifts sharply across countries and eras, so the labels — born in revolutionary France — travel poorly outside that original European context.",
+      "tags": [
+        "politics",
+        "ideology",
+        "left-right",
+        "history"
+      ],
+      "prereq": [
+        "poli-what-is"
+      ],
+      "xref": [
+        "pe-schools",
+        "date-french-revolution-1789"
+      ],
+      "quiz": {
+        "q": "Where do the political terms 'left' and 'right' originate?",
+        "choices": [
+          "From the seating in France's 1789 National Assembly",
+          "From the layout of the British House of Commons",
+          "From Karl Marx's writings",
+          "From the US Constitution"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "poli-nationalism",
+      "src": ["ev-poli-nationalism"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Nationalism",
+      "fact": "Modernist theorists argue nationalism is a recent invention that creates nations, not an ancient bond that nations naturally express.",
+      "detail": "A nation is a large group that imagines itself a single people deserving its own state. Benedict Anderson, in Imagined Communities (1983), called nations \"imagined communities\": members will never meet most of their compatriots, yet feel deep kinship, a feeling he tied to print capitalism and mass vernacular literacy that let strangers picture themselves as one public. Ernest Gellner (Nations and Nationalism, 1983) pushed the modernist claim further: industrial society needs a mobile, literate workforce sharing one standardised culture, so nationalism is a product of modernity that manufactures nations, rather than nations giving rise to nationalism. Against this, Anthony D. Smith's ethnosymbolism (The Ethnic Origins of Nations, 1986) argues modern nations did not appear from nowhere — they grow from older ethnic cores (\"ethnies\") with shared myths, memories and symbols, so the modern nation reworks genuinely old material. The debate is essentially about timing and roots: invented yesterday, or built on something ancient?",
+      "deploy": "Use it to read separatist and unification movements: ask whether a group's national identity is being newly constructed (Gellner/Anderson) or revived from deep ethnic memory (Smith), since each implies different politics.",
+      "counter": "Primordialists (the position Clifford Geertz described and Smith critiqued) hold that ethnic attachments are far older and more visceral than the modernists allow. Anthony D. Smith's ethnosymbolism is the disciplined middle position. From a postcolonial angle, Partha Chatterjee (The Nation and Its Fragments, 1993; his essay \"Whose Imagined Community?\") objects that Anderson's \"modular\" forms treat European and American nationalism as the template the colonised world merely borrows, leaving it \"nothing left to imagine\" — and misses how anticolonial nationalism first claims a sovereign spiritual or cultural domain of its own before the political fight.",
+      "tags": [
+        "politics",
+        "nationalism",
+        "nation",
+        "identity"
+      ],
+      "prereq": [
+        "poli-what-is"
+      ],
+      "xref": [
+        "date-french-revolution-1789",
+        "poli-ideologies"
+      ],
+      "quiz": {
+        "q": "What is the central claim of the modernist view of nationalism (Gellner, Anderson)?",
+        "choices": [
+          "Nations are ancient and biologically rooted",
+          "Nationalism is a modern phenomenon that creates nations, rather than the reverse",
+          "Nationalism is always harmful",
+          "Every ethnic group inevitably becomes a nation"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-populism",
+      "src": ["ev-poli-populism"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Populism",
+      "fact": "Populism is a 'thin' ideology that splits society into 'the pure people' against 'the corrupt elite', and says politics should enact the people's will.",
+      "detail": "Cas Mudde defines populism as a 'thin-centred ideology' that divides society into two morally opposed, homogeneous camps — 'the pure people' versus 'the corrupt elite' — and holds that politics should express 'the general will' of the people. 'Thin' means it carries no full programme of its own, so it attaches to a fuller 'host' ideology: paired with nationalism and anti-immigration on the right (Marine Le Pen, Donald Trump), or with anti-austerity and redistribution on the left (Hugo Chavez, Spain's Podemos). What unites them is the anti-elite, 'us versus them' frame, not a shared policy package. Because populists claim to be the sole voice of a unified people, Mudde and co-authors (e.g. Cristobal Rovira Kaltwasser) argue they are ambivalent toward democracy: they champion popular sovereignty and majority rule, yet often attack the checks — courts, an independent press, minority rights — that liberal democracy uses to restrain majorities.",
+      "deploy": "Lets you classify a movement by its frame ('people vs elite') rather than its policies, and see why left and right populists can look alike structurally while pushing opposite agendas.",
+      "counter": "Ernesto Laclau and Chantal Mouffe reject the ideational view. In their Hegemony and Socialist Strategy (1985), and Laclau's On Populist Reason (2005), populism is not a thin ideology but a 'logic' of politics: 'a people' is constructed by linking many unmet demands into a shared chain held together by an 'empty signifier'. They treat populism as a healthy democratic resource for contesting entrenched power, not a pathology — and charge that Mudde's framework quietly defends the liberal status quo. Latin American scholars such as Carlos de la Torre push back on the implicit Western frame too, noting that populism there (e.g. Peronism) has often been inclusionary, extending rights and recognition to previously excluded poor and indigenous majorities, not simply a threat to democracy.",
+      "tags": [
+        "populism",
+        "ideology",
+        "democracy",
+        "political-theory"
+      ],
+      "prereq": [
+        "poli-democracy"
+      ],
+      "xref": [
+        "poli-backsliding",
+        "poli-ideologies"
+      ],
+      "quiz": {
+        "q": "In Cas Mudde's definition, what makes populism a 'thin-centred' ideology?",
+        "choices": [
+          "It appeals only to a thin slice of the electorate",
+          "It has no full programme of its own and attaches to a fuller 'host' ideology",
+          "It is held only weakly by its followers",
+          "It avoids taking any position on the economy"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-social-movements",
+      "src": ["ev-poli-social-movements"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Social movements",
+      "fact": "Movements turn grievance into sustained action through resources, political openings, and shared 'repertoires' of protest — not raw discontent alone.",
+      "detail": "A social movement is sustained, organised collective action by people outside formal power pushing for (or against) change. The puzzle is that grievances are everywhere but movements are rare, so theory asks what converts discontent into durable mobilisation. The resource-mobilization school (sociologists John McCarthy and Mayer Zald) argues movements need resources — money, members, organisations, media access, leadership — and that the supply of resources matters more than the level of grievance. Political-process theory (Doug McAdam, Sidney Tarrow) adds 'political opportunity structures': movements surge when the system opens up, through elite splits, new allies, or weakened repression. Charles Tilly contributes the 'repertoire of contention' — the limited menu of protest forms a society knows how to perform at a given time (the petition, the strike, the demonstration, the boycott), which actors draw on and slowly modify rather than inventing afresh.",
+      "deploy": "Explains why a movement erupts in one moment and not another: look for new resources or a political opening, and read its tactics as drawn from an inherited repertoire.",
+      "counter": "Cultural and 'new social movement' theorists such as Alberto Melucci and Francesca Polletta argue the resource/opportunity approach explains the 'how' of mobilization better than the 'why'. By treating interests as given and structural, it sidelines collective identity, emotion, meaning and the framing work by which people come to see a situation as unjust and themselves as the ones to fix it — the very things that motivate participation. Melucci makes collective identity, not resources, the central variable.",
+      "tags": [
+        "social-movements",
+        "collective-action",
+        "contentious-politics",
+        "tilly"
+      ],
+      "prereq": [
+        "poli-collective-action"
+      ],
+      "xref": [
+        "poli-revolution",
+        "poli-civil-society"
+      ],
+      "quiz": {
+        "q": "What does Charles Tilly's 'repertoire of contention' refer to?",
+        "choices": [
+          "The list of demands a movement issues to the state",
+          "The limited menu of protest forms a society knows how to perform at a given time",
+          "The financial resources available to a movement",
+          "The set of allies a movement recruits among elites"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-revolution",
+      "src": ["ev-poli-revolution"],
+      "field": "polisci",
+      "level": 4,
+      "depth": "book",
+      "title": "Theories of revolution",
+      "fact": "Theda Skocpol argues social revolutions come from state breakdown plus peasant capacity to revolt — structures, not ideology — against the deprivation tradition that roots revolt in a rising-then-thwarted sense of frustration.",
+      "detail": "Why do revolutions happen? One tradition locates the cause in mass psychology. James C. Davies' 'J-curve' (in 'Toward a Theory of Revolution', 1962) holds that revolt erupts not in steady misery but when a long rise in expectations is suddenly reversed, opening an unbearable gap between what people expect and what they get; Ted Robert Gurr generalised this as 'relative deprivation' in 'Why Men Rebel' (1970) — rebellion tracks the felt gap between expectation and attainment. In 'States and Social Revolutions' (1979), Theda Skocpol mounts a structural counter-argument built on France (1789), Russia (1917) and China (1911 onward). Quoting Wendell Phillips, she insists revolutions 'are not made; they come': they require two structural conditions to coincide, neither of which anyone wills. First, the old regime's state breaks down — typically under international military and fiscal pressure it cannot meet, often blocked by a landed upper class. Second, peasants must have the autonomous community organisation and capacity to revolt once central control slips. Ideology and revolutionary intent, for Skocpol, are not the engine; they ride on structural openings.",
+      "deploy": "Gives you rival lenses for any uprising: ask whether expectations recently outran reality (deprivation, Davies/Gurr), whether the state was already cracking and society could exploit it (structural, Skocpol), or why individuals chose to join once revolt looked likely to win (Kuran's cascades).",
+      "counter": "Skocpol's structuralism drew sharp named replies. William H. Sewell Jr. argued she wrongly demotes ideology and culture, which do real causal work in the French Revolution rather than just decorating structural shifts (Skocpol answered him in 'Social Revolutions in the Modern World', 1994). Rational-choice scholars such as Timur Kuran stress individual decisions, preference falsification and information cascades — why a person joins once a revolt looks likely to win, and why the 1989 collapses surprised everyone — which a purely structural account leaves dark.",
+      "tags": [
+        "revolution",
+        "skocpol",
+        "state-breakdown",
+        "relative-deprivation"
+      ],
+      "prereq": [
+        "poli-social-movements"
+      ],
+      "xref": [
+        "date-french-revolution-1789",
+        "poli-state"
+      ],
+      "quiz": {
+        "q": "What two conditions must coincide for a social revolution, in Theda Skocpol's account?",
+        "choices": [
+          "A charismatic leader and a unifying ideology",
+          "State breakdown and peasant capacity to revolt",
+          "Economic growth and an expanding middle class",
+          "Foreign invasion and religious schism"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-clientelism",
+      "src": ["ev-poli-clientelism"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Clientelism",
+      "fact": "Clientelism trades material favours — jobs, cash, services — for votes and loyalty, distributing benefits to supporters rather than by public policy.",
+      "detail": "Clientelism is politics run as an exchange: a patron (a politician, party or 'boss') gives clients material goods — public jobs, cash, food, building permits, help with the bureaucracy — and in return clients deliver votes and support. The relationship is asymmetric (patron above client), often mediated by 'brokers' who know the neighbourhood, and it is iterated and contingent: you keep getting benefits as long as you keep delivering, and can be cut off if you don't. Classic 'machine politics' — the patronage machines of 19th-century US cities, or party machines across Latin America, southern Italy and parts of Africa and Asia — runs on exactly this logic. The contrast, as political scientists Herbert Kitschelt and Steven Wilkinson frame it, is programmatic politics, where benefits flow by public, formalised rules (a pension everyone over 65 receives) regardless of how you voted. Clientelism tends to thrive where the state is weak, poverty makes small payments decisive, and parties can monitor or credibly enforce the bargain; it is corrosive of democratic accountability because it rewards loyalty over good policy.",
+      "deploy": "Lets you read a party that wins through favours and patronage networks rather than its platform, and explains why anti-poverty 'programmatic' reforms (universal transfers) are partly attempts to break clientelist machines.",
+      "counter": "Javier Auyero, in his study of Peronist survival networks in Argentina (Poor People's Politics, 2000), warns against the elite reflex of dismissing clientelism as mere vote-buying by ignorant poor: seen from the clients' side it can be a rational survival strategy and a real, reciprocal social relationship, not just a cash-for-vote trade. Susan Stokes adds a structural caveat: because the secret ballot hides how people actually vote, machines face a commitment problem and work best only where they can monitor voters — dense small towns and tight social networks — so the coercive 'perverse accountability' she models is conditional on surveillance, not automatic.",
+      "tags": [
+        "clientelism",
+        "machine-politics",
+        "patronage",
+        "accountability"
+      ],
+      "prereq": [
+        "poli-democracy"
+      ],
+      "xref": [
+        "poli-authoritarianism",
+        "poli-political-culture"
+      ],
+      "quiz": {
+        "q": "How does clientelism differ from programmatic politics?",
+        "choices": [
+          "Clientelism uses public, rule-based benefits; programmatic politics uses favours",
+          "Clientelism trades targeted material favours for support; programmatic politics distributes benefits by public rules regardless of vote",
+          "Clientelism happens only in dictatorships; programmatic politics only in democracies",
+          "There is no real difference between the two"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "poli-political-culture",
+      "src": ["ev-poli-political-culture"],
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "title": "Political culture and social capital",
+      "fact": "A line from Almond & Verba to Putnam argues that citizens' shared attitudes — trust, civic engagement, dense association — are what make democracy work.",
+      "detail": "Political culture means the pattern of attitudes, beliefs and habits citizens hold toward politics. In 'The Civic Culture' (1963), Gabriel Almond and Sidney Verba surveyed five countries and sorted orientations into three types: 'parochial' (barely aware of national politics), 'subject' (aware but passive, expecting things to be done to them), and 'participant' (active, expecting to help shape outcomes). Stable democracy, they argued, rests on a mixed 'civic culture' that blends participation with enough deference and trust to keep the system manageable. Robert Putnam pushed this into 'social capital' — the networks, norms of reciprocity and trust generated by people associating. In 'Making Democracy Work' (1993) he traced the better performance of northern and central over southern Italian regional governments to centuries of denser horizontal civic association; in 'Bowling Alone' (2000) he argued American social capital was eroding as people withdrew into private life. The through-line: self-governance depends less on formal institutions than on whether citizens trust and join with one another.",
+      "deploy": "Offers a cultural explanation for why two countries with identical constitutions can have very different democratic quality, and frames worries about declining trust and civic membership.",
+      "counter": "Critics attack the causal arrow and what it hides. Sidney Tarrow (American Political Science Review, 1996) argued Putnam reverses cause and effect: over centuries it may be institutions that built civic culture, not the other way round, and the historical reconstruction is hard to test. Carole Pateman, in 'Participation and Democratic Theory' (1970), argued the civic-culture tradition treats passive deference as healthy and quietly takes Anglo-American norms as the democratic ideal. Feminist scholars such as Vivien Lowndes show Putnam's measures are gendered — counting formal club membership while ignoring the informal care and community networks women generate — so that inequality and power, not a thin stock of 'trust', shape who counts as civically engaged.",
+      "tags": [
+        "political-culture",
+        "social-capital",
+        "putnam",
+        "civic-culture"
+      ],
+      "prereq": [
+        "poli-democracy"
+      ],
+      "xref": [
+        "poli-collective-action",
+        "poli-civil-society"
+      ],
+      "quiz": {
+        "q": "In Almond and Verba's 'The Civic Culture', a 'participant' orientation describes citizens who…",
+        "choices": [
+          "are barely aware of national politics",
+          "are aware of politics but passively expect things to be done to them",
+          "are active and expect to help shape political outcomes",
+          "reject the political system entirely"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "poli-civil-society",
+      "src": ["ev-poli-civil-society"],
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "title": "Civil society",
+      "fact": "Civil society is the space of voluntary association between the state and the family — clubs, unions, churches, NGOs — where citizens organise on their own.",
+      "detail": "Civil society names the realm of organised life that is neither the state nor the household: voluntary associations people form themselves — sports clubs, trade unions, churches, charities, professional bodies, NGOs, neighbourhood groups. Watching 1830s America for 'Democracy in America' (1835/1840), Alexis de Tocqueville argued such associations are a school of democracy: by joining together for shared purposes, citizens learn cooperation and self-rule and build a counterweight to an overbearing state, guarding against the 'tyranny of the majority'. Jurgen Habermas adds a different strand — the 'public sphere' (from 'The Structural Transformation of the Public Sphere', 1962): the arena (coffee houses, the press, now online forums) where private citizens come together to debate public matters and form public opinion through reasoned argument, which can then hold power to account. Robert Putnam's 'Bowling Alone' (2000) carries the Tocquevillean line into modern survey data, treating dense membership as 'social capital' that makes democracy work. All three treat civil society as a foundation for democratic life: a space where people build the trust, skills and collective voice that self-government needs.",
+      "deploy": "Gives you the middle layer between citizen and state, so you can ask whether a country's associations are dense and independent — a standard yardstick for democratic health and a first target of authoritarian crackdowns.",
+      "counter": "The benign picture has named critics. Sheri Berman ('Civil Society and the Collapse of the Weimar Republic', World Politics, 1997) showed that Weimar Germany had unusually dense civic associations, yet weak parties and a discredited state let those networks feed the Nazi rise rather than democracy — so association is not automatically pro-democratic. Antonio Gramsci instead split the capitalist order into 'political society' (the coercive state — army, police, courts) and 'civil society' (schools, churches, press, unions), where the ruling class wins 'hegemony', consent to its own dominance; civil society is a terrain of class struggle, not a neutral good. And the very category is a contested liberal export: scholars such as Partha Chatterjee argue it fits a narrow Western associational model and ignores the 'political society' of the postcolonial poor, who bargain with the state outside formal civic forms.",
+      "tags": [
+        "civil-society",
+        "tocqueville",
+        "habermas",
+        "public-sphere",
+        "gramsci"
+      ],
+      "prereq": [
+        "poli-what-is"
+      ],
+      "xref": [
+        "poli-social-movements",
+        "poli-political-culture"
+      ],
+      "quiz": {
+        "q": "Civil society is best described as…",
+        "choices": [
+          "the elected branches of the state",
+          "the space of voluntary association between the state and the family",
+          "the private market economy",
+          "the household and extended family"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-what-knowledge",
+      "src": ["ev-epi-what-knowledge"],
+      "field": "philo",
+      "level": 1,
+      "depth": "concept",
+      "title": "Knowledge as justified true belief",
+      "fact": "On the classical analysis, you know something only if you believe it, it is true, and you are justified in believing it.",
+      "detail": "The idea traces to Plato's dialogue Theaetetus, where Socrates and Theaetetus test whether knowledge is 'true belief with an account (logos)' — though the dialogue ends in aporia, rejecting that definition rather than endorsing it. The modern slogan breaks knowledge into three conditions. Belief: you have to actually accept the claim — you can't know what you don't even think is so. Truth: a belief can't count as knowledge if it's false, however confident you are. Justification: a lucky true guess isn't knowledge; you need good reasons, evidence, or grounds for holding it. The point of the third condition is to rule out beliefs that just happen to be right. So 'the Earth is round' is knowledge for you only if it's true, you believe it, AND you have grounds (you've seen the evidence) rather than a coin-flip hunch.",
+      "deploy": "A clean three-part checklist for pressing any knowledge claim: is it actually true, do you really believe it, and what are your grounds?",
+      "counter": "Edmund Gettier (1963) showed all three conditions can be met without knowledge, when a justified belief is true only by luck. Timothy Williamson's 'knowledge-first' program goes further, arguing knowledge is a basic mental state that can't be built up from belief plus extra conditions at all. The tripartite analysis is also not uniquely Western: classical Indian Nyaya epistemology, systematized by Gangesa (14th c.), defines knowledge as cognition produced by a reliable source (pramana) and likewise rules out accidentally-true belief — locating the same anti-luck worry in a different framework. Per the SEP, no analysis of knowledge is widely accepted, so JTB is a contested starting point, not a settled definition.",
+      "tags": [
+        "epistemology",
+        "knowledge",
+        "plato"
+      ],
+      "prereq": [],
+      "xref": [
+        "epi-gettier",
+        "epi-skepticism"
+      ],
+      "quiz": {
+        "q": "On the classical 'justified true belief' analysis, which is NOT one of the three required conditions for knowledge?",
+        "choices": [
+          "The proposition is true",
+          "You believe the proposition",
+          "You are certain beyond all possible doubt",
+          "You are justified in believing it"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "epi-gettier",
+      "src": ["ev-epi-gettier"],
+      "field": "philo",
+      "level": 2,
+      "depth": "concept",
+      "title": "The Gettier problem",
+      "fact": "Edmund Gettier showed you can have a justified true belief that still isn't knowledge, because its truth is a matter of luck.",
+      "detail": "In a three-page 1963 paper, Edmund Gettier built cases where the belief, truth and justification conditions are all met yet we balk at calling it knowledge. In his Case I, Smith has strong evidence that Jones will get a job and that Jones has ten coins in his pocket, so Smith infers 'the man who will get the job has ten coins in his pocket'. As it happens, Smith himself gets the job, and Smith too has ten coins in his pocket without realising it. Smith's inferred belief is true and was well justified, but it is true by accident: his justification ran through Jones, not through the man (himself) who made it true. The lesson is that justification can be disconnected from what makes the belief true, so justified-true-belief is not sufficient for knowledge. This launched decades of attempts to add a fourth condition that screens out luck.",
+      "deploy": "A precise tool for spotting 'right answer, wrong reasons' — cases where someone lands on the truth by accident, not by their evidence actually tracking it.",
+      "counter": "Whether the cases sink JTB is itself disputed. Linda Zagzebski (1994, 'The Inescapability of Gettier Problems') argues that any analysis allowing justification to fall short of guaranteeing truth will face such cases, so the fix must be structural, not a patch. On how universal the reaction is, the experimental-philosophy work of Weinberg, Nichols and Stich (2001) reported that intuitions about Gettier cases varied across cultures and groups, casting doubt on the 'we wouldn't call it knowledge' response — but later attempts to replicate them mostly failed, and the large cross-cultural study by Machery, Stich and colleagues (2017, 'Gettier Across Cultures', testing Brazil, India, Japan and the USA) found the core Gettier intuition fairly robust.",
+      "tags": [
+        "epistemology",
+        "knowledge",
+        "gettier"
+      ],
+      "prereq": [
+        "epi-what-knowledge"
+      ],
+      "xref": [
+        "epi-justification",
+        "epi-reliabilism"
+      ],
+      "quiz": {
+        "q": "What do Gettier cases demonstrate?",
+        "choices": [
+          "That true beliefs are always justified",
+          "That a belief can be justified and true yet fail to be knowledge",
+          "That nothing can ever be known",
+          "That justification is unnecessary for knowledge"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-reliabilism",
+      "src": ["ev-epi-reliabilism"],
+      "field": "philo",
+      "level": 4,
+      "depth": "concept",
+      "title": "Reliabilism",
+      "fact": "On Alvin Goldman's reliabilism, a belief is justified if it was produced by a reliable process — whether or not you can spell out your reasons.",
+      "detail": "Goldman's 1979 paper 'What Is Justified Belief?' proposed that justification depends on the track record of the cognitive process that formed the belief: perception, memory, and good inference tend to produce true beliefs, while wishful thinking and guessing don't. This is a form of EXTERNALISM — the thing that makes your belief justified (the process's reliability) is a fact about the world, and you needn't have any access to it. A child or an animal can have justified beliefs just by perceiving well, even with no story to tell about why. This contrasts with INTERNALISM — the position of evidentialists like Earl Conee and Richard Feldman — on which justification must consist of factors you could in principle become aware of by reflection: your evidence and reasons, accessible 'from the inside'. Reliabilism also offers a Gettier diagnosis: lucky true beliefs often come from unreliable or accidentally-right processes.",
+      "deploy": "A way to credit knowledge that can't be articulated — the expert's snap judgement or trained perception — by asking 'is the process that produced this belief actually reliable?' rather than 'can you justify it in words?'",
+      "counter": "Laurence BonJour's clairvoyant case is the famous counterexample: imagine Norman, a reliable clairvoyant who has no evidence he has the power and no reason to trust the resulting belief — reliabilism says he's justified, but intuitively he isn't. There's also the 'generality problem' (anticipated by Goldman and pressed by Richard Feldman and by Conee and Feldman): any belief is produced by a process describable at many levels of generality, some reliable and some not, and reliabilism gives no principled way to pick the relevant one.",
+      "tags": [
+        "epistemology",
+        "justification",
+        "externalism"
+      ],
+      "prereq": [
+        "epi-justification"
+      ],
+      "xref": [
+        "epi-gettier",
+        "epi-testimony"
+      ],
+      "quiz": {
+        "q": "What does Goldman's reliabilism say makes a belief justified?",
+        "choices": [
+          "That you can articulate good reasons for it from the inside",
+          "That it was produced by a reliable belief-forming process",
+          "That it coheres with all your other beliefs",
+          "That it feels certain to the believer"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-skepticism",
+      "src": ["ev-epi-skepticism"],
+      "field": "philo",
+      "level": 2,
+      "depth": "concept",
+      "title": "Skepticism",
+      "fact": "If a perfect deception would feel exactly like reality, the skeptic asks how you could ever know you aren't being deceived.",
+      "detail": "In his First Meditation (1641), René Descartes imagined an 'evil demon' bent on deceiving him about everything — the external world, his own body, even simple arithmetic. The modern update is the 'brain in a vat': a brain kept alive and fed electrical signals that perfectly simulate ordinary life. The argument runs: if you can't tell the difference between the real world and the deception, then you don't know you're in the real one; and since you can't rule the deception out, you don't really know the everyday things you take for granted. This isn't idle paradox — Descartes used radical doubt as a method to find something indubitable to build knowledge on, and skeptical hypotheses set the agenda for what any theory of knowledge has to answer.",
+      "deploy": "A stress test for confidence: ask what would look the same whether a claim were true or false — if nothing distinguishes them, your grounds are thinner than they feel.",
+      "counter": "Descartes thought he defeated the demon (via the cogito and a non-deceiving God), but later philosophers answer differently. G. E. Moore simply insisted his knowledge that 'here is a hand' is more certain than any skeptical premise, so the argument should be run in reverse. Hilary Putnam argued from semantic externalism that 'I am a brain in a vat' is self-refuting — a vat-brain's words couldn't refer to real vats. And the ancient Pyrrhonists (Sextus Empiricus) treated skepticism not as a problem to solve but as a way of life: suspend judgement (epoché) and gain tranquillity (ataraxia).",
+      "tags": [
+        "epistemology",
+        "skepticism",
+        "descartes"
+      ],
+      "prereq": [
+        "epi-what-knowledge"
+      ],
+      "xref": [
+        "epi-rationalism-empiricism",
+        "epi-fallibilism"
+      ],
+      "quiz": {
+        "q": "What is the core move in Cartesian skeptical arguments like the evil demon or brain-in-a-vat?",
+        "choices": [
+          "Proving that the external world does not exist",
+          "Showing that a perfect deception would be indistinguishable from reality, so you can't rule it out",
+          "Demonstrating that all beliefs are false",
+          "Arguing that knowledge requires no justification"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-rationalism-empiricism",
+      "src": ["ev-epi-rationalism-empiricism"],
+      "field": "philo",
+      "level": 2,
+      "depth": "concept",
+      "title": "Rationalism vs empiricism",
+      "fact": "Rationalists say some substantive knowledge comes from reason alone; empiricists say all of it ultimately traces back to the senses.",
+      "detail": "The dispute is about the SOURCE of substantive knowledge. The rationalists usually grouped together — Descartes, Spinoza and Leibniz — hold that reason can deliver truths about the world independently of experience, often via innate ideas the mind brings with it. In his New Essays (written 1704, published 1765), Leibniz answered Locke's 'blank slate' with the image of a veined block of marble: experience reveals a structure already latent in the mind. The empiricists usually paired against them — Locke, Berkeley and Hume — deny innate content; Locke's Essay (1689) argues the mind starts as a tabula rasa and every idea is built from sensation or reflection. Hume sharpened this: ideas are faded copies of impressions, so any concept that can't be traced to an impression (he targeted causation and the self) is suspect. The clash sets up Kant's later attempt to synthesise the two.",
+      "deploy": "A lens for any debate about where a belief comes from: is the claim being defended by appeal to what we can observe, or by appeal to what reason or 'common sense' supposedly delivers on its own?",
+      "counter": "The neat 'Continental rationalists vs British empiricists' textbook split is itself contested. Markie and Folescu's SEP entry warns that the labels oversimplify: the real disagreements are over specific theses (innate knowledge, innate concepts, a priori knowledge of the world), almost no thinker falls cleanly into one camp, and figures like Hobbes, Berkeley, Anne Conway, Émilie du Châtelet and Mary Shepherd resist the grouping. Kant argued both camps were half-right: knowledge requires sensory content AND the mind's own organising categories, so neither reason alone nor experience alone suffices. W. V. O. Quine's 'Two Dogmas of Empiricism' (1951) later attacked the analytic/synthetic distinction that much of the a priori side leaned on.",
+      "tags": [
+        "epistemology",
+        "rationalism",
+        "empiricism"
+      ],
+      "prereq": [
+        "epi-what-knowledge"
+      ],
+      "xref": [
+        "epi-a-priori",
+        "epi-problem-induction"
+      ],
+      "quiz": {
+        "q": "What is the central disagreement between rationalists and empiricists?",
+        "choices": [
+          "Whether the external world exists",
+          "Whether some knowledge can come from reason alone or must all ultimately trace to sense experience",
+          "Whether truth is objective",
+          "Whether God exists"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-a-priori",
+      "src": ["ev-epi-a-priori"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "A priori and the analytic–synthetic divide",
+      "fact": "Two cuts: knowable without experience vs only through it, and true-by-meaning vs true-about-the-world. Kant said some truths are both a priori and substantive; Quine doubted the second cut exists at all.",
+      "detail": "Two distinctions get tangled together. The first is about how a belief is justified: a priori means knowable independent of experience (you don't run an experiment to know 'all bachelors are unmarried'), a posteriori means justified by experience ('it rained yesterday'). The second is about what makes a sentence true: analytic means true purely by the meanings of its words ('a vixen is a female fox'), synthetic means its truth also depends on how the world is. Immanuel Kant, in the Critique of Pure Reason (1781), claimed the interesting cases are 'synthetic a priori' — substantive truths known without experience, his examples being arithmetic ('7+5=12') and geometry, which he held were not mere unpacking of definitions yet needed no observation. W.V.O. Quine's 'Two Dogmas of Empiricism' (Philosophical Review, 1951) attacked the analytic side, targeting Rudolf Carnap's logical-empiricist program: Quine argued that 'analytic' can only be explained via a circle of equally unclear notions (synonymy, definition, meaning) with no non-circular grounding, and that our beliefs face experience 'only as a corporate body' — confirmation holism — so no statement is immune from revision, collapsing the supposedly sharp line.",
+      "deploy": "Lets you separate two questions people blur: 'how do you know that?' (a priori vs experience) from 'is that just a definition or a real claim about the world?' (analytic vs synthetic).",
+      "counter": "Quine's obituary for the distinction is contested. H.P. Grice and P.F. Strawson ('In Defense of a Dogma', 1956) argued that a notion ordinary speakers apply confidently and agree on can't be incoherent merely because it resists a tidy reductive definition. Many later philosophers (e.g. Frank Jackson's defense of conceptual analysis, and formal/lexical semanticists who build analytic meaning-relations into their theories) still treat analyticity as a workable notion. Georges Rey's SEP survey judges the debate genuinely open: Quine's challenge is serious but has not been shown to be decisive.",
+      "tags": [
+        "epistemology",
+        "philosophy",
+        "language"
+      ],
+      "prereq": [
+        "epi-rationalism-empiricism"
+      ],
+      "xref": [
+        "philo-duhem-quine",
+        "epi-truth"
+      ],
+      "quiz": {
+        "q": "Kant's 'synthetic a priori' claims that some truths are…",
+        "choices": [
+          "True by definition and learned through experience",
+          "Substantive (not mere definitions) yet knowable without experience",
+          "Both empirical and uncertain",
+          "Neither analytic nor a priori"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-problem-induction",
+      "src": ["ev-epi-problem-induction"],
+      "field": "philo",
+      "level": 2,
+      "depth": "concept",
+      "title": "Hume's problem of induction",
+      "fact": "We assume the future will resemble the past, but David Hume showed any argument for that assumption either begs the question or relies on the very habit it's meant to justify.",
+      "detail": "Induction is reasoning from observed cases to unobserved ones: the sun has risen every day, so it will rise tomorrow. David Hume (1748) pressed a simple question: what justifies that leap? He laid out a dilemma. You can't justify it by pure logic ('demonstrative reasoning'), because a future where nature changes its habits involves no contradiction — it's conceivable. And you can't justify it by experience ('probable reasoning'), because every appeal to 'it has always worked before' already assumes that past regularities carry over to the future — the Uniformity of Nature — which is exactly the principle in question. That makes any experiential defence circular. Hume's own diagnosis is psychological, not logical: induction isn't grounded in reason at all but in 'custom' or habit — repeated exposure conditions us to expect the usual, and we mistake that pull of habit for rational insight.",
+      "deploy": "A reminder that 'it's always worked so far' is a psychological habit, not a proof — useful for spotting overconfident extrapolation from track records.",
+      "counter": "Many think the problem dissolves rather than threatens. Karl Popper accepted that induction is unjustifiable but argued science doesn't need it — it proceeds by conjecture and falsification. Bayesians (developed from Frank Ramsey and Bruno de Finetti) recast the issue as updating rational degrees of belief, and Peter Strawson argued that demanding an external 'justification' of induction is a confusion, since being reasonable just means proportioning belief to evidence.",
+      "tags": [
+        "epistemology",
+        "philosophy",
+        "science"
+      ],
+      "prereq": [
+        "epi-rationalism-empiricism"
+      ],
+      "xref": [
+        "philo-falsifiability",
+        "epi-bayesian"
+      ],
+      "quiz": {
+        "q": "Why does Hume say you can't justify induction by appealing to its past success?",
+        "choices": [
+          "Because the past is unknowable",
+          "Because doing so assumes the future resembles the past — the very point in question",
+          "Because induction always fails in practice",
+          "Because only deductive logic counts as reasoning"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-truth",
+      "src": ["ev-epi-truth"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "Theories of truth",
+      "fact": "Four rival answers to 'what makes a belief true?': it matches reality (correspondence), it coheres with a system (coherence), it works in inquiry (pragmatist), or 'true' adds nothing beyond asserting the claim (deflationary).",
+      "detail": "The question is what truth consists in, not how we check it. The correspondence theory (Aristotle, G.E. Moore, and Bertrand Russell from around 1910) says a belief is true when it matches the way things actually are — 'snow is white' is true because snow is white; truth is a relation between thought and world. The coherence theory (the British idealist H.H. Joachim, and later the American Brand Blanshard) says a belief is true when it fits into a maximally consistent, comprehensive web of beliefs, since on this view we can never step outside our beliefs to compare them with a 'naked' reality. The pragmatist theory (Charles Peirce, William James) ties truth to inquiry: for Peirce truth is the opinion inquiry would converge on in the long run, while James more loosely said true beliefs are those that 'work' — that prove useful and survive testing. Deflationism (anticipated by Frank Ramsey's redundancy theory, developed as 'minimalism' by Paul Horwich) denies truth is a substantive property at all: saying 'p is true' just re-asserts p, so the word 'true' is a convenient device for endorsing claims, not a deep nature to analyse.",
+      "deploy": "Helps you ask, when someone calls a claim 'true', which standard they mean — matching the facts, fitting a worldview, or just being useful — which are not the same test.",
+      "counter": "The theories trade objections rather than one winning. Russell objected that coherence can't distinguish reality from an internally consistent fairy tale; Russell also charged that 'useful' beliefs (in James's sense) can be false, so usefulness isn't truth. Defenders of substantive truth (e.g. realists about science) argue deflationism throws away truth's role in explaining why successful theories track the world, while deflationists like Horwich reply that no such heavyweight property is needed. Each camp answers in kind, and the field remains divided.",
+      "tags": [
+        "epistemology",
+        "philosophy",
+        "metaphysics"
+      ],
+      "prereq": [
+        "epi-what-knowledge"
+      ],
+      "xref": [
+        "epi-scientific-realism",
+        "epi-justification"
+      ],
+      "quiz": {
+        "q": "Deflationism about truth holds that…",
+        "choices": [
+          "Truth is correspondence with reality",
+          "Calling 'p' true adds nothing beyond asserting p — 'true' isn't a deep property",
+          "Truth is whatever beliefs cohere best",
+          "Only useful beliefs are true"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-bayesian",
+      "src": ["ev-epi-bayesian"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "Bayesian epistemology",
+      "fact": "Treat belief as a degree of confidence — a credence between 0 and 1 — that obeys the probability axioms and gets revised by Bayes' rule as evidence comes in. Dutch-book arguments show why deviating leaves you exploitable.",
+      "detail": "Instead of treating belief as all-or-nothing (you believe it or you don't), Bayesian epistemology models it as a credence: a number from 0 (certain false) to 1 (certain true). The view has two core norms. Probabilism says your credences should obey the probability axioms — be non-negative, sum to 1 over exhaustive alternatives, and add for mutually exclusive cases. Conditionalization says when you learn evidence E, you update by Bayes' rule, shifting toward hypotheses that predicted E and away from those that didn't, weighted by your prior confidence. Why obey the axioms? The Dutch-book argument (Frank Ramsey 1926, Bruno de Finetti 1937) shows that if your credences violate them, a clever bookmaker can offer you a set of bets you'll each accept as fair yet that together guarantee you lose money — incoherence is a practical defect, not just an aesthetic one. This is a modern reply to Hume: induction isn't a leap needing external proof but the rational updating of credences as data accumulates.",
+      "deploy": "Reframes 'do you believe X?' as 'how confident, and how should this evidence move you?' — and explains why ignoring base rates or refusing to update is literally incoherent.",
+      "counter": "The framework has real soft spots its own proponents debate. The 'problem of the priors' bites: Bayes' rule tells you how to update but not where your starting credences come from, so two reasonable agents can reach different conclusions from identical evidence. Subjective Bayesians (de Finetti, Savage) accept this, holding any coherent prior is permitted; objective Bayesians (Harold Jeffreys, E. T. Jaynes) try to pin priors down via principles like indifference or maximum entropy, which critics say are ill-defined or arbitrary. And the 'problem of old evidence' (Clark Glymour 1980) shows the rule struggles to credit evidence already known when a theory was proposed — Einstein's use of Mercury's long-known perihelion shift is the stock case.",
+      "tags": [
+        "epistemology",
+        "probability",
+        "philosophy"
+      ],
+      "prereq": [
+        "epi-problem-induction"
+      ],
+      "xref": [
+        "prob-bayes",
+        "math-base-rate"
+      ],
+      "quiz": {
+        "q": "A Dutch-book argument shows that if your credences violate the probability axioms…",
+        "choices": [
+          "You will always make true predictions",
+          "A set of bets each acceptable to you can be combined to guarantee you lose",
+          "You cannot update on evidence",
+          "Your priors must be objective"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-testimony",
+      "src": ["ev-epi-testimony"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "Testimony and social knowledge",
+      "fact": "Almost everything you know — history, geography, science — you were told. The fight is whether trust in testimony must be earned by track record (Hume) or is a basic source of knowledge in its own right (Reid).",
+      "detail": "Testimony is believing something because someone told you, whether in conversation, a textbook, or the news. Since you've personally verified almost none of what you know, testimony does enormous epistemic work, which raises the question of what justifies believing what others say. Reductionism, traced to David Hume (whose \"Of Miracles\" in the 1748 Enquiry is the standard source), says testimony is not a basic source: a hearer is entitled to believe a speaker only on the strength of independent reasons — chiefly one's own observed track record that testimony of that kind tends to be reliable. So trust must be earned and reduces to ordinary inductive evidence. Anti-reductionism (also called non-reductionism), traced to Thomas Reid's Inquiry into the Human Mind (1764), denies this: Reid says humans have an innate 'principle of credulity' — a disposition to believe what we're told, paired with a 'principle of veracity' to speak truly — and absent specific red flags (the speaker is shifty, the claim is implausible) the hearer has a default, defeasible entitlement to trust. On this view testimony is a basic source alongside perception and memory. Either way, the moral is that knowledge is irreducibly social: it lives in a web of speakers and hearers, not in the lone inquirer.",
+      "deploy": "Sharpens how you handle second-hand claims: do you (Humean) demand the source prove its track record, or (Reidian) extend default trust until something specific defeats it?",
+      "counter": "Both camps face pointed objections. C.A.J. Coady (Testimony: A Philosophical Study, 1992) argued the reductionist can't actually run the project — no individual has checked enough testimony first-hand to build the required track record, and you'd need testimony even to learn that others are generally reliable, making the inductive base circular. Against anti-reductionism, Elizabeth Fricker defends 'local reductionism': a blanket default right to believe is too permissive and licenses gullibility, so hearers should monitor each source for trustworthiness. A third option treats testimony as interpersonal: Richard Moran's 'assurance' view says a speaker, by asserting, gives the hearer their word and assumes responsibility, so trust rests on that relationship rather than on either inference or bare credulity.",
+      "tags": [
+        "epistemology",
+        "philosophy",
+        "social"
+      ],
+      "prereq": [
+        "epi-justification"
+      ],
+      "xref": [
+        "epi-standpoint",
+        "epi-reliabilism"
+      ],
+      "quiz": {
+        "q": "On the anti-reductionist (Reidian) view of testimony, a hearer…",
+        "choices": [
+          "Must first establish the speaker's track record before believing",
+          "Has a default, defeasible entitlement to believe absent specific red flags",
+          "Can never gain knowledge from testimony",
+          "Should treat all testimony as equally false"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-fallibilism",
+      "src": ["ev-epi-fallibilism"],
+      "field": "philo",
+      "level": 2,
+      "depth": "concept",
+      "title": "Fallibilism",
+      "fact": "Charles Peirce's stance: you can genuinely know things while admitting any of your beliefs might turn out wrong. Knowledge doesn't require certainty — and demanding certainty is what hands the skeptic an easy win.",
+      "detail": "Fallibilism, a term from the American philosopher Charles Sanders Peirce in the late 1800s, is the view that knowledge does not require certainty: a belief can count as knowledge even though it could, in principle, turn out false. Jason Stanley puts the standard version sharply — you can know that p even when your evidence for p is logically consistent with p being false. Peirce framed it against Cartesian foundationalism — René Descartes' project of rebuilding all knowledge on indubitable, certain foundations. Peirce argued no inquiry ever reaches that bedrock; science advances by self-correction, holding its best-tested results as provisionally settled while staying open to revision. The payoff is escaping a trap: if you assume knowing X means being unable to be wrong about X, the skeptic only has to show error is conceivable to deny you any knowledge at all. The fallibilist blocks the move by lowering the bar — knowledge needs good justification, not a guarantee — so ordinary empirical claims can qualify even though they fall short of certainty.",
+      "deploy": "Lets you hold a position firmly while genuinely conceding it might be wrong — defusing the bad-faith 'but can you be 100% sure?' demand without collapsing into 'so nobody knows anything'.",
+      "counter": "Fallibilism faces a sharp puzzle. If you can know p while granting p might be false, you seem committed to saying 'I know p, but possibly not-p' — what Patrick Rysiew (2001) named a 'concessive knowledge attribution', and what sounds like a contradiction. David Lewis (1996) calls such a sentence the plain, explicit statement of fallibilism; if so, its oddness suggests knowledge really must be infallible, the line infallibilists press. Rysiew's own reply is that these sentences can be true but are merely infelicitous to say — pragmatically awkward, not contradictory; other fallibilists deny the fallibilist is committed to their truth at all.",
+      "tags": [
+        "epistemology",
+        "philosophy",
+        "skepticism"
+      ],
+      "prereq": [
+        "epi-what-knowledge"
+      ],
+      "xref": [
+        "philo-falsifiability",
+        "epi-skepticism"
+      ],
+      "quiz": {
+        "q": "Fallibilism, as Peirce held it, says that knowledge…",
+        "choices": [
+          "Requires absolute certainty",
+          "Can be genuine even though the belief might turn out false",
+          "Is impossible to attain",
+          "Must rest on indubitable foundations"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-occam",
+      "src": ["ev-epi-occam"],
+      "field": "philo",
+      "level": 1,
+      "depth": "concept",
+      "title": "Occam's razor",
+      "fact": "Among hypotheses that fit the evidence equally well, prefer the one that posits fewer entities or assumptions.",
+      "detail": "The razor is a rule of thumb for choosing between explanations: when two accounts cover the same data, lean toward the leaner one — the one that invents fewer unseen causes, forces or entities. It is named for William of Ockham, a 14th-century English Franciscan friar, who wrote \"plurality must never be posited without necessity\"; the famous Latin slogan \"entities must not be multiplied beyond necessity\" is not in his works but was coined by the Irish friar John Punch in 1639, and the idea itself goes back further (Aristotle, Ptolemy, Duns Scotus). It is best read as a tie-breaker, not a truth detector: a simpler theory may be easier to test, but reality is sometimes genuinely complicated, so the leaner story can be the wrong one. \"Simpler\" is also slippery — cutting entities can force messier equations, so fewer entities and fewer equations pull in different directions.",
+      "deploy": "When someone's explanation needs a pile of special add-ons to survive each objection, ask whether a plainer account fits the same facts — extra epicycles are a warning sign.",
+      "counter": "Philosophers split on what the razor is worth. Karl Popper defends it instrumentally: simpler theories say more and so are more falsifiable, easier to test and refute. Richard Swinburne goes further, calling simplicity \"an ultimate a priori epistemic principle that simplicity is evidence for truth.\" Elliott Sober pushes back: there is no global justification for parsimony — its force depends on local, subject-specific background assumptions, and where those assumptions fail, preferring the simpler hypothesis tracks nothing about the world.",
+      "tags": [
+        "epistemology",
+        "philosophy of science",
+        "logic"
+      ],
+      "prereq": [],
+      "xref": [
+        "philo-falsifiability",
+        "epi-scientific-realism"
+      ],
+      "quiz": {
+        "q": "What does Occam's razor actually license you to do?",
+        "choices": [
+          "Prove that simpler theories are true",
+          "Prefer the hypothesis with fewer assumptions among those that fit the evidence equally well",
+          "Reject any theory that posits unobservable entities",
+          "Accept whichever theory is most popular among experts"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-scientific-realism",
+      "src": ["ev-epi-scientific-realism"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "Scientific realism vs anti-realism",
+      "fact": "Realists say science's unobservables (electrons, fields) are really out there; anti-realists say theories are just tools for predicting what we can observe.",
+      "detail": "Scientific realism is the view that our best mature theories are at least approximately true, including their claims about things no one can see directly — electrons, quarks, electromagnetic fields. Its headline argument is the 'no-miracles argument', named after Hilary Putnam's 1975 line that realism 'is the only philosophy that doesn't make the success of science a miracle': if electrons weren't real, why does electron theory keep working so well? Anti-realists push back from two directions. Larry Laudan's 1981 'pessimistic meta-induction' points out that the history of science is full of once-successful theories now known to be false (phlogiston, caloric, the luminiferous ether), so by induction today's best theories are probably also false about their deep posits. Instrumentalists go further: a theory is a calculating device for organizing observations, and asking whether its hidden machinery is 'real' is a question we needn't answer.",
+      "deploy": "When a debate turns on whether a model's hidden variables 'really exist' or just 'work', you're standing on the realism/anti-realism fault line — name which question is actually being asked.",
+      "counter": "Bas van Fraassen's constructive empiricism (The Scientific Image, 1980) offers a disciplined middle path: science aims only at theories that are 'empirically adequate' — true about the observable — while you stay agnostic, neither believing nor disbelieving, about the unobservable. You keep all the predictive power without betting that electrons are literally real, sidestepping both the no-miracles overreach and the pessimistic induction. Critics counter that van Fraassen's sharp observable/unobservable line is itself hard to draw and arguably arbitrary.",
+      "tags": [
+        "epistemology",
+        "philosophy of science",
+        "metaphysics"
+      ],
+      "prereq": [
+        "epi-truth"
+      ],
+      "xref": [
+        "epi-kuhn",
+        "philo-falsifiability"
+      ],
+      "quiz": {
+        "q": "What does Laudan's 'pessimistic meta-induction' argue against scientific realism?",
+        "choices": [
+          "No theory can ever be tested in isolation",
+          "Many past theories were empirically successful yet are now known to be false, so today's may be too",
+          "Simpler theories are always preferable to complex ones",
+          "Observation is always theory-laden"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-kuhn",
+      "src": ["ev-epi-kuhn"],
+      "field": "philo",
+      "level": 3,
+      "depth": "book",
+      "title": "Kuhn's paradigms",
+      "fact": "Kuhn argued science isn't steady accumulation but long stretches of 'normal science' inside a paradigm, broken by crises and revolutions.",
+      "detail": "In The Structure of Scientific Revolutions (1962), Thomas Kuhn rejected the textbook picture of science as facts piling up steadily. Most science is 'normal science': puzzle-solving within an accepted 'paradigm' — a reigning framework of theory, exemplary problems and shared standards (think Newtonian mechanics) that tells researchers what counts as a question and a good answer. Anomalies that resist the paradigm accumulate until they trigger a 'crisis', and a 'scientific revolution' swaps in a new paradigm (relativity, quantum theory). Kuhn's most radical claim is 'incommensurability': rival paradigms don't share a neutral measuring stick, because they redefine key terms and even what scientists 'see', so the choice between them isn't settled by logic and evidence alone. This directly opposes Karl Popper, for whom a single decisive refutation should topple a theory; Kuhn replies that during normal science researchers don't try to falsify the paradigm at all — they protect it and blame the anomaly on themselves.",
+      "deploy": "When a field seems to ignore data that 'should' refute it, ask whether you're watching normal science defend a paradigm — and what crisis would have to build before it flips.",
+      "counter": "In his 1970 essay 'Falsification and the Methodology of Scientific Research Programmes', Imre Lakatos charged that Kuhn made theory change a matter of 'mob psychology' — an irrational conversion rather than a reasoned judgment — and proposed 'research programmes' that are appraised rationally over time by whether they keep predicting novel facts; Popper similarly held that even paradigm shifts can be defended with reasons, not just sociology.",
+      "tags": [
+        "epistemology",
+        "philosophy of science",
+        "history of science"
+      ],
+      "prereq": [
+        "philo-falsifiability"
+      ],
+      "xref": [
+        "epi-underdetermination",
+        "epi-scientific-realism"
+      ],
+      "quiz": {
+        "q": "On Kuhn's view, what mainly happens during 'normal science'?",
+        "choices": [
+          "Scientists constantly try to falsify the reigning theory",
+          "Scientists solve puzzles within an accepted paradigm rather than testing it",
+          "Rival paradigms are compared on a neutral measuring stick",
+          "Theories accumulate steadily with no framework guiding them"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-underdetermination",
+      "src": ["ev-epi-underdetermination"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "title": "Underdetermination",
+      "fact": "The evidence never fully pins down one theory: incompatible theories can fit exactly the same data.",
+      "detail": "Underdetermination is the claim that any body of evidence can be accommodated by more than one mutually incompatible theory, so data alone can't single out the true one. One root is the Duhem-Quine thesis (after the French physicist-historian Pierre Duhem and the American logician W.V.O. Quine): you never test a hypothesis in isolation, only bundled with auxiliary assumptions (the instrument works, no hidden forces, the background physics holds). So when a prediction fails, logic alone can't say which link in the web broke -- you can always save the cherished hypothesis by revising an auxiliary instead. Kyle Stanford, summarizing the debate, separates this 'holist' (confirmational) underdetermination from 'contrastive' underdetermination, where two whole rival theories fit identical evidence with no experiment that could ever decide between them; Duhem and Quine, he notes, ran the two problems together. Because evidence leaves slack, other factors must do the choosing -- which is why underdetermination is a lever both for anti-realists like Bas van Fraassen (believe only what the data fix; stay agnostic about unobservables) and for sociologists of science in the 'strong programme' (David Bloor, Barry Barnes) who hold that social interests fill the gap.",
+      "deploy": "Before treating 'the data prove it' as decisive, ask which auxiliary assumptions a contrary result could be pinned on instead -- the data rarely point at a single culprit.",
+      "counter": "Larry Laudan and Jarrett Leplin (1991) argue the threat is overblown: which empirical consequences a theory has depends on the auxiliaries currently available, so 'empirical equivalence' must be relativized to a state of science -- rivals tied today can come apart tomorrow as new auxiliaries are added. They add that equivalent theories can still differ in evidential support (e.g. one is derivable from a better-confirmed general theory), and that simplicity, explanatory power and consilience routinely break ties. On their view underdetermination is a logical possibility, not the standing scientific predicament anti-realists need.",
+      "tags": [
+        "epistemology",
+        "philosophy of science",
+        "logic"
+      ],
+      "prereq": [
+        "philo-duhem-quine"
+      ],
+      "xref": [
+        "epi-scientific-realism",
+        "epi-kuhn"
+      ],
+      "quiz": {
+        "q": "Why does the Duhem-Quine point make a single failed prediction inconclusive?",
+        "choices": [
+          "Because experiments can never be repeated",
+          "Because the hypothesis is tested bundled with auxiliary assumptions, so logic can't say which one failed",
+          "Because all observation is theory-laden and so unreliable",
+          "Because simpler theories must always be preferred"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-standpoint",
+      "src": ["ev-epi-standpoint"],
+      "field": "philo",
+      "level": 4,
+      "depth": "concept",
+      "title": "Standpoint epistemology",
+      "fact": "Knowledge is socially situated, and the marginalized can hold an epistemic advantage on truths about how power works.",
+      "detail": "Standpoint epistemology holds that what you can know depends on where you stand in society: your position shapes which questions occur to you and which facts are visible. Drawing on a Marxist idea that the worker sees the labour system more clearly than the boss, Nancy Hartsock (1983) and Sandra Harding argued that those marginalized along lines of gender, race or class can have an epistemic advantage about how systems of power actually operate, precisely because they have to navigate them. Harding's 'strong objectivity' turns the usual worry on its head: real objectivity requires examining the social position of the knower, including the invisible biases of the privileged, rather than pretending to a 'view from nowhere' (Thomas Nagel's phrase, which Harding rejects). Donna Haraway's 'situated knowledges' (1988) makes the parallel case that all vision is from a body and a location; she calls the pretence of detached neutrality 'the god trick', and argues that owning one's partiality yields more honest, accountable knowledge. Patricia Hill Collins extended the tradition to race: in 'Black Feminist Thought' (1990) she argues Black women's 'outsider within' position and their intersecting oppressions generate a distinctive standpoint, anticipating intersectional analysis. A standpoint here is an achievement, won through critical reflection and political struggle, not just an identity you are born with.",
+      "deploy": "When a claim of 'neutral' expertise overlooks how things look to the people affected, standpoint theory gives you the question: whose situated knowledge is missing from this 'view from nowhere'?",
+      "counter": "Susan Haack presses the objectivity worry head-on: she argues social disadvantage confers no automatic epistemic privilege, and that tying knowledge to political position risks turning inquiry into advocacy for a foregone conclusion. A separate internal problem, raised by Bat-Ami Bar On, is adjudication: if several oppressed groups' standpoints conflict, which is privileged, and how do we rule out internalized oppression distorting any one of them? Helen Longino keeps the social insight but relocates objectivity: in her critical contextual empiricism it comes from the critical scrutiny of a diverse community, not from any single privileged standpoint, since heterogeneous communities are better at exposing each other's hidden background assumptions.",
+      "tags": [
+        "epistemology",
+        "feminist philosophy",
+        "social epistemology"
+      ],
+      "prereq": [
+        "epi-justification"
+      ],
+      "xref": [
+        "ir-feminist",
+        "pe-feminist-econ"
+      ],
+      "quiz": {
+        "q": "What does Sandra Harding's 'strong objectivity' demand?",
+        "choices": [
+          "Stripping all social context from inquiry to reach a view from nowhere",
+          "Critically examining the social position and biases of the knower, including the privileged",
+          "Accepting whatever the marginalized assert without scrutiny",
+          "Replacing evidence with personal lived experience"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "epi-justification",
+      "src": ["ev-epi-justification"],
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "epi-gettier"
+      ],
+      "xref": [
+        "epi-reliabilism",
+        "epi-truth"
+      ],
+      "title": "The regress problem",
+      "fact": "Every reason needs a reason — so how does justification ever stop? That regress is epistemology's oldest headache.",
+      "detail": "If a belief is justified by another belief, and that one needs justifying too, you face the regress problem — sharpened by the ancient skeptic Agrippa into a trilemma (also called Münchhausen): a chain of reasons must either run on forever, circle back on itself, or stop at something itself unjustified. The two main escapes name two camps. Foundationalists, in the spirit of Descartes, say the chain halts at 'basic' beliefs justified non-inferentially — by direct experience or self-evidence. Coherentists, such as the early Laurence BonJour, deny any belief is basic and locate justification in how well a belief coheres with the whole web of one's beliefs. Each accepts the cost the other calls fatal: an arbitrary stopping point, or a suspiciously circular web.",
+      "deploy": "When someone demands you 'justify' a claim all the way down, name the trilemma — every body of knowledge must either stop somewhere or loop.",
+      "counter": "Reliabilists like Alvin Goldman sidestep the regress entirely: a belief can be justified by being produced by a reliable process, even if the believer can articulate no chain of reasons at all — shifting the question from 'what reasons do you have?' to 'how was the belief formed?'.",
+      "tags": [
+        "justification",
+        "regress",
+        "foundationalism",
+        "coherentism"
+      ],
+      "quiz": {
+        "q": "Agrippa's trilemma says a chain of justifying reasons must do one of three things — which is NOT one of them?",
+        "choices": [
+          "Run on infinitely",
+          "Circle back on itself",
+          "Stop at an unjustified point",
+          "Be proven by experiment"
+        ],
+        "answer": 3
       }
     }
   ],
