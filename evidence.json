@@ -2898,6 +2898,33 @@
       "url": "https://en.wikipedia.org/wiki/German_reunification",
       "kind": "reference",
       "strength": "Tertiary article covering the Article 23 accession vs Article 146 (new-constitution) debate, the Treuhand privatisation and lasting East–West disparities — i.e. both the 'reunification' and the 'annexation/accession' readings the card presents. Well referenced; the interpretive dispute (Kohl/liberal vs PDS/Die Linke and East German critics) is genuinely live."
+    },
+    "ev-micro-info-economics": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Greenwald–Stiglitz theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Greenwald%E2%80%93Stiglitz_theorem",
+      "kind": "reference",
+      "strength": "Tertiary article on the theorem that economies with imperfect information or incomplete markets are not (constrained) Pareto efficient — Stiglitz's core challenge to the first welfare theorem. The Chicago/Hayek 'government failure' counter the card raises is a recognised, opposing position."
+    },
+    "ev-macro-efficiency-wages": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Shapiro–Stiglitz theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Shapiro%E2%80%93Stiglitz_theory",
+      "kind": "reference",
+      "strength": "Tertiary article on the Shapiro–Stiglitz (1984) shirking model in which efficiency wages produce equilibrium involuntary unemployment. The new-classical objection that unemployment is largely voluntary/frictional, which the card names, is the standard counter-position."
+    },
+    "ev-pe-stiglitz-inequality": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "The Price of Inequality",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Price_of_Inequality",
+      "kind": "reference",
+      "strength": "Tertiary article on Stiglitz's 2012 book arguing inequality is policy-driven (rent-seeking) and growth-harming. The Mankiw 'Defending the One Percent' marginal-productivity rebuttal the card names is a real, opposing academic position."
     }
   }
 }

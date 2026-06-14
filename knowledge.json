@@ -9729,6 +9729,116 @@
         ],
         "answer": 1
       }
+    },
+    {
+      "id": "micro-info-economics",
+      "src": ["ev-micro-info-economics"],
+      "field": "micro",
+      "depth": "book",
+      "level": 4,
+      "prereq": [
+        "micro-market-failure",
+        "micro-asymmetric-info"
+      ],
+      "title": "Information economics: the invisible hand loosens its grip",
+      "fact": "Adam Smith's invisible hand only works under perfect information — and Bruce Greenwald and Joseph Stiglitz proved that once information is imperfect, markets stop being efficient.",
+      "detail": "Smith's claim that self-interested trade yields a socially good outcome was later formalised as the 'first welfare theorem': competitive markets reach a Pareto-efficient result — but only on the assumption that everyone has full information and every market exists. Bruce Greenwald and Joseph Stiglitz showed the catch: whenever information is imperfect or asymmetric, or some markets are simply missing (which is essentially always), that efficiency breaks down, and there generically exist interventions — taxes, subsidies, regulation — that could in principle make everyone better off. On Stiglitz's reading market failure is therefore the rule, not a rare exception to patch, which reframes the whole case for what governments are for.",
+      "deploy": "The rigorous reply to 'just leave it to the market': the efficiency theorem everyone invokes quietly assumes information conditions that never actually hold.",
+      "counter": "Free-market economists in the Chicago tradition, and Friedrich Hayek's knowledge argument, reply that markets adapt to information problems through reputation, signalling and intermediaries, and that 'government failure' — capture, poor information, unintended effects — often does worse than the imperfection it tries to fix. Whether the cure beats the disease is the live dispute.",
+      "tags": [
+        "information economics",
+        "market failure",
+        "welfare theorem",
+        "Stiglitz"
+      ],
+      "xref": [
+        "pe-smith-wealth",
+        "pe-hayek",
+        "macro-efficiency-wages"
+      ],
+      "quiz": {
+        "q": "Greenwald and Stiglitz showed competitive markets are efficient only when…",
+        "choices": [
+          "information is perfect and markets are complete",
+          "a monopoly exists",
+          "the government sets prices",
+          "there is no trade"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "macro-efficiency-wages",
+      "src": ["ev-macro-efficiency-wages"],
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "prereq": [
+        "micro-labour-market",
+        "macro-unemployment"
+      ],
+      "title": "Efficiency wages: why some unemployment never clears",
+      "fact": "Firms often pay above the market-clearing wage on purpose — and Carl Shapiro and Joseph Stiglitz showed that this leaves a pool of people involuntarily unemployed by design.",
+      "detail": "In the textbook labour market the wage falls until everyone who wants a job has one. Carl Shapiro and Joseph Stiglitz (1984) explained why it doesn't: because employers can't perfectly watch effort, they pay above the going rate so that being fired actually hurts — the threat of losing a well-paid job and not being quickly rehired is what stops workers shirking. But if every firm does this, wages stay above market-clearing and a residue of involuntary unemployment remains as a 'worker-discipline device'. It is unemployment born of hidden action (moral hazard), not of irrational wages. George Akerlof's 'gift-exchange' version is gentler: paying generously buys loyalty and effort.",
+      "deploy": "Explains persistent involuntary unemployment and 'sticky' wages without blaming workers or assuming markets are irrational.",
+      "counter": "New classical and real-business-cycle economists (Robert Lucas, Edward Prescott) argue most unemployment is voluntary or frictional and that wages are flexible enough that markets broadly clear; the real-world size of efficiency-wage effects is contested.",
+      "tags": [
+        "efficiency wages",
+        "unemployment",
+        "labour",
+        "Stiglitz"
+      ],
+      "xref": [
+        "micro-moral-hazard",
+        "macro-phillips-curve",
+        "micro-info-economics"
+      ],
+      "quiz": {
+        "q": "Efficiency-wage theory says firms pay above the market-clearing wage to…",
+        "choices": [
+          "lower their profits",
+          "discourage shirking by making the job worth keeping",
+          "raise consumer prices",
+          "reduce taxes"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "pe-stiglitz-inequality",
+      "src": ["ev-pe-stiglitz-inequality"],
+      "field": "polecon",
+      "depth": "book",
+      "level": 4,
+      "prereq": [
+        "pf-redistribution-gini"
+      ],
+      "title": "Stiglitz: inequality is a choice",
+      "fact": "Joseph Stiglitz argues today's extreme inequality is not an iron law of markets but the product of politics — rules written by and for those at the top.",
+      "detail": "In 'The Price of Inequality' (2012) Stiglitz argues the runaway gains at the very top owe less to pure market reward ('marginal product') than to rent-seeking: the wealthy use political power to bend the rules — monopoly protections, financial deregulation, favourable taxes, bailouts — capturing income rather than creating it. Because it is driven by policy, inequality is a choice, not destiny; and he argues it is economically costly as well as unfair, sapping demand, mobility and trust. It is a head-on rejection of 'trickle-down'.",
+      "deploy": "Shifts the inequality argument from 'markets reward talent' to 'who gets to write the rules' — and ties inequality to growth, not only fairness.",
+      "counter": "Greg Mankiw's 'Defending the One Percent' argues top incomes largely do reflect higher productivity in a skill- and technology-driven economy, and that heavy redistribution dulls incentives; others note that global inequality between countries has fallen even as inequality within rich countries rose.",
+      "tags": [
+        "inequality",
+        "rent-seeking",
+        "Stiglitz",
+        "political economy"
+      ],
+      "xref": [
+        "micro-info-economics",
+        "pf-redistribution-gini",
+        "eh-washington-consensus"
+      ],
+      "quiz": {
+        "q": "Stiglitz's central claim in 'The Price of Inequality' is that inequality is driven mainly by…",
+        "choices": [
+          "unavoidable market forces",
+          "rent-seeking and political rule-writing",
+          "population growth",
+          "low taxes on the poor"
+        ],
+        "answer": 1
+      }
     }
   ],
 
