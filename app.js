@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v78";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v79";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — turns an invisible crash into a readable, reportable message
 let __errBanner=null, __errSeen=new Set();
 function showError(msg){
@@ -1137,7 +1137,7 @@ function feedCandidates(){
   return out;
 }
 function renderFeed(){
-  $("feedSub").textContent = greeting()+" — what do you want to understand today?";
+  $("feedSub").textContent = greeting()+" — what do you want to understand today?  ·  "+BUILD;
   renderFeedFilter(); renderFeedStatus(); renderFeedList();
 }
 function renderFeedStatus(){
@@ -1372,8 +1372,9 @@ function renderMe(){
   const learned=learnedIds().length, fieldsStarted=new Set(learnedIds().map(id=>byId[id].field)).size;
   $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint">'+(learned? (learned+' card'+(learned===1?'':'s')+' in your web · '+fieldsStarted+' field'+(fieldsStarted===1?'':'s')) : 'Your web is empty — pull a thread to begin')+'</div></div>';
   $("meProfile").onclick=()=>{ openSheet("Settings"); };
-  // field balance (a coverage breakdown; the web is the full map)
-  drawFieldRadar();
+  // field balance as a readable DOM list. Replaces the canvas radar: it couldn't show 23+ fields
+  // legibly, and the <canvas> pages were what crashed iOS Safari — DOM is far lighter.
+  const rw=document.querySelector('#pageMe .radarwrap'); if(rw) rw.innerHTML=fieldBalanceHtml();
   $("meRadarFoot").textContent = (learned? (fieldsStarted+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.')+' · Tap to see the breakdown.';
   renderObjUI();
 }
@@ -1393,6 +1394,17 @@ function drawRing(cv, frac, opt){ if(!cv) return; const ctx=cv.getContext("2d");
   ctx.strokeStyle=css.getPropertyValue('--track')||'#eee'; ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.stroke();
   const grad=ctx.createLinearGradient(0,0,w,h); grad.addColorStop(0,"#ff7a18"); grad.addColorStop(1,"#ff2f3d");
   ctx.strokeStyle=grad; ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*clamp(frac,0,1)); ctx.stroke();
+}
+// readable per-field coverage as DOM bars (sorted), replacing the canvas radar
+function fieldBalanceHtml(){
+  const rows=(KN.fields||[]).map(f=>({f, total:(byField[f.id]||[]).length, done:learnedInField(f.id)}))
+    .filter(r=>r.total>0)
+    .sort((a,b)=> (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
+  if(!rows.length) return '<div class="fbempty">Learn cards to grow your field balance.</div>';
+  return '<div class="fblist">'+rows.map(r=>{ const pct=Math.round(r.done/r.total*100), col=(fieldById[r.f.id]||{}).color||'#888';
+    return '<div class="fbrow"><span class="fbic">'+esc(r.f.icon||'')+'</span><span class="fblab">'+esc(r.f.label)+'</span>'+
+      '<span class="fbbar"><span class="fbfill" style="width:'+pct+'%;background:'+col+'"></span></span>'+
+      '<span class="fbnum">'+r.done+'/'+r.total+'</span></div>'; }).join('')+'</div>';
 }
 function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
   const w=cv.width,h=cv.height,cx=w/2,cy=h/2, R=w*0.34; const fields=KN.fields; const n=fields.length; if(!n) return;

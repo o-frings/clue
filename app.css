@@ -379,8 +379,16 @@
   .steelman p{ font-size:15px; color:var(--ink); line-height:1.5; margin-top:8px; }
 
   /* ===== radar / charts wrappers ===== */
-  .radarwrap{ display:flex; justify-content:center; padding:6px 0 10px; }
+  .radarwrap{ display:block; padding:4px 2px 8px; }
   .radarwrap canvas{ width:260px; height:260px; }
+  .fblist{ display:flex; flex-direction:column; gap:9px; }
+  .fbrow{ display:flex; align-items:center; gap:9px; }
+  .fbrow .fbic{ flex:0 0 auto; width:20px; text-align:center; font-size:15px; }
+  .fbrow .fblab{ flex:0 0 38%; min-width:0; font-size:13px; font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .fbrow .fbbar{ flex:1 1 auto; height:8px; border-radius:6px; background:var(--field); overflow:hidden; }
+  .fbrow .fbfill{ display:block; height:100%; border-radius:6px; min-width:2px; }
+  .fbrow .fbnum{ flex:0 0 auto; font-size:12px; font-weight:700; color:var(--l2); font-variant-numeric:tabular-nums; min-width:42px; text-align:right; }
+  .fbempty{ font-size:13px; color:var(--l3); text-align:center; padding:8px 0; }
   .progwrap{ padding:8px 0 4px; }
   .progwrap canvas{ width:100%; aspect-ratio:11/4; }
 
