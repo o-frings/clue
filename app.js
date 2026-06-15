@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v90";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v91";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -296,6 +296,32 @@ function isDue(id){ const p=progress[id]; return !!(p && p.due<=Date.now()); }
 function dueCards(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].due<=Date.now()); }
 function learnedIds(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].learned); }
 function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).length; }
+
+// ================= topic hierarchy: fields grouped into domains =================
+const FIELD_GROUPS = [
+  { id:'maths',     label:'Mathematics',          icon:'∑',  fields:['math','linalg','prob'] },
+  { id:'reason',    label:'Logic & philosophy',   icon:'⊢',  fields:['logic','philo'] },
+  { id:'computing', label:'Computing & security', icon:'🖥️', fields:['cs','code','ml','cyber'] },
+  { id:'sciences',  label:'Sciences',             icon:'🔬', fields:['physics','bio','eco','systems'] },
+  { id:'econ',      label:'Economics',            icon:'📊', fields:['micro','macro','game','polecon','echist'] },
+  { id:'finance',   label:'Finance',              icon:'💰', fields:['qfin','refin','pubfin'] },
+  { id:'world',     label:'Politics & the world', icon:'🌍', fields:['history','geo','ir','polisci'] },
+  { id:'fun',       label:'Fun & dates',          icon:'✨', fields:['fun'] },
+];
+function groupOf(fid){ return FIELD_GROUPS.find(g=>g.fields.includes(fid)) || null; }
+// the domains that have at least one present field, each with its present field objects (group order),
+// plus a catch-all "Other" for any field not assigned to a group (defensive against new fields)
+function groupsPresent(){
+  const out=[]; const seen=new Set();
+  FIELD_GROUPS.forEach(g=>{ const fs=g.fields.map(fid=>fieldById[fid]).filter(Boolean);
+    fs.forEach(f=>seen.add(f.id)); if(fs.length) out.push({ ...g, fieldObjs:fs }); });
+  const orphans=(KN.fields||[]).filter(f=>!seen.has(f.id));
+  if(orphans.length) out.push({ id:'other', label:'Other', icon:'•', fields:orphans.map(f=>f.id), fieldObjs:orphans });
+  return out;
+}
+function groupAgg(g){ let total=0,done=0,ready=0; (g.fieldObjs||[]).forEach(f=>{
+    total+=(byField[f.id]||[]).length; done+=learnedInField(f.id);
+    ready+=(byField[f.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length; }); return {total,done,ready}; }
 
 // ================= knowledge-level degrees =================
 // Cards carry a difficulty level 1–6. A "degree" reflects the deepest level you've MASTERED in a
@@ -1275,8 +1301,19 @@ function factOfDay(){ const d=todayStr();
   const idx=hashStr(d)%KN.cards.length; const c=KN.cards[idx];
   settings.fotd={day:d, id:c.id}; return c; }
 // ================= FEED (explore) =================
-let feedFilter="all";   // "all" or a field id
+let feedFilter="all";   // "all" | "__saved" | a field id | "g:<groupId>" (a whole domain)
 let feedStatus="all";   // "all" | "unlearned" | "learned"
+// does a card pass the current field/domain filter? ("all" passes everything)
+function inFeedFilter(c){
+  if(feedFilter==="all") return true;
+  if(feedFilter.indexOf("g:")===0){ const g=FIELD_GROUPS.find(x=>x.id===feedFilter.slice(2)); return !!g && g.fields.includes(c.field); }
+  return c.field===feedFilter;
+}
+function feedFilterLabel(){
+  if(feedFilter==="all") return "For you"; if(feedFilter==="__saved") return "Saved";
+  if(feedFilter.indexOf("g:")===0){ const g=FIELD_GROUPS.find(x=>x.id===feedFilter.slice(2)); return g?g.label:"Topic"; }
+  return (fieldById[feedFilter]||{}).label || feedFilter;
+}
 const FEED_PAGE=36; let feedShown=FEED_PAGE;   // virtualise the feed: render a window, not all 380+ cards (iOS memory)
 let feedOrder=[];       // current visible order, for the Reader's "next"
 
@@ -1293,7 +1330,7 @@ function cardHeft(c){
 function feedCandidates(){
   let list;
   if(feedFilter==="__saved"){ const s=new Set(settings.saved||[]); list=KN.cards.filter(c=>s.has(c.id)); }
-  else { list=KN.cards.slice(); if(feedFilter!=="all") list=list.filter(c=>c.field===feedFilter); }
+  else { list=KN.cards.filter(inFeedFilter); }
   if(feedStatus==="learned") list=list.filter(c=>isLearned(c.id));
   else if(feedStatus==="unlearned") list=list.filter(c=>!isLearned(c.id));
   if(list.length<3) return list;
@@ -1335,11 +1372,13 @@ function renderFeedStatus(){
 }
 function renderFeedFilter(){
   const saved=(settings.saved||[]).length;
-  const chips=[{id:"all",label:"For you",icon:"✨"}]
-    .concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[])
-    .concat(KN.fields.map(f=>({id:f.id,label:f.label,icon:f.icon})));
+  let chips=[{id:"all",label:"For you",icon:"✨"}].concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[]);
+  // a single active field (set from a field/Web row) is surfaced as its own chip so it stays visible
+  if(feedFilter!=="all" && feedFilter!=="__saved" && feedFilter.indexOf("g:")!==0 && fieldById[feedFilter]){
+    const f=fieldById[feedFilter]; chips.push({id:f.id,label:f.label,icon:f.icon}); }
+  chips=chips.concat(groupsPresent().map(g=>({id:'g:'+g.id,label:g.label,icon:g.icon})));   // domains
   $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
-  document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; renderFeedFilter(); renderFeedList(); });
+  document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; feedShown=FEED_PAGE; renderFeedFilter(); renderFeedList(); });
 }
 function feedCardHtml(c, featured){
   const fl=fieldById[c.field]||{}, col=fl.color||'#888';
@@ -1364,7 +1403,7 @@ function renderFeedList(){
   feedOrder=list.map(c=>c.id);
   if(!list.length){
     const hasLocked = feedStatus!=="learned" && feedFilter!=="__saved" &&
-      KN.cards.some(c=> (feedFilter==="all"||c.field===feedFilter) && isNew(c.id) && !prereqsMet(c));
+      KN.cards.some(c=> inFeedFilter(c) && isNew(c.id) && !prereqsMet(c));
     $("feedList").innerHTML='<div class="emptystate"><div class="ei">'+(hasLocked?'🔒':'🔍')+'</div><p>'+
       (hasLocked?'Learn the foundations first — these cards unlock as you go.':'Nothing here yet.')+'</p></div>'; return; }
   const n=Math.min(feedShown, list.length);
@@ -1592,30 +1631,40 @@ function drawRing(cv, frac, opt){ if(!cv) return; const ctx=cv.getContext("2d");
 }
 // per-field degrees as a readable, sorted DOM list (replaces the unreadable 26-axis canvas radar).
 // Each row: field icon + label, the degree badge earned, level pips showing depth, and coverage.
+function degRowData(f){
+  const total=(byField[f.id]||[]).length; if(!total) return null;
+  const counts=levelsInField(f.id);
+  return { f, total, done:learnedInField(f.id), att:fieldMastery(f.id), deg:degreeFor(f.id),
+           counts, present:Object.keys(counts).map(Number).sort((a,b)=>a-b), complete:fieldComplete(f.id) };
+}
+function degRowHtml(r){
+  const col=(r.f.color||'#888');
+  const pips=r.present.map(L=>{ const need=Math.ceil(0.7*r.counts[L]), got=learnedAtLevel(r.f.id,L);
+    const cls = got>=need ? 'on' : (got>0 ? 'half' : ''); return '<i class="degpip '+cls+'" title="Level '+L+': '+got+'/'+r.counts[L]+'">'+L+'</i>'; }).join('');
+  const badge = r.deg.key ? '<span class="degbadge" style="--dc:'+col+'">'+esc(r.deg.short||r.deg.name)+'</span>'
+                          : '<span class="degbadge none">·</span>';
+  const nx=nextExamLevel(r.f.id);
+  const exam = (nx!=null && examableCount(r.f.id,nx)>=3)
+    ? '<button class="degexam" data-f="'+r.f.id+'" title="Sit the exam to certify this degree">🎓 Sit '+esc(DEGREES[degreeKeyForLevel(nx)].name)+' exam</button>' : '';
+  return '<div class="degrow" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
+    '<span class="degic">'+esc(r.f.icon||'')+'</span>'+
+    '<span class="degmain"><span class="degtop"><span class="deglab">'+esc(r.f.label)+(r.complete?' <span class="degstar" title="field complete">★</span>':'')+'</span>'+badge+'</span>'+
+      '<span class="degpips">'+pips+'</span>'+exam+'</span>'+
+    '<span class="degnum">'+r.done+'/'+r.total+'</span></div>';
+}
+// per-field degrees, grouped by domain (headers); rows keep .degrow/.degexam so renderMe wiring still binds
 function degreeListHtml(){
-  const rows=(KN.fields||[]).map(f=>{
-    const total=(byField[f.id]||[]).length; if(!total) return null;
-    const counts=levelsInField(f.id);
-    return { f, total, done:learnedInField(f.id), att:fieldMastery(f.id), deg:degreeFor(f.id),
-             counts, present:Object.keys(counts).map(Number).sort((a,b)=>a-b), complete:fieldComplete(f.id) };
-  }).filter(Boolean)
-    .sort((a,b)=> b.deg.key-a.deg.key || (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
-  if(!rows.length) return '<div class="fbempty">Learn cards to start earning degrees.</div>';
-  return '<div class="deglist">'+rows.map(r=>{
-    const col=(r.f.color||'#888');
-    const pips=r.present.map(L=>{ const need=Math.ceil(0.7*r.counts[L]), got=learnedAtLevel(r.f.id,L);
-      const cls = got>=need ? 'on' : (got>0 ? 'half' : ''); return '<i class="degpip '+cls+'" title="Level '+L+': '+got+'/'+r.counts[L]+'">'+L+'</i>'; }).join('');
-    const badge = r.deg.key ? '<span class="degbadge" style="--dc:'+col+'">'+esc(r.deg.short||r.deg.name)+'</span>'
-                            : '<span class="degbadge none">·</span>';
-    const nx=nextExamLevel(r.f.id);
-    const exam = (nx!=null && examableCount(r.f.id,nx)>=3)
-      ? '<button class="degexam" data-f="'+r.f.id+'" title="Sit the exam to certify this degree">🎓 Sit '+esc(DEGREES[degreeKeyForLevel(nx)].name)+' exam</button>' : '';
-    return '<div class="degrow" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
-      '<span class="degic">'+esc(r.f.icon||'')+'</span>'+
-      '<span class="degmain"><span class="degtop"><span class="deglab">'+esc(r.f.label)+(r.complete?' <span class="degstar" title="field complete">★</span>':'')+'</span>'+badge+'</span>'+
-        '<span class="degpips">'+pips+'</span>'+exam+'</span>'+
-      '<span class="degnum">'+r.done+'/'+r.total+'</span></div>';
-  }).join('')+'</div>';
+  let any=false;
+  const html=groupsPresent().map(g=>{
+    const rows=g.fieldObjs.map(degRowData).filter(Boolean)
+      .sort((a,b)=> b.deg.key-a.deg.key || (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
+    if(!rows.length) return '';
+    any=true; let total=0,done=0; rows.forEach(r=>{ total+=r.total; done+=r.done; });
+    return '<div class="degroup"><div class="degroup-hd"><span class="dgh-ic">'+esc(g.icon||'')+'</span>'+
+      '<span class="dgh-lab">'+esc(g.label)+'</span><span class="dgh-num">'+done+'/'+total+'</span></div>'+
+      rows.map(degRowHtml).join('')+'</div>';
+  }).join('');
+  return any? '<div class="deglist">'+html+'</div>' : '<div class="fbempty">Learn cards to start earning degrees.</div>';
 }
 function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
   const w=cv.width,h=cv.height,cx=w/2,cy=h/2, R=w*0.34; const fields=KN.fields; const n=fields.length; if(!n) return;
@@ -1638,19 +1687,25 @@ function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const 
 }catch(e){ console.error('[clue] drawFieldRadar failed:', e); } }
 function openFields(){ renderFieldsSheet(); openSheet("Fields"); }
 function renderFieldsSheet(){
-  const rows=KN.fields.map(f=>{
-    const total=byField[f.id].length, done=learnedInField(f.id), pct=total?Math.round(done/total*100):0;
-    return { f, total, done, pct };
-  }).sort((a,b)=> b.done-a.done || b.pct-a.pct);
-  $("fieldsBody").innerHTML = rows.map(r=>
-    '<button class="fieldrow" data-f="'+r.f.id+'" style="--fc:'+(r.f.color||'#888')+';">'+
-      '<span class="frico">'+esc(r.f.icon||'')+'</span>'+
-      '<span class="frmain"><span class="frtop"><span class="frlabel">'+esc(r.f.label)+'</span>'+
-        '<span class="frcount">'+r.done+' / '+r.total+'</span></span>'+
-        '<span class="frbar"><i style="width:'+Math.max(r.pct,2)+'%"></i></span></span>'+
-    '</button>').join('');
-  document.querySelectorAll("#fieldsBody .fieldrow").forEach(el=> el.onclick=()=>{
-    feedFilter=el.dataset.f; feedStatus="all"; closeSheet("Fields"); showTab("feed"); });
+  // grouped by domain: a tappable domain header (filters the feed to the whole domain) + its field rows
+  $("fieldsBody").innerHTML = groupsPresent().map(g=>{
+    const rows=g.fieldObjs.map(f=>{ const total=byField[f.id].length, done=learnedInField(f.id);
+      return { f, total, done, pct: total?Math.round(done/total*100):0 }; })
+      .filter(r=>r.total).sort((a,b)=> b.done-a.done || b.pct-a.pct);
+    if(!rows.length) return '';
+    const a=groupAgg(g);
+    return '<button class="fsgroup" data-g="'+g.id+'"><span class="fsg-ic">'+esc(g.icon||'')+'</span>'+
+        '<span class="fsg-lab">'+esc(g.label)+'</span><span class="fsg-num">'+a.done+' / '+a.total+'</span><span class="fsg-go">›</span></button>'+
+      rows.map(r=>'<button class="fieldrow" data-f="'+r.f.id+'" style="--fc:'+(r.f.color||'#888')+';">'+
+        '<span class="frico">'+esc(r.f.icon||'')+'</span>'+
+        '<span class="frmain"><span class="frtop"><span class="frlabel">'+esc(r.f.label)+'</span>'+
+          '<span class="frcount">'+r.done+' / '+r.total+'</span></span>'+
+          '<span class="frbar"><i style="width:'+Math.max(r.pct,2)+'%"></i></span></span>'+
+      '</button>').join('');
+  }).join('');
+  const go=(filter)=>{ feedFilter=filter; feedStatus="all"; feedShown=FEED_PAGE; closeSheet("Fields"); showTab("feed"); };
+  document.querySelectorAll("#fieldsBody .fsgroup").forEach(el=> el.onclick=()=> go('g:'+el.dataset.g));
+  document.querySelectorAll("#fieldsBody .fieldrow").forEach(el=> el.onclick=()=> go(el.dataset.f));
 }
 function hexA(hex,a){ hex=hex.trim(); if(hex[0]!=='#'||hex.length<7) return 'rgba(232,85,28,'+a+')'; const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return 'rgba('+r+','+g+','+b+','+a+')'; }
 function lastNDaysActivity(n){ const out=[]; for(let i=n-1;i>=0;i--){ const d=dayOffsetStr(-i); const a=(settings.activity||{})[d]||{l:0,r:0,q:0}; out.push({d, l:a.l||0, r:a.r||0, q:a.q||0}); } return out; }
@@ -1746,7 +1801,7 @@ function drawWeb(){ try{
   });
 }catch(e){ console.error('[clue] drawWeb failed:', e); } }
 // ---- map helpers: a card's state on the web, and the "ready to pull" frontier ----
-function cardState(c){
+function webCardState(c){
   if(isLearned(c.id)) return isDue(c.id)?'due':'learned';
   if(!prereqsMet(c)) return 'locked';
   return 'ready';                                   // unlearned, every prereq met — pull it now
@@ -1770,8 +1825,43 @@ function fieldChipsHtml(fid){
   const byL={}; cards.forEach(c=>{ (byL[c.level||1]=byL[c.level||1]||[]).push(c); });
   return Object.keys(byL).map(Number).sort((a,b)=>a-b).map(L=>
     '<div class="fp-lvlrow"><span class="fp-lvl">L'+L+'</span><div class="fp-chips">'+
-    byL[L].map(c=>'<button class="chipx '+cardState(c)+'" data-id="'+c.id+'">'+esc(c.title)+'</button>').join('')+
+    byL[L].map(c=>'<button class="chipx '+webCardState(c)+'" data-id="'+c.id+'">'+esc(c.title)+'</button>').join('')+
     '</div></div>').join('');
+}
+function fieldPathRowHtml(f){
+  const total=(byField[f.id]||[]).length, col=f.color||'#888', deg=degreeFor(f.id);
+  const doneN=learnedInField(f.id), frN=(byField[f.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length;
+  const counts=levelsInField(f.id), present=Object.keys(counts).map(Number).sort((a,b)=>a-b);
+  const pips=present.map(L=>{ const need=Math.ceil(0.7*counts[L]), got=learnedAtLevel(f.id,L);
+    return '<i class="degpip '+(got>=need?'on':(got>0?'half':''))+'">'+L+'</i>'; }).join('');
+  const badge=deg.key?'<span class="degbadge" style="--dc:'+col+'">'+esc(deg.short||deg.name)+'</span>':'';
+  const ready=frN?'<span class="fp-ready">'+frN+' ready</span>':'';
+  return '<div class="fpath" data-f="'+f.id+'" style="--fc:'+col+'">'+
+    '<button class="fpath-hd"><span class="fp-ic">'+esc(f.icon||'')+'</span>'+
+      '<span class="fp-main"><span class="fp-top"><span class="fp-lab">'+esc(f.label)+'</span>'+badge+'</span>'+
+        '<span class="degpips">'+pips+'</span></span>'+
+      '<span class="fp-right"><span class="fp-num">'+doneN+'/'+total+'</span>'+ready+'</span>'+
+      '<span class="fp-chev" aria-hidden="true">›</span></button>'+
+    '<div class="fpath-body" hidden></div></div>';
+}
+function topicFieldsHtml(gid){
+  const g=groupsPresent().find(x=>x.id===gid); if(!g) return '';
+  const fs=g.fieldObjs.filter(f=>(byField[f.id]||[]).length).sort((a,b)=>
+    learnedInField(b.id)-learnedInField(a.id)
+    || (byField[b.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length-(byField[a.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length
+    || a.label.localeCompare(b.label));
+  return fs.map(fieldPathRowHtml).join('');
+}
+function topicsHtml(){
+  return groupsPresent().map(g=>{ const a=groupAgg(g); const pct=a.total?Math.round(a.done/a.total*100):0;
+    return '<div class="topic" data-g="'+g.id+'">'+
+      '<button class="topic-hd"><span class="topic-ic">'+esc(g.icon||'')+'</span>'+
+        '<span class="topic-main"><span class="topic-lab">'+esc(g.label)+'</span>'+
+          '<span class="topic-bar"><i style="width:'+Math.max(pct,2)+'%"></i></span></span>'+
+        '<span class="fp-right"><span class="fp-num">'+a.done+'/'+a.total+'</span>'+(a.ready?'<span class="fp-ready">'+a.ready+' ready</span>':'')+'</span>'+
+        '<span class="fp-chev" aria-hidden="true">›</span></button>'+
+      '<div class="topic-body" hidden></div></div>';
+  }).join('');
 }
 function webHtml(){
   const learned=learnedIds().length;
@@ -1784,30 +1874,13 @@ function webHtml(){
           '<span class="fcx-title">'+esc(c.title)+'</span>'+
           '<span class="fcx-builds">'+sub+'</span></button>'; }).join('')+'</div>'
     : '<div class="webempty">You’ve pulled every unlocked thread for now — review what you know, or open the feed to roam.</div>';
-  const rows=(KN.fields||[]).map(f=>{ const total=(byField[f.id]||[]).length; if(!total) return null;
-    return { f, total, doneN:learnedInField(f.id), frN:(byField[f.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length }; })
-    .filter(Boolean).sort((a,b)=> (b.doneN>0)-(a.doneN>0) || b.doneN-a.doneN || b.frN-a.frN || a.f.label.localeCompare(b.f.label));
-  const fieldsHtml=rows.map(r=>{ const col=r.f.color||'#888', deg=degreeFor(r.f.id);
-    const counts=levelsInField(r.f.id), present=Object.keys(counts).map(Number).sort((a,b)=>a-b);
-    const pips=present.map(L=>{ const need=Math.ceil(0.7*counts[L]), got=learnedAtLevel(r.f.id,L);
-      return '<i class="degpip '+(got>=need?'on':(got>0?'half':''))+'">'+L+'</i>'; }).join('');
-    const badge=deg.key?'<span class="degbadge" style="--dc:'+col+'">'+esc(deg.short||deg.name)+'</span>':'';
-    const ready=r.frN?'<span class="fp-ready">'+r.frN+' ready</span>':'';
-    return '<div class="fpath" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
-      '<button class="fpath-hd"><span class="fp-ic">'+esc(r.f.icon||'')+'</span>'+
-        '<span class="fp-main"><span class="fp-top"><span class="fp-lab">'+esc(r.f.label)+'</span>'+badge+'</span>'+
-          '<span class="degpips">'+pips+'</span></span>'+
-        '<span class="fp-right"><span class="fp-num">'+r.doneN+'/'+r.total+'</span>'+ready+'</span>'+
-        '<span class="fp-chev" aria-hidden="true">›</span></button>'+
-      '<div class="fpath-body" hidden></div></div>';
-  }).join('');
   return '<div class="webpage">'+
     '<div class="websearch"><input id="webSearch" type="search" inputmode="search" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Search '+KN.cards.length+' cards…"></div>'+
     '<div id="webResults" class="webresults" hidden></div>'+
     '<div id="webMain">'+
       '<div class="webhd">Pull a thread'+(frTop.length?' <span class="webcount">· '+fr.length+' ready</span>':'')+'</div>'+frHtml+
       (due?'<button class="webdue" id="webReview">↻ Review '+due+' due card'+(due===1?'':'s')+'</button>':'')+
-      '<div class="webhd webhd2">Your fields</div><div class="fieldpaths">'+fieldsHtml+'</div>'+
+      '<div class="webhd webhd2">Your topics</div><div class="topics">'+topicsHtml()+'</div>'+
     '</div></div>';
 }
 function renderWeb(){
@@ -1822,11 +1895,18 @@ function renderWeb(){
   const fr=webFrontier().map(c=>c.id);
   stage.querySelectorAll('.fcx').forEach(b=> b.onclick=()=> openFrom(b.dataset.id, fr));
   const rev=$("webReview"); if(rev) rev.onclick=()=> startSession();
-  stage.querySelectorAll('.fpath-hd').forEach(hd=> hd.onclick=()=>{
-    const fp=hd.closest('.fpath'), body=fp.querySelector('.fpath-body'), open=fp.classList.toggle('open');
-    if(open){ if(!body.dataset.filled){ body.innerHTML=fieldChipsHtml(fp.dataset.f); body.dataset.filled='1';
-        const ids=(byField[fp.dataset.f]||[]).map(c=>c.id);
-        body.querySelectorAll('.chipx').forEach(ch=> ch.onclick=()=> openFrom(ch.dataset.id, ids)); }
+  // field row: expand → cards (chips)
+  function wireField(fp){ const body=fp.querySelector('.fpath-body');
+    fp.querySelector('.fpath-hd').onclick=()=>{ const open=fp.classList.toggle('open');
+      if(open){ if(!body.dataset.filled){ body.innerHTML=fieldChipsHtml(fp.dataset.f); body.dataset.filled='1';
+          const ids=(byField[fp.dataset.f]||[]).map(c=>c.id);
+          body.querySelectorAll('.chipx').forEach(ch=> ch.onclick=()=> openFrom(ch.dataset.id, ids)); }
+        body.hidden=false; } else body.hidden=true; }; }
+  // topic (domain): expand → field rows (lazy), each then expandable to cards
+  stage.querySelectorAll('.topic-hd').forEach(hd=> hd.onclick=()=>{
+    const tp=hd.closest('.topic'), body=tp.querySelector('.topic-body'), open=tp.classList.toggle('open');
+    if(open){ if(!body.dataset.filled){ body.innerHTML=topicFieldsHtml(tp.dataset.g); body.dataset.filled='1';
+        body.querySelectorAll('.fpath').forEach(wireField); }
       body.hidden=false; } else body.hidden=true;
   });
   const si=$("webSearch"), res=$("webResults"), main=$("webMain");
@@ -1835,7 +1915,7 @@ function renderWeb(){
     const hits=KN.cards.filter(c=> (c.title||'').toLowerCase().includes(q) || (c.tags||[]).some(t=>String(t).toLowerCase().includes(q))).slice(0,24);
     main.hidden=true; res.hidden=false;
     res.innerHTML = hits.length
-      ? hits.map(c=>{ const fl=fieldById[c.field]||{}; return '<button class="wres '+cardState(c)+'" data-id="'+c.id+'"><span class="wres-t">'+esc(c.title)+'</span><span class="wres-f" style="--fc:'+(fl.color||'#888')+'">'+esc(fl.icon||'')+' '+esc(fl.label||c.field)+'</span></button>'; }).join('')
+      ? hits.map(c=>{ const fl=fieldById[c.field]||{}; return '<button class="wres '+webCardState(c)+'" data-id="'+c.id+'"><span class="wres-t">'+esc(c.title)+'</span><span class="wres-f" style="--fc:'+(fl.color||'#888')+'">'+esc(fl.icon||'')+' '+esc(fl.label||c.field)+'</span></button>'; }).join('')
       : '<div class="webempty">No cards match “'+esc(q)+'”.</div>';
     const ids=hits.map(c=>c.id);
     res.querySelectorAll('.wres').forEach(b=> b.onclick=()=> openFrom(b.dataset.id, ids));

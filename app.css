@@ -483,6 +483,38 @@
   .chipx.ready{ background:transparent; color:var(--fc,#888); border-color:var(--fc,#888); border-style:dashed; font-weight:700; }
   .chipx.locked{ background:var(--field); color:var(--l3); border-color:transparent; }
 
+  /* topic (domain) sections on the Web page: domain → field → cards */
+  .topics{ display:flex; flex-direction:column; gap:9px; }
+  .topic{ background:var(--card); border:.5px solid var(--line); border-radius:14px; overflow:hidden; }
+  .topic-hd{ display:flex; align-items:center; gap:11px; width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:13px; }
+  .topic-hd:active{ opacity:.6; }
+  .topic-ic{ flex:0 0 auto; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:17px; border-radius:9px; background:var(--accent-soft); }
+  .topic-main{ flex:1; min-width:0; }
+  .topic-lab{ display:block; font-size:15.5px; font-weight:700; color:var(--ink); letter-spacing:-.2px; }
+  .topic-bar{ display:block; height:5px; border-radius:3px; background:var(--track); overflow:hidden; margin-top:7px; }
+  .topic-bar i{ display:block; height:100%; border-radius:3px; background:var(--grad); }
+  .topic .fp-chev{ flex:0 0 auto; color:var(--l3); font-size:20px; line-height:1; transition:transform .18s; }
+  .topic.open .fp-chev{ transform:rotate(90deg); }
+  .topic-body{ padding:0 9px 10px; display:flex; flex-direction:column; gap:7px; }
+  .topic-body .fpath{ background:var(--row); }
+
+  /* domain headers on the You page degree list */
+  .degroup{ margin-bottom:6px; }
+  .degroup-hd{ display:flex; align-items:center; gap:9px; padding:14px 2px 7px; }
+  .degroup-hd .dgh-ic{ font-size:14px; }
+  .degroup-hd .dgh-lab{ flex:1; font-size:12px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--l3); }
+  .degroup-hd .dgh-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
+  .degroup:first-child .degroup-hd{ padding-top:2px; }
+
+  /* domain headers in the Fields browser sheet */
+  .fsgroup{ display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:14px 4px 8px; }
+  .fsgroup:active{ opacity:.6; }
+  .fsgroup .fsg-ic{ font-size:15px; }
+  .fsgroup .fsg-lab{ flex:1; font-size:13px; font-weight:800; letter-spacing:.3px; text-transform:uppercase; color:var(--l2); }
+  .fsgroup .fsg-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
+  .fsgroup .fsg-go{ color:var(--l3); font-size:18px; }
+
   /* ===== onboarding ===== */
   #onboardWrap{ position:fixed; inset:0; z-index:320; display:none; align-items:center; justify-content:center; padding:24px;
     background:rgba(0,0,0,.5); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
