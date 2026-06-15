@@ -12687,6 +12687,1489 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "bio-sir-model",
+      "field": "bio",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "bio-natural-selection",
+        "math-derivative"
+      ],
+      "src": [
+        "ev-bio-sir-model"
+      ],
+      "title": "The SIR model and R0",
+      "fact": "Split a population into Susceptible, Infected, Recovered, and one ratio R0 = transmission/recovery decides whether the outbreak grows or fizzles.",
+      "detail": "The SIR model tracks three groups with rate equations: people flow S to I (at transmission rate beta times the chance a susceptible meets an infected) and I to R (at recovery rate gamma). R0 = beta/gamma is the average number of new cases one infected person makes in a fully susceptible population: you stay infectious for about 1/gamma time and infect at rate beta, so you produce beta/gamma cases. If R0 is above 1 each case more than replaces itself and infections climb; below 1 the chain shrinks and the outbreak dies out. Once enough people are immune the average case meets too few susceptibles to replace itself, which happens when the susceptible share drops to 1/R0, so the herd-immunity threshold is 1 - 1/R0. Worked example: R0 = 4 needs 1 - 1/4 = 0.75, so 75% of the population immune to halt spread.",
+      "deploy": "Use it to judge any outbreak fast: estimate R0, then 1 - 1/R0 tells you the vaccination or immunity coverage needed, and whether a control measure (which cuts beta, raising 1/R0) can push R0 below 1.",
+      "counter": "The plain SIR model assumes one well-mixed population with constant rates and lifelong immunity. Epidemiologists tracking COVID-19 found R0 is not a fixed constant of a pathogen: it depends on contact patterns, density, and behaviour, so a single number from one setting badly predicts another. Models with age structure, waning immunity (SIRS), or network contact (rather than uniform mixing) routinely override the simple threshold.",
+      "tags": [
+        "epidemiology",
+        "sir",
+        "r0",
+        "herd-immunity",
+        "modelling"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A pathogen has basic reproduction number R0 = 5. What fraction of the population must be immune to halt its spread, using the herd-immunity threshold 1 - 1/R0?",
+          "answer": 0.8,
+          "unit": "fraction",
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "In the SIR compartments, by what single letter is the group labelled that has left the infected pool and can no longer transmit (the destination of the final flow)?",
+          "answer": "R",
+          "accept": [
+            "r",
+            "recovered",
+            "removed",
+            "R (recovered)",
+            "recovered/removed"
+          ]
+        },
+        {
+          "q": "R0 in the SIR model is defined as the ratio of which two rates?",
+          "choices": [
+            "transmission rate divided by recovery rate",
+            "recovery rate divided by transmission rate",
+            "birth rate divided by death rate",
+            "infected count divided by susceptible count"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "bio-hardy-weinberg",
+      "field": "bio",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "bio-genetic-drift",
+        "prob-conditional"
+      ],
+      "src": [
+        "ev-bio-hardy-weinberg"
+      ],
+      "title": "Hardy–Weinberg: the null model of evolution",
+      "fact": "Random mating shuffles two alleles into genotype proportions p^2, 2pq, q^2 that never change on their own, so any drift away from them is evolution caught in the act.",
+      "detail": "Take one gene with two alleles at frequencies p and q where p + q = 1. Under random mating each offspring draws two alleles independently, so the chance of two copies of the first allele is p^2, two of the second is q^2, and one of each (the heterozygote) is 2pq because it can form two ways. These sum to p^2 + 2pq + q^2 = (p+q)^2 = 1. With no selection, mutation, migration, drift (an infinite population), or non-random mating, those frequencies hold generation after generation, so Hardy-Weinberg is the null model: predicted frequencies if nothing is happening. A measured deviation from p^2, 2pq, q^2 is the signal that one of those forces is at work. Worked example: p = 0.7, q = 0.3 gives heterozygote carriers 2pq = 2(0.7)(0.3) = 0.42, the two homozygotes 0.49 and 0.09.",
+      "deploy": "Use it as the baseline test in population genetics: compute expected genotype frequencies from allele frequencies, compare to observed counts, and read a significant mismatch as evidence of selection, inbreeding, drift, or a genotyping error.",
+      "counter": "G.H. Hardy framed the result as almost trivial algebra, and that is its limit: it is a null hypothesis, not a description of real populations. Real populations are finite, so genetic drift alone perturbs the frequencies, and assortative mating or selection are common. So passing the test does not prove no evolution (forces can cancel), and the model also assumes one locus with simple Mendelian inheritance.",
+      "tags": [
+        "population-genetics",
+        "hardy-weinberg",
+        "null-model",
+        "allele-frequency",
+        "evolution"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A gene has two alleles with frequencies p = 0.6 and q = 0.4. Under Hardy-Weinberg, what is the expected frequency of heterozygotes (2pq)?",
+          "answer": 0.48,
+          "unit": "frequency",
+          "tol": 0.005
+        },
+        {
+          "q": "Hardy-Weinberg genotype frequencies stay constant across generations only under which condition?",
+          "choices": [
+            "none of selection, mutation, migration, drift, or non-random mating is acting",
+            "natural selection is acting",
+            "genetic drift is acting",
+            "mating is non-random"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "When observed genotype frequencies match Hardy-Weinberg predictions, the principle is serving as which kind of statistical model (the baseline assuming no forces act)?",
+          "answer": "null model",
+          "accept": [
+            "null",
+            "null hypothesis",
+            "the null model",
+            "null model of evolution",
+            "baseline model"
+          ]
+        },
+        {
+          "q": "Why does the heterozygote term carry the factor of 2 (giving 2pq) while each homozygote term does not?",
+          "choices": [
+            "a heterozygote can form two ways (the first allele from either parent), homozygotes only one way",
+            "heterozygotes are always twice as fit",
+            "p and q are each doubled before squaring",
+            "mutation doubles the heterozygote count each generation"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "eco-lotka-volterra",
+      "field": "eco",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "bio-natural-selection",
+        "eco-logistic-map"
+      ],
+      "src": [
+        "ev-eco-lotka-volterra"
+      ],
+      "title": "Predator and prey: the Lotka–Volterra model",
+      "fact": "Two rate equations make predators and prey chase each other in a permanent cycle, with predators always peaking a quarter-turn after the prey.",
+      "detail": "The Lotka-Volterra model couples two populations: prey x grow on their own but lose to predation, dx/dt = alpha*x - beta*x*y; predators y die off on their own but grow by eating prey, dy/dt = -gamma*y + delta*x*y. The cross terms x*y mean encounters between the two drive both losses and gains. The oscillation is built into this feedback, not forced from outside: plenty of prey lets predators multiply, the swollen predator population then eats the prey down, the now-scarce prey starve the predators, and with predators gone the prey rebound, restarting the loop. So predators lag prey by about a quarter period (90 degrees) because they respond to prey abundance rather than set it. The populations orbit a fixed equilibrium at x* = gamma/delta prey and y* = alpha/beta predators; the orbits are closed loops, so the cycle repeats forever without damping.",
+      "deploy": "Reach for it as the first toy model of any coupled consumer-resource system (predator-prey, herbivore-plant, even host-parasite) to explain why population cycles can be endogenous and why a predator peak trailing a prey peak does not need an external cause.",
+      "counter": "Ecologists since the 1920s have flagged the assumptions as unrealistic: prey grow exponentially with unlimited food and no carrying capacity, and predators have limitless appetite. The neutral closed orbits are also structurally fragile (any added realism, like logistic prey growth, collapses them to a damped spiral toward equilibrium), so real cycles such as the Canadian lynx-hare data fit better with carrying capacity and a saturating (Holling type-II) functional response.",
+      "tags": [
+        "ecology",
+        "lotka-volterra",
+        "predator-prey",
+        "population-cycles",
+        "dynamics"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "For Lotka-Volterra parameters alpha = 1, beta = 0.1, gamma = 0.5, delta = 0.02, the equilibrium prey level is gamma/delta. What is that prey equilibrium?",
+          "answer": 25,
+          "unit": "individuals",
+          "tol": 0.5
+        },
+        {
+          "q": "In the Lotka-Volterra model, the predator population peak relative to the prey peak is:",
+          "choices": [
+            "about a quarter period behind (90 degrees lagging)",
+            "exactly in phase",
+            "exactly half a period ahead",
+            "completely random in timing"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What single assumption about the prey's food supply is the most cited unrealistic feature of the basic Lotka-Volterra model (the prey have how much food)?",
+          "answer": "unlimited food",
+          "accept": [
+            "unlimited",
+            "limitless food",
+            "infinite food",
+            "ample food at all times",
+            "no carrying capacity",
+            "unlimited prey food"
+          ]
+        },
+        {
+          "q": "Why is the Lotka-Volterra oscillation called intrinsic rather than externally driven?",
+          "choices": [
+            "the predator-prey feedback alone generates the cycle, with no outside forcing",
+            "a seasonal climate signal forces the populations up and down",
+            "random shocks restart the cycle each year",
+            "predator and prey are independent and only appear to cycle together"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "eco-logistic-map",
+      "field": "eco",
+      "level": 4,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-powers",
+        "eco-lotka-volterra"
+      ],
+      "src": [
+        "ev-eco-logistic-map"
+      ],
+      "title": "The logistic map: order into chaos",
+      "fact": "One line, x_next = r*x*(1-x), goes from a steady population to chaos as you turn a single knob.",
+      "detail": "Here x is the population as a fraction of carrying capacity (0 to 1) and r is the growth rate; the (1-x) term is crowding that pulls growth down as the population fills the space. For r below 3 the population settles to one steady level: with r=2.5, starting from x=0.4 the first step gives 2.5*0.4*0.6 = 0.6, and it stays at 0.6, which is exactly the predicted fixed point 1-1/r = 1-1/2.5 = 0.6. Past r=3 that single value splits into a 2-cycle (the population alternates between a high and a low year); at r=3.2 it bounces between about 0.80 and 0.51. Raise r more and the cycle doubles to 4, then 8, then 16, faster and faster, until near r=3.57 the doubling piles up and the orbit becomes deterministic chaos: no repeating cycle, and two starting values a hair apart soon diverge completely. Robert May used this in 1976 to argue that a simple, fully deterministic biological rule can produce irregular dynamics with no outside randomness.",
+      "deploy": "Reach for it to show that 'random-looking' need not mean 'random-caused' — a fixed deterministic rule with sensitive dependence on initial conditions can generate erratic data, so unpredictability alone is not evidence of noise or many hidden variables.",
+      "counter": "Robert May's own warning is the limit: the logistic map is a deliberate caricature with one species and no age structure, time lags, or spatial spread, so reading literal ecological forecasts off it overreaches. May pressed the modeling-and-teaching point rather than the prediction-of-real-populations point.",
+      "tags": [
+        "chaos",
+        "logistic-map",
+        "dynamics",
+        "population",
+        "may"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Using x_next = r*x*(1-x) with r=3 and x=0.5, compute x_next for one step.",
+          "answer": 0.75,
+          "tol": 0.01
+        },
+        {
+          "type": "num",
+          "q": "For the logistic map x_next = r*x*(1-x) with r=2, the population settles to the fixed value 1-1/r. What is that value?",
+          "answer": 0.5,
+          "tol": 0.01
+        },
+        {
+          "q": "As the growth parameter r in the logistic map increases past 3, what happens to the long-run behaviour before chaos sets in?",
+          "choices": [
+            "The single steady value splits into a 2-cycle, then a 4-cycle, doubling repeatedly",
+            "The population immediately becomes chaotic with no intermediate stage",
+            "The population goes extinct (settles to 0)",
+            "The fixed point simply grows larger but stays a single steady value"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What term describes the property of the chaotic regime whereby two starting populations that differ by a tiny amount soon diverge completely, even though the rule is deterministic?",
+          "answer": "sensitive dependence on initial conditions",
+          "accept": [
+            "sensitive dependence on initial conditions",
+            "sensitive dependence",
+            "butterfly effect",
+            "chaos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eco-species-area",
+      "field": "eco",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-power-law",
+        "math-log"
+      ],
+      "src": [
+        "ev-eco-species-area"
+      ],
+      "title": "The species–area relationship",
+      "fact": "The species count of a habitat grows as a power of its area, S = c*A^z, so shrinking land loses species far slower than you might guess at first.",
+      "detail": "S is the number of species, A is area, c is a constant for the region, and z is an exponent usually around 0.2 to 0.35. Because it is a power law, taking logs gives log(S) = log(c) + z*log(A), a straight line of slope z on a log-log plot. The exponent controls how harshly habitat loss bites: if a patch keeps a fraction f of its original area, it keeps roughly f^z of its species, so it loses 1 - f^z. With z=0.25 and 90% of the habitat destroyed, f=0.1 and the loss is 1 - 0.1^0.25 = 1 - 0.562 = about 0.44, so roughly 44% of species are committed to extinction even though 90% of the land is gone. The same math explains why losing half an area (f=0.5, z=0.25) costs only 1 - 0.5^0.25 = about 16% of species — the curve is concave, so the first hectares lost cost few species and the last ones cost many.",
+      "deploy": "Use it to turn a deforestation or land-conversion figure into a first-pass extinction estimate, and to counter the naive linear intuition that losing X% of habitat loses X% of species.",
+      "counter": "Conservation biologists led by Fangliang He and Stephen Hubbell (2011, Nature) argue the species-area curve systematically overestimates extinction: the area you must add to find the FIRST new species is smaller than the area whose loss eliminates the LAST individual of a species, so running the relationship backward inflates the predicted losses. They proposed using an endemics-area relationship instead.",
+      "tags": [
+        "biodiversity",
+        "power-law",
+        "extinction",
+        "species-area",
+        "deforestation"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Using the species-area rule, a habitat reduced to a fraction f of its area keeps f^z of its species. With z=0.3 and half the area lost (f=0.5), what fraction of species is lost (1 - f^z)? Give a decimal.",
+          "answer": 0.188,
+          "tol": 0.02
+        },
+        {
+          "type": "num",
+          "q": "On a log-log plot of species count versus area, the species-area relationship S = c*A^z appears as a straight line. If z = 0.25, what is the slope of that line?",
+          "answer": 0.25,
+          "tol": 0.01
+        },
+        {
+          "q": "Why does destroying 90% of a habitat typically eliminate far less than 90% of its species under S = c*A^z?",
+          "choices": [
+            "The relationship is a concave power law with exponent z below 1, so species fall much more slowly than area",
+            "Species simply migrate to the remaining 10% and all survive",
+            "The exponent z is greater than 1, so losses are amplified",
+            "The relationship is linear, so 90% area loss means 90% species loss"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the mathematical form, of which S = c*A^z is an example, that becomes a straight line when both axes are plotted on logarithmic scales?",
+          "answer": "power law",
+          "accept": [
+            "power law",
+            "power-law",
+            "power function"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geo-map-projection",
+      "field": "geo",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-log"
+      ],
+      "src": [
+        "ev-geo-map-projection"
+      ],
+      "title": "Map projections: every flat map lies",
+      "fact": "No flat map can keep both shapes and areas honest, so every projection chooses what to lie about.",
+      "detail": "A sphere has intrinsic curvature and a flat sheet does not, and Gauss's theorema egregium says curvature cannot change when you bend a surface without stretching it; so unrolling a globe onto paper must stretch something, and a projection can preserve angles (conformal) or areas (equal-area) but not both. The Mercator projection is conformal: it keeps angles and compass bearings correct, so a constant heading is a straight line, which is why sailors used it. The price is that it stretches everything toward the poles, inflating high-latitude land: Greenland appears about as large as Africa, yet Africa's roughly 30 million square kilometres is about 14 times Greenland's roughly 2.2 million. The Gall-Peters projection is equal-area, so it gets Africa's true size right, but it stretches shapes (countries look tall and thin). Choosing between them is one design trade-off — angles versus areas — not a verdict on which map is 'correct'.",
+      "deploy": "Use it whenever someone treats one map as the true picture: ask what the projection preserves and what it distorts, and match the projection to the task (navigation wants Mercator's bearings; comparing country sizes wants an equal-area map).",
+      "counter": "Arno Peters argued in the 1970s-80s that Mercator's pole-ward inflation is not a neutral side effect but a political distortion that visually enlarges and centres the wealthier global North while shrinking equatorial regions, and pushed his equal-area map as a corrective. Cartographers such as those in the American Cartographic Association replied that Peters' map distorts shapes badly and that the underlying area-versus-angle trade-off is a geometric necessity, not a Northern conspiracy.",
+      "tags": [
+        "cartography",
+        "projection",
+        "mercator",
+        "equal-area",
+        "geometry"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Africa's area is about 30 million square kilometres and Greenland's is about 2.2 million square kilometres. About how many times larger than Greenland is Africa? Give a whole number.",
+          "answer": 14,
+          "tol": 1.0
+        },
+        {
+          "q": "What does the Mercator projection preserve, and what does it distort?",
+          "choices": [
+            "It preserves angles and compass bearings but inflates areas toward the poles",
+            "It preserves areas but distorts angles near the equator",
+            "It preserves both angles and areas exactly",
+            "It preserves distances along every line but distorts colour"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Why is it impossible for a flat map to preserve both shapes (angles) and areas everywhere at once?",
+          "choices": [
+            "A sphere's curvature cannot be flattened without stretching, by Gauss's theorema egregium",
+            "Ink cannot represent two properties on one sheet",
+            "Map-makers have simply never managed it yet",
+            "Compass bearings always change the scale of a printed map"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What single term describes a map projection that keeps areas true to scale (the property the Gall-Peters projection has and Mercator lacks)?",
+          "answer": "equal-area",
+          "accept": [
+            "equal-area",
+            "equal area",
+            "equivalent",
+            "equiareal",
+            "area-preserving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ir-lanchester",
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "game-nash-equilibrium",
+        "math-derivative"
+      ],
+      "src": [
+        "ev-ir-lanchester"
+      ],
+      "title": "Lanchester's laws of combat",
+      "fact": "Lanchester's square law says modern firepower scales with the SQUARE of how many units you field, so concentration of force wins decisively.",
+      "detail": "Frederick Lanchester modelled aimed, ranged combat with two coupled equations: each side loses units at a rate set by how many of the enemy are shooting, dA/dt = -b*B and dB/dt = -a*A, where a and b are per-unit firepower. Solving them gives a conserved quantity, a*A^2 - b*B^2, so with equal weapons the larger force A beats B and ends with sqrt(A^2 - B^2) survivors. Example: 5 units against 3, equal weapons, leaves sqrt(25 - 9) = sqrt(16) = 4 survivors, not the 2 you would get by plain subtraction. The squaring is why a 100 vs 70 fight is lopsided (the 100 keeps about sqrt(10000 - 4900) = 71 units while the 70 are wiped out) and why splitting your army in half is dangerous: each half fights at a quarter of the combined strength, since (1/2)^2 = 1/4. The older LINEAR law fits one-on-one melee, where each soldier engages exactly one enemy and the survivor count is just the plain difference A - B.",
+      "deploy": "Use it to argue for concentrating force rather than dividing it, and to estimate how a ranged engagement between unequal numbers ends: with equal kit the winner keeps about sqrt(A^2 - B^2) units.",
+      "counter": "The square law assumes every unit can fire on any target with full information; it breaks down for guerrilla and asymmetric war. Analysts of the Vietnam and counterinsurgency literature note that when one side hides among civilians and cannot be targeted freely, neither the square nor the linear model holds, and historians caution that Lanchester's clean attrition equations omit terrain, morale, logistics and command.",
+      "tags": [
+        "lanchester",
+        "attrition",
+        "square law",
+        "concentration of force",
+        "military"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "By Lanchester's square law, two forces have equal per-unit firepower. A force of 13 fights a force of 5. How many units does the winning side have left at the end?",
+          "answer": 12,
+          "unit": "units",
+          "tol": 0.5
+        },
+        {
+          "q": "Under Lanchester's square law for aimed ranged fire, a force's fighting strength is proportional to which quantity?",
+          "choices": [
+            "The number of units it fields",
+            "The square of the number of units it fields",
+            "The square root of the number of units it fields",
+            "The logarithm of the number of units it fields"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "detail",
+          "q": "Which Lanchester law (square or linear) applies to ancient one-on-one melee combat, where the surviving force is simply the difference between the two army sizes?",
+          "answer": "linear",
+          "accept": [
+            "linear",
+            "the linear law",
+            "linear law",
+            "lanchester's linear law"
+          ]
+        },
+        {
+          "q": "Why does Lanchester's square law warn against splitting an army into two equal halves to face a single unified enemy?",
+          "choices": [
+            "Each half fights at only a quarter of the combined force's strength because strength goes as the square of numbers",
+            "Two halves cannot share a single commander, which violates unity of command",
+            "Splitting doubles the supply lines and so doubles the casualty rate directly",
+            "The linear law takes over once a force is divided, making numbers irrelevant"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "ir-richardson",
+      "field": "ir",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-power-law",
+        "ir-lanchester"
+      ],
+      "src": [
+        "ev-ir-richardson"
+      ],
+      "title": "Richardson: modelling arms races and war",
+      "fact": "Lewis Fry Richardson turned an arms race into two coupled equations and found that war sizes obey a power law: many small clashes, rare catastrophes.",
+      "detail": "Richardson modelled two states' arms spending x and y as feeding back on each other: dx/dt = k*y - a*x + g and dy/dt = l*x - m*y + h. Each state arms up in proportion to the rival's stockpile (the fear terms k*y and l*x) and a fixed grievance (g, h), and arms down in proportion to its own cost burden (the fatigue terms a*x and m*y). When fatigue outweighs fear (a*m > k*l) the system settles to a stable balance; when fear wins it spirals into a runaway race. Separately, in Statistics of Deadly Quarrels he sorted conflicts from 1815-1950 by a base-10 log scale of battle deaths and found their frequency follows a heavy-tailed (Pareto) power law, while wars per year fit a Poisson distribution. He is treated as the initiator of quantitative conflict analysis.",
+      "deploy": "Cite Richardson as the founding case for using mathematics in IR: reach for the fear-vs-fatigue condition to ask whether a given rivalry is stabilising or escalating, and for the power law to argue that rare giant wars dominate the total death toll.",
+      "counter": "Hedley Bull, in his 1966 essay 'International Theory: The Case for a Classical Approach,' attacked exactly this kind of formalism, arguing that equations strip out the politics, judgement, intentions and meaning that drive states, so the model's coefficients hide rather than explain the real decisions. The recurring failure mode is treating armament as a mechanical reflex when leaders actually deliberate.",
+      "tags": [
+        "richardson",
+        "arms race",
+        "power law",
+        "quantitative ir",
+        "statistics of deadly quarrels"
+      ],
+      "quiz": [
+        {
+          "q": "In Richardson's arms-race equations, what does the 'fatigue' term (for example -a*x in dx/dt) represent?",
+          "choices": [
+            "A state arming up in proportion to its rival's stockpile",
+            "A state arming down in proportion to the cost burden of its own arms",
+            "A fixed grievance that pushes arming up regardless of the rival",
+            "Random shocks from domestic politics"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "num",
+          "q": "In Richardson's model the stockpiles are stable when fatigue outweighs fear, i.e. when the product of the two fatigue coefficients exceeds the product of the two fear coefficients. Take fear coefficients k = 0.6 and l = 0.5, and fatigue coefficients a = 0.9 and m = 0.8. Compute the fatigue product a*m. (The fear product k*l is 0.30, so the system is stable because a*m exceeds it.)",
+          "answer": 0.72,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "Richardson found that the frequency of wars falls off with their death toll following what kind of heavy-tailed statistical distribution (many small conflicts, rare huge ones)? Name the distribution or the general law.",
+          "answer": "power law",
+          "accept": [
+            "power law",
+            "power-law",
+            "pareto",
+            "pareto distribution",
+            "heavy-tailed",
+            "heavy tailed"
+          ]
+        },
+        {
+          "q": "Which condition makes Richardson's coupled arms-spending system spiral into a runaway race rather than settle to a stable balance?",
+          "choices": [
+            "The fear (response-to-rival) terms outweigh the fatigue (cost) terms",
+            "The fatigue terms outweigh the fear terms",
+            "The grievance terms are set to zero",
+            "Both states spend exactly the same amount"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "cyber-password-entropy",
+      "field": "cyber",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "cyber-public-key",
+        "math-log"
+      ],
+      "src": [
+        "ev-cyber-password-entropy"
+      ],
+      "title": "Password entropy: counting the guesses",
+      "fact": "A password's strength against guessing is its entropy in bits, log2 of the number of possible passwords, and each extra bit doubles the attacker's work.",
+      "detail": "If a password is chosen at random with length L from an alphabet of N symbols, there are N^L possibilities, so its entropy is log2(N^L) = L*log2(N) bits. Worked example: 8 random lowercase letters draw on N = 26, giving 8*log2(26) = 8*4.7 = about 38 bits, which is 26^8 = about 2.1 x 10^11 possibilities (and 2^38 = about 2.7 x 10^11). A 5-word passphrase from a 7776-word list (a Diceware-style list) gives 5*log2(7776) = 5*12.9 = about 65 bits, far stronger, because the alphabet is 7776 'symbols' wide. Since one extra bit doubles the count of guesses, the 27-bit gap between 38 and 65 means the passphrase is about 2^27 (roughly 130 million) times harder to brute-force. The catch is that this formula assumes true randomness: a human-chosen 'P@ssw0rd' follows predictable substitution patterns, so its real guessing entropy is far below what its 8 characters suggest.",
+      "deploy": "Use L*log2(N) to compare schemes at a glance and to judge whether a policy actually buys security: lengthening the password or widening the alphabet adds bits, and a few random words beat a short tortured string.",
+      "counter": "NIST Special Publication 800-63B (Burr and colleagues) repudiated the old composition rules built on this counting, because the entropy formula models random passwords while people choose predictable ones; NIST now drops forced symbol-and-digit rules and periodic resets in favour of long passphrases and checks against breached-password lists. The named failure mode is mistaking theoretical entropy for the entropy of human-chosen passwords.",
+      "tags": [
+        "password",
+        "entropy",
+        "bits",
+        "brute force",
+        "diceware"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A password is 10 characters chosen at random from an alphabet of 64 symbols. Its entropy in bits is 10*log2(64). How many bits is that?",
+          "answer": 60,
+          "unit": "bits",
+          "tol": 0.5
+        },
+        {
+          "q": "Adding one bit of entropy to a randomly chosen password has what effect on the number of guesses needed to brute-force it?",
+          "choices": [
+            "It adds one extra guess",
+            "It doubles the number of guesses",
+            "It increases the guesses tenfold",
+            "It squares the number of guesses"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "detail",
+          "q": "The formula L*log2(N) for password entropy assumes the password was chosen with a particular property, which is exactly what a human-chosen string like 'P@ssw0rd' lacks. What is that property?",
+          "answer": "randomness",
+          "accept": [
+            "randomness",
+            "random",
+            "randomly chosen",
+            "uniform randomness",
+            "chosen at random",
+            "uniformly random"
+          ]
+        },
+        {
+          "q": "Why does a random 5-word passphrase from a 7776-word list (about 65 bits) beat 8 random lowercase letters (about 38 bits) on guessing strength?",
+          "choices": [
+            "Each of the 5 picks draws from a much larger alphabet (7776 vs 26), so each contributes far more bits",
+            "Words are inherently unguessable in a way that letters are not",
+            "Passphrases are exempt from brute-force attacks",
+            "Longer strings always have more entropy regardless of the alphabet"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "cyber-birthday-attack",
+      "field": "cyber",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-birthday",
+        "cyber-public-key"
+      ],
+      "src": [
+        "ev-cyber-birthday-attack"
+      ],
+      "title": "The birthday attack on hashes",
+      "fact": "Finding any two inputs that share a hash is far easier than hitting one target hash, so an n-bit hash gives only about n/2 bits of collision resistance.",
+      "detail": "The birthday problem says that among N equally likely values, a repeat becomes likely after only about sqrt(N) draws (more precisely about 1.18*sqrt(N) for even odds), not N draws. An attacker uses this by hashing many of their own messages and waiting for any pair to collide, rather than chasing a fixed digest. So an n-bit hash, with N=2^n possible outputs, falls to roughly sqrt(2^n) = 2^(n/2) work. A 128-bit hash like MD5 therefore needs only about 2^64 tries to collide, which is feasible, so MD5 is broken for digital signatures. To get 128 bits of real collision resistance you need a 256-bit hash, since 256/2 = 128.",
+      "deploy": "Use it to size a hash: if you want b bits of collision resistance against the birthday attack, pick a hash with at least 2b output bits. It also explains why you sign a long hash, not a short one, and why two PDFs can be forged to share an MD5 digest.",
+      "counter": "Bruce Schneier and the wider cryptographic community point out that collision resistance is only one property: for password storage or HMAC, second-preimage and preimage resistance matter more, and those stay at the full n bits, so a shorter hash is not automatically unsafe for every use. The birthday bound bites specifically when an attacker controls both messages, as in signature forgery.",
+      "tags": [
+        "hashing",
+        "collision",
+        "cryptography",
+        "birthday-problem",
+        "md5"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A hash function outputs 80 bits. About how many bits of collision resistance does it give against a birthday attack?",
+          "answer": 40,
+          "unit": "bits",
+          "tol": 0.0
+        },
+        {
+          "q": "Why is finding a collision easier than matching one specific target hash?",
+          "choices": [
+            "A collision can be ANY matching pair, so the chance of some repeat grows much faster than the chance of hitting a fixed value",
+            "Collisions can be computed without running the hash function",
+            "Modern hashes deliberately produce frequent collisions",
+            "Matching a specific hash needs a quantum computer while a collision does not"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "Name the 128-bit hash function that is considered broken for digital signatures because a collision needs only about 2^64 work.",
+          "answer": "MD5",
+          "accept": [
+            "md5",
+            "MD-5",
+            "Message Digest 5"
+          ]
+        },
+        {
+          "type": "num",
+          "q": "You need 128 bits of collision resistance against a birthday attack. What is the minimum hash output length in bits?",
+          "answer": 256,
+          "unit": "bits",
+          "tol": 0.0
+        }
+      ]
+    },
+    {
+      "id": "cs-pvsnp",
+      "field": "cs",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "cs-bigo",
+        "cs-halting"
+      ],
+      "src": [
+        "ev-cs-pvsnp"
+      ],
+      "title": "P versus NP",
+      "fact": "P vs NP asks whether every problem whose answer can be checked quickly can also be solved quickly, and nobody can prove it either way.",
+      "detail": "P is the class of problems a computer can solve in polynomial time, where the work grows like n, n^2, or n^3 as the input size n grows. NP is the class where a proposed answer can be verified in polynomial time, even if finding it seems to need brute force. The gap is the difference between checking and finding: verifying that a given seating chart satisfies every guest is fast, but searching all charts may take 2^n steps. At n=50, n^3 is 125,000 while 2^n is over 10^15, so an exponential search is hopeless while the check stays trivial. Thousands of problems are NP-complete, meaning a fast algorithm for any one (Boolean satisfiability, traveling salesman) would give a fast algorithm for all of them; this is one of the seven Clay Millennium Prize problems, with a 1,000,000 dollar award, and a 2018 poll found 88 percent of respondents believe P != NP.",
+      "deploy": "Use it to set expectations: once you recognize a task is NP-complete (scheduling, routing, packing), stop hunting for a guaranteed-fast exact algorithm and reach for heuristics, approximation, or special-case structure. It also explains why public-key cryptography is built on problems easy to verify but believed hard to solve.",
+      "counter": "Donald Knuth has argued the conventional wisdom may be wrong: he leans toward P = NP being true, though only via a nonconstructive proof that would yield no usable algorithm, which would leave practical cryptography intact even as it overturns the standard belief that P != NP.",
+      "tags": [
+        "complexity",
+        "np-complete",
+        "polynomial-time",
+        "millennium-prize",
+        "verification"
+      ],
+      "quiz": [
+        {
+          "q": "What is the defining property of the class NP?",
+          "choices": [
+            "Its problems can have a proposed solution VERIFIED in polynomial time",
+            "Its problems can never be solved by any computer",
+            "Its problems require exactly exponential time to verify",
+            "Its problems are all unsolvable like the halting problem"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "For an input of size n=20, how many steps does an exponential 2^n algorithm take?",
+          "answer": 1048576,
+          "unit": "steps",
+          "tol": 0.0
+        },
+        {
+          "type": "detail",
+          "q": "What single word describes the hardest problems in NP, such that a fast algorithm for any one of them would give a fast algorithm for all NP problems?",
+          "answer": "NP-complete",
+          "accept": [
+            "np-complete",
+            "np complete",
+            "NP complete",
+            "completeness"
+          ]
+        },
+        {
+          "q": "If someone proved P = NP with a practical fast algorithm, what is the most direct consequence for cryptography?",
+          "choices": [
+            "Much of modern cryptography would break, because it relies on problems being hard to solve but easy to verify",
+            "Cryptography would become permanently unbreakable",
+            "Nothing, since cryptography does not depend on computational difficulty",
+            "Only quantum cryptography would be affected"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "cs-pagerank",
+      "field": "cs",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "la-eigen",
+        "prob-markov-chain"
+      ],
+      "src": [
+        "ev-cs-pagerank"
+      ],
+      "title": "PageRank: ranking by random surfing",
+      "fact": "PageRank scores a page by the long-run share of time a random web surfer spends on it, computed as the dominant eigenvector of the link matrix.",
+      "detail": "Picture a surfer who, at each step, follows a random outgoing link from the current page. The fraction of time spent on each page settles into a stationary distribution, which is the dominant eigenvector of the Markov chain built from the links: a page is important if important pages point to it, a recursive definition that the eigenvector resolves at once. The rule is PR(A) = (1-d)/N + d * sum over pages B linking to A of PR(B)/L(B), where N is the number of pages, L(B) is B's outbound link count, and d is the damping factor (about 0.85), modeling a 15 percent chance the surfer jumps to a random page instead of clicking a link, which guarantees a single well-defined answer even with dead ends. Worked example: page X has one inbound link, from page Y; Y has PR 0.4 and two outbound links, with d=0.85 and N=5. Then PR(X) = (1-0.85)/5 + 0.85*(0.4/2) = 0.03 + 0.17 = 0.20.",
+      "deploy": "Use it whenever you need to rank nodes in a network by endorsement flow: web search, citation analysis, recommending accounts to follow, or ranking proteins and roads. The damping/teleport trick is the general fix for stranding a random walk on sink nodes or disconnected components.",
+      "counter": "Search-spam practitioners and SEO researchers showed PageRank is gameable by link farms, large rings of pages that link to a target to inflate its rank; Google responded after 2007 by penalizing such schemes, but the manipulability is why raw link counts alone no longer decide rankings.",
+      "tags": [
+        "pagerank",
+        "markov-chain",
+        "eigenvector",
+        "ranking",
+        "random-walk"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Page X has a single inbound link from page Y. Y has PageRank 0.6 and 3 outbound links. With damping factor d=0.85 and N=10 total pages, compute PR(X) = (1-d)/N + d*(PR(Y)/L(Y)).",
+          "answer": 0.185,
+          "tol": 0.002
+        },
+        {
+          "q": "In the random-surfer model, what does a page's PageRank represent?",
+          "choices": [
+            "The long-run fraction of time a random surfer spends on that page",
+            "The total number of words on the page",
+            "How recently the page was updated",
+            "The number of images the page contains"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the parameter (about 0.85) that gives the surfer a chance to jump to a random page instead of following a link, guaranteeing a unique PageRank solution?",
+          "answer": "damping factor",
+          "accept": [
+            "damping",
+            "damping factor d",
+            "the damping factor"
+          ]
+        },
+        {
+          "q": "Which mathematical object is PageRank, viewed as the stationary distribution of the link Markov chain?",
+          "choices": [
+            "The dominant (principal) eigenvector of the link matrix",
+            "The determinant of the adjacency matrix",
+            "The largest singular value of the data",
+            "The inverse of the transition matrix"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "philo-expected-utility",
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-conditional",
+        "game-nash-equilibrium"
+      ],
+      "src": [
+        "ev-philo-expected-utility"
+      ],
+      "title": "Expected utility and rational choice",
+      "fact": "A rational agent ranks gambles by expected utility, not expected money.",
+      "detail": "Expected utility of an option is the sum over its possible outcomes of (probability of the outcome) times (utility of that outcome), and you pick the option with the largest sum. The shift from money to utility matters because utility usually rises with diminishing returns: the millionth euro is worth less to you than the first. That dissolves the St. Petersburg paradox, a coin-flip bet paying 2 euros if heads comes on flip 1, 4 on flip 2, 8 on flip 3, and so on. Its expected MONEY value is 2 times one-half plus 4 times one-quarter plus 8 times one-eighth ... = 1 + 1 + 1 + ... = infinite, yet nobody will pay much to play. With a utility that grows like log2(money), the payoff 2^n on flip n is worth n utils, so the expected UTILITY is the sum of n times (1/2^n), which equals exactly 2 utils, and a modest stake is rational. Von Neumann and Morgenstern proved that anyone whose preferences satisfy a few consistency axioms (completeness, transitivity, continuity, independence) behaves AS IF maximising some expected-utility function. Quick check: a sure 50 utils versus a gamble of 50 percent nothing and 50 percent 110 utils; the gamble's expected utility is 0.5 times 0 plus 0.5 times 110 = 55, so the axioms say take the gamble.",
+      "deploy": "Use it to value any decision under risk: convert each outcome to your own utility scale (not its cash value), weight by probability, and compare sums. It also flags when a 'huge expected payoff' is a mirage because the utility of the money is bounded.",
+      "counter": "Allais's paradox shows people reliably flip their choice between two gambles when a common component is added, violating the independence axiom; Kahneman and Tversky's prospect theory replaces it with loss aversion and a probability-weighting curve that overweights small chances. These are documented, replicated descriptions of how real choosers depart from the axioms, not stylistic quibbles.",
+      "tags": [
+        "decision-theory",
+        "utility",
+        "risk",
+        "rationality"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A gamble gives a 25 percent chance of 80 utils and a 75 percent chance of 40 utils. What is its expected utility, in utils?",
+          "answer": 50,
+          "unit": "utils",
+          "tol": 0.5
+        },
+        {
+          "q": "Why does using utility instead of money dissolve the St. Petersburg paradox, where the bet's expected money value is infinite?",
+          "choices": [
+            "Diminishing marginal utility makes the utility of ever-larger prizes grow slowly enough that the expected utility is finite",
+            "The probability of each later payoff is rounded down to zero",
+            "Utility is always exactly proportional to money, so the infinity cancels",
+            "The casino caps the payout, so the money sum is finite after all"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What did von Neumann and Morgenstern establish about preferences that satisfy axioms like completeness, transitivity, continuity, and independence?",
+          "choices": [
+            "Such preferences can be represented as if the agent maximises an expected-utility function",
+            "Such preferences must value money linearly",
+            "No coherent agent can ever satisfy all four axioms at once",
+            "Such agents must always avoid every gamble in favour of a sure thing"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "Name the empirically observed paradox in which adding a common outcome to two gambles reverses a person's choice, violating the independence axiom of expected utility.",
+          "answer": "Allais paradox",
+          "accept": [
+            "allais",
+            "allais paradox",
+            "the allais paradox",
+            "allais's paradox"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philo-dutch-book",
+      "field": "philo",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "philo-expected-utility",
+        "prob-conditional"
+      ],
+      "src": [
+        "ev-philo-dutch-book"
+      ],
+      "title": "The Dutch book argument",
+      "fact": "If your betting odds break the probability axioms, a bookmaker can guarantee you a loss.",
+      "detail": "A Dutch book is a set of bets each of which you regard as fair, yet which together lose you money no matter what happens. Suppose you price 'rain tomorrow' at 0.6 and 'no rain tomorrow' also at 0.6, so your prices sum to 1.2 instead of 1. A bookmaker sells you both bets, each paying 1 euro if it wins; you hand over 0.6 plus 0.6 = 1.2 euros. Exactly one of the two outcomes occurs, so you collect 1 euro back whatever the weather, for a guaranteed loss of 0.2 euros. The only way to escape every such book is to make your prices obey the probability axioms: each between 0 and 1, and the prices of an exhaustive set of mutually exclusive outcomes summing to exactly 1. So coherence, meaning immunity to a sure-loss book, forces your degrees of belief to behave like probabilities. Ramsey and de Finetti built this argument to ground subjective probability: your credence in an event just is the betting price you would treat as fair, and consistency among those prices is what the theorem pins down.",
+      "deploy": "Use it as a consistency audit on any set of probability judgements: list the prices you would accept on a partition of outcomes and check they sum to 1. If a forecaster, a prediction market, or your own gut prices 'A' and 'not A' at more than 1 together, there is arbitrage and your beliefs need repair.",
+      "counter": "The standard objection is that no real bookmaker is omniscient or will actually appear, so the argument is best read as a norm of internal consistency rather than a literal financial threat. De Finetti himself treated the bets as a device for eliciting coherent credences, and later writers note that pragmatic 'sure loss' shows incoherence without showing your beliefs are factually wrong.",
+      "tags": [
+        "probability",
+        "credence",
+        "coherence",
+        "betting"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "You price 'the team wins' at 0.7 and 'the team does not win' at 0.7, accepting a bet on each that pays 1 euro if it comes true. After paying both stakes and collecting on the one bet that wins, how many euros do you lose for certain?",
+          "answer": 0.4,
+          "unit": "euros",
+          "tol": 0.01
+        },
+        {
+          "q": "What does the Dutch book argument conclude about a person whose fair betting prices on an exhaustive set of mutually exclusive outcomes do not sum to 1?",
+          "choices": [
+            "Their credences violate the probability axioms and a guaranteed-loss set of bets can be made against them",
+            "They will on average win money over many repetitions",
+            "Their beliefs are factually false about the world",
+            "They are risk-averse but otherwise perfectly coherent"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pair of theorists is credited with the Dutch book argument grounding subjective probability in fair betting prices?",
+          "choices": [
+            "Ramsey and de Finetti",
+            "Von Neumann and Morgenstern",
+            "Kahneman and Tversky",
+            "Neyman and Pearson"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "In the Dutch book setup, the property of being immune to a set of bets that together guarantee a loss is called what?",
+          "answer": "coherence",
+          "accept": [
+            "coherence",
+            "coherent",
+            "being coherent",
+            "probabilistic coherence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sys-centrality",
+      "field": "systems",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "cs-pagerank",
+        "sys-leverage-points"
+      ],
+      "src": [
+        "ev-sys-centrality"
+      ],
+      "title": "Network centrality: who matters in a network",
+      "fact": "There is no single 'most important' node: degree, betweenness, and eigenvector centrality measure different things.",
+      "detail": "Degree centrality just counts a node's direct links, so it finds the popular node with many connections. Betweenness centrality counts how often a node lies on the shortest path between two other nodes, so it finds the broker or bottleneck that traffic must pass through. Eigenvector centrality (the idea behind PageRank) rates you high if your neighbours are themselves high, so it finds influence by association rather than raw count. These measures can disagree sharply. Take two triangles, friend-group A of three people all linked to each other and friend-group B of three all linked to each other, joined only by a single bridge person who has just two friends, one in each group. The bridge has degree 2, lower than the degree-3 nodes that sit inside each triangle and also touch the bridge, yet every shortest path from an A-person to a B-person runs through the bridge: 3 times 3 = 9 such pairs, so the bridge scores the highest betweenness in the network while scoring low on degree. That gap is exactly why betweenness flags the structural weak point that popularity counts miss.",
+      "deploy": "Pick the measure that matches the question. To slow an epidemic or a rumour, cut high-betweenness bridges to fragment the network; to find resilient hubs or set web rankings, use eigenvector/PageRank; to find who is simply most connected, use degree. Computing all three and comparing reveals nodes that are quietly critical despite few links.",
+      "counter": "Network scientists warn that centrality scores are only as meaningful as the network model: Borgatti showed each measure implicitly assumes a particular flow process (shortest paths, random walks, parallel duplication), so betweenness can mislead if what actually spreads does not travel along shortest paths. Choosing the wrong measure for the real diffusion mechanism gives confident but wrong rankings.",
+      "tags": [
+        "networks",
+        "centrality",
+        "betweenness",
+        "graph-theory"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "In a path graph of five nodes linked in a line, 1-2-3-4-5, the betweenness of the middle node 3 equals the number of node pairs whose shortest path runs through it. With nodes {1,2} on one side and {4,5} on the other, what is that count?",
+          "answer": 4,
+          "unit": "pairs",
+          "tol": 0.0
+        },
+        {
+          "q": "A node sits between two otherwise separate clusters and has only two links, while several other nodes have many links inside their own cluster. Which centrality measure is the bridge node most likely to top?",
+          "choices": [
+            "Betweenness centrality",
+            "Degree centrality",
+            "Eigenvector centrality",
+            "It cannot lead on any measure with only two links"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What does eigenvector centrality (the idea behind PageRank) reward?",
+          "choices": [
+            "Being connected to neighbours who are themselves central",
+            "Having the largest raw number of direct links",
+            "Lying on the most shortest paths between other nodes",
+            "Being the physically closest node to all others"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "Which centrality measure counts how often a node lies on the shortest paths between other pairs of nodes, identifying brokers and bottlenecks?",
+          "answer": "betweenness",
+          "accept": [
+            "betweenness",
+            "betweenness centrality",
+            "between-ness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prob-markov-chain",
+      "field": "prob",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "la-eigen",
+        "cs-pagerank"
+      ],
+      "src": [
+        "ev-prob-markov-chain"
+      ],
+      "title": "Markov chains: the memoryless walk",
+      "fact": "A Markov chain forgets its past: the next state depends only on where you are now, never on how you got there.",
+      "detail": "Encode the hop probabilities in a transition matrix, one row per current state, and multiply a distribution row vector by it to step time forward. Take weather with two states: sunny stays sunny with probability 0.9 (so flips to rainy with 0.1), and rainy stays rainy with 0.5 (flips to sunny with 0.5). In the long run the fractions stop changing once flow out of sunny equals flow into sunny: 0.1 times P(sunny) = 0.5 times P(rainy), so P(sunny) = 5 times P(rainy), giving 5/6 sunny and 1/6 rainy. That fixed vector (0.833, 0.167) is the stationary distribution, and you reach it from any starting day. It is a left eigenvector of the matrix with eigenvalue 1, which is why PageRank, MCMC, and queueing models all reduce to finding it.",
+      "deploy": "Reach for it when a system moves between a handful of states and only the recent step matters: customer churn tiers, page-to-page browsing, machine up/down cycles. Find the stationary vector to predict long-run occupancy.",
+      "counter": "The clean convergence needs the chain to be irreducible and aperiodic (a standard theorem condition): a chain that splits into states it can never leave, or one that cycles in lockstep, has no single limit. And the memoryless assumption itself is often wrong — real weather and real markets carry longer memory, which is why higher-order and hidden-Markov models exist.",
+      "tags": [
+        "markov chain",
+        "probability",
+        "stationary distribution",
+        "transition matrix",
+        "stochastic process"
+      ],
+      "quiz": [
+        {
+          "q": "What does the Markov (memoryless) property say about the next state of the chain?",
+          "choices": [
+            "It depends only on the current state, not on the earlier history",
+            "It depends on the full sequence of states visited so far",
+            "It is independent of every other state, including the current one",
+            "It is fixed in advance and ignores the transition probabilities"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "A two-state chain has transition probabilities A->A = 0.7 (so A->B = 0.3) and B->B = 0.6 (so B->A = 0.4). Starting with probability 1 in state A, what is the probability of being in state A after one step?",
+          "answer": 0.7,
+          "tol": 0.001
+        },
+        {
+          "type": "num",
+          "q": "For a two-state chain with A->B = 0.3 and B->A = 0.4, the stationary distribution satisfies 0.3*P(A) = 0.4*P(B) with P(A)+P(B)=1. What is the stationary probability of state A, as a decimal?",
+          "answer": 0.571,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "What is the name for the long-run probability vector that a suitable Markov chain converges to and that no longer changes when multiplied by the transition matrix?",
+          "answer": "stationary distribution",
+          "accept": [
+            "stationary distribution",
+            "steady-state distribution",
+            "stationary vector",
+            "invariant distribution",
+            "equilibrium distribution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prob-monte-carlo",
+      "field": "prob",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-normal",
+        "math-derivative"
+      ],
+      "src": [
+        "ev-prob-monte-carlo"
+      ],
+      "title": "Monte Carlo: answers from randomness",
+      "fact": "When you cannot solve a problem exactly, throw random samples at it and let the average answer it for you.",
+      "detail": "The trick is to recast a quantity as the expected value of something you can sample. Classic case: estimate pi by scattering random points in a 1x1 square with an inscribed quarter-circle of radius 1. A point lands inside the quarter-circle when x^2 + y^2 <= 1, and that region has area pi/4 of the square, so the fraction inside converges to pi/4. Multiply that fraction by 4 to get pi: if 785 of 1000 points land inside, pi is estimated as 4 times 0.785 = 3.14. The catch is that the error shrinks like 1/sqrt(N): to gain one more correct decimal digit you must cut the error tenfold, which takes 100 times more samples. So a billion samples buys only a few reliable digits.",
+      "deploy": "Use it when the exact integral or sum is intractable but you can simulate one draw cheaply: option pricing over many price paths, particle-transport physics, or risk models with many uncertain inputs. It pays off in high dimensions, where the 1/sqrt(N) rate does not get worse as dimension grows.",
+      "counter": "The 1/sqrt(N) convergence is slow, so for smooth low-dimensional integrals deterministic quadrature wins easily. And the answer is only as good as the random numbers feeding it — a flawed pseudo-random generator produces confidently wrong estimates, which is why quasi-Monte Carlo and variance-reduction methods are used to push past the plain rate.",
+      "tags": [
+        "monte carlo",
+        "sampling",
+        "simulation",
+        "convergence",
+        "estimation"
+      ],
+      "quiz": [
+        {
+          "q": "In the dart-throwing estimate of pi, why is the fraction of points landing inside the quarter-circle multiplied by 4?",
+          "choices": [
+            "The quarter-circle's area is pi/4 of the unit square, so the fraction approximates pi/4",
+            "There are four quadrants in a full circle that must each be counted once",
+            "Four is an arbitrary scaling chosen to make the answer look like pi",
+            "Each dart can land in one of four equally likely regions"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "You scatter 2000 random points in the unit square with an inscribed quarter-circle, and 1500 land inside it. What is your Monte Carlo estimate of pi?",
+          "answer": 3,
+          "tol": 0.001
+        },
+        {
+          "type": "num",
+          "q": "Monte Carlo error shrinks like 1/sqrt(N). To reduce the error to one tenth of its current value, by what factor must you multiply the number of samples?",
+          "answer": 100,
+          "tol": 0.5
+        },
+        {
+          "type": "detail",
+          "q": "Monte Carlo error scales as 1 divided by the square root of which quantity?",
+          "answer": "the number of samples",
+          "accept": [
+            "number of samples",
+            "sample size",
+            "N",
+            "number of trials",
+            "number of points",
+            "number of draws"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prob-power-law",
+      "field": "prob",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-log",
+        "micro-info-economics"
+      ],
+      "src": [
+        "ev-prob-power-law"
+      ],
+      "title": "Power laws: when the tail rules",
+      "fact": "Under a power law there is no typical size: a handful of giant events account for most of the total.",
+      "detail": "A power law has P(x) proportional to x^(-a), and the shape looks the same at every scale, so the few largest items dwarf everything else. The signature is a straight line on a log-log plot, since taking logs of P(x) = C x^(-a) gives log P = log C - a log x, a line with slope -a. Zipf's law for word frequency is the everyday case: rank words by how often they appear and frequency falls roughly as 1/rank, so the 2nd most common word appears about half as often as the 1st and the 3rd about a third as often. If the top word occurs 6000 times, expect the 3rd around 6000/3 = 2000. The same shape fits city sizes, wealth (Pareto's 80/20), earthquake magnitudes, and web links.",
+      "deploy": "Suspect a power law when a few cases swamp the rest and the average is a poor summary: plan inventory or moderation around the dominant head, and budget for tail events (the giant outage, the megaquake) that a bell-curve intuition treats as impossible.",
+      "counter": "Aaron Clauset, Cosma Shalizi, and Mark Newman showed many claimed power laws fail rigorous fitting — log-log straight lines are easy to eyeball but a log-normal or stretched-exponential often fits the data as well or better, so 'looks linear on log-log axes' is weak evidence on its own.",
+      "tags": [
+        "power law",
+        "zipf",
+        "pareto",
+        "heavy tail",
+        "scale-free"
+      ],
+      "quiz": [
+        {
+          "q": "What is the visual signature of a power-law distribution?",
+          "choices": [
+            "A straight line when plotted on log-log axes",
+            "A symmetric bell-shaped curve centered on the mean",
+            "A flat horizontal line across all values",
+            "A single sharp spike at the average value"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "Under Zipf's law a word's frequency falls roughly as 1 over its rank. If the most common word in a text appears 9000 times, about how many times do you expect the 3rd most common word to appear?",
+          "answer": 3000,
+          "tol": 200.0
+        },
+        {
+          "q": "Compared with a normal (bell-curve) distribution, how does a power law treat very large extreme events?",
+          "choices": [
+            "It makes them far more common, so 'black swan' extremes are routine",
+            "It makes them essentially impossible, even rarer than the bell curve",
+            "It treats them exactly as the bell curve does",
+            "It forbids any value above the mean"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the empirical law that word frequency is roughly inversely proportional to word rank?",
+          "answer": "Zipf's law",
+          "accept": [
+            "zipf's law",
+            "zipf law",
+            "zipfs law",
+            "zipf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-shapley",
+      "field": "game",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "game-nash-equilibrium",
+        "poli-banzhaf"
+      ],
+      "src": [
+        "ev-game-shapley"
+      ],
+      "title": "The Shapley value: splitting the gains fairly",
+      "fact": "The Shapley value pays each member of a team their average marginal contribution across every order in which the team could have formed.",
+      "detail": "Take the value a group can create and ask, for each possible order of arrival, how much each person adds when they join. Average those marginal additions over all orders and you get that person's share. Worked example: A alone makes 0, B alone makes 0, but A and B together make 100. In the order A-then-B, A adds 0 and B adds 100; in the order B-then-A, B adds 0 and A adds 100. Averaging the two orders gives each 50, so they split 50/50. Lloyd Shapley (1953) showed this is the only split satisfying four axioms at once: efficiency (the shares sum to the total), symmetry (interchangeable players get equal shares), dummy (a player who adds nothing everywhere gets nothing), and additivity (values of two separate games add). With more players the orders multiply, but the averaging is the same.",
+      "deploy": "Use it to split joint gains or shared costs when contributions are unequal and order-dependent, such as airport runway cost-sharing; in machine learning, SHAP uses it to attribute a prediction to each input feature.",
+      "counter": "Roth and others note the axioms are not the only reasonable fairness standard: the nucleolus and the core answer a different question (stability against breakaway coalitions), and a coalition can be unhappy with its Shapley share even when that share is 'fair' by Shapley's axioms.",
+      "tags": [
+        "shapley",
+        "cooperative-game",
+        "fairness",
+        "cost-sharing",
+        "shap"
+      ],
+      "quiz": [
+        {
+          "q": "What does the Shapley value assign to each player?",
+          "choices": [
+            "Their average marginal contribution over all orders of forming the team",
+            "An equal share of the total regardless of contribution",
+            "The maximum they could threaten to take by leaving",
+            "Their contribution only in the order they actually joined"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "Players 1 and 2 each hold a right glove and player 3 holds a left glove; a matched pair is worth 60 and unmatched gloves are worth 0. Computing the Shapley value over all 6 orders, how much does player 3 (the only left glove) receive?",
+          "answer": 40,
+          "unit": "value units",
+          "tol": 0.5
+        },
+        {
+          "type": "detail",
+          "q": "Name the Shapley axiom stating that a player who adds nothing to every coalition receives a payoff of zero.",
+          "answer": "dummy",
+          "accept": [
+            "dummy player",
+            "null",
+            "null player",
+            "dummy axiom",
+            "null player axiom"
+          ]
+        },
+        {
+          "q": "In a two-person team where each alone produces 0 but together they produce 100, what Shapley split do they get?",
+          "choices": [
+            "100 to whoever joined first, 0 to the other",
+            "50 and 50",
+            "Depends on who is more skilled",
+            "0 to each, since neither succeeds alone"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "echist-malthus",
+      "field": "echist",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-powers",
+        "bio-natural-selection"
+      ],
+      "src": [
+        "ev-echist-malthus"
+      ],
+      "title": "Malthus: geometric versus arithmetic growth",
+      "fact": "Malthus argued population grows geometrically while food grows at best arithmetically, so population must outrun its food supply.",
+      "detail": "In his 1798 Essay on the Principle of Population, Thomas Malthus claimed unchecked population doubles each period (1, 2, 4, 8, geometric) while farm output rises by a fixed step (1, 2, 3, 4, arithmetic). The math is sound: any geometric sequence with ratio above 1 eventually overtakes any arithmetic one, no matter how large a head start the linear series gets. He concluded that population is held down by positive checks (famine, disease, war) and preventive checks (later marriage, restraint). The prediction failed for two reasons he could not foresee. First, technological growth, above all the 20th-century Green Revolution, made food itself grow faster than linearly. Second, the demographic transition: as incomes rise, birth rates fall, so population growth slows rather than exploding.",
+      "deploy": "Reach for it when judging any resource-limit argument: ask whether the constrained quantity is truly capped at linear growth, or whether innovation and behavioral change can shift the growth rate itself.",
+      "counter": "Ester Boserup inverted the logic in 'The Conditions of Agricultural Growth' (1965): population pressure spurs farmers to adopt more intensive methods, so denser populations can drive innovation rather than only triggering collapse.",
+      "tags": [
+        "malthus",
+        "population",
+        "demography",
+        "boserup",
+        "growth"
+      ],
+      "quiz": [
+        {
+          "q": "According to Malthus, how did population growth and food growth compare?",
+          "choices": [
+            "Both grew geometrically",
+            "Population grew arithmetically, food geometrically",
+            "Population grew geometrically, food arithmetically",
+            "Both grew arithmetically"
+          ],
+          "answer": 2
+        },
+        {
+          "type": "num",
+          "q": "A geometric food series starts at 4 and doubles each step (4, 8, 16, ...). An arithmetic population series starts at 100 and adds 10 each step (100, 110, 120, ...). At which step number (counting the start as step 0) does the food series first equal or exceed the population series?",
+          "answer": 6,
+          "tol": 0.0
+        },
+        {
+          "type": "detail",
+          "q": "Which economist argued that population pressure spurs agricultural innovation rather than only causing collapse?",
+          "answer": "Boserup",
+          "accept": [
+            "ester boserup",
+            "boserup",
+            "esther boserup"
+          ]
+        },
+        {
+          "q": "Which development most directly undermined Malthus's prediction by making food supply grow faster than linearly?",
+          "choices": [
+            "The Green Revolution",
+            "The gold standard",
+            "The Black Death",
+            "The enclosure movement"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "hist-radiocarbon",
+      "field": "history",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-log",
+        "phys-entropy"
+      ],
+      "src": [
+        "ev-hist-radiocarbon"
+      ],
+      "title": "Radiocarbon dating: counting half-lives",
+      "fact": "Radiocarbon dating reads age from how much carbon-14 is left, since a dead organism's C-14 halves every 5,730 years.",
+      "detail": "While alive, an organism keeps exchanging carbon with the atmosphere, so its carbon-14 holds at the atmospheric level. At death the intake stops and the C-14 decays, halving every half-life of about 5,730 years; the fraction remaining is a clock. After one half-life 50% is left, after two half-lives 25%, after three 12.5%. Worked example: a sample measured at 25% of its original C-14 has gone through two half-lives, so it is about 2 times 5,730, roughly 11,460 years old. Two limits matter. The atmospheric C-14 level has varied over time, so raw dates need calibration against tree rings and other records. And past roughly 50,000 years too little C-14 remains to measure, so the method runs out. Willard Libby's method, from the late 1940s, rebuilt the chronology of prehistory.",
+      "deploy": "Use it to date once-living organic material (wood, bone, charcoal, cloth) up to about 50,000 years old, remembering to apply a calibration curve before quoting a calendar date.",
+      "counter": "Hessel de Vries showed in the late 1950s that atmospheric C-14 was not constant, the 'de Vries effect', so uncalibrated radiocarbon dates are systematically off and the method depends on dendrochronological calibration to be trusted.",
+      "tags": [
+        "radiocarbon",
+        "carbon-14",
+        "half-life",
+        "archaeology",
+        "calibration"
+      ],
+      "quiz": [
+        {
+          "q": "What is the approximate half-life of carbon-14 used in radiocarbon dating?",
+          "choices": [
+            "1,000 years",
+            "5,730 years",
+            "50,000 years",
+            "250 years"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "num",
+          "q": "Using a C-14 half-life of 5,730 years, about how old is a sample that retains 12.5% of its original carbon-14? Give the age in years.",
+          "answer": 17190,
+          "unit": "years",
+          "tol": 200.0
+        },
+        {
+          "type": "detail",
+          "q": "What process corrects radiocarbon dates for the fact that atmospheric carbon-14 has varied over time, converting them into calendar dates?",
+          "answer": "calibration",
+          "accept": [
+            "calibration",
+            "calibrating",
+            "calibration curve",
+            "dendrochronological calibration"
+          ]
+        },
+        {
+          "q": "Roughly what age does radiocarbon dating stop working because too little carbon-14 remains?",
+          "choices": [
+            "About 5,000 years",
+            "About 50,000 years",
+            "About 500,000 years",
+            "About 1 million years"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "prob-benford",
+      "field": "prob",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "math-log",
+        "prob-power-law"
+      ],
+      "src": [
+        "ev-prob-benford"
+      ],
+      "title": "Benford's law: the first-digit fingerprint",
+      "fact": "In data that spans many orders of magnitude, leading digit 1 shows up about 30% of the time and 9 under 5% — not the 11% each you'd expect.",
+      "detail": "The frequency of leading digit d is P(d) = log10(1 + 1/d). So 1 leads with log10(2) = 0.301 (about 30%), 2 with log10(1.5) = 0.176 (about 18%), and 9 with log10(10/9) = 0.046 (about 5%). The reason is scale-invariance: if a dataset's digit pattern should not change when you convert dollars to euros or meters to feet, the only distribution that survives every such rescaling is the logarithmic one. Picture a number sliding along a log ruler: the stretch from log(1) to log(2) is 0.30 wide, while log(9) to log(10) is only 0.046 wide, so a value lands in the '1' band far more often. Honest accounting ledgers, river lengths, and stock prices follow this; numbers people invent by hand tend to spread digits too evenly, which is why a Benford gap can flag fabrication.",
+      "deploy": "Run a first-digit histogram on any naturally multiplicative dataset (invoice totals, reported expenses, tax figures, vote tallies) and compare to the Benford curve; a large 1-deficit or flat profile is a cheap, fast screen that tells you where to audit further.",
+      "counter": "Walter Mebane, who built Benford-based election forensics (the second-digit '2BL' test), warns it is a screen and not proof: the 2020 US-election fraud claims failed because precinct vote counts sit inside one order of magnitude, where Benford does not apply, so a 'bad fit' there meant nothing.",
+      "tags": [
+        "benford",
+        "forensics",
+        "logarithm",
+        "fraud-detection",
+        "scale-invariance"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Under Benford's law, P(d) = log10(1 + 1/d). What percent of leading digits should equal 4? Answer as a percentage to one decimal.",
+          "answer": 9.7,
+          "unit": "%",
+          "tol": 0.3
+        },
+        {
+          "q": "Why does Benford's law follow from requiring scale-invariance?",
+          "choices": [
+            "The logarithmic first-digit distribution is the only one unchanged by rescaling the units",
+            "Most measurements are taken in metric units, which are base-10",
+            "Random numbers always favor small digits by the central limit theorem",
+            "Rounding errors push every dataset toward leading 1s"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which dataset is LEAST likely to obey Benford's law?",
+          "choices": [
+            "Adult human heights measured in centimeters (roughly 150-200 cm)",
+            "Populations of the world's countries",
+            "Dollar amounts on a company's invoices",
+            "Lengths of the world's rivers in kilometers"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "A clean Benford fit is described as suggestive but not conclusive of honesty. What single word names this status of the evidence — it is only a ___, not proof?",
+          "answer": "screen",
+          "accept": [
+            "screen",
+            "flag",
+            "indicator",
+            "screening tool",
+            "red flag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prob-birthday",
+      "field": "prob",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "prob-conditional",
+        "cyber-birthday-attack"
+      ],
+      "src": [
+        "ev-prob-birthday"
+      ],
+      "title": "The birthday paradox",
+      "fact": "It takes only 23 people for a coin-flip chance that two share a birthday, because what matters is the 253 pairs among them, not any one person.",
+      "detail": "The trap is comparing yourself to the other 22; the real count is every pair, and 23 people make 23*22/2 = 253 pairs, each a separate chance to match. Compute the answer through the complement — the probability everyone differs — then subtract from 1: P(match) = 1 - (365/365)(364/365)(363/365)...(343/365), where each new person must dodge all the birthdays already taken. That product works out to about 0.493, so the chance of a shared birthday is about 1 - 0.493 = 0.507, just over 50%. Adding people compounds fast: by 70 people the probability is 99.9%. The driver is that pairs grow with the square of the group, so a collision becomes likely once the group reaches roughly the square root of the number of options (here sqrt(365) is about 19).",
+      "deploy": "Use it whenever you reason about collisions among randomly assigned labels: hash digests, UUIDs, session tokens, or load-balancer shards — a space of N possible values starts colliding after only about sqrt(N) draws, so size your identifiers for sqrt(N), not N.",
+      "counter": "The cryptographic birthday attack is the dark mirror of this result: Xiaoyun Wang's 2004-2005 collision attacks on MD5 and SHA-1 exploited exactly the sqrt(N) scaling, finding hash collisions in roughly 2^(N/2) rather than 2^N work — which is why a 128-bit hash gives only about 64 bits of real collision resistance.",
+      "tags": [
+        "birthday-problem",
+        "probability",
+        "collisions",
+        "combinatorics",
+        "hashing"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Using P(match) = 1 - (365/365)(364/365)...down to (365-n+1)/365, what is the approximate probability (as a percent) that at least two of 30 people share a birthday? Answer to the nearest whole percent.",
+          "answer": 71,
+          "unit": "%",
+          "tol": 2.0
+        },
+        {
+          "type": "num",
+          "q": "How many distinct pairs of people are there in a room of 30, computed as n*(n-1)/2?",
+          "answer": 435,
+          "tol": 0.0
+        },
+        {
+          "q": "Why is the answer for 23 people so much higher than people's intuition?",
+          "choices": [
+            "People compare one person to the rest instead of counting all pairs that could match",
+            "Birthdays are not actually uniformly distributed across the year",
+            "Leap years add a 366th day that boosts the odds",
+            "Twins in the room inflate the probability"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "A collision among N possible values becomes likely after about how many draws, expressed as a function of N? Give the function in words or notation.",
+          "answer": "square root of N",
+          "accept": [
+            "square root of N",
+            "sqrt(N)",
+            "root N",
+            "n^(1/2)",
+            "N^0.5",
+            "the square root"
+          ]
+        }
+      ]
     }
   ],
 
