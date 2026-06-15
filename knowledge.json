@@ -1201,7 +1201,8 @@
         { "q": "A fair six-sided die has just rolled four 6s in a row. What is the probability the next roll is a 6? Give it as a decimal.", "type": "num", "answer": 0.1667, "tol": 0.01 },
         { "q": "What is the name of the mistaken belief that a run of one outcome makes the opposite outcome 'due' on the next independent trial?", "type": "detail", "answer": "gambler's fallacy", "accept": ["gamblers fallacy", "the gambler's fallacy", "Monte Carlo fallacy"] },
         { "q": "Which assumption is essential for the law of large numbers to guarantee that the running average converges to the true probability?", "choices": ["The trials are independent of one another", "Earlier results gently pull later results back toward the mean", "The sample stays small enough to avoid drift", "Each outcome has already balanced out within the first few trials"], "answer": 0 }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "series", "ys": [1, 0.5, 0.33, 0.5, 0.6, 0.5, 0.43, 0.5, 0.56, 0.5, 0.45, 0.52, 0.54, 0.49, 0.47, 0.51, 0.52, 0.5, 0.49, 0.5], "ref": 0.5, "refLabel": "0.5", "yrange": [0, 1], "caption": "The running proportion of heads jumps around early, then settles to 0.5 as flips pile up — the law of large numbers."}]
     },
     {
       "id": "stat-clt", "field": "prob", "depth": "concept", "level": 3,
@@ -4404,15 +4405,13 @@
       "title": "Expected value: the long-run average",
       "fact": "The expected value is the average you'd get from many repeats — each outcome weighted by its probability.",
       "detail": "Multiply each value by its probability and add: \\(E[X] = \\sum_i x_i\\,p_i\\). A fair die's expected roll is \\(\\tfrac16(1+2+\\dots+6) = 3.5\\) — a value you can never actually roll, but the long-run average. It's the foundation of fair prices, insurance and betting: a bet is 'fair' when its expected gain is zero.",
-      "media": [
-        {
+      "media": [{
           "type": "equation",
           "tex": "E[X] = \\sum_i x_i\\,p_i",
           "plain": "E[X] = Σ xᵢ·pᵢ",
           "say": "the expected value is each outcome times its probability, all added up.",
           "caption": "Each outcome, weighted by how likely it is."
-        }
-      ],
+        }, {"type": "plot", "kind": "bars", "values": [0.5, 0.3, 0.2], "labels": ["1", "2", "5"], "caption": "Expected value is the probability-weighted average: E = 1(0.5) + 2(0.3) + 5(0.2) = 2.1 — the distribution's balance point."}],
       "deploy": "The single best summary of a random quantity — and the thing rational decisions try to maximise.",
       "counter": "Expected value ignores risk: a 1-in-a-million shot at a billion has a high expectation, but few would stake their house on it. That gap is why utility, not raw money, often guides choices.",
       "tags": [
@@ -13658,7 +13657,7 @@
       "field": "prob",
       "level": 3,
       "depth": "concept",
-      "prereq": [],
+      "prereq": ["prob-conditional"],
       "xref": [
         "la-eigen",
         "cs-pagerank"
@@ -13721,7 +13720,7 @@
       "field": "prob",
       "level": 2,
       "depth": "concept",
-      "prereq": [],
+      "prereq": ["stat-lln", "prob-random-variable"],
       "xref": [
         "prob-normal",
         "math-derivative"
@@ -13777,14 +13776,15 @@
             "number of draws"
           ]
         }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "series", "ys": [4, 3, 3.33, 2.8, 3.2, 3.0, 3.25, 3.1, 3.18, 3.11, 3.17, 3.13, 3.16, 3.14, 3.15, 3.142, 3.14, 3.141], "ref": 3.14159, "refLabel": "π", "caption": "A Monte Carlo estimate of pi settles toward 3.14159 as samples grow; the error shrinks like 1/sqrt(N)."}]
     },
     {
       "id": "prob-power-law",
       "field": "prob",
       "level": 3,
       "depth": "concept",
-      "prereq": [],
+      "prereq": ["prob-distributions"],
       "xref": [
         "math-log",
         "micro-info-economics"
@@ -13842,7 +13842,8 @@
             "zipf"
           ]
         }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "bars", "values": [1, 0.5, 0.333, 0.25, 0.2], "labels": ["1st", "2nd", "3rd", "4th", "5th"], "caption": "Zipf's law (a power law): the 2nd most common word appears about half as often as the 1st, the 3rd a third as often."}]
     },
     {
       "id": "game-shapley",
@@ -14046,7 +14047,7 @@
       "field": "prob",
       "level": 3,
       "depth": "concept",
-      "prereq": [],
+      "prereq": ["prob-power-law", "math-log"],
       "xref": [
         "math-log",
         "prob-power-law"
@@ -14106,14 +14107,15 @@
             "red flag"
           ]
         }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "bars", "values": [30.1, 17.6, 12.5, 9.7, 7.9, 6.7, 5.8, 5.1, 4.6], "labels": ["1", "2", "3", "4", "5", "6", "7", "8", "9"], "caption": "Benford's law: a leading digit of 1 turns up about 30% of the time, falling smoothly to about 5% for 9."}]
     },
     {
       "id": "prob-birthday",
       "field": "prob",
       "level": 2,
       "depth": "concept",
-      "prereq": [],
+      "prereq": ["prob-rules"],
       "xref": [
         "prob-conditional",
         "cyber-birthday-attack"
@@ -14170,7 +14172,8 @@
             "the square root"
           ]
         }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "series", "ys": [0, 0.117, 0.411, 0.706, 0.891, 0.97, 0.994, 0.999], "domain": [0, 70], "ref": 0.5, "refLabel": "50% by 23", "yrange": [0, 1], "caption": "Chance that two people in a group share a birthday, against group size — past 50% at just 23 people."}]
     }
   ],
 

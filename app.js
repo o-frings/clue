@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v94";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v95";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1139,6 +1139,20 @@ function drawViz(g, spec, st, readout){
     });
     pos.forEach((p,i)=>{ g.appendChild(svgEl('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:nr.toFixed(1),fill:card,stroke:accent,'stroke-width':2}));
       vzText(g,p[0].toFixed(1),(p[1]+3.5).toFixed(1),S[i],ink,11,'middle'); });
+    return;
+  }
+  // ---- series: plot a given list of y-values as a line, with an optional dashed reference line ----
+  // spec.ys:[...]; spec.ref (a horizontal guide); spec.refLabel; spec.domain/yrange optional
+  if(kind==='series'){
+    const ys=(spec.ys||[]).map(Number).filter(v=>isFinite(v)); const n=ys.length; if(!n) return;
+    const xr=spec.domain||[0, n>1?n-1:1];
+    let lo=Math.min(...ys), hi=Math.max(...ys); if(spec.ref!=null){ lo=Math.min(lo,spec.ref); hi=Math.max(hi,spec.ref); }
+    if(!isFinite(lo)){ lo=0; hi=1; } const pad=(hi-lo||1)*0.12; const yr=spec.yrange||[lo-pad,hi+pad];
+    const sc=vzScales(xr,yr); vzAxes(g,sc,xr,yr);
+    if(spec.ref!=null){ const y=sc.sy(spec.ref); g.appendChild(svgEl('line',{x1:sc.box.x0,y1:y.toFixed(1),x2:sc.box.x1,y2:y.toFixed(1),stroke:l2,'stroke-width':1.2,'stroke-dasharray':'4 3'}));
+      if(spec.refLabel) vzText(g,sc.box.x1-2,(y-4).toFixed(1),spec.refLabel,l2,9,'end'); }
+    let d=''; ys.forEach((v,i)=>{ const x=xr[0]+(xr[1]-xr[0])*(n>1?i/(n-1):0); d+=(d?'L':'M')+sc.sx(x).toFixed(1)+' '+sc.sy(v).toFixed(1)+' '; });
+    g.appendChild(svgEl('path',{d,fill:'none',stroke:accent,'stroke-width':2.2,'stroke-linejoin':'round'}));
     return;
   }
 }
