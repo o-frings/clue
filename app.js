@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v89";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v90";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1745,46 +1745,101 @@ function drawWeb(){ try{
     if(showLabels && n.state!=='frontier'){ const t=(c.title||'').length>18?c.title.slice(0,17)+'…':c.title; ctx.fillStyle=l3; ctx.fillText(t, x, y+r+3); }
   });
 }catch(e){ console.error('[clue] drawWeb failed:', e); } }
+// ---- map helpers: a card's state on the web, and the "ready to pull" frontier ----
+function cardState(c){
+  if(isLearned(c.id)) return isDue(c.id)?'due':'learned';
+  if(!prereqsMet(c)) return 'locked';
+  return 'ready';                                   // unlearned, every prereq met — pull it now
+}
+function builtOnLearned(c){
+  const nb=[...(c.prereq||[]),...(c.xref||[])].filter(id=>byId[id]&&isLearned(id));
+  return nb.length? byId[nb[0]] : null;
+}
+// the threads you can pull next: unlearned, prereqs met, connected to what you already know.
+// cold start (nothing learned) → the foundational cards with no prerequisites.
+function webFrontier(){
+  const learned=new Set(learnedIds());
+  let f;
+  if(learned.size) f=KN.cards.filter(c=> isNew(c.id) && prereqsMet(c) && neighborsOf(c.id).some(n=>learned.has(n)));
+  else f=KN.cards.filter(c=> !(c.prereq||[]).length);
+  if(!f.length) f=KN.cards.filter(c=> isNew(c.id) && prereqsMet(c));   // fallback: any unlocked new card
+  return f.sort((a,b)=>candidateScore(b)-candidateScore(a));
+}
+function fieldChipsHtml(fid){
+  const cards=(byField[fid]||[]).slice().sort((a,b)=>(a.level||1)-(b.level||1) || (a.title||'').localeCompare(b.title||''));
+  const byL={}; cards.forEach(c=>{ (byL[c.level||1]=byL[c.level||1]||[]).push(c); });
+  return Object.keys(byL).map(Number).sort((a,b)=>a-b).map(L=>
+    '<div class="fp-lvlrow"><span class="fp-lvl">L'+L+'</span><div class="fp-chips">'+
+    byL[L].map(c=>'<button class="chipx '+cardState(c)+'" data-id="'+c.id+'">'+esc(c.title)+'</button>').join('')+
+    '</div></div>').join('');
+}
+function webHtml(){
+  const learned=learnedIds().length;
+  const fr=webFrontier(), frTop=fr.slice(0,8), due=dueCards().length;
+  const frHtml = frTop.length
+    ? '<div class="frontier">'+frTop.map(c=>{ const fl=fieldById[c.field]||{}, bo=builtOnLearned(c);
+        const sub = bo? ('builds on <b>'+esc(bo.title)+'</b> ✓') : (learned? 'a fresh thread' : 'a good place to begin');
+        return '<button class="fcx" data-id="'+c.id+'" style="--fc:'+(fl.color||'#888')+'">'+
+          '<span class="fcx-field">'+esc(fl.icon||'')+' '+esc(fl.label||c.field)+'</span>'+
+          '<span class="fcx-title">'+esc(c.title)+'</span>'+
+          '<span class="fcx-builds">'+sub+'</span></button>'; }).join('')+'</div>'
+    : '<div class="webempty">You’ve pulled every unlocked thread for now — review what you know, or open the feed to roam.</div>';
+  const rows=(KN.fields||[]).map(f=>{ const total=(byField[f.id]||[]).length; if(!total) return null;
+    return { f, total, doneN:learnedInField(f.id), frN:(byField[f.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length }; })
+    .filter(Boolean).sort((a,b)=> (b.doneN>0)-(a.doneN>0) || b.doneN-a.doneN || b.frN-a.frN || a.f.label.localeCompare(b.f.label));
+  const fieldsHtml=rows.map(r=>{ const col=r.f.color||'#888', deg=degreeFor(r.f.id);
+    const counts=levelsInField(r.f.id), present=Object.keys(counts).map(Number).sort((a,b)=>a-b);
+    const pips=present.map(L=>{ const need=Math.ceil(0.7*counts[L]), got=learnedAtLevel(r.f.id,L);
+      return '<i class="degpip '+(got>=need?'on':(got>0?'half':''))+'">'+L+'</i>'; }).join('');
+    const badge=deg.key?'<span class="degbadge" style="--dc:'+col+'">'+esc(deg.short||deg.name)+'</span>':'';
+    const ready=r.frN?'<span class="fp-ready">'+r.frN+' ready</span>':'';
+    return '<div class="fpath" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
+      '<button class="fpath-hd"><span class="fp-ic">'+esc(r.f.icon||'')+'</span>'+
+        '<span class="fp-main"><span class="fp-top"><span class="fp-lab">'+esc(r.f.label)+'</span>'+badge+'</span>'+
+          '<span class="degpips">'+pips+'</span></span>'+
+        '<span class="fp-right"><span class="fp-num">'+r.doneN+'/'+r.total+'</span>'+ready+'</span>'+
+        '<span class="fp-chev" aria-hidden="true">›</span></button>'+
+      '<div class="fpath-body" hidden></div></div>';
+  }).join('');
+  return '<div class="webpage">'+
+    '<div class="websearch"><input id="webSearch" type="search" inputmode="search" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Search '+KN.cards.length+' cards…"></div>'+
+    '<div id="webResults" class="webresults" hidden></div>'+
+    '<div id="webMain">'+
+      '<div class="webhd">Pull a thread'+(frTop.length?' <span class="webcount">· '+fr.length+' ready</span>':'')+'</div>'+frHtml+
+      (due?'<button class="webdue" id="webReview">↻ Review '+due+' due card'+(due===1?'':'s')+'</button>':'')+
+      '<div class="webhd webhd2">Your fields</div><div class="fieldpaths">'+fieldsHtml+'</div>'+
+    '</div></div>';
+}
 function renderWeb(){
   $("lnTitle").textContent="Web";
-  const sub=$("lnSub"); const learned=learnedIds().length;
-  if(sub) sub.textContent = learned? (learned+' learned · pinch to zoom, drag to explore') : 'Tap a glowing thread to begin your web';
+  const learned=learnedIds().length;
+  const sub=$("lnSub"); if(sub) sub.textContent = learned? (learned+' learned · '+webFrontier().length+' threads ready') : 'Pull your first thread to grow your web';
   $("lnSessBar").style.display="none"; $("lnPhase").style.display="none";
   const restart=$("lnRestart"); if(restart) restart.style.display="none";
   if(!KN.cards.length){ $("lnStage").innerHTML='<div class="emptystate"><div class="ei">🕸️</div><p>The library didn’t load.</p></div>'; return; }
-  $("lnStage").innerHTML='<div class="webwrap"><canvas id="webCanvas"></canvas></div>';
-  webZoom=1; webPan={x:0,y:0};                 // open fitted every time — zero friction
-  const cv=$("webCanvas"); if(!cv){ drawWeb(); return; }
-  const rect=()=>cv.getBoundingClientRect();
-  const dist=(a,b)=>Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
-  const mid=(a,b)=>{ const r=rect(); return {x:(a.clientX+b.clientX)/2-r.left, y:(a.clientY+b.clientY)/2-r.top}; };
-  let px=0,py=0,ox=0,oy=0,down=false,moved=0,mode=null,pinchD=0,pinchZ=1,pinchM=null;
-  function startPinch(t0,t1){ mode='pinch'; pinchD=dist(t0,t1); pinchZ=webZoom; pinchM=mid(t0,t1); }
-  function onPinch(t0,t1){
-    const d=dist(t0,t1); if(pinchD<=0) return;
-    const nz=clamp(pinchZ*(d/pinchD), 0.4, 6);
-    // keep the layout point under the pinch midpoint stationary while zooming
-    const v=_webView; if(v){ const Lx=(pinchM.x - v.cssW/2 - webPan.x)/v.scale + v.gcx, Ly=(pinchM.y - v.cssH/2 - webPan.y)/v.scale + v.gcy;
-      const ns=(v.scale/webZoom)*nz; webPan.x=pinchM.x - v.cssW/2 - (Lx-v.gcx)*ns; webPan.y=pinchM.y - v.cssH/2 - (Ly-v.gcy)*ns; }
-    webZoom=nz; drawWeb();
-  }
-  const xy=t=>{ const r=rect(); return {x:t.clientX-r.left, y:t.clientY-r.top}; };
-  cv.addEventListener("touchstart",e=>{ if(e.touches.length>=2){ startPinch(e.touches[0],e.touches[1]); return; }
-    const p=xy(e.touches[0]); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; mode='pan'; },{passive:true});
-  cv.addEventListener("touchmove",e=>{ if(mode==='pinch'&&e.touches.length>=2){ onPinch(e.touches[0],e.touches[1]); if(e.cancelable)e.preventDefault(); return; }
-    if(!down) return; const p=xy(e.touches[0]); const dx=p.x-px,dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); if(e.cancelable)e.preventDefault(); },{passive:false});
-  cv.addEventListener("touchend",e=>{ if(mode==='pinch'){ if(e.touches.length===0) mode=null; return; }
-    if(!down) return; down=false; if(moved>9){ mode=null; return; }    // it was a pan, not a tap
-    const t=e.changedTouches[0]; const p=xy(t); hitTap(p.x,p.y); mode=null; },{passive:true});
-  // desktop: drag to pan, wheel to zoom, click to open
-  cv.addEventListener("mousedown",e=>{ const p=xy(e); px=p.x; py=p.y; ox=webPan.x; oy=webPan.y; down=true; moved=0; });
-  cv.addEventListener("mousemove",e=>{ if(!down) return; const p=xy(e); const dx=p.x-px,dy=p.y-py; moved=Math.max(moved,Math.abs(dx)+Math.abs(dy)); webPan.x=ox+dx; webPan.y=oy+dy; drawWeb(); });
-  cv.addEventListener("mouseup",e=>{ if(!down) return; down=false; if(moved>9) return; const p=xy(e); hitTap(p.x,p.y); });
-  cv.addEventListener("wheel",e=>{ e.preventDefault(); const v=_webView; if(!v) return; const r=rect(); const m={x:e.clientX-r.left,y:e.clientY-r.top};
-    const nz=clamp(webZoom*(e.deltaY<0?1.12:0.89),0.4,6); const Lx=(m.x-v.cssW/2-webPan.x)/v.scale+v.gcx, Ly=(m.y-v.cssH/2-webPan.y)/v.scale+v.gcy;
-    const ns=(v.scale/webZoom)*nz; webPan.x=m.x-v.cssW/2-(Lx-v.gcx)*ns; webPan.y=m.y-v.cssH/2-(Ly-v.gcy)*ns; webZoom=nz; drawWeb(); },{passive:false});
-  function hitTap(mx,my){ let hit=null,best=1e9; _webNodes.forEach(n=>{ const d=Math.hypot(mx-n._sx,my-n._sy); if(d<(n._r||7)+12 && d<best){best=d; hit=n;} }); if(hit) openCard(hit.id); }
-  drawWeb();
+  const stage=$("lnStage"); stage.innerHTML=webHtml();
+  const openFrom=(id, listIds)=>{ feedReaderList=(listIds&&listIds.length)?listIds.slice():[id]; openReader(id); };
+  const fr=webFrontier().map(c=>c.id);
+  stage.querySelectorAll('.fcx').forEach(b=> b.onclick=()=> openFrom(b.dataset.id, fr));
+  const rev=$("webReview"); if(rev) rev.onclick=()=> startSession();
+  stage.querySelectorAll('.fpath-hd').forEach(hd=> hd.onclick=()=>{
+    const fp=hd.closest('.fpath'), body=fp.querySelector('.fpath-body'), open=fp.classList.toggle('open');
+    if(open){ if(!body.dataset.filled){ body.innerHTML=fieldChipsHtml(fp.dataset.f); body.dataset.filled='1';
+        const ids=(byField[fp.dataset.f]||[]).map(c=>c.id);
+        body.querySelectorAll('.chipx').forEach(ch=> ch.onclick=()=> openFrom(ch.dataset.id, ids)); }
+      body.hidden=false; } else body.hidden=true;
+  });
+  const si=$("webSearch"), res=$("webResults"), main=$("webMain");
+  if(si) si.oninput=()=>{ const q=si.value.trim().toLowerCase();
+    if(!q){ res.hidden=true; main.hidden=false; res.innerHTML=''; return; }
+    const hits=KN.cards.filter(c=> (c.title||'').toLowerCase().includes(q) || (c.tags||[]).some(t=>String(t).toLowerCase().includes(q))).slice(0,24);
+    main.hidden=true; res.hidden=false;
+    res.innerHTML = hits.length
+      ? hits.map(c=>{ const fl=fieldById[c.field]||{}; return '<button class="wres '+cardState(c)+'" data-id="'+c.id+'"><span class="wres-t">'+esc(c.title)+'</span><span class="wres-f" style="--fc:'+(fl.color||'#888')+'">'+esc(fl.icon||'')+' '+esc(fl.label||c.field)+'</span></button>'; }).join('')
+      : '<div class="webempty">No cards match “'+esc(q)+'”.</div>';
+    const ids=hits.map(c=>c.id);
+    res.querySelectorAll('.wres').forEach(b=> b.onclick=()=> openFrom(b.dataset.id, ids));
+  };
 }
 
 // ================= appearance =================
