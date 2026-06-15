@@ -12,9 +12,9 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v80";   // bumped each deploy; shown in the error banner so we know the running build
-// visible on-screen error reporter — turns an invisible crash into a readable, reportable message
-let __errBanner=null, __errSeen=new Set();
+const BUILD = "v81";   // bumped each deploy; shown in the error banner so we know the running build
+// visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
+let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
   try{
     msg=String(msg||'error').slice(0,400);
@@ -27,13 +27,19 @@ function showError(msg){
     }
     __errBanner.style.display='block';
     __errBanner.textContent='⚠︎ Clue '+BUILD+' — '+msg+'\n(tap to dismiss)';
+    clearTimeout(__errT); __errT=setTimeout(()=>{ if(__errBanner) __errBanner.style.display='none'; }, 7000);
   }catch(_){}
 }
 // error boundary: a thrown view must never blank or freeze the whole app — and the error is surfaced
 function safe(fn, label){ try{ return fn(); }catch(e){ console.error('[clue] '+(label||'render')+' failed:', e); showError('couldn’t render “'+(label||'?')+'”: '+(e&&e.message||e)); return null; } }
 if(typeof window!=='undefined'){
-  window.addEventListener('error', e=>{ showError((e.message||'error')+(e.filename?(' @ '+String(e.filename).split('/').pop()+':'+e.lineno):'')); });
-  window.addEventListener('unhandledrejection', e=>{ const r=e&&e.reason; showError('promise: '+((r&&r.message)||r||'?')); });
+  window.addEventListener('error', e=>{
+    // a sanitised cross-origin "Script error." (no location) is unactionable CDN noise — log only
+    if(!e.filename || e.message==='Script error.' || !e.message){ console.error('[clue] cross-origin script error (ignored):', e.message||e); return; }
+    showError((e.message||'error')+' @ '+String(e.filename).split('/').pop()+':'+e.lineno);
+  });
+  // async rejections are usually a slow/blocked CDN or the (now paused) cloud sync — log, don't alarm
+  window.addEventListener('unhandledrejection', e=>{ console.error('[clue] unhandled rejection (ignored):', (e&&e.reason)||e); });
 }
 function hashStr(s){ let h=2166136261; s=String(s); for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); }
 function todayStr(d){ d=d||new Date(); const p=n=>String(n).padStart(2,'0'); return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); }
