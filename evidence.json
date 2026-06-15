@@ -3465,6 +3465,123 @@
       "url": "https://plato.stanford.edu/entries/justep-foundational/",
       "kind": "reference",
       "strength": "Authoritative peer-reviewed encyclopedia entry on the regress problem and the foundationalism/coherentism response. The reliabilist alternative the card names is a distinct, well-established externalist position."
+    },
+    "ev-poli-fptp": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "First-past-the-post voting",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/First-past-the-post_voting",
+      "kind": "reference",
+      "strength": "Wikipedia 'First-past-the-post voting' supports the plurality rule (most first-preference votes wins without a majority), the spoiler effect, wasted votes (2005 UK: ~70% wasted), and the link to Duverger's law; the page also confirms the counter, noting most FPTP countries have multiparty legislatures, so Duverger's two-party result is a tendency with UK/India regional-party exceptions, a real opposing qualifier."
+    },
+    "ev-poli-runoff": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Two-round system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Two-round_system",
+      "kind": "reference",
+      "strength": "Wikipedia 'Two-round system' supports the majority-then-top-two procedure, its use for the French presidency, and the 2002 first round (Chirac 19.9%, Le Pen 16.9%, Jospin 16.2% with the left vote divided); the page lists centre squeeze as a documented criticism of runoff rules but states Chirac was the majority-preferred candidate in 2002, so the card treats 2002 as vote-splitting rather than a clean centre squeeze. The Condorcet-based centre-squeeze critique is a real, documented opposing position."
+    },
+    "ev-poli-rcv": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Instant-runoff voting",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Instant-runoff_voting",
+      "kind": "reference",
+      "strength": "Wikipedia 'Instant-runoff voting' supports the rank-eliminate-transfer-until-majority procedure, the failure of monotonicity (ranking a candidate higher can make them lose), and the 2009 Burlington result where Bob Kiss defeated the majority-preferred Condorcet winner Andy Montroll, who was eliminated; the monotonicity and Condorcet criticism is a real, documented opposing position."
+    },
+    "ev-poli-borda": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Borda count",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Borda_count",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Borda count' article documents the n-1, n-2, ... 0 point scheme, the summed-totals winner rule, and the method's vulnerability to teaming/cloning and to burying; it also records Borda's own quote ('My scheme is intended for only honest men'), a genuine acknowledgement by the method's author that it presumes sincere voting and fails under strategy, which is a real opposing position to relying on Borda for high-stakes votes."
+    },
+    "ev-poli-condorcet": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Condorcet paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Condorcet_paradox",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Condorcet paradox' article gives the definition of a Condorcet winner and the canonical 3-voter, 3-candidate cyclic example (A>B>C, B>C>A, C>A>B) producing A beats B, B beats C, C beats A each 2-to-1; the named counter, Borda's points method as a deliberate alternative to pairwise majorities, is a real historical opposing position from Condorcet's own contemporary."
+    },
+    "ev-poli-approval": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Approval voting",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Approval_voting",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Approval voting' article confirms the approve-any-number rule, the most-approvals-wins tally, and that the method reduces vote-splitting/spoilers (the Brams and Herschbach spoiler result); it references the Burr dilemma and cites Jack H. Nagel's 2007 Journal of Politics article 'The Burr Dilemma in Approval Voting' as its source, and it notes that the binary ballot ignores the expressive grades of rated methods, so both named limitations are genuine opposing positions rather than rhetorical 'critics say'."
+    },
+    "ev-poli-stv": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Single transferable vote",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Single_transferable_vote",
+      "kind": "reference",
+      "strength": "Wikipedia's STV article documents the Droop quota formula floor(votes/(seats+1))+1, surplus and elimination transfers, and the Ireland/Malta/Australian Senate usage; the counting-complexity, random-sample-transfer, and non-monotonicity criticisms it records are a real opposing position, with the Electoral Reform Society for STV and plurality defenders against it."
+    },
+    "ev-poli-mmp": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Mixed-member proportional representation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mixed-member_proportional_representation",
+      "kind": "reference",
+      "strength": "Wikipedia's MMP article documents the two-vote design, compensatory list top-up so total seats match the party vote, and the German/New Zealand cases, plus overhang seats, the 5% threshold, and decoy-list tactics; Germany's 2023 abolition of overhang seats is a documented opposing response to the concern that MMP did not deliver clean proportionality."
+    },
+    "ev-poli-gibbard": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Gibbard–Satterthwaite theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gibbard%E2%80%93Satterthwaite_theorem",
+      "kind": "reference",
+      "strength": "Wikipedia's Gibbard-Satterthwaite article states the theorem (3+ outcomes, deterministic, non-dictatorial implies manipulable), its derivation from Arrow, and the determinism/rated-ballot/restricted-domain escape routes; the mechanism-design escape routes named by Gibbard and the practical-difficulty caveat are a real opposing qualification to treating manipulability as decisive."
+    },
+    "ev-poli-may-theorem": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "May's theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/May%27s_theorem",
+      "kind": "reference",
+      "strength": "Wikipedia's 'May's theorem' states the unique-characterisation result (anonymity, neutrality, positive responsiveness) for two alternatives, attributed to Kenneth May 1952, and the corrected detail example illustrates positive responsiveness from a genuine 3-3 tie; the named counter, Arrow's impossibility theorem, is a real opposing result establishing that the guarantee fails for three or more options."
+    },
+    "ev-poli-apportionment": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Apportionment paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Apportionment_paradox",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Apportionment paradox' documents the Alabama paradox (1880 census, 8 seats at 299 vs 7 at 300) under largest-remainder and that divisor methods avoid it, and the D'Hondt and largest-remainder seat counts in the detail are recomputed correct; the named counter, the Balinski-Young theorem, is a real result proving no method can both follow quota and avoid the paradoxes, framing the D'Hondt versus Sainte-Lague trade-off as a genuine value choice."
+    },
+    "ev-poli-gerrymander": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Gerrymandering",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gerrymandering",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Gerrymandering' defines packing and cracking and the efficiency gap (wasted votes = losing votes plus surplus above the winning threshold), citing Wisconsin's 2011 map and a federal ruling, plus independent commissions as responses, and the worked efficiency gap (199 vs 46, 30.6%) is recomputed correct; the named counter, Chief Justice Roberts writing the Rucho v. Common Cause (2019) majority, is a real opposing position holding partisan gerrymandering nonjusticiable in federal court, with the 'sociological gobbledygook' remark correctly attributed to his Gill v. Whitford argument rather than the Rucho opinion."
+    },
+    "ev-poli-banzhaf": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Banzhaf power index",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Banzhaf_power_index",
+      "kind": "reference",
+      "strength": "Wikipedia's 'Banzhaf power index' article defines the index as a player's share of swing (critical) memberships across winning coalitions and documents that power diverges from weight share, including dummy players with zero power (the Nassau County example, where Oyster Bay, Glen Cove, and Long Beach each had power 0). The article records that Lionel Penrose defined the measure in 1946 and John Banzhaf reinvented it in 1965 in the Nassau County malapportionment fight. The weights 50/49/1 at quota 51 yielding power 3/5, 1/5, 1/5, and the quiz case 3/2/2 at quota 4 yielding 1/3 each, were verified by direct enumeration. The named counter — Shapley and Shubik's order-of-arrival pivotality index, named in the same article as an accepted alternative measure of voting power — is a real and standard non-equivalent approach in the social-choice literature."
     }
   }
 }

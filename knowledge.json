@@ -11831,6 +11831,862 @@
         { "q": "Which approach to justification answers the regress not by finding a place for reasons to stop, but by asking instead whether the belief was produced by a dependable belief-forming method, so a person could be justified without being able to state any reasons at all?", "type": "detail", "answer": "reliabilism", "accept": ["reliabilist", "process reliabilism", "reliabilist theory"] },
         { "q": "Agrippa's trilemma presents three possible fates for a chain of justifying reasons. A foundationalist rejects exactly one of those fates (the circular one) and a coherentist rejects exactly one (the arbitrary-stopping one). Counting only the distinct fates rejected by at least one of these two camps, how many of the three are rejected?", "type": "num", "answer": 2, "tol": 0.01 }
       ]
+    },
+    {
+      "id": "poli-fptp",
+      "field": "polisci",
+      "level": 1,
+      "depth": "concept",
+      "prereq": [],
+      "xref": [
+        "poli-duverger",
+        "poli-runoff"
+      ],
+      "src": [
+        "ev-poli-fptp"
+      ],
+      "title": "First-past-the-post",
+      "fact": "Under first-past-the-post, you mark one name and the candidate with the most votes wins, even on 40% while a majority wanted someone else.",
+      "detail": "Each voter picks a single candidate, and whoever piles up the most marks takes the seat, with no requirement to clear half the votes. Take three candidates and 100 voters: A gets 40, B gets 35, C gets 25, so A wins on 40%. But suppose every B voter and every C voter prefers B to A; then 60 of the 100 (a majority) would pick B over A head-to-head, yet A still wins. The 25 votes for C are 'wasted' in that they elect nobody, and C acts as a spoiler: had C not run and those 25 gone to B, B would win 60 to 40. Voters anticipating exactly this waste is the mechanism behind Duverger's law, which pushes voters and money toward the two front-runners.",
+      "deploy": "Use it to spot when a plurality winner lacks majority backing, and to predict tactical 'lesser evil' voting and the two-party squeeze under single-mark single-seat rules.",
+      "counter": "Maurice Duverger framed FPTP as a force toward two parties, but the UK and India keep strong regional and third parties under the same rule, so the two-party outcome is a tendency, not a guarantee.",
+      "tags": [
+        "voting",
+        "elections",
+        "plurality",
+        "spoiler",
+        "polisci"
+      ],
+      "quiz": [
+        {
+          "q": "In a single-seat first-past-the-post contest with three candidates and no other rules, what is the minimum support a winner can have?",
+          "choices": [
+            "A simple majority, over 50% of the vote",
+            "Only a plurality, the most votes, which can be well under 50%",
+            "Exactly one third of the vote",
+            "A two-thirds supermajority"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "num",
+          "q": "In a first-past-the-post race, candidate X receives 9,000 votes, Y receives 7,500, and Z receives 3,500, out of 20,000 total. What percentage of the total vote does the winner X take, to the nearest whole percent?",
+          "answer": 45,
+          "unit": "%",
+          "tol": 0.5
+        },
+        {
+          "type": "detail",
+          "q": "What term describes a vote cast for a losing candidate (or surplus beyond what a winner needed) that elects nobody under first-past-the-post?",
+          "answer": "wasted vote",
+          "accept": [
+            "wasted votes",
+            "wasted",
+            "a wasted vote",
+            "wasted ballot"
+          ]
+        },
+        {
+          "q": "A minor candidate C draws votes mostly from candidate B, letting A win even though more voters preferred B to A. What is this effect called?",
+          "choices": [
+            "The spoiler effect",
+            "The bandwagon effect",
+            "The median voter theorem",
+            "Proportional representation"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-runoff",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-fptp"
+      ],
+      "xref": [
+        "poli-fptp",
+        "poli-rcv"
+      ],
+      "src": [
+        "ev-poli-runoff"
+      ],
+      "title": "The two-round runoff",
+      "fact": "The two-round system sends the top two to a runoff if nobody wins a majority first, which can eliminate a centrist who would have beaten either finalist.",
+      "detail": "In round one each voter marks one candidate; if no one passes 50%, the two highest go to a second round where the majority winner takes office. France elects its president this way. The flaw is a 'centre squeeze': a broadly acceptable centrist can place third in round one and be eliminated even though they would beat each finalist head-to-head. Worked example with 100 voters and first-round shares Left 36, Right 34, Centre 30: nobody has a majority, so Left and Right advance and Centre is dropped despite sitting between them. France in 2002 shows the vote-splitting half of this: the left vote was divided across many candidates, so Lionel Jospin (16.2%) came third behind Jacques Chirac (19.9%) and far-right Jean-Marie Le Pen (16.9%), sending Le Pen to a runoff Chirac won easily. Polling indicated Chirac was the genuinely majority-preferred candidate, so 2002 illustrates first-round splitting without being a clean centre-squeeze case.",
+      "deploy": "Use it where you want a clear majority mandate without ranked ballots, but watch for first-round vote-splitting that can eliminate a consensus candidate before the decisive round.",
+      "counter": "Voting theorists working from the Condorcet criterion point to the centre squeeze: the runoff can drop the candidate who beats every rival head-to-head, so the majority winner of the final round need not be the candidate a majority preferred over all others.",
+      "tags": [
+        "voting",
+        "runoff",
+        "elections",
+        "center-squeeze",
+        "polisci"
+      ],
+      "quiz": [
+        {
+          "q": "Under a two-round system, what triggers a second round of voting?",
+          "choices": [
+            "No candidate wins more than half the first-round vote",
+            "Turnout falls below 50%",
+            "More than two candidates run",
+            "The top two candidates tie exactly"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "First-round shares are A 31%, B 29%, C 22%, D 18%. No one has a majority, so the top two advance. What is the combined first-round percentage of the two candidates who go to the runoff?",
+          "answer": 60,
+          "unit": "%",
+          "tol": 0.5
+        },
+        {
+          "type": "detail",
+          "q": "What is the named failure mode in which a moderate candidate who would defeat both finalists head-to-head is eliminated in the first round of a runoff?",
+          "answer": "center squeeze",
+          "accept": [
+            "centre squeeze",
+            "center-squeeze",
+            "centre-squeeze",
+            "center squeeze effect",
+            "squeeze"
+          ]
+        },
+        {
+          "q": "In the 2002 French presidential election, which feature of the first round let the far-right candidate reach the runoff instead of the Socialist candidate?",
+          "choices": [
+            "The left-wing vote was split across many candidates, dropping the Socialist to third",
+            "The far-right candidate won an outright first-round majority",
+            "A ranked ballot transferred votes to the far right",
+            "Only two candidates were allowed to run"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-rcv",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-fptp"
+      ],
+      "xref": [
+        "poli-runoff",
+        "poli-condorcet"
+      ],
+      "src": [
+        "ev-poli-rcv"
+      ],
+      "title": "Ranked-choice (instant-runoff) voting",
+      "fact": "Instant-runoff voting eliminates the last-place candidate and transfers their ballots to next choices until someone clears a majority.",
+      "detail": "Voters rank the candidates instead of marking one. Count first choices; if nobody has over half, drop the candidate with the fewest first-place votes and move each of their ballots to its next-ranked surviving choice, repeating until someone passes 50%. Worked example with 100 voters and first choices A 40, B 35, C 25: no majority, so C is eliminated. If C's 25 ballots split 20 to B and 5 to A, the new totals are B 55, A 45, and B wins with a majority, reversing the plurality result where A led. The catch is that IRV is non-monotonic: in some elections a candidate can lose precisely because some voters ranked them higher, since that shifts who gets eliminated first and reroutes the transfers.",
+      "deploy": "Use it to elect a single winner with majority support from one round of ranked ballots, avoiding a separate runoff trip to the polls and blunting the simple spoiler effect.",
+      "counter": "Analysts of the 2009 Burlington, Vermont mayoral election point out IRV failed both monotonicity and the Condorcet criterion there: the candidate who beat every rival head-to-head, Andy Montroll, was eliminated, and Bob Kiss won despite a majority preferring Montroll over him.",
+      "tags": [
+        "voting",
+        "irv",
+        "ranked-choice",
+        "monotonicity",
+        "polisci"
+      ],
+      "quiz": [
+        {
+          "q": "In instant-runoff voting, what happens after a counting round in which no candidate has a majority of the remaining votes?",
+          "choices": [
+            "The candidate with the fewest first-place votes is eliminated and their ballots transfer to next choices",
+            "The candidate with the most votes is declared the winner anyway",
+            "All candidates below 50% are eliminated at once",
+            "Voters return to the polls for a separate runoff"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "num",
+          "q": "Sixty voters rank three candidates. First choices: A 25, B 20, C 15. No one has a majority, so C is eliminated and C's ballots transfer 12 to B and 3 to A. After the transfer, how many votes does B have?",
+          "answer": 32,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "What property does instant-runoff voting fail, whereby ranking a candidate higher on some ballots can cause that candidate to lose?",
+          "answer": "monotonicity",
+          "accept": [
+            "monotonicity criterion",
+            "monotone",
+            "monotonicity property",
+            "non-monotonicity",
+            "monotonic"
+          ]
+        },
+        {
+          "q": "The 2009 Burlington, Vermont mayoral race is cited against instant-runoff voting because it eliminated which candidate?",
+          "choices": [
+            "The Condorcet winner, who would have beaten every rival head-to-head",
+            "The candidate with the most first-place votes",
+            "Every candidate except the incumbent",
+            "The candidate who won the popular vote outright"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-borda",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-rcv"
+      ],
+      "xref": [
+        "poli-condorcet",
+        "poli-arrow"
+      ],
+      "src": [
+        "ev-poli-borda"
+      ],
+      "title": "The Borda count",
+      "fact": "The Borda count scores each ballot by rank — top choice earns the most points — and the candidate with the highest sum wins.",
+      "detail": "With n candidates a first place is worth n-1 points, second n-2, and so on down to 0 for last; you sum the points each candidate collects across all ballots. Worked example with 3 candidates (points 2/1/0): 5 voters rank A>B>C and 4 voters rank B>C>A. A gets 5*2 + 4*0 = 10; B gets 5*1 + 4*2 = 13; C gets 5*0 + 4*1 = 4. B wins with 13, even though A has the most first-place votes, because Borda rewards candidates ranked highly by almost everyone, so it favours a broadly acceptable compromise over a polarising plurality leader. That same logic makes it gameable: a faction can run near-identical clones to soak up middle-rank points (teaming or cloning), and voters can rank a strong rival dead last to drag down their score (burying).",
+      "deploy": "Reach for Borda when you want a consensus pick that most people can live with rather than the option a narrow plurality loves and others hate: committee shortlists, sports MVP votes, picking a meeting time.",
+      "counter": "Jean-Charles de Borda himself conceded the method assumes sincerity: 'My scheme is intended for only honest men.' Because both burying and clone nomination pay off, the method rewards strategic ballots over honest ones whenever the stakes are high.",
+      "tags": [
+        "voting",
+        "social choice",
+        "borda count",
+        "political science"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Three candidates use Borda points 2/1/0. Four voters rank X>Y>Z and three voters rank Y>Z>X. How many Borda points does the winner, Y, receive?",
+          "answer": 10,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "Name the strategic tactic in which a voter ranks a strong rival candidate artificially low to lower that rival's Borda total.",
+          "answer": "burying",
+          "accept": [
+            "bury",
+            "to bury",
+            "burying the rival"
+          ]
+        },
+        {
+          "q": "Why does the Borda count tend to elect a broadly acceptable compromise candidate rather than a polarising one?",
+          "choices": [
+            "It only counts first-place votes, like plurality",
+            "It awards points for every rank, so a candidate ranked second or third by almost everyone accumulates a high total",
+            "It eliminates the lowest candidate each round",
+            "It requires a candidate to beat every rival one-on-one"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "poli-condorcet",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-rcv"
+      ],
+      "xref": [
+        "poli-arrow",
+        "poli-borda"
+      ],
+      "src": [
+        "ev-poli-condorcet"
+      ],
+      "title": "Condorcet winners and the voting paradox",
+      "fact": "A Condorcet winner beats every other candidate one-on-one, but majority preferences can cycle, so often no such winner exists.",
+      "detail": "Compare candidates pairwise: a Condorcet winner is the one who wins every head-to-head majority contest. The trouble is that majority rule over a group need not be transitive. Take the classic case of 3 voters and 3 candidates: Voter 1 ranks A>B>C, Voter 2 ranks B>C>A, Voter 3 ranks C>A>B. Check the pairs. A vs B: voters 1 and 3 prefer A, so A beats B 2-to-1. B vs C: voters 1 and 2 prefer B, so B beats C 2-to-1. C vs A: voters 2 and 3 prefer C, so C beats A 2-to-1. The majority prefers A to B, B to C, and C to A: a cycle with no top, so no Condorcet winner exists. This is Condorcet's paradox, where rational individual rankings aggregate into an irrational collective one, the kind of breakdown Arrow's theorem later proved no ranked method can fully escape.",
+      "deploy": "Use the pairwise test to spot whether a clear winner exists before trusting any single tally; when preferences cycle, expect the outcome to hinge on the agenda, since which pair gets voted on first can decide who wins.",
+      "counter": "Condorcet's contemporary rival Jean-Charles de Borda rejected pairwise majorities, arguing his points method gives a definite winner exactly when the Condorcet approach deadlocks, at the cost of sometimes overruling a candidate who would win every head-to-head.",
+      "tags": [
+        "voting",
+        "social choice",
+        "condorcet",
+        "paradox",
+        "political science"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Three voters rank candidates P, Q, R as follows: Voter 1: P>Q>R, Voter 2: Q>R>P, Voter 3: R>P>Q. In the head-to-head contest of P versus Q, how many of the three voters prefer P?",
+          "answer": 2,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "What is the term for a candidate who would win a one-on-one majority contest against every other candidate?",
+          "answer": "Condorcet winner",
+          "accept": [
+            "condorcet winner",
+            "the condorcet winner",
+            "condorcet candidate"
+          ]
+        },
+        {
+          "q": "In Condorcet's paradox the majority prefers A to B, B to C, and C to A. What property of group preference does this violate?",
+          "choices": [
+            "Unanimity",
+            "Transitivity",
+            "Anonymity",
+            "Monotonicity"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "When majority preferences form a cycle with no Condorcet winner, what most determines the eventual outcome under pairwise voting?",
+          "choices": [
+            "The total number of voters",
+            "The order in which candidates are paired against each other (the agenda)",
+            "The alphabetical order of candidate names",
+            "Nothing, the election is automatically void"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "poli-approval",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-fptp"
+      ],
+      "xref": [
+        "poli-rcv",
+        "poli-borda"
+      ],
+      "src": [
+        "ev-poli-approval"
+      ],
+      "title": "Approval voting",
+      "fact": "Approval voting lets each voter mark as many candidates as they like, and the one with the most approvals wins.",
+      "detail": "Each ballot is a yes/no on every candidate, you may approve any number of them, and totals are just the counts of approvals. Worked example with 100 voters and candidates L, M, R: 45 voters approve only L; 30 approve both M and L; 25 approve both M and R. Tally: L = 45 + 30 = 75, M = 30 + 25 = 55, R = 25. L wins with 75 approvals. Because a voter can approve both a favourite and an acceptable backup, a minor candidate no longer splits the vote and sinks an ally, which is why approval voting defuses the spoiler problem that plagues plurality. The flaw is the same freedom seen from the other side: deciding where to draw your approval line is a strategic gamble.",
+      "deploy": "Good for low-stakes multi-candidate choices where simplicity matters and you want to avoid spoilers: club elections, picking a single winner from a crowded field, online polls with one machine-readable mark per name.",
+      "counter": "Jack H. Nagel named the Burr dilemma: when two allied candidates compete, each candidate's supporters face pressure to approve only their own favourite, since approving the ally can let that ally beat your favourite, so mutual support can collapse. The yes/no ballot also records no intensity, so a grudging approval counts the same as an enthusiastic one.",
+      "tags": [
+        "voting",
+        "social choice",
+        "approval voting",
+        "spoiler",
+        "political science"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Under approval voting, 50 voters approve only candidate G, 20 approve both G and H, and 35 approve only H. How many approvals does the winner receive?",
+          "answer": 70,
+          "tol": 0.01
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the strategic dilemma in approval voting, named by Jack Nagel, in which supporters of two allied candidates are each tempted to approve only their own favourite, risking the collapse of mutual support?",
+          "answer": "Burr dilemma",
+          "accept": [
+            "burr dilemma",
+            "the burr dilemma"
+          ]
+        },
+        {
+          "q": "How does approval voting reduce the spoiler problem found in plurality voting?",
+          "choices": [
+            "It eliminates candidates round by round",
+            "It lets a voter approve both a favourite and an acceptable backup, so a minor candidate no longer splits support",
+            "It requires every voter to rank all candidates",
+            "It gives extra weight to first-place approvals"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is a standard criticism of approval voting as a way of capturing voter opinion?",
+          "choices": [
+            "It always produces a tie",
+            "Its yes/no ballot records no intensity, so a grudging approval counts the same as an enthusiastic one",
+            "It cannot be counted by machine",
+            "It forces voters to approve every candidate"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "poli-stv",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-rcv",
+        "poli-proportional"
+      ],
+      "xref": [
+        "poli-proportional",
+        "poli-mmp"
+      ],
+      "src": [
+        "ev-poli-stv"
+      ],
+      "title": "Single transferable vote",
+      "fact": "STV makes ranked ballots proportional by setting a quota and recycling every vote above it or behind a loser.",
+      "detail": "Voters rank candidates in a multi-member district. A candidate is elected once they reach the Droop quota = floor(votes/(seats+1))+1, the smallest number that not enough other candidates can also reach. Say a 4-seat district casts 100 valid votes: quota = floor(100/5)+1 = 20+1 = 21, because at most four candidates can each gather 21. A candidate with 28 first preferences is elected with a surplus of 28-21 = 7, and those 7 votes transfer to the next preference marked on them so they are not wasted. When no one new meets the quota, the lowest candidate is eliminated and all their votes transfer to the next preference. Ireland, Malta, and the Australian Senate run elections this way, getting roughly proportional results from ranked ballots without party lists.",
+      "deploy": "Reach for STV when you want proportional outcomes but want voters choosing people, not just parties, and crossing party lines in their rankings.",
+      "counter": "Counting is slow and order-dependent: Ireland transfers a physical random sample of a candidate's ballots to represent the surplus, so which papers move is partly luck, and STV is non-monotonic (more support can hurt you). Electoral-reform groups like the UK's Electoral Reform Society back STV, while plurality defenders argue the count is too opaque to trust.",
+      "tags": [
+        "voting",
+        "proportional",
+        "elections",
+        "social choice"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "A 2-seat district receives 60 valid votes. Using the Droop quota floor(votes/(seats+1))+1, how many votes does a candidate need to be elected?",
+          "answer": 21,
+          "tol": 0.5
+        },
+        {
+          "q": "Under STV, what happens to the votes a candidate holds above the quota once they are elected?",
+          "choices": [
+            "They transfer to the next preference marked on those ballots",
+            "They are discarded as wasted votes",
+            "They are split equally among all remaining candidates",
+            "They are returned to the voters to recast"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the quota, equal to floor(votes/(seats+1))+1, that a candidate must reach to win a seat under single transferable vote?",
+          "answer": "Droop quota",
+          "accept": [
+            "Droop",
+            "the Droop quota",
+            "droop"
+          ]
+        },
+        {
+          "q": "Which set of jurisdictions all elect representatives using the single transferable vote?",
+          "choices": [
+            "Ireland, Malta, and the Australian Senate",
+            "Germany, France, and the United States",
+            "Canada, the United Kingdom, and India",
+            "Brazil, Japan, and South Africa"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-mmp",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-proportional"
+      ],
+      "xref": [
+        "poli-stv",
+        "poli-duverger"
+      ],
+      "src": [
+        "ev-poli-mmp"
+      ],
+      "title": "Mixed-member proportional",
+      "fact": "MMP gives you a local representative and a party total that matches your second, party-wide vote.",
+      "detail": "You cast two votes: one for a local candidate won by first-past-the-post, and one for a party. List seats are then added as compensation so each party's total seat share matches its party vote. Example: a 120-seat parliament, a party wins 30% of the party vote, so it is entitled to 0.30 x 120 = 36 seats; if it already won 22 local districts, it gets 36 - 22 = 14 top-up seats from its list. Germany and New Zealand use MMP, combining a named local member with proportional overall results.",
+      "deploy": "Choose MMP when you want proportionality but voters still want one identifiable local representative to hold accountable, rather than only a party label.",
+      "counter": "Overhang seats break the match: if a party wins more districts than its party vote earns (as in Germany before its 2023 reform), it keeps the extra seats and the parliament swells or proportionality slips. Thresholds like New Zealand's 5% also lock small parties out, and decoy-list tactics (Lesotho 2007, Italy) have gamed the two-vote split. Germany's 2023 reform abolished overhang seats precisely because critics judged the swelling Bundestag indefensible.",
+      "tags": [
+        "voting",
+        "proportional",
+        "elections",
+        "mmp"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "In a 100-seat parliament under MMP, a party wins 40% of the party vote and 25 local district seats. How many list top-up seats does it receive to reach its proportional share?",
+          "answer": 15,
+          "tol": 0.5
+        },
+        {
+          "q": "What are the two votes a voter casts in a mixed-member proportional system?",
+          "choices": [
+            "One for a local district candidate and one for a party",
+            "One for a president and one for a prime minister",
+            "Two ranked preferences for the same district",
+            "One in the morning and one in the evening"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "In MMP, what is the term for the extra seats a party keeps when it wins more local districts than its party-vote share alone would entitle it to?",
+          "answer": "overhang seats",
+          "accept": [
+            "overhang",
+            "overhang seat",
+            "overhangs",
+            "overhang seats"
+          ]
+        },
+        {
+          "q": "Which pair of countries are standard examples of mixed-member proportional representation?",
+          "choices": [
+            "Germany and New Zealand",
+            "Ireland and Malta",
+            "France and the United States",
+            "Brazil and India"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-gibbard",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-arrow"
+      ],
+      "xref": [
+        "poli-arrow",
+        "game-nash-equilibrium"
+      ],
+      "src": [
+        "ev-poli-gibbard"
+      ],
+      "title": "Gibbard–Satterthwaite: no honest system",
+      "fact": "Gibbard and Satterthwaite proved every honest-looking ranked voting rule can be gamed by lying about your ranking.",
+      "detail": "For three or more possible winners, any deterministic ranked voting rule that is not a dictatorship has situations where some voter gets a better result by submitting a false ranking. This is the strategic twin of Arrow's theorem, and the proof reuses Arrow: a strategy-proof, non-dictatorial rule would force a social ranking obeying independence of irrelevant alternatives, which Arrow forbids. Plurality example, 7 voters: 3 rank a>b>c, 2 rank b>c>a, 2 rank c>b>a. First-choice tallies are a=3, b=2, c=2, so a wins. The two c>b>a voters most fear a, their last choice; if they insincerely vote b first, the tally becomes b=4, a=3, c=0, and b wins. They prefer b to a, so lying paid off. Strategic voting is built into the rule, not a defect you can patch.",
+      "deploy": "Use it to stop searching for a strategy-proof ranked ballot and instead ask how easy a given rule is to manipulate and how much that matters in practice.",
+      "counter": "Allan Gibbard's broader 1973 result and the mechanism-design literature note escape routes: the theorem assumes deterministic, single-winner, ranked rules over an unrestricted domain, so random tie-breaking, rated ballots, or restricting preferences to single-peaked can dodge it. Empirically, finding a profitable lie can be hard, so manipulability is not the same as routine manipulation.",
+      "tags": [
+        "voting",
+        "social choice",
+        "strategic voting",
+        "mechanism design"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "The Gibbard-Satterthwaite theorem applies once the number of possible winners (alternatives) is at least how many?",
+          "answer": 3,
+          "tol": 0.01
+        },
+        {
+          "q": "What does the Gibbard-Satterthwaite theorem establish about deterministic, non-dictatorial ranked voting rules with three or more outcomes?",
+          "choices": [
+            "Every such rule is manipulable: some voter can do better by ranking dishonestly",
+            "Exactly one such rule is perfectly strategy-proof",
+            "Such rules always pick the Condorcet winner",
+            "Such rules eliminate the spoiler effect entirely"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which assumption, if dropped, lets a voting rule escape the Gibbard-Satterthwaite theorem?",
+          "choices": [
+            "Determinism: random tie-breaking can make a rule strategy-proof",
+            "Having any voters at all",
+            "Counting the ballots correctly",
+            "Allowing candidates to run for office"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "Gibbard-Satterthwaite is often called the strategic counterpart of which earlier impossibility theorem in social choice, whose proof it reuses?",
+          "answer": "Arrow's theorem",
+          "accept": [
+            "Arrow",
+            "Arrow's theorem",
+            "Arrow's impossibility theorem",
+            "Arrow impossibility theorem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poli-may-theorem",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-median-voter"
+      ],
+      "xref": [
+        "poli-fptp",
+        "poli-arrow"
+      ],
+      "src": [
+        "ev-poli-may-theorem"
+      ],
+      "title": "May's theorem: why majority rule",
+      "fact": "For exactly two options, simple majority rule is the only fair rule there is.",
+      "detail": "Kenneth May proved in 1952 that with just two options, majority rule is the unique decision rule satisfying three conditions. Anonymity: swapping which voter cast which ballot never changes the outcome, so every voter counts equally. Neutrality: relabelling the options A and B just relabels the result, so no option gets a built-in edge and there are no tie-breaks favouring a status quo. Positive responsiveness: if the group was exactly tied and one voter shifts toward A, the group now picks A. Concrete check of responsiveness: take 6 voters tied 3 for A and 3 for B; majority rule outputs a tie. Move one B-voter to A and it is 4 for A, 2 for B, so A wins outright, as positive responsiveness demands. Each condition rules out alternatives: a two-thirds supermajority rule breaks neutrality because it favours one option (the status quo), and a rule that weights some voters more breaks anonymity. The payoff is that the famous impossibility results need 3 or more options to bite.",
+      "deploy": "Use it to answer 'why majority vote?' for any yes/no or two-candidate decision, and to explain why Arrow's theorem only attacks elections with three or more options.",
+      "counter": "Kenneth Arrow's impossibility theorem shows the guarantee collapses at three or more options: no ranked rule can be fair and consistent once cycles like A>B>C>A become possible, so May's clean uniqueness is a two-option special case.",
+      "tags": [
+        "voting",
+        "social-choice",
+        "majority-rule",
+        "may-theorem"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Under simple majority rule with two options, 9 voters split 5 for B and 4 for A, so B wins. What is the smallest number of voters who must switch from B to A for A to win outright?",
+          "answer": 1,
+          "unit": "voters",
+          "tol": 0.0
+        },
+        {
+          "q": "A voting rule requires a two-thirds supermajority to change the current law, otherwise the current law stands. Which of May's three conditions does this rule violate?",
+          "choices": [
+            "Neutrality",
+            "Anonymity",
+            "Positive responsiveness",
+            "Unanimity"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the name of the condition in May's theorem that says permuting which voter cast which ballot leaves the result unchanged, so all voters count equally?",
+          "answer": "anonymity",
+          "accept": [
+            "anonymity",
+            "anonymous"
+          ]
+        },
+        {
+          "q": "May's theorem guarantees majority rule is the unique anonymous, neutral, positively responsive rule under what restriction?",
+          "choices": [
+            "When there are exactly two options",
+            "When there are at least three options",
+            "When voters number an odd total",
+            "When preferences are single-peaked"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-apportionment",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-proportional"
+      ],
+      "xref": [
+        "poli-proportional",
+        "poli-stv"
+      ],
+      "src": [
+        "ev-poli-apportionment"
+      ],
+      "title": "Apportionment and its paradoxes",
+      "fact": "Turning vote shares into whole seats is impossible to do perfectly, and every method picks its poison.",
+      "detail": "Seats are integers but vote shares are not, so some rounding rule must decide who gets the leftover seats. Largest-remainder (Hamilton) gives each party the floor of its quota, then hands spare seats to the largest fractional remainders. This can trigger the Alabama paradox: in the 1880 US census, Alabama would have got 8 seats in a 299-seat House but only 7 in a 300-seat House, because enlarging the chamber shifted the remainders. Divisor methods dodge that by ranking quotients instead. Take votes A=100, B=80, C=20 for 7 seats. D'Hondt divides each vote total by 1, 2, 3, and so on, then takes the 7 highest quotients: 100, 80, 50, 40, 33.3, 26.7, 25, giving A=4, B=3, C=0. Largest-remainder (quota 200/7 = 28.57) gives floors A=3, B=2, C=0, summing to 5; the two spare seats go to the largest remainders, B at 0.80 and C at 0.70, for A=3, B=3, C=1. Small party C wins a seat under largest-remainder but is shut out by D'Hondt, which favours large parties; Sainte-Lague/Webster (divisors 1, 3, 5, and so on) treats small parties more evenly.",
+      "deploy": "Reach for this when a proportional result has to become a fixed number of seats and you must pick a method, or when explaining why two proportional systems hand the same votes different seat counts.",
+      "counter": "Balinski and Young proved no method can satisfy quota (every party gets its share rounded up or down) and avoid the population paradox at once, so the choice is a value judgement: D'Hondt's pro-large-party tilt suits coalition-building, Sainte-Lague's even treatment suits small-party representation.",
+      "tags": [
+        "apportionment",
+        "proportional",
+        "dhondt",
+        "alabama-paradox",
+        "voting"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Using the largest-remainder method, allocate 10 seats among three parties with votes P=50, Q=30, R=20 (total 100). How many seats does party P receive?",
+          "answer": 5,
+          "unit": "seats",
+          "tol": 0.0
+        },
+        {
+          "q": "Adding one seat to the total chamber causes a state to LOSE a seat. What is this effect called?",
+          "choices": [
+            "The Alabama paradox",
+            "The Condorcet cycle",
+            "The efficiency gap",
+            "Duverger's law"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "Which divisor method, using the divisor sequence 1, 2, 3, and so on, systematically tends to favour large parties in seat allocation?",
+          "answer": "D'Hondt",
+          "accept": [
+            "d'hondt",
+            "dhondt",
+            "d hondt",
+            "jefferson",
+            "jefferson's method",
+            "d'hondt method"
+          ]
+        },
+        {
+          "q": "Why do divisor methods such as D'Hondt and Sainte-Lague avoid the Alabama paradox?",
+          "choices": [
+            "They rank quotients rather than distributing leftover seats by fractional remainder",
+            "They give every party an equal number of seats",
+            "They round all shares up to the next integer",
+            "They forbid any party from holding more than half the seats"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-gerrymander",
+      "field": "polisci",
+      "level": 2,
+      "depth": "concept",
+      "prereq": [
+        "poli-fptp"
+      ],
+      "xref": [
+        "poli-fptp",
+        "poli-apportionment"
+      ],
+      "src": [
+        "ev-poli-gerrymander"
+      ],
+      "title": "Gerrymandering and the efficiency gap",
+      "fact": "Gerrymandering wins seats by wasting the other side's votes, and the efficiency gap puts a number on it.",
+      "detail": "Mapmakers shift seats without shifting opinion using two moves. Packing crams an opponent's voters into a few districts they win by huge margins, so those extra votes are wasted. Cracking splits an opponent thin across many districts so they narrowly lose each one. A vote is wasted if it goes to a loser or sits above the threshold a winner needed; the efficiency gap is one side's wasted votes minus the other's, divided by all votes cast. Take 5 districts of 100 voters each, 500 total, with Parties X and Y tied 250-250 statewide, and use a 51-vote winning threshold. Y packs X into one district (X wins 90-10) and cracks X across the other four (X loses 40-60 in each). X's wasted votes: 160 from the four losses (40 each) plus 39 surplus in its blowout win, totalling 199. Y's wasted votes: 9 surplus in each of four narrow wins plus 10 in its one loss, totalling 46. Efficiency gap = (199 - 46)/500 = 30.6% favouring Y, which takes 4 of 5 seats off a 50-50 vote. Responses include independent redistricting commissions (used in Canada, Australia, and the UK) and court challenges; Wisconsin's 2011 map drew a federal ruling that cited its efficiency gap.",
+      "deploy": "Use packing and cracking to read a suspicious district map, and the efficiency gap to argue in court or commission that a plan is skewed beyond what the vote split warrants.",
+      "counter": "Chief Justice Roberts, writing for the US Supreme Court majority in Rucho v. Common Cause (2019), held that partisan gerrymandering claims are nonjusticiable political questions beyond the reach of federal courts, kicking the fix to states and legislatures; in the earlier Gill v. Whitford argument he had dismissed partisan-fairness metrics as 'sociological gobbledygook'.",
+      "tags": [
+        "gerrymandering",
+        "efficiency-gap",
+        "districting",
+        "fptp",
+        "voting"
+      ],
+      "quiz": [
+        {
+          "type": "num",
+          "q": "Across 3 equal districts with 300 total voters, Party A's wasted votes total 120 and Party B's wasted votes total 30. Compute the efficiency gap as a percentage, equal to (120 - 30)/300 expressed as a percent.",
+          "answer": 30,
+          "unit": "%",
+          "tol": 0.5
+        },
+        {
+          "q": "A mapmaker concentrates almost all of the rival party's supporters into a single district that the rival then wins 85-15. Which tactic is this?",
+          "choices": [
+            "Packing",
+            "Cracking",
+            "Malapportionment",
+            "Apportioning"
+          ],
+          "answer": 0
+        },
+        {
+          "type": "detail",
+          "q": "What is the gerrymandering tactic of splitting an opponent's supporters thinly across many districts so they narrowly lose each one?",
+          "answer": "cracking",
+          "accept": [
+            "cracking",
+            "crack",
+            "diluting",
+            "dilution"
+          ]
+        },
+        {
+          "q": "In the efficiency-gap calculation, which votes are counted as wasted for a party?",
+          "choices": [
+            "Votes for its losing candidates plus its winners' votes above the needed threshold",
+            "Only votes cast for candidates who lost",
+            "Every vote cast in a district the party won",
+            "Votes from people who later moved away"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "poli-banzhaf",
+      "field": "polisci",
+      "level": 3,
+      "depth": "concept",
+      "prereq": [
+        "poli-mmp"
+      ],
+      "xref": [
+        "game-nash-equilibrium",
+        "poli-arrow"
+      ],
+      "src": [
+        "ev-poli-banzhaf"
+      ],
+      "title": "Voting power: the Banzhaf index",
+      "fact": "In a weighted vote, your power is how often your switch flips the result — not your seat share.",
+      "detail": "The Banzhaf power index measures a player by how many winning coalitions they are critical in: a player is critical when their leaving turns a winning coalition into a losing one. Each player's index is their count of critical memberships divided by the total over all players. Take three parties with weights 50, 49, 1 and a 51-out-of-100 majority threshold. The winning coalitions are {A,B}, {A,C}, and {A,B,C}. In {A,B} both A and B are critical (drop either and the rest fall below 51); in {A,C} both A and C are critical (A alone is 50, C alone is 1, neither reaches 51); in {A,B,C} only A is critical (without A the other two total 50, but B or C can leave and 51 still holds). So A is critical 3 times, B once, C once — power 3/5, 1/5, 1/5. The party with 49 votes and the party with 1 vote hold the same power, even though one is 49 times larger.",
+      "deploy": "Use it to judge real bargaining strength in any weighted-vote body — EU Council, shareholder blocs, the US Electoral College, coalition talks — before assuming a big bloc dominates or a small one is a pushover.",
+      "counter": "Lionel Penrose first defined this swing-based measure in 1946, and John Banzhaf reinvented it in 1965 to attack malapportioned county boards such as Nassau County. Lloyd Shapley and Martin Shubik's Shapley-Shubik index instead counts how often a player is pivotal as a coalition forms in random order, weighting each player by their order of arrival. The two indices can rank the same players differently, so 'voting power' has no single agreed number — the answer depends on which coalition model you adopt.",
+      "tags": [
+        "voting power",
+        "game theory",
+        "coalitions",
+        "social choice",
+        "weighted voting"
+      ],
+      "quiz": [
+        {
+          "q": "Under the Banzhaf index, a player is 'critical' in a winning coalition when:",
+          "choices": [
+            "They have the largest weight in that coalition",
+            "Their leaving turns that winning coalition into a losing one",
+            "They voted first to form the coalition",
+            "Their weight exceeds the quota by itself"
+          ],
+          "answer": 1
+        },
+        {
+          "type": "num",
+          "q": "Three parties have weights 3, 2, and 2; a coalition wins if its total reaches the quota of 4. Enumerate the winning coalitions, find each member who is critical (whose leaving drops the total below 4), and report the Banzhaf power index of the weight-3 party as a decimal.",
+          "answer": 0.333,
+          "tol": 0.02
+        },
+        {
+          "type": "detail",
+          "q": "What name is given to a player who is never critical in any winning coalition and therefore has a Banzhaf power index of zero, regardless of how many votes they hold?",
+          "answer": "dummy",
+          "accept": [
+            "dummy player",
+            "dummy voter",
+            "a dummy"
+          ]
+        },
+        {
+          "q": "Which alternative index measures voting power by how often a player is pivotal as a coalition is built up in a random order of arrival?",
+          "choices": [
+            "The Gini coefficient",
+            "The Shapley-Shubik power index",
+            "The Droop quota",
+            "The Borda count"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ],
 
