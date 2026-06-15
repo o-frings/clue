@@ -637,6 +637,17 @@
   .fcard::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--fc,var(--accent)); }
   .fctop{ display:flex; align-items:center; gap:8px; margin-bottom:9px; }
   .fcfield{ font-size:12px; font-weight:800; color:var(--fc,var(--accent)); letter-spacing:.1px; }
+  /* feed quiz item: looks like a card, no loud banner — a quiet inline retrieval prompt */
+  .fqitem{ display:block; width:100%; background:var(--card); border:.5px solid var(--line); border-radius:20px;
+    padding:18px 18px 16px; margin-bottom:var(--sp-4); position:relative; overflow:hidden;
+    box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); color:var(--ink); }
+  .fqitem::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--fc,var(--accent)); opacity:.5; }
+  .fqhint{ margin-left:auto; font-size:10.5px; font-weight:700; color:var(--l3); letter-spacing:.2px; }
+  .fqq{ font-size:18px; font-weight:700; letter-spacing:-.3px; line-height:1.28; margin-bottom:14px; }
+  .fqitem .quizopt{ font-size:15px; padding:13px 15px; }
+  .fqopen{ display:block; width:100%; text-align:left; margin-top:13px; background:none; border:none; padding:0;
+    font-family:inherit; font-size:13px; font-weight:700; color:var(--l2); cursor:pointer; }
+  .fqopen:active{ opacity:.6; }
   .fctag{ font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--l3);
     border:.5px solid var(--line); border-radius:8px; padding:3px 7px; }
   .fcsaved{ margin-left:auto; font-size:14px; }

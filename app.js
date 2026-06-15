@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v92";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v93";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1316,6 +1316,7 @@ function feedFilterLabel(){
 }
 const FEED_PAGE=36; let feedShown=FEED_PAGE;   // virtualise the feed: render a window, not all 380+ cards (iOS memory)
 let feedOrder=[];       // current visible order, for the Reader's "next"
+const feedQuizState=new Map();   // cardId -> {resp,correct} for quizzes answered inline in the feed this session
 
 // how "heavy" a card is to digest, 0 (quick fun fact) .. 1 (dense concept/book).
 // Drives the slot-machine weave: level + depth-kind + layer count, with the dedicated
@@ -1407,20 +1408,81 @@ function feedCardHtml(c, featured){
       '<span class="fcstate '+st.cls+'">'+st.txt+'</span></div>'+
     '</button>';
 }
+// pick a multiple-choice quiz for a card (feed quizzes are tap-only — no keyboard in a scroll feed)
+function feedMcQuiz(c){
+  const qs=cardQuizzes(c).filter(q=>(q.type||'mc')==='mc' && Array.isArray(q.choices) && q.choices.length>=2);
+  return qs.length? qs[(hashStr(c.id+'fq'+todayStr())>>>0)%qs.length] : null;
+}
+// learned cards eligible to resurface as a feed quiz (within the current filter); due ones first
+function feedQuizPool(){
+  return learnedIds().map(id=>byId[id]).filter(c=> c && inFeedFilter(c) && feedMcQuiz(c))
+    .sort((a,b)=> (isDue(b.id)-isDue(a.id)) || (hashStr(a.id+todayStr())%100)-(hashStr(b.id+todayStr())%100));
+}
+// the feed = cards with retrieval quizzes woven in (every 4–7 cards), drawn from what you've learned.
+// returns {items:[{type:'card'|'quiz', c, qz?}], order:[cardId]} — order excludes quizzes (Reader queue)
+function buildFeedItems(){
+  const cards=feedCandidates();
+  const order=cards.map(c=>c.id);
+  // quizzes only in open browsing (not the "unlearned" or "Saved" lists), and only if there's a pool
+  if(feedStatus==="unlearned" || feedFilter==="__saved"){ return { items:cards.map(c=>({type:'card',c})), order }; }
+  const pool=feedQuizPool();
+  if(!pool.length){ return { items:cards.map(c=>({type:'card',c})), order }; }
+  const items=cards.map(c=>({type:'card',c}));
+  const out=[]; let pi=0, sinceQ=0, used=0, cap=pool.length*2;
+  for(let i=0;i<items.length;i++){
+    out.push(items[i]); sinceQ++;
+    const gap = 4 + (hashStr('fqgap'+i+todayStr())%4);                 // 4..7 cards between quizzes
+    if(i>=2 && sinceQ>=gap && used<cap){
+      let qc=null;
+      for(let t=0;t<pool.length;t++){ const cand=pool[(pi++)%pool.length];
+        const near=out.slice(-3).concat(items.slice(i+1,i+3)).some(x=>x.type==='card'&&x.c.id===cand.id);  // not next to its own card
+        if(!near){ qc=cand; break; } }
+      if(qc){ out.push({type:'quiz', c:qc, qz:feedMcQuiz(qc)}); sinceQ=0; used++; }
+    }
+  }
+  return { items:out, order };
+}
+// a feed quiz blends in: field tag + question + tappable options, no loud "QUIZ" banner
+function feedQuizHtml(c, qz){
+  const fl=fieldById[c.field]||{}, col=fl.color||'#888';
+  const ans=feedQuizState.get(c.id);
+  const st = ans? {done:true, resp:ans.resp, correct:ans.correct} : {done:false};
+  return '<div class="fqitem" data-id="'+c.id+'" style="--fc:'+col+';">'+
+    '<div class="fctop"><span class="fcfield">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+'</span><span class="fqhint">↻ recall</span></div>'+
+    '<div class="fqq">'+esc(qz.q)+'</div>'+
+    quizFieldHtml(qz, st)+
+    (ans? '<button class="fqopen" data-open="'+c.id+'">'+(ans.correct?'✓ got it':'✕ '+esc(quizSolution(qz)))+'  ·  open the card →</button>' : '')+
+  '</div>';
+}
 function renderFeedList(){
-  const list=feedCandidates();
-  feedOrder=list.map(c=>c.id);
-  if(!list.length){
+  const { items, order }=buildFeedItems();
+  feedOrder=order;
+  if(!items.length){
     const hasLocked = feedStatus!=="learned" && feedFilter!=="__saved" &&
       KN.cards.some(c=> inFeedFilter(c) && isNew(c.id) && !prereqsMet(c));
     $("feedList").innerHTML='<div class="emptystate"><div class="ei">'+(hasLocked?'🔒':'🔍')+'</div><p>'+
       (hasLocked?'Learn the foundations first — these cards unlock as you go.':'Nothing here yet.')+'</p></div>'; return; }
-  const n=Math.min(feedShown, list.length);
-  let html=''; for(let i=0;i<n;i++) html+=feedCardHtml(list[i], i===0 && feedFilter==='all');
-  if(n<list.length) html+='<button class="btn plain wide sm" id="feedMore" style="margin-top:10px;">Show more · '+(list.length-n)+' left</button>';
+  const n=Math.min(feedShown, items.length);
+  let html=''; for(let i=0;i<n;i++){ const it=items[i];
+    html += it.type==='quiz' ? feedQuizHtml(it.c, it.qz) : feedCardHtml(it.c, i===0 && feedFilter==='all'); }
+  if(n<items.length) html+='<button class="btn plain wide sm" id="feedMore" style="margin-top:10px;">Show more · '+(items.length-n)+' left</button>';
   $("feedList").innerHTML=html;
   document.querySelectorAll("#feedList .fcard").forEach(el=> el.onclick=()=>{ feedReaderList=feedOrder.slice(); openReader(el.dataset.id); });
+  document.querySelectorAll("#feedList .fqitem").forEach(el=> wireFeedQuiz(el));
   const more=$("feedMore"); if(more) more.onclick=()=>{ feedShown+=FEED_PAGE; renderFeedList(); };
+}
+function wireFeedQuiz(el){
+  const cid=el.dataset.id, c=byId[cid]; if(!c) return; const qz=feedMcQuiz(c); if(!qz) return;
+  const wireOpen=node=>{ const op=node.querySelector('.fqopen'); if(op) op.onclick=()=>{ feedReaderList=feedOrder.slice(); openReader(cid); }; };
+  if(feedQuizState.has(cid)){ wireOpen(el); return; }
+  wireQuizField(el, qz, (resp,correct)=>{
+    feedQuizState.set(cid,{resp,correct});
+    if(isLearned(cid)) schedule(cid, correct?2:1, false);          // feed retrieval feeds the scheduler
+    if(correct) settings.quizCorrectTotal=(settings.quizCorrectTotal||0)+1;
+    touchDay('quiz'); persistAll();
+    el.outerHTML=feedQuizHtml(c, qz);                              // surgical re-render of just this item
+    const ne=document.querySelector('#feedList .fqitem[data-id="'+cid+'"]'); if(ne) wireOpen(ne);
+  });
 }
 
 // ================= LIBRARY =================
