@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v91";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v92";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1372,12 +1372,21 @@ function renderFeedStatus(){
 }
 function renderFeedFilter(){
   const saved=(settings.saved||[]).length;
-  let chips=[{id:"all",label:"For you",icon:"✨"}].concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[]);
-  // a single active field (set from a field/Web row) is surfaced as its own chip so it stays visible
-  if(feedFilter!=="all" && feedFilter!=="__saved" && feedFilter.indexOf("g:")!==0 && fieldById[feedFilter]){
-    const f=fieldById[feedFilter]; chips.push({id:f.id,label:f.label,icon:f.icon}); }
-  chips=chips.concat(groupsPresent().map(g=>({id:'g:'+g.id,label:g.label,icon:g.icon})));   // domains
-  $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
+  // which domain (if any) are we drilled into? derived from feedFilter — the single source of truth
+  let drill=null;
+  if(feedFilter.indexOf("g:")===0) drill=feedFilter.slice(2);
+  else if(feedFilter!=="all" && feedFilter!=="__saved" && fieldById[feedFilter]){ const g=groupOf(feedFilter); drill=g?g.id:null; }
+  let chips;
+  if(drill){                                   // drilled row: ‹ Topics · the domain · its fields
+    const g=FIELD_GROUPS.find(x=>x.id===drill);
+    const fobjs=(g?g.fields:[]).map(id=>fieldById[id]).filter(Boolean);
+    chips=[{id:"all",label:"Topics",icon:"‹",cls:"back"},{id:"g:"+drill,label:(g?g.label:"Topic"),icon:(g?g.icon:"")}]
+      .concat(fobjs.map(f=>({id:f.id,label:f.label,icon:f.icon})));
+  } else {                                     // top level: For you · Saved · the 8 domains
+    chips=[{id:"all",label:"For you",icon:"✨"}].concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[])
+      .concat(groupsPresent().map(g=>({id:"g:"+g.id,label:g.label,icon:g.icon})));
+  }
+  $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+(f.cls?' '+f.cls:'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
   document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; feedShown=FEED_PAGE; renderFeedFilter(); renderFeedList(); });
 }
 function feedCardHtml(c, featured){
