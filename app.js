@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v82";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v83";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1113,28 +1113,62 @@ function discoverCurrent(q){
 }
 function afterCardAction(){ advancePhase(); persistAll(); checkAchievements(); renderLearn(); }
 
+// ===== quiz types: mc (multiple-choice, default) · num (type a number) · detail (type the answer) =====
+function quizType(qz){ return (qz && qz.type) || 'mc'; }
+function normAns(s){ return String(s==null?'':s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9%]+/g,' ').trim(); }
+// grade a response. mc: resp is the chosen index. num: resp is a string/number (tolerance, default ±2%).
+// detail: resp is free text, matched leniently against qz.answer + qz.accept[].
+function gradeQuizAnswer(qz, resp){
+  const t=quizType(qz);
+  if(t==='num'){ const v=parseFloat(String(resp).replace(/[, ]/g,'')); if(!isFinite(v)) return false;
+    const a=Number(qz.answer); const tol=(qz.tol!=null)?Math.abs(qz.tol):Math.max(1e-9, Math.abs(a)*0.02); return Math.abs(v-a)<=tol+1e-9; }
+  if(t==='detail'){ const got=normAns(resp); if(!got) return false;
+    const accept=[qz.answer].concat(qz.accept||[]).filter(x=>x!=null).map(normAns).filter(Boolean);
+    return accept.some(a=> a===got || (a.length>3 && got.includes(a)) || (got.length>3 && a.includes(got)) ); }
+  return Number(resp)===Number(qz.answer);
+}
+function quizSolution(qz){ const t=quizType(qz);
+  if(t==='mc') return (qz.choices&&qz.choices[qz.answer])||'';
+  if(t==='num') return String(qz.answer)+(qz.unit?(' '+qz.unit):'');
+  return String(qz.answer); }
+// the answer area HTML. st={done, resp, correct}. The input (num/detail) carries id="qzInput".
+function quizFieldHtml(qz, st){
+  st=st||{}; const t=quizType(qz);
+  if(t==='mc'){ return '<div class="quizopts">'+(qz.choices||[]).map((opt,i)=>{ let cls='quizopt', mark='';
+      if(st.done){ if(i===qz.answer){cls+=' correct'; mark='<span class="qmark">✓</span>';} else if(i===st.resp){cls+=' wrong'; mark='<span class="qmark">✕</span>';} else cls+=' muted'; }
+      return '<button class="'+cls+'" data-i="'+i+'"'+(st.done?' disabled':'')+'>'+esc(opt)+mark+'</button>'; }).join('')+'</div>'; }
+  const isNum=t==='num', ph=isNum?(qz.unit?('a number ('+esc(qz.unit)+')'):'Type a number'):'Type your answer';
+  if(!st.done){ return '<div class="quiztype"><input id="qzInput" class="qzin" type="text" inputmode="'+(isNum?'decimal':'text')+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+ph+'"><button class="btn wide sm qzcheck" id="qzCheck">Check</button></div>'; }
+  const v=esc(String(st.resp==null?'':st.resp));
+  return '<div class="quiztype done"><div class="qzin '+(st.correct?'correct':'wrong')+'">'+(v||'—')+(st.correct?' <span class="qmark">✓</span>':' <span class="qmark">✕</span>')+'</div>'+
+    (st.correct?'':'<div class="qzsol">Answer: <b>'+esc(quizSolution(qz))+'</b></div>')+'</div>';
+}
+// wire the answer area after innerHTML is set. cb(resp, correct): mc resp=index, num/detail resp=string.
+function wireQuizField(scope, qz, cb){
+  const t=quizType(qz), root=scope||document;
+  if(t==='mc'){ root.querySelectorAll('.quizopt').forEach(b=> b.onclick=()=>{ const i=+b.dataset.i; cb(i, gradeQuizAnswer(qz,i)); }); return; }
+  const inp=$("qzInput"), btn=$("qzCheck"); if(!inp||!btn) return;
+  const go=()=>{ const resp=inp.value||''; if(!String(resp).trim()) return; cb(resp, gradeQuizAnswer(qz,resp)); };
+  btn.onclick=go; inp.onkeydown=(e)=>{ if(e.key==='Enter'){ e.preventDefault(); go(); } };
+  try{ inp.focus(); }catch(e){}
+}
 function renderQuiz(){
   const id=session.quiz[session.quizIdx], c=byId[id], qz=pickQuiz(c);
-  const ans=session.answered;
-  const opts=qz.choices.map((opt,i)=>{
-    let cls="quizopt"; let mark="";
-    if(ans!=null){ if(i===qz.answer){ cls+=" correct"; mark='<span class="qmark">✓</span>'; }
-      else if(i===ans){ cls+=" wrong"; mark='<span class="qmark">✕</span>'; } else cls+=" muted"; }
-    return '<button class="'+cls+'" data-i="'+i+'"'+(ans!=null?' disabled':'')+'>'+esc(opt)+mark+'</button>';
-  }).join('');
+  const ans=session.answered;                              // {resp,correct} once answered, else null
+  const st = ans!=null ? {done:true, resp:ans.resp, correct:ans.correct} : {done:false};
   $("lnStage").innerHTML=`
     <div class="cardstage"><div class="kcard">
       <div class="ktop">${fieldTag(c.field)}<span class="kdepth">Quiz</span></div>
       <div class="quizq">${esc(qz.q)}</div>
-      <div class="quizopts">${opts}</div>
+      ${quizFieldHtml(qz, st)}
       ${ans!=null?('<div class="kback" style="margin-top:16px;padding-top:16px;"><div class="kdetail">'+esc(c.detail)+'</div>'+sourceLine(c)+'</div><button class="btn wide" id="qzNext" style="margin-top:16px;">'+(session.quizIdx<session.quiz.length-1?'Next':'Finish')+'</button>'):''}
     </div></div>`;
-  if(ans==null){ document.querySelectorAll("#lnStage .quizopt").forEach(b=> b.onclick=()=>answerQuiz(+b.dataset.i)); }
+  if(ans==null){ wireQuizField($("lnStage"), qz, (resp,correct)=> answerQuiz(resp,correct)); }
   else { $("qzNext").onclick=()=>{ advancePhase(); renderLearn(); }; }
 }
-function answerQuiz(i){
-  const id=session.quiz[session.quizIdx], c=byId[id]; const correct = i===pickQuiz(c).answer;
-  session.answered=i; session.stats.quizTotal++; touchDay('quiz');
+function answerQuiz(resp, correct){
+  const id=session.quiz[session.quizIdx];
+  session.answered={resp, correct}; session.stats.quizTotal++; touchDay('quiz');
   if(correct){ session.stats.quizCorrect++; settings.quizCorrectTotal=(settings.quizCorrectTotal||0)+1; awardXp(8); }
   else { awardXp(2); if(progress[id]) schedule(id,1,false); }   // miss → review sooner
   persistAll(); checkAchievements(); renderLearn();
@@ -1146,6 +1180,90 @@ function renderDone(){
     <p>+${st.xp} XP · ${st.learned} learned · ${st.reviewed} reviewed${st.quizTotal?(' · '+st.quizCorrect+'/'+st.quizTotal+' quiz'):''}</p>
     <button class="btn wide" id="lnAgain">Done</button></div>`;
   $("lnAgain").onclick=()=>{ session=null; renderLearn(); showTab('learn'); };
+}
+
+// ================= EXAMS & PLACEMENT TEST =================
+// A self-contained quiz runner in the #examWrap overlay. A level exam draws mixed-type questions
+// from a field and, on passing (≥70%), "tests you out" of that level — certifying the degree. The
+// placement test is the same machinery sampled across many fields, to seed where you start.
+let examState=null;
+function quizForCard(cid, salt){ const qs=cardQuizzes(byId[cid]); return qs.length? qs[(hashStr(cid+(salt||''))>>>0)%qs.length] : null; }
+// the next level a field hasn't mastered yet (the one an exam would certify); null if fully mastered
+function nextExamLevel(fid){ const counts=levelsInField(fid); const present=Object.keys(counts).map(Number).sort((a,b)=>a-b);
+  for(const L of present){ if(learnedAtLevel(fid,L) < Math.ceil(0.7*counts[L])) return L; } return null; }
+function examableCount(fid, target){ return (byField[fid]||[]).filter(c=>(c.level||1)<=target && cardQuizzes(c).length).length; }
+function buildExamPool(fid, target, n){
+  const cards=(byField[fid]||[]).filter(c=>(c.level||1)<=target && cardQuizzes(c).length);
+  const srt=a=>a.slice().sort((x,y)=>hashStr(x.id+'ex')-hashStr(y.id+'ex'));
+  const pick=srt(cards.filter(c=>(c.level||1)===target)).concat(srt(cards.filter(c=>(c.level||1)<target)));  // target level first
+  return pick.slice(0, Math.max(1, Math.min(n||10, pick.length))).map(c=>({cardId:c.id, qz:quizForCard(c.id,'exam')})).filter(s=>s.qz);
+}
+function startLevelExam(fid){
+  const f=fieldById[fid]; if(!f) return;
+  const target=nextExamLevel(fid);
+  if(target==null){ toast(f.label+': every level already mastered ✓'); return; }
+  const pool=buildExamPool(fid, target, 10);
+  if(pool.length<3){ toast('Not enough questions in '+f.label+' yet'); return; }
+  examState={mode:'level', field:fid, target, pool, idx:0, correct:0, answers:[], answered:null};
+  openExam(); renderExamStep();
+}
+function startPlacement(){
+  const fields=(KN.fields||[]).filter(f=>(byField[f.id]||[]).some(c=>cardQuizzes(c).length));
+  const order=fields.slice().sort((a,b)=>hashStr(a.id+'pl')-hashStr(b.id+'pl'));
+  const pool=[];
+  order.forEach(f=>{ const cs=(byField[f.id]||[]).filter(c=>cardQuizzes(c).length && (c.level||1)<=3)
+      .sort((x,y)=>(x.level||1)-(y.level||1) || hashStr(x.id+'pl')-hashStr(y.id+'pl'));
+    cs.slice(0,2).forEach(c=>{ const qz=quizForCard(c.id,'place'); if(qz) pool.push({cardId:c.id, qz}); }); });
+  if(!pool.length){ toast('No questions available yet'); return; }
+  examState={mode:'placement', pool:pool.slice(0,14), idx:0, correct:0, answers:[], answered:null};
+  openExam(); renderExamStep();
+}
+function openExam(){ const w=$("examWrap"); if(w) w.classList.add("show"); }
+function closeExam(){ const w=$("examWrap"); if(w) w.classList.remove("show"); examState=null; }
+function renderExamStep(){
+  const s=examState; if(!s) return;
+  if(s.idx>=s.pool.length) return finishExam();
+  const step=s.pool[s.idx], c=byId[step.cardId], qz=step.qz;
+  const title = s.mode==='placement' ? 'Placement test'
+              : (fieldById[s.field].label+' · '+DEGREES[degreeKeyForLevel(s.target)].name+' exam');
+  const ans=s.answered, st = ans!=null ? {done:true, resp:ans.resp, correct:ans.correct} : {done:false};
+  const pct=Math.round(s.idx/s.pool.length*100);
+  $("examCard").innerHTML=
+    '<div class="exhd"><span class="extitle">'+esc(title)+'</span><button class="exx" id="exClose" aria-label="Close">✕</button></div>'+
+    '<div class="exbar"><i style="width:'+pct+'%"></i></div>'+
+    '<div class="exmeta">Question '+(s.idx+1)+' of '+s.pool.length+'  ·  '+fieldTag(c.field)+'</div>'+
+    '<div class="quizq exq">'+esc(qz.q)+'</div>'+
+    quizFieldHtml(qz, st)+
+    (ans!=null?('<button class="btn wide" id="exNext" style="margin-top:18px;">'+(s.idx<s.pool.length-1?'Next →':'See result')+'</button>'):'');
+  $("exClose").onclick=()=>{ if(confirm('End the '+(s.mode==='placement'?'placement test':'exam')+'? Progress so far is kept.')){ finishExam(); } };
+  if(ans==null){ wireQuizField($("examCard"), qz, (resp,correct)=>{ s.answered={resp,correct}; s.answers.push({cardId:step.cardId, correct}); if(correct) s.correct++; renderExamStep(); }); }
+  else { $("exNext").onclick=()=>{ s.idx++; s.answered=null; renderExamStep(); }; }
+}
+function finishExam(){
+  const s=examState; if(!s){ closeExam(); return; }
+  const total=s.answers.length, correct=s.correct, pct=total?Math.round(correct/total*100):0;
+  const completed = total>=s.pool.length;                                  // bailing out early can't certify
+  s.answers.forEach(a=>{ if(a.correct) schedule(a.cardId, 2, true); });     // credit every correct answer
+  let icon, headline, sub;
+  if(s.mode==='level'){
+    const pass = completed && pct>=70;
+    if(pass){ (byField[s.field]||[]).filter(c=>(c.level||1)<=s.target).forEach(c=>{ if(!isLearned(c.id)) schedule(c.id,2,true); });   // test out
+      icon='🎓'; headline='Passed — '+pct+'%'; sub=DEGREES[degreeKeyForLevel(s.target)].name+' in '+fieldById[s.field].label+' certified. The whole level is now in your web.'; }
+    else if(!completed){ icon='📚'; headline='Exam ended'; sub='You answered '+total+' of '+s.pool.length+'. Finish the whole exam to certify — your correct answers are saved.'; }
+    else { icon='📚'; headline='Almost — '+pct+'%'; sub='You need 70% to certify. Your correct answers are saved to your web; study a little and try again.'; }
+  } else {
+    const added=s.answers.filter(a=>a.correct).length;
+    icon='🎓'; headline='Placement complete'; sub='Added '+added+' card'+(added===1?'':'s')+' you already know to your web — your starting degrees are set. Explore from here.';
+  }
+  persistAll();
+  const fid=s.field, mode=s.mode, retry = mode==='level' && !(completed && pct>=70);
+  $("examCard").innerHTML='<div class="exresult"><div class="exbig">'+icon+'</div>'+
+    '<h3>'+esc(headline)+'</h3><p>'+esc(sub)+'</p><div class="exscore">'+correct+' / '+total+' correct</div>'+
+    '<button class="btn wide" id="exDone" style="margin-top:18px;">Done</button>'+
+    (retry?'<button class="btn plain wide sm" id="exRetry" style="margin-top:10px;">Try again</button>':'')+'</div>';
+  examState=null;
+  $("exDone").onclick=()=>{ closeExam(); checkDegrees(); refreshAll(); };   // checkDegrees celebrates any new degree/title
+  const rt=$("exRetry"); if(rt) rt.onclick=()=>{ closeExam(); startLevelExam(fid); };
 }
 
 // ================= TODAY =================
@@ -1364,21 +1482,17 @@ function renderReader(){
   const qz=$("rdQuiz"); if(qz) qz.onclick=()=>readerQuiz(c);
 }
 function readerQuiz(c){
-  const qz=pickQuiz(c); if(!qz) return; let answered=null;
+  const qz=pickQuiz(c); if(!qz) return; let answered=null;          // {resp,correct} once answered
   function draw(){
-    const opts=qz.choices.map((opt,i)=>{ let cls="quizopt", mark="";
-      if(answered!=null){ if(i===qz.answer){cls+=" correct"; mark='<span class="qmark">✓</span>';} else if(i===answered){cls+=" wrong"; mark='<span class="qmark">✕</span>';} else cls+=" muted"; }
-      return '<button class="'+cls+'" data-i="'+i+'"'+(answered!=null?' disabled':'')+'>'+esc(opt)+mark+'</button>'; }).join('');
-    $("rdFoot").innerHTML='';
-    $("rdBody").onclick=null;
+    const st = answered!=null ? {done:true, resp:answered.resp, correct:answered.correct} : {done:false};
+    $("rdFoot").innerHTML=''; $("rdBody").onclick=null;
     $("rdBody").innerHTML='<div class="rdField" style="--fc:'+((fieldById[c.field]||{}).color||'#888')+'">Quick check ⚡</div>'+
-      '<div class="rdquiz"><div class="quizq">'+esc(qz.q)+'</div><div class="quizopts">'+opts+'</div>'+
+      '<div class="rdquiz"><div class="quizq">'+esc(qz.q)+'</div>'+quizFieldHtml(qz, st)+
       (answered!=null?'<button class="btn wide sm" id="rdQzBack" style="margin-top:14px;">Back to card</button>':'')+'</div>';
-    if(answered==null){ document.querySelectorAll("#rdBody .quizopt").forEach(b=> b.onclick=()=>{ answered=+b.dataset.i;
+    if(answered==null){ wireQuizField($("rdBody"), qz, (resp,correct)=>{ answered={resp,correct};
       // retrieval feeds the invisible scheduler — no points, no streak, no toast
-      if(isLearned(rdId)) schedule(rdId, answered===qz.answer?2:1, false);
-      persistAll();
-      draw(); }); }
+      if(isLearned(rdId)) schedule(rdId, correct?2:1, false);
+      persistAll(); draw(); }); }
     else { $("rdBody").scrollTop=0; $("rdQzBack").onclick=()=>{ rdRevealed=layersOf(c).length; renderReader(); }; }
   }
   draw();
@@ -1452,7 +1566,8 @@ function renderMe(){
   // per-field degrees as a readable DOM list. Replaces the canvas radar: it couldn't show 26 fields
   // legibly, and the <canvas> pages were what crashed iOS Safari — DOM is far lighter.
   const rw=document.querySelector('#pageMe .radarwrap'); if(rw){ rw.innerHTML=degreeListHtml();
-    rw.querySelectorAll('.degrow').forEach(el=> el.onclick=(e)=>{ e.stopPropagation(); feedFilter=el.dataset.f; feedStatus="all"; feedShown=FEED_PAGE; showTab("feed"); }); }
+    rw.querySelectorAll('.degexam').forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); startLevelExam(b.dataset.f); });
+    rw.querySelectorAll('.degrow').forEach(el=> el.onclick=()=>{ feedFilter=el.dataset.f; feedStatus="all"; feedShown=FEED_PAGE; showTab("feed"); }); }
   $("meRadarFoot").textContent = learned
     ? (fieldsStarted+' of '+KN.fields.length+' fields started · master each level to earn its degree')
     : 'Master a field’s levels to earn degrees — from Foundations to a Doctorate.';
@@ -1492,11 +1607,14 @@ function degreeListHtml(){
       const cls = got>=need ? 'on' : (got>0 ? 'half' : ''); return '<i class="degpip '+cls+'" title="Level '+L+': '+got+'/'+r.counts[L]+'">'+L+'</i>'; }).join('');
     const badge = r.deg.key ? '<span class="degbadge" style="--dc:'+col+'">'+esc(r.deg.short||r.deg.name)+'</span>'
                             : '<span class="degbadge none">·</span>';
-    return '<button class="degrow" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
+    const nx=nextExamLevel(r.f.id);
+    const exam = (nx!=null && examableCount(r.f.id,nx)>=3)
+      ? '<button class="degexam" data-f="'+r.f.id+'" title="Sit the exam to certify this degree">🎓 Sit '+esc(DEGREES[degreeKeyForLevel(nx)].name)+' exam</button>' : '';
+    return '<div class="degrow" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
       '<span class="degic">'+esc(r.f.icon||'')+'</span>'+
       '<span class="degmain"><span class="degtop"><span class="deglab">'+esc(r.f.label)+(r.complete?' <span class="degstar" title="field complete">★</span>':'')+'</span>'+badge+'</span>'+
-        '<span class="degpips">'+pips+'</span></span>'+
-      '<span class="degnum">'+r.done+'/'+r.total+'</span></button>';
+        '<span class="degpips">'+pips+'</span>'+exam+'</span>'+
+      '<span class="degnum">'+r.done+'/'+r.total+'</span></div>';
   }).join('')+'</div>';
 }
 function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
@@ -1708,9 +1826,11 @@ function renderOnboarding(step){
     ob.innerHTML=`<div class="obtitle">Pick a few favourites</div>
       <p class="obp">Fields you tap show up more often in your feed. Optional — skip to get a balanced mix.</p>
       <div class="chips wrap" id="obFocus">${KN.fields.map(f=>'<button class="chip'+((settings.focus||[]).includes(f.id)?' on':'')+'" data-f="'+f.id+'">'+esc(f.icon)+' '+esc(f.label)+'</button>').join('')}</div>
-      <button class="btn wide" id="obDone" style="margin-top:18px;">Start learning</button>`;
+      <button class="btn wide" id="obDone" style="margin-top:18px;">Start learning</button>
+      <button class="btn plain wide sm" id="obPlace" style="margin-top:10px;">Already know some of this? Take a 2-min placement test</button>`;
     document.querySelectorAll("#obFocus .chip").forEach(ch=> ch.onclick=()=>{ const f=ch.dataset.f; settings.focus=settings.focus||[]; const i=settings.focus.indexOf(f); if(i>=0) settings.focus.splice(i,1); else { if(settings.focus.length>=3){ toast("Up to 3"); return; } settings.focus.push(f); } ch.classList.toggle("on"); });
     $("obDone").onclick=async()=>{ settings.onboarded=true; await persistAll(); $("onboardWrap").classList.remove("show"); refreshAll(); openFirstFeedCard(); };
+    $("obPlace").onclick=async()=>{ settings.onboarded=true; await persistAll(); $("onboardWrap").classList.remove("show"); refreshAll(); startPlacement(); };
   }
 }
 
@@ -1721,6 +1841,7 @@ function wireSettings(){
   $("scrimSettings").onclick=()=>{ closeSheet("Settings"); renderMe(); };
   $("nameIn").onchange=()=>{ settings.name=($("nameIn").value||"").trim().slice(0,24); persistAll(); renderMe(); renderFeed(); };
   document.querySelectorAll("#themeSeg .s").forEach(s=> s.onclick=()=>{ settings.theme=s.dataset.theme; applyTheme(); persistAll(); refreshAll(); });
+  $("placeBtn").onclick=()=>{ closeSheet("Settings"); startPlacement(); };
   // export / import / reset
   $("exportBtn").onclick=doExport;
   $("importBtn").onclick=()=> $("importFile").click();

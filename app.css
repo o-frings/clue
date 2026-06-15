@@ -299,6 +299,16 @@
   .quizopt.wrong{ border-color:var(--red); background:rgba(255,59,48,.10); }
   .quizopt.muted{ opacity:.55; }
   .quizopt .qmark{ float:right; font-weight:800; }
+  /* typed-answer quizzes (num / detail) */
+  .quiztype{ display:flex; flex-direction:column; gap:10px; }
+  .qzin{ width:100%; box-sizing:border-box; background:var(--row); border:1.5px solid var(--line); border-radius:14px; padding:15px 16px; font-size:17px; font-weight:600; color:var(--ink); font-family:inherit; }
+  .qzin:focus{ outline:none; border-color:var(--accent); }
+  .quiztype.done .qzin{ display:flex; align-items:center; justify-content:space-between; }
+  .quiztype.done .qzin.correct{ border-color:var(--green); background:rgba(47,158,68,.12); color:var(--ink); }
+  .quiztype.done .qzin.wrong{ border-color:var(--red); background:rgba(255,59,48,.10); color:var(--ink); }
+  .quiztype.done .qzin .qmark{ font-weight:800; }
+  .qzsol{ font-size:14px; color:var(--l2); padding:2px 2px 0; }
+  .qzsol b{ color:var(--ink); }
 
   /* empty / done states */
   .emptystate{ text-align:center; padding:48px 24px; }
@@ -431,6 +441,29 @@
   .obopt:active,.obopt.on{ transform:scale(.99); background:var(--accent-soft); border-color:var(--accent); }
   .obopt b{ display:block; font-size:16px; font-weight:650; }
   .obopt span{ display:block; font-size:13px; color:var(--l2); margin-top:2px; }
+
+  /* ===== exam / placement-test overlay ===== */
+  #examWrap{ position:fixed; inset:0; z-index:330; display:none; align-items:center; justify-content:center; padding:20px;
+    background:rgba(0,0,0,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  #examWrap.show{ display:flex; }
+  .examcard{ background:var(--sheetbg); border-radius:22px; max-width:440px; width:100%; padding:22px; box-shadow:0 20px 60px rgba(0,0,0,.45); max-height:92vh; overflow-y:auto; scrollbar-width:none; }
+  .examcard::-webkit-scrollbar{ display:none; }
+  .exhd{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+  .extitle{ font-size:15px; font-weight:750; letter-spacing:-.2px; color:var(--ink); }
+  .exx{ flex:0 0 auto; width:30px; height:30px; border-radius:50%; border:none; background:var(--row); color:var(--l2); font-size:15px; cursor:pointer; }
+  .exbar{ height:6px; border-radius:3px; background:var(--track); overflow:hidden; margin-bottom:12px; }
+  .exbar i{ display:block; height:100%; border-radius:3px; background:var(--grad); transition:width .25s; }
+  .exmeta{ font-size:12px; color:var(--l3); margin-bottom:14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .exq{ font-size:19px; margin-bottom:16px; }
+  .exresult{ text-align:center; padding:14px 6px 6px; }
+  .exresult .exbig{ font-size:52px; line-height:1; }
+  .exresult h3{ font-size:22px; font-weight:750; letter-spacing:-.3px; margin:10px 0 6px; }
+  .exresult p{ font-size:14px; color:var(--l2); line-height:1.5; margin:0 auto; max-width:340px; }
+  .exscore{ font-size:14px; font-weight:800; color:var(--accent); margin-top:14px; font-variant-numeric:tabular-nums; }
+
+  /* exam button inside a degree row */
+  .degexam{ align-self:flex-start; margin-top:9px; background:color-mix(in srgb, var(--fc) 14%, transparent); color:var(--fc); border:none; border-radius:999px; padding:6px 12px; font-size:12px; font-weight:700; font-family:inherit; cursor:pointer; transition:transform .1s; }
+  .degexam:active{ transform:scale(.97); }
 
   /* ===== coach hint, toast, confetti ===== */
   .coach{ position:fixed; left:50%; bottom:calc(72px + env(safe-area-inset-bottom)); transform:translate(-50%,16px); z-index:120;
