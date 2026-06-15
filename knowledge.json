@@ -273,6 +273,9 @@
         { "q": "According to the card, roughly what share of China's GDP do state-owned enterprises account for?", "type": "num", "answer": 40, "unit": "% of GDP", "tol": 2.0 },
         { "q": "China's high-investment, export-heavy model was financed largely through which channel?", "choices": ["State-directed bank credit", "Deep foreign equity markets buying domestic shares", "Household borrowing on credit cards", "Foreign aid grants"], "answer": 0 },
         { "q": "Which economist stresses China's property bust, debt and demographics and argues the investment-led growth model is exhausted?", "type": "detail", "answer": "Michael Pettis", "accept": ["Pettis"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [43, 40, 20], "labels": ["Gross savings", "State firms", "Exports"], "caption": "Shares of GDP in the boom model: very high savings plus a large state and export sector, the lopsided structure rebalancing tries to unwind."}
       ]
     },
     {
@@ -1160,6 +1163,9 @@
         { "q": "An algorithm runs in O(n^2). If the input size triples, roughly how many times more work does it do?", "type": "num", "answer": 9, "tol": 0.0 },
         { "q": "On a list of one million items, which growth rate would you most want for the dominant step, assuming the hidden constants are similar?", "choices": ["O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "answer": 0 },
         { "q": "Big-O can be misleading for small inputs because it ignores the multiplicative ___ (the per-step overhead) attached to each operation. What is this hidden quantity called?", "type": "detail", "answer": "constant factor", "accept": ["constant factors", "constants", "constant", "the constant", "the constant factor"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "curves", "curves": [{"fn": "log", "params": {}, "label": "log n"}, {"fn": "line", "params": {"m": 1, "b": 0}, "label": "n"}, {"fn": "quadratic", "params": {"a": 1, "b": 0, "c": 0}, "label": "n^2"}], "domain": [1, 10], "yrange": [0, 100], "caption": "As input size n grows, n^2 cost shoots up while n rises in a line and log n stays nearly flat — why a better Big-O wins on large inputs."}
       ]
     },
     {
@@ -1247,6 +1253,9 @@
         { "q": "Cities with more storks recorded also tend to have more human births. Both rise because larger cities have more of everything. What is the term for such a hidden third variable that drives two correlated quantities without either causing the other?", "type": "detail", "answer": "confounder", "accept": ["confound", "confounding", "confounding variable", "confounder variable", "lurking variable", "common cause"] },
         { "q": "A study finds people who take vitamin pills live longer. Before concluding the pills extend life, the strongest single move to rule out hidden common causes would be to:", "choices": ["Run a randomised controlled trial assigning pills or placebo by chance", "Collect more years of the same observational data", "Survey participants on whether they believe the pills work", "Check that the correlation is statistically significant at p < 0.05"], "answer": 0 },
         { "q": "Why is randomly assigning who receives a treatment so powerful for establishing causation?", "choices": ["It breaks the link between the treatment and any confounders, since assignment no longer depends on them", "It guarantees the treatment and control groups have identical outcomes", "It removes all measurement error from the experiment", "It makes the correlation between treatment and outcome larger"], "answer": 0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "points", "pts": [[-5, -3.2], [-4, -2], [-3, -2.8], [-2, -1], [-1, -1.5], [0, 0.4], [1, 0.2], [2, 1.6], [3, 1.3], [4, 2.9], [5, 2.4]], "fit": true, "domain": [-6, 6], "yrange": [-4, 4], "caption": "Scattered points with a fitted line show a clear positive correlation, which on its own says nothing about whether one variable causes the other."}
       ]
     },
     {
@@ -1632,6 +1641,9 @@
         { "q": "If dark energy is about 68% of the universe and dark matter about 27%, what percentage is the ordinary matter we can directly see and explain?", "type": "num", "answer": 5, "unit": "%", "tol": 1.0 },
         { "q": "What observation, beginning in 1998, first provided strong evidence for dark energy?", "choices": ["Distant supernovae appeared dimmer than expected, implying the cosmic expansion is speeding up", "Galaxies were found rotating faster at their edges than their visible mass allows", "The Sun's neutrino output was measured to be lower than predicted", "Light from distant stars was seen bending around the Sun during an eclipse"], "answer": 0 },
         { "q": "What is the name for the simplest candidate explanation of dark energy, a constant vacuum energy term Einstein originally introduced into his field equations?", "type": "detail", "answer": "cosmological constant", "accept": ["cosmological constant", "lambda", "Lambda", "the cosmological constant"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [68, 27, 5], "labels": ["Dark energy", "Dark matter", "Ordinary matter"], "caption": "The energy budget of the universe: dark energy about 68%, dark matter 27%, ordinary matter only 5%."}
       ]
     },
 
@@ -2176,6 +2188,9 @@
         { "q": "A chemical plant's production imposes pollution costs on a downstream town that the plant never pays. Why does the unregulated market price of the chemical end up too low?", "choices": ["It reflects only the plant's private costs, leaving out the external cost borne by third parties", "It includes the town's cleanup costs, which inflate the apparent supply", "It overstates demand because buyers value pollution", "It double-counts the social cost, pushing the price below marginal benefit"], "answer": 0 },
         { "q": "Which economist argued in 1960 that, with clearly defined property rights and low bargaining costs, private parties can resolve an externality without government taxes?", "type": "detail", "answer": "Ronald Coase", "accept": ["Coase", "R. Coase", "R. H. Coase"] },
         { "q": "A factory's private cost of making a tonne of product is 80 dollars, but its pollution imposes an external cost of 35 dollars per tonne on others. What Pigouvian tax per tonne makes the price reflect the full social cost?", "type": "num", "answer": 35, "unit": "dollars", "tol": 0.01 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[-1, 10], [1, 2], [1, 5]], "range": 6, "caption": "Demand (downward) meets private supply at the marked point; the parallel social-cost supply sits higher by the external harm, the gap a Pigouvian tax would add to the price."}
       ]
     },
     {
@@ -2427,6 +2442,9 @@
         { "q": "In a market, demand is Qd = 100 - 2P and supply is Qs = 10 + P, where P is price. At the equilibrium price, what quantity is traded (in units)?", "type": "num", "answer": 40, "unit": "units", "tol": 0.5 },
         { "q": "A government sets a price ceiling well below the equilibrium price for a good. According to the basic supply-and-demand model, what is the most likely result?", "choices": ["A shortage, because quantity demanded exceeds quantity supplied", "A surplus, because sellers offer more than buyers want", "No change, because price caps only affect fairness, not quantity", "Higher quality, because sellers compete harder"], "answer": 0 },
         { "q": "The basic supply-and-demand model can mislead when one buyer or seller is large enough to influence the price on their own. What two-word term describes such an actor's ability to move the price?", "type": "detail", "answer": "market power", "accept": ["monopoly power", "pricing power", "market-power"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[1, 0], [-1, 6]], "range": 6, "yrange": [0, 8], "caption": "Upward supply (m>0) and downward demand (m<0) cross at the equilibrium price and quantity."}
       ]
     },
     {
@@ -4368,6 +4386,9 @@
         { "q": "Which of these is best modelled as a continuous random variable?", "choices": ["The exact time in seconds until a bus arrives", "The number of emails received in an hour", "The result of a single die roll", "The count of heads in ten coin flips"], "answer": 0 },
         { "q": "What is the name for the description of how much probability sits on each value a random variable can take?", "type": "detail", "answer": "distribution", "accept": ["distribution", "probability distribution", "the distribution"] },
         { "q": "A survey codes the categories 'bus', 'train' and 'bike' as 1, 2 and 3. What hidden assumption does treating these numbers as a random variable risk smuggling in?", "choices": ["That the gaps between the categories are equal and meaningful", "That the categories are mutually exclusive", "That the variable must be continuous", "That each category has the same probability"], "answer": 0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [0.1667, 0.1667, 0.1667, 0.1667, 0.1667, 0.1667], "labels": ["1", "2", "3", "4", "5", "6"], "caption": "The distribution of a fair die: probability 1/6 sits on each value 1 through 6."}
       ]
     },
     {
@@ -4663,6 +4684,9 @@
         { "q": "Random sampling error shrinks roughly as 1/sqrt(n). If a sample of 400 people gives a certain error, how many people are needed to cut that error to one third of its size?", "type": "num", "answer": 3600, "unit": "people", "tol": 1.0 },
         { "q": "A survey collects 5 million responses but only from people who own both a phone and a car, a group skewed toward the wealthy. What is the main problem with this survey?", "choices": ["Sampling bias, which a large sample size does not fix", "Too small a sample, fixable by collecting more responses", "Random sampling error, which 5 million responses cannot reduce", "The mean was used instead of the median"], "answer": 0 },
         { "q": "What is the general term for the entire group you want to draw conclusions about, as opposed to the smaller subset you actually measure?", "type": "detail", "answer": "population", "accept": ["the population"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "points", "pts": [[1, 1], [4, 0.5], [9, 0.333], [16, 0.25], [25, 0.2], [36, 0.167]], "domain": [0, 40], "yrange": [0, 1.1], "caption": "Sampling error falls as 1/sqrt(n): going from n=4 to n=16 quarters the data but only halves the error."}
       ]
     },
     {
@@ -6229,6 +6253,9 @@
         { "q": "You buy a $400,000 property with a $40,000 deposit and the rest borrowed. If the price falls 15%, what is your remaining equity in dollars (it can be negative)?", "type": "num", "answer": -20000, "unit": "$", "tol": 100.0 },
         { "q": "A buyer purchases a home for $600,000 with a $150,000 down payment. What is the loan-to-value ratio?", "type": "num", "answer": 75, "unit": "%", "tol": 0.5 },
         { "q": "What is the term for the situation where the outstanding loan balance exceeds the current market value of the property?", "type": "detail", "answer": "negative equity", "accept": ["underwater", "upside down", "underwater mortgage", "negative-equity"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[5, 50]], "range": 12, "yrange": [-20, 110], "caption": "Equity (in $thousands) against the home-price change (%) at 90% LTV: a 10% rise doubles the $50k stake to $100k; a 10% fall wipes it to zero. The steep slope is leverage at work."}
       ]
     },
     {
@@ -6487,6 +6514,9 @@
         { "q": "A new tax is placed on a good whose buyers will keep buying almost the same amount no matter the price, while sellers can easily switch to making other products. Who bears most of the tax burden?", "choices": ["Buyers, because their demand barely changes with price", "Sellers, because they legally remit the tax", "The government, because it collects the money", "It is always split exactly 50/50 regardless of behaviour"], "answer": 0 },
         { "q": "Economists distinguish who legally owes a tax from who actually bears its cost. What single word describes the side of a market (the one least able to change its behaviour) on which the real burden tends to settle?", "type": "detail", "answer": "inelastic", "accept": ["the inelastic side", "more inelastic", "inelastic side"] },
         { "q": "A payroll tax of 1,000 per worker is legally charged to employers, but it is fully passed on to workers through lower wages. By how much do total worker wages fall, in money terms, per worker?", "type": "num", "answer": 1000, "tol": 0.0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[-2.5, 9], [0.4, 2]], "range": 6, "yrange": [0, 12], "caption": "Steep (inelastic) demand and flatter supply meet at the price; the steeper side changes quantity least, so it bears most of any tax."}
       ]
     },
     {
@@ -6983,6 +7013,9 @@
         { "q": "A property carries a 5% cap rate and the owner financed it with a loan at 7%. As a result, the debt:", "choices": ["Drags down the equity return (negative leverage)", "Lifts the equity return (positive leverage)", "Has no effect on the equity return", "Raises the property's cap rate to 7%"], "answer": 0 },
         { "q": "Positive or negative leverage depends on the spread between the cap rate and the borrowing rate. If a building yields an 8% cap rate and the owner borrows at 5.5%, what is the spread, in percentage points, that accrues to equity?", "type": "num", "answer": 2.5, "unit": "percentage points", "tol": 0.01 },
         { "q": "When a property's cap rate exceeds the rate paid on its debt, so borrowing magnifies the equity return, what two-word term describes this situation?", "type": "detail", "answer": "positive leverage", "accept": ["positive-leverage"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "curves", "curves": [{"fn": "line", "params": {"m": 3, "b": 7}, "label": "debt at 4% (positive leverage)"}, {"fn": "line", "params": {"m": -2, "b": 7}, "label": "debt at 9% (negative leverage)"}], "domain": [0, 4], "yrange": [-2, 20], "caption": "Return on equity (y, %) versus leverage, debt-to-equity (x): both start at the 7% cap rate with no debt; cheap 4% debt makes the return climb with leverage, while 9% debt makes it fall."}
       ]
     },
     {
@@ -7045,6 +7078,9 @@
         { "q": "A building generates 6 million in net operating income (NOI). If the cap rate compresses from 6% to 4.8%, by how much does the building's value increase, in millions?", "type": "num", "answer": 25, "unit": "million", "tol": 0.5 },
         { "q": "An office building's rent (NOI) stayed flat all year, yet its appraised value fell 20%. What most likely happened?", "choices": ["The cap rate expanded as interest rates rose", "The cap rate compressed as interest rates fell", "Construction costs rose during the year", "The building's vacancy fell to zero"], "answer": 0 },
         { "q": "Private real estate valuations tend to react to a rate-driven repricing several quarters after which type of more liquid, publicly traded vehicle signals the turn?", "type": "detail", "answer": "REITs", "accept": ["REIT", "real estate investment trusts", "real estate investment trust", "listed property", "public REITs"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [2500, 2000, 1667, 1429, 1250], "labels": ["4%", "5%", "6%", "7%", "8%"], "caption": "Same rent (NOI = 100), different cap rates: as the cap rate falls the price rises, so values can climb on compression alone."}
       ]
     },
     {
@@ -7076,6 +7112,9 @@
         { "q": "A scheme's finished value is expected to be 50 million. Construction, fees and finance total 32 million, and the developer requires an 8 million profit. What is the most that can be paid for the land, in millions?", "type": "num", "answer": 10, "unit": "million", "tol": 0.1 },
         { "q": "Why is residual land value especially volatile compared with the figures used to calculate it?", "choices": ["It is the difference between two large numbers, so small percentage errors in either swing it sharply", "It is fixed by planning law and cannot be adjusted", "It is a fixed percentage of the construction cost", "It always equals the developer's required profit margin"], "answer": 0 },
         { "q": "In the residual method, what is subtracted from a project's expected finished value, alongside construction, fees and finance, to leave the land value?", "type": "detail", "answer": "developer's profit", "accept": ["profit", "profit margin", "developer profit", "required profit", "developer's required profit"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [1000, 550, 80, 70, 150, 150], "labels": ["End value", "Construction", "Fees", "Finance", "Profit", "Land (residual)"], "caption": "Land value is what's left after costs and profit are taken out of the finished value; the small residual swings hard if the big numbers move."}
       ]
     },
     {
@@ -7106,6 +7145,9 @@
         { "q": "A factory's production imposes an external harm of 30 dollars per unit on neighbours. To set output at the efficient level, what per-unit Pigouvian tax should be charged, in dollars?", "type": "num", "answer": 30, "unit": "dollars", "tol": 0.01 },
         { "q": "Which economist argued that, with clear property rights and low bargaining costs, parties can resolve an externality themselves without a corrective tax?", "type": "detail", "answer": "Coase", "accept": ["Ronald Coase", "R. Coase", "Coase theorem"] },
         { "q": "What makes a well-set Pigouvian tax unusual among taxes?", "choices": ["It raises economic efficiency rather than lowering it", "It is collected only from consumers, never producers", "It increases the quantity of the activity produced", "It is the only tax that generates no revenue"], "answer": 0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[-1, 8], [0.5, 1]], "range": 6, "yrange": [0, 9], "caption": "Demand slopes down and private supply slopes up; their crossing is the unregulated output, and a Pigouvian tax shifts supply up so quantity falls to the efficient level."}
       ]
     },
     {
@@ -7320,6 +7362,9 @@
         { "q": "A bakery can sell each extra loaf for $2.50. The marginal cost of the next loaf is $1.80. By how many dollars does the marginal benefit of that next loaf exceed its marginal cost (so the stopping rule says keep going)?", "type": "num", "answer": 0.7, "unit": "$", "tol": 0.01 },
         { "q": "A streaming service is deciding how many hours of content to license. Which question best reflects reasoning at the margin?", "choices": ["Is licensing content worth doing at all?", "Does the revenue from one more hour exceed the cost of licensing that hour?", "What is the average profit per hour across the whole catalogue?", "How much total money has the catalogue earned so far?"], "answer": 1 },
         { "q": "Marginal thinking is hard when a choice cannot be made in small divisible steps (you either build the bridge or you don't). What word describes such all-or-nothing decisions?", "type": "detail", "answer": "lumpy", "accept": ["lumpy", "indivisible", "all-or-nothing", "discrete", "non-divisible"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[-1, 8], [1, 2]], "range": 6, "yrange": [0, 10], "caption": "Marginal benefit falls and marginal cost rises with each extra unit; the optimal quantity is where they cross, at MB equals MC."}
       ]
     },
     {
@@ -7581,6 +7626,9 @@
         { "q": "In a perfectly competitive market, a single firm chooses how much to produce by:", "choices": ["Producing where the market price equals its marginal cost", "Setting a price above its marginal cost to maximise margin", "Restricting output until marginal revenue is below price", "Matching whatever quantity its largest rival produces"], "answer": 0 },
         { "q": "A perfectly competitive wheat farmer faces a market price of 7 dollars per bushel. To maximise profit, at what marginal cost (in dollars per bushel) should the farmer's last bushel be produced?", "type": "num", "answer": 7, "unit": "dollars per bushel", "tol": 0.01 },
         { "q": "Long-run competition drives a perfectly competitive firm's economic profit down to what level of profit?", "type": "detail", "answer": "normal profit", "accept": ["normal profit", "normal", "zero economic profit", "zero"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[1, 0], [-1, 6]], "range": 6, "caption": "Upward supply and downward demand cross at one price that every price-taking firm treats as given."}
       ]
     },
     {
@@ -7914,6 +7962,9 @@
         { "q": "A basket of goods costs 100 dollars and the annual inflation rate is 4%. Assuming the inflation rate stays constant, what will the same basket cost two years later, in dollars?", "type": "num", "answer": 108.16, "unit": "dollars", "tol": 0.1 },
         { "q": "What is the macroeconomic term for a sustained FALL in the general price level, which can freeze spending as people wait for things to get cheaper?", "type": "detail", "answer": "deflation", "accept": ["deflation", "a deflation"] },
         { "q": "Most major central banks target an inflation rate of roughly 2% per year rather than 0%. Why deliberately aim for mild positive inflation instead of perfectly stable prices?", "choices": ["It keeps a safety buffer away from deflation, which can stall spending and is hard to escape", "Higher inflation directly increases the real value of people's savings", "A 2% rate guarantees that every household faces the same cost-of-living change", "Positive inflation automatically eliminates supply shocks and price volatility"], "answer": 0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "function", "fn": "line", "params": {"m": 0.15, "b": 1}, "domain": [0, 10], "yrange": [0, 2.5], "caption": "A price index rising year after year; the upward slope means each unit of money buys a little less over time."}
       ]
     },
     {
@@ -8063,6 +8114,9 @@
         { "q": "Under the modern understanding of money creation, what happens when a commercial bank approves a new loan?", "choices": ["It credits the borrower's account, creating a brand-new deposit and thus new money", "It hands over cash that savers previously deposited, leaving the money supply unchanged", "It requests the central bank to print physical notes equal to the loan", "It transfers reserves from another bank, so total deposits stay constant"], "answer": 0 },
         { "q": "Which central bank published a 2014 explanation correcting the textbook idea that banks simply lend out savers' deposits?", "type": "detail", "answer": "Bank of England", "accept": ["Bank of England", "BoE"] },
         { "q": "What term describes the view, held by post-Keynesians, that the money supply is driven by demand for loans rather than tightly controlled by the central bank?", "type": "detail", "answer": "endogenous money", "accept": ["endogenous money", "endogenous", "money endogeneity", "endogenous money supply"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "bars", "values": [3, 97], "labels": ["Physical cash", "Bank deposits"], "caption": "Physical cash is only a small slice of the money supply; most money is bank deposits created when banks lend (shares schematic)."}
       ]
     },
     {
@@ -8327,6 +8381,9 @@
         { "q": "A burger costs 6 US dollars in the US and 240 pesos in another country. According to purchasing-power parity, what is the implied exchange rate in pesos per US dollar?", "type": "num", "answer": 40, "unit": "pesos per dollar", "tol": 0.5 },
         { "q": "A central bank pegs its currency above the rate markets would set, and demand for the currency keeps falling. To hold the peg, what must the central bank do?", "choices": ["Sell foreign-exchange reserves to buy back its own currency", "Print more of its own currency and sell it", "Buy foreign currency with newly printed domestic money", "Raise import tariffs to reduce trade"], "answer": 0 },
         { "q": "Which economist is associated with the idea that exchange rates 'overshoot' their long-run equilibrium in the short run?", "type": "detail", "answer": "Dornbusch", "accept": ["Rudiger Dornbusch", "Rudi Dornbusch", "Rudiger Dornbusch overshooting model"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[1, 1], [-1, 5]], "range": 6, "yrange": [0, 6], "caption": "Under a float, currency supply (rising) and demand (falling) cross to set the exchange rate; a peg holds it away from that point using reserves."}
       ]
     },
     {
@@ -8418,6 +8475,9 @@
         { "q": "If a currency loses value so fast that prices double every 4 days, by what factor have prices risen after 12 days (assuming the doubling holds steady)?", "type": "num", "answer": 8, "unit": "x", "tol": 0.01 },
         { "q": "What economic theory holds that hyperinflation is fundamentally a collapse of confidence in the government's ability to repay its debts, with money-printing being a symptom rather than the root cause?", "type": "detail", "answer": "fiscal theory of the price level", "accept": ["fiscal theory of the price level", "FTPL", "fiscal theory"] },
         { "q": "During a hyperinflation, why does the speed at which money changes hands (velocity) tend to surge?", "choices": ["People rush to spend cash immediately because holding it means watching its value evaporate", "Banks are legally required to lend out reserves faster during a crisis", "The central bank deliberately raises interest rates to circulate money", "Foreign investors flood in to buy the cheap local currency"], "answer": 0 }
+      ],
+      "media": [
+        {"type": "plot", "kind": "function", "fn": "exp", "params": {"k": 1.2}, "domain": [0, 5], "yrange": [0, 150], "caption": ""}
       ]
     },
     {
@@ -9877,6 +9937,9 @@
         { "q": "In the Shapiro-Stiglitz model, why does paying workers above the market-clearing wage actually raise their effort?", "choices": ["Being fired from a well-paid job is costly because re-employment at the same pay is not quick or assured, so shirking is deterred", "Higher pay directly increases each worker's physical productivity", "Workers feel grateful and reciprocate out of pure loyalty", "The firm can monitor every worker's effort perfectly and dock the pay of slackers"], "answer": 0 },
         { "q": "What type of information problem (hidden action by an agent the principal cannot fully observe) does the Shapiro-Stiglitz efficiency-wage story rest on?", "type": "detail", "answer": "moral hazard", "accept": ["hidden action", "moral-hazard", "the moral hazard problem"] },
         { "q": "Which economist proposed the 'gift-exchange' version of efficiency wages, where paying generously buys loyalty and effort rather than deterring shirking through fear of firing?", "type": "detail", "answer": "George Akerlof", "accept": ["Akerlof", "George A. Akerlof"] }
+      ],
+      "media": [
+        {"type": "plot", "kind": "lines", "lines": [[2, 1], [-2, 9]], "range": 6, "yrange": [0, 12], "caption": "Labour supply (sloping up) and demand (sloping down) cross at the market-clearing wage; the efficiency-wage idea is that firms instead hold the wage above this crossing, where supply exceeds demand and the surplus is involuntary unemployment."}
       ]
     },
     {
