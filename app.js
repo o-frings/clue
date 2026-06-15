@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v93";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v94";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -1109,6 +1109,36 @@ function drawViz(g, spec, st, readout){
       g.appendChild(svgEl('line',{x1:a[0].toFixed(1),y1:a[1].toFixed(1),x2:b[0].toFixed(1),y2:b[1].toFixed(1),stroke:vzCss('--line'),'stroke-width':1}));
     pos.forEach((col,i)=> col.forEach(p=> g.appendChild(svgEl('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:8,fill:(i===nL-1?accent:card),stroke:accent,'stroke-width':2})) ));
     if(spec.labels) spec.labels.forEach((lab,i)=> vzText(g,colX(i),y1+13,lab,l2,9,'middle'));
+    return;
+  }
+  // ---- states: a Markov / state-transition diagram (nodes + directed, labelled edges + self-loops) ----
+  // spec.states:[label,...]; spec.edges:[[fromIdx,toIdx,'prob'],...]
+  if(kind==='states'){
+    const S=spec.states||[]; const n=S.length; if(!n) return;
+    const cx=VZ_W/2, cy=VZ_H/2-4, R=Math.min(VZ_W,VZ_H)*0.31;
+    const nr=clamp(Math.min(R*0.62, (VZ_W-44)/(n+1)), 18, 32);
+    const ang=i=> n===2 ? (i?0:Math.PI) : (-Math.PI/2 + i/n*Math.PI*2);
+    const pos=S.map((_,i)=>{ if(n===1) return [cx,cy]; const a=ang(i); return [cx+Math.cos(a)*R, cy+Math.sin(a)*R]; });
+    const card=vzCss('--card');
+    const arrowhead=(x,y,a)=>{ const hs=7; [a+2.6,a-2.6].forEach(an=> g.appendChild(svgEl('line',{x1:x.toFixed(1),y1:y.toFixed(1),x2:(x+hs*Math.cos(an)).toFixed(1),y2:(y+hs*Math.sin(an)).toFixed(1),stroke:l2,'stroke-width':1.6,'stroke-linecap':'round'}))); };
+    (spec.edges||[]).forEach(e=>{ const fi=e[0], ti=e[1], lab=(e[2]==null?'':String(e[2]));
+      if(fi===ti){                                   // self-loop just outside the node, pointing away from centre
+        const [x,y]=pos[fi]; const oa=(n===1)?(-Math.PI/2):ang(fi); const ox=Math.cos(oa), oy=Math.sin(oa);
+        const lr=nr*0.62, lx=x+ox*(nr+lr*0.7), ly=y+oy*(nr+lr*0.7);
+        g.appendChild(svgEl('circle',{cx:lx.toFixed(1),cy:ly.toFixed(1),r:lr.toFixed(1),fill:'none',stroke:l2,'stroke-width':1.6}));
+        arrowhead(x+ox*nr, y+oy*nr, oa+Math.PI*0.6);
+        if(lab) vzText(g,(lx+ox*lr).toFixed(1),(ly+oy*lr+3).toFixed(1),lab,ink,9.5,'middle');
+      } else {                                       // curved directed edge (offset so reverse edges separate)
+        const a=pos[fi], b=pos[ti]; const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1; const ux=dx/len,uy=dy/len, px=-uy,py=ux, off=13;
+        const sx=a[0]+ux*nr+px*4, sy=a[1]+uy*nr+py*4, ex=b[0]-ux*nr+px*4, ey=b[1]-uy*nr+py*4;
+        const mx=(sx+ex)/2+px*off, my=(sy+ey)/2+py*off;
+        g.appendChild(svgEl('path',{d:'M'+sx.toFixed(1)+' '+sy.toFixed(1)+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+ex.toFixed(1)+' '+ey.toFixed(1),fill:'none',stroke:l2,'stroke-width':1.6}));
+        arrowhead(ex,ey,Math.atan2(ey-my,ex-mx));
+        if(lab) vzText(g,(mx+px*3).toFixed(1),(my+py*3+3).toFixed(1),lab,ink,9.5,'middle');
+      }
+    });
+    pos.forEach((p,i)=>{ g.appendChild(svgEl('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:nr.toFixed(1),fill:card,stroke:accent,'stroke-width':2}));
+      vzText(g,p[0].toFixed(1),(p[1]+3.5).toFixed(1),S[i],ink,11,'middle'); });
     return;
   }
 }

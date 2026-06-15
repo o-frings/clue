@@ -13713,7 +13713,8 @@
             "equilibrium distribution"
           ]
         }
-      ]
+      ],
+      "media": [{"type": "plot", "kind": "states", "states": ["Sunny", "Rainy"], "edges": [[0, 0, "0.9"], [0, 1, "0.1"], [1, 1, "0.5"], [1, 0, "0.5"]], "caption": "A 2-state weather chain: from Sunny, 0.9 stay and 0.1 go to Rainy; from Rainy, 0.5 stay and 0.5 return. The next day depends only on today."}, {"type": "plot", "kind": "bars", "values": [0.833, 0.167], "labels": ["Sunny", "Rainy"], "caption": "The stationary distribution: in the long run 5/6 of days are sunny and 1/6 rainy — reached from any starting weather."}]
     },
     {
       "id": "prob-monte-carlo",
