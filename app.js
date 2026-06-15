@@ -12,6 +12,8 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
+// error boundary: a thrown view must never blank or freeze the whole app
+function safe(fn, label){ try{ return fn(); }catch(e){ console.error('[clue] '+(label||'render')+' failed:', e); return null; } }
 function hashStr(s){ let h=2166136261; s=String(s); for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); }
 function todayStr(d){ d=d||new Date(); const p=n=>String(n).padStart(2,'0'); return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); }
 function dayOffsetStr(n){ const d=new Date(); d.setDate(d.getDate()+n); return todayStr(d); }
@@ -271,15 +273,18 @@ function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).l
 // ================= knowledge load =================
 async function loadKnowledge(){
   let data=null;
-  try{ const r=await fetch("knowledge.json",{cache:"no-cache"}); data=await r.json(); }
-  catch(e){ try{ const r=await fetch("knowledge.json"); data=await r.json(); }catch(e2){ data=null; } }
+  // let the browser/service-worker cache serve this instantly (the SW revalidates in the
+  // background); forcing no-cache made the 700 KB file re-download on every open and could
+  // fail on a flaky connection, leaving the app blank/"offline".
+  try{ const r=await fetch("knowledge.json"); data=await r.json(); }
+  catch(e){ try{ const r=await fetch("knowledge.json",{cache:"force-cache"}); data=await r.json(); }catch(e2){ data=null; } }
   if(!data){ return false; }
   KN.fields=data.fields||[]; KN.cards=data.cards||[]; KN.motions=data.motions||[]; KN.depths=data.depths||[];
   // evidence registry (optional, separate file — every source logged once, referenced by card.src[])
-  try{ const r=await fetch("evidence.json",{cache:"no-cache"}); const ev=await r.json(); EV=ev.sources||ev||{}; }
+  try{ const r=await fetch("evidence.json"); const ev=await r.json(); EV=ev.sources||ev||{}; }
   catch(e){ EV={}; }
   // glossary registry (optional, separate file — jargon & canonical symbols)
-  try{ const r=await fetch("glossary.json",{cache:"no-cache"}); const gl=await r.json(); GL=gl.terms||gl||{}; }
+  try{ const r=await fetch("glossary.json"); const gl=await r.json(); GL=gl.terms||gl||{}; }
   catch(e){ GL={}; }
   glossIndex=null;
   byId={}; byField={}; fieldById={}; depthById={};
@@ -1368,7 +1373,7 @@ function drawRing(cv, frac, opt){ if(!cv) return; const ctx=cv.getContext("2d");
   const grad=ctx.createLinearGradient(0,0,w,h); grad.addColorStop(0,"#ff7a18"); grad.addColorStop(1,"#ff2f3d");
   ctx.strokeStyle=grad; ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*clamp(frac,0,1)); ctx.stroke();
 }
-function drawFieldRadar(){ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
+function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
   const w=cv.width,h=cv.height,cx=w/2,cy=h/2, R=w*0.34; const fields=KN.fields; const n=fields.length; if(!n) return;
   ctx.clearRect(0,0,w,h);
   const css=getComputedStyle(document.documentElement);
@@ -1386,7 +1391,7 @@ function drawFieldRadar(){ const cv=$("fieldRadar"); if(!cv) return; const ctx=c
   ctx.beginPath(); for(let i=0;i<n;i++){ const a=-Math.PI/2+i/n*Math.PI*2; const v=Math.max(scores[i],0.02); const x=cx+Math.cos(a)*R*v, y=cy+Math.sin(a)*R*v; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.closePath();
   ctx.fillStyle=hexA(accent,0.22); ctx.fill(); ctx.strokeStyle=accent; ctx.lineWidth=2; ctx.stroke();
   for(let i=0;i<n;i++){ const a=-Math.PI/2+i/n*Math.PI*2; const v=Math.max(scores[i],0.02); ctx.beginPath(); ctx.arc(cx+Math.cos(a)*R*v, cy+Math.sin(a)*R*v, 3, 0, Math.PI*2); ctx.fillStyle=accent; ctx.fill(); }
-}
+}catch(e){ console.error('[clue] drawFieldRadar failed:', e); } }
 function openFields(){ renderFieldsSheet(); openSheet("Fields"); }
 function renderFieldsSheet(){
   const rows=KN.fields.map(f=>{
@@ -1460,7 +1465,7 @@ function buildWebNodes(){
   _webNodes=nodes;
   return {nodes, edges};
 }
-function drawWeb(){
+function drawWeb(){ try{
   const cv=$("webCanvas"); if(!cv) return;
   const DPR=2, cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.78,360,1000);
   if(cv.width!==cssW*DPR||cv.height!==cssH*DPR){ cv.width=cssW*DPR; cv.height=cssH*DPR; }
@@ -1491,7 +1496,7 @@ function drawWeb(){
     n._sx=x; n._sy=y; n._r=r;
     if(showLabels && n.state!=='frontier'){ const t=(c.title||'').length>18?c.title.slice(0,17)+'…':c.title; ctx.fillStyle=l3; ctx.fillText(t, x, y+r+3); }
   });
-}
+}catch(e){ console.error('[clue] drawWeb failed:', e); } }
 function renderWeb(){
   $("lnTitle").textContent="Web";
   const sub=$("lnSub"); const learned=learnedIds().length;
@@ -1544,7 +1549,7 @@ function applyTheme(){ const m=settings.theme||'auto';
 
 // ================= persistence helpers =================
 function persistAll(){ sset("settings",settings); sset("progress",progress); }
-function refreshAll(){ renderFeed(); renderMe(); if($("sheetLibrary").classList.contains("show")) renderLibList(); }
+function refreshAll(){ safe(renderFeed,'feed'); safe(renderMe,'me'); if($("sheetLibrary").classList.contains("show")) safe(renderLibList,'library'); }
 
 // ================= onboarding =================
 function renderOnboarding(step){
@@ -1609,10 +1614,10 @@ function showTab(name){
   document.querySelectorAll(".page").forEach(p=> p.classList.toggle("active", p.dataset.tab===name));
   document.querySelectorAll(".tabitem").forEach(t=> t.classList.toggle("active", t.dataset.tab===name));
   if(window.__pageGo) window.__pageGo(name); else { try{ window.scrollTo(0,0); }catch(e){} }
-  if(name==="feed") renderFeed();
-  else if(name==="learn") renderWeb();
-  else if(name==="debate") renderDebate();
-  else if(name==="me") renderMe();
+  if(name==="feed") safe(renderFeed,'feed');
+  else if(name==="learn") safe(renderWeb,'web');
+  else if(name==="debate") safe(renderDebate,'debate');
+  else if(name==="me") safe(renderMe,'me');
 }
 function wireNav(){
   document.querySelectorAll(".tabitem").forEach(t=> t.onclick=()=> showTab(t.dataset.tab));
@@ -1709,8 +1714,8 @@ async function init(){
   const ok=await loadKnowledge();
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }
   await persistAll();
-  wireNav(); wireSettings();
-  renderWeb(); renderFeed(); renderMe(); updateRotateGuard();
+  safe(wireNav,'wireNav'); safe(wireSettings,'wireSettings');
+  safe(renderWeb,'web'); safe(renderFeed,'feed'); safe(renderMe,'me'); safe(updateRotateGuard,'rotate');
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
   else if(ok){ openFirstFeedCard(); }
   hideSplash();

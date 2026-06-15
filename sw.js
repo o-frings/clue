@@ -9,15 +9,19 @@
  * new service worker; the new SW then re-fetches the shell with cache:"reload" and deletes the old
  * cache on activate, so the update lands on next open.
  */
-const CACHE = "clue-v75";
+const CACHE = "clue-v76";
 const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json", "./evidence.json", "./glossary.json"];
+// the big data files: serve from cache instantly, refresh in the background (stale-while-revalidate)
+const DATA = /\/(knowledge|evidence|glossary)\.json(\?|$)/;
 
 self.addEventListener("install", (e) => {
+  // cache each shell item individually so one slow/failed fetch (e.g. the 700 KB knowledge.json
+  // on a flaky connection) can't fail the whole install and leave a half-broken worker.
   e.waitUntil(
     caches.open(CACHE)
-      .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" }))))
+      .then((c) => Promise.allSettled(SHELL.map((u) => fetch(new Request(u, { cache: "reload" })).then((r) => r.ok ? c.put(u, r) : null).catch(() => {}))))
       .then(() => self.skipWaiting())
-      .catch(() => {})
+      .catch(() => self.skipWaiting())
   );
 });
 
@@ -46,6 +50,24 @@ self.addEventListener("fetch", (e) => {
     );
     return;
   }
+  // Data files (knowledge/evidence/glossary): stale-while-revalidate — answer from cache
+  // instantly so the app always loads fast and offline, while refreshing the cache in the
+  // background so the next open is up to date.
+  if (DATA.test(req.url)) {
+    e.respondWith(
+      caches.open(CACHE).then((c) =>
+        c.match(req).then((hit) => {
+          const fresh = fetch(req).then((res) => {
+            if (res && res.ok && res.type === "basic") c.put(req, res.clone()).catch(() => {});
+            return res;
+          }).catch(() => hit);
+          return hit || fresh;
+        })
+      )
+    );
+    return;
+  }
+  // Everything else: network-first, fall back to cache (then the app shell offline).
   e.respondWith(
     fetch(req)
       .then((res) => {
