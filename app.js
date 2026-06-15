@@ -12,8 +12,29 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-// error boundary: a thrown view must never blank or freeze the whole app
-function safe(fn, label){ try{ return fn(); }catch(e){ console.error('[clue] '+(label||'render')+' failed:', e); return null; } }
+const BUILD = "v77";   // bumped each deploy; shown in the error banner so we know the running build
+// visible on-screen error reporter — turns an invisible crash into a readable, reportable message
+let __errBanner=null, __errSeen=new Set();
+function showError(msg){
+  try{
+    msg=String(msg||'error').slice(0,400);
+    if(__errSeen.has(msg)) return; __errSeen.add(msg);
+    if(!__errBanner){
+      __errBanner=document.createElement('div'); __errBanner.id='errBanner';
+      __errBanner.style.cssText='position:fixed;left:8px;right:8px;bottom:84px;z-index:100000;background:#b00020;color:#fff;padding:11px 14px;border-radius:12px;font:13px/1.45 -apple-system,system-ui,sans-serif;box-shadow:0 8px 28px rgba(0,0,0,.35);white-space:pre-wrap;word-break:break-word;';
+      __errBanner.addEventListener('click',()=>{ __errBanner.style.display='none'; });
+      (document.body||document.documentElement).appendChild(__errBanner);
+    }
+    __errBanner.style.display='block';
+    __errBanner.textContent='⚠︎ Clue '+BUILD+' — '+msg+'\n(tap to dismiss)';
+  }catch(_){}
+}
+// error boundary: a thrown view must never blank or freeze the whole app — and the error is surfaced
+function safe(fn, label){ try{ return fn(); }catch(e){ console.error('[clue] '+(label||'render')+' failed:', e); showError('couldn’t render “'+(label||'?')+'”: '+(e&&e.message||e)); return null; } }
+if(typeof window!=='undefined'){
+  window.addEventListener('error', e=>{ showError((e.message||'error')+(e.filename?(' @ '+String(e.filename).split('/').pop()+':'+e.lineno):'')); });
+  window.addEventListener('unhandledrejection', e=>{ const r=e&&e.reason; showError('promise: '+((r&&r.message)||r||'?')); });
+}
 function hashStr(s){ let h=2166136261; s=String(s); for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return (h>>>0); }
 function todayStr(d){ d=d||new Date(); const p=n=>String(n).padStart(2,'0'); return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); }
 function dayOffsetStr(n){ const d=new Date(); d.setDate(d.getDate()+n); return todayStr(d); }
@@ -1723,6 +1744,12 @@ async function init(){
 let splashGone=false;
 function hideSplash(){ if(splashGone) return; splashGone=true; const s=$("splash"); if(s){ s.classList.add("gone"); setTimeout(()=>s.remove(),500); } if(window.__barMeasure) window.__barMeasure(); }
 setTimeout(hideSplash, 4000);   // backstop so a thrown init never traps the splash
-// register service worker
-if("serviceWorker" in navigator){ window.addEventListener("load",()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); }); }
+// register service worker — and reload once when a new worker takes control, so a stale cached
+// app.js can't keep running old (possibly-crashing) code after a deploy.
+if("serviceWorker" in navigator){
+  let __swReloaded=false;
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{ if(__swReloaded) return; __swReloaded=true; try{ location.reload(); }catch(_){} });
+  window.addEventListener("load",()=>{ navigator.serviceWorker.register("sw.js").then(r=>{ try{ r.update(); }catch(_){} }).catch(()=>{}); });
+}
+try{ console.log("Clue "+BUILD); }catch(_){}
 init();
