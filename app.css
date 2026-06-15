@@ -389,6 +389,24 @@
   .fbrow .fbfill{ display:block; height:100%; border-radius:6px; min-width:2px; }
   .fbrow .fbnum{ flex:0 0 auto; font-size:12px; font-weight:700; color:var(--l2); font-variant-numeric:tabular-nums; min-width:42px; text-align:right; }
   .fbempty{ font-size:13px; color:var(--l3); text-align:center; padding:8px 0; }
+  /* per-field degrees list (You page) */
+  .petitle{ font-size:14px; font-weight:800; color:var(--ink); letter-spacing:-.2px; }
+  .deglist{ display:flex; flex-direction:column; }
+  .degrow{ display:flex; align-items:center; gap:12px; width:100%; padding:11px 4px; background:none; border:none; border-bottom:.5px solid var(--line); text-align:left; cursor:pointer; transition:opacity .12s; }
+  .degrow:last-child{ border-bottom:none; }
+  .degrow:active{ opacity:.6; }
+  .degrow .degic{ flex:0 0 auto; width:30px; height:30px; display:flex; align-items:center; justify-content:center; font-size:16px; border-radius:9px; background:color-mix(in srgb, var(--fc) 16%, transparent); }
+  .degrow .degmain{ flex:1; min-width:0; }
+  .degrow .degtop{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .degrow .deglab{ font-size:15px; font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .degrow .degstar{ color:#f2a93b; font-size:12px; }
+  .degbadge{ flex:0 0 auto; font-size:11px; font-weight:800; letter-spacing:.2px; padding:2px 8px; border-radius:999px; color:#fff; background:var(--dc,#888); box-shadow:inset 0 .5px 0 rgba(255,255,255,.25); }
+  .degbadge.none{ color:var(--l3); background:var(--field); box-shadow:none; }
+  .degpips{ display:flex; gap:4px; margin-top:6px; }
+  .degpip{ width:18px; height:16px; border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; font-style:normal; color:var(--l3); background:var(--field); border:1px solid transparent; font-variant-numeric:tabular-nums; }
+  .degpip.half{ color:var(--fc); background:color-mix(in srgb, var(--fc) 22%, transparent); }
+  .degpip.on{ color:#fff; background:var(--fc); }
+  .degrow .degnum{ flex:0 0 auto; font-size:12px; font-weight:700; color:var(--l2); font-variant-numeric:tabular-nums; min-width:42px; text-align:right; align-self:flex-start; margin-top:2px; }
   .progwrap{ padding:8px 0 4px; }
   .progwrap canvas{ width:100%; aspect-ratio:11/4; }
 

@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v81";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v82";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -296,6 +296,67 @@ function isDue(id){ const p=progress[id]; return !!(p && p.due<=Date.now()); }
 function dueCards(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].due<=Date.now()); }
 function learnedIds(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].learned); }
 function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).length; }
+
+// ================= knowledge-level degrees =================
+// Cards carry a difficulty level 1–6. A "degree" reflects the deepest level you've MASTERED in a
+// field — "mastered a level" = ≥70% of that field's cards at that level are learned, AND every
+// shallower level present is mastered too (a degree certifies you covered the field to that depth).
+const DEGREES = [
+  { key:0, name:'—',           short:'',      hint:'not started' },
+  { key:1, name:'Foundations', short:'Found.', hint:'foundational, level 1–2' },
+  { key:2, name:'Bachelor’s',  short:'BSc',   hint:'level 3' },
+  { key:3, name:'Master’s',    short:'MSc',   hint:'level 4' },
+  { key:4, name:'Doctorate',   short:'PhD',   hint:'level 5–6' },
+];
+function levelsInField(fid){ const m={}; (byField[fid]||[]).forEach(c=>{ const L=c.level||1; m[L]=(m[L]||0)+1; }); return m; }
+function learnedAtLevel(fid,L){ return (byField[fid]||[]).filter(c=>(c.level||1)===L && isLearned(c.id)).length; }
+function levelClearNeed(fid,L){ return Math.ceil(0.7*((levelsInField(fid))[L]||0)); }
+// deepest contiguous level mastered from the bottom (0 if the field's shallowest level isn't cleared)
+function fieldMastery(fid){
+  const counts=levelsInField(fid); const present=Object.keys(counts).map(Number).sort((a,b)=>a-b);
+  let attained=0;
+  for(const L of present){
+    if(learnedAtLevel(fid,L) >= Math.ceil(0.7*counts[L])) attained=L; else break;   // contiguous from the bottom
+  }
+  return attained;   // an absolute card level 1–6, or 0
+}
+function degreeKeyForLevel(L){ if(L>=5) return 4; if(L===4) return 3; if(L===3) return 2; if(L>=1) return 1; return 0; }
+function degreeFor(fid){ return DEGREES[degreeKeyForLevel(fieldMastery(fid))]; }
+function fieldComplete(fid){ const t=(byField[fid]||[]).length; return t>0 && learnedInField(fid) >= Math.ceil(0.9*t); }
+function degreeCounts(){ const c={1:0,2:0,3:0,4:0}; (KN.fields||[]).forEach(f=>{ const k=degreeFor(f.id).key; if(k) c[k]++; }); return c; }
+// overall academic standing: depth (highest degree reached) × breadth (how many fields)
+function overallDegree(){
+  const c=degreeCounts();
+  const phd=c[4], msc=c[4]+c[3], bsc=c[4]+c[3]+c[2], any=c[4]+c[3]+c[2]+c[1];
+  if(phd>=3 || msc>=8)  return { name:'Polymath', rank:5 };
+  if(phd>=1)            return { name:'Doctor',   rank:4 };
+  if(msc>=1 || bsc>=5)  return { name:'Master',   rank:3 };
+  if(bsc>=1)            return { name:'Graduate', rank:2 };
+  if(any>=1)            return { name:'Scholar',  rank:1 };
+  return { name:'Curious', rank:0 };
+}
+function degreeSummary(){
+  const c=degreeCounts(); const bits=[];
+  if(c[4]) bits.push(c[4]+' doctorate'+(c[4]>1?'s':''));
+  if(c[3]) bits.push(c[3]+'× Master’s');
+  if(c[2]) bits.push(c[2]+'× Bachelor’s');
+  if(c[1]) bits.push(c[1]+'× Foundations');
+  return bits.join(' · ');
+}
+// celebrate a newly-earned degree or a higher overall title (idempotent — fires once per gain)
+function checkDegrees(){
+  try{
+    const prev = settings.degrees || {};
+    const hadSnapshot = Object.keys(prev).length>0;
+    const now={}; let gained=null;
+    (KN.fields||[]).forEach(f=>{ const k=degreeFor(f.id).key; now[f.id]=k; if(k>(prev[f.id]||0)){ if(!gained || k>gained.key) gained={field:f,key:k}; } });
+    const od=overallDegree(); const prevRank=settings.titleRank||0;
+    settings.degrees=now; settings.titleRank=od.rank; settings.titleName=od.name; persistAll();
+    if(!hadSnapshot) return;                 // first run after this feature shipped: record silently
+    if(od.rank>prevRank){ celebrate(true); toast('New academic title — '+od.name+'!', true); }
+    else if(gained){ celebrate(true); toast(gained.field.label+': '+DEGREES[gained.key].name+' earned!', true); }
+  }catch(e){ console.error('[clue] checkDegrees', e); }
+}
 
 // ================= knowledge load =================
 async function loadKnowledge(){
@@ -1080,7 +1141,7 @@ function answerQuiz(i){
 }
 function renderDone(){
   const st=session.stats;
-  settings.sessionsDone=(settings.sessionsDone||0)+1; persistAll(); celebrate(true);
+  settings.sessionsDone=(settings.sessionsDone||0)+1; persistAll(); celebrate(true); checkDegrees();
   $("lnStage").innerHTML=`<div class="emptystate"><div class="ei">🎉</div><h3>Session complete</h3>
     <p>+${st.xp} XP · ${st.learned} learned · ${st.reviewed} reviewed${st.quizTotal?(' · '+st.quizCorrect+'/'+st.quizTotal+' quiz'):''}</p>
     <button class="btn wide" id="lnAgain">Done</button></div>`;
@@ -1378,15 +1439,23 @@ function pickMotion(id){ dbMotion=id; dbSide="for"; renderDebate(); }
 
 // ================= YOU =================
 function renderMe(){
-  // profile — no level/XP; what you've built is the web, summarised here
+  checkDegrees();   // keep the degree snapshot fresh + fire any pending celebration
   const initials=(settings.name||'').trim().split(/\s+/).filter(Boolean).map(s=>s[0]).slice(0,2).join('').toUpperCase()||'🙂';
   const learned=learnedIds().length, fieldsStarted=new Set(learnedIds().map(id=>byId[id].field)).size;
-  $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint">'+(learned? (learned+' card'+(learned===1?'':'s')+' in your web · '+fieldsStarted+' field'+(fieldsStarted===1?'':'s')) : 'Your web is empty — pull a thread to begin')+'</div></div>';
+  const od=overallDegree(), summ=degreeSummary();
+  // profile: name + overall academic title (the headline of the page)
+  const titleLine = learned
+    ? '<span class="petitle">'+esc(od.name)+'</span>'+(summ?' <span class="pchint">· '+esc(summ)+'</span>':'')
+    : '<span class="pchint">Your web is empty — pull a thread to begin</span>';
+  $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint" style="margin-top:5px;">'+titleLine+'</div></div>';
   $("meProfile").onclick=()=>{ openSheet("Settings"); };
-  // field balance as a readable DOM list. Replaces the canvas radar: it couldn't show 23+ fields
+  // per-field degrees as a readable DOM list. Replaces the canvas radar: it couldn't show 26 fields
   // legibly, and the <canvas> pages were what crashed iOS Safari — DOM is far lighter.
-  const rw=document.querySelector('#pageMe .radarwrap'); if(rw) rw.innerHTML=fieldBalanceHtml();
-  $("meRadarFoot").textContent = (learned? (fieldsStarted+' of '+KN.fields.length+' fields started') : 'Learn cards to grow your field balance.')+' · Tap to see the breakdown.';
+  const rw=document.querySelector('#pageMe .radarwrap'); if(rw){ rw.innerHTML=degreeListHtml();
+    rw.querySelectorAll('.degrow').forEach(el=> el.onclick=(e)=>{ e.stopPropagation(); feedFilter=el.dataset.f; feedStatus="all"; feedShown=FEED_PAGE; showTab("feed"); }); }
+  $("meRadarFoot").textContent = learned
+    ? (fieldsStarted+' of '+KN.fields.length+' fields started · master each level to earn its degree')
+    : 'Master a field’s levels to earn degrees — from Foundations to a Doctorate.';
   renderObjUI();
 }
 function renderObjUI(){
@@ -1406,16 +1475,29 @@ function drawRing(cv, frac, opt){ if(!cv) return; const ctx=cv.getContext("2d");
   const grad=ctx.createLinearGradient(0,0,w,h); grad.addColorStop(0,"#ff7a18"); grad.addColorStop(1,"#ff2f3d");
   ctx.strokeStyle=grad; ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*clamp(frac,0,1)); ctx.stroke();
 }
-// readable per-field coverage as DOM bars (sorted), replacing the canvas radar
-function fieldBalanceHtml(){
-  const rows=(KN.fields||[]).map(f=>({f, total:(byField[f.id]||[]).length, done:learnedInField(f.id)}))
-    .filter(r=>r.total>0)
-    .sort((a,b)=> (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
-  if(!rows.length) return '<div class="fbempty">Learn cards to grow your field balance.</div>';
-  return '<div class="fblist">'+rows.map(r=>{ const pct=Math.round(r.done/r.total*100), col=(fieldById[r.f.id]||{}).color||'#888';
-    return '<div class="fbrow"><span class="fbic">'+esc(r.f.icon||'')+'</span><span class="fblab">'+esc(r.f.label)+'</span>'+
-      '<span class="fbbar"><span class="fbfill" style="width:'+pct+'%;background:'+col+'"></span></span>'+
-      '<span class="fbnum">'+r.done+'/'+r.total+'</span></div>'; }).join('')+'</div>';
+// per-field degrees as a readable, sorted DOM list (replaces the unreadable 26-axis canvas radar).
+// Each row: field icon + label, the degree badge earned, level pips showing depth, and coverage.
+function degreeListHtml(){
+  const rows=(KN.fields||[]).map(f=>{
+    const total=(byField[f.id]||[]).length; if(!total) return null;
+    const counts=levelsInField(f.id);
+    return { f, total, done:learnedInField(f.id), att:fieldMastery(f.id), deg:degreeFor(f.id),
+             counts, present:Object.keys(counts).map(Number).sort((a,b)=>a-b), complete:fieldComplete(f.id) };
+  }).filter(Boolean)
+    .sort((a,b)=> b.deg.key-a.deg.key || (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
+  if(!rows.length) return '<div class="fbempty">Learn cards to start earning degrees.</div>';
+  return '<div class="deglist">'+rows.map(r=>{
+    const col=(r.f.color||'#888');
+    const pips=r.present.map(L=>{ const need=Math.ceil(0.7*r.counts[L]), got=learnedAtLevel(r.f.id,L);
+      const cls = got>=need ? 'on' : (got>0 ? 'half' : ''); return '<i class="degpip '+cls+'" title="Level '+L+': '+got+'/'+r.counts[L]+'">'+L+'</i>'; }).join('');
+    const badge = r.deg.key ? '<span class="degbadge" style="--dc:'+col+'">'+esc(r.deg.short||r.deg.name)+'</span>'
+                            : '<span class="degbadge none">·</span>';
+    return '<button class="degrow" data-f="'+r.f.id+'" style="--fc:'+col+'">'+
+      '<span class="degic">'+esc(r.f.icon||'')+'</span>'+
+      '<span class="degmain"><span class="degtop"><span class="deglab">'+esc(r.f.label)+(r.complete?' <span class="degstar" title="field complete">★</span>':'')+'</span>'+badge+'</span>'+
+        '<span class="degpips">'+pips+'</span></span>'+
+      '<span class="degnum">'+r.done+'/'+r.total+'</span></button>';
+  }).join('')+'</div>';
 }
 function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const ctx=cv.getContext("2d");
   const w=cv.width,h=cv.height,cx=w/2,cy=h/2, R=w*0.34; const fields=KN.fields; const n=fields.length; if(!n) return;
@@ -1597,7 +1679,7 @@ function applyTheme(){ const m=settings.theme||'auto';
 
 // ================= persistence helpers =================
 function persistAll(){ sset("settings",settings); sset("progress",progress); }
-function refreshAll(){ safe(renderFeed,'feed'); if($("pageMe").classList.contains("active")) safe(renderMe,'me'); if($("sheetLibrary").classList.contains("show")) safe(renderLibList,'library'); }
+function refreshAll(){ safe(checkDegrees,'degrees'); safe(renderFeed,'feed'); if($("pageMe").classList.contains("active")) safe(renderMe,'me'); if($("sheetLibrary").classList.contains("show")) safe(renderLibList,'library'); }
 
 // ================= onboarding =================
 function renderOnboarding(step){
