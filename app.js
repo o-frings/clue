@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v77";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v78";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — turns an invisible crash into a readable, reportable message
 let __errBanner=null, __errSeen=new Set();
 function showError(msg){
@@ -1488,8 +1488,12 @@ function buildWebNodes(){
 }
 function drawWeb(){ try{
   const cv=$("webCanvas"); if(!cv) return;
-  const DPR=2, cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.78,360,1000);
-  if(cv.width!==cssW*DPR||cv.height!==cssH*DPR){ cv.width=cssW*DPR; cv.height=cssH*DPR; }
+  const cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.78,360,1000);
+  // cap the canvas backing store so a tall phone screen × DPR can't allocate a huge buffer (OOM)
+  let DPR=Math.min(window.devicePixelRatio||1, 2);
+  const MAXPX=2.4e6; if(cssW*cssH*DPR*DPR>MAXPX) DPR=Math.max(1, Math.sqrt(MAXPX/Math.max(1,cssW*cssH)));
+  const pw=Math.round(cssW*DPR), ph=Math.round(cssH*DPR);
+  if(cv.width!==pw||cv.height!==ph){ cv.width=pw; cv.height=ph; }
   const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
   const css=getComputedStyle(document.documentElement);
   const l3=(css.getPropertyValue('--l3')||'#999').trim();
@@ -1570,7 +1574,7 @@ function applyTheme(){ const m=settings.theme||'auto';
 
 // ================= persistence helpers =================
 function persistAll(){ sset("settings",settings); sset("progress",progress); }
-function refreshAll(){ safe(renderFeed,'feed'); safe(renderMe,'me'); if($("sheetLibrary").classList.contains("show")) safe(renderLibList,'library'); }
+function refreshAll(){ safe(renderFeed,'feed'); if($("pageMe").classList.contains("active")) safe(renderMe,'me'); if($("sheetLibrary").classList.contains("show")) safe(renderLibList,'library'); }
 
 // ================= onboarding =================
 function renderOnboarding(step){
@@ -1736,9 +1740,12 @@ async function init(){
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }
   await persistAll();
   safe(wireNav,'wireNav'); safe(wireSettings,'wireSettings');
-  safe(renderWeb,'web'); safe(renderFeed,'feed'); safe(renderMe,'me'); safe(updateRotateGuard,'rotate');
+  // Render ONLY the active (feed) page at load. Building the web canvas + the radar at load —
+  // and auto-opening the immersive reader — pushed iOS Safari past its memory limit (a fatal
+  // "a problem repeatedly occurred" renderer crash). Web/Me/Debate now render lazily on first
+  // open (showTab already wraps those in safe()), so the load path is just the lightweight feed.
+  safe(renderFeed,'feed'); safe(updateRotateGuard,'rotate');
   if(ok && !settings.onboarded){ renderOnboarding(1); $("onboardWrap").classList.add("show"); }
-  else if(ok){ openFirstFeedCard(); }
   hideSplash();
 }
 let splashGone=false;

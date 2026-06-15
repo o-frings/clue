@@ -9,9 +9,9 @@
  * new service worker; the new SW then re-fetches the shell with cache:"reload" and deletes the old
  * cache on activate, so the update lands on next open.
  */
-const CACHE = "clue-v77";
+const CACHE = "clue-v78";
 const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json", "./evidence.json", "./glossary.json"];
-// the big data files: serve from cache instantly, refresh in the background (stale-while-revalidate)
+// the big data files: serve cache-first (no per-load re-download); refreshed on each version bump
 const DATA = /\/(knowledge|evidence|glossary)\.json(\?|$)/;
 
 self.addEventListener("install", (e) => {
@@ -50,19 +50,17 @@ self.addEventListener("fetch", (e) => {
     );
     return;
   }
-  // Data files (knowledge/evidence/glossary): stale-while-revalidate — answer from cache
-  // instantly so the app always loads fast and offline, while refreshing the cache in the
-  // background so the next open is up to date.
+  // Data files (knowledge/evidence/glossary): cache-first. Serve the cached copy instantly with
+  // NO background re-download — fetching the 700 KB file on every open held a second copy in
+  // memory and helped tip iOS Safari over. Fresh content lands on deploy: the version bump
+  // reinstalls and re-fetches these into the new cache.
   if (DATA.test(req.url)) {
     e.respondWith(
       caches.open(CACHE).then((c) =>
-        c.match(req).then((hit) => {
-          const fresh = fetch(req).then((res) => {
-            if (res && res.ok && res.type === "basic") c.put(req, res.clone()).catch(() => {});
-            return res;
-          }).catch(() => hit);
-          return hit || fresh;
-        })
+        c.match(req).then((hit) => hit || fetch(req).then((res) => {
+          if (res && res.ok && res.type === "basic") c.put(req, res.clone()).catch(() => {});
+          return res;
+        }))
       )
     );
     return;
