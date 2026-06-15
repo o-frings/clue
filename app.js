@@ -12,7 +12,7 @@ const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v79";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v80";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — turns an invisible crash into a readable, reportable message
 let __errBanner=null, __errSeen=new Set();
 function showError(msg){
@@ -1092,6 +1092,7 @@ function factOfDay(){ const d=todayStr();
 // ================= FEED (explore) =================
 let feedFilter="all";   // "all" or a field id
 let feedStatus="all";   // "all" | "unlearned" | "learned"
+const FEED_PAGE=36; let feedShown=FEED_PAGE;   // virtualise the feed: render a window, not all 380+ cards (iOS memory)
 let feedOrder=[];       // current visible order, for the Reader's "next"
 
 // how "heavy" a card is to digest, 0 (quick fun fact) .. 1 (dense concept/book).
@@ -1138,12 +1139,13 @@ function feedCandidates(){
 }
 function renderFeed(){
   $("feedSub").textContent = greeting()+" — what do you want to understand today?  ·  "+BUILD;
+  feedShown=FEED_PAGE;
   renderFeedFilter(); renderFeedStatus(); renderFeedList();
 }
 function renderFeedStatus(){
   document.querySelectorAll("#feedStatus .s").forEach(s=>{
     s.classList.toggle("active", s.dataset.s===feedStatus);
-    s.onclick=()=>{ feedStatus=s.dataset.s; renderFeedStatus(); renderFeedList(); };
+    s.onclick=()=>{ feedStatus=s.dataset.s; feedShown=FEED_PAGE; renderFeedStatus(); renderFeedList(); };
   });
 }
 function renderFeedFilter(){
@@ -1180,9 +1182,12 @@ function renderFeedList(){
       KN.cards.some(c=> (feedFilter==="all"||c.field===feedFilter) && isNew(c.id) && !prereqsMet(c));
     $("feedList").innerHTML='<div class="emptystate"><div class="ei">'+(hasLocked?'🔒':'🔍')+'</div><p>'+
       (hasLocked?'Learn the foundations first — these cards unlock as you go.':'Nothing here yet.')+'</p></div>'; return; }
-  let html=''; list.forEach((c,i)=> html+=feedCardHtml(c, i===0 && feedFilter==='all'));
+  const n=Math.min(feedShown, list.length);
+  let html=''; for(let i=0;i<n;i++) html+=feedCardHtml(list[i], i===0 && feedFilter==='all');
+  if(n<list.length) html+='<button class="btn plain wide sm" id="feedMore" style="margin-top:10px;">Show more · '+(list.length-n)+' left</button>';
   $("feedList").innerHTML=html;
   document.querySelectorAll("#feedList .fcard").forEach(el=> el.onclick=()=>{ feedReaderList=feedOrder.slice(); openReader(el.dataset.id); });
+  const more=$("feedMore"); if(more) more.onclick=()=>{ feedShown+=FEED_PAGE; renderFeedList(); };
 }
 
 // ================= LIBRARY =================
@@ -1501,9 +1506,9 @@ function buildWebNodes(){
 function drawWeb(){ try{
   const cv=$("webCanvas"); if(!cv) return;
   const cssW=cv.clientWidth||$("pageLearn").clientWidth||window.innerWidth, cssH=cv.clientHeight||clamp(window.innerHeight*0.78,360,1000);
-  // cap the canvas backing store so a tall phone screen × DPR can't allocate a huge buffer (OOM)
-  let DPR=Math.min(window.devicePixelRatio||1, 2);
-  const MAXPX=2.4e6; if(cssW*cssH*DPR*DPR>MAXPX) DPR=Math.max(1, Math.sqrt(MAXPX/Math.max(1,cssW*cssH)));
+  // a schematic node graph doesn't need retina; DPR 1 quarters the GPU buffer vs DPR 2 (iOS memory)
+  let DPR=1;
+  const MAXPX=1.6e6; if(cssW*cssH*DPR*DPR>MAXPX) DPR=Math.max(0.75, Math.sqrt(MAXPX/Math.max(1,cssW*cssH)));
   const pw=Math.round(cssW*DPR), ph=Math.round(cssH*DPR);
   if(cv.width!==pw||cv.height!==ph){ cv.width=pw; cv.height=ph; }
   const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
@@ -1709,7 +1714,7 @@ function wireNav(){
   let idx=Math.max(0,ORDER.indexOf(curTab())), tx=0, raf=0;
   const apply=()=> track.style.transform="translateX("+tx+"px)";
   function place(i,animate,ms){ cancelAnimationFrame(raf); idx=clamp(i,0,last); track.style.transition=animate?("transform "+(ms||340)+"ms cubic-bezier(.32,.72,0,1)"):"none"; tx=-idx*W(); apply(); }
-  window.__pageGo=(name)=>{ const i=ORDER.indexOf(name); if(i>=0&&i!==idx) place(i,true); };
+  window.__pageGo=(name)=>{ const i=ORDER.indexOf(name); if(i>=0&&i!==idx) place(i,false); };
   place(idx,false); window.addEventListener("resize",()=>place(idx,false));
   const blocked=el=>{ for(let n=el;n&&n!==document.body;n=n.parentElement){ if(n.matches&&n.matches('input,textarea,select,canvas,.seg,.chips,.tabbar,.sheet,.quizopts,.radarwrap,.progwrap')) return true;
     const ox=getComputedStyle(n).overflowX; if((ox==="auto"||ox==="scroll")&&n.scrollWidth>n.clientWidth+4) return true; } return false; };
