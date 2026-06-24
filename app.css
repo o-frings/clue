@@ -205,6 +205,23 @@
   .profcard .pcav{ width:54px; height:54px; border-radius:50%; flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; color:#fff; background:var(--grad); }
   .profcard .pcname{ font-size:19px; font-weight:700; letter-spacing:-.3px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .profcard .pchint{ font-size:13px; color:var(--l2); margin-top:4px; }
+  /* generated-art badge: clip the SVG to the circle, drop the monogram gradient/padding */
+  .pcav.art{ background:none; padding:0; overflow:hidden; }
+  .pcav.art svg{ width:100%; height:100%; border-radius:50%; }
+
+  /* ===== avatar picker (Profile settings card) ===== */
+  .avedit{ display:flex; gap:14px; align-items:flex-start; margin-top:14px; }
+  .avedit .avpreview .pcav{ width:64px; height:64px; border-radius:50%; flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; color:#fff; background:var(--grad); }
+  .avedit-main{ flex:1; min-width:0; }
+  .avedit-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+  .avedit-top .avlab{ font-size:14px; font-weight:600; color:var(--l2); }
+  .avgrid{ display:grid; grid-template-columns:repeat(6,1fr); gap:7px; }
+  .avgrid .artbtn{ padding:0; border:1.5px solid transparent; border-radius:11px; overflow:hidden; background:none; cursor:pointer; aspect-ratio:1; line-height:0; transition:transform .1s; }
+  .avgrid .artbtn:active{ transform:scale(.92); }
+  .avgrid .artbtn.sel{ border-color:var(--accent); box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .avgrid .artbtn svg{ width:100%; height:100%; border-radius:9px; }
+  .avreset{ margin-top:10px; padding:6px 12px; font-size:13px; font-weight:600; color:var(--l2); background:var(--sep); border:.5px solid var(--line); border-radius:999px; cursor:pointer; }
+  .avreset.on{ color:var(--accent); border-color:var(--accent); }
 
   /* ===== settings disclosure cards ===== */
   .setcard{ background:var(--row); border:.5px solid var(--line); border-radius:14px; margin:0 0 12px; overflow:hidden; }
@@ -388,6 +405,71 @@
   .steelman{ background:var(--accent-soft); border-radius:14px; padding:16px; margin:6px 0 18px; }
   .steelman .smk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--accent); }
   .steelman p{ font-size:15px; color:var(--ink); line-height:1.5; margin-top:8px; }
+
+  /* ----- motion row "Spar" badge ----- */
+  .motionpick .mpspar{ flex:0 0 auto; align-self:center; font-size:11px; font-weight:800; letter-spacing:.2px;
+    color:#e8590c; background:color-mix(in srgb,#e8590c 14%,transparent); padding:3px 8px; border-radius:999px; }
+
+  /* ----- motion hub: choose how to take the motion on ----- */
+  .dbhub{ display:flex; align-items:center; gap:13px; width:100%; text-align:left; cursor:pointer;
+    background:var(--card); border:.5px solid var(--line); border-radius:var(--r-md); padding:15px 16px;
+    margin-bottom:var(--sp-2); box-shadow:var(--shadow); transition:transform .12s, background .15s; font-family:inherit; }
+  .dbhub:active{ transform:scale(.99); }
+  .dbhub.spar{ border-color:color-mix(in srgb,#e8590c 45%,var(--line)); box-shadow:0 12px 30px -16px color-mix(in srgb,#e8590c 60%,transparent); }
+  .dbhubic{ flex:0 0 auto; width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:22px; background:var(--field); }
+  .dbhub.spar .dbhubic{ background:color-mix(in srgb,#e8590c 16%,transparent); }
+  .dbhubmain{ flex:1; min-width:0; }
+  .dbhubt{ font-size:16px; font-weight:750; letter-spacing:-.2px; color:var(--ink); }
+  .dbhubd{ font-size:13px; color:var(--l2); line-height:1.4; margin-top:3px; }
+
+  /* ----- sparring ring ----- */
+  .sparhead{ display:flex; align-items:center; gap:12px; padding:4px 2px 14px; }
+  .sparav{ flex:0 0 auto; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:26px; background:color-mix(in srgb,#e8590c 16%,transparent); border:1px solid color-mix(in srgb,#e8590c 35%,transparent); }
+  .sparname{ font-size:17px; font-weight:800; color:var(--ink); }
+  .sparrole{ font-size:12px; color:var(--l3); margin-top:1px; }
+
+  .sparlog{ display:flex; flex-direction:column; gap:9px; padding:2px 0 4px; }
+  .sparbub{ max-width:86%; padding:11px 14px; border-radius:15px; font-size:14.5px; line-height:1.45; box-shadow:var(--shadow); }
+  .sparbub p{ margin:0; }
+  .sparbub.opp{ align-self:flex-start; background:var(--card); border:.5px solid var(--line); border-bottom-left-radius:5px; color:var(--ink); }
+  .sparbub.opp.intro{ font-style:italic; color:var(--l2); }
+  .sparbub.opp.jab{ background:color-mix(in srgb,var(--red,#e03131) 12%,var(--card)); border-color:color-mix(in srgb,var(--red,#e03131) 35%,var(--line)); }
+  .sparbub.opp.concede{ background:color-mix(in srgb,var(--green) 13%,var(--card)); border-color:color-mix(in srgb,var(--green) 38%,var(--line)); }
+  .sparbub.me{ align-self:flex-end; background:var(--accent-soft); color:var(--ink); border-bottom-right-radius:5px; }
+  .sparbub.me.wrong-pick{ background:var(--field); color:var(--l3); text-decoration:line-through; box-shadow:none; }
+  .sparbub.me.land-pick{ background:color-mix(in srgb,var(--green) 20%,transparent); font-weight:700; }
+  .sparbub.me.land{ background:color-mix(in srgb,var(--green) 14%,var(--card)); border:.5px solid color-mix(in srgb,var(--green) 40%,var(--line));
+    animation:sparpop .28s ease-out; }
+  @keyframes sparpop{ from{ transform:scale(.94); opacity:0; } to{ transform:scale(1); opacity:1; } }
+  .blandchip{ display:inline-flex; align-items:center; gap:5px; margin-top:9px; font-family:inherit; cursor:pointer;
+    font-size:11.5px; font-weight:700; color:var(--green); background:color-mix(in srgb,var(--green) 12%,transparent);
+    border:none; border-radius:999px; padding:4px 9px; }
+  .blandchip svg{ width:12px; height:12px; }
+
+  .sparmovetip{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin:18px 0 9px; }
+  .sparmoves{ display:flex; flex-direction:column; gap:9px; }
+  .sparmove{ width:100%; text-align:left; font-family:inherit; cursor:pointer; font-size:14.5px; font-weight:600; line-height:1.4;
+    color:var(--ink); background:var(--card); border:.5px solid var(--line); border-radius:13px; padding:14px 15px;
+    transition:transform .1s, border-color .15s, background .15s; }
+  .sparmove:active{ transform:scale(.99); }
+  .sparmove:hover{ border-color:var(--accent); background:var(--accent-soft); }
+
+  .sparverdict{ margin-top:18px; background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); padding:20px 18px; box-shadow:var(--shadow); }
+  .sparverdict.flawless{ border-color:#f2a93b; box-shadow:0 14px 36px -18px #f2a93b; }
+  .sparverdict .svk{ font-size:18px; font-weight:800; letter-spacing:-.2px; color:var(--ink); }
+  .sparverdict p{ font-size:14.5px; color:var(--l2); line-height:1.5; margin:9px 0 0; }
+  .svhits{ font-size:12.5px; color:var(--l3); margin-top:8px; }
+  .svtactics{ margin-top:16px; }
+  .svtk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin-bottom:8px; }
+  .svtac{ display:inline-block; margin:0 6px 6px 0; font-family:inherit; cursor:pointer; font-size:13px; font-weight:700;
+    color:var(--accent); background:var(--accent-soft); border:none; border-radius:999px; padding:6px 12px; }
+  .sparbtns{ display:flex; gap:9px; margin-top:18px; }
+  .sparbtn{ flex:1; font-family:inherit; cursor:pointer; font-size:14px; font-weight:700; color:var(--ink);
+    background:var(--field); border:.5px solid var(--line); border-radius:12px; padding:12px; }
+  .sparbtn.primary{ background:var(--accent); color:#fff; border-color:transparent; }
+  .sparbtn:active{ opacity:.8; }
 
   /* ===== radar / charts wrappers ===== */
   .radarwrap{ display:block; padding:4px 2px 8px; }

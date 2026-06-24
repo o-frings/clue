@@ -177,10 +177,18 @@
     <details class="setcard">
       <summary>
         <svg class="scicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
-        <span class="sctitle">Profile<span class="scsub"> — your name</span></span>
+        <span class="sctitle">Profile<span class="scsub"> — your name &amp; avatar</span></span>
       </summary>
       <div class="scbody">
         <div class="merow"><label>Name</label><div class="meinput"><input id="nameIn" type="text" autocapitalize="words" placeholder="—" style="text-align:right;"></div></div>
+        <div class="avedit">
+          <div class="avpreview" id="avPreview"></div>
+          <div class="avedit-main">
+            <div class="avedit-top"><span class="avlab">Avatar</span><button type="button" class="btn plain sm" id="avShuffle">Shuffle</button></div>
+            <div class="avgrid" id="avArt"></div>
+            <button type="button" class="avreset" id="avInitials">Use my initials</button>
+          </div>
+        </div>
       </div>
     </details>
 

@@ -10,6 +10,7 @@
 const $  = (id) => document.getElementById(id);
 const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const BUILD = "v95";   // bumped each deploy; shown in the error banner so we know the running build
@@ -266,7 +267,7 @@ function renderAccount(){
     '<input id="acctEmail" type="email" inputmode="email" autocapitalize="off" autocorrect="off" placeholder="you@email.com" style="margin-top:10px;">'+
     '<button class="btn wide sm" id="acctSend" style="margin-top:10px;">'+(sent?'Resend code':'Email me a code')+'</button>'+
     '<div id="acctCodeRow" style="display:'+(sent?'block':'none')+';margin-top:12px;">'+
-      '<input id="acctCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code">'+
+      '<input id="acctCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="6-digit code">'+
       '<button class="btn tinted wide sm" id="acctVerify" style="margin-top:10px;">Verify & sign in</button>'+
     '</div>';
   const em=$("acctEmail"); if(em && _pendingEmail) em.value=_pendingEmail;
@@ -298,15 +299,18 @@ function learnedIds(){ return Object.keys(progress).filter(id=>byId[id] && progr
 function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).length; }
 
 // ================= topic hierarchy: fields grouped into domains =================
+// Grouped by the canonical division of academic disciplines:
+// formal → natural → social → humanities, plus applied/professional fields.
+// Economics IS a social science, so it sits inside Social sciences (its sub-fields lead the list).
+// Finance and law are professional fields → Applied & professional, which is also where Business goes.
 const FIELD_GROUPS = [
-  { id:'maths',     label:'Mathematics',          icon:'∑',  fields:['math','linalg','prob'] },
-  { id:'reason',    label:'Logic & philosophy',   icon:'⊢',  fields:['logic','philo'] },
-  { id:'computing', label:'Computing & security', icon:'🖥️', fields:['cs','code','ml','cyber'] },
-  { id:'sciences',  label:'Sciences',             icon:'🔬', fields:['physics','bio','eco','systems'] },
-  { id:'econ',      label:'Economics',            icon:'📊', fields:['micro','macro','game','polecon','echist'] },
-  { id:'finance',   label:'Finance',              icon:'💰', fields:['qfin','refin','pubfin'] },
-  { id:'world',     label:'Politics & the world', icon:'🌍', fields:['history','geo','ir','polisci'] },
-  { id:'fun',       label:'Fun & dates',          icon:'✨', fields:['fun'] },
+  { id:'formal',    label:'Formal sciences',       icon:'∑',  fields:['math','linalg','prob','logic'] },
+  { id:'natural',   label:'Natural sciences',      icon:'🔬', fields:['physics','bio','eco','systems'] },
+  { id:'computing', label:'Computer science',      icon:'🖥️', fields:['cs','code','ml','cyber'] },
+  { id:'social',    label:'Social sciences',       icon:'👥', fields:['micro','macro','behavioral','game','deveco','polecon','pubfin','echist','polisci','ir','socio','anthro','psych','geo'] },
+  { id:'humanities',label:'Humanities',            icon:'📜', fields:['philo','history'] },
+  { id:'applied',   label:'Applied & professional',icon:'💼', fields:['qfin','refin','law'] },
+  { id:'fun',       label:'Fun & dates',           icon:'✨', fields:['fun'] },
 ];
 function groupOf(fid){ return FIELD_GROUPS.find(g=>g.fields.includes(fid)) || null; }
 // the domains that have at least one present field, each with its present field objects (group order),
@@ -556,6 +560,9 @@ function checkAchievements(){
 function fieldTag(f){ const fl=fieldById[f]||{label:f,icon:"•",color:"#888"};
   return '<span class="kfieldtag" style="background:'+fl.color+'">'+fl.icon+' '+esc(fl.label)+'</span>'; }
 function depthLabel(d){ return (depthById[d]&&depthById[d].label)||d; }
+// a card's badge label: 'finding' cards (a specific result from a book/paper/report,
+// used as a concrete example of a concept) read as "Finding"; otherwise use the depth label.
+function kindLabel(c){ return c&&c.kind==='finding' ? 'Finding' : depthLabel(c.depth); }
 
 // progressive depth: the Reader peels these open one at a time, starting at the gist.
 // New cards carry an explicit `layers` array; older cards fall back to fact → detail.
@@ -686,7 +693,7 @@ function renderCardPlayer(c, mode){
            </div>`);
   $("lnStage").innerHTML = `
     <div class="cardstage"><div class="kcard">
-      <div class="ktop">${fieldTag(c.field)}<span class="kdepth">${esc(depthLabel(c.depth))}</span><span class="klevel">L${c.level||1}</span></div>
+      <div class="ktop">${fieldTag(c.field)}<span class="kdepth">${esc(kindLabel(c))}</span><span class="klevel">L${c.level||1}</span></div>
       <div class="kfact">${esc(c.fact)}</div>
       ${c.year?('<div class="kyear">'+c.year+'</div>'):''}
       ${back}
@@ -1547,7 +1554,7 @@ function renderLibList(){
   if(!list.length){ $("libList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>No cards match.</p></div>'; return; }
   $("libList").innerHTML=list.map(c=>{ const fl=fieldById[c.field]||{}, st=cardState(c.id);
     const lk = st.cls==='locked' ? lockedBy(c) : [];
-    const meta = lk.length ? ('🔒 builds on '+esc(lk.map(p=>p.title).join(', '))) : (esc(fl.label||'')+' · '+esc(depthLabel(c.depth)));
+    const meta = lk.length ? ('🔒 builds on '+esc(lk.map(p=>p.title).join(', '))) : (esc(fl.label||'')+' · '+esc(kindLabel(c)));
     return '<div class="libcard'+(lk.length?' islocked':'')+'" data-id="'+c.id+'"><span class="lcdot" style="background:'+(fl.color||'#888')+'"></span>'+
       '<div class="lcinfo"><div class="lctitle">'+esc(c.title)+'</div><div class="lcmeta">'+meta+'</div></div>'+
       '<span class="lcstate '+st.cls+'">'+st.txt+'</span></div>'; }).join('');
@@ -1671,22 +1678,58 @@ function openFirstFeedCard(){
 }
 
 // ================= DEBATE =================
-let dbMotion=null, dbSide="for";
+// Three stages off a motion: a hub (null) → either "case" (browse your sourced
+// points by side) or "spar" (a scripted bout against a persona built from the
+// motion's `spar` block). dbBack steps back one stage at a time.
+let dbMotion=null, dbSide="for", dbStage=null, spar=null;
+
 function renderDebate(){
-  if(!dbMotion){
-    $("dbTitle").textContent="Debate"; $("dbSub").textContent="Pick a motion to build your case.";
-    $("dbBack").style.cursor="default";
-    $("dbBody").innerHTML='<div class="ed-label">Motions</div>'+ KN.motions.map(m=>
-      '<div class="motionpick" data-m="'+m.id+'"><span class="mpt">'+esc(m.text)+'</span><span class="mpchev">›</span></div>').join('')
-      + '<div class="foot">Each side is built from the facts in your library. Learn cards in the relevant fields to unlock stronger, sourced points.</div>';
-    document.querySelectorAll("#dbBody .motionpick").forEach(el=> el.onclick=()=>pickMotion(el.dataset.m));
-    return;
-  }
+  if(!dbMotion){ renderMotionList(); return; }
   const m=KN.motions.find(x=>x.id===dbMotion); if(!m){ dbMotion=null; return renderDebate(); }
-  $("dbTitle").textContent="‹ Motions"; $("dbBack").style.cursor="pointer"; $("dbSub").textContent="Tap a point to read the full card.";
-  const pool=KN.cards.filter(c=> (m.fields||[]).includes(c.field) && (c.deploy||c.counter));
-  // learned first, then by level
-  pool.sort((a,b)=> (isLearned(b.id)-isLearned(a.id)) || ((a.level||1)-(b.level||1)));
+  if(dbStage==='spar' && m.spar) return renderSpar(m);
+  if(dbStage==='case') return renderCase(m);
+  return renderMotionHome(m);
+}
+
+function renderMotionList(){
+  $("dbTitle").textContent="Debate"; $("dbSub").textContent="Pick a motion — spar a sceptic or build your case.";
+  $("dbBack").style.cursor="default";
+  $("dbBody").innerHTML='<div class="ed-label">Motions</div>'+ KN.motions.map(m=>
+    '<div class="motionpick" data-m="'+m.id+'"><span class="mpt">'+esc(m.text)+'</span>'+
+    (m.spar?'<span class="mpspar">⚔️ Spar</span>':'')+'<span class="mpchev">›</span></div>').join('')
+    + '<div class="foot">Spar to train the moves; build a case to marshal the facts. Learn cards in the relevant fields to unlock stronger, sourced points.</div>';
+  document.querySelectorAll("#dbBody .motionpick").forEach(el=> el.onclick=()=>pickMotion(el.dataset.m));
+}
+
+// pool of usable cards in a motion's fields (each carries a deploy or counter line)
+function motionPool(m){ return KN.cards.filter(c=> (m.fields||[]).includes(c.field) && (c.deploy||c.counter)); }
+
+function renderMotionHome(m){
+  $("dbTitle").textContent="‹ Motions"; $("dbBack").style.cursor="pointer"; $("dbSub").textContent="Choose how to take it on.";
+  const pool=motionPool(m); const ready=pool.filter(c=>isLearned(c.id)).length;
+  const sparBtn = m.spar ? (function(){ const p=m.spar[Object.keys(m.spar)[0]].persona;
+    return '<button class="dbhub spar" id="dbGoSpar">'+
+      '<div class="dbhubic">'+esc(p.emoji||'⚔️')+'</div>'+
+      '<div class="dbhubmain"><div class="dbhubt">Spar — take on '+esc(p.name)+'</div>'+
+      '<div class="dbhubd">Trade moves in a live bout. Pick the right rebuttal under pressure.</div></div>'+
+      '<span class="mpchev">›</span></button>'; })() : '';
+  $("dbBody").innerHTML=
+    '<div class="motioncard"><div class="mk">Motion</div><div class="mt">'+esc(m.text)+'</div></div>'+
+    sparBtn+
+    '<button class="dbhub" id="dbGoCase">'+
+      '<div class="dbhubic">📋</div>'+
+      '<div class="dbhubmain"><div class="dbhubt">Build your case</div>'+
+      '<div class="dbhubd">Browse your sourced points for and against — '+ready+' of '+pool.length+' unlocked.</div></div>'+
+      '<span class="mpchev">›</span></button>'+
+    (m.spar?'':'<div class="foot">A sparring partner for this motion is coming soon — for now, build your case.</div>');
+  const gs=$("dbGoSpar"); if(gs) gs.onclick=()=>{ startSpar(m); };
+  $("dbGoCase").onclick=()=>{ dbStage='case'; renderDebate(); };
+}
+
+function renderCase(m){
+  $("dbTitle").textContent="‹ "+esc(truncate(m.text,22)); $("dbBack").style.cursor="pointer"; $("dbSub").textContent="Tap a point to read the full card.";
+  const pool=motionPool(m);
+  pool.sort((a,b)=> (isLearned(b.id)-isLearned(a.id)) || ((a.level||1)-(b.level||1)));   // learned first, then by level
   const side=dbSide;
   const items=pool.map(c=>{
     const locked=!isLearned(c.id); const body = side==="for"? c.deploy : c.counter; if(!body) return '';
@@ -1703,19 +1746,128 @@ function renderDebate(){
   document.querySelectorAll("#dbSideSeg .s").forEach(s=> s.onclick=()=>{ dbSide=s.dataset.side; renderDebate(); });
   document.querySelectorAll("#dbBody .argcard").forEach(el=> el.onclick=()=>openCard(el.dataset.id));
 }
-function pickMotion(id){ dbMotion=id; dbSide="for"; renderDebate(); }
+
+function pickMotion(id){ dbMotion=id; dbSide="for"; dbStage=null; spar=null; renderDebate(); }
+
+// ---------- sparring ring ----------
+// spar = { side, round, tried:[[moveIdx,…],…], hits, done }. We re-derive the
+// whole transcript from `tried` each render, so state stays in one small object.
+function startSpar(m){ const side=m.spar.for?'for':Object.keys(m.spar)[0];
+  spar={ side, round:0, tried:[], hits:0, done:false }; dbStage='spar'; renderDebate(); }
+
+// stable per-round shuffle so the right answer isn't always first
+function sparMoveOrder(m,r){ const moves=m.spar[spar.side].rounds[r].moves;
+  return moves.map((mv,i)=>i).sort((a,b)=> (hashStr(dbMotion+'·'+r+'·'+a)%997) - (hashStr(dbMotion+'·'+r+'·'+b)%997)); }
+
+function renderSpar(m){
+  const S=m.spar[spar.side], rounds=S.rounds, p=S.persona;
+  $("dbTitle").textContent="‹ Quit bout"; $("dbBack").style.cursor="pointer";
+  $("dbSub").textContent='Defending: '+truncate(m.text,40);
+  let html='<div class="sparhead"><div class="sparav">'+esc(p.emoji||'⚔️')+'</div>'+
+    '<div><div class="sparname">'+esc(p.name)+'</div><div class="sparrole">Arguing against the motion</div></div></div>';
+  html+='<div class="sparlog">';
+  html+=bubble('opp', esc(p.intro), 'intro');
+  // resolved + current rounds
+  for(let r=0; r<=spar.round && r<rounds.length; r++){
+    const rd=rounds[r]; html+=bubble('opp', esc(rd.attack), 'attack');
+    (spar.tried[r]||[]).forEach(i=>{ const mv=rd.moves[i];
+      html+=bubble('me', esc(mv.label), mv.right?'land-pick':'wrong-pick');
+      if(mv.right){ html+=bubble('me', esc(mv.land), 'land', mv.tactic);
+        html+=bubble('opp', esc(mv.reply), 'concede'); }
+      else html+=bubble('opp', esc(mv.reply), 'jab');
+    });
+  }
+  html+='</div>';
+  // controls
+  if(spar.done){
+    const flawless = spar.hits===0;
+    const used=[]; rounds.forEach(rd=> rd.moves.forEach(mv=>{ if(mv.right && mv.tactic && used.indexOf(mv.tactic)<0) used.push(mv.tactic); }));
+    html+='<div class="sparverdict '+(flawless?'flawless':'')+'">'+
+      '<div class="svk">'+(flawless?'🏆 Flawless':'✅ You held the floor')+'</div>'+
+      '<p>'+esc(S.win)+'</p>'+
+      (spar.hits?('<div class="svhits">Took '+spar.hits+' hit'+(spar.hits>1?'s':'')+' along the way.</div>'):'')+
+      '<div class="svtactics"><div class="svtk">Moves you used — tap to study</div>'+
+      used.map(id=>{ const c=byId[id]; return c?'<button class="svtac" data-id="'+id+'">'+esc(c.title)+'</button>':''; }).join('')+'</div>'+
+      '<div class="sparbtns"><button class="sparbtn primary" id="sparRematch">↻ Rematch</button>'+
+      '<button class="sparbtn" id="sparDone">Back to motion</button></div></div>';
+  } else {
+    const r=spar.round, rd=rounds[r], tried=spar.tried[r]||[];
+    const order=sparMoveOrder(m,r).filter(i=>tried.indexOf(i)<0);
+    html+='<div class="sparmovetip">Your move — pick the strongest answer</div>';
+    html+='<div class="sparmoves">'+order.map(i=>{ const mv=rd.moves[i];
+      return '<button class="sparmove" data-i="'+i+'">'+esc(mv.label)+'</button>'; }).join('')+'</div>';
+  }
+  $("dbBody").innerHTML=html;
+  document.querySelectorAll("#dbBody .sparmove").forEach(b=> b.onclick=()=>sparPick(m, +b.dataset.i));
+  document.querySelectorAll("#dbBody .svtac, #dbBody .blandchip").forEach(b=> b.onclick=()=>openCard(b.dataset.id));
+  const rm=$("sparRematch"); if(rm) rm.onclick=()=>startSpar(m);
+  const dn=$("sparDone"); if(dn) dn.onclick=()=>{ dbStage=null; spar=null; renderDebate(); };
+  const lg=$("dbBody").querySelector('.sparlog'); if(lg) lg.scrollTop=lg.scrollHeight;
+}
+
+// one bubble in the transcript. `tactic` adds a study chip to a landed reply.
+function bubble(who, text, kind, tactic){
+  const chip = tactic && byId[tactic] ? '<button class="blandchip" data-id="'+tactic+'">'+ICON.deploy+esc(byId[tactic].title)+'</button>' : '';
+  return '<div class="sparbub '+who+' '+(kind||'')+'"><p>'+text+'</p>'+chip+'</div>';
+}
+
+function sparPick(m, i){
+  const rd=m.spar[spar.side].rounds[spar.round];
+  spar.tried[spar.round]=spar.tried[spar.round]||[]; spar.tried[spar.round].push(i);
+  const mv=rd.moves[i];
+  if(mv.right){
+    toast('🎯 Landed — '+(byId[mv.tactic]? byId[mv.tactic].title : 'good move'), true);
+    if(spar.round >= m.spar[spar.side].rounds.length-1){ spar.done=true; settings.debatesBuilt=(settings.debatesBuilt||0)+1; persistAll(); checkAchievements(); }
+    else spar.round++;
+  } else { spar.hits++; toast('✋ '+(m.spar[spar.side].persona.name)+' counters'); }
+  renderDebate();
+}
 
 // ================= YOU =================
+// ---- generative abstract avatars (ported from Yalla): a seeded PRNG paints deterministic
+// art — colour blends, diagonal bands, or facets. Same seed → same art, so it's stable. ----
+function _avRng(seed){ let a=hashStr(seed)||1; return function(){ a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function genAvatarSVG(seed){
+  const r=_avRng(seed), rnd=(a,b)=>a+(b-a)*r(), ri=(a,b)=>Math.floor(rnd(a,b+1));
+  const baseHue=ri(0,359), sat=ri(62,86), lig=ri(46,60);
+  const hue=o=>'hsl('+(((baseHue+o)%360+360)%360)+','+sat+'%,'+lig+'%)';
+  const pal=[hue(0),hue(ri(20,55)),hue(ri(-55,-20)),hue(ri(120,210))];
+  const v=ri(0,2); let s='<rect width="100" height="100" fill="'+pal[0]+'"/>';
+  if(v===0){ for(let i=0;i<4;i++) s+='<circle cx="'+ri(8,92)+'" cy="'+ri(8,92)+'" r="'+ri(26,54)+'" fill="'+pal[1+(i%3)]+'" fill-opacity="0.55"/>'; }
+  else if(v===1){ s+='<g transform="rotate('+ri(-42,42)+' 50 50)">'; let x=-40,i=0; while(x<140){ const w=ri(9,24); s+='<rect x="'+x+'" y="-40" width="'+w+'" height="180" fill="'+pal[1+(i%3)]+'" fill-opacity="0.85"/>'; x+=w; i++; } s+='</g>'; }
+  else { for(let i=0;i<5;i++){ const p=[[ri(0,100),ri(0,100)],[ri(0,100),ri(0,100)],[ri(0,100),ri(0,100)]]; s+='<polygon points="'+p.map(q=>q.join(',')).join(' ')+'" fill="'+pal[1+(i%3)]+'" fill-opacity="0.72"/>'; } }
+  return s;
+}
+function avatarArtHTML(seed,size){ return '<svg viewBox="0 0 100 100" width="'+size+'" height="'+size+'" preserveAspectRatio="xMidYMid slice" style="display:block">'+genAvatarSVG(seed)+'</svg>'; }
+// avatar inner markup for the .pcav badge: generated art if one's picked, else the initials monogram
+function avatarBadgeHTML(size){
+  if(settings.avatarIcon) return '<div class="pcav art" style="width:'+size+'px;height:'+size+'px;">'+avatarArtHTML(settings.avatarIcon,size)+'</div>';
+  const initials=(settings.name||'').trim().split(/\s+/).filter(Boolean).map(s=>s[0]).slice(0,2).join('').toUpperCase()||'🙂';
+  return '<div class="pcav">'+esc(initials)+'</div>';
+}
+
+// ---- avatar picker (lives in the Profile settings card): a shuffled grid of generated art + reset ----
+let _avSeeds=[];
+function freshAvSeeds(){ _avSeeds=Array.from({length:12},(_,i)=> hashStr((settings.name||'me')+'·'+i+'·'+(_avSeeds.length?_avSeeds[0]:'')+Math.floor(performance.now())).toString(36)); }
+function renderAvatarPicker(){
+  const prev=$("avPreview"); if(prev) prev.innerHTML=avatarBadgeHTML(64);
+  const ag=$("avArt"); if(!ag) return;
+  const seeds=[]; if(settings.avatarIcon) seeds.push(settings.avatarIcon);
+  _avSeeds.forEach(s=>{ if(seeds.indexOf(s)<0) seeds.push(s); });
+  ag.innerHTML=seeds.slice(0,12).map(s=>'<button type="button" class="artbtn'+(s===settings.avatarIcon?' sel':'')+'" data-s="'+esc(s)+'">'+avatarArtHTML(s,44)+'</button>').join('');
+  ag.querySelectorAll(".artbtn").forEach(b=> b.onclick=()=>{ settings.avatarIcon=b.dataset.s; persistAll(); renderAvatarPicker(); renderMe(); });
+  const ini=$("avInitials"); if(ini) ini.classList.toggle("on", !settings.avatarIcon);
+}
+
 function renderMe(){
   checkDegrees();   // keep the degree snapshot fresh + fire any pending celebration
-  const initials=(settings.name||'').trim().split(/\s+/).filter(Boolean).map(s=>s[0]).slice(0,2).join('').toUpperCase()||'🙂';
   const learned=learnedIds().length, fieldsStarted=new Set(learnedIds().map(id=>byId[id].field)).size;
   const od=overallDegree(), summ=degreeSummary();
   // profile: name + overall academic title (the headline of the page)
   const titleLine = learned
     ? '<span class="petitle">'+esc(od.name)+'</span>'+(summ?' <span class="pchint">· '+esc(summ)+'</span>':'')
     : '<span class="pchint">Your web is empty — pull a thread to begin</span>';
-  $("meProfile").innerHTML='<div class="pcav">'+esc(initials)+'</div><div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint" style="margin-top:5px;">'+titleLine+'</div></div>';
+  $("meProfile").innerHTML=avatarBadgeHTML(54)+'<div style="flex:1;min-width:0;"><div class="pcname">'+(esc(settings.name)||'Set your name')+'</div><div class="pchint" style="margin-top:5px;">'+titleLine+'</div></div>';
   $("meProfile").onclick=()=>{ openSheet("Settings"); };
   // per-field degrees as a readable DOM list. Replaces the canvas radar: it couldn't show 26 fields
   // legibly, and the <canvas> pages were what crashed iOS Safari — DOM is far lighter.
@@ -2086,10 +2238,12 @@ function renderOnboarding(step){
 
 // ================= settings wiring =================
 function wireSettings(){
-  $("openSettings").onclick=()=>{ $("nameIn").value=settings.name||""; renderAccount(); renderAbout(); openSheet("Settings"); };
+  $("openSettings").onclick=()=>{ $("nameIn").value=settings.name||""; if(!_avSeeds.length) freshAvSeeds(); renderAvatarPicker(); renderAccount(); renderAbout(); openSheet("Settings"); };
   $("settingsClose").onclick=()=>{ closeSheet("Settings"); renderMe(); };
   $("scrimSettings").onclick=()=>{ closeSheet("Settings"); renderMe(); };
-  $("nameIn").onchange=()=>{ settings.name=($("nameIn").value||"").trim().slice(0,24); persistAll(); renderMe(); renderFeed(); };
+  $("nameIn").onchange=()=>{ settings.name=($("nameIn").value||"").trim().slice(0,24); persistAll(); renderMe(); renderFeed(); renderAvatarPicker(); };
+  if($("avShuffle")) $("avShuffle").onclick=()=>{ freshAvSeeds(); renderAvatarPicker(); };
+  if($("avInitials")) $("avInitials").onclick=()=>{ settings.avatarIcon=null; persistAll(); renderAvatarPicker(); renderMe(); };
   document.querySelectorAll("#themeSeg .s").forEach(s=> s.onclick=()=>{ settings.theme=s.dataset.theme; applyTheme(); persistAll(); refreshAll(); });
   $("placeBtn").onclick=()=>{ closeSheet("Settings"); startPlacement(); };
   // export / import / reset
@@ -2131,7 +2285,7 @@ function wireNav(){
   $("rdClose").onclick=closeReader; $("rdSave").onclick=toggleSave; $("rdShare").onclick=shareCard;
   $("coachX").onclick=()=> $("coach").classList.remove("show");
   $("lnRestart").onclick=()=>{ if(session && session.phase!=='done'){ if(!confirm("End this session?")) return; } session=null; renderLearn(); };
-  $("dbBack").onclick=()=>{ if(dbMotion){ dbMotion=null; renderDebate(); } };
+  $("dbBack").onclick=()=>{ if(dbStage){ dbStage=null; spar=null; renderDebate(); } else if(dbMotion){ dbMotion=null; renderDebate(); } };
   // objective chips (a soft feed-weighting preference — no targets, no achievements)
   document.querySelectorAll("#objChips .chip").forEach(ch=> ch.onclick=()=>{ settings.objective=ch.dataset.v; persistAll(); renderObjUI(); renderFeed(); });
 }

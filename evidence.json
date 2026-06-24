@@ -3789,6 +3789,1995 @@
       "url": "https://en.wikipedia.org/wiki/Birthday_problem",
       "kind": "reference",
       "strength": "Wikipedia's Birthday problem article supports the 23-person ~50.7% figure (computed 50.73%, complement product 0.4927), the 253 pairs (23*22/2) and 435 pairs (30*29/2), the complement formula, the 99.9% at 70 people (computed 99.92%), and the sqrt(N)/2^(N/2) scaling tied to birthday attacks; Xiaoyun Wang's 2004 MD5 and 2005 SHA-1 collision attacks are a real, documented exploitation of that same scaling and stand as the concrete adversarial counterpart."
+    },
+    "ev-pe-platform-capitalism": {
+      "who": "Nick Srnicek; Shoshana Zuboff; Jean Tirole",
+      "year": 2019,
+      "title": "Platform Capitalism / The Age of Surveillance Capitalism / Nobel lecture on two-sided markets",
+      "where": "Polity Press; PublicAffairs; American Economic Review",
+      "url": "https://www.hup.harvard.edu/books/9780674970847",
+      "kind": "book",
+      "strength": "Srnicek's 2017 taxonomy of five platform types is a widely-cited academic framework; Zuboff's 2019 book is peer-reviewed and the source of 'behavioural futures markets'; Tirole's Nobel-lecture analysis of two-sided markets (2014 prize) is the authoritative economic treatment. Combined coverage of both the political-economy and market-design dimensions is broad."
+    },
+    "ev-pe-varoufakis-technofeudalism": {
+      "who": "Yanis Varoufakis",
+      "year": 2023,
+      "title": "Technofeudalism: What Killed Capitalism",
+      "where": "Bodley Head / Melville House",
+      "url": "https://www.penguinrandomhouse.com/books/741749/technofeudalism-by-yanis-varoufakis/",
+      "kind": "book",
+      "strength": "Single authored book by a professional economist and former finance minister; primary source for all Varoufakis-attributed claims. Cloud capital, cloudalist, vassal capitalist and cloud serf are Varoufakis's own coinage. Commission-rate figures (Apple 30%, Amazon 35%+) are publicly documented in platform terms of service and confirmed in Congressional and EC antitrust hearings."
+    },
+    "ev-pe-thelen-varieties-platform": {
+      "who": "Kathleen Thelen",
+      "year": 2018,
+      "title": "Regulating Uber: The Politics of the Platform Economy in Europe and the United States",
+      "where": "Perspectives on Politics 16(4): 938–953",
+      "url": "https://doi.org/10.1017/S1537592718001081",
+      "kind": "paper",
+      "strength": "Peer-reviewed article in a leading political science journal by MIT political scientist Kathleen Thelen. The VoC framework (deregulation / dualism / embedded flexibility) is from her 2014 Cambridge University Press book 'Varieties of Liberalization'. Uber case studies in US/Europe are documented from regulatory decisions and news sources cited in the article."
+    },
+    "ev-pe-cloud-rent": {
+      "who": "Jean Tirole; Varoufakis; Tobias Adrian & Hyun Song Shin",
+      "year": 2022,
+      "title": "Cloud rent, data portability and digital market regulation",
+      "where": "Multiple: Tirole (2014 Nobel lecture); AWS 2023 10-K SEC filing; Adrian & Shin (2014 BIS paper)",
+      "url": "https://www.bis.org/publ/work456.htm",
+      "kind": "paper",
+      "strength": "AWS operating margin from 2023 annual SEC filing (verified public company disclosure). Tirole's data portability argument from his 2014 Nobel lecture and subsequent regulatory commentary. The three rent categories (access, data, infrastructure) synthesise Varoufakis and Srnicek frameworks."
+    },
+    "ev-cn-sez": {
+      "who": "Joe Studwell; World Bank",
+      "year": 2013,
+      "title": "How Asia Works; Shenzhen Special Economic Zone development record",
+      "where": "Profile Books; World Bank development reports",
+      "url": "https://www.worldbank.org/en/country/china",
+      "kind": "book",
+      "strength": "Studwell's 'How Asia Works' (2013) is the standard treatment of export discipline and SEZ logic; Shenzhen population figures (1979: ~30,000; 2020: 12+ million) are from PRC census data. 1980 SEZ designation and 1984 14-city opening are documented official policy events."
+    },
+    "ev-cn-pboc": {
+      "who": "IMF; US Treasury; Eswar Prasad",
+      "year": 2022,
+      "title": "China's monetary and exchange rate policy",
+      "where": "IMF Article IV consultations; US Treasury currency reports; Prasad 'The Dollar Trap' (2014)",
+      "url": "https://www.imf.org/en/Publications/CR/Issues/2023/02/02/Peoples-Republic-of-China-2022-Article-IV-Consultation-528838",
+      "kind": "report",
+      "strength": "IMF Article IV consultation reports are authoritative public documents on PBoC operations. RMB SDR inclusion in 2015 is documented official IMF decision. US Treasury 'currency manipulator' designations (2019, reversed 2020) are official public records. Reserve figures from SAFE official publications."
+    },
+    "ev-cn-made-in-china-2025": {
+      "who": "State Council of China; Scott Kennedy (CSIS)",
+      "year": 2015,
+      "title": "Made in China 2025 (中国制造2025); CSIS analysis",
+      "where": "State Council document May 2015; CSIS Critical Questions June 2015",
+      "url": "https://www.csis.org/analysis/made-china-2025",
+      "kind": "report",
+      "strength": "Primary source is the official State Council document (authenticated; CSIS and EU Chamber of Commerce translations widely cited). Ten target sectors are explicitly listed in the original document. Section 301 investigation (2017) and CHIPS Act (2022) are official US government actions with public legislative text."
+    },
+    "ev-cn-dual-circulation": {
+      "who": "Xi Jinping; Michael Pettis; Arthur Kroeber",
+      "year": 2020,
+      "title": "Dual circulation strategy; China's Economy (Kroeber)",
+      "where": "Xinhua official announcement May 2020; 14th Five Year Plan; Pettis via Carnegie Endowment",
+      "url": "https://carnegieendowment.org/chinafinancialmarkets",
+      "kind": "report",
+      "strength": "Dual circulation coined by Xi Jinping in official speech (Xinhua, May 14 2020) and formalised in 14th Five-Year Plan (March 2021, official text). China household consumption share ~38% is from World Bank national accounts data. Michael Pettis's argument about suppressed wages/deposit rates is published in Carnegie Endowment working papers."
+    },
+    "ev-cn-financial-repression": {
+      "who": "Ronald McKinnon; Edward Shaw; World Bank; Michael Pettis",
+      "year": 2012,
+      "title": "Money and Capital in Economic Development; World Bank China financial repression estimates",
+      "where": "Brookings Institution Press (McKinnon 1973); World Bank Policy Research Working Paper",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports",
+      "kind": "book",
+      "strength": "McKinnon 'Money and Capital' (1973) and Shaw 'Financial Deepening' (1973) are the original academic sources for the term; both Stanford economists published in the same year. World Bank 4% of GDP subsidy estimate is from official research reports (Lardy and others). US Regulation Q history is documented fact."
+    },
+    "ev-vn-doi-moi": {
+      "who": "World Bank; Vietnam GSO; Adam Fforde and Stefan de Vylder",
+      "year": 2009,
+      "title": "Vietnam: Joining the World; From Plan to Market",
+      "where": "World Bank Vietnam country overview; Westview Press (Fforde & de Vylder)",
+      "url": "https://www.worldbank.org/en/country/vietnam",
+      "kind": "report",
+      "strength": "World Bank lower-middle income reclassification (2009) is an official Bank designation. Vietnam 1986 inflation (700%+) and Khoán 10 (1988) are documented in Vietnamese government and World Bank records. GDP growth average over 7% from 1990–2019 is from World Bank WDI data. Sixth National Congress date (December 1986) is official PVN historical record."
+    },
+    "ev-vn-export-led": {
+      "who": "World Bank; UNCTAD; Dani Rodrik",
+      "year": 2023,
+      "title": "Vietnam manufacturing export data; Rodrik on premature deindustrialisation",
+      "where": "World Bank WDI; UNCTAD trade statistics; Rodrik (2016) Journal of Economic Growth",
+      "url": "https://www.worldbank.org/en/country/vietnam/overview",
+      "kind": "dataset",
+      "strength": "Samsung's ~20% share of Vietnam exports is documented in MoIT Vietnam statistics and Samsung annual reports. Vietnam's second-largest garment/footwear export rank is from WTO trade statistics. Rodrik's 'premature deindustrialisation' concept is from peer-reviewed article in Journal of Economic Growth (2016)."
+    },
+    "ev-vn-monetary": {
+      "who": "State Bank of Vietnam; US Treasury; IMF",
+      "year": 2021,
+      "title": "SBV exchange rate policy; US Treasury currency report December 2020",
+      "where": "SBV official publications; US Treasury semi-annual currency report",
+      "url": "https://sbv.gov.vn/webcenter/portal/en/home",
+      "kind": "report",
+      "strength": "Currency manipulator designation (December 2020) and reversal (April 2021) are official US Treasury actions with public documentation. De-dollarisation programme details (2012 SBV directives) are official regulatory documents. Dollarisation share >30% in 1990s and <10% by 2020 are from SBV official statistics cited in IMF Article IV consultations."
+    },
+    "ev-sg-edb": {
+      "who": "EDB Singapore; Goh Keng Swee; Joe Studwell",
+      "year": 2013,
+      "title": "Economic Development Board history; Singapore industrial policy",
+      "where": "EDB official history; Goh Keng Swee collected writings; Studwell 'How Asia Works'",
+      "url": "https://www.edb.gov.sg/en/about-edb/our-history.html",
+      "kind": "reference",
+      "strength": "EDB founding (1961) and phase-based upgrading strategy are documented in official EDB publications and confirmed in multiple academic studies of Singapore's development (Huff 1994, Low 1998). Goh Keng Swee's rejection of import substitution is from his own published writings. Temasek portfolio companies are public information. Singapore independence date (1965) is a historical fact."
+    },
+    "ev-sg-mas-neer": {
+      "who": "Monetary Authority of Singapore",
+      "year": 2023,
+      "title": "MAS monetary policy framework",
+      "where": "MAS official policy statements; MAS Macroeconomic Review",
+      "url": "https://www.mas.gov.sg/monetary-policy/monetary-policy-framework",
+      "kind": "reference",
+      "strength": "MAS NEER policy framework is directly documented on MAS's own website and in its semi-annual Macroeconomic Review. Three parameters (slope, width, centre) are explicitly described in official MAS communications. MAS founding year 1971 is a historical fact. Average CPI ~2% 1990–2020 is from Singapore DOS official data."
+    },
+    "ev-sg-cpf": {
+      "who": "CPF Board Singapore",
+      "year": 2023,
+      "title": "CPF Annual Report; Singapore housing statistics",
+      "where": "CPF Board official reports; HDB annual report",
+      "url": "https://www.cpf.gov.sg/member/infohub/cpf-statistics",
+      "kind": "reference",
+      "strength": "CPF contribution rates (37% combined under 55) are published on CPF Board's official website. HDB 80% population share and ~90% homeownership rate are from HDB annual report 2022. CPF founding 1955 is historical fact. GIC as long-term reserve manager is documented on GIC and MAS official sites. Counter-cyclical rate cuts (1986, 1998, 2003) are documented in Singapore government budget statements."
+    },
+    "ev-west-volcker-shock": {
+      "who": "Federal Reserve; Paul Volcker",
+      "year": 2018,
+      "title": "Keeping At It: The Quest for Sound Money and Good Government",
+      "where": "PublicAffairs (memoir); Federal Reserve FRED database",
+      "url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+      "kind": "book",
+      "strength": "Federal funds rate peak (~20% June 1981) and unemployment peak (10.8% December 1982) are from Federal Reserve FRED database (official Fed data). Mexico 1982 default is a documented historical event. Volcker's October 1979 reserve-targeting shift is confirmed in Fed historical records. Inflation drop 14.8% (1980) to 3.2% (1983) from Bureau of Labor Statistics CPI data."
+    },
+    "ev-west-inflation-targeting": {
+      "who": "Ben Bernanke; Reserve Bank of New Zealand; Finn Kydland & Edward Prescott",
+      "year": 2012,
+      "title": "Inflation targeting; Rules rather than discretion: The inconsistency of optimal plans",
+      "where": "RBNZ Act 1989; Journal of Political Economy (Kydland & Prescott 1977); Fed 2012 statement",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120125c.htm",
+      "kind": "paper",
+      "strength": "RBNZ adoption of IT in 1990 is documented in the RBNZ Act 1989 and subsequent policy implementation. Kydland-Prescott (1977) is a Nobel Prize-winning paper in Journal of Political Economy. Fed's formal 2% target statement (January 25, 2012) is public record. US/UK 9% inflation in 2022 from official BLS/ONS data."
+    },
+    "ev-west-qe": {
+      "who": "Federal Reserve; Tobias Adrian & Hyun Song Shin",
+      "year": 2014,
+      "title": "Federal Reserve QE programmes; Procyclical Leverage and Endogenous Risk",
+      "where": "Federal Reserve press releases; BIS Working Paper (Adrian & Shin)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/bst_recenttrends.htm",
+      "kind": "report",
+      "strength": "Fed balance sheet figures ($900bn pre-2008, $4.5tn 2015, $9tn 2022) from Federal Reserve H.4.1 statistical releases (official data). QE programme dates from official Fed press releases. '2013 taper tantrum' is documented in Fed FOMC minutes and IMF reports. Adrian & Shin BIS paper is peer-reviewed."
+    },
+    "ev-west-post-covid-indpol": {
+      "who": "Mariana Mazzucato; US Congress; European Commission",
+      "year": 2022,
+      "title": "The Entrepreneurial State; CHIPS and Science Act; Inflation Reduction Act; EU Green Deal Industrial Plan",
+      "where": "Anthem Press (Mazzucato 2013); Public Law 117-167 (CHIPS Act); Public Law 117-169 (IRA); EC COM(2023) 62",
+      "url": "https://www.congress.gov/bill/117th-congress/house-bill/4346",
+      "kind": "report",
+      "strength": "CHIPS Act ($280bn) and IRA ($369bn) are official US legislation with confirmed spending figures from Congressional Budget Office. EU Chips Act (€43bn) is official EC regulation. Mazzucato's DARPA/internet argument is documented in her 2013 book with verifiable primary sources. IRA domestic-content requirements and EU friction are documented in EC and USTR official communications."
+    },
+    "ev-west-indpol-debate": {
+      "who": "Dani Rodrik; Paul Krugman; James Brander; Daron Acemoglu; James Robinson",
+      "year": 2014,
+      "title": "Green Industrial Policy; Strategic Trade Policy and the New International Economics; Why Nations Fail",
+      "where": "Oxford Review of Economic Policy (Rodrik); MIT Press (Krugman ed.); Crown Publishers (Acemoglu & Robinson)",
+      "url": "https://doi.org/10.1093/oxrep/gru023",
+      "kind": "paper",
+      "strength": "Rodrik's 'Green Industrial Policy' article in Oxford Review of Economic Policy (2014) is peer-reviewed and is the source of the market-failure targeting framework. Krugman's strategic trade theory appears in his edited 1986 MIT Press volume. Acemoglu-Robinson critique of developmental state generalisability comes from 'Why Nations Fail' (2012, widely reviewed). Kydland-Prescott knowledge-problem argument is Nobel-winning."
+    },
+    "ev-poli-marxism-ideology": {
+      "who": "Marx and Engels; Karl Popper",
+      "year": 1848,
+      "title": "The Communist Manifesto; The Open Society and Its Enemies",
+      "where": "Communist League (Manifesto); Routledge (Popper, 1945)",
+      "url": "https://www.marxists.org/archive/marx/works/1848/communist-manifesto/",
+      "kind": "book",
+      "strength": "The Communist Manifesto (1848) is a primary source, freely available and multiply verified. The 'executive committee of the bourgeoisie' quote is verbatim from Section I. Popper's 'historicism' critique is from *The Open Society and Its Enemies* Vol. 2, Chapter 13. Bernstein revisionism quote ('The goal is nothing, the movement is everything') is from *Evolutionary Socialism* Ch. 5."
+    },
+    "ev-poli-leninism": {
+      "who": "V.I. Lenin; Rosa Luxemburg",
+      "year": 1902,
+      "title": "What Is to Be Done?; Imperialism, the Highest Stage of Capitalism; The Russian Revolution (Luxemburg)",
+      "where": "Iskra Press (1902); Zhizn i Znanie (1917); Paul Levi (1922, Luxemburg posthumous)",
+      "url": "https://www.marxists.org/archive/lenin/works/1901/witbd/",
+      "kind": "book",
+      "strength": "Primary sources: Lenin's *What Is to Be Done?* (1902) and *Imperialism* (1916) are both available in verified Collected Works editions. Constituent Assembly dissolution (January 1918) is a documented historical event in Soviet records. Luxemburg's *The Russian Revolution* is her posthumously published critique, written 1918."
+    },
+    "ev-poli-stalinism": {
+      "who": "Hannah Arendt; Robert Conquest; Stalin",
+      "year": 1951,
+      "title": "The Origins of Totalitarianism; The Great Terror; History of the Communist Party (Short Course)",
+      "where": "Harcourt Brace (Arendt, 1951); Macmillan (Conquest, 1968); CPSU (1938)",
+      "url": "https://www.penguinrandomhouse.com/books/86475/the-origins-of-totalitarianism-by-hannah-arendt/",
+      "kind": "book",
+      "strength": "Arendt's totalitarianism framework is peer-reviewed and widely taught. Gulag death estimates vary widely in scholarship (1.5–18m range reflects genuine historical uncertainty between Conquest's higher and Getty/Rittersporn lower estimates). Holodomor death estimates (3.5–7m) reflect current Ukrainian government and academic consensus range. The Short Course authorship is established historical fact."
+    },
+    "ev-poli-trotskyism": {
+      "who": "Leon Trotsky; Tony Cliff; Milovan Đilas",
+      "year": 1936,
+      "title": "The Revolution Betrayed; State Capitalism in Russia (Cliff); The New Class (Đilas)",
+      "where": "Doubleday (1937, English tr.); Bookmarks (Cliff); Thames & Hudson (Đilas, 1957)",
+      "url": "https://www.marxists.org/archive/trotsky/1936/revbet/",
+      "kind": "book",
+      "strength": "Trotsky's *The Revolution Betrayed* (1936) is a primary source. The degenerated workers' state / state capitalism / bureaucratic collectivism debate is well-documented in Trotskyist and socialist historiography. Trotsky's assassination (August 1940, Ramón Mercader) is confirmed by Mexican judicial records and subsequent Soviet archive revelations."
+    },
+    "ev-poli-maoism": {
+      "who": "Mao Zedong; Frank Dikötter",
+      "year": 1943,
+      "title": "On the Mass Line; Mao's Great Famine (Dikötter)",
+      "where": "Selected Works of Mao Tse-tung Vol. 3; Bloomsbury (Dikötter, 2010)",
+      "url": "https://www.marxists.org/reference/archive/mao/selected-works/",
+      "kind": "book",
+      "strength": "Mao's 'On the Mass Line' (1943) is from the verified Collected Works. Cultural Revolution death estimates (500k–2m) are from mainstream academic range; Dikötter's Great Leap Forward estimates (45m+) are higher end of scholarly debate. The Sino-Soviet split (1960) is documented in Soviet and Chinese archives now partially open."
+    },
+    "ev-poli-anarchism": {
+      "who": "Peter Kropotkin; Mikhail Bakunin; Emma Goldman",
+      "year": 1902,
+      "title": "Mutual Aid: A Factor of Evolution; God and the State (Bakunin); Living My Life (Goldman)",
+      "where": "Heinemann (Kropotkin, 1902); anarchist press (Bakunin posthumous); Knopf (Goldman, 1931)",
+      "url": "https://www.marxists.org/reference/archive/kropotkin/1902/mutual-aid/",
+      "kind": "book",
+      "strength": "Kropotkin's *Mutual Aid* (1902) is a primary source, freely available. Bakunin's expulsion from the First International (1872) is a documented historical event. The CNT-FAI collectivisation in Catalonia (1936–39) is documented in Spanish Civil War historiography (George Orwell's *Homage to Catalonia*, Gerald Brenan's *The Spanish Labyrinth*)."
+    },
+    "ev-poli-social-democracy-ideology": {
+      "who": "Eduard Bernstein; Rosa Luxemburg; Wolfgang Streeck",
+      "year": 1899,
+      "title": "Evolutionary Socialism; Reform or Revolution; Buying Time",
+      "where": "Swan Sonnenschein (Bernstein, 1909 English tr.); Bookmarks (Luxemburg); Verso (Streeck, 2014)",
+      "url": "https://www.marxists.org/reference/archive/bernstein/works/1899/evsoc/",
+      "kind": "book",
+      "strength": "Bernstein's *Evolutionary Socialism* and Luxemburg's *Reform or Revolution* are primary sources. Clause IV removal (1995) is documented UK Labour Party history. Beveridge Report (1942) and NHS founding (1948) are verified historical events. Streeck's *Buying Time* (2013) is a peer-reviewed political economy work."
+    },
+    "ev-poli-classical-liberalism": {
+      "who": "John Locke; J.S. Mill; Isaiah Berlin; C.B. Macpherson",
+      "year": 1859,
+      "title": "Two Treatises of Government; On Liberty; Two Concepts of Liberty; The Political Theory of Possessive Individualism",
+      "where": "Awnsham Churchill (Locke, 1689); Parker (Mill, 1859); Clarendon Press (Berlin, 1958); Oxford UP (Macpherson, 1962)",
+      "url": "https://www.gutenberg.org/ebooks/17147",
+      "kind": "book",
+      "strength": "All cited texts are canonical primary and secondary sources. Mill's harm principle is verbatim from *On Liberty* Chapter 1. Berlin's negative/positive liberty distinction is from the 1958 Oxford inaugural lecture, published by Clarendon Press. Jefferson's Lockean debt (Declaration of Independence) is historically established."
+    },
+    "ev-poli-conservatism": {
+      "who": "Edmund Burke; Michael Oakeshott; Roger Scruton",
+      "year": 1790,
+      "title": "Reflections on the Revolution in France; Rationalism in Politics; The Meaning of Conservatism",
+      "where": "Dodsley (Burke, 1790); Methuen (Oakeshott, 1962); Palgrave (Scruton, 1980)",
+      "url": "https://www.gutenberg.org/ebooks/15679",
+      "kind": "book",
+      "strength": "Burke's *Reflections* is a primary source (1790); 'partnership between the dead, the living and those yet to be born' is verbatim. Oakeshott's 'disposition' characterisation is from *Rationalism in Politics* Ch. 8. Scruton's 'trust' argument is from *The Meaning of Conservatism* and *How to Be a Conservative* (2014)."
+    },
+    "ev-poli-fascism": {
+      "who": "Roger Griffin; Robert Paxton",
+      "year": 1991,
+      "title": "The Nature of Fascism; The Anatomy of Fascism",
+      "where": "Pinter (Griffin, 1991); Knopf (Paxton, 2004)",
+      "url": "https://www.penguinrandomhouse.com/books/297429/the-anatomy-of-fascism-by-robert-o-paxton/",
+      "kind": "book",
+      "strength": "Griffin's 'palingenetic ultranationalism' definition is from *The Nature of Fascism* (1991), peer-reviewed and now the dominant academic definition. Paxton's *The Anatomy of Fascism* (2004) is the leading historical account. March on Rome (October 1922) appointment by Victor Emmanuel III is a documented historical event. Italian racial laws (1938) are documented official state acts."
+    },
+    "ev-poli-nazism": {
+      "who": "Hannah Arendt; Saul Friedländer; Ian Kershaw",
+      "year": 1951,
+      "title": "The Origins of Totalitarianism; Nazi Germany and the Jews; Hitler (biography)",
+      "where": "Harcourt Brace (Arendt, 1951); HarperCollins (Friedländer, 1997/2007); Allen Lane (Kershaw, 1998/2000)",
+      "url": "https://www.penguinrandomhouse.com/books/86475/the-origins-of-totalitarianism-by-hannah-arendt/",
+      "kind": "book",
+      "strength": "Arendt's totalitarianism analysis and 'banality of evil' concept are from published, peer-reviewed books. Holocaust death toll (~6m Jews, ~5-6m others) is established by Yad Vashem and Holocaust historiography consensus. Article 48 of the Weimar Constitution is a documented historical provision. Friedländer's 'redemptive antisemitism' is from his two-volume Pulitzer Prize-winning history."
+    },
+    "ev-poli-neoliberalism-ideology": {
+      "who": "Friedrich Hayek; Michel Foucault; Quinn Slobodian",
+      "year": 1944,
+      "title": "The Road to Serfdom; Birth of Biopolitics (lectures); Globalists",
+      "where": "Routledge (Hayek, 1944); Seuil/Gallimard (Foucault, lectures 1978-79, pub. 2004); Harvard UP (Slobodian, 2018)",
+      "url": "https://www.hup.harvard.edu/books/9780674233584",
+      "kind": "book",
+      "strength": "Hayek's *Road to Serfdom* (1944) is a primary source. Foucault's *Birth of Biopolitics* lectures (1978–79, published 2004) are the source of the governmental/human-capital analysis. Mont Pelerin Society founding (1947) is documented historical fact. Slobodian's *Globalists* (2018, Harvard UP) is peer-reviewed and widely cited."
+    },
+    "ev-poli-libertarianism": {
+      "who": "Robert Nozick; G.A. Cohen",
+      "year": 1974,
+      "title": "Anarchy, State, and Utopia; Self-Ownership, Freedom and Equality",
+      "where": "Basic Books (Nozick, 1974); Cambridge UP (Cohen, 1995)",
+      "url": "https://www.cambridge.org/us/universitypress/subjects/philosophy/political-philosophy/self-ownership-freedom-and-equality",
+      "kind": "book",
+      "strength": "Nozick's *Anarchy, State, and Utopia* (1974) is the canonical primary text of libertarian philosophy; all attributed claims are from it. G.A. Cohen's *Self-Ownership, Freedom and Equality* (1995) is the standard philosophical rebuttal. Both are peer-reviewed academic publications."
+    },
+    "ev-poli-rousseau": {
+      "who": "Jean-Jacques Rousseau",
+      "year": 1762,
+      "title": "The Social Contract",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/rousseau/",
+      "kind": "book",
+      "strength": "Primary text (Du contrat social, 1762); SEP article surveys secondary literature across political philosophy."
+    },
+    "ev-poli-hegel-state": {
+      "who": "G.W.F. Hegel",
+      "year": 1820,
+      "title": "Elements of the Philosophy of Right",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/hegel-social-political/",
+      "kind": "book",
+      "strength": "Primary text (Grundlinien der Philosophie des Rechts, 1820); SEP survey of Hegel's political philosophy."
+    },
+    "ev-poli-habermas": {
+      "who": "Jürgen Habermas",
+      "year": 1996,
+      "title": "Between Facts and Norms",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/habermas/",
+      "kind": "book",
+      "strength": "Primary text (Faktizität und Geltung, 1992); SEP entry covers deliberative democracy and discourse ethics."
+    },
+    "ev-poli-pettit-republicanism": {
+      "who": "Philip Pettit",
+      "year": 1997,
+      "title": "Republicanism: A Theory of Freedom and Government",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/republicanism/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry on republicanism covers Pettit, Skinner, and the non-domination tradition."
+    },
+    "ev-poli-tocqueville": {
+      "who": "Alexis de Tocqueville",
+      "year": 1835,
+      "title": "Democracy in America",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/tocqueville/",
+      "kind": "book",
+      "strength": "Primary text (De la démocratie en Amérique, 1835–40); SEP entry surveys Tocqueville's political sociology."
+    },
+    "ev-poli-weber-state": {
+      "who": "Max Weber",
+      "year": 1919,
+      "title": "Politics as a Vocation",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/weber/",
+      "kind": "book",
+      "strength": "Primary text (Politik als Beruf, 1919); SEP surveys Weber's sociology of domination and the state."
+    },
+    "ev-poli-tilly": {
+      "who": "Charles Tilly",
+      "year": 1990,
+      "title": "Coercion, Capital, and European States, AD 990–1992",
+      "where": "Wikipedia — Charles Tilly",
+      "url": "https://en.wikipedia.org/wiki/Charles_Tilly",
+      "kind": "book",
+      "strength": "Primary text: systematic comparative history of European state formation; widely cited in comparative politics."
+    },
+    "ev-poli-lipset-rokkan": {
+      "who": "Seymour Martin Lipset and Stein Rokkan",
+      "year": 1967,
+      "title": "Party Systems and Voter Alignments",
+      "where": "Wikipedia — Cleavage (politics)",
+      "url": "https://en.wikipedia.org/wiki/Cleavage_(politics)",
+      "kind": "book",
+      "strength": "Foundational essay in comparative politics; cleavage theory widely taught and tested across party-system studies."
+    },
+    "ev-poli-odonnell-schmitter": {
+      "who": "Guillermo O'Donnell and Philippe Schmitter",
+      "year": 1986,
+      "title": "Transitions from Authoritarian Rule: Tentative Conclusions about Uncertain Democracies",
+      "where": "Wikipedia — Transitions from Authoritarian Rule",
+      "url": "https://en.wikipedia.org/wiki/Transitions_from_Authoritarian_Rule",
+      "kind": "book",
+      "strength": "Canonical text of transitology; shaped all subsequent democratization scholarship."
+    },
+    "ev-poli-linz-presidentialism": {
+      "who": "Juan J. Linz",
+      "year": 1990,
+      "title": "The Perils of Presidentialism",
+      "where": "Wikipedia — The Perils of Presidentialism",
+      "url": "https://en.wikipedia.org/wiki/The_Perils_of_Presidentialism",
+      "kind": "paper",
+      "strength": "Highly cited article in Journal of Democracy; generated a sustained comparative-institutions debate."
+    },
+    "ev-poli-levitsky-ziblatt": {
+      "who": "Steven Levitsky and Daniel Ziblatt",
+      "year": 2018,
+      "title": "How Democracies Die",
+      "where": "Wikipedia — How Democracies Die",
+      "url": "https://en.wikipedia.org/wiki/How_Democracies_Die",
+      "kind": "book",
+      "strength": "Widely reviewed bestseller drawing on systematic comparative analysis of democratic decline."
+    },
+    "ev-poli-mill-methods": {
+      "who": "John Stuart Mill",
+      "year": 1843,
+      "title": "A System of Logic",
+      "where": "Wikipedia — Mill's methods",
+      "url": "https://en.wikipedia.org/wiki/Mill%27s_methods",
+      "kind": "book",
+      "strength": "Primary text (1843); Mill's canons of induction remain the foundational exposition of comparative causal logic."
+    },
+    "ev-poli-process-tracing": {
+      "who": "Andrew Bennett and Jeffrey T. Checkel (eds.)",
+      "year": 2015,
+      "title": "Process Tracing: From Metaphor to Analytic Tool",
+      "where": "Wikipedia — Process tracing",
+      "url": "https://en.wikipedia.org/wiki/Process_tracing",
+      "kind": "book",
+      "strength": "Standard methodological reference for qualitative causal inference in political science."
+    },
+    "ev-poli-gramsci": {
+      "who": "Antonio Gramsci",
+      "year": 1971,
+      "title": "Selections from the Prison Notebooks",
+      "where": "Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/gramsci/",
+      "kind": "book",
+      "strength": "Primary texts (written 1929–35, published posthumously); SEP entry covers hegemony and political philosophy."
+    },
+    "ev-poli-bourdieu-field": {
+      "who": "Pierre Bourdieu",
+      "year": 1991,
+      "title": "Language and Symbolic Power",
+      "where": "Wikipedia — Pierre Bourdieu",
+      "url": "https://en.wikipedia.org/wiki/Pierre_Bourdieu",
+      "kind": "book",
+      "strength": "Primary source for political field theory; Wikipedia entry cross-references La distinction and field theory."
+    },
+    "ev-poli-seat-vote": {
+      "who": "Edward Tufte",
+      "year": 1973,
+      "title": "The Relationship Between Seats and Votes in Two-Party Systems",
+      "where": "Wikipedia — Cube root law of assembly sizes",
+      "url": "https://en.wikipedia.org/wiki/Seat%E2%80%93vote_curve",
+      "kind": "paper",
+      "strength": "Classic empirical finding; disproportionality of FPTP seat-vote curve is well-replicated across democracies."
+    },
+    "ev-poli-cartel-parties": {
+      "who": "Richard Katz and Peter Mair",
+      "year": 1995,
+      "title": "Changing Models of Party Organization and Party Democracy: The Emergence of the Cartel Party",
+      "where": "Wikipedia — Cartel party",
+      "url": "https://en.wikipedia.org/wiki/Cartel_party",
+      "kind": "paper",
+      "strength": "Influential Party Politics article; cartel party concept widely cited in comparative party systems literature."
+    },
+    "ev-poli-lijphart": {
+      "who": "Arend Lijphart",
+      "year": 1977,
+      "title": "Democracy in Plural Societies",
+      "where": "Wikipedia — Consociationalism",
+      "url": "https://en.wikipedia.org/wiki/Consociationalism",
+      "kind": "book",
+      "strength": "Founding text of consociational theory; Lijphart's cross-national comparisons are widely cited."
+    },
+    "ev-poli-state-capacity": {
+      "who": "Francis Fukuyama",
+      "year": 2004,
+      "title": "State-Building: Governance and World Order in the 21st Century",
+      "where": "Wikipedia — State capacity",
+      "url": "https://en.wikipedia.org/wiki/State_capacity",
+      "kind": "book",
+      "strength": "Wikipedia entry synthesises the comparative-politics and development-economics literatures on state capacity."
+    },
+    "ev-poli-path-dependence": {
+      "who": "Paul Pierson",
+      "year": 2004,
+      "title": "Politics in Time: History, Institutions, and Social Analysis",
+      "where": "Wikipedia — Path dependence",
+      "url": "https://en.wikipedia.org/wiki/Path_dependence",
+      "kind": "book",
+      "strength": "Pierson's text is the standard reference for path dependence in political science; Wikipedia entry covers QWERTY and welfare state examples."
+    },
+    "ev-poli-republican-integration": {
+      "who": "Patrick Weil",
+      "year": 2005,
+      "title": "La République et sa diversité",
+      "where": "Wikipedia — French Republican model",
+      "url": "https://en.wikipedia.org/wiki/French_Republican_model",
+      "kind": "book",
+      "strength": "Wikipedia entry summarises the scholarly debate on French republican universalism and its critics."
+    },
+    "ev-philo-frege": {
+      "who": "Gottlob Frege",
+      "year": 1892,
+      "title": "Sense and Reference (Über Sinn und Bedeutung)",
+      "where": "Stanford Encyclopedia of Philosophy — Frege",
+      "url": "https://plato.stanford.edu/entries/frege/",
+      "kind": "paper",
+      "strength": "Primary text; founding paper of analytic philosophy of language."
+    },
+    "ev-philo-russell-descriptions": {
+      "who": "Bertrand Russell",
+      "year": 1905,
+      "title": "On Denoting",
+      "where": "Stanford Encyclopedia of Philosophy — Descriptions",
+      "url": "https://plato.stanford.edu/entries/descriptions/",
+      "kind": "paper",
+      "strength": "Primary text; one of the most discussed papers in 20th-century analytic philosophy."
+    },
+    "ev-philo-wittgenstein-tractatus": {
+      "who": "Ludwig Wittgenstein",
+      "year": 1921,
+      "title": "Tractatus Logico-Philosophicus",
+      "where": "Stanford Encyclopedia of Philosophy — Wittgenstein",
+      "url": "https://plato.stanford.edu/entries/wittgenstein/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry covers both early and late Wittgenstein comprehensively."
+    },
+    "ev-philo-wittgenstein-pi": {
+      "who": "Ludwig Wittgenstein",
+      "year": 1953,
+      "title": "Philosophical Investigations",
+      "where": "Stanford Encyclopedia of Philosophy — Wittgenstein",
+      "url": "https://plato.stanford.edu/entries/wittgenstein/",
+      "kind": "book",
+      "strength": "Primary text; one of the two most influential works in 20th-century analytic philosophy."
+    },
+    "ev-philo-austin": {
+      "who": "J.L. Austin",
+      "year": 1962,
+      "title": "How to Do Things with Words",
+      "where": "Stanford Encyclopedia of Philosophy — Speech Acts",
+      "url": "https://plato.stanford.edu/entries/speech-acts/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry on speech acts covers Austin, Searle, and Grice."
+    },
+    "ev-philo-grice": {
+      "who": "H.P. Grice",
+      "year": 1975,
+      "title": "Logic and Conversation",
+      "where": "Stanford Encyclopedia of Philosophy — Implicature",
+      "url": "https://plato.stanford.edu/entries/implicature/",
+      "kind": "paper",
+      "strength": "Primary text; SEP entry on implicature surveys Gricean pragmatics thoroughly."
+    },
+    "ev-philo-kripke": {
+      "who": "Saul Kripke",
+      "year": 1980,
+      "title": "Naming and Necessity",
+      "where": "Stanford Encyclopedia of Philosophy — Rigid Designators",
+      "url": "https://plato.stanford.edu/entries/rigid-designators/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry on rigid designators covers Kripke's innovations thoroughly."
+    },
+    "ev-philo-kant-ethics": {
+      "who": "Immanuel Kant",
+      "year": 1785,
+      "title": "Groundwork of the Metaphysics of Morals",
+      "where": "Stanford Encyclopedia of Philosophy — Kant's Moral Philosophy",
+      "url": "https://plato.stanford.edu/entries/kant-moral/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry is the standard secondary reference for Kant's ethics."
+    },
+    "ev-philo-mill-ethics": {
+      "who": "John Stuart Mill",
+      "year": 1863,
+      "title": "Utilitarianism",
+      "where": "Stanford Encyclopedia of Philosophy — Mill",
+      "url": "https://plato.stanford.edu/entries/mill/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry covers both the utilitarian theory and harm principle."
+    },
+    "ev-philo-aristotle-ethics": {
+      "who": "Aristotle",
+      "year": -350,
+      "title": "Nicomachean Ethics",
+      "where": "Stanford Encyclopedia of Philosophy — Aristotle's Ethics",
+      "url": "https://plato.stanford.edu/entries/aristotle-ethics/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry is the authoritative secondary source on Aristotelian ethics."
+    },
+    "ev-philo-macintyre": {
+      "who": "Alasdair MacIntyre",
+      "year": 1981,
+      "title": "After Virtue",
+      "where": "Stanford Encyclopedia of Philosophy — Alasdair MacIntyre",
+      "url": "https://plato.stanford.edu/entries/macintyre/",
+      "kind": "book",
+      "strength": "Highly influential neo-Aristotelian critique of modern ethics; SEP entry provides scholarly context."
+    },
+    "ev-philo-scanlon": {
+      "who": "T.M. Scanlon",
+      "year": 1998,
+      "title": "What We Owe to Each Other",
+      "where": "Stanford Encyclopedia of Philosophy — Contractualism",
+      "url": "https://plato.stanford.edu/entries/contractualism/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry on contractualism situates Scanlon against Rawls and Kant."
+    },
+    "ev-philo-singer": {
+      "who": "Peter Singer",
+      "year": 1972,
+      "title": "Famine, Affluence, and Morality",
+      "where": "Stanford Encyclopedia of Philosophy — Peter Singer",
+      "url": "https://plato.stanford.edu/entries/peter-singer/",
+      "kind": "paper",
+      "strength": "Highly cited paper; SEP entry surveys Singer's utilitarian and effective altruism arguments."
+    },
+    "ev-philo-parfit": {
+      "who": "Derek Parfit",
+      "year": 1984,
+      "title": "Reasons and Persons",
+      "where": "Stanford Encyclopedia of Philosophy — Derek Parfit",
+      "url": "https://plato.stanford.edu/entries/parfit/",
+      "kind": "book",
+      "strength": "Major text in analytic ethics; SEP entry covers personal identity and population ethics."
+    },
+    "ev-philo-descartes": {
+      "who": "René Descartes",
+      "year": 1641,
+      "title": "Meditations on First Philosophy",
+      "where": "Stanford Encyclopedia of Philosophy — Descartes",
+      "url": "https://plato.stanford.edu/entries/descartes/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry is the canonical secondary source on Cartesian dualism."
+    },
+    "ev-philo-functionalism": {
+      "who": "Hilary Putnam",
+      "year": 1967,
+      "title": "Psychological Predicates",
+      "where": "Stanford Encyclopedia of Philosophy — Functionalism",
+      "url": "https://plato.stanford.edu/entries/functionalism/",
+      "kind": "paper",
+      "strength": "Founding paper of functionalism; SEP entry surveys the functionalism debate exhaustively."
+    },
+    "ev-philo-searle": {
+      "who": "John Searle",
+      "year": 1980,
+      "title": "Minds, Brains, and Programs",
+      "where": "Stanford Encyclopedia of Philosophy — Chinese Room Argument",
+      "url": "https://plato.stanford.edu/entries/chinese-room/",
+      "kind": "paper",
+      "strength": "Highly cited paper; SEP entry on the Chinese room is comprehensive and presents all major replies."
+    },
+    "ev-philo-chalmers": {
+      "who": "David Chalmers",
+      "year": 1995,
+      "title": "Facing Up to the Problem of Consciousness",
+      "where": "Stanford Encyclopedia of Philosophy — Consciousness",
+      "url": "https://plato.stanford.edu/entries/consciousness/",
+      "kind": "paper",
+      "strength": "Highly cited paper that coined 'the hard problem'; SEP entry surveys the consciousness debate."
+    },
+    "ev-philo-nagel": {
+      "who": "Thomas Nagel",
+      "year": 1974,
+      "title": "What Is It Like to Be a Bat?",
+      "where": "Stanford Encyclopedia of Philosophy — Thomas Nagel",
+      "url": "https://plato.stanford.edu/entries/nagel/",
+      "kind": "paper",
+      "strength": "One of the most-read philosophy papers; SEP entry covers Nagel's philosophy of mind."
+    },
+    "ev-philo-universals": {
+      "who": "David Armstrong",
+      "year": 1978,
+      "title": "Universals and Scientific Realism",
+      "where": "Stanford Encyclopedia of Philosophy — Universals",
+      "url": "https://plato.stanford.edu/entries/universals-medieval/",
+      "kind": "book",
+      "strength": "SEP entries on universals and medieval universals cover realism, nominalism, and conceptualism."
+    },
+    "ev-philo-possible-worlds": {
+      "who": "David Lewis",
+      "year": 1986,
+      "title": "On the Plurality of Worlds",
+      "where": "Stanford Encyclopedia of Philosophy — Possible Worlds",
+      "url": "https://plato.stanford.edu/entries/possible-worlds/",
+      "kind": "book",
+      "strength": "Primary text for modal realism; SEP entry surveys all versions of possible worlds semantics."
+    },
+    "ev-philo-lewis-causation": {
+      "who": "David Lewis",
+      "year": 1973,
+      "title": "Causation",
+      "where": "Stanford Encyclopedia of Philosophy — Counterfactual Theories of Causation",
+      "url": "https://plato.stanford.edu/entries/causation-counterfactual/",
+      "kind": "paper",
+      "strength": "Founding paper of counterfactual causation; SEP entry covers the full debate."
+    },
+    "ev-philo-personal-identity": {
+      "who": "Derek Parfit",
+      "year": 1984,
+      "title": "Reasons and Persons (Part III)",
+      "where": "Stanford Encyclopedia of Philosophy — Personal Identity",
+      "url": "https://plato.stanford.edu/entries/personal-identity/",
+      "kind": "book",
+      "strength": "SEP entry is the best survey of the personal identity debate from Locke through Parfit."
+    },
+    "ev-philo-lakatos": {
+      "who": "Imre Lakatos",
+      "year": 1978,
+      "title": "The Methodology of Scientific Research Programmes",
+      "where": "Stanford Encyclopedia of Philosophy — Lakatos",
+      "url": "https://plato.stanford.edu/entries/lakatos/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry situates Lakatos between Popper and Kuhn."
+    },
+    "ev-philo-feyerabend": {
+      "who": "Paul Feyerabend",
+      "year": 1975,
+      "title": "Against Method",
+      "where": "Stanford Encyclopedia of Philosophy — Feyerabend",
+      "url": "https://plato.stanford.edu/entries/feyerabend/",
+      "kind": "book",
+      "strength": "Primary text; SEP entry covers the epistemological anarchism thesis."
+    },
+    "ev-hist-athenian-democracy": {
+      "who": "Wikipedia",
+      "year": -507,
+      "title": "Athenian democracy",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Athenian_democracy",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis citing ancient sources (Thucydides, Aristotle) and modern classical scholarship."
+    },
+    "ev-hist-persian-wars": {
+      "who": "Wikipedia",
+      "year": -490,
+      "title": "Greco-Persian Wars",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Greco-Persian_Wars",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Herodotus, Thucydides, and modern archaeology."
+    },
+    "ev-hist-roman-republic": {
+      "who": "Wikipedia",
+      "year": -509,
+      "title": "Roman Republic",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Roman_Republic",
+      "kind": "reference",
+      "strength": "Encyclopaedic account citing Polybius, Livy, and modern Roman historians."
+    },
+    "ev-hist-roman-empire": {
+      "who": "Wikipedia",
+      "year": -27,
+      "title": "Roman Empire",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Roman_Empire",
+      "kind": "reference",
+      "strength": "Comprehensive encyclopaedic article on the Imperial period."
+    },
+    "ev-hist-fall-rome": {
+      "who": "Edward Gibbon",
+      "year": 1776,
+      "title": "The History of the Decline and Fall of the Roman Empire",
+      "where": "Wikipedia — Fall of the Western Roman Empire",
+      "url": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire",
+      "kind": "book",
+      "strength": "Wikipedia article synthesises Gibbon and subsequent historiography; the fall of Rome is among the most debated historical events."
+    },
+    "ev-hist-silk-roads": {
+      "who": "Wikipedia",
+      "year": -130,
+      "title": "Silk Road",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Silk_Road",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on archaeological and textual evidence."
+    },
+    "ev-hist-feudalism": {
+      "who": "Wikipedia",
+      "year": 900,
+      "title": "Feudalism",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Feudalism",
+      "kind": "reference",
+      "strength": "Encyclopaedic account synthesising the long historiographical debate over feudalism as a concept."
+    },
+    "ev-hist-islamic-golden-age": {
+      "who": "Wikipedia",
+      "year": 750,
+      "title": "Islamic Golden Age",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Islamic_Golden_Age",
+      "kind": "reference",
+      "strength": "Encyclopaedic article drawing on history of science and Islamic studies literature."
+    },
+    "ev-hist-mongols": {
+      "who": "Wikipedia",
+      "year": 1206,
+      "title": "Mongol Empire",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Mongol_Empire",
+      "kind": "reference",
+      "strength": "Encyclopaedic account citing David Morgan, Timothy May, and other Mongolia scholars."
+    },
+    "ev-hist-hundred-years-war": {
+      "who": "Wikipedia",
+      "year": 1337,
+      "title": "Hundred Years' War",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hundred_Years%27_War",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on medieval chronicles and modern scholarship."
+    },
+    "ev-hist-renaissance": {
+      "who": "Wikipedia",
+      "year": 1300,
+      "title": "Renaissance",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Renaissance",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis of the vast Renaissance historiography."
+    },
+    "ev-hist-reformation": {
+      "who": "Wikipedia",
+      "year": 1517,
+      "title": "Protestant Reformation",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Reformation",
+      "kind": "reference",
+      "strength": "Encyclopaedic article drawing on Luther's primary texts and Reformation historiography."
+    },
+    "ev-hist-scientific-revolution": {
+      "who": "Wikipedia",
+      "year": 1543,
+      "title": "Scientific Revolution",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Scientific_Revolution",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis drawing on Steven Shapin, H. Floris Cohen, and others."
+    },
+    "ev-hist-columbian-exchange": {
+      "who": "Alfred W. Crosby",
+      "year": 1972,
+      "title": "The Columbian Exchange: Biological and Cultural Consequences of 1492",
+      "where": "Wikipedia — Columbian exchange",
+      "url": "https://en.wikipedia.org/wiki/Columbian_exchange",
+      "kind": "book",
+      "strength": "Crosby coined the term; Wikipedia synthesises the demographic and ecological literature."
+    },
+    "ev-hist-slave-trade": {
+      "who": "Wikipedia",
+      "year": 1500,
+      "title": "Atlantic slave trade",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Atlantic_slave_trade",
+      "kind": "reference",
+      "strength": "Encyclopaedic article drawing on the Trans-Atlantic Slave Trade Database and Atlantic history scholarship."
+    },
+    "ev-hist-enlightenment": {
+      "who": "Wikipedia",
+      "year": 1680,
+      "title": "Age of Enlightenment",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Age_of_Enlightenment",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis drawing on Jonathan Israel, Peter Gay, and the Enlightenment historiography."
+    },
+    "ev-hist-american-revolution": {
+      "who": "Wikipedia",
+      "year": 1776,
+      "title": "American Revolution",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/American_Revolution",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Gordon Wood, Bernard Bailyn, and other American Revolution historians."
+    },
+    "ev-hist-haitian-revolution": {
+      "who": "C.L.R. James",
+      "year": 1938,
+      "title": "The Black Jacobins: Toussaint L'Ouverture and the San Domingo Revolution",
+      "where": "Wikipedia — Haitian Revolution",
+      "url": "https://en.wikipedia.org/wiki/Haitian_Revolution",
+      "kind": "book",
+      "strength": "James's primary text is the canonical modern account; Wikipedia synthesises current scholarship."
+    },
+    "ev-hist-napoleon": {
+      "who": "Wikipedia",
+      "year": 1799,
+      "title": "Napoleon",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Napoleon",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Schroeder, Bell, and other Napoleon scholars."
+    },
+    "ev-hist-industrial-revolution": {
+      "who": "Wikipedia",
+      "year": 1760,
+      "title": "Industrial Revolution",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Industrial_Revolution",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis of economic history and industrial revolution scholarship."
+    },
+    "ev-hist-1848": {
+      "who": "Wikipedia",
+      "year": 1848,
+      "title": "Revolutions of 1848",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Revolutions_of_1848",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Hobsbawm, Sperber, and comparative revolution scholarship."
+    },
+    "ev-hist-imperialism": {
+      "who": "Wikipedia",
+      "year": 1870,
+      "title": "New Imperialism",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/New_Imperialism",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis drawing on Hobson, Lenin, Fieldhouse, and the imperialism historiography."
+    },
+    "ev-hist-ww1": {
+      "who": "Wikipedia",
+      "year": 1914,
+      "title": "World War I",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/World_War_I",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Clark, MacMillan, Keegan, and WWI historiography."
+    },
+    "ev-hist-russian-revolution": {
+      "who": "Wikipedia",
+      "year": 1917,
+      "title": "Russian Revolution",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Russian_Revolution",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Pipes, Figes, Fitzpatrick, and Russian Revolution scholarship."
+    },
+    "ev-hist-rise-fascism": {
+      "who": "Robert Paxton",
+      "year": 2004,
+      "title": "The Anatomy of Fascism",
+      "where": "Wikipedia — Fascism",
+      "url": "https://en.wikipedia.org/wiki/Fascism",
+      "kind": "book",
+      "strength": "Paxton's text is widely considered the best analytical account; Wikipedia synthesises the definitional debate."
+    },
+    "ev-hist-ww2": {
+      "who": "Wikipedia",
+      "year": 1939,
+      "title": "World War II",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/World_War_II",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on comprehensive WWII scholarship."
+    },
+    "ev-hist-holocaust": {
+      "who": "Hannah Arendt",
+      "year": 1963,
+      "title": "Eichmann in Jerusalem: A Report on the Banality of Evil",
+      "where": "Wikipedia — The Holocaust",
+      "url": "https://en.wikipedia.org/wiki/The_Holocaust",
+      "kind": "book",
+      "strength": "Arendt's report is a primary intellectual source; Wikipedia provides comprehensive factual context."
+    },
+    "ev-hist-decolonization": {
+      "who": "Wikipedia",
+      "year": 1945,
+      "title": "Decolonization",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Decolonization",
+      "kind": "reference",
+      "strength": "Encyclopaedic synthesis drawing on Fanon, Young, and the postcolonial historiography."
+    },
+    "ev-hist-cold-war": {
+      "who": "Wikipedia",
+      "year": 1947,
+      "title": "Cold War",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cold_War",
+      "kind": "reference",
+      "strength": "Encyclopaedic account drawing on Gaddis, Westad, and Cold War historiography."
+    },
+    "ev-hist-1989": {
+      "who": "Wikipedia",
+      "year": 1989,
+      "title": "Revolutions of 1989",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Revolutions_of_1989",
+      "kind": "reference",
+      "strength": "Encyclopaedic account of the 1989 collapse of communist regimes."
+    },
+    "ev-hist-annales": {
+      "who": "Fernand Braudel",
+      "year": 1949,
+      "title": "The Mediterranean and the Mediterranean World in the Age of Philip II",
+      "where": "Wikipedia — Annales school",
+      "url": "https://en.wikipedia.org/wiki/Annales_school",
+      "kind": "book",
+      "strength": "Wikipedia article on the Annales school synthesises the historiographical tradition."
+    },
+    "ev-micro-consumer-theory": {
+      "who": "Hal Varian",
+      "year": 2014,
+      "title": "Intermediate Microeconomics: A Modern Approach",
+      "where": "Wikipedia — Consumer theory",
+      "url": "https://en.wikipedia.org/wiki/Consumer_theory",
+      "kind": "book",
+      "strength": "Standard MIT/Berkeley undergrad textbook; Wikipedia article covers the foundational models."
+    },
+    "ev-micro-welfare": {
+      "who": "Wikipedia",
+      "year": 1954,
+      "title": "Fundamental theorems of welfare economics",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Fundamental_theorems_of_welfare_economics",
+      "kind": "reference",
+      "strength": "Wikipedia article on the Arrow-Debreu welfare theorems; standard reference."
+    },
+    "ev-micro-coase": {
+      "who": "Ronald Coase",
+      "year": 1960,
+      "title": "The Problem of Social Cost",
+      "where": "Wikipedia — Coase theorem",
+      "url": "https://en.wikipedia.org/wiki/Coase_theorem",
+      "kind": "paper",
+      "strength": "Primary text; among the most cited economics papers. Wikipedia synthesises the debate."
+    },
+    "ev-micro-vickrey": {
+      "who": "William Vickrey",
+      "year": 1961,
+      "title": "Counterspeculation, Auctions, and Competitive Sealed Tenders",
+      "where": "Wikipedia — Vickrey auction",
+      "url": "https://en.wikipedia.org/wiki/Vickrey_auction",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning work; Wikipedia covers the second-price auction and revenue equivalence."
+    },
+    "ev-macro-is-lm": {
+      "who": "Wikipedia",
+      "year": 1937,
+      "title": "IS-LM model",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/IS%E2%80%93LM_model",
+      "kind": "reference",
+      "strength": "Hicks's 1937 formalisation of Keynes; Wikipedia article is the standard reference."
+    },
+    "ev-macro-mundell-fleming": {
+      "who": "Wikipedia",
+      "year": 1963,
+      "title": "Mundell–Fleming model",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Mundell%E2%80%93Fleming_model",
+      "kind": "reference",
+      "strength": "Nobel-prize-winning framework; Wikipedia covers the open-economy IS-LM extension."
+    },
+    "ev-macro-solow-growth": {
+      "who": "Robert Solow",
+      "year": 1956,
+      "title": "A Contribution to the Theory of Economic Growth",
+      "where": "Wikipedia — Solow–Swan model",
+      "url": "https://en.wikipedia.org/wiki/Solow%E2%80%93Swan_model",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning paper; Wikipedia article covers the steady state and golden rule."
+    },
+    "ev-macro-romer": {
+      "who": "Paul Romer",
+      "year": 1990,
+      "title": "Endogenous Technological Change",
+      "where": "Wikipedia — Endogenous growth theory",
+      "url": "https://en.wikipedia.org/wiki/Endogenous_growth_theory",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning work; Wikipedia covers the AK model and non-rivalry of ideas."
+    },
+    "ev-macro-nairu": {
+      "who": "Milton Friedman",
+      "year": 1968,
+      "title": "The Role of Monetary Policy",
+      "where": "Wikipedia — NAIRU",
+      "url": "https://en.wikipedia.org/wiki/NAIRU",
+      "kind": "paper",
+      "strength": "Friedman's 1968 AEA presidential address; foundational for modern monetary policy."
+    },
+    "ev-macro-minsky": {
+      "who": "Hyman Minsky",
+      "year": 1986,
+      "title": "Stabilizing an Unstable Economy",
+      "where": "Wikipedia — Minsky moment",
+      "url": "https://en.wikipedia.org/wiki/Minsky_moment",
+      "kind": "book",
+      "strength": "Primary text; Wikipedia covers the financial instability hypothesis and Minsky moment."
+    },
+    "ev-game-extensive-form": {
+      "who": "Wikipedia",
+      "year": 1953,
+      "title": "Extensive-form game",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Extensive-form_game",
+      "kind": "reference",
+      "strength": "Wikipedia article on game trees, information sets, and extensive-form representation."
+    },
+    "ev-game-spe": {
+      "who": "Reinhard Selten",
+      "year": 1965,
+      "title": "Spieltheoretische Behandlung eines Oligopolmodells",
+      "where": "Wikipedia — Subgame perfect equilibrium",
+      "url": "https://en.wikipedia.org/wiki/Subgame_perfect_equilibrium",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning work; Wikipedia article covers backward induction and SPE."
+    },
+    "ev-game-incomplete-info": {
+      "who": "John Harsanyi",
+      "year": 1967,
+      "title": "Games with Incomplete Information Played by Bayesian Players",
+      "where": "Wikipedia — Bayesian game",
+      "url": "https://en.wikipedia.org/wiki/Bayesian_game",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning work that founded Bayesian game theory."
+    },
+    "ev-game-signaling": {
+      "who": "A. Michael Spence",
+      "year": 1973,
+      "title": "Job Market Signaling",
+      "where": "Wikipedia — Signalling (economics)",
+      "url": "https://en.wikipedia.org/wiki/Signalling_(economics)",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning paper; Wikipedia article covers education signaling and separating equilibria."
+    },
+    "ev-game-nash-bargaining": {
+      "who": "John Nash",
+      "year": 1950,
+      "title": "The Bargaining Problem",
+      "where": "Wikipedia — Nash bargaining solution",
+      "url": "https://en.wikipedia.org/wiki/Nash_bargaining_solution",
+      "kind": "paper",
+      "strength": "Primary text; Wikipedia article covers the axiomatic bargaining solution."
+    },
+    "ev-game-mechanism": {
+      "who": "Wikipedia",
+      "year": 1979,
+      "title": "Mechanism design",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Mechanism_design",
+      "kind": "reference",
+      "strength": "Wikipedia article on revelation principle, VCG, and mechanism design."
+    },
+    "ev-behav-kahneman-tversky": {
+      "who": "Kahneman & Tversky",
+      "year": 1979,
+      "title": "Prospect Theory: An Analysis of Decision Under Risk",
+      "where": "Wikipedia — Prospect theory",
+      "url": "https://en.wikipedia.org/wiki/Prospect_theory",
+      "kind": "paper",
+      "strength": "Nobel-prize-winning paper (Kahneman 2002); Wikipedia article covers the value function and probability weighting."
+    },
+    "ev-behav-nudge": {
+      "who": "Thaler & Sunstein",
+      "year": 2008,
+      "title": "Nudge: Improving Decisions About Health, Wealth, and Happiness",
+      "where": "Wikipedia — Nudge theory",
+      "url": "https://en.wikipedia.org/wiki/Nudge_theory",
+      "kind": "book",
+      "strength": "Thaler won the Nobel in 2017. Wikipedia covers defaults, choice architecture, and libertarian paternalism."
+    },
+    "ev-behav-dual-process": {
+      "who": "Daniel Kahneman",
+      "year": 2011,
+      "title": "Thinking, Fast and Slow",
+      "where": "Wikipedia — Dual process theory",
+      "url": "https://en.wikipedia.org/wiki/Dual_process_theory",
+      "kind": "book",
+      "strength": "Leading popular and scientific synthesis; Wikipedia article covers System 1 and System 2 framework."
+    },
+    "ev-behav-hyperbolic": {
+      "who": "Wikipedia",
+      "year": 1992,
+      "title": "Hyperbolic discounting",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hyperbolic_discounting",
+      "kind": "reference",
+      "strength": "Wikipedia article on present bias, hyperbolic discounting, and time inconsistency."
+    },
+    "ev-behav-anchoring": {
+      "who": "Tversky & Kahneman",
+      "year": 1974,
+      "title": "Judgment under Uncertainty: Heuristics and Biases",
+      "where": "Wikipedia — Anchoring (cognitive bias)",
+      "url": "https://en.wikipedia.org/wiki/Anchoring_(cognitive_bias)",
+      "kind": "paper",
+      "strength": "Foundational paper introducing heuristics and biases research program; Wikipedia covers anchoring and adjustment."
+    },
+    "ev-deveco-institutions": {
+      "who": "Acemoglu & Robinson",
+      "year": 2012,
+      "title": "Why Nations Fail",
+      "where": "Wikipedia — Why Nations Fail",
+      "url": "https://en.wikipedia.org/wiki/Why_Nations_Fail",
+      "kind": "book",
+      "strength": "Bestselling summary of Acemoglu-Robinson's decades of research on inclusive vs extractive institutions and long-run growth."
+    },
+    "ev-deveco-modernisation": {
+      "who": "Wikipedia",
+      "year": 1960,
+      "title": "Modernization theory",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Modernization_theory",
+      "kind": "reference",
+      "strength": "Wikipedia covers Rostow's stages of growth and modernisation theory; standard reference."
+    },
+    "ev-deveco-poverty-traps": {
+      "who": "Wikipedia",
+      "year": 2006,
+      "title": "Poverty trap",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Poverty_trap",
+      "kind": "reference",
+      "strength": "Wikipedia article on poverty traps, big push models, and Sachs's approach."
+    },
+    "ev-deveco-rct": {
+      "who": "Banerjee & Duflo",
+      "year": 2011,
+      "title": "Poor Economics",
+      "where": "Wikipedia — J-PAL",
+      "url": "https://en.wikipedia.org/wiki/Abdul_Latif_Jameel_Poverty_Action_Lab",
+      "kind": "book",
+      "strength": "Banerjee and Duflo won the Nobel in 2019; J-PAL's Wikipedia article covers the RCT approach to development."
+    },
+    "ev-deveco-capabilities": {
+      "who": "Amartya Sen",
+      "year": 1999,
+      "title": "Development as Freedom",
+      "where": "Wikipedia — Capability approach",
+      "url": "https://en.wikipedia.org/wiki/Capability_approach",
+      "kind": "book",
+      "strength": "Sen's Nobel (1998) framework; Wikipedia article covers capabilities, functionings, and human development."
+    },
+    "ev-deveco-dutch-disease": {
+      "who": "Wikipedia",
+      "year": 1977,
+      "title": "Dutch disease",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Dutch_disease",
+      "kind": "reference",
+      "strength": "Wikipedia article on the resource curse / Dutch disease; term coined after Netherlands gas boom."
+    },
+    "ev-deveco-microfinance": {
+      "who": "Wikipedia",
+      "year": 1983,
+      "title": "Microfinance",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Microfinance",
+      "kind": "reference",
+      "strength": "Wikipedia article on microfinance; Grameen Bank and Yunus won Nobel Peace Prize 2006."
+    },
+    "ev-deveco-colonial-legacy": {
+      "who": "Acemoglu, Johnson & Robinson",
+      "year": 2001,
+      "title": "The Colonial Origins of Comparative Development",
+      "where": "Wikipedia — Settler mortality hypothesis",
+      "url": "https://en.wikipedia.org/wiki/Settler_mortality_hypothesis",
+      "kind": "paper",
+      "strength": "Highly cited AER paper using settler mortality as IV for institutions; foundational for colonial legacy literature."
+    },
+    "ev-ir-waltz": {
+      "who": "Kenneth Waltz",
+      "year": 1979,
+      "title": "Theory of International Politics",
+      "where": "Wikipedia — Neorealism (international relations)",
+      "url": "https://en.wikipedia.org/wiki/Neorealism_(international_relations)",
+      "kind": "book",
+      "strength": "The foundational structural realist text; Wikipedia article covers Waltz's anarchy-structure argument."
+    },
+    "ev-ir-keohane": {
+      "who": "Robert Keohane",
+      "year": 1984,
+      "title": "After Hegemony: Cooperation and Discord in the World Political Economy",
+      "where": "Wikipedia — Neoliberal institutionalism",
+      "url": "https://en.wikipedia.org/wiki/Neoliberal_institutionalism",
+      "kind": "book",
+      "strength": "Founding text of neoliberal institutionalism — Wikipedia article covers international regimes and cooperation theory."
+    },
+    "ev-ir-wendt": {
+      "who": "Alexander Wendt",
+      "year": 1999,
+      "title": "Social Theory of International Politics",
+      "where": "Wikipedia — Constructivism (international relations)",
+      "url": "https://en.wikipedia.org/wiki/Constructivism_(international_relations)",
+      "kind": "book",
+      "strength": "The foundational constructivist IR text; Wikipedia article covers norms, identity, and social construction."
+    },
+    "ev-ir-liberal": {
+      "who": "Wikipedia",
+      "year": 1795,
+      "title": "Liberal international relations theory",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Liberal_international_relations_theory",
+      "kind": "reference",
+      "strength": "Wikipedia article covering democratic peace, commercial peace, and institutional liberalism."
+    },
+    "ev-ir-nuclear": {
+      "who": "Wikipedia",
+      "year": 1960,
+      "title": "Nuclear deterrence",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Nuclear_deterrence",
+      "kind": "reference",
+      "strength": "Wikipedia article covering MAD, extended deterrence, and nuclear strategy basics."
+    },
+    "ev-pe-rent-seeking": {
+      "who": "Wikipedia",
+      "year": 1974,
+      "title": "Rent-seeking",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Rent-seeking",
+      "kind": "reference",
+      "strength": "Wikipedia article covering Krueger, Buchanan, and rent-seeking welfare losses."
+    },
+    "ev-pe-median-voter": {
+      "who": "Wikipedia",
+      "year": 1957,
+      "title": "Median voter theorem",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Median_voter_theorem",
+      "kind": "reference",
+      "strength": "Wikipedia article on the Hotelling-Downs median voter theorem."
+    },
+    "ev-pe-political-business-cycle": {
+      "who": "Wikipedia",
+      "year": 1975,
+      "title": "Political business cycle",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Political_business_cycle",
+      "kind": "reference",
+      "strength": "Wikipedia article on Nordhaus's political business cycle model and partisan models."
+    },
+    "ev-pe-varieties-capitalism": {
+      "who": "Peter Hall & David Soskice",
+      "year": 2001,
+      "title": "Varieties of Capitalism: The Institutional Foundations of Comparative Advantage",
+      "where": "Wikipedia — Varieties of capitalism",
+      "url": "https://en.wikipedia.org/wiki/Varieties_of_capitalism",
+      "kind": "book",
+      "strength": "Foundational text; Wikipedia covers LME vs CME distinction and comparative institutional advantage."
+    },
+    "ev-pe-washington-consensus": {
+      "who": "Wikipedia",
+      "year": 1989,
+      "title": "Washington Consensus",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Washington_Consensus",
+      "kind": "reference",
+      "strength": "Wikipedia article on Williamson's 10-point programme and its critics."
+    },
+    "ev-pe-social-contract": {
+      "who": "Wikipedia",
+      "year": 1762,
+      "title": "Social contract",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Social_contract",
+      "kind": "reference",
+      "strength": "Wikipedia article on Hobbes, Locke, Rousseau, and Rawls's contractarian tradition."
+    },
+    "ev-socio-durkheim": {
+      "who": "Émile Durkheim",
+      "year": 1895,
+      "title": "The Rules of Sociological Method",
+      "where": "Wikipedia — Émile Durkheim",
+      "url": "https://en.wikipedia.org/wiki/%C3%89mile_Durkheim",
+      "kind": "book",
+      "strength": "Founding text of scientific sociology; Wikipedia article covers social facts, suicide, and division of labour."
+    },
+    "ev-socio-weber": {
+      "who": "Max Weber",
+      "year": 1922,
+      "title": "Economy and Society",
+      "where": "Wikipedia — Max Weber",
+      "url": "https://en.wikipedia.org/wiki/Max_Weber",
+      "kind": "book",
+      "strength": "Foundational sociological text; Wikipedia covers Weber's ideal types, verstehen, bureaucracy, and rationalization."
+    },
+    "ev-socio-marx": {
+      "who": "Karl Marx",
+      "year": 1867,
+      "title": "Capital, Volume I",
+      "where": "Wikipedia — Marxian class theory",
+      "url": "https://en.wikipedia.org/wiki/Marxian_class_theory",
+      "kind": "book",
+      "strength": "Primary text; Wikipedia covers base/superstructure, class conflict, and surplus value."
+    },
+    "ev-socio-social-capital": {
+      "who": "Robert Putnam",
+      "year": 2000,
+      "title": "Bowling Alone: The Collapse and Revival of American Community",
+      "where": "Wikipedia — Social capital",
+      "url": "https://en.wikipedia.org/wiki/Social_capital",
+      "kind": "book",
+      "strength": "Leading empirical study of social capital decline; Wikipedia article covers Bourdieu, Coleman, and Putnam's frameworks."
+    },
+    "ev-socio-bourdieu": {
+      "who": "Pierre Bourdieu",
+      "year": 1984,
+      "title": "Distinction: A Social Critique of the Judgement of Taste",
+      "where": "Wikipedia — Pierre Bourdieu",
+      "url": "https://en.wikipedia.org/wiki/Pierre_Bourdieu",
+      "kind": "book",
+      "strength": "Most cited sociology text of the 20th century (ISA); Wikipedia covers habitus, field, capital, and distinction."
+    },
+    "ev-socio-stratification": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Social stratification",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Social_stratification",
+      "kind": "reference",
+      "strength": "Wikipedia article on social stratification, class systems, and mobility."
+    },
+    "ev-socio-anomie": {
+      "who": "Émile Durkheim",
+      "year": 1897,
+      "title": "Suicide: A Study in Sociology",
+      "where": "Wikipedia — Anomie",
+      "url": "https://en.wikipedia.org/wiki/Anomie",
+      "kind": "book",
+      "strength": "Foundational empirical sociology; Wikipedia article covers anomie and Merton's strain theory."
+    },
+    "ev-socio-race": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Race (sociology)",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Race_(sociology)",
+      "kind": "reference",
+      "strength": "Wikipedia article on race as social construction, systemic racism, and intersectionality."
+    },
+    "ev-socio-goffman": {
+      "who": "Erving Goffman",
+      "year": 1959,
+      "title": "The Presentation of Self in Everyday Life",
+      "where": "Wikipedia — Erving Goffman",
+      "url": "https://en.wikipedia.org/wiki/Erving_Goffman",
+      "kind": "book",
+      "strength": "Foundational microsociology text; Wikipedia covers dramaturgy, stigma, and interaction order."
+    },
+    "ev-socio-foucault-power": {
+      "who": "Michel Foucault",
+      "year": 1975,
+      "title": "Discipline and Punish",
+      "where": "Wikipedia — Michel Foucault",
+      "url": "https://en.wikipedia.org/wiki/Michel_Foucault",
+      "kind": "book",
+      "strength": "Highly influential; Wikipedia covers Foucault's concepts of power/knowledge, biopolitics, and discourse."
+    },
+    "ev-socio-urbanisation": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Urbanization",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Urbanization",
+      "kind": "reference",
+      "strength": "Wikipedia article on global urbanisation trends, Chicago School, and urban sociology."
+    },
+    "ev-socio-network": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Social network",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Social_network",
+      "kind": "reference",
+      "strength": "Wikipedia covers network theory, ties (Granovetter), and social network analysis."
+    },
+    "ev-socio-intersectionality": {
+      "who": "Kimberlé Crenshaw",
+      "year": 1989,
+      "title": "Demarginalizing the Intersection of Race and Sex",
+      "where": "Wikipedia — Intersectionality",
+      "url": "https://en.wikipedia.org/wiki/Intersectionality",
+      "kind": "paper",
+      "strength": "Primary text; Wikipedia article covers the concept and its development in feminist and critical race theory."
+    },
+    "ev-socio-gender": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Gender role",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Gender_role",
+      "kind": "reference",
+      "strength": "Wikipedia article on gender socialisation, roles, and Butler's performativity."
+    },
+    "ev-anthro-malinowski": {
+      "who": "Bronisław Malinowski",
+      "year": 1922,
+      "title": "Argonauts of the Western Pacific",
+      "where": "Wikipedia — Bronisław Malinowski",
+      "url": "https://en.wikipedia.org/wiki/Bronis%C5%82aw_Malinowski",
+      "kind": "book",
+      "strength": "Foundational ethnography; Wikipedia covers participant observation, the kula ring, and functionalism."
+    },
+    "ev-anthro-boas": {
+      "who": "Franz Boas",
+      "year": 1887,
+      "title": "The Study of Geography",
+      "where": "Wikipedia — Franz Boas",
+      "url": "https://en.wikipedia.org/wiki/Franz_Boas",
+      "kind": "reference",
+      "strength": "Wikipedia article on Boas's historical particularism, cultural relativism, and rejection of scientific racism."
+    },
+    "ev-anthro-levi-strauss": {
+      "who": "Claude Lévi-Strauss",
+      "year": 1955,
+      "title": "Tristes Tropiques",
+      "where": "Wikipedia — Claude Lévi-Strauss",
+      "url": "https://en.wikipedia.org/wiki/Claude_L%C3%A9vi-Strauss",
+      "kind": "book",
+      "strength": "Wikipedia covers structuralism, binary oppositions, myth analysis, and kinship structures."
+    },
+    "ev-anthro-geertz": {
+      "who": "Clifford Geertz",
+      "year": 1973,
+      "title": "The Interpretation of Cultures",
+      "where": "Wikipedia — Clifford Geertz",
+      "url": "https://en.wikipedia.org/wiki/Clifford_Geertz",
+      "kind": "book",
+      "strength": "Foundational interpretive anthropology text; Wikipedia covers thick description and symbolic anthropology."
+    },
+    "ev-anthro-kinship": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Kinship",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Kinship",
+      "kind": "reference",
+      "strength": "Wikipedia article on kinship systems, descent, marriage, and exchange."
+    },
+    "ev-anthro-mauss": {
+      "who": "Marcel Mauss",
+      "year": 1925,
+      "title": "The Gift",
+      "where": "Wikipedia — The Gift (essay)",
+      "url": "https://en.wikipedia.org/wiki/The_Gift_(essay)",
+      "kind": "book",
+      "strength": "Primary text; Wikipedia covers Mauss's theory of gift exchange and reciprocity."
+    },
+    "ev-anthro-sahlins": {
+      "who": "Marshall Sahlins",
+      "year": 1972,
+      "title": "Stone Age Economics",
+      "where": "Wikipedia — Marshall Sahlins",
+      "url": "https://en.wikipedia.org/wiki/Marshall_Sahlins",
+      "kind": "book",
+      "strength": "Wikipedia covers Sahlins's 'original affluent society' thesis and substantivist economics."
+    },
+    "ev-anthro-culture": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Culture",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Culture",
+      "kind": "reference",
+      "strength": "Wikipedia article on culture as a concept in anthropology and social science."
+    },
+    "ev-law-hart": {
+      "who": "H.L.A. Hart",
+      "year": 1961,
+      "title": "The Concept of Law",
+      "where": "Wikipedia — The Concept of Law",
+      "url": "https://en.wikipedia.org/wiki/The_Concept_of_Law",
+      "kind": "book",
+      "strength": "Foundational legal positivism text; Wikipedia covers primary/secondary rules, the rule of recognition, and Hart-Fuller debate."
+    },
+    "ev-law-dworkin": {
+      "who": "Ronald Dworkin",
+      "year": 1977,
+      "title": "Taking Rights Seriously",
+      "where": "Wikipedia — Ronald Dworkin",
+      "url": "https://en.wikipedia.org/wiki/Ronald_Dworkin",
+      "kind": "book",
+      "strength": "Wikipedia covers Dworkin's anti-positivism, rights as trumps, and the one right answer thesis."
+    },
+    "ev-law-natural-law": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Natural law",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Natural_law",
+      "kind": "reference",
+      "strength": "Wikipedia article on natural law theory from Aquinas to Finnis and its relation to positivism."
+    },
+    "ev-law-constitutional": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Constitutional law",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Constitutional_law",
+      "kind": "reference",
+      "strength": "Wikipedia article on constitutional law, judicial review, and fundamental rights."
+    },
+    "ev-law-critical": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Critical legal studies",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Critical_legal_studies",
+      "kind": "reference",
+      "strength": "Wikipedia article on CLS, legal indeterminacy, and the critique of liberal legalism."
+    },
+    "ev-law-habermas": {
+      "who": "Jürgen Habermas",
+      "year": 1996,
+      "title": "Between Facts and Norms",
+      "where": "Wikipedia — Jürgen Habermas",
+      "url": "https://en.wikipedia.org/wiki/J%C3%BCrgen_Habermas",
+      "kind": "book",
+      "strength": "Primary text on deliberative democracy and law; Wikipedia covers discourse ethics and communicative rationality."
+    },
+    "ev-law-rawls": {
+      "who": "John Rawls",
+      "year": 1971,
+      "title": "A Theory of Justice",
+      "where": "Wikipedia — A Theory of Justice",
+      "url": "https://en.wikipedia.org/wiki/A_Theory_of_Justice",
+      "kind": "book",
+      "strength": "The most important political philosophy text of the 20th century; Wikipedia covers veil of ignorance and difference principle."
+    },
+    "ev-psych-freud": {
+      "who": "Sigmund Freud",
+      "year": 1900,
+      "title": "The Interpretation of Dreams",
+      "where": "Wikipedia — Sigmund Freud",
+      "url": "https://en.wikipedia.org/wiki/Sigmund_Freud",
+      "kind": "book",
+      "strength": "Wikipedia article covers psychoanalysis, unconscious, id/ego/superego, and defence mechanisms."
+    },
+    "ev-psych-pavlov": {
+      "who": "Ivan Pavlov",
+      "year": 1904,
+      "title": "Conditioned Reflexes",
+      "where": "Wikipedia — Ivan Pavlov",
+      "url": "https://en.wikipedia.org/wiki/Ivan_Pavlov",
+      "kind": "book",
+      "strength": "Nobel Prize 1904; Wikipedia covers classical conditioning and the conditioned reflex."
+    },
+    "ev-psych-skinner": {
+      "who": "B.F. Skinner",
+      "year": 1938,
+      "title": "The Behavior of Organisms",
+      "where": "Wikipedia — B.F. Skinner",
+      "url": "https://en.wikipedia.org/wiki/B._F._Skinner",
+      "kind": "book",
+      "strength": "Wikipedia covers operant conditioning, reinforcement schedules, and behaviorism."
+    },
+    "ev-psych-attachment": {
+      "who": "John Bowlby",
+      "year": 1969,
+      "title": "Attachment and Loss, Vol. 1",
+      "where": "Wikipedia — Attachment theory",
+      "url": "https://en.wikipedia.org/wiki/Attachment_theory",
+      "kind": "book",
+      "strength": "Wikipedia article on attachment theory, Ainsworth's strange situation, and attachment styles."
+    },
+    "ev-psych-cognitive-revolution": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Cognitive psychology",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_psychology",
+      "kind": "reference",
+      "strength": "Wikipedia article on the cognitive revolution, information processing model, and major contributions."
+    },
+    "ev-psych-social-influence": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Social psychology",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Social_psychology",
+      "kind": "reference",
+      "strength": "Wikipedia article on social psychology — Milgram, Asch, Zimbardo, Festinger."
+    },
+    "ev-psych-milgram": {
+      "who": "Stanley Milgram",
+      "year": 1963,
+      "title": "Behavioral Study of Obedience",
+      "where": "Wikipedia — Milgram experiment",
+      "url": "https://en.wikipedia.org/wiki/Milgram_experiment",
+      "kind": "paper",
+      "strength": "One of the most famous psychology experiments; Wikipedia covers the obedience findings and ethical debate."
+    },
+    "ev-psych-maslow": {
+      "who": "Abraham Maslow",
+      "year": 1943,
+      "title": "A Theory of Human Motivation",
+      "where": "Wikipedia — Maslow's hierarchy of needs",
+      "url": "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs",
+      "kind": "paper",
+      "strength": "Wikipedia article on the hierarchy of needs; widely taught and applied despite empirical limitations."
+    },
+    "ev-psych-big-five": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Big Five personality traits",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Big_Five_personality_traits",
+      "kind": "reference",
+      "strength": "Wikipedia article on OCEAN personality model; the dominant personality framework in academic psychology."
+    },
+    "ev-psych-cognitive-dissonance": {
+      "who": "Leon Festinger",
+      "year": 1957,
+      "title": "A Theory of Cognitive Dissonance",
+      "where": "Wikipedia — Cognitive dissonance",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_dissonance",
+      "kind": "book",
+      "strength": "Primary text; Wikipedia covers the concept and famous demonstrations."
+    },
+    "ev-psych-attribution": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Attribution (psychology)",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Attribution_(psychology)",
+      "kind": "reference",
+      "strength": "Wikipedia article on attribution theory, fundamental attribution error, and actor-observer bias."
+    },
+    "ev-psych-neuroplasticity": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Neuroplasticity",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Neuroplasticity",
+      "kind": "reference",
+      "strength": "Wikipedia article on neuroplasticity, Hebbian learning, and neural development."
+    },
+    "ev-psych-replication": {
+      "who": "Open Science Collaboration",
+      "year": 2015,
+      "title": "Estimating the Reproducibility of Psychological Science",
+      "where": "Wikipedia — Replication crisis",
+      "url": "https://en.wikipedia.org/wiki/Replication_crisis",
+      "kind": "paper",
+      "strength": "Science 2015 replication study; Wikipedia covers the replication crisis across psychology and its causes."
+    },
+    "ev-psych-wellbeing": {
+      "who": "Wikipedia",
+      "year": 2023,
+      "title": "Well-being",
+      "where": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Well-being",
+      "kind": "reference",
+      "strength": "Wikipedia article on subjective wellbeing, Diener, Seligman's PERMA model."
+    },
+    "ev-deveco-good-economics": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Good Economics for Hard Times",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Good_Economics_for_Hard_Times",
+      "kind": "reference",
+      "strength": "Tertiary article on the 2019 book by Nobel laureates Banerjee and Duflo, applying the empirical/RCT method to migration, trade, growth, inequality and climate. The 'sticky' labour-market evidence on immigration (Card's Mariel boatlift study) and the growth-pessimism (Robert Gordon) the card names are real, documented positions."
+    },
+    "ev-find-mariel": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Mariel boatlift",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mariel_boatlift",
+      "kind": "reference",
+      "strength": "Tertiary article documenting the 1980 arrival of ~125,000 Cubans in Miami and David Card's 1990 ILR Review study finding no significant wage hit to low-skilled locals. The George Borjas (2015) re-analysis claiming wage losses — and the Peri-Yasenov rebuttal — that the card names are real, documented positions."
+    },
+    "ev-find-china-shock": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "China shock",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/China_shock",
+      "kind": "reference",
+      "strength": "Tertiary article on Autor, Dorn & Hanson's work (AER 2013, 'The China Syndrome'; 2016 follow-ups) estimating ~1–2.4 million US manufacturing jobs lost to Chinese import competition and the slow, incomplete recovery of hit local labour markets. The automation-vs-trade debate the card names is a real ongoing dispute."
+    },
+    "ev-find-cash-transfers": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "GiveDirectly",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/GiveDirectly",
+      "kind": "reference",
+      "strength": "Tertiary article on the GiveDirectly cash-transfer RCTs (e.g. Haushofer & Shapiro, QJE 2016, Kenya) showing higher assets, consumption and wellbeing with no rise in alcohol/tobacco and no work reduction — the evidence base behind the Banerjee-Hanna-Kreindler-Olken (2017) review debunking the 'lazy welfare recipient' stereotype. The Finland UBI trial caveat the card names is real."
+    },
+    "ev-find-solow-residual": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Solow residual",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Solow_residual",
+      "kind": "reference",
+      "strength": "Tertiary article on Solow's 1957 'Technical Change and the Aggregate Production Function', which found ~7/8 of the growth in US output per man-hour (1909–1949) came from technical change, not capital deepening — the residual now called total factor productivity."
+    },
+    "ev-find-great-contraction": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "A Monetary History of the United States",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/A_Monetary_History_of_the_United_States",
+      "kind": "reference",
+      "strength": "Tertiary article on Friedman & Schwartz (1963), documenting that the US money stock fell about a third between 1929 and 1933 amid ~9,000 bank failures, and their claim that Federal Reserve passivity turned a recession into the Great Depression."
+    },
+    "ev-find-nogales": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Why Nations Fail",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Why_Nations_Fail",
+      "kind": "reference",
+      "strength": "Tertiary article on Acemoglu & Robinson's book, whose opening case contrasts Nogales, Arizona with Nogales, Sonora — one city split by a border, same geography and culture, sharply different incomes — to argue institutions, not geography, drive prosperity."
+    },
+    "ev-find-ltcm": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Long-Term Capital Management",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Long-Term_Capital_Management",
+      "kind": "reference",
+      "strength": "Tertiary article documenting that LTCM — with Nobel laureates Scholes and Merton on its board — used heavy leverage and option-pricing models, lost ~$4.6bn after the 1998 Russian default, and triggered a ~$3.6bn Fed-organised bank bailout. A canonical case of model/tail risk."
+    },
+    "ev-find-pin-factory": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Division of labour",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Division_of_labour",
+      "kind": "reference",
+      "strength": "Tertiary article covering Adam Smith's pin-factory illustration in The Wealth of Nations (1776): one untrained worker could scarcely make one pin a day, but ten workers splitting the job into ~18 operations made about 48,000 pins a day."
+    },
+    "ev-find-top1": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Income inequality in the United States",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Income_inequality_in_the_United_States",
+      "kind": "reference",
+      "strength": "Tertiary article documenting Emmanuel Saez's finding that the top 1% captured about 95% of US income gains in the first years of the post-2008 recovery (2009–2012) — a headline statistic in the inequality debate Stiglitz advances."
+    },
+    "ev-find-lemons": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "The Market for Lemons",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Market_for_Lemons",
+      "kind": "reference",
+      "strength": "Tertiary article noting that Akerlof's 1970 paper — founding the economics of asymmetric information — was rejected by three journals as trivial or wrong before publication in the QJE, then became one of the most-cited economics papers and central to his 2001 Nobel."
+    },
+    "ev-find-calculation": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Economic calculation problem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economic_calculation_problem",
+      "kind": "reference",
+      "strength": "Tertiary article on the Mises–Hayek argument that central planners cannot assemble the dispersed knowledge that market prices aggregate — Soviet Gosplan had to plan and price millions of distinct goods, a task Hayek (1945) argued is informationally impossible."
+    },
+    "ev-find-piketty": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Capital in the Twenty-First Century",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Capital_in_the_Twenty-First_Century",
+      "kind": "reference",
+      "strength": "Tertiary article on Piketty's 2013 book and its central empirical claim — when the return on capital r exceeds the growth rate g, wealth concentrates; built on a long-run dataset showing European wealth-to-income ratios returning toward Belle Époque levels. The Rognlie (housing) and data-error (FT/Giles) critiques the card names are real."
+    },
+    "ev-find-card-krueger": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Minimum wage",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Minimum_wage",
+      "kind": "reference",
+      "strength": "Tertiary article covering Card & Krueger's 1994 New Jersey vs Pennsylvania fast-food natural experiment, which found no employment fall (a slight rise) after a minimum-wage increase, and the subsequent monopsony interpretation. Card shared the 2021 Nobel partly for this work; Neumark & Wascher's contrary payroll-data study is noted."
+    },
+    "ev-find-reinhart-rogoff": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Growth in a Time of Debt",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt",
+      "kind": "reference",
+      "strength": "Tertiary article on Reinhart & Rogoff's 2010 paper claiming growth drops sharply above 90% debt-to-GDP, and Herndon, Ash & Pollin's 2013 replication exposing a spreadsheet error and selective data — a landmark case used in the austerity debate."
+    },
+    "ev-find-kansas": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Kansas experiment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Kansas_experiment",
+      "kind": "reference",
+      "strength": "Tertiary article on Governor Brownback's 2012–2017 Kansas tax cuts, which were predicted to boost growth but produced budget shortfalls and lagging growth, leading the legislature to reverse them — a real-world test of supply-side / Laffer claims."
+    },
+    "ev-find-chetty": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Raj Chetty",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Raj_Chetty",
+      "kind": "reference",
+      "strength": "Tertiary article on Chetty's work using tens of millions of tax records: absolute mobility (children out-earning their parents) fell from ~90% for the 1940 birth cohort to ~50% for the 1980 cohort, and a child's odds of rising vary sharply by neighbourhood."
+    },
+    "ev-find-elephant": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Elephant curve",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Elephant_curve",
+      "kind": "reference",
+      "strength": "Tertiary article on Branko Milanovic & Christoph Lakner's global growth-incidence curve (1988–2008): large gains for the global middle (emerging-Asia) and the global top 1%, near-stagnation for the rich-world lower-middle class. The Resolution Foundation re-analysis the card notes is real."
+    },
+    "ev-find-gatsby": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Great Gatsby Curve",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Great_Gatsby_Curve",
+      "kind": "reference",
+      "strength": "Tertiary article on the cross-country relationship (Corak; popularised by Alan Krueger, 2012) that higher income inequality goes with lower intergenerational mobility."
+    },
+    "ev-find-spirit-level": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "The Spirit Level (book)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Spirit_Level_(book)",
+      "kind": "reference",
+      "strength": "Tertiary article on Wilkinson & Pickett (2009), reporting that more-unequal rich countries score worse on a battery of health and social outcomes. The methodological critiques (Saunders, Snowdon — reverse causation, cherry-picked countries) the card names are real."
+    },
+    "ev-find-blanchard-multiplier": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Fiscal multiplier",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fiscal_multiplier",
+      "kind": "reference",
+      "strength": "Tertiary article covering Blanchard & Leigh's 2013 IMF finding that real fiscal multipliers during the post-2008 austerity were far above the ~0.5 forecasters had assumed (closer to 0.9–1.7), so consolidation cut output by more than predicted."
+    },
+    "ev-find-greek-depression": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Greek government-debt crisis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Greek_government-debt_crisis",
+      "kind": "reference",
+      "strength": "Tertiary article documenting that Greek GDP fell about a quarter from 2008 and unemployment topped 27% (youth >50%) under bailout-imposed austerity — a real-world austerity outcome far worse than the troika's forecasts."
+    },
+    "ev-find-1937": {
+      "who": "Wikipedia contributors",
+      "year": 2024,
+      "title": "Recession of 1937–1938",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Recession_of_1937%E2%80%931938",
+      "kind": "reference",
+      "strength": "Tertiary article on the 'Roosevelt recession': premature 1937 fiscal and monetary tightening, while the US was still recovering from the Depression, sent output and employment sharply back down — the textbook case of tightening too soon."
+    },
+    "ev-rhet-toulmin": {
+      "who": "Wikipedia (Toulmin, The Uses of Argument, 1958)",
+      "year": 1958,
+      "title": "Stephen Toulmin (the Toulmin model)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Stephen_Toulmin",
+      "kind": "reference",
+      "strength": "Standard reference for the claim–grounds–warrant decomposition of an argument."
+    },
+    "ev-rhet-impact-calculus": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Impact calculus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Impact_calculus",
+      "kind": "reference",
+      "strength": "Documents how competitive debate weighs impacts by magnitude, probability and timeframe."
+    },
+    "ev-rhet-graham-disagree": {
+      "who": "Paul Graham",
+      "year": 2008,
+      "title": "How to Disagree",
+      "where": "paulgraham.com",
+      "url": "https://www.paulgraham.com/disagree.html",
+      "kind": "essay",
+      "strength": "Widely-cited hierarchy of disagreement, from name-calling up to refuting the central point."
+    },
+    "ev-rhet-burden": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Burden of proof (philosophy)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Burden_of_proof_(philosophy)",
+      "kind": "reference",
+      "strength": "Standard account of who must establish a claim and the risk of shifting the burden."
+    },
+    "ev-rhet-steelman": {
+      "who": "Wikipedia",
+      "year": 2024,
+      "title": "Principle of charity / steelmanning",
+      "where": "Straw man",
+      "url": "https://en.wikipedia.org/wiki/Straw_man#Steelmanning",
+      "kind": "reference",
+      "strength": "Describes the steelman — answering the strongest version of an opponent's argument."
     }
   }
 }
