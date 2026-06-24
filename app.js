@@ -1750,10 +1750,18 @@ function renderCase(m){
 function pickMotion(id){ dbMotion=id; dbSide="for"; dbStage=null; spar=null; renderDebate(); }
 
 // ---------- sparring ring ----------
-// spar = { side, round, tried:[[moveIdx,…],…], hits, done }. We re-derive the
-// whole transcript from `tried` each render, so state stays in one small object.
+// spar = { side, round, tried:[[moveIdx,…]], rc:[{revealed,tries,done}], hits, done }.
+// Each round has two beats: pick the right MOVE, then (if it carries a `recall`)
+// back it with a remembered fact — typed, with a reveal-to-multiple-choice fallback
+// that costs a hit. We re-derive the whole transcript from this state each render.
 function startSpar(m){ const side=m.spar.for?'for':Object.keys(m.spar)[0];
-  spar={ side, round:0, tried:[], hits:0, done:false }; dbStage='spar'; renderDebate(); }
+  spar={ side, round:0, tried:[], rc:[], hits:0, done:false }; dbStage='spar'; renderDebate(); }
+
+// round helpers
+function rightIdx(rd){ return rd.moves.findIndex(mv=>mv.right); }
+function rightMove(rd){ return rd.moves[rightIdx(rd)]; }
+function pickedRight(r,rd){ return (spar.tried[r]||[]).indexOf(rightIdx(rd))>=0; }
+function rcOf(r){ return spar.rc[r] || (spar.rc[r]={revealed:false,tries:[],done:false}); }
 
 // stable per-round shuffle so the right answer isn't always first
 function sparMoveOrder(m,r){ const moves=m.spar[spar.side].rounds[r].moves;
@@ -1767,7 +1775,7 @@ function renderSpar(m){
     '<div><div class="sparname">'+esc(p.name)+'</div><div class="sparrole">Arguing against the motion</div></div></div>';
   html+='<div class="sparlog">';
   html+=bubble('opp', esc(p.intro), 'intro');
-  // resolved + current rounds
+  // transcript: every round up to and including the current one
   for(let r=0; r<=spar.round && r<rounds.length; r++){
     const rd=rounds[r]; html+=bubble('opp', esc(rd.attack), 'attack');
     (spar.tried[r]||[]).forEach(i=>{ const mv=rd.moves[i];
@@ -1776,30 +1784,55 @@ function renderSpar(m){
         html+=bubble('opp', esc(mv.reply), 'concede'); }
       else html+=bubble('opp', esc(mv.reply), 'jab');
     });
+    // recall beat — only after the right move is on the table
+    if(pickedRight(r,rd)){ const rm=rightMove(rd); if(rm.recall){ const rc=rcOf(r);
+      html+=bubble('opp', esc(rm.recall.demand), 'attack');
+      rc.tries.forEach(t=>{ html+=bubble('me', esc(t.resp), t.ok?'land':'wrong-pick');
+        html+=bubble('opp', esc(t.ok? rm.recall.good : 'Not quite. Again — or reveal the options.'), t.ok?'concede':'jab'); });
+      if(rc.revealed && !rc.done && rm.recall.miss) html+=bubble('opp', esc(rm.recall.miss), 'jab');
+    } }
   }
   html+='</div>';
   // controls
   if(spar.done){
     const flawless = spar.hits===0;
     const used=[]; rounds.forEach(rd=> rd.moves.forEach(mv=>{ if(mv.right && mv.tactic && used.indexOf(mv.tactic)<0) used.push(mv.tactic); }));
+    const cards=[]; rounds.forEach(rd=>{ const rm=rightMove(rd); if(rm.recall && rm.recall.card && byId[rm.recall.card] && cards.indexOf(rm.recall.card)<0) cards.push(rm.recall.card); });
     html+='<div class="sparverdict '+(flawless?'flawless':'')+'">'+
-      '<div class="svk">'+(flawless?'🏆 Flawless':'✅ You held the floor')+'</div>'+
+      '<div class="svk">'+(flawless?'🏆 Flawless — not a hit landed':'✅ You held the floor')+'</div>'+
       '<p>'+esc(S.win)+'</p>'+
-      (spar.hits?('<div class="svhits">Took '+spar.hits+' hit'+(spar.hits>1?'s':'')+' along the way.</div>'):'')+
-      '<div class="svtactics"><div class="svtk">Moves you used — tap to study</div>'+
-      used.map(id=>{ const c=byId[id]; return c?'<button class="svtac" data-id="'+id+'">'+esc(c.title)+'</button>':''; }).join('')+'</div>'+
+      (spar.hits?('<div class="svhits">Took '+spar.hits+' hit'+(spar.hits>1?'s':'')+' — a wrong move or a fact you couldn’t cite.</div>'):'')+
+      '<div class="svtactics"><div class="svtk">Moves &amp; facts in play — tap to study</div>'+
+      used.concat(cards).map(id=>{ const c=byId[id]; return c?'<button class="svtac" data-id="'+id+'">'+esc(c.title)+'</button>':''; }).join('')+'</div>'+
       '<div class="sparbtns"><button class="sparbtn primary" id="sparRematch">↻ Rematch</button>'+
       '<button class="sparbtn" id="sparDone">Back to motion</button></div></div>';
   } else {
-    const r=spar.round, rd=rounds[r], tried=spar.tried[r]||[];
-    const order=sparMoveOrder(m,r).filter(i=>tried.indexOf(i)<0);
-    html+='<div class="sparmovetip">Your move — pick the strongest answer</div>';
-    html+='<div class="sparmoves">'+order.map(i=>{ const mv=rd.moves[i];
-      return '<button class="sparmove" data-i="'+i+'">'+esc(mv.label)+'</button>'; }).join('')+'</div>';
+    const r=spar.round, rd=rounds[r];
+    if(!pickedRight(r,rd)){
+      const tried=spar.tried[r]||[]; const order=sparMoveOrder(m,r).filter(i=>tried.indexOf(i)<0);
+      html+='<div class="sparmovetip">Your move — pick the strongest answer</div>';
+      html+='<div class="sparmoves">'+order.map(i=>{ const mv=rd.moves[i];
+        return '<button class="sparmove" data-i="'+i+'">'+esc(mv.label)+'</button>'; }).join('')+'</div>';
+    } else { const rm=rightMove(rd), rc=rcOf(r); if(rm.recall && !rc.done){
+      html+='<div class="sparrc">';
+      if(!rc.revealed){
+        html+='<div class="sparmovetip">Back it up — cite the fact</div>'+
+          '<div class="quiztype"><input id="rcInput" class="qzin" type="text" inputmode="'+(rm.recall.qz.type==='num'?'decimal':'text')+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type a name, number or date"><button class="btn wide sm qzcheck" id="rcCheck">Cite it</button></div>'+
+          '<button class="rcreveal" id="rcReveal">Forgot? Show options — costs a hit</button>';
+      } else {
+        const triedC=rc.tries.filter(t=>t.choice!=null).map(t=>t.choice);
+        html+='<div class="sparmovetip">Pick the right one</div><div class="quizopts">'+
+          rm.recall.choices.map((ch,ci)=> triedC.indexOf(ci)>=0?'':'<button class="quizopt rcopt" data-c="'+ci+'">'+esc(ch)+'</button>').join('')+'</div>';
+      }
+      html+='</div>';
+    } }
   }
   $("dbBody").innerHTML=html;
   document.querySelectorAll("#dbBody .sparmove").forEach(b=> b.onclick=()=>sparPick(m, +b.dataset.i));
   document.querySelectorAll("#dbBody .svtac, #dbBody .blandchip").forEach(b=> b.onclick=()=>openCard(b.dataset.id));
+  document.querySelectorAll("#dbBody .rcopt").forEach(b=> b.onclick=()=>sparRecallPick(m, +b.dataset.c));
+  const rcI=$("rcInput"), rcC=$("rcCheck"); if(rcI&&rcC){ const go=()=>sparRecallSubmit(m, rcI.value||''); rcC.onclick=go; rcI.onkeydown=(e)=>{ if(e.key==='Enter'){ e.preventDefault(); go(); } }; }
+  const rcR=$("rcReveal"); if(rcR) rcR.onclick=()=>sparReveal(m);
   const rm=$("sparRematch"); if(rm) rm.onclick=()=>startSpar(m);
   const dn=$("sparDone"); if(dn) dn.onclick=()=>{ dbStage=null; spar=null; renderDebate(); };
   const lg=$("dbBody").querySelector('.sparlog'); if(lg) lg.scrollTop=lg.scrollHeight;
@@ -1811,15 +1844,35 @@ function bubble(who, text, kind, tactic){
   return '<div class="sparbub '+who+' '+(kind||'')+'"><p>'+text+'</p>'+chip+'</div>';
 }
 
+// advance past a fully-resolved round (right move landed + any recall answered)
+function resolveRound(m){ const rounds=m.spar[spar.side].rounds;
+  if(spar.round >= rounds.length-1){ spar.done=true; settings.debatesBuilt=(settings.debatesBuilt||0)+1; persistAll(); checkAchievements(); }
+  else spar.round++; }
+
 function sparPick(m, i){
   const rd=m.spar[spar.side].rounds[spar.round];
   spar.tried[spar.round]=spar.tried[spar.round]||[]; spar.tried[spar.round].push(i);
   const mv=rd.moves[i];
-  if(mv.right){
-    toast('🎯 Landed — '+(byId[mv.tactic]? byId[mv.tactic].title : 'good move'), true);
-    if(spar.round >= m.spar[spar.side].rounds.length-1){ spar.done=true; settings.debatesBuilt=(settings.debatesBuilt||0)+1; persistAll(); checkAchievements(); }
-    else spar.round++;
+  if(mv.right){ toast('🎯 Landed — '+(byId[mv.tactic]? byId[mv.tactic].title : 'good move'), true);
+    if(!mv.recall) resolveRound(m);            // no fact to cite → round done
   } else { spar.hits++; toast('✋ '+(m.spar[spar.side].persona.name)+' counters'); }
+  renderDebate();
+}
+
+function sparRecallSubmit(m, resp){ if(!String(resp).trim()) return;
+  const rd=m.spar[spar.side].rounds[spar.round], rm=rightMove(rd), rc=rcOf(spar.round);
+  const ok=gradeQuizAnswer(rm.recall.qz, resp); rc.tries.push({resp:String(resp).trim(), ok:ok});
+  if(ok){ rc.done=true; toast('🧠 Nailed it', true); resolveRound(m); }
+  else { spar.hits++; toast('✋ '+m.spar[spar.side].persona.name+' presses'); }
+  renderDebate();
+}
+function sparReveal(m){ const rc=rcOf(spar.round); if(rc.revealed||rc.done) return;
+  rc.revealed=true; spar.hits++; toast('Options revealed — costs a hit'); renderDebate(); }
+function sparRecallPick(m, ci){
+  const rd=m.spar[spar.side].rounds[spar.round], rm=rightMove(rd), rc=rcOf(spar.round);
+  const ok = ci===rm.recall.correctChoice; rc.tries.push({resp:rm.recall.choices[ci], ok:ok, choice:ci});
+  if(ok){ rc.done=true; toast('🧠 Got it', true); resolveRound(m); }
+  else { spar.hits++; toast('✋ Not that one'); }
   renderDebate();
 }
 

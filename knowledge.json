@@ -46394,7 +46394,30 @@
                   "label": "Turn it — ignorance is the argument FOR democracy",
                   "right": true,
                   "land": "Exactly. No single ignorant voter can capture the system, and across millions the errors wash out. Concentrate power in your ‘experts’ and one captured expert dooms everyone — democracy is the error-correcting design, not the naive one.",
-                  "reply": "…hm. Annoyingly, that lands. Fine."
+                  "reply": "…hm. Annoyingly, that lands. Fine.",
+                  "recall": {
+                    "demand": "Cute theory. Now put a name to it — whose theorem says a big crowd of better-than-even judges is almost certain to be right together? Surname'll do.",
+                    "qz": {
+                      "answer": "Condorcet",
+                      "accept": [
+                        "condorcet",
+                        "marquis de condorcet",
+                        "condorcet jury theorem",
+                        "jury theorem"
+                      ],
+                      "type": "detail"
+                    },
+                    "choices": [
+                      "Condorcet",
+                      "Machiavelli",
+                      "Rousseau",
+                      "Hobbes"
+                    ],
+                    "correctChoice": 0,
+                    "card": "poli-condorcet",
+                    "good": "…Condorcet. The jury theorem. You've actually read something — irritating.",
+                    "miss": "Drawing a blank? Then it's a vibe, not an argument. It's Condorcet — learn the card and come back for me."
+                  }
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -46418,7 +46441,25 @@
                   "label": "Weigh it — judge the system by its downside, not its best day",
                   "right": true,
                   "land": "One survivor doesn't beat the graveyard. For every Singapore there's a Mao or a Mugabe — high variance, and no exit. Democracy's worst case is a bad term you vote out; autocracy's worst case is irreversible. On probability and reversibility, mine wins.",
-                  "reply": "Tch. Citing the variance and the exit option… that's a real weighing. Point taken."
+                  "reply": "Tch. Citing the variance and the exit option… that's a real weighing. Point taken.",
+                  "recall": {
+                    "demand": "The ‘graveyard’, you say. Then name its worst grave by the numbers — roughly how many died in Mao's Great Leap famine? In millions.",
+                    "qz": {
+                      "answer": 30,
+                      "type": "num",
+                      "tol": 18
+                    },
+                    "choices": [
+                      "About 30 million",
+                      "About 3 million",
+                      "About 300,000",
+                      "About half a million"
+                    ],
+                    "correctChoice": 0,
+                    "card": "date-prc-1949",
+                    "good": "~Thirty million. One man, no brakes, no vote to remove him. …That is the whole point about irreversibility, isn't it.",
+                    "miss": "If you don't know the scale, you don't feel the weight of your own argument. Tens of millions — about thirty. Learn it."
+                  }
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -46442,7 +46483,28 @@
                   "label": "Steelman it, then reframe — ‘best’ isn't ‘perfect’",
                   "right": true,
                   "land": "Granted — at its worst, democracy elects a demagogue, and I'll state that as strongly as you would. But the motion is ‘best system’, and that burden is comparative. Every system makes bad calls; only one lets you reverse them without bloodshed. Best doesn't mean flawless — it means correctable.",
-                  "reply": "…Stating my point better than I did and then turning it on the burden. That's the whole game, isn't it. You held the floor."
+                  "reply": "…Stating my point better than I did and then turning it on the burden. That's the whole game, isn't it. You held the floor.",
+                  "recall": {
+                    "demand": "‘Best, not perfect’ — you lifted that. Which statesman called democracy ‘the worst form of government except for all the others’? Name him.",
+                    "qz": {
+                      "answer": "Churchill",
+                      "accept": [
+                        "churchill",
+                        "winston churchill",
+                        "sir winston churchill"
+                      ],
+                      "type": "detail"
+                    },
+                    "choices": [
+                      "Churchill",
+                      "Orwell",
+                      "Lincoln",
+                      "de Tocqueville"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Churchill — the Commons, 1947. You came armed. Fine. You've earned the floor.",
+                    "miss": "Quoting a line you can't attribute is how you lose the room. It was Churchill. Go and learn it."
+                  }
                 },
                 {
                   "tactic": "rhet-burden",

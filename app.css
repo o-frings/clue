@@ -471,6 +471,14 @@
   .sparbtn.primary{ background:var(--accent); color:#fff; border-color:transparent; }
   .sparbtn:active{ opacity:.8; }
 
+  /* recall beat: cite the fact (typed, with reveal-to-choices fallback) */
+  .sparrc{ margin-top:14px; padding:14px; background:var(--accent-soft); border-radius:14px; }
+  .sparrc .sparmovetip{ margin:0 0 10px; }
+  .sparrc .qzin{ background:var(--card); }
+  .rcreveal{ display:block; width:100%; margin-top:10px; font-family:inherit; cursor:pointer; font-size:13px; font-weight:600;
+    color:var(--l2); background:none; border:none; text-decoration:underline; text-underline-offset:3px; }
+  .rcreveal:active{ opacity:.6; }
+
   /* ===== radar / charts wrappers ===== */
   .radarwrap{ display:block; padding:4px 2px 8px; }
   .radarwrap canvas{ width:260px; height:260px; }
