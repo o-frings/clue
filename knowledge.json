@@ -13089,7 +13089,8 @@
       ],
       "xref": [
         "stat-clt",
-        "stat-hypothesis"
+        "stat-hypothesis",
+        "ml-overfitting"
       ],
       "quiz": [
         {
@@ -13470,7 +13471,8 @@
       ],
       "xref": [
         "ml-linear-regression",
-        "ml-loss"
+        "ml-loss",
+        "stat-regression"
       ],
       "quiz": [
         {
@@ -13582,7 +13584,8 @@
       "xref": [
         "stat-ols",
         "ml-loss",
-        "la-dot-product"
+        "la-dot-product",
+        "stat-regression"
       ],
       "quiz": [
         {
@@ -13676,7 +13679,8 @@
       ],
       "xref": [
         "ml-gradient-descent",
-        "math-quadratic"
+        "math-quadratic",
+        "stat-ols"
       ],
       "quiz": [
         {
@@ -13788,7 +13792,8 @@
       ],
       "xref": [
         "math-gradient",
-        "ml-backprop"
+        "ml-backprop",
+        "stat-ols"
       ],
       "quiz": [
         {
@@ -13880,7 +13885,8 @@
       ],
       "xref": [
         "ml-perceptron",
-        "ml-softmax-crossentropy"
+        "ml-softmax-crossentropy",
+        "stat-regression"
       ],
       "quiz": [
         {
@@ -14258,7 +14264,8 @@
       ],
       "xref": [
         "ml-attention",
-        "math-log"
+        "math-log",
+        "prob-distributions"
       ],
       "quiz": [
         {
@@ -14358,7 +14365,8 @@
       ],
       "xref": [
         "ml-loss",
-        "stat-sampling"
+        "stat-sampling",
+        "prob-variance"
       ],
       "quiz": [
         {

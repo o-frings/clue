@@ -298,34 +298,77 @@ function dueCards(){ return Object.keys(progress).filter(id=>byId[id] && progres
 function learnedIds(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].learned); }
 function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).length; }
 
-// ================= topic hierarchy: fields grouped into domains =================
-// Grouped by the canonical division of academic disciplines:
-// formal → natural → social → humanities, plus applied/professional fields.
-// Economics IS a social science, so it sits inside Social sciences (its sub-fields lead the list).
-// Finance and law are professional fields → Applied & professional, which is also where Business goes.
-const FIELD_GROUPS = [
-  { id:'formal',    label:'Formal sciences',       icon:'∑',  fields:['math','linalg','prob','logic'] },
-  { id:'natural',   label:'Natural sciences',      icon:'🔬', fields:['physics','bio','eco','systems'] },
-  { id:'computing', label:'Computer science',      icon:'🖥️', fields:['cs','code','ml','cyber'] },
-  { id:'social',    label:'Social sciences',       icon:'👥', fields:['micro','macro','behavioral','game','deveco','polecon','pubfin','echist','polisci','ir','socio','anthro','psych','geo'] },
-  { id:'humanities',label:'Humanities',            icon:'📜', fields:['philo','history'] },
-  { id:'applied',   label:'Applied & professional',icon:'💼', fields:['qfin','refin','law'] },
-  { id:'fun',       label:'Fun & dates',           icon:'✨', fields:['fun'] },
+// ================= academic hierarchy: division → discipline → field =================
+// Canonical division of disciplines. Economics is a social science, so its eight sub-fields
+// live under the Economics discipline; finance & law are professional fields. A discipline with
+// a single field is shown as that field directly (no redundant middle layer).
+const TAXONOMY = [
+  { id:'formal', label:'Formal sciences', icon:'∑', disciplines:[
+    { id:'math',    label:'Mathematics',      icon:'∑',  fields:['math','linalg'] },
+    { id:'stats',   label:'Statistics',       icon:'📊', fields:['prob'] },
+    { id:'logic',   label:'Logic',            icon:'⊢',  fields:['logic'] },
+  ]},
+  { id:'natural', label:'Natural sciences', icon:'🔬', disciplines:[
+    { id:'physics', label:'Physics',          icon:'⚛️', fields:['physics'] },
+    { id:'biology', label:'Biology',          icon:'🧬', fields:['bio'] },
+    { id:'ecology', label:'Ecology',          icon:'🌿', fields:['eco'] },
+    { id:'systems', label:'Systems science',  icon:'🕸️', fields:['systems'] },
+  ]},
+  { id:'computing', label:'Computer science', icon:'🖥️', disciplines:[
+    { id:'cs',      label:'Computing',         icon:'🖥️', fields:['cs','code'] },
+    { id:'ml',      label:'Machine learning',  icon:'🤖', fields:['ml'] },
+    { id:'cyber',   label:'Cybersecurity',     icon:'🔐', fields:['cyber'] },
+  ]},
+  { id:'social', label:'Social sciences', icon:'👥', disciplines:[
+    { id:'econ',    label:'Economics',         icon:'📊', fields:['micro','macro','behavioral','game','deveco','polecon','pubfin','echist'] },
+    { id:'polsci',  label:'Political science', icon:'🏛️', fields:['polisci','ir'] },
+    { id:'socio',   label:'Sociology',         icon:'🕸️', fields:['socio'] },
+    { id:'anthro',  label:'Anthropology',      icon:'🗿', fields:['anthro'] },
+    { id:'psych',   label:'Psychology',        icon:'🧠', fields:['psych'] },
+    { id:'geog',    label:'Geography',         icon:'🌍', fields:['geo'] },
+  ]},
+  { id:'humanities', label:'Humanities', icon:'📜', disciplines:[
+    { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['philo'] },
+    { id:'history', label:'History',           icon:'🏛️', fields:['history'] },
+  ]},
+  { id:'applied', label:'Applied & professional', icon:'💼', disciplines:[
+    { id:'finance', label:'Finance',           icon:'💰', fields:['qfin','refin'] },
+    { id:'law',     label:'Law',               icon:'⚖️', fields:['law'] },
+  ]},
+  { id:'fun', label:'Fun & dates', icon:'✨', disciplines:[
+    { id:'funx',    label:'Fun & dates',       icon:'✨', fields:['fun'] },
+  ]},
 ];
-function groupOf(fid){ return FIELD_GROUPS.find(g=>g.fields.includes(fid)) || null; }
-// the domains that have at least one present field, each with its present field objects (group order),
-// plus a catch-all "Other" for any field not assigned to a group (defensive against new fields)
-function groupsPresent(){
-  const out=[]; const seen=new Set();
-  FIELD_GROUPS.forEach(g=>{ const fs=g.fields.map(fid=>fieldById[fid]).filter(Boolean);
-    fs.forEach(f=>seen.add(f.id)); if(fs.length) out.push({ ...g, fieldObjs:fs }); });
-  const orphans=(KN.fields||[]).filter(f=>!seen.has(f.id));
-  if(orphans.length) out.push({ id:'other', label:'Other', icon:'•', fields:orphans.map(f=>f.id), fieldObjs:orphans });
-  return out;
-}
-function groupAgg(g){ let total=0,done=0,ready=0; (g.fieldObjs||[]).forEach(f=>{
+const divisionById={}, disciplineById={}, _discDiv={};
+TAXONOMY.forEach(v=>{ divisionById[v.id]=v; (v.disciplines||[]).forEach(d=>{ disciplineById[d.id]=d; _discDiv[d.id]=v; }); });
+function disciplineOf(fid){ for(const d of Object.values(disciplineById)){ if(d.fields.includes(fid)) return d; } return null; }
+function divisionOf(fid){ const d=disciplineOf(fid); return d?_discDiv[d.id]:null; }
+function groupOf(fid){ return divisionOf(fid); }            // back-compat alias → division
+function fieldObjsOf(ids){ return (ids||[]).map(id=>fieldById[id]).filter(Boolean); }
+function aggOf(fieldObjs){ let total=0,done=0,ready=0; (fieldObjs||[]).forEach(f=>{
     total+=(byField[f.id]||[]).length; done+=learnedInField(f.id);
     ready+=(byField[f.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length; }); return {total,done,ready}; }
+// child nodes of a division for display: a multi-field discipline stays grouped (type 'disc'),
+// a single-field discipline collapses to its field (type 'field').
+function divisionChildren(v){
+  const out=[];
+  (v.disciplines||[]).forEach(d=>{ const fs=fieldObjsOf(d.fields); if(!fs.length) return;
+    if(fs.length>1) out.push({ type:'disc', id:d.id, label:d.label, icon:d.icon, fieldObjs:fs });
+    else out.push({ type:'field', id:fs[0].id, label:fs[0].label, icon:fs[0].icon, color:fs[0].color, fieldObjs:fs }); });
+  return out;
+}
+// divisions with at least one present field, plus a catch-all "Other" for any unassigned field.
+function divisionsPresent(){
+  const out=[], seen=new Set();
+  TAXONOMY.forEach(v=>{ const kids=divisionChildren(v); if(!kids.length) return;
+    kids.forEach(k=> k.fieldObjs.forEach(f=>seen.add(f.id)));
+    out.push({ ...v, children:kids }); });
+  const orphans=(KN.fields||[]).filter(f=>!seen.has(f.id));
+  if(orphans.length) out.push({ id:'other', label:'Other', icon:'•',
+    children:orphans.map(f=>({ type:'field', id:f.id, label:f.label, icon:f.icon, color:f.color, fieldObjs:[f] })) });
+  return out;
+}
+function divisionAgg(v){ const fs=[]; (v.children||divisionChildren(v)).forEach(k=> fs.push(...k.fieldObjs)); return aggOf(fs); }
 
 // ================= knowledge-level degrees =================
 // Cards carry a difficulty level 1–6. A "degree" reflects the deepest level you've MASTERED in a
@@ -1352,17 +1395,24 @@ function factOfDay(){ const d=todayStr();
   const idx=hashStr(d)%KN.cards.length; const c=KN.cards[idx];
   settings.fotd={day:d, id:c.id}; return c; }
 // ================= FEED (explore) =================
-let feedFilter="all";   // "all" | "__saved" | a field id | "g:<groupId>" (a whole domain)
+let feedFilter="all";   // "all" | "__saved" | "v:<divId>" | "g:<disciplineId>" | a field id
 let feedStatus="all";   // "all" | "unlearned" | "learned"
-// does a card pass the current field/domain filter? ("all" passes everything)
+// fields covered by a division-filter ("v:") or discipline-filter ("g:")
+function filterFieldIds(){
+  if(feedFilter.indexOf("v:")===0){ const v=divisionById[feedFilter.slice(2)]; return v? (v.disciplines||[]).flatMap(d=>d.fields) : []; }
+  if(feedFilter.indexOf("g:")===0){ const d=disciplineById[feedFilter.slice(2)]; return d? d.fields.slice() : []; }
+  return null;
+}
+// does a card pass the current filter? ("all" passes everything)
 function inFeedFilter(c){
   if(feedFilter==="all") return true;
-  if(feedFilter.indexOf("g:")===0){ const g=FIELD_GROUPS.find(x=>x.id===feedFilter.slice(2)); return !!g && g.fields.includes(c.field); }
+  const ids=filterFieldIds(); if(ids) return ids.includes(c.field);
   return c.field===feedFilter;
 }
 function feedFilterLabel(){
   if(feedFilter==="all") return "For you"; if(feedFilter==="__saved") return "Saved";
-  if(feedFilter.indexOf("g:")===0){ const g=FIELD_GROUPS.find(x=>x.id===feedFilter.slice(2)); return g?g.label:"Topic"; }
+  if(feedFilter.indexOf("v:")===0){ const v=divisionById[feedFilter.slice(2)]; return v?v.label:"Topic"; }
+  if(feedFilter.indexOf("g:")===0){ const d=disciplineById[feedFilter.slice(2)]; return d?d.label:"Topic"; }
   return (fieldById[feedFilter]||{}).label || feedFilter;
 }
 const FEED_PAGE=36; let feedShown=FEED_PAGE;   // virtualise the feed: render a window, not all 380+ cards (iOS memory)
@@ -1422,21 +1472,33 @@ function renderFeedStatus(){
     s.onclick=()=>{ feedStatus=s.dataset.s; feedShown=FEED_PAGE; renderFeedStatus(); renderFeedList(); };
   });
 }
+// a division's children rendered as chips (multi-field discipline → "g:" chip; single field → field chip)
+function childChips(v){ return divisionChildren(v).map(k=> k.type==='disc'
+  ? {id:"g:"+k.id, label:k.label, icon:k.icon}
+  : {id:k.id, label:k.label, icon:k.icon}); }
 function renderFeedFilter(){
   const saved=(settings.saved||[]).length;
-  // which domain (if any) are we drilled into? derived from feedFilter — the single source of truth
-  let drill=null;
-  if(feedFilter.indexOf("g:")===0) drill=feedFilter.slice(2);
-  else if(feedFilter!=="all" && feedFilter!=="__saved" && fieldById[feedFilter]){ const g=groupOf(feedFilter); drill=g?g.id:null; }
   let chips;
-  if(drill){                                   // drilled row: ‹ Topics · the domain · its fields
-    const g=FIELD_GROUPS.find(x=>x.id===drill);
-    const fobjs=(g?g.fields:[]).map(id=>fieldById[id]).filter(Boolean);
-    chips=[{id:"all",label:"Topics",icon:"‹",cls:"back"},{id:"g:"+drill,label:(g?g.label:"Topic"),icon:(g?g.icon:"")}]
-      .concat(fobjs.map(f=>({id:f.id,label:f.label,icon:f.icon})));
-  } else {                                     // top level: For you · Saved · the 8 domains
+  if(feedFilter.indexOf("v:")===0){            // in a division: ‹ Topics · [division] · its disciplines/fields
+    const v=divisionById[feedFilter.slice(2)];
+    chips=[{id:"all",label:"Topics",icon:"‹",cls:"back"},{id:feedFilter,label:(v?v.label:"Topic"),icon:(v?v.icon:"")}]
+      .concat(v?childChips(v):[]);
+  } else if(feedFilter.indexOf("g:")===0){      // in a discipline: ‹ [division] · [discipline] · its fields
+    const d=disciplineById[feedFilter.slice(2)], v=d?_discDiv[d.id]:null;
+    chips=[{id:(v?"v:"+v.id:"all"),label:(v?v.label:"Topics"),icon:(v?v.icon:"‹"),cls:"back"},{id:feedFilter,label:(d?d.label:"Topic"),icon:(d?d.icon:"")}]
+      .concat(d?fieldObjsOf(d.fields).map(f=>({id:f.id,label:f.label,icon:f.icon})):[]);
+  } else if(feedFilter!=="all" && feedFilter!=="__saved" && fieldById[feedFilter]){
+    const d=disciplineOf(feedFilter), v=divisionOf(feedFilter), sibs=d?fieldObjsOf(d.fields):[];
+    if(d && sibs.length>1){                     // a field inside a multi-field discipline → show siblings
+      chips=[{id:(v?"v:"+v.id:"all"),label:(v?v.label:"Topics"),icon:(v?v.icon:"‹"),cls:"back"},{id:"g:"+d.id,label:d.label,icon:d.icon}]
+        .concat(sibs.map(f=>({id:f.id,label:f.label,icon:f.icon})));
+    } else {                                    // a collapsed single-field discipline → show division siblings
+      chips=[{id:"all",label:"Topics",icon:"‹",cls:"back"},{id:(v?"v:"+v.id:"all"),label:(v?v.label:"Topic"),icon:(v?v.icon:"")}]
+        .concat(v?childChips(v):[]);
+    }
+  } else {                                      // top level: For you · Saved · the divisions
     chips=[{id:"all",label:"For you",icon:"✨"}].concat(saved?[{id:"__saved",label:"Saved",icon:"🔖"}]:[])
-      .concat(groupsPresent().map(g=>({id:"g:"+g.id,label:g.label,icon:g.icon})));
+      .concat(divisionsPresent().map(v=>({id:"v:"+v.id,label:v.label,icon:v.icon})));
   }
   $("feedFilter").innerHTML=chips.map(f=>'<button class="chip'+(feedFilter===f.id?' on':'')+(f.cls?' '+f.cls:'')+'" data-f="'+f.id+'">'+(f.icon?esc(f.icon)+' ':'')+esc(f.label)+'</button>').join('');
   document.querySelectorAll("#feedFilter .chip").forEach(ch=> ch.onclick=()=>{ feedFilter=ch.dataset.f; feedShown=FEED_PAGE; renderFeedFilter(); renderFeedList(); });
@@ -2010,17 +2072,29 @@ function degRowHtml(r){
       '<span class="degpips">'+pips+'</span>'+exam+'</span>'+
     '<span class="degnum">'+r.done+'/'+r.total+'</span></div>';
 }
-// per-field degrees, grouped by domain (headers); rows keep .degrow/.degexam so renderMe wiring still binds
+// per-field degrees, nested division → discipline → field; rows keep .degrow/.degexam so renderMe wiring still binds.
+// A multi-field discipline gets a sub-header (.degsub); a single-field discipline shows its field row directly.
 function degreeListHtml(){
   let any=false;
-  const html=groupsPresent().map(g=>{
-    const rows=g.fieldObjs.map(degRowData).filter(Boolean)
-      .sort((a,b)=> b.deg.key-a.deg.key || (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
-    if(!rows.length) return '';
-    any=true; let total=0,done=0; rows.forEach(r=>{ total+=r.total; done+=r.done; });
-    return '<div class="degroup"><div class="degroup-hd"><span class="dgh-ic">'+esc(g.icon||'')+'</span>'+
-      '<span class="dgh-lab">'+esc(g.label)+'</span><span class="dgh-num">'+done+'/'+total+'</span></div>'+
-      rows.map(degRowHtml).join('')+'</div>';
+  const sortRows=rows=> rows.sort((a,b)=> b.deg.key-a.deg.key || (b.done/b.total)-(a.done/a.total) || b.done-a.done || a.f.label.localeCompare(b.f.label));
+  const html=divisionsPresent().map(v=>{
+    let inner='', total=0, done=0;
+    (v.children||[]).forEach(k=>{
+      const rows=sortRows(k.fieldObjs.map(degRowData).filter(Boolean));
+      if(!rows.length) return;
+      rows.forEach(r=>{ total+=r.total; done+=r.done; });
+      if(k.type==='disc'){
+        let dt=0,dd=0; rows.forEach(r=>{ dt+=r.total; dd+=r.done; });
+        inner+='<div class="degsub"><span class="dgs-ic">'+esc(k.icon||'')+'</span>'+
+          '<span class="dgs-lab">'+esc(k.label)+'</span><span class="dgs-num">'+dd+'/'+dt+'</span></div>'+
+          rows.map(degRowHtml).join('');
+      } else inner+=rows.map(degRowHtml).join('');
+    });
+    if(!inner) return '';
+    any=true;
+    return '<div class="degroup"><div class="degroup-hd"><span class="dgh-ic">'+esc(v.icon||'')+'</span>'+
+      '<span class="dgh-lab">'+esc(v.label)+'</span><span class="dgh-num">'+done+'/'+total+'</span></div>'+
+      inner+'</div>';
   }).join('');
   return any? '<div class="deglist">'+html+'</div>' : '<div class="fbempty">Learn cards to start earning degrees.</div>';
 }
@@ -2045,24 +2119,33 @@ function drawFieldRadar(){ try{ const cv=$("fieldRadar"); if(!cv) return; const 
 }catch(e){ console.error('[clue] drawFieldRadar failed:', e); } }
 function openFields(){ renderFieldsSheet(); openSheet("Fields"); }
 function renderFieldsSheet(){
-  // grouped by domain: a tappable domain header (filters the feed to the whole domain) + its field rows
-  $("fieldsBody").innerHTML = groupsPresent().map(g=>{
-    const rows=g.fieldObjs.map(f=>{ const total=byField[f.id].length, done=learnedInField(f.id);
-      return { f, total, done, pct: total?Math.round(done/total*100):0 }; })
-      .filter(r=>r.total).sort((a,b)=> b.done-a.done || b.pct-a.pct);
-    if(!rows.length) return '';
-    const a=groupAgg(g);
-    return '<button class="fsgroup" data-g="'+g.id+'"><span class="fsg-ic">'+esc(g.icon||'')+'</span>'+
-        '<span class="fsg-lab">'+esc(g.label)+'</span><span class="fsg-num">'+a.done+' / '+a.total+'</span><span class="fsg-go">›</span></button>'+
-      rows.map(r=>'<button class="fieldrow" data-f="'+r.f.id+'" style="--fc:'+(r.f.color||'#888')+';">'+
-        '<span class="frico">'+esc(r.f.icon||'')+'</span>'+
-        '<span class="frmain"><span class="frtop"><span class="frlabel">'+esc(r.f.label)+'</span>'+
-          '<span class="frcount">'+r.done+' / '+r.total+'</span></span>'+
-          '<span class="frbar"><i style="width:'+Math.max(r.pct,2)+'%"></i></span></span>'+
-      '</button>').join('');
+  // nested: division header (filters the whole division) → discipline sub-header (multi-field) → field rows
+  const fieldRow=f=>{ const total=byField[f.id].length, done=learnedInField(f.id), pct=total?Math.round(done/total*100):0;
+    return total?'<button class="fieldrow" data-f="'+f.id+'" style="--fc:'+(f.color||'#888')+';">'+
+      '<span class="frico">'+esc(f.icon||'')+'</span>'+
+      '<span class="frmain"><span class="frtop"><span class="frlabel">'+esc(f.label)+'</span>'+
+        '<span class="frcount">'+done+' / '+total+'</span></span>'+
+        '<span class="frbar"><i style="width:'+Math.max(pct,2)+'%"></i></span></span>'+
+    '</button>':''; };
+  const sortF=fs=> fs.slice().sort((a,b)=> learnedInField(b.id)-learnedInField(a.id) || a.label.localeCompare(b.label));
+  $("fieldsBody").innerHTML = divisionsPresent().map(v=>{
+    let inner='';
+    (v.children||[]).forEach(k=>{
+      const rows=sortF(k.fieldObjs).map(fieldRow).filter(Boolean);
+      if(!rows.length) return;
+      if(k.type==='disc'){ const a=aggOf(k.fieldObjs);
+        inner+='<button class="fsgroup fssub" data-filter="g:'+k.id+'"><span class="fsg-ic">'+esc(k.icon||'')+'</span>'+
+          '<span class="fsg-lab">'+esc(k.label)+'</span><span class="fsg-num">'+a.done+' / '+a.total+'</span><span class="fsg-go">›</span></button>'; }
+      inner+=rows.join('');
+    });
+    if(!inner) return '';
+    const a=divisionAgg(v);
+    return '<button class="fsgroup" data-filter="v:'+v.id+'"><span class="fsg-ic">'+esc(v.icon||'')+'</span>'+
+        '<span class="fsg-lab">'+esc(v.label)+'</span><span class="fsg-num">'+a.done+' / '+a.total+'</span><span class="fsg-go">›</span></button>'+
+      inner;
   }).join('');
   const go=(filter)=>{ feedFilter=filter; feedStatus="all"; feedShown=FEED_PAGE; closeSheet("Fields"); showTab("feed"); };
-  document.querySelectorAll("#fieldsBody .fsgroup").forEach(el=> el.onclick=()=> go('g:'+el.dataset.g));
+  document.querySelectorAll("#fieldsBody .fsgroup").forEach(el=> el.onclick=()=> go(el.dataset.filter));
   document.querySelectorAll("#fieldsBody .fieldrow").forEach(el=> el.onclick=()=> go(el.dataset.f));
 }
 function hexA(hex,a){ hex=hex.trim(); if(hex[0]!=='#'||hex.length<7) return 'rgba(232,85,28,'+a+')'; const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return 'rgba('+r+','+g+','+b+','+a+')'; }
@@ -2203,15 +2286,23 @@ function fieldPathRowHtml(f){
     '<div class="fpath-body" hidden></div></div>';
 }
 function topicFieldsHtml(gid){
-  const g=groupsPresent().find(x=>x.id===gid); if(!g) return '';
-  const fs=g.fieldObjs.filter(f=>(byField[f.id]||[]).length).sort((a,b)=>
+  const v=divisionsPresent().find(x=>x.id===gid); if(!v) return '';
+  const sortF=fs=> fs.filter(f=>(byField[f.id]||[]).length).sort((a,b)=>
     learnedInField(b.id)-learnedInField(a.id)
     || (byField[b.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length-(byField[a.id]||[]).filter(c=>isNew(c.id)&&prereqsMet(c)).length
     || a.label.localeCompare(b.label));
-  return fs.map(fieldPathRowHtml).join('');
+  // multi-field discipline → a sub-header above its field rows; single-field discipline → field row directly
+  return (v.children||[]).map(k=>{
+    const fs=sortF(k.fieldObjs); if(!fs.length) return '';
+    const rows=fs.map(fieldPathRowHtml).join('');
+    if(k.type==='disc'){ const a=aggOf(k.fieldObjs);
+      return '<div class="topsub"><span class="tsub-ic">'+esc(k.icon||'')+'</span><span class="tsub-lab">'+esc(k.label)+
+        '</span><span class="tsub-num">'+a.done+'/'+a.total+'</span></div>'+rows; }
+    return rows;
+  }).join('');
 }
 function topicsHtml(){
-  return groupsPresent().map(g=>{ const a=groupAgg(g); const pct=a.total?Math.round(a.done/a.total*100):0;
+  return divisionsPresent().map(g=>{ const a=divisionAgg(g); const pct=a.total?Math.round(a.done/a.total*100):0;
     return '<div class="topic" data-g="'+g.id+'">'+
       '<button class="topic-hd"><span class="topic-ic">'+esc(g.icon||'')+'</span>'+
         '<span class="topic-main"><span class="topic-lab">'+esc(g.label)+'</span>'+

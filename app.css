@@ -593,6 +593,11 @@
   .topic.open .fp-chev{ transform:rotate(90deg); }
   .topic-body{ padding:0 9px 10px; display:flex; flex-direction:column; gap:7px; }
   .topic-body .fpath{ background:var(--row); }
+  /* discipline sub-header inside an expanded division (Library) */
+  .topsub{ display:flex; align-items:center; gap:8px; padding:6px 4px 1px; }
+  .topsub .tsub-ic{ font-size:12px; }
+  .topsub .tsub-lab{ flex:1; font-size:11px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--l3); }
+  .topsub .tsub-num{ font-size:11px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
 
   /* domain headers on the You page degree list */
   .degroup{ margin-bottom:6px; }
@@ -601,6 +606,11 @@
   .degroup-hd .dgh-lab{ flex:1; font-size:12px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--l3); }
   .degroup-hd .dgh-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
   .degroup:first-child .degroup-hd{ padding-top:2px; }
+  /* discipline sub-header within a division (You page degree list) */
+  .degsub{ display:flex; align-items:center; gap:8px; padding:8px 4px 3px 8px; }
+  .degsub .dgs-ic{ font-size:12px; }
+  .degsub .dgs-lab{ flex:1; font-size:11px; font-weight:700; letter-spacing:.3px; color:var(--l2); }
+  .degsub .dgs-num{ font-size:11px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
 
   /* domain headers in the Fields browser sheet */
   .fsgroup{ display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:none; cursor:pointer;
@@ -610,6 +620,10 @@
   .fsgroup .fsg-lab{ flex:1; font-size:13px; font-weight:800; letter-spacing:.3px; text-transform:uppercase; color:var(--l2); }
   .fsgroup .fsg-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
   .fsgroup .fsg-go{ color:var(--l3); font-size:18px; }
+  /* discipline sub-header (indented) inside a division in the Fields sheet */
+  .fsgroup.fssub{ padding:9px 4px 5px 16px; }
+  .fsgroup.fssub .fsg-lab{ font-size:11.5px; font-weight:700; letter-spacing:.2px; text-transform:none; color:var(--l2); }
+  .fsgroup.fssub .fsg-ic{ font-size:13px; }
 
   /* ===== onboarding ===== */
   #onboardWrap{ position:fixed; inset:0; z-index:320; display:none; align-items:center; justify-content:center; padding:24px;
