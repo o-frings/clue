@@ -46377,29 +46377,53 @@
                   "right": true,
                   "land": "Backwards: the cleanest countries are the rich ones. A starving farmer can't afford to care about a river; growth is precisely what buys the sewers, the scrubbers and the parks. Poverty is the worst polluter.",
                   "reply": "…the rich countries clean up first. The Kuznets argument. I walked into that.",
-                  "recall": {
-                    "demand": "Then name the economist who showed polluter and victim can bargain their way to the efficient outcome — without strangling growth.",
-                    "qz": {
-                      "answer": "Coase",
-                      "type": "detail",
-                      "accept": [
-                        "coase",
-                        "ronald coase",
-                        "r coase",
-                        "r h coase"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Then name the economist who showed polluter and victim can bargain their way to the efficient outcome — without strangling growth.",
+                      "qz": {
+                        "answer": "Coase",
+                        "type": "detail",
+                        "accept": [
+                          "coase",
+                          "ronald coase",
+                          "r coase",
+                          "r h coase"
+                        ]
+                      },
+                      "choices": [
+                        "Ronald Coase",
+                        "Arthur Pigou",
+                        "Nicholas Stern",
+                        "Garrett Hardin"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Coase. Property rights and bargaining. You know your externalities.",
+                      "miss": "Lecturing me on the environment with no Coase? He won a Nobel for exactly this. Learn the card.",
+                      "card": "econ-externalities"
                     },
-                    "choices": [
-                      "Ronald Coase",
-                      "Arthur Pigou",
-                      "Nicholas Stern",
-                      "Garrett Hardin"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Coase. Property rights and bargaining. You know your externalities.",
-                    "miss": "Lecturing me on the environment with no Coase? He won a Nobel for exactly this. Learn the card.",
-                    "card": "econ-externalities"
-                  }
+                    {
+                      "demand": "Name the general concept — a cost that lands on third parties, so the price gets it wrong.",
+                      "qz": {
+                        "answer": "externality",
+                        "type": "detail",
+                        "accept": [
+                          "externality",
+                          "externalities",
+                          "negative externality"
+                        ]
+                      },
+                      "choices": [
+                        "An externality",
+                        "A public good",
+                        "A deadweight loss",
+                        "A natural monopoly"
+                      ],
+                      "correctChoice": 0,
+                      "card": "econ-externalities",
+                      "good": "An externality. You name the category, not just Coase. Hm.",
+                      "miss": "Arguing the market misprices harm and you can't name the externality? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -46424,23 +46448,49 @@
                   "right": true,
                   "land": "Weigh it honestly: the harms of stalled growth are certain and immediate — poverty, early death, no money for adaptation. Your ceiling is real but distant and, crucially, the wealth from growth is what funds the tech to stay under it. Don't trade a certain present for a speculative future.",
                   "reply": "Certain present against speculative future, and growth funding the fix. …Tighter than I expected.",
-                  "recall": {
-                    "demand": "You invoke the planetary boundaries. How many did the scientists actually define?",
-                    "qz": {
-                      "answer": 9,
-                      "type": "num"
+                  "recalls": [
+                    {
+                      "demand": "You invoke the planetary boundaries. How many did the scientists actually define?",
+                      "qz": {
+                        "answer": 9,
+                        "type": "num"
+                      },
+                      "choices": [
+                        "Nine",
+                        "Three",
+                        "Five",
+                        "Twelve"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Nine. You know the framework, not just the scare-word. Fine.",
+                      "miss": "Citing the boundaries and you don't know there are nine? Then it's a slogan. Learn the card.",
+                      "card": "eco-planetary-boundaries"
                     },
-                    "choices": [
-                      "Nine",
-                      "Three",
-                      "Five",
-                      "Twelve"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Nine. You know the framework, not just the scare-word. Fine.",
-                    "miss": "Citing the boundaries and you don't know there are nine? Then it's a slogan. Learn the card.",
-                    "card": "eco-planetary-boundaries"
-                  }
+                    {
+                      "demand": "Name the corrective tax that prices pollution so growth can continue cleanly.",
+                      "qz": {
+                        "answer": "Pigouvian tax",
+                        "type": "detail",
+                        "accept": [
+                          "pigouvian",
+                          "pigovian",
+                          "pigouvian tax",
+                          "pigovian tax",
+                          "pigou"
+                        ]
+                      },
+                      "choices": [
+                        "A Pigouvian tax",
+                        "A tariff",
+                        "A subsidy",
+                        "A windfall tax"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pf-pigouvian",
+                      "good": "The Pigouvian tax. You know how to grow and price the harm at once. Fine.",
+                      "miss": "Arguing clean growth and you can't name the Pigouvian tax? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -46465,28 +46515,52 @@
                   "right": true,
                   "land": "Granted — and at full strength: ecological overshoot is real and some damage is forever. But you've fused two things. The motion isn't 'pollute freely'; it's prioritise growth — and growth can be decoupled from emissions, as the economies already cutting carbon while growing show. Best path isn't no growth; it's clean growth.",
                   "reply": "Splitting growth from harm with decoupling, after granting the overshoot. …That's the case I can't break.",
-                  "recall": {
-                    "demand": "Name the term for raising GDP while cutting resource use and emissions in absolute terms.",
-                    "qz": {
-                      "answer": "absolute decoupling",
-                      "type": "detail",
-                      "accept": [
-                        "absolute decoupling",
-                        "absolute de-coupling",
-                        "decoupling"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the term for raising GDP while cutting resource use and emissions in absolute terms.",
+                      "qz": {
+                        "answer": "absolute decoupling",
+                        "type": "detail",
+                        "accept": [
+                          "absolute decoupling",
+                          "absolute de-coupling",
+                          "decoupling"
+                        ]
+                      },
+                      "choices": [
+                        "Absolute decoupling",
+                        "The rebound effect",
+                        "Degrowth",
+                        "The Jevons paradox"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Absolute decoupling. You know the live debate, not just the panic. Floor's yours.",
+                      "miss": "Arguing clean growth and you can't name absolute decoupling? That's the whole question. Learn it.",
+                      "card": "macro-growth-debate"
                     },
-                    "choices": [
-                      "Absolute decoupling",
-                      "The rebound effect",
-                      "Degrowth",
-                      "The Jevons paradox"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Absolute decoupling. You know the live debate, not just the panic. Floor's yours.",
-                    "miss": "Arguing clean growth and you can't name absolute decoupling? That's the whole question. Learn it.",
-                    "card": "macro-growth-debate"
-                  }
+                    {
+                      "demand": "Name the movement that says technology lets growth and the environment coexist.",
+                      "qz": {
+                        "answer": "ecomodernism",
+                        "type": "detail",
+                        "accept": [
+                          "ecomodernism",
+                          "ecomodernist",
+                          "eco-modernism"
+                        ]
+                      },
+                      "choices": [
+                        "Ecomodernism",
+                        "Degrowth",
+                        "Deep ecology",
+                        "Primitivism"
+                      ],
+                      "correctChoice": 0,
+                      "card": "macro-growth-debate",
+                      "good": "Ecomodernism. You know the optimistic camp by name. The floor is yours.",
+                      "miss": "Arguing tech reconciles growth and nature and you can't name ecomodernism? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -46678,28 +46752,47 @@
                   "right": true,
                   "land": "Cheap imports free up workers and capital for the things we're actually best at. A tariff is just a tax you levy on your own consumers to freeze the economy in 1975.",
                   "reply": "…freeing up capital, opportunity cost. Spoken like someone who's read the theory. Tch.",
-                  "recall": {
-                    "demand": "Then name the man who proved it. Who showed in 1817 that two countries both gain from trade even when one is better at making everything?",
-                    "qz": {
-                      "answer": "Ricardo",
-                      "type": "detail",
-                      "accept": [
-                        "ricardo",
-                        "david ricardo",
-                        "d ricardo"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Then name the man who proved it. Who showed in 1817 that two countries both gain from trade even when one is better at making everything?",
+                      "qz": {
+                        "answer": "Ricardo",
+                        "type": "detail",
+                        "accept": [
+                          "ricardo",
+                          "david ricardo",
+                          "d ricardo"
+                        ]
+                      },
+                      "choices": [
+                        "David Ricardo",
+                        "Adam Smith",
+                        "John Maynard Keynes",
+                        "Karl Marx"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Ricardo. Comparative advantage. Of course you'd have that loaded.",
+                      "miss": "Can't even name him? Then it's faith, not economics. It's Ricardo — go learn the card.",
+                      "card": "econ-comparative-advantage"
                     },
-                    "choices": [
-                      "David Ricardo",
-                      "Adam Smith",
-                      "John Maynard Keynes",
-                      "Karl Marx"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Ricardo. Comparative advantage. Of course you'd have that loaded.",
-                    "miss": "Can't even name him? Then it's faith, not economics. It's Ricardo — go learn the card.",
-                    "card": "econ-comparative-advantage"
-                  }
+                    {
+                      "demand": "Give me the year — when did Ricardo set out comparative advantage?",
+                      "qz": {
+                        "answer": 1817,
+                        "type": "num"
+                      },
+                      "choices": [
+                        "1817",
+                        "1776",
+                        "1867",
+                        "1936"
+                      ],
+                      "correctChoice": 0,
+                      "card": "econ-comparative-advantage",
+                      "good": "1817. You know the date, not just the name. Tch.",
+                      "miss": "Citing Ricardo and you don't know it's 1817? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -46724,28 +46817,51 @@
                   "right": true,
                   "land": "That's a claim with no warrant. A deficit isn't points lost — the dollars come straight back as investment. You've mistaken an accounting identity for a defeat.",
                   "reply": "An accounting identity, not a scoreboard. Hmph. Fine, the bumper-sticker was weak.",
-                  "recall": {
-                    "demand": "Clever. Then name the principle Ricardo's whole argument rests on — the value of the next-best thing you give up.",
-                    "qz": {
-                      "answer": "opportunity cost",
-                      "type": "detail",
-                      "accept": [
-                        "opportunity cost",
-                        "the opportunity cost",
-                        "opportunity costs"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Clever. Then name the principle Ricardo's whole argument rests on — the value of the next-best thing you give up.",
+                      "qz": {
+                        "answer": "opportunity cost",
+                        "type": "detail",
+                        "accept": [
+                          "opportunity cost",
+                          "the opportunity cost",
+                          "opportunity costs"
+                        ]
+                      },
+                      "choices": [
+                        "Opportunity cost",
+                        "Absolute advantage",
+                        "The balance of trade",
+                        "Marginal utility"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Opportunity cost. You understand the engine, not just the slogan. Irritating.",
+                      "miss": "Don't know what powers your own argument? It's opportunity cost. Learn it before you face me again.",
+                      "card": "econ-comparative-advantage"
                     },
-                    "choices": [
-                      "Opportunity cost",
-                      "Absolute advantage",
-                      "The balance of trade",
-                      "Marginal utility"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Opportunity cost. You understand the engine, not just the slogan. Irritating.",
-                    "miss": "Don't know what powers your own argument? It's opportunity cost. Learn it before you face me again.",
-                    "card": "econ-comparative-advantage"
-                  }
+                    {
+                      "demand": "Name the doctrine itself — two countries gain from trade through differences in opportunity cost.",
+                      "qz": {
+                        "answer": "comparative advantage",
+                        "type": "detail",
+                        "accept": [
+                          "comparative advantage",
+                          "the law of comparative advantage"
+                        ]
+                      },
+                      "choices": [
+                        "Comparative advantage",
+                        "Absolute advantage",
+                        "Mercantilism",
+                        "Autarky"
+                      ],
+                      "correctChoice": 0,
+                      "card": "econ-comparative-advantage",
+                      "good": "Comparative advantage. You name the law you're wielding. Good.",
+                      "miss": "Wielding the theory and you can't name comparative advantage? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -46770,27 +46886,46 @@
                   "right": true,
                   "land": "Granted — and I'll put it as strongly as you would: concentrated losses, communities hollowed out, a generation stranded. But the motion is 'more good than harm' — a net comparison. The answer to the losers is compensation and retraining, not walling off everyone else's gains.",
                   "reply": "Stating my case better than I did, then turning on 'net'. …That's the argument I couldn't beat. Floor's yours.",
-                  "recall": {
-                    "demand": "Fine. But you lean on markets serving everyone. Which thinker argued in 1776 that the butcher feeds you from self-interest, not kindness?",
-                    "qz": {
-                      "answer": "Adam Smith",
-                      "type": "detail",
-                      "accept": [
-                        "smith",
-                        "adam smith"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Fine. But you lean on markets serving everyone. Which thinker argued in 1776 that the butcher feeds you from self-interest, not kindness?",
+                      "qz": {
+                        "answer": "Adam Smith",
+                        "type": "detail",
+                        "accept": [
+                          "smith",
+                          "adam smith"
+                        ]
+                      },
+                      "choices": [
+                        "Adam Smith",
+                        "David Hume",
+                        "John Stuart Mill",
+                        "Karl Marx"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Smith. The Wealth of Nations. You came with the canon. Well played.",
+                      "miss": "Quoting the invisible hand and you can't name Smith? Embarrassing. Go and learn it.",
+                      "card": "pe-smith-wealth"
                     },
-                    "choices": [
-                      "Adam Smith",
-                      "David Hume",
-                      "John Stuart Mill",
-                      "Karl Marx"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Smith. The Wealth of Nations. You came with the canon. Well played.",
-                    "miss": "Quoting the invisible hand and you can't name Smith? Embarrassing. Go and learn it.",
-                    "card": "pe-smith-wealth"
-                  }
+                    {
+                      "demand": "Give me the year of Smith's 'The Wealth of Nations'.",
+                      "qz": {
+                        "answer": 1776,
+                        "type": "num"
+                      },
+                      "choices": [
+                        "1776",
+                        "1759",
+                        "1817",
+                        "1848"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pe-smith-wealth",
+                      "good": "1776 — the same year as a certain revolution. You know your dates.",
+                      "miss": "Quoting Smith and you don't know 1776? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -46986,29 +47121,51 @@
                   "right": true,
                   "land": "Exactly. No single ignorant voter can capture the system, and across millions the errors wash out. Concentrate power in your ‘experts’ and one captured expert dooms everyone — democracy is the error-correcting design, not the naive one.",
                   "reply": "…hm. Annoyingly, that lands. Fine.",
-                  "recall": {
-                    "demand": "Cute theory. Now put a name to it — whose theorem says a big crowd of better-than-even judges is almost certain to be right together? Surname'll do.",
-                    "qz": {
-                      "answer": "Condorcet",
-                      "accept": [
-                        "condorcet",
-                        "marquis de condorcet",
-                        "condorcet jury theorem",
-                        "jury theorem"
+                  "recalls": [
+                    {
+                      "demand": "Cute theory. Now put a name to it — whose theorem says a big crowd of better-than-even judges is almost certain to be right together? Surname'll do.",
+                      "qz": {
+                        "answer": "Condorcet",
+                        "accept": [
+                          "condorcet",
+                          "marquis de condorcet",
+                          "condorcet jury theorem",
+                          "jury theorem"
+                        ],
+                        "type": "detail"
+                      },
+                      "choices": [
+                        "Condorcet",
+                        "Machiavelli",
+                        "Rousseau",
+                        "Hobbes"
                       ],
-                      "type": "detail"
+                      "correctChoice": 0,
+                      "card": "poli-condorcet",
+                      "good": "…Condorcet. The jury theorem. You've actually read something — irritating.",
+                      "miss": "Drawing a blank? Then it's a vibe, not an argument. It's Condorcet — learn the card and come back for me."
                     },
-                    "choices": [
-                      "Condorcet",
-                      "Machiavelli",
-                      "Rousseau",
-                      "Hobbes"
-                    ],
-                    "correctChoice": 0,
-                    "card": "poli-condorcet",
-                    "good": "…Condorcet. The jury theorem. You've actually read something — irritating.",
-                    "miss": "Drawing a blank? Then it's a vibe, not an argument. It's Condorcet — learn the card and come back for me."
-                  }
+                    {
+                      "demand": "Different angle — whose ox-weighing experiment became the classic demo that a crowd's average guess is uncannily accurate?",
+                      "qz": {
+                        "answer": "Galton",
+                        "type": "detail",
+                        "accept": [
+                          "galton",
+                          "francis galton"
+                        ]
+                      },
+                      "choices": [
+                        "Francis Galton",
+                        "Karl Pearson",
+                        "John Stuart Mill",
+                        "Alexis de Tocqueville"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Galton. The wisdom of crowds, demonstrated with a county fair. Hm.",
+                      "miss": "Praising collective judgement and you can't name Galton's ox? Learn the wisdom-of-crowds story."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -47033,24 +47190,48 @@
                   "right": true,
                   "land": "One survivor doesn't beat the graveyard. For every Singapore there's a Mao or a Mugabe — high variance, and no exit. Democracy's worst case is a bad term you vote out; autocracy's worst case is irreversible. On probability and reversibility, mine wins.",
                   "reply": "Tch. Citing the variance and the exit option… that's a real weighing. Point taken.",
-                  "recall": {
-                    "demand": "The ‘graveyard’, you say. Then name its worst grave by the numbers — roughly how many died in Mao's Great Leap famine? In millions.",
-                    "qz": {
-                      "answer": 30,
-                      "type": "num",
-                      "tol": 18
+                  "recalls": [
+                    {
+                      "demand": "The ‘graveyard’, you say. Then name its worst grave by the numbers — roughly how many died in Mao's Great Leap famine? In millions.",
+                      "qz": {
+                        "answer": 30,
+                        "type": "num",
+                        "tol": 18
+                      },
+                      "choices": [
+                        "About 30 million",
+                        "About 3 million",
+                        "About 300,000",
+                        "About half a million"
+                      ],
+                      "correctChoice": 0,
+                      "card": "date-prc-1949",
+                      "good": "~Thirty million. One man, no brakes, no vote to remove him. …That is the whole point about irreversibility, isn't it.",
+                      "miss": "If you don't know the scale, you don't feel the weight of your own argument. Tens of millions — about thirty. Learn it."
                     },
-                    "choices": [
-                      "About 30 million",
-                      "About 3 million",
-                      "About 300,000",
-                      "About half a million"
-                    ],
-                    "correctChoice": 0,
-                    "card": "date-prc-1949",
-                    "good": "~Thirty million. One man, no brakes, no vote to remove him. …That is the whole point about irreversibility, isn't it.",
-                    "miss": "If you don't know the scale, you don't feel the weight of your own argument. Tens of millions — about thirty. Learn it."
-                  }
+                    {
+                      "demand": "Name the catastrophic policy whose famine killed tens of millions in China — the price of one man with no brakes.",
+                      "qz": {
+                        "answer": "Great Leap Forward",
+                        "type": "detail",
+                        "accept": [
+                          "great leap forward",
+                          "great leap",
+                          "the great leap forward"
+                        ]
+                      },
+                      "choices": [
+                        "The Great Leap Forward",
+                        "The Cultural Revolution",
+                        "The Hundred Flowers",
+                        "The Long March"
+                      ],
+                      "correctChoice": 0,
+                      "card": "date-prc-1949",
+                      "good": "The Great Leap Forward. You know the disaster by name. Fine.",
+                      "miss": "Citing China's famine and you can't name the Great Leap Forward? That's it. Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -47075,27 +47256,49 @@
                   "right": true,
                   "land": "Granted — at its worst, democracy elects a demagogue, and I'll state that as strongly as you would. But the motion is ‘best system’, and that burden is comparative. Every system makes bad calls; only one lets you reverse them without bloodshed. Best doesn't mean flawless — it means correctable.",
                   "reply": "…Stating my point better than I did and then turning it on the burden. That's the whole game, isn't it. You held the floor.",
-                  "recall": {
-                    "demand": "‘Best, not perfect’ — you lifted that. Which statesman called democracy ‘the worst form of government except for all the others’? Name him.",
-                    "qz": {
-                      "answer": "Churchill",
-                      "accept": [
-                        "churchill",
-                        "winston churchill",
-                        "sir winston churchill"
+                  "recalls": [
+                    {
+                      "demand": "‘Best, not perfect’ — you lifted that. Which statesman called democracy ‘the worst form of government except for all the others’? Name him.",
+                      "qz": {
+                        "answer": "Churchill",
+                        "accept": [
+                          "churchill",
+                          "winston churchill",
+                          "sir winston churchill"
+                        ],
+                        "type": "detail"
+                      },
+                      "choices": [
+                        "Churchill",
+                        "Orwell",
+                        "Lincoln",
+                        "de Tocqueville"
                       ],
-                      "type": "detail"
+                      "correctChoice": 0,
+                      "good": "Churchill — the Commons, 1947. You came armed. Fine. You've earned the floor.",
+                      "miss": "Quoting a line you can't attribute is how you lose the room. It was Churchill. Go and learn it."
                     },
-                    "choices": [
-                      "Churchill",
-                      "Orwell",
-                      "Lincoln",
-                      "de Tocqueville"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Churchill — the Commons, 1947. You came armed. Fine. You've earned the floor.",
-                    "miss": "Quoting a line you can't attribute is how you lose the room. It was Churchill. Go and learn it."
-                  }
+                    {
+                      "demand": "Which economist argued famines never occur in functioning democracies — the free press sounds the alarm?",
+                      "qz": {
+                        "answer": "Amartya Sen",
+                        "type": "detail",
+                        "accept": [
+                          "sen",
+                          "amartya sen"
+                        ]
+                      },
+                      "choices": [
+                        "Amartya Sen",
+                        "Milton Friedman",
+                        "Friedrich Hayek",
+                        "Thomas Hobbes"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Sen. Democracy as famine insurance. You came armed.",
+                      "miss": "Arguing democracy protects the vulnerable and you can't name Sen? He proved it. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47291,27 +47494,54 @@
                   "right": true,
                   "land": "Most live moral disagreements aren't about ultimate values at all — they're about facts: does this policy reduce suffering, does that punishment deter, is the fetus sentient. Agree the goal is wellbeing and science adjudicates almost everything that's actually contested.",
                   "reply": "…smuggling the factual content out of the moral dispute. Cleverer than the usual reply.",
-                  "recall": {
-                    "demand": "Then name the philosopher who drew the very line you claim to cross — that no 'ought' follows from an 'is'.",
-                    "qz": {
-                      "answer": "Hume",
-                      "type": "detail",
-                      "accept": [
-                        "hume",
-                        "david hume"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Then name the philosopher who drew the very line you claim to cross — that no 'ought' follows from an 'is'.",
+                      "qz": {
+                        "answer": "Hume",
+                        "type": "detail",
+                        "accept": [
+                          "hume",
+                          "david hume"
+                        ]
+                      },
+                      "choices": [
+                        "David Hume",
+                        "Immanuel Kant",
+                        "G.E. Moore",
+                        "Aristotle"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Hume. You named your own obstacle. At least you know what you're up against.",
+                      "miss": "Invoking the is–ought gap and you can't name Hume? It's his gap. Go and learn the card.",
+                      "card": "philo-is-ought"
                     },
-                    "choices": [
-                      "David Hume",
-                      "Immanuel Kant",
-                      "G.E. Moore",
-                      "Aristotle"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Hume. You named your own obstacle. At least you know what you're up against.",
-                    "miss": "Invoking the is–ought gap and you can't name Hume? It's his gap. Go and learn the card.",
-                    "card": "philo-is-ought"
-                  }
+                    {
+                      "demand": "Name the gap itself — you cannot derive a prescription from a description.",
+                      "qz": {
+                        "answer": "is-ought gap",
+                        "type": "detail",
+                        "accept": [
+                          "is-ought",
+                          "is ought",
+                          "is-ought gap",
+                          "is-ought problem",
+                          "the guillotine",
+                          "humes guillotine"
+                        ]
+                      },
+                      "choices": [
+                        "The is–ought gap",
+                        "The mind–body problem",
+                        "The trolley problem",
+                        "The veil of ignorance"
+                      ],
+                      "correctChoice": 0,
+                      "card": "philo-is-ought",
+                      "good": "The is–ought gap. You name the chasm, not just the man. Hm.",
+                      "miss": "Arguing science can't reach 'ought' and you can't name the is–ought gap? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47336,28 +47566,52 @@
                   "right": true,
                   "land": "Fair — but press it and it cuts both ways: by that logic NO foundation for ethics is possible, science or otherwise, and you've argued yourself into nihilism, not into beating science specifically. If wellbeing isn't a defensible aim, nothing is.",
                   "reply": "Turning the open-question argument into a problem for all ethics, not just mine. …Uncomfortable, and fair.",
-                  "recall": {
-                    "demand": "Name the philosopher who coined the 'naturalistic fallacy' — that 'good' can't be defined as any natural property.",
-                    "qz": {
-                      "answer": "Moore",
-                      "type": "detail",
-                      "accept": [
-                        "moore",
-                        "g e moore",
-                        "george edward moore"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the philosopher who coined the 'naturalistic fallacy' — that 'good' can't be defined as any natural property.",
+                      "qz": {
+                        "answer": "Moore",
+                        "type": "detail",
+                        "accept": [
+                          "moore",
+                          "g e moore",
+                          "george edward moore"
+                        ]
+                      },
+                      "choices": [
+                        "G.E. Moore",
+                        "Jeremy Bentham",
+                        "John Stuart Mill",
+                        "Friedrich Nietzsche"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Moore. Principia Ethica. You're fighting on the real terrain. Respect.",
+                      "miss": "Throwing 'naturalistic fallacy' and you can't name Moore? He invented the phrase. Learn it.",
+                      "card": "philo-naturalistic-fallacy"
                     },
-                    "choices": [
-                      "G.E. Moore",
-                      "Jeremy Bentham",
-                      "John Stuart Mill",
-                      "Friedrich Nietzsche"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Moore. Principia Ethica. You're fighting on the real terrain. Respect.",
-                    "miss": "Throwing 'naturalistic fallacy' and you can't name Moore? He invented the phrase. Learn it.",
-                    "card": "philo-naturalistic-fallacy"
-                  }
+                    {
+                      "demand": "Name Moore's argument — for any natural property, you can still ask 'but is THAT good?'",
+                      "qz": {
+                        "answer": "open-question argument",
+                        "type": "detail",
+                        "accept": [
+                          "open question argument",
+                          "open-question argument",
+                          "open question"
+                        ]
+                      },
+                      "choices": [
+                        "The open-question argument",
+                        "The categorical imperative",
+                        "The original position",
+                        "The verification principle"
+                      ],
+                      "correctChoice": 0,
+                      "card": "philo-naturalistic-fallacy",
+                      "good": "The open-question argument. You cut at the real joint. Respect.",
+                      "miss": "Citing Moore and you can't name the open-question argument? That's his move. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -47382,27 +47636,51 @@
                   "right": true,
                   "land": "Granted, and at full strength: bedrock values may indeed be brute commitments science can't derive. But the motion isn't 'science derives ultimate values from nothing' — it's 'answer moral questions', and almost every real one turns on facts about consequences and minds, which science is uniquely placed to settle. We agree on the goal far more than you admit.",
                   "reply": "Conceding the bedrock, then claiming all the contested ground above it. …That's the division I couldn't hold.",
-                  "recall": {
-                    "demand": "Which philosopher tried to make morality a literal calculation — a 'felicific calculus' of pleasure and pain?",
-                    "qz": {
-                      "answer": "Bentham",
-                      "type": "detail",
-                      "accept": [
-                        "bentham",
-                        "jeremy bentham"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Which philosopher tried to make morality a literal calculation — a 'felicific calculus' of pleasure and pain?",
+                      "qz": {
+                        "answer": "Bentham",
+                        "type": "detail",
+                        "accept": [
+                          "bentham",
+                          "jeremy bentham"
+                        ]
+                      },
+                      "choices": [
+                        "Jeremy Bentham",
+                        "Immanuel Kant",
+                        "David Hume",
+                        "John Rawls"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Bentham. The hedonic calculus — morality as measurement. You came prepared.",
+                      "miss": "Arguing morality can be measured and you can't name Bentham? He literally tried. Learn the card.",
+                      "card": "philo-utilitarianism-bentham"
                     },
-                    "choices": [
-                      "Jeremy Bentham",
-                      "Immanuel Kant",
-                      "David Hume",
-                      "John Rawls"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Bentham. The hedonic calculus — morality as measurement. You came prepared.",
-                    "miss": "Arguing morality can be measured and you can't name Bentham? He literally tried. Learn the card.",
-                    "card": "philo-utilitarianism-bentham"
-                  }
+                    {
+                      "demand": "Name Bentham's method — morality as the arithmetic of pleasure and pain.",
+                      "qz": {
+                        "answer": "felicific calculus",
+                        "type": "detail",
+                        "accept": [
+                          "felicific calculus",
+                          "hedonic calculus",
+                          "the felicific calculus"
+                        ]
+                      },
+                      "choices": [
+                        "The felicific calculus",
+                        "The categorical imperative",
+                        "The difference principle",
+                        "The harm principle"
+                      ],
+                      "correctChoice": 0,
+                      "card": "philo-utilitarianism-bentham",
+                      "good": "The felicific calculus. You know the machine and its hidden axiom. Floor's yours.",
+                      "miss": "Arguing morality can't be computed and you can't name the felicific calculus? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47597,30 +47875,52 @@
                   "right": true,
                   "land": "Every tool you'd romanticise away was 'unnatural progress' once — the plough, the vaccine, the fertiliser. And the village you pine for buried one child in three before age five. The problems of progress are luxuries we only have because we survived to complain about them.",
                   "reply": "…one in three. You turned my nostalgia into a graveyard. That's a low blow, and a fair one.",
-                  "recall": {
-                    "demand": "Speaking of fertiliser — half the nitrogen in your body comes from one industrial process that feeds billions. Name it.",
-                    "qz": {
-                      "answer": "Haber-Bosch",
-                      "type": "detail",
-                      "accept": [
-                        "haber bosch",
-                        "haber",
-                        "haber-bosch",
-                        "haber bosch process",
-                        "the haber bosch process"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Speaking of fertiliser — half the nitrogen in your body comes from one industrial process that feeds billions. Name it.",
+                      "qz": {
+                        "answer": "Haber-Bosch",
+                        "type": "detail",
+                        "accept": [
+                          "haber bosch",
+                          "haber",
+                          "haber-bosch",
+                          "haber bosch process",
+                          "the haber bosch process"
+                        ]
+                      },
+                      "choices": [
+                        "The Haber-Bosch process",
+                        "Pasteurisation",
+                        "The Bessemer process",
+                        "Photosynthesis"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Haber-Bosch. You literally embody the argument — half your nitrogen. Annoyingly poetic.",
+                      "miss": "Don't know what feeds half the planet? It's the Haber-Bosch process. Go and learn it.",
+                      "card": "eco-haber-bosch"
                     },
-                    "choices": [
-                      "The Haber-Bosch process",
-                      "Pasteurisation",
-                      "The Bessemer process",
-                      "Photosynthesis"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Haber-Bosch. You literally embody the argument — half your nitrogen. Annoyingly poetic.",
-                    "miss": "Don't know what feeds half the planet? It's the Haber-Bosch process. Go and learn it.",
-                    "card": "eco-haber-bosch"
-                  }
+                    {
+                      "demand": "The Haber-Bosch process pulls which element from the air to make fertiliser?",
+                      "qz": {
+                        "answer": "nitrogen",
+                        "type": "detail",
+                        "accept": [
+                          "nitrogen"
+                        ]
+                      },
+                      "choices": [
+                        "Nitrogen",
+                        "Carbon",
+                        "Phosphorus",
+                        "Potassium"
+                      ],
+                      "correctChoice": 0,
+                      "card": "eco-haber-bosch",
+                      "good": "Nitrogen — out of thin air, into half the world's food. Annoyingly poetic.",
+                      "miss": "Citing the process that feeds billions and you don't know it fixes nitrogen? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47645,28 +47945,53 @@
                   "right": true,
                   "land": "Weigh it straight: yes, the magnitude of the worst case rose — but so did our power to prevent it, and the gains are already banked, certain and enormous. Famine, plague, infant death: gone for billions. You're setting a possible future loss against a realised, colossal gain.",
                   "reply": "Banked gains versus a possible loss. …You made me compare the right two things. Damn.",
-                  "recall": {
-                    "demand": "Which gloomy thinker predicted population would always outrun the food supply — and was proven wrong by the green revolution?",
-                    "qz": {
-                      "answer": "Malthus",
-                      "type": "detail",
-                      "accept": [
-                        "malthus",
-                        "thomas malthus",
-                        "thomas robert malthus"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Which gloomy thinker predicted population would always outrun the food supply — and was proven wrong by the green revolution?",
+                      "qz": {
+                        "answer": "Malthus",
+                        "type": "detail",
+                        "accept": [
+                          "malthus",
+                          "thomas malthus",
+                          "thomas robert malthus"
+                        ]
+                      },
+                      "choices": [
+                        "Thomas Malthus",
+                        "Adam Smith",
+                        "David Ricardo",
+                        "Paul Ehrlich"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Malthus. Refuted by the very progress you distrust. You came armed.",
+                      "miss": "You're making the population-doom argument and can't name Malthus? He invented it — and was wrong. Learn it.",
+                      "card": "echist-malthus"
                     },
-                    "choices": [
-                      "Thomas Malthus",
-                      "Adam Smith",
-                      "David Ricardo",
-                      "Paul Ehrlich"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Malthus. Refuted by the very progress you distrust. You came armed.",
-                    "miss": "You're making the population-doom argument and can't name Malthus? He invented it — and was wrong. Learn it.",
-                    "card": "echist-malthus"
-                  }
+                    {
+                      "demand": "Malthus said population grows geometrically while food grows how?",
+                      "qz": {
+                        "answer": "arithmetically",
+                        "type": "detail",
+                        "accept": [
+                          "arithmetic",
+                          "arithmetically",
+                          "linear",
+                          "linearly"
+                        ]
+                      },
+                      "choices": [
+                        "Arithmetically",
+                        "Geometrically",
+                        "Exponentially",
+                        "Not at all"
+                      ],
+                      "correctChoice": 0,
+                      "card": "echist-malthus",
+                      "good": "Arithmetically — the gap that doomed his prophecy when yields exploded. Fine.",
+                      "miss": "Arguing about Malthus and you don't know food was meant to grow arithmetically? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -47691,28 +48016,51 @@
                   "right": true,
                   "land": "Granted — and at full strength: rising loneliness, ecological strain, meaning hollowed out by the very abundance we built. State it as darkly as you like. But the motion is 'better off' on balance: lifespans roughly doubled, extreme poverty collapsed from most of humanity to a small fraction, literacy near-universal. Better doesn't mean costless.",
                   "reply": "Stating my own case more bleakly than I did, then pinning me on 'on balance'. …I yield the floor.",
-                  "recall": {
-                    "demand": "There's an economist who argued population pressure SPURS innovation, flatly against Malthus's gloom. Name her.",
-                    "qz": {
-                      "answer": "Boserup",
-                      "type": "detail",
-                      "accept": [
-                        "boserup",
-                        "ester boserup",
-                        "esther boserup"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "There's an economist who argued population pressure SPURS innovation, flatly against Malthus's gloom. Name her.",
+                      "qz": {
+                        "answer": "Boserup",
+                        "type": "detail",
+                        "accept": [
+                          "boserup",
+                          "ester boserup",
+                          "esther boserup"
+                        ]
+                      },
+                      "choices": [
+                        "Ester Boserup",
+                        "Hannah Arendt",
+                        "Rachel Carson",
+                        "Jane Jacobs"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Boserup. Necessity breeds invention. You even know Malthus's nemesis. Beautifully done.",
+                      "miss": "Can't name the thinker who said scarcity drives invention? It's Boserup. Learn the card and return.",
+                      "card": "echist-malthus"
                     },
-                    "choices": [
-                      "Ester Boserup",
-                      "Hannah Arendt",
-                      "Rachel Carson",
-                      "Jane Jacobs"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Boserup. Necessity breeds invention. You even know Malthus's nemesis. Beautifully done.",
-                    "miss": "Can't name the thinker who said scarcity drives invention? It's Boserup. Learn the card and return.",
-                    "card": "echist-malthus"
-                  }
+                    {
+                      "demand": "Name the surge in crop yields that flatly refuted Malthus in the 20th century.",
+                      "qz": {
+                        "answer": "green revolution",
+                        "type": "detail",
+                        "accept": [
+                          "green revolution",
+                          "the green revolution"
+                        ]
+                      },
+                      "choices": [
+                        "The green revolution",
+                        "The industrial revolution",
+                        "The demographic transition",
+                        "The enclosure movement"
+                      ],
+                      "correctChoice": 0,
+                      "card": "echist-malthus",
+                      "good": "The green revolution. You know what broke the curse. Floor's yours.",
+                      "miss": "Arguing progress fed the world and you can't name the green revolution? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47906,23 +48254,45 @@
                   "right": true,
                   "land": "Interdependence cuts both ways: it's leverage, friction, and a tripwire all at once. Europe in 1914 was as economically interlinked as any time before it — and marched straight into the Somme. Closeness isn't safety.",
                   "reply": "…1914. You went straight for the interdependence-didn't-save-them card. Unsporting.",
-                  "recall": {
-                    "demand": "You want a number? Graham Allison studied 16 cases of a rising power challenging a ruling one. How many ended in war?",
-                    "qz": {
-                      "answer": 12,
-                      "type": "num"
+                  "recalls": [
+                    {
+                      "demand": "You want a number? Graham Allison studied 16 cases of a rising power challenging a ruling one. How many ended in war?",
+                      "qz": {
+                        "answer": 12,
+                        "type": "num"
+                      },
+                      "choices": [
+                        "12 of 16",
+                        "4 of 16",
+                        "16 of 16",
+                        "8 of 16"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Twelve of sixteen. The base rate is not on the side of calm. …Point taken.",
+                      "miss": "Citing the trap with no numbers? It's 12 of 16 — most of them. Learn it before you lecture me.",
+                      "card": "ir-hegemonic-stability"
                     },
-                    "choices": [
-                      "12 of 16",
-                      "4 of 16",
-                      "16 of 16",
-                      "8 of 16"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Twelve of sixteen. The base rate is not on the side of calm. …Point taken.",
-                    "miss": "Citing the trap with no numbers? It's 12 of 16 — most of them. Learn it before you lecture me.",
-                    "card": "ir-hegemonic-stability"
-                  }
+                    {
+                      "demand": "Name the ancient historian the 'trap' is named after.",
+                      "qz": {
+                        "answer": "Thucydides",
+                        "type": "detail",
+                        "accept": [
+                          "thucydides"
+                        ]
+                      },
+                      "choices": [
+                        "Thucydides",
+                        "Herodotus",
+                        "Sun Tzu",
+                        "Polybius"
+                      ],
+                      "correctChoice": 0,
+                      "card": "geo-thucydides",
+                      "good": "Thucydides himself. You know the source, not just the slogan. Tch.",
+                      "miss": "Invoking the trap and you can't name Thucydides? It's literally his name. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -47947,28 +48317,52 @@
                   "right": true,
                   "land": "Weigh the tail risk honestly: deterrence works until the one time it doesn't, and that downside is omnicide — low probability, effectively infinite magnitude, utterly irreversible. A small chance of the end of everything still dominates the calculation.",
                   "reply": "Low probability, infinite magnitude, irreversible. …You weighed the one outcome I was waving away.",
-                  "recall": {
-                    "demand": "In the original analogy, which rising Greek power's growth so frightened Sparta that it chose war?",
-                    "qz": {
-                      "answer": "Athens",
-                      "type": "detail",
-                      "accept": [
-                        "athens",
-                        "the athenians",
-                        "athenian"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "In the original analogy, which rising Greek power's growth so frightened Sparta that it chose war?",
+                      "qz": {
+                        "answer": "Athens",
+                        "type": "detail",
+                        "accept": [
+                          "athens",
+                          "the athenians",
+                          "athenian"
+                        ]
+                      },
+                      "choices": [
+                        "Athens",
+                        "Sparta",
+                        "Persia",
+                        "Macedon"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Athens. You know the Thucydides original, not just the buzzword. Respect.",
+                      "miss": "Invoking the Thucydides Trap and you can't name Athens? That's the whole story. Go and learn it.",
+                      "card": "geo-thucydides"
                     },
-                    "choices": [
-                      "Athens",
-                      "Sparta",
-                      "Persia",
-                      "Macedon"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Athens. You know the Thucydides original, not just the buzzword. Respect.",
-                    "miss": "Invoking the Thucydides Trap and you can't name Athens? That's the whole story. Go and learn it.",
-                    "card": "geo-thucydides"
-                  }
+                    {
+                      "demand": "And which established power did that rising one frighten into war?",
+                      "qz": {
+                        "answer": "Sparta",
+                        "type": "detail",
+                        "accept": [
+                          "sparta",
+                          "the spartans",
+                          "spartan"
+                        ]
+                      },
+                      "choices": [
+                        "Sparta",
+                        "Persia",
+                        "Corinth",
+                        "Thebes"
+                      ],
+                      "correctChoice": 0,
+                      "card": "geo-thucydides",
+                      "good": "Sparta — the ruling power's fear. You know both halves. Respect.",
+                      "miss": "Citing the analogy and you can't name Sparta, the frightened power? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -47993,28 +48387,51 @@
                   "right": true,
                   "land": "Fair hit — most rivalries don't end in war, and alarmism is cheap. But the motion says 'likely', not 'certain'. The burden is elevated risk, not prophecy: 12 of 16 historically, plus Taiwan as a live, armed flashpoint. 'It hasn't yet' is not an answer to 'it's probable'.",
                   "reply": "Likely, not certain — you moved the goalposts back to where they actually were. …I've nothing for that.",
-                  "recall": {
-                    "demand": "One stabilising power can hold an order together. Which economist argued a leaderless world deepened the Great Depression?",
-                    "qz": {
-                      "answer": "Kindleberger",
-                      "type": "detail",
-                      "accept": [
-                        "kindleberger",
-                        "charles kindleberger",
-                        "charles p kindleberger"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "One stabilising power can hold an order together. Which economist argued a leaderless world deepened the Great Depression?",
+                      "qz": {
+                        "answer": "Kindleberger",
+                        "type": "detail",
+                        "accept": [
+                          "kindleberger",
+                          "charles kindleberger",
+                          "charles p kindleberger"
+                        ]
+                      },
+                      "choices": [
+                        "Charles Kindleberger",
+                        "Paul Kennedy",
+                        "Henry Kissinger",
+                        "John Mearsheimer"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Kindleberger. Hegemonic stability. You brought the deep cut. The floor is yours.",
+                      "miss": "Arguing power transitions with no Kindleberger? That's the theory's backbone. Learn the card.",
+                      "card": "ir-hegemonic-stability"
                     },
-                    "choices": [
-                      "Charles Kindleberger",
-                      "Paul Kennedy",
-                      "Henry Kissinger",
-                      "John Mearsheimer"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Kindleberger. Hegemonic stability. You brought the deep cut. The floor is yours.",
-                    "miss": "Arguing power transitions with no Kindleberger? That's the theory's backbone. Learn the card.",
-                    "card": "ir-hegemonic-stability"
-                  }
+                    {
+                      "demand": "Name the theory — one dominant power stabilises the global order, and its decline brings conflict.",
+                      "qz": {
+                        "answer": "hegemonic stability theory",
+                        "type": "detail",
+                        "accept": [
+                          "hegemonic stability",
+                          "hegemonic stability theory"
+                        ]
+                      },
+                      "choices": [
+                        "Hegemonic stability theory",
+                        "Balance of power",
+                        "Democratic peace",
+                        "The long peace"
+                      ],
+                      "correctChoice": 0,
+                      "card": "ir-hegemonic-stability",
+                      "good": "Hegemonic stability theory. You brought the framework. The floor is yours.",
+                      "miss": "Arguing about power transitions and you can't name hegemonic stability theory? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-steelman",
@@ -48206,29 +48623,52 @@
                   "right": true,
                   "land": "'If everyone' is doing all the work in that sentence — and it's exactly the trap. Each person gains by free-riding while hoping the others act, so the big group predictably fails to. That's not cynicism; it's the structure. You need rules, not resolutions.",
                   "reply": "…the free-rider logic. You turned my rallying cry into a collective-action problem.",
-                  "recall": {
-                    "demand": "Then name what Mancur Olson said a large group needs to beat free-riding — the private carrot or stick.",
-                    "qz": {
-                      "answer": "selective incentives",
-                      "type": "detail",
-                      "accept": [
-                        "selective incentive",
-                        "selective incentives",
-                        "selective benefit",
-                        "selective benefits"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Then name what Mancur Olson said a large group needs to beat free-riding — the private carrot or stick.",
+                      "qz": {
+                        "answer": "selective incentives",
+                        "type": "detail",
+                        "accept": [
+                          "selective incentive",
+                          "selective incentives",
+                          "selective benefit",
+                          "selective benefits"
+                        ]
+                      },
+                      "choices": [
+                        "Selective incentives",
+                        "Moral suasion",
+                        "The social contract",
+                        "Consciousness-raising"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Selective incentives. You know Olson, not just the slogan. Damn.",
+                      "miss": "Preaching collective change and you can't name selective incentives? That's the mechanism. Learn it.",
+                      "card": "poli-collective-action"
                     },
-                    "choices": [
-                      "Selective incentives",
-                      "Moral suasion",
-                      "The social contract",
-                      "Consciousness-raising"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Selective incentives. You know Olson, not just the slogan. Damn.",
-                    "miss": "Preaching collective change and you can't name selective incentives? That's the mechanism. Learn it.",
-                    "card": "poli-collective-action"
-                  }
+                    {
+                      "demand": "Name the economist who literally wrote 'The Logic of Collective Action'.",
+                      "qz": {
+                        "answer": "Olson",
+                        "type": "detail",
+                        "accept": [
+                          "olson",
+                          "mancur olson"
+                        ]
+                      },
+                      "choices": [
+                        "Mancur Olson",
+                        "Elinor Ostrom",
+                        "Robert Putnam",
+                        "Garrett Hardin"
+                      ],
+                      "correctChoice": 0,
+                      "card": "poli-collective-action",
+                      "good": "Olson. You know whose logic you're invoking. Damn.",
+                      "miss": "Citing collective-action failure and you can't name Olson? He wrote the book. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -48253,30 +48693,54 @@
                   "right": true,
                   "land": "Weigh the magnitudes: your household's recycling against a hundred industrial emitters, your one vote against structural incentives steering millions. The individual contribution is a rounding error next to the system's drivers. Feeling effective isn't the same as moving the needle.",
                   "reply": "A rounding error against the system. …You made me compare the actual sizes, and they're not close.",
-                  "recall": {
-                    "demand": "Name the problem where each person enjoys a shared good without paying for it — the reason voluntary effort under-supplies it.",
-                    "qz": {
-                      "answer": "free-rider problem",
-                      "type": "detail",
-                      "accept": [
-                        "free rider problem",
-                        "free-rider problem",
-                        "free riding",
-                        "free-riding",
-                        "free rider"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the problem where each person enjoys a shared good without paying for it — the reason voluntary effort under-supplies it.",
+                      "qz": {
+                        "answer": "free-rider problem",
+                        "type": "detail",
+                        "accept": [
+                          "free rider problem",
+                          "free-rider problem",
+                          "free riding",
+                          "free-riding",
+                          "free rider"
+                        ]
+                      },
+                      "choices": [
+                        "The free-rider problem",
+                        "The tragedy of the anti-commons",
+                        "Moral hazard",
+                        "The principal-agent problem"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The free-rider problem. You know why good intentions under-deliver. Fine.",
+                      "miss": "Arguing about collective effort and you can't name free-riding? It's the core of it. Learn the card.",
+                      "card": "pf-public-goods"
                     },
-                    "choices": [
-                      "The free-rider problem",
-                      "The tragedy of the anti-commons",
-                      "Moral hazard",
-                      "The principal-agent problem"
-                    ],
-                    "correctChoice": 0,
-                    "good": "The free-rider problem. You know why good intentions under-deliver. Fine.",
-                    "miss": "Arguing about collective effort and you can't name free-riding? It's the core of it. Learn the card.",
-                    "card": "pf-public-goods"
-                  }
+                    {
+                      "demand": "Name the TYPE of good prone to free-riding — non-excludable and non-rival.",
+                      "qz": {
+                        "answer": "public good",
+                        "type": "detail",
+                        "accept": [
+                          "public good",
+                          "public goods",
+                          "a public good"
+                        ]
+                      },
+                      "choices": [
+                        "A public good",
+                        "A private good",
+                        "A Giffen good",
+                        "An inferior good"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pf-public-goods",
+                      "good": "A public good. You know which goods individuals under-supply. Fine.",
+                      "miss": "Arguing voluntary effort fails and you can't name a public good? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -48301,28 +48765,54 @@
                   "right": true,
                   "land": "Granted — and it's your best card: Ostrom won a Nobel showing communities self-govern the commons. But look at HOW: clear rules, monitoring, sanctions, binding agreements. That's organised collective action with structure — which is exactly my point. It's never the lone individual; it's the institution they build.",
                   "reply": "Conceding Ostrom and then making her my own evidence — structure, not solo virtue. …That's the move.",
-                  "recall": {
-                    "demand": "Name the economist who won the Nobel for documenting that self-governance — the exception that proves structure matters.",
-                    "qz": {
-                      "answer": "Ostrom",
-                      "type": "detail",
-                      "accept": [
-                        "ostrom",
-                        "elinor ostrom",
-                        "e ostrom"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the economist who won the Nobel for documenting that self-governance — the exception that proves structure matters.",
+                      "qz": {
+                        "answer": "Ostrom",
+                        "type": "detail",
+                        "accept": [
+                          "ostrom",
+                          "elinor ostrom",
+                          "e ostrom"
+                        ]
+                      },
+                      "choices": [
+                        "Elinor Ostrom",
+                        "Mancur Olson",
+                        "Robert Putnam",
+                        "James Buchanan"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Ostrom. You even know the woman whose work I was leaning on. The floor is yours.",
+                      "miss": "Citing self-governance and you can't name Ostrom? She won the Nobel for it. Learn the card.",
+                      "card": "sys-commons"
                     },
-                    "choices": [
-                      "Elinor Ostrom",
-                      "Mancur Olson",
-                      "Robert Putnam",
-                      "James Buchanan"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Ostrom. You even know the woman whose work I was leaning on. The floor is yours.",
-                    "miss": "Citing self-governance and you can't name Ostrom? She won the Nobel for it. Learn the card.",
-                    "card": "sys-commons"
-                  }
+                    {
+                      "demand": "Name the TYPE of resource Ostrom studied — shared, depletable, hard to fence off.",
+                      "qz": {
+                        "answer": "common-pool resource",
+                        "type": "detail",
+                        "accept": [
+                          "common-pool resource",
+                          "common pool resource",
+                          "commons",
+                          "the commons",
+                          "common-pool resources"
+                        ]
+                      },
+                      "choices": [
+                        "A common-pool resource",
+                        "A public good",
+                        "A private good",
+                        "A merit good"
+                      ],
+                      "correctChoice": 0,
+                      "card": "sys-commons",
+                      "good": "A common-pool resource. You know the terrain, not just the name. Floor's yours.",
+                      "miss": "Citing Ostrom and you can't name the common-pool resource? That's her subject. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -48520,29 +49010,53 @@
                   "right": true,
                   "land": "Dismissing a claim because of who makes it isn't humility — it's the appeal-to-authority fallacy run in reverse. The cardiologist really does know your heart better than the crowd. Rejecting knowledge because it wears a lab coat is not common sense; it's a category error.",
                   "reply": "…the fallacy in reverse. You flipped my anti-elitism into a logical error. Slick.",
-                  "recall": {
-                    "demand": "Name the fallacy of accepting a claim merely because an authority asserts it — the one people confuse with trusting real expertise.",
-                    "qz": {
-                      "answer": "appeal to authority",
-                      "type": "detail",
-                      "accept": [
-                        "appeal to authority",
-                        "argument from authority",
-                        "appeal-to-authority",
-                        "ad verecundiam"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the fallacy of accepting a claim merely because an authority asserts it — the one people confuse with trusting real expertise.",
+                      "qz": {
+                        "answer": "appeal to authority",
+                        "type": "detail",
+                        "accept": [
+                          "appeal to authority",
+                          "argument from authority",
+                          "appeal-to-authority",
+                          "ad verecundiam"
+                        ]
+                      },
+                      "choices": [
+                        "Appeal to authority",
+                        "Ad hominem",
+                        "Straw man",
+                        "Slippery slope"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Appeal to authority. You know the difference between deference and evidence. Hmph.",
+                      "miss": "Ranting about authority and you can't name the fallacy? It's appeal to authority. Learn the card.",
+                      "card": "logic-appeal-authority"
                     },
-                    "choices": [
-                      "Appeal to authority",
-                      "Ad hominem",
-                      "Straw man",
-                      "Slippery slope"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Appeal to authority. You know the difference between deference and evidence. Hmph.",
-                    "miss": "Ranting about authority and you can't name the fallacy? It's appeal to authority. Learn the card.",
-                    "card": "logic-appeal-authority"
-                  }
+                    {
+                      "demand": "Name the fallacy of attacking the person instead of their argument — the populist's stock move.",
+                      "qz": {
+                        "answer": "ad hominem",
+                        "type": "detail",
+                        "accept": [
+                          "ad hominem",
+                          "ad-hominem",
+                          "argumentum ad hominem"
+                        ]
+                      },
+                      "choices": [
+                        "Ad hominem",
+                        "Straw man",
+                        "Appeal to authority",
+                        "Red herring"
+                      ],
+                      "correctChoice": 0,
+                      "card": "logic-ad-hominem",
+                      "good": "Ad hominem. You know the move you're refusing to make. Hm.",
+                      "miss": "Defending reasoned expertise and you can't name ad hominem? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -48567,29 +49081,55 @@
                   "right": true,
                   "land": "Weigh the domains. Crowds are genuinely wise when you aggregate many independent estimates — guess-the-ox-weight, prediction markets. They are not wise on technical questions where the truth doesn't average out: virology, bridge tolerances, monetary policy. Right tool, right job.",
                   "reply": "Splitting aggregation from technical truth. …You conceded the wisdom of crowds and then fenced it in. Tidy.",
-                  "recall": {
-                    "demand": "Whose 'jury theorem' is the strongest formal case for the crowd — that many better-than-even voters are very likely right together?",
-                    "qz": {
-                      "answer": "Condorcet",
-                      "type": "detail",
-                      "accept": [
-                        "condorcet",
-                        "marquis de condorcet",
-                        "condorcet jury theorem",
-                        "jury theorem"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Whose 'jury theorem' is the strongest formal case for the crowd — that many better-than-even voters are very likely right together?",
+                      "qz": {
+                        "answer": "Condorcet",
+                        "type": "detail",
+                        "accept": [
+                          "condorcet",
+                          "marquis de condorcet",
+                          "condorcet jury theorem",
+                          "jury theorem"
+                        ]
+                      },
+                      "choices": [
+                        "Condorcet",
+                        "Galton",
+                        "Hayek",
+                        "Arrow"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Condorcet. You even know the best argument against your own side. Respect.",
+                      "miss": "Praising the wise crowd and you can't name Condorcet's theorem? That's its backbone. Learn it.",
+                      "card": "poli-condorcet"
                     },
-                    "choices": [
-                      "Condorcet",
-                      "Galton",
-                      "Hayek",
-                      "Arrow"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Condorcet. You even know the best argument against your own side. Respect.",
-                    "miss": "Praising the wise crowd and you can't name Condorcet's theorem? That's its backbone. Learn it.",
-                    "card": "poli-condorcet"
-                  }
+                    {
+                      "demand": "Condorcet also found majority preferences can do what — undermining the simple vote?",
+                      "qz": {
+                        "answer": "cycle",
+                        "type": "detail",
+                        "accept": [
+                          "cycle",
+                          "cycling",
+                          "voting paradox",
+                          "condorcet paradox",
+                          "they cycle"
+                        ]
+                      },
+                      "choices": [
+                        "They can cycle (A>B>C>A)",
+                        "They always converge",
+                        "They maximise welfare",
+                        "They are transitive"
+                      ],
+                      "correctChoice": 0,
+                      "card": "poli-condorcet",
+                      "good": "Cycling majorities. You know the crowd's limits too. Respect.",
+                      "miss": "Praising the crowd and you don't know preferences can cycle? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -48614,28 +49154,50 @@
                   "right": true,
                   "land": "Granted — experts err, and worse, they're systematically overconfident; state every failure and I'll own it. But the motion is comparative: trust them OVER public opinion. The alternative isn't omniscience, it's mood and demagogues — and expertise, unlike a mob, has a mechanism to mark its errors and correct them.",
                   "reply": "Owning the overconfidence and then pinning me on the alternative. …Mood versus self-correction. I've nothing.",
-                  "recall": {
-                    "demand": "Name the bias where people — experts included — are systematically too sure their judgments are right.",
-                    "qz": {
-                      "answer": "overconfidence",
-                      "type": "detail",
-                      "accept": [
-                        "overconfidence",
-                        "overconfidence bias",
-                        "overconfidence effect"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the bias where people — experts included — are systematically too sure their judgments are right.",
+                      "qz": {
+                        "answer": "overconfidence",
+                        "type": "detail",
+                        "accept": [
+                          "overconfidence",
+                          "overconfidence bias",
+                          "overconfidence effect"
+                        ]
+                      },
+                      "choices": [
+                        "Overconfidence",
+                        "Anchoring",
+                        "The halo effect",
+                        "Loss aversion"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Overconfidence. You even named the experts' real flaw before I could. The floor is yours.",
+                      "miss": "Attacking experts for being too sure and you can't name overconfidence? That's the bias. Learn the card.",
+                      "card": "behav-overconfidence"
                     },
-                    "choices": [
-                      "Overconfidence",
-                      "Anchoring",
-                      "The halo effect",
-                      "Loss aversion"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Overconfidence. You even named the experts' real flaw before I could. The floor is yours.",
-                    "miss": "Attacking experts for being too sure and you can't name overconfidence? That's the bias. Learn the card.",
-                    "card": "behav-overconfidence"
-                  }
+                    {
+                      "demand": "Name the researcher famous for scoring expert political forecasts — and finding most no better than chance.",
+                      "qz": {
+                        "answer": "Tetlock",
+                        "type": "detail",
+                        "accept": [
+                          "tetlock",
+                          "philip tetlock"
+                        ]
+                      },
+                      "choices": [
+                        "Philip Tetlock",
+                        "Daniel Kahneman",
+                        "Nate Silver",
+                        "Karl Popper"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Tetlock. You know the evidence on expert overconfidence. The floor is yours.",
+                      "miss": "Attacking expert forecasting and you can't name Tetlock? He kept the scorecard. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -48835,29 +49397,55 @@
                   "right": true,
                   "land": "Those crashes are prices correcting a mistake in the open. Your planner has no prices — so he can't even see the misallocation until the shortage hits the shelves. Markets aren't blind; central planning is.",
                   "reply": "…no prices, no sight. The knowledge problem. I'd hoped you hadn't heard of it.",
-                  "recall": {
-                    "demand": "Then name him. Which economist's whole case was that no planner can know what dispersed prices already know?",
-                    "qz": {
-                      "answer": "Hayek",
-                      "type": "detail",
-                      "accept": [
-                        "hayek",
-                        "friedrich hayek",
-                        "f a hayek",
-                        "von hayek"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Then name him. Which economist's whole case was that no planner can know what dispersed prices already know?",
+                      "qz": {
+                        "answer": "Hayek",
+                        "type": "detail",
+                        "accept": [
+                          "hayek",
+                          "friedrich hayek",
+                          "f a hayek",
+                          "von hayek"
+                        ]
+                      },
+                      "choices": [
+                        "Friedrich Hayek",
+                        "John Maynard Keynes",
+                        "Milton Friedman",
+                        "Karl Marx"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Hayek. The use of knowledge in society. You've done the reading, comrade.",
+                      "miss": "You wield the argument but can't name Hayek? Then it isn't yours. Go and learn it.",
+                      "card": "pe-hayek"
                     },
-                    "choices": [
-                      "Friedrich Hayek",
-                      "John Maynard Keynes",
-                      "Milton Friedman",
-                      "Karl Marx"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Hayek. The use of knowledge in society. You've done the reading, comrade.",
-                    "miss": "You wield the argument but can't name Hayek? Then it isn't yours. Go and learn it.",
-                    "card": "pe-hayek"
-                  }
+                    {
+                      "demand": "Name the idea itself — that no planner can gather what dispersed prices already encode.",
+                      "qz": {
+                        "answer": "the knowledge problem",
+                        "type": "detail",
+                        "accept": [
+                          "knowledge problem",
+                          "the knowledge problem",
+                          "local knowledge",
+                          "dispersed knowledge",
+                          "use of knowledge"
+                        ]
+                      },
+                      "choices": [
+                        "The knowledge problem",
+                        "The calculation surplus",
+                        "The convergence theorem",
+                        "The impossibility theorem"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pe-hayek",
+                      "good": "The knowledge problem. You name the thing, not just the man. Hm.",
+                      "miss": "Wielding Hayek's argument and you can't name the knowledge problem? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -48882,27 +49470,51 @@
                   "right": true,
                   "land": "Weigh all of it, not two trophies: chronic shortages, a famine that killed millions, queues for bread, and a system that finally collapsed. High variance, catastrophic downside, and no price signal to self-correct on the way down.",
                   "reply": "The graveyard against the showpieces. …Yes. The variance is the part we never advertised.",
-                  "recall": {
-                    "demand": "There was a famous debate over whether planners could just fake prices. Name the economist who argued they COULD — and lost to Hayek.",
-                    "qz": {
-                      "answer": "Lange",
-                      "type": "detail",
-                      "accept": [
-                        "lange",
-                        "oskar lange"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "There was a famous debate over whether planners could just fake prices. Name the economist who argued they COULD — and lost to Hayek.",
+                      "qz": {
+                        "answer": "Lange",
+                        "type": "detail",
+                        "accept": [
+                          "lange",
+                          "oskar lange"
+                        ]
+                      },
+                      "choices": [
+                        "Oskar Lange",
+                        "Leon Trotsky",
+                        "Paul Samuelson",
+                        "Rosa Luxemburg"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Lange. The socialist calculation debate. You know the history, not just the slogan.",
+                      "miss": "Don't know who argued the other side? Then you don't really know the debate. It was Oskar Lange.",
+                      "card": "pe-hayek"
                     },
-                    "choices": [
-                      "Oskar Lange",
-                      "Leon Trotsky",
-                      "Paul Samuelson",
-                      "Rosa Luxemburg"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Lange. The socialist calculation debate. You know the history, not just the slogan.",
-                    "miss": "Don't know who argued the other side? Then you don't really know the debate. It was Oskar Lange.",
-                    "card": "pe-hayek"
-                  }
+                    {
+                      "demand": "Name the famous debate — could planners mimic markets by computing prices?",
+                      "qz": {
+                        "answer": "socialist calculation debate",
+                        "type": "detail",
+                        "accept": [
+                          "socialist calculation debate",
+                          "calculation debate",
+                          "socialist calculation"
+                        ]
+                      },
+                      "choices": [
+                        "The socialist calculation debate",
+                        "The marginalist revolution",
+                        "The Methodenstreit",
+                        "The capital controversy"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pe-hayek",
+                      "good": "The socialist calculation debate. You know the arena. Fine.",
+                      "miss": "Arguing planning failed and you can't name the calculation debate? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -48927,28 +49539,47 @@
                   "right": true,
                   "land": "Granted — markets fail on externalities and monopoly; put your strongest case and I'll concede each one. But 'allocate better' is comparative: governments fail too, and worse, because they lack the very price signal that would tell them they're failing. Best isn't flawless — it's self-correcting.",
                   "reply": "Steelmanning my own examples, then pinning me on 'comparative'. …That's the move I had no answer to.",
-                  "recall": {
-                    "demand": "Even shared resources — the commons — aren't only saved by the state. Who won a Nobel showing communities govern them themselves?",
-                    "qz": {
-                      "answer": "Ostrom",
-                      "type": "detail",
-                      "accept": [
-                        "ostrom",
-                        "elinor ostrom",
-                        "e ostrom"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Even shared resources — the commons — aren't only saved by the state. Who won a Nobel showing communities govern them themselves?",
+                      "qz": {
+                        "answer": "Ostrom",
+                        "type": "detail",
+                        "accept": [
+                          "ostrom",
+                          "elinor ostrom",
+                          "e ostrom"
+                        ]
+                      },
+                      "choices": [
+                        "Elinor Ostrom",
+                        "Milton Friedman",
+                        "Karl Polanyi",
+                        "Amartya Sen"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Ostrom. Neither plan nor pure market. You even took my fallback. Floor's yours.",
+                      "miss": "Lecturing me on the commons and you can't name Ostrom? She won the Nobel for it. Learn the card.",
+                      "card": "sys-commons"
                     },
-                    "choices": [
-                      "Elinor Ostrom",
-                      "Milton Friedman",
-                      "Karl Polanyi",
-                      "Amartya Sen"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Ostrom. Neither plan nor pure market. You even took my fallback. Floor's yours.",
-                    "miss": "Lecturing me on the commons and you can't name Ostrom? She won the Nobel for it. Learn the card.",
-                    "card": "sys-commons"
-                  }
+                    {
+                      "demand": "Ostrom found a fixed number of design principles that make self-governance hold. How many?",
+                      "qz": {
+                        "answer": 8,
+                        "type": "num"
+                      },
+                      "choices": [
+                        "Eight",
+                        "Three",
+                        "Five",
+                        "Twelve"
+                      ],
+                      "correctChoice": 0,
+                      "card": "sys-ostrom",
+                      "good": "Eight design principles. You know the detail, not just the headline. Respect.",
+                      "miss": "Citing Ostrom's rules and you don't know there are eight? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49149,29 +49780,51 @@
                   "right": true,
                   "land": "Granted, the labour theory of value lost to marginalism — but that was never the living part of Marx. What endures is the critique: alienation, commodification, the tendency of capital to concentrate and to lurch through crises. You're knocking down the one wall everyone already abandoned.",
                   "reply": "…conceding the value theory to save the critique. You ceded the ground I expected to fight on.",
-                  "recall": {
-                    "demand": "Name Marx's concept for workers estranged from their labour, its product, and themselves.",
-                    "qz": {
-                      "answer": "alienation",
-                      "type": "detail",
-                      "accept": [
-                        "alienation",
-                        "estrangement",
-                        "alienated labour",
-                        "alienated labor"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name Marx's concept for workers estranged from their labour, its product, and themselves.",
+                      "qz": {
+                        "answer": "alienation",
+                        "type": "detail",
+                        "accept": [
+                          "alienation",
+                          "estrangement",
+                          "alienated labour",
+                          "alienated labor"
+                        ]
+                      },
+                      "choices": [
+                        "Alienation",
+                        "Surplus value",
+                        "False consciousness",
+                        "Commodity fetishism"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Alienation. You know which Marx is still alive. Fine.",
+                      "miss": "Defending Marx's relevance and you can't name alienation? It's his most cited idea. Learn the card.",
+                      "card": "pe-division-labour"
                     },
-                    "choices": [
-                      "Alienation",
-                      "Surplus value",
-                      "False consciousness",
-                      "Commodity fetishism"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Alienation. You know which Marx is still alive. Fine.",
-                    "miss": "Defending Marx's relevance and you can't name alienation? It's his most cited idea. Learn the card.",
-                    "card": "pe-division-labour"
-                  }
+                    {
+                      "demand": "Name Marx's lifelong collaborator and co-author of the Communist Manifesto.",
+                      "qz": {
+                        "answer": "Engels",
+                        "type": "detail",
+                        "accept": [
+                          "engels",
+                          "friedrich engels"
+                        ]
+                      },
+                      "choices": [
+                        "Friedrich Engels",
+                        "Vladimir Lenin",
+                        "Antonio Gramsci",
+                        "Leon Trotsky"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Engels. You know the partnership behind the work. Tch.",
+                      "miss": "Defending Marx and you can't name Engels? They wrote it together. Learn your history."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49196,27 +49849,52 @@
                   "right": true,
                   "land": "Weigh both columns. Wrong: immiseration, the inevitable collapse. Right, and strikingly: the relentless concentration of capital, recurring crises, the global commodification of everything. Relevance isn't infallibility — a diagnosis can be sharp even where the prognosis missed.",
                   "reply": "Separating diagnosis from prophecy, and scoring the diagnosis. …That's a fairer ledger than I wanted to keep.",
-                  "recall": {
-                    "demand": "Which modern economist's finding — that the return on capital outpaces growth, r > g — revived Marx's worry about capital concentrating?",
-                    "qz": {
-                      "answer": "Piketty",
-                      "type": "detail",
-                      "accept": [
-                        "piketty",
-                        "thomas piketty"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Which modern economist's finding — that the return on capital outpaces growth, r > g — revived Marx's worry about capital concentrating?",
+                      "qz": {
+                        "answer": "Piketty",
+                        "type": "detail",
+                        "accept": [
+                          "piketty",
+                          "thomas piketty"
+                        ]
+                      },
+                      "choices": [
+                        "Thomas Piketty",
+                        "Milton Friedman",
+                        "Paul Krugman",
+                        "Joseph Schumpeter"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Piketty. r greater than g — Marx's concern in modern data. You came armed.",
+                      "miss": "Arguing capital still concentrates and you can't name Piketty? r > g is the headline. Learn it.",
+                      "card": "find-piketty-r-g"
                     },
-                    "choices": [
-                      "Thomas Piketty",
-                      "Milton Friedman",
-                      "Paul Krugman",
-                      "Joseph Schumpeter"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Piketty. r greater than g — Marx's concern in modern data. You came armed.",
-                    "miss": "Arguing capital still concentrates and you can't name Piketty? r > g is the headline. Learn it.",
-                    "card": "find-piketty-r-g"
-                  }
+                    {
+                      "demand": "Write Piketty's headline inequality — return on capital versus growth.",
+                      "qz": {
+                        "answer": "r > g",
+                        "type": "detail",
+                        "accept": [
+                          "r > g",
+                          "r>g",
+                          "r greater than g",
+                          "r exceeds g"
+                        ]
+                      },
+                      "choices": [
+                        "r > g",
+                        "g > r",
+                        "r = g",
+                        "r + g"
+                      ],
+                      "correctChoice": 0,
+                      "card": "find-piketty-r-g",
+                      "good": "r > g. You know the formula, not just the name. Fine.",
+                      "miss": "Citing Piketty and you can't write r > g? That's the whole finding. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -49241,29 +49919,52 @@
                   "right": true,
                   "land": "Granted — and at full force: Marxist states produced mass murder on a historic scale; I won't soften it. But the motion is about Marx's CRITIQUE of capitalism, not the regimes that flew his flag. A diagnosis of capitalism's pathologies can be acute even if every prescription drawn from it failed catastrophically.",
                   "reply": "Owning the body count, then severing the critique from the regime. …That distinction is the one I couldn't collapse.",
-                  "recall": {
-                    "demand": "Name the superseded doctrine — that a good's value comes from the labour embodied in it — that Marx inherited from Ricardo.",
-                    "qz": {
-                      "answer": "labour theory of value",
-                      "type": "detail",
-                      "accept": [
-                        "labour theory of value",
-                        "labor theory of value",
-                        "ltv",
-                        "the labour theory of value"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the superseded doctrine — that a good's value comes from the labour embodied in it — that Marx inherited from Ricardo.",
+                      "qz": {
+                        "answer": "labour theory of value",
+                        "type": "detail",
+                        "accept": [
+                          "labour theory of value",
+                          "labor theory of value",
+                          "ltv",
+                          "the labour theory of value"
+                        ]
+                      },
+                      "choices": [
+                        "The labour theory of value",
+                        "Surplus value",
+                        "Dialectical materialism",
+                        "The falling rate of profit"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The labour theory of value. You know precisely which part to abandon and which to keep. Floor's yours.",
+                      "miss": "Debating Marx's economics and you can't name the labour theory of value? That's the crux. Learn it.",
+                      "card": "pe-ltv"
                     },
-                    "choices": [
-                      "The labour theory of value",
-                      "Surplus value",
-                      "Dialectical materialism",
-                      "The falling rate of profit"
-                    ],
-                    "correctChoice": 0,
-                    "good": "The labour theory of value. You know precisely which part to abandon and which to keep. Floor's yours.",
-                    "miss": "Debating Marx's economics and you can't name the labour theory of value? That's the crux. Learn it.",
-                    "card": "pe-ltv"
-                  }
+                    {
+                      "demand": "Name what the marginalists put in place of the labour theory of value.",
+                      "qz": {
+                        "answer": "marginal utility",
+                        "type": "detail",
+                        "accept": [
+                          "marginal utility",
+                          "utility at the margin"
+                        ]
+                      },
+                      "choices": [
+                        "Marginal utility",
+                        "Surplus value",
+                        "Comparative advantage",
+                        "Effective demand"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pe-ltv",
+                      "good": "Marginal utility. You know exactly what replaced what. Floor's yours.",
+                      "miss": "Arguing the value theory was superseded and you can't name marginal utility? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49464,27 +50165,52 @@
                   "right": true,
                   "land": "It isn't envy — it's power. Concentrated wealth buys politics, media and the rules themselves, then writes them to entrench its position and pull the ladder up. Inequality isn't downstream of poverty; it's one of the engines that manufactures and perpetuates it.",
                   "reply": "…wealth as political power, not just envy. You moved it from feelings to mechanisms. Annoying.",
-                  "recall": {
-                    "demand": "Name the economist whose finding — the return on capital outruns growth, r > g — showed wealth concentrating over two centuries.",
-                    "qz": {
-                      "answer": "Piketty",
-                      "type": "detail",
-                      "accept": [
-                        "piketty",
-                        "thomas piketty"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the economist whose finding — the return on capital outruns growth, r > g — showed wealth concentrating over two centuries.",
+                      "qz": {
+                        "answer": "Piketty",
+                        "type": "detail",
+                        "accept": [
+                          "piketty",
+                          "thomas piketty"
+                        ]
+                      },
+                      "choices": [
+                        "Thomas Piketty",
+                        "Milton Friedman",
+                        "Simon Kuznets",
+                        "Friedrich Hayek"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Piketty. r > g. You brought the data, not just the grievance. Fine.",
+                      "miss": "Arguing wealth concentrates and you can't name Piketty? r > g is the whole case. Learn it.",
+                      "card": "find-piketty-r-g"
                     },
-                    "choices": [
-                      "Thomas Piketty",
-                      "Milton Friedman",
-                      "Simon Kuznets",
-                      "Friedrich Hayek"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Piketty. r > g. You brought the data, not just the grievance. Fine.",
-                    "miss": "Arguing wealth concentrates and you can't name Piketty? r > g is the whole case. Learn it.",
-                    "card": "find-piketty-r-g"
-                  }
+                    {
+                      "demand": "Write the inequality at the heart of Piketty's case — capital's return versus growth.",
+                      "qz": {
+                        "answer": "r > g",
+                        "type": "detail",
+                        "accept": [
+                          "r > g",
+                          "r>g",
+                          "r greater than g",
+                          "r exceeds g"
+                        ]
+                      },
+                      "choices": [
+                        "r > g",
+                        "g > r",
+                        "r = g",
+                        "r + g"
+                      ],
+                      "correctChoice": 0,
+                      "card": "find-piketty-r-g",
+                      "good": "r > g. You know the engine of concentration. Fine.",
+                      "miss": "Arguing wealth concentrates and you can't write r > g? That's it. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49509,28 +50235,52 @@
                   "right": true,
                   "land": "Weigh both, not just the level. When the gains pool at the very top, the tide lifts the yachts and leaves the rowboats aground — median wages can stagnate for decades while GDP climbs. Growth without distribution is a number that stops describing most people's lives.",
                   "reply": "Median stagnation under rising GDP. …You weighed distribution against the headline, and the headline lost.",
-                  "recall": {
-                    "demand": "Name the standard measure of inequality — 0 means everyone equal, 1 means one person holds it all.",
-                    "qz": {
-                      "answer": "Gini",
-                      "type": "detail",
-                      "accept": [
-                        "gini",
-                        "gini coefficient",
-                        "gini index"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the standard measure of inequality — 0 means everyone equal, 1 means one person holds it all.",
+                      "qz": {
+                        "answer": "Gini",
+                        "type": "detail",
+                        "accept": [
+                          "gini",
+                          "gini coefficient",
+                          "gini index"
+                        ]
+                      },
+                      "choices": [
+                        "The Gini coefficient",
+                        "The Lorenz ratio",
+                        "The Theil paradox",
+                        "The Phillips curve"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The Gini coefficient. You can actually measure what you're arguing about. Good.",
+                      "miss": "Debating inequality and you can't name the Gini coefficient? It's how we measure it. Learn the card.",
+                      "card": "pf-redistribution-gini"
                     },
-                    "choices": [
-                      "The Gini coefficient",
-                      "The Lorenz ratio",
-                      "The Theil paradox",
-                      "The Phillips curve"
-                    ],
-                    "correctChoice": 0,
-                    "good": "The Gini coefficient. You can actually measure what you're arguing about. Good.",
-                    "miss": "Debating inequality and you can't name the Gini coefficient? It's how we measure it. Learn the card.",
-                    "card": "pf-redistribution-gini"
-                  }
+                    {
+                      "demand": "Name the curve the Gini coefficient is derived from — cumulative income against population.",
+                      "qz": {
+                        "answer": "Lorenz curve",
+                        "type": "detail",
+                        "accept": [
+                          "lorenz curve",
+                          "lorenz",
+                          "the lorenz curve"
+                        ]
+                      },
+                      "choices": [
+                        "The Lorenz curve",
+                        "The Phillips curve",
+                        "The Laffer curve",
+                        "The Engel curve"
+                      ],
+                      "correctChoice": 0,
+                      "card": "pf-redistribution-gini",
+                      "good": "The Lorenz curve. You know where the Gini comes from. Respect.",
+                      "miss": "Measuring inequality and you can't name the Lorenz curve? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -49555,27 +50305,50 @@
                   "right": true,
                   "land": "Granted — and at full strength: if everyone had genuinely enough, the gap might be a moral footnote. But 'enough' isn't fixed. Relative position determines political voice, housing, schooling, the rules of the game — so inequality sits upstream of who can ever reach 'enough' at all. The gap manufactures the deprivation.",
                   "reply": "Granting sufficiency and then placing inequality upstream of it. …That ordering is the thing I couldn't reverse.",
-                  "recall": {
-                    "demand": "Whose 'veil of ignorance' argues inequalities are just only if they benefit the worst-off?",
-                    "qz": {
-                      "answer": "Rawls",
-                      "type": "detail",
-                      "accept": [
-                        "rawls",
-                        "john rawls"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Whose 'veil of ignorance' argues inequalities are just only if they benefit the worst-off?",
+                      "qz": {
+                        "answer": "Rawls",
+                        "type": "detail",
+                        "accept": [
+                          "rawls",
+                          "john rawls"
+                        ]
+                      },
+                      "choices": [
+                        "John Rawls",
+                        "Robert Nozick",
+                        "Harry Frankfurt",
+                        "Amartya Sen"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Rawls. The difference principle. You know the philosophy under the economics. Floor's yours.",
+                      "miss": "Arguing about fair distribution and you can't name Rawls? The veil of ignorance is the canon. Learn it.",
+                      "card": "philo-veil"
                     },
-                    "choices": [
-                      "John Rawls",
-                      "Robert Nozick",
-                      "Harry Frankfurt",
-                      "Amartya Sen"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Rawls. The difference principle. You know the philosophy under the economics. Floor's yours.",
-                    "miss": "Arguing about fair distribution and you can't name Rawls? The veil of ignorance is the canon. Learn it.",
-                    "card": "philo-veil"
-                  }
+                    {
+                      "demand": "Name Rawls's principle — an inequality is just only if it benefits the worst-off.",
+                      "qz": {
+                        "answer": "difference principle",
+                        "type": "detail",
+                        "accept": [
+                          "difference principle",
+                          "the difference principle"
+                        ]
+                      },
+                      "choices": [
+                        "The difference principle",
+                        "The harm principle",
+                        "Pareto efficiency",
+                        "The categorical imperative"
+                      ],
+                      "correctChoice": 0,
+                      "card": "philo-veil",
+                      "good": "The difference principle. You know the rule, not just the man. Floor's yours.",
+                      "miss": "Citing Rawls and you can't name the difference principle? That's his rule. Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49766,27 +50539,50 @@
                   "right": true,
                   "land": "For a poor country, yes — growth is liberation. But for an already-rich one, each extra point of GDP buys less and less actual wellbeing while the ecological bill keeps rising. The goal should shift from 'more' to 'better': distribution, time, sustainability.",
                   "reply": "…diminishing returns to wellbeing in a rich society. You turned 'more' into 'enough'. Hm.",
-                  "recall": {
-                    "demand": "Name the paradox: above a certain income, more money barely lifts reported happiness.",
-                    "qz": {
-                      "answer": "Easterlin paradox",
-                      "type": "detail",
-                      "accept": [
-                        "easterlin",
-                        "easterlin paradox",
-                        "the easterlin paradox"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the paradox: above a certain income, more money barely lifts reported happiness.",
+                      "qz": {
+                        "answer": "Easterlin paradox",
+                        "type": "detail",
+                        "accept": [
+                          "easterlin",
+                          "easterlin paradox",
+                          "the easterlin paradox"
+                        ]
+                      },
+                      "choices": [
+                        "The Easterlin paradox",
+                        "The Lucas critique",
+                        "Baumol's disease",
+                        "The Veblen effect"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The Easterlin paradox. You know the evidence that money stops buying happiness. Fine.",
+                      "miss": "Arguing rich societies should stop growing and you can't name the Easterlin paradox? That's the keystone. Learn it."
                     },
-                    "choices": [
-                      "The Easterlin paradox",
-                      "The Lucas critique",
-                      "Baumol's disease",
-                      "The Veblen effect"
-                    ],
-                    "correctChoice": 0,
-                    "good": "The Easterlin paradox. You know the evidence that money stops buying happiness. Fine.",
-                    "miss": "Arguing rich societies should stop growing and you can't name the Easterlin paradox? That's the keystone. Learn it."
-                  }
+                    {
+                      "demand": "Name the treadmill — we adapt to gains and reset to the same baseline happiness.",
+                      "qz": {
+                        "answer": "hedonic treadmill",
+                        "type": "detail",
+                        "accept": [
+                          "hedonic treadmill",
+                          "hedonic adaptation",
+                          "adaptation"
+                        ]
+                      },
+                      "choices": [
+                        "The hedonic treadmill",
+                        "The Laffer curve",
+                        "The poverty trap",
+                        "Baumol's disease"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The hedonic treadmill. You know why more rarely satisfies. Fine.",
+                      "miss": "Arguing money stops satisfying and you can't name the hedonic treadmill? Learn it."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
@@ -49811,28 +50607,52 @@
                   "right": true,
                   "land": "Weigh it against the ceiling: infinite material growth on a finite planet eventually outruns any efficiency gain. The real question is whether GDP can keep rising while resource use falls in absolute terms — and where it can't, more growth just funds a faster overshoot.",
                   "reply": "The finite-planet ceiling against my funding story. …You weighed the constraint I keep waving away.",
-                  "recall": {
-                    "demand": "Name the term for GDP rising while resource use and emissions fall in absolute terms — the test green growth must pass.",
-                    "qz": {
-                      "answer": "absolute decoupling",
-                      "type": "detail",
-                      "accept": [
-                        "absolute decoupling",
-                        "absolute de-coupling",
-                        "decoupling"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the term for GDP rising while resource use and emissions fall in absolute terms — the test green growth must pass.",
+                      "qz": {
+                        "answer": "absolute decoupling",
+                        "type": "detail",
+                        "accept": [
+                          "absolute decoupling",
+                          "absolute de-coupling",
+                          "decoupling"
+                        ]
+                      },
+                      "choices": [
+                        "Absolute decoupling",
+                        "The rebound effect",
+                        "Degrowth",
+                        "Creative destruction"
+                      ],
+                      "correctChoice": 0,
+                      "good": "Absolute decoupling. You know the exact thing that has to be true. Good.",
+                      "miss": "Arguing green growth and you can't name absolute decoupling? That's the whole bet. Learn the card.",
+                      "card": "macro-growth-debate"
                     },
-                    "choices": [
-                      "Absolute decoupling",
-                      "The rebound effect",
-                      "Degrowth",
-                      "Creative destruction"
-                    ],
-                    "correctChoice": 0,
-                    "good": "Absolute decoupling. You know the exact thing that has to be true. Good.",
-                    "miss": "Arguing green growth and you can't name absolute decoupling? That's the whole bet. Learn the card.",
-                    "card": "macro-growth-debate"
-                  }
+                    {
+                      "demand": "Name the effect where efficiency gains get eaten by more consumption — so saving resources backfires.",
+                      "qz": {
+                        "answer": "rebound effect",
+                        "type": "detail",
+                        "accept": [
+                          "rebound effect",
+                          "the rebound effect",
+                          "jevons paradox"
+                        ]
+                      },
+                      "choices": [
+                        "The rebound effect",
+                        "Absolute decoupling",
+                        "Creative destruction",
+                        "The multiplier"
+                      ],
+                      "correctChoice": 0,
+                      "card": "macro-growth-debate",
+                      "good": "The rebound effect. You know why efficiency alone won't save us. Respect.",
+                      "miss": "Arguing efficiency backfires and you can't name the rebound effect? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-rebuttal-moves",
@@ -49857,29 +50677,55 @@
                   "right": true,
                   "land": "Granted — and at full strength: for the developing world, growth is non-negotiable, and crude degrowth would be cruel. But the motion is about a RICH society. For them the goal can shift from raw GDP to what GDP was always a proxy for: health, leisure, a livable planet, fair distribution. Not no growth everywhere — a better goal where there's already plenty.",
                   "reply": "Conceding the poor world and narrowing to the rich one. …That's the line I couldn't push you off.",
-                  "recall": {
-                    "demand": "Name the broader index — adjusting for health and education, not just output — often proposed to dethrone GDP.",
-                    "qz": {
-                      "answer": "Human Development Index",
-                      "type": "detail",
-                      "accept": [
-                        "human development index",
-                        "hdi",
-                        "genuine progress indicator",
-                        "gpi"
-                      ]
+                  "recalls": [
+                    {
+                      "demand": "Name the broader index — adjusting for health and education, not just output — often proposed to dethrone GDP.",
+                      "qz": {
+                        "answer": "Human Development Index",
+                        "type": "detail",
+                        "accept": [
+                          "human development index",
+                          "hdi",
+                          "genuine progress indicator",
+                          "gpi"
+                        ]
+                      },
+                      "choices": [
+                        "The Human Development Index",
+                        "The Gini coefficient",
+                        "Gross National Product",
+                        "The CPI"
+                      ],
+                      "correctChoice": 0,
+                      "good": "The Human Development Index. You know what a better goal would even look like. Floor's yours.",
+                      "miss": "Arguing GDP is the wrong goal and you can't name what replaces it? The HDI is the headline. Learn it.",
+                      "card": "macro-gdp-critique"
                     },
-                    "choices": [
-                      "The Human Development Index",
-                      "The Gini coefficient",
-                      "Gross National Product",
-                      "The CPI"
-                    ],
-                    "correctChoice": 0,
-                    "good": "The Human Development Index. You know what a better goal would even look like. Floor's yours.",
-                    "miss": "Arguing GDP is the wrong goal and you can't name what replaces it? The HDI is the headline. Learn it.",
-                    "card": "macro-gdp-critique"
-                  }
+                    {
+                      "demand": "Name a proposed replacement for GDP that adjusts for inequality and the environment.",
+                      "qz": {
+                        "answer": "Genuine Progress Indicator",
+                        "type": "detail",
+                        "accept": [
+                          "genuine progress indicator",
+                          "gpi",
+                          "gross national happiness",
+                          "human development index",
+                          "hdi"
+                        ]
+                      },
+                      "choices": [
+                        "The Genuine Progress Indicator",
+                        "The Consumer Price Index",
+                        "Gross National Product",
+                        "The Big Mac Index"
+                      ],
+                      "correctChoice": 0,
+                      "card": "macro-gdp-critique",
+                      "good": "The Genuine Progress Indicator. You know what a better yardstick looks like. Floor's yours.",
+                      "miss": "Arguing GDP is the wrong goal and you can't name a replacement? Learn the card."
+                    }
+                  ]
                 },
                 {
                   "tactic": "rhet-burden",
