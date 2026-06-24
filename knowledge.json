@@ -46368,7 +46368,157 @@
         "micro",
         "macro",
         "geo"
-      ]
+      ],
+      "spar": {
+        "for": {
+          "persona": {
+            "name": "The Mercantilist",
+            "emoji": "🏭",
+            "intro": "Free trade? A polite word for shipping our jobs abroad and calling it progress. Defend it — I dare you."
+          },
+          "rounds": [
+            {
+              "attack": "Every cheap import puts one of our workers on the street. We should protect our factories, not throw them open to foreigners.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — protection taxes your own people",
+                  "right": true,
+                  "land": "Cheap imports free up workers and capital for the things we're actually best at. A tariff is just a tax you levy on your own consumers to freeze the economy in 1975.",
+                  "reply": "…freeing up capital, opportunity cost. Spoken like someone who's read the theory. Tch.",
+                  "recall": {
+                    "demand": "Then name the man who proved it. Who showed in 1817 that two countries both gain from trade even when one is better at making everything?",
+                    "qz": {
+                      "answer": "Ricardo",
+                      "type": "detail",
+                      "accept": [
+                        "ricardo",
+                        "david ricardo",
+                        "d ricardo"
+                      ]
+                    },
+                    "choices": [
+                      "David Ricardo",
+                      "Adam Smith",
+                      "John Maynard Keynes",
+                      "Karl Marx"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Ricardo. Comparative advantage. Of course you'd have that loaded.",
+                    "miss": "Can't even name him? Then it's faith, not economics. It's Ricardo — go learn the card.",
+                    "card": "econ-comparative-advantage"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — trade doesn't cost any jobs",
+                  "right": false,
+                  "reply": "Now you're lying to my face. Of course it displaces workers — argue the honest case or lose."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, we should protect the factories",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then we're agreed: walls up. Pleasure doing business."
+                }
+              ]
+            },
+            {
+              "attack": "And the trade deficit! We buy more than we sell, year after year. We are simply losing.",
+              "moves": [
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Name the missing warrant — a deficit isn't a scoreboard",
+                  "right": true,
+                  "land": "That's a claim with no warrant. A deficit isn't points lost — the dollars come straight back as investment. You've mistaken an accounting identity for a defeat.",
+                  "reply": "An accounting identity, not a scoreboard. Hmph. Fine, the bumper-sticker was weak.",
+                  "recall": {
+                    "demand": "Clever. Then name the principle Ricardo's whole argument rests on — the value of the next-best thing you give up.",
+                    "qz": {
+                      "answer": "opportunity cost",
+                      "type": "detail",
+                      "accept": [
+                        "opportunity cost",
+                        "the opportunity cost",
+                        "opportunity costs"
+                      ]
+                    },
+                    "choices": [
+                      "Opportunity cost",
+                      "Absolute advantage",
+                      "The balance of trade",
+                      "Marginal utility"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Opportunity cost. You understand the engine, not just the slogan. Irritating.",
+                    "miss": "Don't know what powers your own argument? It's opportunity cost. Learn it before you face me again.",
+                    "card": "econ-comparative-advantage"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — we don't really run a deficit",
+                  "right": false,
+                  "reply": "We've run one for decades; deny the obvious and you hand me the round."
+                },
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Outweigh — deficits don't matter at all",
+                  "right": false,
+                  "reply": "Too glib. Wave it away and the room thinks you're dodging. Explain WHY it isn't a loss."
+                }
+              ]
+            },
+            {
+              "attack": "Trade gutted whole towns — real factories, real families, hollowed out. So much for your gains.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman it, then reframe to the net",
+                  "right": true,
+                  "land": "Granted — and I'll put it as strongly as you would: concentrated losses, communities hollowed out, a generation stranded. But the motion is 'more good than harm' — a net comparison. The answer to the losers is compensation and retraining, not walling off everyone else's gains.",
+                  "reply": "Stating my case better than I did, then turning on 'net'. …That's the argument I couldn't beat. Floor's yours.",
+                  "recall": {
+                    "demand": "Fine. But you lean on markets serving everyone. Which thinker argued in 1776 that the butcher feeds you from self-interest, not kindness?",
+                    "qz": {
+                      "answer": "Adam Smith",
+                      "type": "detail",
+                      "accept": [
+                        "smith",
+                        "adam smith"
+                      ]
+                    },
+                    "choices": [
+                      "Adam Smith",
+                      "David Hume",
+                      "John Stuart Mill",
+                      "Karl Marx"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Smith. The Wealth of Nations. You came with the canon. Well played.",
+                    "miss": "Quoting the invisible hand and you can't name Smith? Embarrassing. Go and learn it.",
+                    "card": "pe-smith-wealth"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the towns recovered fine",
+                  "right": false,
+                  "reply": "They didn't, and pretending so makes you look heartless and wrong at once."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny the link — trade didn't cause the decline",
+                  "right": false,
+                  "reply": "Some of it plainly did. Deny the real harm and you forfeit the moral high ground."
+                }
+              ]
+            }
+          ],
+          "win": "The Mercantilist folds his arms and nods. You held the floor — turning protection into a self-tax, exposing the deficit fallacy, and steelmanning the losers before weighing the net.",
+          "lose": "The Mercantilist smirks — he found the gap in your guard. The theory's only a weapon if you can recall it. Learn the cards and come back."
+        }
+      }
     },
     {
       "id": "m-democracy",
@@ -46543,7 +46693,160 @@
         "micro",
         "macro",
         "bio"
-      ]
+      ],
+      "spar": {
+        "for": {
+          "persona": {
+            "name": "The Doomer",
+            "emoji": "🌫️",
+            "intro": "Progress? It gave us the bomb, the climate crisis, and a species drowning in anxiety. We were happier in the village. Go on — sell me the future."
+          },
+          "rounds": [
+            {
+              "attack": "Every advance brings a new horror — nuclear weapons, microplastics, doomscrolling. We should have stopped long ago.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the village you miss buried its children",
+                  "right": true,
+                  "land": "Every tool you'd romanticise away was 'unnatural progress' once — the plough, the vaccine, the fertiliser. And the village you pine for buried one child in three before age five. The problems of progress are luxuries we only have because we survived to complain about them.",
+                  "reply": "…one in three. You turned my nostalgia into a graveyard. That's a low blow, and a fair one.",
+                  "recall": {
+                    "demand": "Speaking of fertiliser — half the nitrogen in your body comes from one industrial process that feeds billions. Name it.",
+                    "qz": {
+                      "answer": "Haber-Bosch",
+                      "type": "detail",
+                      "accept": [
+                        "haber bosch",
+                        "haber",
+                        "haber-bosch",
+                        "haber bosch process",
+                        "the haber bosch process"
+                      ]
+                    },
+                    "choices": [
+                      "The Haber-Bosch process",
+                      "Pasteurisation",
+                      "The Bessemer process",
+                      "Photosynthesis"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Haber-Bosch. You literally embody the argument — half your nitrogen. Annoyingly poetic.",
+                    "miss": "Don't know what feeds half the planet? It's the Haber-Bosch process. Go and learn it.",
+                    "card": "eco-haber-bosch"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — progress has no real downsides",
+                  "right": false,
+                  "reply": "Pretending the bomb and the climate crisis aren't real makes you the fantasist, not me."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, we should have stopped",
+                  "right": false,
+                  "reply": "Conceding to the past in round one? Then welcome back to the village. Mind the cholera."
+                }
+              ]
+            },
+            {
+              "attack": "But the risks now are existential — one slip with AI or nukes and there's no humanity left to be 'better off'.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh realised gains against possible loss",
+                  "right": true,
+                  "land": "Weigh it straight: yes, the magnitude of the worst case rose — but so did our power to prevent it, and the gains are already banked, certain and enormous. Famine, plague, infant death: gone for billions. You're setting a possible future loss against a realised, colossal gain.",
+                  "reply": "Banked gains versus a possible loss. …You made me compare the right two things. Damn.",
+                  "recall": {
+                    "demand": "Which gloomy thinker predicted population would always outrun the food supply — and was proven wrong by the green revolution?",
+                    "qz": {
+                      "answer": "Malthus",
+                      "type": "detail",
+                      "accept": [
+                        "malthus",
+                        "thomas malthus",
+                        "thomas robert malthus"
+                      ]
+                    },
+                    "choices": [
+                      "Thomas Malthus",
+                      "Adam Smith",
+                      "David Ricardo",
+                      "Paul Ehrlich"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Malthus. Refuted by the very progress you distrust. You came armed.",
+                    "miss": "You're making the population-doom argument and can't name Malthus? He invented it — and was wrong. Learn it.",
+                    "card": "echist-malthus"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — the risks are exaggerated",
+                  "right": false,
+                  "reply": "Wave away existential risk and you sound as reckless as the engineers you fear."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — the future will be fine",
+                  "right": false,
+                  "reply": "On what warrant? 'It'll be fine' is a vibe, not an argument. Say why, or it falls."
+                }
+              ]
+            },
+            {
+              "attack": "Admit it — GDP climbs, but people are lonelier, sicker in spirit, and the planet itself is dying.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman the costs, then reframe to 'on balance'",
+                  "right": true,
+                  "land": "Granted — and at full strength: rising loneliness, ecological strain, meaning hollowed out by the very abundance we built. State it as darkly as you like. But the motion is 'better off' on balance: lifespans roughly doubled, extreme poverty collapsed from most of humanity to a small fraction, literacy near-universal. Better doesn't mean costless.",
+                  "reply": "Stating my own case more bleakly than I did, then pinning me on 'on balance'. …I yield the floor.",
+                  "recall": {
+                    "demand": "There's an economist who argued population pressure SPURS innovation, flatly against Malthus's gloom. Name her.",
+                    "qz": {
+                      "answer": "Boserup",
+                      "type": "detail",
+                      "accept": [
+                        "boserup",
+                        "ester boserup",
+                        "esther boserup"
+                      ]
+                    },
+                    "choices": [
+                      "Ester Boserup",
+                      "Hannah Arendt",
+                      "Rachel Carson",
+                      "Jane Jacobs"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Boserup. Necessity breeds invention. You even know Malthus's nemesis. Beautifully done.",
+                    "miss": "Can't name the thinker who said scarcity drives invention? It's Boserup. Learn the card and return.",
+                    "card": "echist-malthus"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — nobody's actually lonelier",
+                  "right": false,
+                  "reply": "Deny people's real malaise and you sound like a brochure, not a debater."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the costs outweigh the gains",
+                  "right": false,
+                  "reply": "You just argued against your own motion. I'll take that surrender."
+                }
+              ]
+            }
+          ],
+          "win": "The Doomer exhales, almost smiling. You held the floor — turning nostalgia into a graveyard, weighing realised gains against possible loss, and steelmanning the costs before reframing to the balance.",
+          "lose": "The Doomer nods, vindicated. Optimism without the receipts is just a mood. Learn the cards and face me again."
+        }
+      }
     },
     {
       "id": "m-china-war",
@@ -46551,7 +46854,153 @@
       "fields": [
         "geo",
         "history"
-      ]
+      ],
+      "spar": {
+        "for": {
+          "persona": {
+            "name": "The Dove",
+            "emoji": "🕊️",
+            "intro": "War with China? Fearmongering. We're too intertwined, too deterred, too sane. Try to convince me the worst is coming."
+          },
+          "rounds": [
+            {
+              "attack": "China and America are bound by trade — neither can afford a war. Commerce keeps the peace. Relax.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — interdependence is also a tripwire",
+                  "right": true,
+                  "land": "Interdependence cuts both ways: it's leverage, friction, and a tripwire all at once. Europe in 1914 was as economically interlinked as any time before it — and marched straight into the Somme. Closeness isn't safety.",
+                  "reply": "…1914. You went straight for the interdependence-didn't-save-them card. Unsporting.",
+                  "recall": {
+                    "demand": "You want a number? Graham Allison studied 16 cases of a rising power challenging a ruling one. How many ended in war?",
+                    "qz": {
+                      "answer": 12,
+                      "type": "num"
+                    },
+                    "choices": [
+                      "12 of 16",
+                      "4 of 16",
+                      "16 of 16",
+                      "8 of 16"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Twelve of sixteen. The base rate is not on the side of calm. …Point taken.",
+                    "miss": "Citing the trap with no numbers? It's 12 of 16 — most of them. Learn it before you lecture me.",
+                    "card": "ir-hegemonic-stability"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — they aren't really interdependent",
+                  "right": false,
+                  "reply": "They plainly are; deny it and you've lost the room on the facts."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, trade will keep the peace",
+                  "right": false,
+                  "reply": "Conceding the motion already? Then we agree it's all fine. Lovely."
+                }
+              ]
+            },
+            {
+              "attack": "Even granting tension — nuclear weapons make great-power war unthinkable. Deterrence has held for eighty years.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the tail — 'unthinkable' is doing the work",
+                  "right": true,
+                  "land": "Weigh the tail risk honestly: deterrence works until the one time it doesn't, and that downside is omnicide — low probability, effectively infinite magnitude, utterly irreversible. A small chance of the end of everything still dominates the calculation.",
+                  "reply": "Low probability, infinite magnitude, irreversible. …You weighed the one outcome I was waving away.",
+                  "recall": {
+                    "demand": "In the original analogy, which rising Greek power's growth so frightened Sparta that it chose war?",
+                    "qz": {
+                      "answer": "Athens",
+                      "type": "detail",
+                      "accept": [
+                        "athens",
+                        "the athenians",
+                        "athenian"
+                      ]
+                    },
+                    "choices": [
+                      "Athens",
+                      "Sparta",
+                      "Persia",
+                      "Macedon"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Athens. You know the Thucydides original, not just the buzzword. Respect.",
+                    "miss": "Invoking the Thucydides Trap and you can't name Athens? That's the whole story. Go and learn it.",
+                    "card": "geo-thucydides"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — nuclear war could never happen",
+                  "right": false,
+                  "reply": "'Never' is exactly the complacency that gets people killed. Argue the risk, don't deny it."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — deterrence is overrated",
+                  "right": false,
+                  "reply": "Asserted, not shown. WHY might deterrence fail? Give the warrant or it holds."
+                }
+              ]
+            },
+            {
+              "attack": "You doomsayers always cry war and it never comes. Predicting conflict is a free bet — cheap and unfalsifiable.",
+              "moves": [
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Reframe the burden — 'likely', not 'certain'",
+                  "right": true,
+                  "land": "Fair hit — most rivalries don't end in war, and alarmism is cheap. But the motion says 'likely', not 'certain'. The burden is elevated risk, not prophecy: 12 of 16 historically, plus Taiwan as a live, armed flashpoint. 'It hasn't yet' is not an answer to 'it's probable'.",
+                  "reply": "Likely, not certain — you moved the goalposts back to where they actually were. …I've nothing for that.",
+                  "recall": {
+                    "demand": "One stabilising power can hold an order together. Which economist argued a leaderless world deepened the Great Depression?",
+                    "qz": {
+                      "answer": "Kindleberger",
+                      "type": "detail",
+                      "accept": [
+                        "kindleberger",
+                        "charles kindleberger",
+                        "charles p kindleberger"
+                      ]
+                    },
+                    "choices": [
+                      "Charles Kindleberger",
+                      "Paul Kennedy",
+                      "Henry Kissinger",
+                      "John Mearsheimer"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Kindleberger. Hegemonic stability. You brought the deep cut. The floor is yours.",
+                    "miss": "Arguing power transitions with no Kindleberger? That's the theory's backbone. Learn the card.",
+                    "card": "ir-hegemonic-stability"
+                  }
+                },
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Deny it — war is basically certain",
+                  "right": false,
+                  "reply": "Overclaiming to 'certain' is the trap he set; now he calls you a doomer and he's right."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — fine, war won't happen",
+                  "right": false,
+                  "reply": "You just argued yourself out of the motion. He'll take the win, thanks."
+                }
+              ]
+            }
+          ],
+          "win": "The Dove lowers her hands. You held the floor — turning interdependence into a tripwire, weighing the nuclear tail, and reframing 'likely' against the demand for certainty.",
+          "lose": "The Dove smiles serenely. Prophecy without the record behind it is just noise. Learn the cases and come back."
+        }
+      }
     },
     {
       "id": "m-individual",
@@ -46580,7 +47029,158 @@
         "macro",
         "polecon",
         "polisci"
-      ]
+      ],
+      "spar": {
+        "for": {
+          "persona": {
+            "name": "The Commissar",
+            "emoji": "📋",
+            "intro": "Markets — chaos dressed as freedom. Billionaires hoard yachts while a plan could give everyone what they need. Make your case for the casino."
+          },
+          "rounds": [
+            {
+              "attack": "Markets give us crashes, gluts and shortages. A rational plan would simply produce what people require. Direction beats disorder.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the planner is the one flying blind",
+                  "right": true,
+                  "land": "Those crashes are prices correcting a mistake in the open. Your planner has no prices — so he can't even see the misallocation until the shortage hits the shelves. Markets aren't blind; central planning is.",
+                  "reply": "…no prices, no sight. The knowledge problem. I'd hoped you hadn't heard of it.",
+                  "recall": {
+                    "demand": "Then name him. Which economist's whole case was that no planner can know what dispersed prices already know?",
+                    "qz": {
+                      "answer": "Hayek",
+                      "type": "detail",
+                      "accept": [
+                        "hayek",
+                        "friedrich hayek",
+                        "f a hayek",
+                        "von hayek"
+                      ]
+                    },
+                    "choices": [
+                      "Friedrich Hayek",
+                      "John Maynard Keynes",
+                      "Milton Friedman",
+                      "Karl Marx"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Hayek. The use of knowledge in society. You've done the reading, comrade.",
+                    "miss": "You wield the argument but can't name Hayek? Then it isn't yours. Go and learn it.",
+                    "card": "pe-hayek"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — markets don't really have crashes",
+                  "right": false,
+                  "reply": "2008 says otherwise. Deny the cycle and the room stops believing a word."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, planning is more rational",
+                  "right": false,
+                  "reply": "Conceding to the plan already? Then hand me the clipboard and sit down."
+                }
+              ]
+            },
+            {
+              "attack": "Yet planning built Soviet heavy industry and put the first man in space. Coordinated will beats your scramble.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the whole record, not the showpieces",
+                  "right": true,
+                  "land": "Weigh all of it, not two trophies: chronic shortages, a famine that killed millions, queues for bread, and a system that finally collapsed. High variance, catastrophic downside, and no price signal to self-correct on the way down.",
+                  "reply": "The graveyard against the showpieces. …Yes. The variance is the part we never advertised.",
+                  "recall": {
+                    "demand": "There was a famous debate over whether planners could just fake prices. Name the economist who argued they COULD — and lost to Hayek.",
+                    "qz": {
+                      "answer": "Lange",
+                      "type": "detail",
+                      "accept": [
+                        "lange",
+                        "oskar lange"
+                      ]
+                    },
+                    "choices": [
+                      "Oskar Lange",
+                      "Leon Trotsky",
+                      "Paul Samuelson",
+                      "Rosa Luxemburg"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Lange. The socialist calculation debate. You know the history, not just the slogan.",
+                    "miss": "Don't know who argued the other side? Then you don't really know the debate. It was Oskar Lange.",
+                    "card": "pe-hayek"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — those achievements were faked",
+                  "right": false,
+                  "reply": "They were real enough; denying them makes you the one ignoring evidence."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — space flight proves nothing",
+                  "right": false,
+                  "reply": "Too cheap. Say WHY a prestige project doesn't redeem the system, or it stands."
+                }
+              ]
+            },
+            {
+              "attack": "But markets fail — pollution, monopolies, the 2008 crash. Admit the state must run the show.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman the failures, then reframe to 'comparative'",
+                  "right": true,
+                  "land": "Granted — markets fail on externalities and monopoly; put your strongest case and I'll concede each one. But 'allocate better' is comparative: governments fail too, and worse, because they lack the very price signal that would tell them they're failing. Best isn't flawless — it's self-correcting.",
+                  "reply": "Steelmanning my own examples, then pinning me on 'comparative'. …That's the move I had no answer to.",
+                  "recall": {
+                    "demand": "Even shared resources — the commons — aren't only saved by the state. Who won a Nobel showing communities govern them themselves?",
+                    "qz": {
+                      "answer": "Ostrom",
+                      "type": "detail",
+                      "accept": [
+                        "ostrom",
+                        "elinor ostrom",
+                        "e ostrom"
+                      ]
+                    },
+                    "choices": [
+                      "Elinor Ostrom",
+                      "Milton Friedman",
+                      "Karl Polanyi",
+                      "Amartya Sen"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Ostrom. Neither plan nor pure market. You even took my fallback. Floor's yours.",
+                    "miss": "Lecturing me on the commons and you can't name Ostrom? She won the Nobel for it. Learn the card.",
+                    "card": "sys-commons"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — markets never fail",
+                  "right": false,
+                  "reply": "Even Hayek admitted failures. Deny them and you've lost your own credibility."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the state should run it all",
+                  "right": false,
+                  "reply": "From 'markets fail sometimes' to 'nationalise everything'? You leapt off the cliff yourself."
+                }
+              ]
+            }
+          ],
+          "win": "The Commissar sets down the clipboard. You held the floor — exposing the planner's blindness, weighing the whole record, and steelmanning market failure before reframing to the comparative.",
+          "lose": "The Commissar permits himself a thin smile. Slogans without the names behind them are just noise. Learn the cards and report back."
+        }
+      }
     },
     {
       "id": "m-marx-relevant",
