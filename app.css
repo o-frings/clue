@@ -419,9 +419,13 @@
   .dbhubic{ flex:0 0 auto; width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
     font-size:22px; background:var(--field); }
   .dbhub.spar .dbhubic{ background:color-mix(in srgb,#e8590c 16%,transparent); }
+  .dbhub.hard .dbhubic{ background:color-mix(in srgb,var(--ink) 8%,transparent); }
   .dbhubmain{ flex:1; min-width:0; }
   .dbhubt{ font-size:16px; font-weight:750; letter-spacing:-.2px; color:var(--ink); }
+  .dbhardtag{ margin-left:8px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.4px; vertical-align:middle;
+    color:var(--l2); background:var(--field); border:.5px solid var(--line); border-radius:999px; padding:2px 7px; }
   .dbhubd{ font-size:13px; color:var(--l2); line-height:1.4; margin-top:3px; }
+  .sparhard{ font-size:11px; font-weight:800; letter-spacing:.3px; color:#e8590c; background:color-mix(in srgb,#e8590c 14%,transparent); border-radius:999px; padding:2px 8px; }
 
   /* ----- sparring ring ----- */
   .sparhead{ display:flex; align-items:center; gap:12px; padding:4px 2px 14px; }
@@ -458,6 +462,7 @@
 
   .sparverdict{ margin-top:18px; background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); padding:20px 18px; box-shadow:var(--shadow); }
   .sparverdict.flawless{ border-color:#f2a93b; box-shadow:0 14px 36px -18px #f2a93b; }
+  .sparverdict.failed{ border-color:color-mix(in srgb,var(--red,#e03131) 45%,var(--line)); }
   .sparverdict .svk{ font-size:18px; font-weight:800; letter-spacing:-.2px; color:var(--ink); }
   .sparverdict p{ font-size:14.5px; color:var(--l2); line-height:1.5; margin:9px 0 0; }
   .svhits{ font-size:12.5px; color:var(--l3); margin-top:8px; }

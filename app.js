@@ -1707,22 +1707,28 @@ function motionPool(m){ return KN.cards.filter(c=> (m.fields||[]).includes(c.fie
 function renderMotionHome(m){
   $("dbTitle").textContent="‹ Motions"; $("dbBack").style.cursor="pointer"; $("dbSub").textContent="Choose how to take it on.";
   const pool=motionPool(m); const ready=pool.filter(c=>isLearned(c.id)).length;
-  const sparBtn = m.spar ? (function(){ const p=m.spar[Object.keys(m.spar)[0]].persona;
+  const sparBtns = m.spar ? (function(){ const p=m.spar[Object.keys(m.spar)[0]].persona;
     return '<button class="dbhub spar" id="dbGoSpar">'+
       '<div class="dbhubic">'+esc(p.emoji||'⚔️')+'</div>'+
       '<div class="dbhubmain"><div class="dbhubt">Spar — take on '+esc(p.name)+'</div>'+
       '<div class="dbhubd">Trade moves in a live bout. Pick the right rebuttal under pressure.</div></div>'+
+      '<span class="mpchev">›</span></button>'+
+      '<button class="dbhub hard" id="dbGoHard">'+
+      '<div class="dbhubic">🎓</div>'+
+      '<div class="dbhubmain"><div class="dbhubt">Hard mode<span class="dbhardtag">no hints</span></div>'+
+      '<div class="dbhubd">'+esc(p.name)+' takes you seriously: moves unlabelled, no multiple-choice — recall the fact or concede.</div></div>'+
       '<span class="mpchev">›</span></button>'; })() : '';
   $("dbBody").innerHTML=
     '<div class="motioncard"><div class="mk">Motion</div><div class="mt">'+esc(m.text)+'</div></div>'+
-    sparBtn+
+    sparBtns+
     '<button class="dbhub" id="dbGoCase">'+
       '<div class="dbhubic">📋</div>'+
       '<div class="dbhubmain"><div class="dbhubt">Build your case</div>'+
       '<div class="dbhubd">Browse your sourced points for and against — '+ready+' of '+pool.length+' unlocked.</div></div>'+
       '<span class="mpchev">›</span></button>'+
     (m.spar?'':'<div class="foot">A sparring partner for this motion is coming soon — for now, build your case.</div>');
-  const gs=$("dbGoSpar"); if(gs) gs.onclick=()=>{ startSpar(m); };
+  const gs=$("dbGoSpar"); if(gs) gs.onclick=()=>{ startSpar(m,'spar'); };
+  const gh=$("dbGoHard"); if(gh) gh.onclick=()=>{ startSpar(m,'pro'); };
   $("dbGoCase").onclick=()=>{ dbStage='case'; renderDebate(); };
 }
 
@@ -1750,12 +1756,15 @@ function renderCase(m){
 function pickMotion(id){ dbMotion=id; dbSide="for"; dbStage=null; spar=null; renderDebate(); }
 
 // ---------- sparring ring ----------
-// spar = { side, round, tried:[[moveIdx,…]], rc:[{revealed,tries,done}], hits, done }.
+// spar = { side, tier, round, tried:[[moveIdx,…]], rc:[{revealed,tries,done}], hits, done, failed }.
 // Each round has two beats: pick the right MOVE, then (if it carries a `recall`)
-// back it with a remembered fact — typed, with a reveal-to-multiple-choice fallback
-// that costs a hit. We re-derive the whole transcript from this state each render.
-function startSpar(m){ const side=m.spar.for?'for':Object.keys(m.spar)[0];
-  spar={ side, round:0, tried:[], rc:[], hits:0, done:false }; dbStage='spar'; renderDebate(); }
+// back it with a remembered fact. tier 'spar' shows full move labels and a
+// reveal-to-multiple-choice fallback; tier 'pro' hides the labels to the move
+// name only and removes the reveal — recall the fact or concede the bout.
+function startSpar(m, tier){ const side=m.spar.for?'for':Object.keys(m.spar)[0];
+  spar={ side, tier:tier||'spar', round:0, tried:[], rc:[], hits:0, done:false, failed:false }; dbStage='spar'; renderDebate(); }
+// in hard mode a move shows only its tactic name (the part before the em dash)
+function sparLabel(label){ return spar && spar.tier==='pro' ? label.split(' — ')[0] : label; }
 
 // round helpers
 function rightIdx(rd){ return rd.moves.findIndex(mv=>mv.right); }
@@ -1772,7 +1781,7 @@ function renderSpar(m){
   $("dbTitle").textContent="‹ Quit bout"; $("dbBack").style.cursor="pointer";
   $("dbSub").textContent='Defending: '+truncate(m.text,40);
   let html='<div class="sparhead"><div class="sparav">'+esc(p.emoji||'⚔️')+'</div>'+
-    '<div><div class="sparname">'+esc(p.name)+'</div><div class="sparrole">Arguing against the motion</div></div></div>';
+    '<div><div class="sparname">'+esc(p.name)+(spar.tier==='pro'?' <span class="sparhard">🎓 Hard</span>':'')+'</div><div class="sparrole">Arguing against the motion</div></div></div>';
   html+='<div class="sparlog">';
   html+=bubble('opp', esc(p.intro), 'intro');
   // transcript: every round up to and including the current one
@@ -1787,19 +1796,28 @@ function renderSpar(m){
     // recall beat — only after the right move is on the table
     if(pickedRight(r,rd)){ const rm=rightMove(rd); if(rm.recall){ const rc=rcOf(r);
       html+=bubble('opp', esc(rm.recall.demand), 'attack');
+      const nag = spar.tier==='pro' ? 'Not quite. Try again — there are no hints in here.' : 'Not quite. Again — or reveal the options.';
       rc.tries.forEach(t=>{ html+=bubble('me', esc(t.resp), t.ok?'land':'wrong-pick');
-        html+=bubble('opp', esc(t.ok? rm.recall.good : 'Not quite. Again — or reveal the options.'), t.ok?'concede':'jab'); });
+        html+=bubble('opp', esc(t.ok? rm.recall.good : nag), t.ok?'concede':'jab'); });
       if(rc.revealed && !rc.done && rm.recall.miss) html+=bubble('opp', esc(rm.recall.miss), 'jab');
     } }
   }
   html+='</div>';
   // controls
-  if(spar.done){
+  if(spar.done && spar.failed){
+    html+='<div class="sparverdict failed">'+
+      '<div class="svk">✋ The floor slipped away</div>'+
+      '<p>'+esc(S.lose)+'</p>'+
+      '<div class="svhits">The fact you couldn’t cite: <b>'+esc(spar.failedAnswer)+'</b></div>'+
+      '<div class="sparbtns"><button class="sparbtn primary" id="sparRematch">↻ Rematch</button>'+
+      '<button class="sparbtn" id="sparDone">Back to motion</button></div></div>';
+  } else if(spar.done){
     const flawless = spar.hits===0;
+    const hard = spar.tier==='pro';
     const used=[]; rounds.forEach(rd=> rd.moves.forEach(mv=>{ if(mv.right && mv.tactic && used.indexOf(mv.tactic)<0) used.push(mv.tactic); }));
     const cards=[]; rounds.forEach(rd=>{ const rm=rightMove(rd); if(rm.recall && rm.recall.card && byId[rm.recall.card] && cards.indexOf(rm.recall.card)<0) cards.push(rm.recall.card); });
     html+='<div class="sparverdict '+(flawless?'flawless':'')+'">'+
-      '<div class="svk">'+(flawless?'🏆 Flawless — not a hit landed':'✅ You held the floor')+'</div>'+
+      '<div class="svk">'+(flawless?'🏆 Flawless — not a hit landed':'✅ You held the floor')+(hard?' <span class="sparhard">🎓 Hard mode</span>':'')+'</div>'+
       '<p>'+esc(S.win)+'</p>'+
       (spar.hits?('<div class="svhits">Took '+spar.hits+' hit'+(spar.hits>1?'s':'')+' — a wrong move or a fact you couldn’t cite.</div>'):'')+
       '<div class="svtactics"><div class="svtk">Moves &amp; facts in play — tap to study</div>'+
@@ -1810,14 +1828,17 @@ function renderSpar(m){
     const r=spar.round, rd=rounds[r];
     if(!pickedRight(r,rd)){
       const tried=spar.tried[r]||[]; const order=sparMoveOrder(m,r).filter(i=>tried.indexOf(i)<0);
-      html+='<div class="sparmovetip">Your move — pick the strongest answer</div>';
+      html+='<div class="sparmovetip">Your move — '+(spar.tier==='pro'?'name the right tactic':'pick the strongest answer')+'</div>';
       html+='<div class="sparmoves">'+order.map(i=>{ const mv=rd.moves[i];
-        return '<button class="sparmove" data-i="'+i+'">'+esc(mv.label)+'</button>'; }).join('')+'</div>';
+        return '<button class="sparmove" data-i="'+i+'">'+esc(sparLabel(mv.label))+'</button>'; }).join('')+'</div>';
     } else { const rm=rightMove(rd), rc=rcOf(r); if(rm.recall && !rc.done){
       html+='<div class="sparrc">';
-      if(!rc.revealed){
-        html+='<div class="sparmovetip">Back it up — cite the fact</div>'+
-          '<div class="quiztype"><input id="rcInput" class="qzin" type="text" inputmode="'+(rm.recall.qz.type==='num'?'decimal':'text')+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type a name, number or date"><button class="btn wide sm qzcheck" id="rcCheck">Cite it</button></div>'+
+      const inputHtml='<div class="quiztype"><input id="rcInput" class="qzin" type="text" inputmode="'+(rm.recall.qz.type==='num'?'decimal':'text')+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type a name, number or date"><button class="btn wide sm qzcheck" id="rcCheck">Cite it</button></div>';
+      if(spar.tier==='pro'){
+        html+='<div class="sparmovetip">Cite the fact — no options, no hints</div>'+inputHtml;
+        if((rc.tries||[]).length>=2) html+='<button class="rcreveal" id="rcConcede">Can’t recall it? Concede the bout</button>';
+      } else if(!rc.revealed){
+        html+='<div class="sparmovetip">Back it up — cite the fact</div>'+inputHtml+
           '<button class="rcreveal" id="rcReveal">Forgot? Show options — costs a hit</button>';
       } else {
         const triedC=rc.tries.filter(t=>t.choice!=null).map(t=>t.choice);
@@ -1833,7 +1854,8 @@ function renderSpar(m){
   document.querySelectorAll("#dbBody .rcopt").forEach(b=> b.onclick=()=>sparRecallPick(m, +b.dataset.c));
   const rcI=$("rcInput"), rcC=$("rcCheck"); if(rcI&&rcC){ const go=()=>sparRecallSubmit(m, rcI.value||''); rcC.onclick=go; rcI.onkeydown=(e)=>{ if(e.key==='Enter'){ e.preventDefault(); go(); } }; }
   const rcR=$("rcReveal"); if(rcR) rcR.onclick=()=>sparReveal(m);
-  const rm=$("sparRematch"); if(rm) rm.onclick=()=>startSpar(m);
+  const rcCon=$("rcConcede"); if(rcCon) rcCon.onclick=()=>sparConcede(m);
+  const rm=$("sparRematch"); if(rm){ const tier=spar.tier; rm.onclick=()=>startSpar(m, tier); }
   const dn=$("sparDone"); if(dn) dn.onclick=()=>{ dbStage=null; spar=null; renderDebate(); };
   const lg=$("dbBody").querySelector('.sparlog'); if(lg) lg.scrollTop=lg.scrollHeight;
 }
@@ -1868,6 +1890,10 @@ function sparRecallSubmit(m, resp){ if(!String(resp).trim()) return;
 }
 function sparReveal(m){ const rc=rcOf(spar.round); if(rc.revealed||rc.done) return;
   rc.revealed=true; spar.hits++; toast('Options revealed — costs a hit'); renderDebate(); }
+// hard mode only: give up the recall, ending the bout as a loss but showing the answer to learn
+function sparConcede(m){ const rd=m.spar[spar.side].rounds[spar.round], rm=rightMove(rd);
+  spar.failed=true; spar.failedAnswer=String(rm.recall.qz.answer); spar.done=true;
+  toast('Conceded the bout'); renderDebate(); }
 function sparRecallPick(m, ci){
   const rd=m.spar[spar.side].rounds[spar.round], rm=rightMove(rd), rc=rcOf(spar.round);
   const ok = ci===rm.recall.correctChoice; rc.tries.push({resp:rm.recall.choices[ci], ok:ok, choice:ci});
