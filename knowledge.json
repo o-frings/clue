@@ -47141,6 +47141,154 @@
           ],
           "win": "The Doomer exhales, almost smiling. You held the floor — turning nostalgia into a graveyard, weighing realised gains against possible loss, and steelmanning the costs before reframing to the balance.",
           "lose": "The Doomer nods, vindicated. Optimism without the receipts is just a mood. Learn the cards and face me again."
+        },
+        "against": {
+          "persona": {
+            "name": "The Optimist",
+            "emoji": "🙂",
+            "intro": "Every chart points up — lifespan, literacy, wealth. By any measure we've never had it better. Try arguing with the data."
+          },
+          "rounds": [
+            {
+              "attack": "Look at the numbers: child mortality collapsed, lifespans doubled, extreme poverty is vanishing. Progress is simply real.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — those measure quantity, not quality of life",
+                  "right": true,
+                  "land": "Every figure you cite measures the quantity of life, not its quality. The same rapid change that lengthened our years dissolved the communities, faith and stable work that made them feel worth living. We added decades and hollowed out the meaning inside them.",
+                  "reply": "…quantity versus quality of life. You turned my own charts into a hollow shell. Hm.",
+                  "recall": {
+                    "demand": "Name the sociologist's term for the normlessness that rapid social change produces when it outpaces our shared rules.",
+                    "qz": {
+                      "answer": "anomie",
+                      "type": "detail",
+                      "accept": [
+                        "anomie",
+                        "durkheim",
+                        "normlessness"
+                      ]
+                    },
+                    "choices": [
+                      "Anomie",
+                      "Alienation",
+                      "Ennui",
+                      "The hedonic treadmill"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Anomie. Durkheim. You know the cost that doesn't show up in GDP. Fine.",
+                    "miss": "Arguing modern life is unmoored and you can't name anomie? That's the concept. Learn the card.",
+                    "card": "socio-anomie"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — lifespans didn't really rise",
+                  "right": false,
+                  "reply": "They demonstrably did; deny it and you're the one ignoring data."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, we're better off",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then enjoy the future. We're agreed."
+                }
+              ]
+            },
+            {
+              "attack": "But billions were lifted out of poverty. Surely fewer starving children means humanity is better off, full stop.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the average against who actually gained",
+                  "right": true,
+                  "land": "Weigh the distribution, not the average. The gains pooled — emerging Asia and the global rich soared while the working class of the rich world stagnated for a generation. 'Humanity, on average' is doing a lot of quiet work in your sentence.",
+                  "reply": "The average hiding the distribution. …You weighed who actually won, and it's lopsided. Fair.",
+                  "recall": {
+                    "demand": "Name the economist behind the 'elephant curve' that mapped exactly who won and lost from globalisation.",
+                    "qz": {
+                      "answer": "Milanovic",
+                      "type": "detail",
+                      "accept": [
+                        "milanovic",
+                        "branko milanovic",
+                        "lakner"
+                      ]
+                    },
+                    "choices": [
+                      "Branko Milanovic",
+                      "Thomas Piketty",
+                      "Amartya Sen",
+                      "Angus Deaton"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Milanovic. You know who the gains skipped. Respect.",
+                    "miss": "Arguing the gains were uneven and you can't name Milanovic's elephant curve? That's the evidence. Learn it.",
+                    "card": "find-elephant-curve"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — poverty didn't really fall",
+                  "right": false,
+                  "reply": "It did fall enormously; denial just discredits you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — averages are meaningless",
+                  "right": false,
+                  "reply": "Stated, not shown. WHY does the average mislead here? Supply the warrant."
+                }
+              ]
+            },
+            {
+              "attack": "Would you really return to a world before anaesthetic, vaccines and electric light? Be honest.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman the gains, then widen the ledger",
+                  "right": true,
+                  "land": "Granted — and I won't pretend otherwise: I'd take the dentist, the vaccine, the lit room every time. But 'better off' is a whole ledger, not a medicine cabinet. On meaning, autonomy, loneliness and ecological security the account is far more mixed — and money past a point barely moves the needle on happiness.",
+                  "reply": "Conceding the medicine and widening to the whole ledger. …That's the balance I couldn't tip back.",
+                  "recall": {
+                    "demand": "Name the paradox that, above a certain income, more money barely raises reported happiness.",
+                    "qz": {
+                      "answer": "Easterlin paradox",
+                      "type": "detail",
+                      "accept": [
+                        "easterlin",
+                        "easterlin paradox",
+                        "the easterlin paradox"
+                      ]
+                    },
+                    "choices": [
+                      "The Easterlin paradox",
+                      "The Pareto principle",
+                      "Say's law",
+                      "The Lucas critique"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The Easterlin paradox. You know the evidence that growth stops buying joy. Floor's yours.",
+                    "miss": "Arguing wealth stopped helping and you can't name the Easterlin paradox? That's the keystone. Learn it."
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — modern medicine is overrated",
+                  "right": false,
+                  "reply": "A grim, losing denial; the room turns on you instantly."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — yes, the past was worse in every way",
+                  "right": false,
+                  "reply": "You conceded the motion. The Optimist beams."
+                }
+              ]
+            }
+          ],
+          "win": "The Optimist lowers the graph. You held the floor — turning quantity into quality, weighing the average against who really gained, and widening 'better off' past the medicine cabinet.",
+          "lose": "The Optimist taps the rising line, content. To argue against progress you must know its hidden costs by name. Learn the cards and come back."
         }
       }
     },
@@ -47295,6 +47443,150 @@
           ],
           "win": "The Dove lowers her hands. You held the floor — turning interdependence into a tripwire, weighing the nuclear tail, and reframing 'likely' against the demand for certainty.",
           "lose": "The Dove smiles serenely. Prophecy without the record behind it is just noise. Learn the cases and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Hawk",
+            "emoji": "🦅",
+            "intro": "A rising China and a frightened America — this ends in war, like it always does. Tell me I'm wrong. You can't."
+          },
+          "rounds": [
+            {
+              "attack": "History is clear: Thucydides counted sixteen power transitions and twelve ended in war. The odds say blood.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the exceptions are exactly these two",
+                  "right": true,
+                  "land": "Then look at the four that stayed peaceful — they share what these two have that ancient Athens never did: nuclear weapons and economies fused at the hip. The cases most like ours are the ones that didn't end in war.",
+                  "reply": "…using the four exceptions against me. Cute. The nuclear point stings.",
+                  "recall": {
+                    "demand": "Then name the strategist whose work explains why nuclear deterrence holds — who asked whether America would really 'trade New York for Berlin'.",
+                    "qz": {
+                      "answer": "Schelling",
+                      "type": "detail",
+                      "accept": [
+                        "schelling",
+                        "thomas schelling",
+                        "thomas c schelling"
+                      ]
+                    },
+                    "choices": [
+                      "Thomas Schelling",
+                      "George Kennan",
+                      "Henry Kissinger",
+                      "Carl von Clausewitz"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Schelling. You know the logic of deterrence, not just the body count. Hm.",
+                    "miss": "Talking deterrence and you can't name Schelling? He built the theory. Learn the card.",
+                    "card": "ir-deterrence"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — there's no rivalry at all",
+                  "right": false,
+                  "reply": "There plainly is; deny it and the room writes you off."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, war is coming",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then man the ramparts. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "Taiwan is a powder keg. One miscalculation, one incident, and the shooting starts. You can't wish that away.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the expected value — war ruins both",
+                  "right": true,
+                  "land": "Weigh what each side actually gets: full-scale war means mutual annihilation and economic ruin for both. The expected value is catastrophically negative for everyone — which is precisely why both sides dance to the brink and stop. The stakes deter the very war you predict.",
+                  "reply": "Expected value deeply negative for both. …You weighed the incentive, not just the flashpoint. Fair.",
+                  "recall": {
+                    "demand": "Name the doctrine that makes all-out war self-defeating — strike and you too are destroyed.",
+                    "qz": {
+                      "answer": "Mutually Assured Destruction",
+                      "type": "detail",
+                      "accept": [
+                        "mad",
+                        "mutually assured destruction",
+                        "mutual assured destruction"
+                      ]
+                    },
+                    "choices": [
+                      "Mutually Assured Destruction",
+                      "The security dilemma",
+                      "Containment",
+                      "The domino theory"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Mutually Assured Destruction. You know why the worst case prevents itself. Respect.",
+                    "miss": "Arguing nuclear peace and you can't name MAD? That's the mechanism. Learn it.",
+                    "card": "ir-deterrence"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — Taiwan doesn't matter",
+                  "right": false,
+                  "reply": "It plainly could trigger war; denial just looks naive."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — a spark means nothing",
+                  "right": false,
+                  "reply": "Asserted, not shown. WHY won't a spark catch? Give the warrant."
+                }
+              ]
+            },
+            {
+              "attack": "You can't rule out an accident — a rogue commander, a misread radar. The risk is real and it's rising.",
+              "moves": [
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Reframe the burden — 'likely' means more than 'possible'",
+                  "right": true,
+                  "land": "Granted — accidents happen, and the tail risk is real; I won't pretend it's zero. But the motion says conflict is LIKELY, which means more probable than not. Structural deterrence and deep interdependence make war the improbable tail, not the base case. Possible isn't probable.",
+                  "reply": "Possible versus probable — you held the line right where the motion actually sits. …I've nothing.",
+                  "recall": {
+                    "demand": "Of Allison's sixteen power-transition rivalries, how many did NOT end in war — the cases you should be looking at?",
+                    "qz": {
+                      "answer": 4,
+                      "type": "num"
+                    },
+                    "choices": [
+                      "4 of 16",
+                      "12 of 16",
+                      "8 of 16",
+                      "1 of 16"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Four. And those four are the ones that look like us. The floor is yours.",
+                    "miss": "Citing the sixteen cases and you don't know four stayed peaceful? That's your whole argument. Learn it.",
+                    "card": "ir-hegemonic-stability"
+                  }
+                },
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Deny it — accidents never happen",
+                  "right": false,
+                  "reply": "They do; deny it and you forfeit your credibility."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — fine, war is likely",
+                  "right": false,
+                  "reply": "You just argued for the motion. The Hawk salutes you."
+                }
+              ]
+            }
+          ],
+          "win": "The Hawk lowers his binoculars. You held the floor — turning the exceptions against him, weighing the ruinous expected value of war, and pinning 'likely' apart from 'possible'.",
+          "lose": "The Hawk grins, grimly satisfied. To argue for peace you must know deterrence cold. Learn the cards and come back."
         }
       }
     },
@@ -47621,6 +47913,158 @@
           ],
           "win": "The Populist lowers the megaphone. You held the floor — flipping distrust into a fallacy, fencing the wisdom of crowds to where it belongs, and owning experts' overconfidence before reframing to the real alternative.",
           "lose": "The Populist roars to the crowd. To defend expertise you must know its failure modes cold. Learn the cards and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Technocrat",
+            "emoji": "📊",
+            "intro": "Govern by evidence, not by mood. The expert reads the data; the public reads the horoscope. Convince me to hand them the wheel."
+          },
+          "rounds": [
+            {
+              "attack": "Leave the decisions to those who actually understand them. The public is ignorant; experts are trained. It isn't close.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the many know what no expert can",
+                  "right": true,
+                  "land": "Aggregate the many and they routinely beat the few — markets, prediction polls, juries. Each person holds a sliver of local knowledge no central expert can ever gather. Your 'ignorant public' is a distributed intelligence you're refusing to read.",
+                  "reply": "…distributed knowledge. You turned Hayek on me, of all people. Annoying.",
+                  "recall": {
+                    "demand": "Name the economist whose whole argument was that no central expert can know what dispersed individuals collectively know.",
+                    "qz": {
+                      "answer": "Hayek",
+                      "type": "detail",
+                      "accept": [
+                        "hayek",
+                        "friedrich hayek",
+                        "f a hayek",
+                        "von hayek"
+                      ]
+                    },
+                    "choices": [
+                      "Friedrich Hayek",
+                      "Max Weber",
+                      "Walter Lippmann",
+                      "Auguste Comte"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Hayek. You weaponised the knowledge problem against expertise. Clever.",
+                    "miss": "Praising the wisdom of the crowd and you can't name Hayek? That's its backbone. Learn it.",
+                    "card": "pe-hayek"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the public is never ignorant",
+                  "right": false,
+                  "reply": "Sometimes it plainly is; overclaiming loses the room."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, defer to the experts",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then sit down and let us work."
+                }
+              ]
+            },
+            {
+              "attack": "But technical questions demand technical answers. You wouldn't put bridge tolerances to a vote.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh technique against values — most politics is the latter",
+                  "right": true,
+                  "land": "Grant the bridge to the engineer. But weigh how little of politics is technical: most questions are about values and trade-offs — whose risk, whose cost, what we owe each other. There the public's stake outweighs the expert's credential, because it isn't a question of fact at all.",
+                  "reply": "Splitting technique from value, and conceding only the technique. …Tidy, and hard to answer.",
+                  "recall": {
+                    "demand": "Name the theorem — the strongest formal case for the crowd — that many better-than-even voters are very likely right together.",
+                    "qz": {
+                      "answer": "Condorcet",
+                      "type": "detail",
+                      "accept": [
+                        "condorcet",
+                        "marquis de condorcet",
+                        "condorcet jury theorem",
+                        "jury theorem"
+                      ]
+                    },
+                    "choices": [
+                      "The Condorcet jury theorem",
+                      "Arrow's theorem",
+                      "Bayes' theorem",
+                      "Duverger's law"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Condorcet's jury theorem. You brought the maths for the mob. Respect.",
+                    "miss": "Defending the public and you can't name Condorcet's theorem? It's your best evidence. Learn it.",
+                    "card": "poli-condorcet"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — experts know nothing",
+                  "right": false,
+                  "reply": "Contempt for expertise loses you every serious listener."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — values beat facts always",
+                  "right": false,
+                  "reply": "Asserted, not argued. WHY do value questions dominate? Give the warrant."
+                }
+              ]
+            },
+            {
+              "attack": "Experts are accountable to evidence; the mob is accountable to mood. Trusting the crowd is how you get demagogues.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman it, then reframe to representation",
+                  "right": true,
+                  "land": "Granted — crowds can be swayed and demagogues are a real danger; state it at full strength. But the realistic alternative isn't a mob in the street, it's representative democracy, which converges on the public's centre — and experts capture institutions too. The choice isn't evidence versus mood; it's whose values steer the evidence.",
+                  "reply": "Conceding the demagogue risk and reframing to representation and capture. …That's the line I couldn't push past.",
+                  "recall": {
+                    "demand": "Name the theorem that says the middle voter decides, pulling competing parties toward the centre.",
+                    "qz": {
+                      "answer": "median voter theorem",
+                      "type": "detail",
+                      "accept": [
+                        "median voter",
+                        "median voter theorem",
+                        "median-voter",
+                        "median voter model"
+                      ]
+                    },
+                    "choices": [
+                      "The median voter theorem",
+                      "Arrow's theorem",
+                      "The Condorcet paradox",
+                      "Gresham's law"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The median voter theorem. You know why representation isn't mob rule. Floor's yours.",
+                    "miss": "Arguing democracy self-moderates and you can't name the median voter theorem? That's it. Learn the card.",
+                    "card": "poli-median-voter"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the public never elects demagogues",
+                  "right": false,
+                  "reply": "History disagrees; denial makes you look evasive."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — experts should rule",
+                  "right": false,
+                  "reply": "You conceded the motion. The Technocrat nods, vindicated."
+                }
+              ]
+            }
+          ],
+          "win": "The Technocrat sets down the briefing. You held the floor — turning the knowledge problem against expertise, weighing values against technique, and reframing 'mob' into representation.",
+          "lose": "The Technocrat returns to the data. To argue for the public you must know the case for the crowd cold. Learn the cards and come back."
         }
       }
     },
@@ -47782,6 +48226,160 @@
           ],
           "win": "The Commissar sets down the clipboard. You held the floor — exposing the planner's blindness, weighing the whole record, and steelmanning market failure before reframing to the comparative.",
           "lose": "The Commissar permits himself a thin smile. Slogans without the names behind them are just noise. Learn the cards and report back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Free-Marketeer",
+            "emoji": "💵",
+            "intro": "The market is the greatest information machine ever built. Government is the boot that breaks it. Defend the planners — I'll wait."
+          },
+          "rounds": [
+            {
+              "attack": "Leave it to the market. Prices coordinate millions of strangers with no central command. Nothing allocates better.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — prices lie when costs land on others",
+                  "right": true,
+                  "land": "Prices coordinate beautifully — until the cost lands on a third party. Then the market price is simply wrong, and it over-produces the harm precisely because the polluter never pays. The 'information machine' goes blind exactly where it matters most.",
+                  "reply": "…externalities break the price signal. You turned my machine against itself. Tch.",
+                  "recall": {
+                    "demand": "Name the economist who showed external costs make the market price wrong — and that bargaining could, in principle, fix it.",
+                    "qz": {
+                      "answer": "Coase",
+                      "type": "detail",
+                      "accept": [
+                        "coase",
+                        "ronald coase",
+                        "r coase",
+                        "r h coase"
+                      ]
+                    },
+                    "choices": [
+                      "Ronald Coase",
+                      "Milton Friedman",
+                      "Adam Smith",
+                      "Friedrich Hayek"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Coase. You know your market failures from the inside. Fine.",
+                    "miss": "Arguing market failure and you can't name Coase? He won a Nobel for it. Learn the card.",
+                    "card": "econ-externalities"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — prices are always right",
+                  "right": false,
+                  "reply": "Externalities are textbook; deny them and you lose every economist listening."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, markets always allocate best",
+                  "right": false,
+                  "reply": "Conceding in round one? Then deregulate everything and goodbye."
+                }
+              ]
+            },
+            {
+              "attack": "Markets are efficient; the state is waste and queues. Whatever government touches, it bungles.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the things markets simply won't supply",
+                  "right": true,
+                  "land": "Weigh the whole basket. Some goods the market won't provide at all — basic research, public health, a justice system — because no one can charge for them. Set bureaucratic waste against the entire categories of value markets leave on the floor, and 'allocate better' starts to wobble.",
+                  "reply": "Public goods the market won't touch. …You weighed what's missing, not just what's wasteful. Hm.",
+                  "recall": {
+                    "demand": "Name the problem where everyone benefits from a good without paying, so the market under-supplies it.",
+                    "qz": {
+                      "answer": "free-rider problem",
+                      "type": "detail",
+                      "accept": [
+                        "free rider problem",
+                        "free-rider problem",
+                        "free riding",
+                        "free-riding",
+                        "free rider"
+                      ]
+                    },
+                    "choices": [
+                      "The free-rider problem",
+                      "Moral hazard",
+                      "Adverse selection",
+                      "The principal-agent problem"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The free-rider problem. You know exactly where markets fall silent. Good.",
+                    "miss": "Arguing for public provision and you can't name free-riding? That's the reason. Learn it.",
+                    "card": "pf-public-goods"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — markets supply everything",
+                  "right": false,
+                  "reply": "They don't supply pure public goods; denial sinks you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — government waste is the only issue",
+                  "right": false,
+                  "reply": "Stated, not shown. WHY does waste outweigh market failure? Warrant, please."
+                }
+              ]
+            },
+            {
+              "attack": "But governments fail too — capture, corruption, the Soviet collapse. Public choice exposed the myth of the benevolent planner.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman government failure, then hold the comparison",
+                  "right": true,
+                  "land": "Granted — government failure is real, and public choice is right that planners aren't angels; I'll concede every case. But the motion is comparative: markets allocate BETTER. For the whole class of public goods and externalities, they allocate worse — so the blanket claim fails even if the state is flawed too.",
+                  "reply": "Conceding government failure and still holding the comparison on public goods. …That's the move I couldn't break.",
+                  "recall": {
+                    "demand": "Name the corrective tax that prices an external harm so the market price finally tells the truth.",
+                    "qz": {
+                      "answer": "Pigouvian tax",
+                      "type": "detail",
+                      "accept": [
+                        "pigouvian",
+                        "pigovian",
+                        "pigouvian tax",
+                        "pigovian tax",
+                        "pigou"
+                      ]
+                    },
+                    "choices": [
+                      "A Pigouvian tax",
+                      "A tariff",
+                      "A poll tax",
+                      "Quantitative easing"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The Pigouvian tax. You even know the fix, not just the failure. Floor's yours.",
+                    "miss": "Arguing markets misprice harm and you can't name the Pigouvian tax? That's the remedy. Learn it.",
+                    "card": "pf-pigouvian"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — governments never fail",
+                  "right": false,
+                  "reply": "A silly overclaim; he'll bury you in examples."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — markets win, end of story",
+                  "right": false,
+                  "reply": "You let public choice stampede you into conceding the motion."
+                }
+              ]
+            }
+          ],
+          "win": "The Free-Marketeer pockets his Hayek. You held the floor — turning prices against themselves on externalities, weighing the goods markets won't supply, and conceding government failure without losing the comparison.",
+          "lose": "The Free-Marketeer smiles thinly. To argue for the state you must know market failure cold. Learn the cards and come back."
         }
       }
     },
@@ -48102,6 +48700,149 @@
           ],
           "win": "The Growthist pockets his calculator. You held the floor — recasting the gap as power not envy, weighing distribution against the headline, and steelmanning sufficiency before placing inequality upstream of it.",
           "lose": "The Growthist shrugs, satisfied. To argue inequality is central you must measure and name it. Learn the cards and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Egalitarian",
+            "emoji": "⚖️",
+            "intro": "The gap is the wound — the rich pulling ever further from the rest. Tell me poverty alone matters and watch me take you apart."
+          },
+          "rounds": [
+            {
+              "attack": "The widening gap is the central problem. When the top pulls away, society fractures and the rich rewrite the rules.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — a widening gap can mean the poor are rising",
+                  "right": true,
+                  "land": "A gap can widen precisely because the poor are getting richer fast and the rich faster still — that's a side-effect of progress, not the disease. Fixate on the gap and you may smash the very growth that's lifting the floor. The wound to watch is deprivation, not distance.",
+                  "reply": "…the gap as a by-product of a rising floor. You turned my wound into a growing pain. Tch.",
+                  "recall": {
+                    "demand": "Which country's reforms lifted nearly 800 million from poverty — in millions — even as inequality inside it soared?",
+                    "qz": {
+                      "answer": 800,
+                      "type": "num"
+                    },
+                    "choices": [
+                      "About 800 million",
+                      "About 80 million",
+                      "About 8 million",
+                      "About 300 million"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Eight hundred million — while its Gini rocketed. Rising floor, widening gap, both at once. Hm.",
+                    "miss": "Arguing about poverty and inequality and you don't know China lifted ~800 million? That's the case. Learn it.",
+                    "card": "china-reform-opening"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — inequality has no effects at all",
+                  "right": false,
+                  "reply": "It plainly shapes power; deny it and you look naive."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, the gap is what matters most",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then we agree. Off you go."
+                }
+              ]
+            },
+            {
+              "attack": "But inequality buys political power — the rich capture the rules and rig the game against everyone below.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh capture against absolute deprivation",
+                  "right": true,
+                  "land": "Weigh the two harms. Capture is real — but set it against absolute deprivation: a poor family's life is transformed by clean water, a clinic, a school, none of which depends on whether a billionaire exists. The first duty is the floor; the gap is the second-order worry.",
+                  "reply": "The floor before the gap. …You weighed deprivation against distance, and deprivation wins on urgency. Fair.",
+                  "recall": {
+                    "demand": "Name the economist whose 'elephant curve' showed the global poor were among globalisation's biggest winners.",
+                    "qz": {
+                      "answer": "Milanovic",
+                      "type": "detail",
+                      "accept": [
+                        "milanovic",
+                        "branko milanovic",
+                        "lakner"
+                      ]
+                    },
+                    "choices": [
+                      "Branko Milanovic",
+                      "Karl Marx",
+                      "Joseph Stiglitz",
+                      "Gabriel Zucman"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Milanovic. You know who actually gained at the bottom. Respect.",
+                    "miss": "Arguing the global poor rose and you can't name Milanovic's elephant curve? That's the evidence. Learn it.",
+                    "card": "find-elephant-curve"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — money never buys power",
+                  "right": false,
+                  "reply": "It plainly can; flat denial loses the room."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — capture is irrelevant",
+                  "right": false,
+                  "reply": "Stated, not shown. WHY does deprivation outrank capture? Warrant it."
+                }
+              ]
+            },
+            {
+              "attack": "Rawls settled this: justice means improving the lot of the worst-off, and runaway inequality betrays them.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman Rawls, then turn the difference principle",
+                  "right": true,
+                  "land": "Granted, and at full strength: Rawls is right that we judge a society by its worst-off. But his difference principle PERMITS inequality exactly when it lifts the worst-off — which growth-driven inequality often does. By his own test, the target is the floor, not the gap. You've cited my best witness.",
+                  "reply": "Turning the difference principle on its author. Floor not gap, by Rawls's own rule. …I yield.",
+                  "recall": {
+                    "demand": "Whose 'veil of ignorance' argues an inequality is just only if it benefits the worst-off?",
+                    "qz": {
+                      "answer": "Rawls",
+                      "type": "detail",
+                      "accept": [
+                        "rawls",
+                        "john rawls"
+                      ]
+                    },
+                    "choices": [
+                      "John Rawls",
+                      "Robert Nozick",
+                      "Harry Frankfurt",
+                      "Amartya Sen"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Rawls. You know the philosophy well enough to flip it. The floor is yours.",
+                    "miss": "Leaning on fairness and you can't name Rawls? The veil of ignorance is the canon. Learn it.",
+                    "card": "philo-veil"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the worst-off don't matter",
+                  "right": false,
+                  "reply": "A monstrous concession of the moral high ground; you lose."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the gap is the true injustice",
+                  "right": false,
+                  "reply": "You let Rawls stampede you into conceding the motion."
+                }
+              ]
+            }
+          ],
+          "win": "The Egalitarian lowers the scales. You held the floor — recasting the gap as a by-product of a rising floor, weighing deprivation against capture, and turning Rawls's own principle toward the floor.",
+          "lose": "The Egalitarian rebalances the scales, satisfied. To argue poverty over inequality you must know the numbers and the philosophy. Learn the cards and come back."
         }
       }
     },
@@ -48263,6 +49004,152 @@
           ],
           "win": "The Cornucopian throttles back. You held the floor — turning 'more' into 'enough', weighing the finite ceiling against the funding story, and narrowing the motion to the rich societies it was always about.",
           "lose": "The Cornucopian grins and guns the engine. To argue against endless growth you must know the evidence cold. Learn the cards and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Degrowther",
+            "emoji": "🌱",
+            "intro": "A rich society chasing more GDP is a fat man ordering another course. Enough is enough. Tell me why the rich world should keep growing."
+          },
+          "rounds": [
+            {
+              "attack": "Endless growth on a finite planet is a delusion. A wealthy society should stop the treadmill and simply live.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — growth isn't more stuff, it's better stuff",
+                  "right": true,
+                  "land": "You picture growth as more landfill. But long-run growth isn't piling up matter — it's productivity and technology: doing more with less. That's precisely what funds shorter hours, cleaner energy and longer, freer lives. Stopping it freezes the very tools that would lighten the load.",
+                  "reply": "…growth as productivity, not tonnage. You turned the treadmill into a ladder. Hm.",
+                  "recall": {
+                    "demand": "In the Solow model, sustained growth in income per person comes mainly from which term — the 'A' in the equation?",
+                    "qz": {
+                      "answer": "total factor productivity",
+                      "type": "detail",
+                      "accept": [
+                        "total factor productivity",
+                        "tfp",
+                        "total-factor productivity",
+                        "productivity",
+                        "solow residual"
+                      ]
+                    },
+                    "choices": [
+                      "Total factor productivity",
+                      "Capital accumulation",
+                      "Population growth",
+                      "Trade surplus"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Total factor productivity. You know growth is ideas, not stuff. Fine.",
+                    "miss": "Arguing about growth and you can't name total factor productivity? It's the engine. Learn the card.",
+                    "card": "macro-growth-solow"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the planet isn't finite",
+                  "right": false,
+                  "reply": "It plainly has limits; deny them and you lose the room."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, the rich should stop growing",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then welcome to the steady state. Goodbye."
+                }
+              ]
+            },
+            {
+              "attack": "But every extra point of GDP burns more of the world. Growth and a livable planet cannot coexist.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the assumption — growth can split from resource use",
+                  "right": true,
+                  "land": "Weigh the buried premise: that GDP and material throughput are welded together. They aren't — economies already grow while cutting emissions in absolute terms. And halting growth locks in today's debts, pensions and an unfunded climate transition, with no slack left to fix anything.",
+                  "reply": "Decoupling, plus the slack growth buys to fix things. …You weighed the constraint I keep assuming away. Fair.",
+                  "recall": {
+                    "demand": "Name the term for GDP rising while resource use and emissions fall in absolute terms.",
+                    "qz": {
+                      "answer": "absolute decoupling",
+                      "type": "detail",
+                      "accept": [
+                        "absolute decoupling",
+                        "absolute de-coupling",
+                        "decoupling"
+                      ]
+                    },
+                    "choices": [
+                      "Absolute decoupling",
+                      "The rebound effect",
+                      "The Jevons paradox",
+                      "Degrowth"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Absolute decoupling. You know the thing that has to be true — and increasingly is. Respect.",
+                    "miss": "Arguing green growth and you can't name absolute decoupling? That's the whole bet. Learn it.",
+                    "card": "macro-growth-debate"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — emissions can't ever fall with growth",
+                  "right": false,
+                  "reply": "Several economies already prove otherwise; denial sinks you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — the planet always loses",
+                  "right": false,
+                  "reply": "Asserted, not argued. WHY must growth wreck the planet? Warrant, please."
+                }
+              ]
+            },
+            {
+              "attack": "A rich country already has enough. Chasing more is greed dressed as prudence — the marginal gains are trivial.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman 'enough', then point at the unfinished world",
+                  "right": true,
+                  "land": "Granted — for the already-rich, the marginal point of GDP buys little extra happiness; I'll concede the diminishing returns at home. But 'enough' is static and the world isn't: growth funds the innovation that lifts the still-poor and pays for the energy transition. Even a sated society needs it to finance the future.",
+                  "reply": "Conceding the diminishing returns and then pointing past the border. …That's the move I couldn't counter.",
+                  "recall": {
+                    "demand": "Which country's reforms lifted nearly 800 million people out of poverty — in millions, the proof of what growth delivers?",
+                    "qz": {
+                      "answer": 800,
+                      "type": "num"
+                    },
+                    "choices": [
+                      "About 800 million",
+                      "About 80 million",
+                      "About 8 million",
+                      "About 200 million"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Eight hundred million. One country, one generation, the gift of growth. Floor's yours.",
+                    "miss": "Arguing growth still matters and you don't know China lifted ~800 million? That's the headline. Learn it.",
+                    "card": "china-reform-opening"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the marginal gains are huge at home",
+                  "right": false,
+                  "reply": "Above a point they're small; deny the evidence and you lose."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the rich world has enough, stop",
+                  "right": false,
+                  "reply": "You conceded the motion. The Degrowther plants a tree in triumph."
+                }
+              ]
+            }
+          ],
+          "win": "The Degrowther sets down the seedling. You held the floor — turning growth into productivity, weighing decoupling against the finite-planet premise, and pointing the unfinished world past a sated society's border.",
+          "lose": "The Degrowther smiles, unmoved. To argue for growth you must know what it actually is. Learn the cards and come back."
         }
       }
     }

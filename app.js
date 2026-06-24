@@ -1681,7 +1681,7 @@ function openFirstFeedCard(){
 // Three stages off a motion: a hub (null) → either "case" (browse your sourced
 // points by side) or "spar" (a scripted bout against a persona built from the
 // motion's `spar` block). dbBack steps back one stage at a time.
-let dbMotion=null, dbSide="for", dbStage=null, spar=null;
+let dbMotion=null, dbSide="for", dbSparSide="for", dbStage=null, spar=null;
 
 function renderDebate(){
   if(!dbMotion){ renderMotionList(); return; }
@@ -1707,11 +1707,15 @@ function motionPool(m){ return KN.cards.filter(c=> (m.fields||[]).includes(c.fie
 function renderMotionHome(m){
   $("dbTitle").textContent="‹ Motions"; $("dbBack").style.cursor="pointer"; $("dbSub").textContent="Choose how to take it on.";
   const pool=motionPool(m); const ready=pool.filter(c=>isLearned(c.id)).length;
-  const sparBtns = m.spar ? (function(){ const p=m.spar[Object.keys(m.spar)[0]].persona;
-    return '<button class="dbhub spar" id="dbGoSpar">'+
+  const hasAgainst = !!(m.spar && m.spar.against);
+  const side = (m.spar && m.spar[dbSparSide]) ? dbSparSide : 'for';
+  const sparBtns = m.spar ? (function(){ const p=m.spar[side].persona;
+    const sideSeg = hasAgainst ? '<div class="seg" id="dbSparSideSeg"><div class="s'+(side==='for'?' active':'')+'" data-side="for">Defend the motion</div><div class="s'+(side==='against'?' active':'')+'" data-side="against">Oppose it</div></div>' : '';
+    return sideSeg+
+      '<button class="dbhub spar" id="dbGoSpar">'+
       '<div class="dbhubic">'+esc(p.emoji||'⚔️')+'</div>'+
       '<div class="dbhubmain"><div class="dbhubt">Spar — take on '+esc(p.name)+'</div>'+
-      '<div class="dbhubd">Trade moves in a live bout. Pick the right rebuttal under pressure.</div></div>'+
+      '<div class="dbhubd">'+(side==='against'?'Argue against the motion':'Defend the motion')+'. Trade moves in a live bout — pick the right rebuttal under pressure.</div></div>'+
       '<span class="mpchev">›</span></button>'+
       '<button class="dbhub hard" id="dbGoHard">'+
       '<div class="dbhubic">🎓</div>'+
@@ -1727,8 +1731,9 @@ function renderMotionHome(m){
       '<div class="dbhubd">Browse your sourced points for and against — '+ready+' of '+pool.length+' unlocked.</div></div>'+
       '<span class="mpchev">›</span></button>'+
     (m.spar?'':'<div class="foot">A sparring partner for this motion is coming soon — for now, build your case.</div>');
-  const gs=$("dbGoSpar"); if(gs) gs.onclick=()=>{ startSpar(m,'spar'); };
-  const gh=$("dbGoHard"); if(gh) gh.onclick=()=>{ startSpar(m,'pro'); };
+  document.querySelectorAll("#dbSparSideSeg .s").forEach(s=> s.onclick=()=>{ dbSparSide=s.dataset.side; renderDebate(); });
+  const gs=$("dbGoSpar"); if(gs) gs.onclick=()=>{ startSpar(m,'spar',side); };
+  const gh=$("dbGoHard"); if(gh) gh.onclick=()=>{ startSpar(m,'pro',side); };
   $("dbGoCase").onclick=()=>{ dbStage='case'; renderDebate(); };
 }
 
@@ -1753,7 +1758,7 @@ function renderCase(m){
   document.querySelectorAll("#dbBody .argcard").forEach(el=> el.onclick=()=>openCard(el.dataset.id));
 }
 
-function pickMotion(id){ dbMotion=id; dbSide="for"; dbStage=null; spar=null; renderDebate(); }
+function pickMotion(id){ dbMotion=id; dbSide="for"; dbSparSide="for"; dbStage=null; spar=null; renderDebate(); }
 
 // ---------- sparring ring ----------
 // spar = { side, tier, round, tried:[[moveIdx,…]], rc:[{revealed,tries,done}], hits, done, failed }.
@@ -1761,7 +1766,7 @@ function pickMotion(id){ dbMotion=id; dbSide="for"; dbStage=null; spar=null; ren
 // back it with a remembered fact. tier 'spar' shows full move labels and a
 // reveal-to-multiple-choice fallback; tier 'pro' hides the labels to the move
 // name only and removes the reveal — recall the fact or concede the bout.
-function startSpar(m, tier){ const side=m.spar.for?'for':Object.keys(m.spar)[0];
+function startSpar(m, tier, side){ side = (side && m.spar[side]) ? side : (m.spar.for?'for':Object.keys(m.spar)[0]);
   spar={ side, tier:tier||'spar', round:0, tried:[], rc:[], hits:0, done:false, failed:false }; dbStage='spar'; renderDebate(); }
 // in hard mode a move shows only its tactic name (the part before the em dash)
 function sparLabel(label){ return spar && spar.tier==='pro' ? label.split(' — ')[0] : label; }
@@ -1779,9 +1784,9 @@ function sparMoveOrder(m,r){ const moves=m.spar[spar.side].rounds[r].moves;
 function renderSpar(m){
   const S=m.spar[spar.side], rounds=S.rounds, p=S.persona;
   $("dbTitle").textContent="‹ Quit bout"; $("dbBack").style.cursor="pointer";
-  $("dbSub").textContent='Defending: '+truncate(m.text,40);
+  $("dbSub").textContent=(spar.side==='against'?'Opposing: ':'Defending: ')+truncate(m.text,40);
   let html='<div class="sparhead"><div class="sparav">'+esc(p.emoji||'⚔️')+'</div>'+
-    '<div><div class="sparname">'+esc(p.name)+(spar.tier==='pro'?' <span class="sparhard">🎓 Hard</span>':'')+'</div><div class="sparrole">Arguing against the motion</div></div></div>';
+    '<div><div class="sparname">'+esc(p.name)+(spar.tier==='pro'?' <span class="sparhard">🎓 Hard</span>':'')+'</div><div class="sparrole">'+(spar.side==='against'?'Arguing for the motion':'Arguing against the motion')+'</div></div></div>';
   html+='<div class="sparlog">';
   html+=bubble('opp', esc(p.intro), 'intro');
   // transcript: every round up to and including the current one
