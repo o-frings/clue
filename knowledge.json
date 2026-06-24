@@ -46505,6 +46505,151 @@
           ],
           "win": "The Ecologist lowers her placard. You held the floor — turning growth into the cleanup's paymaster, weighing present against speculative harm, and splitting growth from pollution via decoupling.",
           "lose": "The Ecologist shakes her head. Cornucopian faith without the science is just a slogan. Learn the cards and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Industrialist",
+            "emoji": "🏭",
+            "intro": "Growth lifts people from the dirt. Wealth is what cleans rivers and cures disease. Tell me a forest matters more than a child's future."
+          },
+          "rounds": [
+            {
+              "attack": "Get rich first, clean up later — the environmental Kuznets curve. Prosperity is what buys you a clean environment.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the curve doesn't bend for carbon",
+                  "right": true,
+                  "land": "The 'clean up later' curve holds for visible local muck — soot, sewage — that wealth does scrub. It does NOT hold for carbon or biodiversity: those keep climbing with income, and the damage is global and irreversible. You're generalising from smog to the whole biosphere.",
+                  "reply": "…the curve fails for carbon and extinction. You turned my tidy graph into a special case. Tch.",
+                  "recall": {
+                    "demand": "Name the framework of nine limits for a stable planet — and say how many there are.",
+                    "qz": {
+                      "answer": 9,
+                      "type": "num"
+                    },
+                    "choices": [
+                      "Nine",
+                      "Three",
+                      "Five",
+                      "Twelve"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Nine planetary boundaries. You know the hard limits, not just the optimism. Hm.",
+                    "miss": "Arguing for ecological limits and you don't know there are nine planetary boundaries? Learn the card.",
+                    "card": "eco-planetary-boundaries"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — wealth has no link to clean-up",
+                  "right": false,
+                  "reply": "It does for local pollution; overclaiming loses the room."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, grow first and worry later",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then fire up the smokestacks. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "Poverty kills more people than pollution ever will. Every year of delayed growth is a graveyard of preventable deaths.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh reversibility — some losses buy back at no price",
+                  "right": true,
+                  "land": "Weigh reversibility, not just body counts. Poverty is terrible — and largely reversible: growth, aid, medicine claw it back. A cooked climate, a collapsed fishery, an extinct species is gone at any GDP. You're trading a recoverable harm for a permanent one and calling it prudence.",
+                  "reply": "Reversible against permanent. …You weighed the one axis that doesn't bend to money. Fair.",
+                  "recall": {
+                    "demand": "Name the concept: a shared resource gets overused because each user pockets the gain while all share the cost.",
+                    "qz": {
+                      "answer": "tragedy of the commons",
+                      "type": "detail",
+                      "accept": [
+                        "tragedy of the commons",
+                        "the tragedy of the commons",
+                        "commons",
+                        "tragedy of commons"
+                      ]
+                    },
+                    "choices": [
+                      "The tragedy of the commons",
+                      "The free-rider problem",
+                      "Moral hazard",
+                      "The Jevons paradox"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The tragedy of the commons. You know why the biosphere gets plundered by default. Respect.",
+                    "miss": "Arguing the environment gets wrecked and you can't name the tragedy of the commons? That's the mechanism. Learn it.",
+                    "card": "sys-commons"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — ecological damage is reversible too",
+                  "right": false,
+                  "reply": "Extinction and climate aren't; denial sinks you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — poverty always wins",
+                  "right": false,
+                  "reply": "Asserted, not argued. WHY does poverty outrank irreversible loss? Warrant it."
+                }
+              ]
+            },
+            {
+              "attack": "You'd freeze the poor in the dark to save a wetland. Choosing trees over people is a moral obscenity.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman it, then dissolve the false choice",
+                  "right": true,
+                  "land": "Granted — and I'll say it plainly: condemning the poor to darkness for scenery would be obscene. But the choice is mostly false: growth and the environment can be decoupled, and the poor are hit FIRST and worst by ecological collapse. The motion puts growth OVER the environment as a rule — and that ordering is what fails when the limit is hard.",
+                  "reply": "Dissolving the trade-off with decoupling, then noting the poor suffer the collapse first. …That's the framing I couldn't beat.",
+                  "recall": {
+                    "demand": "Name the term for raising GDP while cutting resource use and emissions in absolute terms.",
+                    "qz": {
+                      "answer": "absolute decoupling",
+                      "type": "detail",
+                      "accept": [
+                        "absolute decoupling",
+                        "absolute de-coupling",
+                        "decoupling"
+                      ]
+                    },
+                    "choices": [
+                      "Absolute decoupling",
+                      "The rebound effect",
+                      "The Jevons paradox",
+                      "Degrowth"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Absolute decoupling. You know the trade-off isn't iron. The floor is yours.",
+                    "miss": "Arguing growth and environment can coexist and you can't name absolute decoupling? That's the hope. Learn it.",
+                    "card": "macro-growth-debate"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the poor aren't hurt by climate",
+                  "right": false,
+                  "reply": "They're hit first and worst; denial is both false and callous."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — growth must come first",
+                  "right": false,
+                  "reply": "You accepted his framing — and conceded the motion."
+                }
+              ]
+            }
+          ],
+          "win": "The Industrialist powers down the line. You held the floor — turning the Kuznets curve into a special case, weighing irreversibility over body counts, and dissolving the trees-versus-people choice.",
+          "lose": "The Industrialist restarts the engines. To put the planet first you must know the limits by name. Learn the cards and come back."
         }
       }
     },
@@ -46664,6 +46809,155 @@
           ],
           "win": "The Mercantilist folds his arms and nods. You held the floor — turning protection into a self-tax, exposing the deficit fallacy, and steelmanning the losers before weighing the net.",
           "lose": "The Mercantilist smirks — he found the gap in your guard. The theory's only a weapon if you can recall it. Learn the cards and come back."
+        },
+        "against": {
+          "persona": {
+            "name": "The Free Trader",
+            "emoji": "🌐",
+            "intro": "Open the borders and everyone wins — it's the closest thing economics has to a law. Argue against prosperity itself. I'm listening."
+          },
+          "rounds": [
+            {
+              "attack": "Comparative advantage proves it: free trade makes every country better off. Two centuries of economists agree.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the theorem's assumptions don't hold",
+                  "right": true,
+                  "land": "The theorem is real — and so are its assumptions: full employment, workers who costlessly switch industries, no externalities. Break those and you get the real world, where a trade shock hollows out whole regions and the displaced never find the promised new jobs. The model wins; the people lose.",
+                  "reply": "…attacking the assumptions, not the maths. You turned the theorem's fine print against it. Tch.",
+                  "recall": {
+                    "demand": "Name the economist whose 'elephant curve' showed who actually won and lost from globalisation.",
+                    "qz": {
+                      "answer": "Milanovic",
+                      "type": "detail",
+                      "accept": [
+                        "milanovic",
+                        "branko milanovic",
+                        "lakner"
+                      ]
+                    },
+                    "choices": [
+                      "Branko Milanovic",
+                      "David Ricardo",
+                      "Paul Krugman",
+                      "Jagdish Bhagwati"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Milanovic. You know the rich world's working class is the trough of that curve. Hm.",
+                    "miss": "Arguing trade created losers and you can't name Milanovic's elephant curve? That's the picture. Learn it.",
+                    "card": "find-elephant-curve"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — comparative advantage is simply false",
+                  "right": false,
+                  "reply": "It's sound theory; deny it and every economist writes you off."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, free trade is pure gain",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then tariffs to zero. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "And trade lifted billions out of poverty across Asia. That's not theory — that's the greatest welfare gain in history.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh how they actually got rich",
+                  "right": true,
+                  "land": "Weigh how those countries actually developed: not by throwing markets open, but by protecting and guiding young industries until they could compete — then exporting. The success stories practised managed trade and kicked the ladder away afterwards. You're crediting free trade for the fruits of industrial policy.",
+                  "reply": "Managed trade dressed up as free trade. …You weighed how they really climbed, and it stings.",
+                  "recall": {
+                    "demand": "Name the economist who argues today's rich countries got rich by GUIDING markets, not freeing them — 'kicking away the ladder'.",
+                    "qz": {
+                      "answer": "Ha-Joon Chang",
+                      "type": "detail",
+                      "accept": [
+                        "ha-joon chang",
+                        "ha joon chang",
+                        "chang"
+                      ]
+                    },
+                    "choices": [
+                      "Ha-Joon Chang",
+                      "Milton Friedman",
+                      "David Ricardo",
+                      "Adam Smith"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Ha-Joon Chang. You know the development record, not the fairy tale. Respect.",
+                    "miss": "Arguing for industrial policy and you can't name Ha-Joon Chang? He wrote the book. Learn the card.",
+                    "card": "pe-developmental-state"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — Asia got rich on free trade",
+                  "right": false,
+                  "reply": "They protected first; deny it and the history buries you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — how they grew doesn't matter",
+                  "right": false,
+                  "reply": "Asserted, not shown. WHY does the method matter? Give the warrant."
+                }
+              ]
+            },
+            {
+              "attack": "So you'd raise tariffs and start trade wars? That path gave us Smoot-Hawley and the Great Depression.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman the danger, then narrow to 'net harm'",
+                  "right": true,
+                  "land": "Granted — blanket protectionism and tit-for-tat tariffs can be ruinous; Smoot-Hawley is a real warning. But the motion is 'more good than harm', a net judgement, and 'managed trade with compensation for the losers' is not autarky. Opposing unconditional free trade isn't endorsing a trade war.",
+                  "reply": "Splitting managed trade from a trade war, after granting the danger. …That's the distinction I couldn't collapse.",
+                  "recall": {
+                    "demand": "Name the principle comparative advantage truly rests on — the value of the next-best option forgone.",
+                    "qz": {
+                      "answer": "opportunity cost",
+                      "type": "detail",
+                      "accept": [
+                        "opportunity cost",
+                        "the opportunity cost",
+                        "opportunity costs"
+                      ]
+                    },
+                    "choices": [
+                      "Opportunity cost",
+                      "Absolute advantage",
+                      "The terms of trade",
+                      "Marginal utility"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Opportunity cost. You understand the engine you're critiquing — that's why the critique lands. Floor's yours.",
+                    "miss": "Critiquing comparative advantage and you can't name opportunity cost? That's its core. Learn the card.",
+                    "card": "econ-comparative-advantage"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — tariffs are always harmless",
+                  "right": false,
+                  "reply": "Smoot-Hawley says otherwise; denial concedes his strongest point."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — free trade is best, never mind the losers",
+                  "right": false,
+                  "reply": "You let him equate your case with a trade war — and conceded."
+                }
+              ]
+            }
+          ],
+          "win": "The Free Trader closes the ledger. You held the floor — attacking the theorem's assumptions, weighing how Asia really developed, and splitting managed trade from a ruinous trade war.",
+          "lose": "The Free Trader spreads his hands. To argue against free trade you must know the theory better than its champions. Learn the cards and come back."
         }
       }
     },
@@ -46820,6 +47114,155 @@
           ],
           "win": "The Contrarian tips his hat. You held the floor — not by knowing more facts, but by turning his point, weighing the downside, and reframing the burden.",
           "lose": "The Contrarian grins — he got under your guard. The moves are there to be used; learn the cards and come back for him."
+        },
+        "against": {
+          "persona": {
+            "name": "The Democrat",
+            "emoji": "🗳️",
+            "intro": "Democracy is the worst system — except for all the others. The people rule, and that is sacred. Tell me something better, if you dare."
+          },
+          "rounds": [
+            {
+              "attack": "The will of the people is the only legitimate basis for power. Whatever the majority decides, that is the people's will.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — there often is no coherent 'will'",
+                  "right": true,
+                  "land": "There frequently is no single 'will of the people' to obey. Majorities can prefer A to B, B to C, and C to A all at once — the group's preferences cycle, so the 'will' depends on the order you vote, not on the people. You're worshipping an artefact of the agenda.",
+                  "reply": "…cycling majorities. You turned the sacred will into a voting artefact. Unsettling.",
+                  "recall": {
+                    "demand": "Name the candidate-type that beats every rival one-on-one — which often fails to exist precisely because majorities cycle.",
+                    "qz": {
+                      "answer": "Condorcet winner",
+                      "type": "detail",
+                      "accept": [
+                        "condorcet winner",
+                        "the condorcet winner",
+                        "condorcet candidate",
+                        "condorcet"
+                      ]
+                    },
+                    "choices": [
+                      "A Condorcet winner",
+                      "A median voter",
+                      "A plurality winner",
+                      "A veto player"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The Condorcet winner — and how often there isn't one. You know the maths under the myth. Hm.",
+                    "miss": "Invoking the people's will and you can't name the Condorcet winner? That's the flaw in it. Learn the card.",
+                    "card": "poli-condorcet"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — the majority is always coherent",
+                  "right": false,
+                  "reply": "Voting cycles are a theorem; deny them and the room stops listening."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, the people's will is supreme",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then long live democracy. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "And democracies don't starve their people or massacre them wholesale. Famine and terror are the marks of the alternatives.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh the catalogue against the showcase",
+                  "right": true,
+                  "land": "Grant the famines — then weigh democracy's own catalogue: chronic short-termism, debt piled on the unborn, climate paralysis, and the standing capacity of a majority to crush a minority lawfully. 'No famines' is a low bar for a system claiming to be the BEST.",
+                  "reply": "Short-termism and majority tyranny against the famine showcase. …A harder ledger than I keep.",
+                  "recall": {
+                    "demand": "Name the theorem proving no voting system can satisfy every reasonable fairness criterion at once.",
+                    "qz": {
+                      "answer": "Arrow's impossibility theorem",
+                      "type": "detail",
+                      "accept": [
+                        "arrow",
+                        "arrows impossibility theorem",
+                        "impossibility theorem",
+                        "arrow impossibility"
+                      ]
+                    },
+                    "choices": [
+                      "Arrow's impossibility theorem",
+                      "The median voter theorem",
+                      "Condorcet's jury theorem",
+                      "Duverger's law"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Arrow's impossibility theorem. You know democracy can't even be fair on paper. Respect.",
+                    "miss": "Arguing voting is flawed and you can't name Arrow's impossibility theorem? It's the proof. Learn it."
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — democracies do have famines too",
+                  "right": false,
+                  "reply": "Rare at best; this hands him Sen's point and the round."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — famines are irrelevant",
+                  "right": false,
+                  "reply": "Stated, not shown. WHY does avoiding famine not count for much? Warrant it."
+                }
+              ]
+            },
+            {
+              "attack": "Then name a better system. Every alternative — kings, juntas, technocrats — has ended worse. Democracy wins by survival.",
+              "moves": [
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Reframe the burden — 'best' is a ceiling, not a floor",
+                  "right": true,
+                  "land": "Granted — most alternatives ended worse, and I won't pretend otherwise. But the motion isn't 'democracy beats tyranny'; it's 'democracy is the BEST system'. That's a ceiling claim, and competent technocracies and hybrid models outperform it on long-horizon policy. Surviving the competition isn't the same as topping it.",
+                  "reply": "Best as a ceiling, not merely beating the floor. …You held the bar exactly where the motion put it.",
+                  "recall": {
+                    "demand": "Robert Dahl said no real state is fully democratic. What did he call actual, imperfect democracies?",
+                    "qz": {
+                      "answer": "polyarchy",
+                      "type": "detail",
+                      "accept": [
+                        "polyarchy",
+                        "polyarchies"
+                      ]
+                    },
+                    "choices": [
+                      "Polyarchy",
+                      "Plutocracy",
+                      "Technocracy",
+                      "Anarchy"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Polyarchy. You know even the defenders concede it's never the ideal. The floor is yours.",
+                    "miss": "Arguing democracy falls short of its ideal and you can't name polyarchy? That's Dahl's word. Learn it.",
+                    "card": "poli-democracy"
+                  }
+                },
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Deny it — every other system is evil",
+                  "right": false,
+                  "reply": "Overclaiming loses the room; he only has to name one counter-case."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — democracy is the best after all",
+                  "right": false,
+                  "reply": "You conceded the motion. The Democrat raises a glass."
+                }
+              ]
+            }
+          ],
+          "win": "The Democrat sets down the glass. You held the floor — turning the 'will of the people' into a voting artefact, weighing democracy's catalogue against the famine showcase, and holding 'best' as a ceiling.",
+          "lose": "The Democrat smiles, unshaken. To argue against democracy you must know social choice cold. Learn the cards and come back."
         }
       }
     },
@@ -46978,6 +47421,153 @@
           ],
           "win": "The Philosopher inclines his head. You held the floor — turning moral disputes into factual ones, exposing the fallacy's cost, and steelmanning value-skepticism before reclaiming the contested ground.",
           "lose": "The Philosopher smiles. To argue across the is–ought gap you must at least know who dug it. Learn the cards and return."
+        },
+        "against": {
+          "persona": {
+            "name": "The Scientist",
+            "emoji": "🔬",
+            "intro": "Morality is just the science of wellbeing — measurable, improvable, real. The lab can answer 'ought' as surely as 'is'. Prove me wrong."
+          },
+          "rounds": [
+            {
+              "attack": "Wellbeing is measurable — brain states, health, flourishing. Once we can measure good outcomes, science can tell us what we ought to do.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — measuring wellbeing presupposes the value",
+                  "right": true,
+                  "land": "Measure wellbeing all you like — every number tells you what IS, never that you OUGHT to maximise it. You smuggled the value ('wellbeing is what matters') in before the instruments switched on. The science rides on a moral premise it can't itself supply.",
+                  "reply": "…the value smuggled in before the measurement. You turned my data into a hidden assumption. Hm.",
+                  "recall": {
+                    "demand": "Name the philosopher who showed no 'ought' can be derived from any set of 'is' statements.",
+                    "qz": {
+                      "answer": "Hume",
+                      "type": "detail",
+                      "accept": [
+                        "hume",
+                        "david hume"
+                      ]
+                    },
+                    "choices": [
+                      "David Hume",
+                      "Immanuel Kant",
+                      "G.E. Moore",
+                      "Aristotle"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Hume. You named the gap my whole project tries to leap. Annoying.",
+                    "miss": "Arguing science can't reach 'ought' and you can't name Hume? It's his gap. Learn the card.",
+                    "card": "philo-is-ought"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — wellbeing obviously is the good",
+                  "right": false,
+                  "reply": "'Obviously' is exactly the move he'll demand you justify."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, science settles morality",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then to the laboratory. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "But almost every moral dispute is really about facts — does this reduce suffering, does that deter crime. Settle the facts and you've settled the morality.",
+              "moves": [
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Name the missing piece — facts never close the gap",
+                  "right": true,
+                  "land": "Grant that facts settle most of the sub-questions. But there's always a top premise left over — 'suffering is bad', 'deterrence is worth the cost' — and that premise is the actual moral claim. Science fills in the warrant and the evidence; it never supplies the final 'ought'. The gap is small but unbridgeable.",
+                  "reply": "The leftover premise that science can't reach. …You found the one piece the facts never close. Fair.",
+                  "recall": {
+                    "demand": "Name the philosopher who coined the 'naturalistic fallacy' — that 'good' can't be reduced to any natural property.",
+                    "qz": {
+                      "answer": "Moore",
+                      "type": "detail",
+                      "accept": [
+                        "moore",
+                        "g e moore",
+                        "george edward moore"
+                      ]
+                    },
+                    "choices": [
+                      "G.E. Moore",
+                      "Jeremy Bentham",
+                      "John Stuart Mill",
+                      "Friedrich Nietzsche"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Moore. The open-question argument. You're cutting at the real joint. Respect.",
+                    "miss": "Arguing 'good' isn't a natural fact and you can't name Moore? He coined the fallacy. Learn it.",
+                    "card": "philo-naturalistic-fallacy"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — there are no moral premises",
+                  "right": false,
+                  "reply": "There always is a top premise; deny it and you've lost the thread."
+                },
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Outweigh — the leftover premise is trivial",
+                  "right": false,
+                  "reply": "Too quick. WHY does the residual 'ought' still matter? Make the case."
+                }
+              ]
+            },
+            {
+              "attack": "Bentham already did it — a felicific calculus, morality as the arithmetic of pleasure and pain. Science just finishes his work.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman Bentham, then expose the buried axiom",
+                  "right": true,
+                  "land": "Granted — and at full strength: Bentham's calculus is a genuine attempt to make ethics computable, and within it the maths really does work. But it runs on one axiom science can't prove — that pleasure is the good and pain the bad. Choose that, and science optimises beautifully. Choosing it is the moral question, and it sits outside the calculus.",
+                  "reply": "Conceding the calculus, then exposing the axiom it can't justify. …That's the move I had no answer to.",
+                  "recall": {
+                    "demand": "Name the philosopher whose 'felicific calculus' tried to compute morality from pleasure and pain.",
+                    "qz": {
+                      "answer": "Bentham",
+                      "type": "detail",
+                      "accept": [
+                        "bentham",
+                        "jeremy bentham"
+                      ]
+                    },
+                    "choices": [
+                      "Jeremy Bentham",
+                      "David Hume",
+                      "Immanuel Kant",
+                      "John Rawls"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Bentham. You know the most serious attempt to do what I claim — and exactly where it begs the question. Floor's yours.",
+                    "miss": "Arguing morality can't be computed and you can't name Bentham, who tried? Learn the card.",
+                    "card": "philo-utilitarianism-bentham"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — pleasure obviously is the good",
+                  "right": false,
+                  "reply": "That's the very axiom in dispute; assertion won't carry it."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — yes, it's all just arithmetic",
+                  "right": false,
+                  "reply": "You conceded the motion. The Scientist returns happily to the data."
+                }
+              ]
+            }
+          ],
+          "win": "The Scientist sets down the calipers. You held the floor — turning measurement into a smuggled value, naming the premise facts can't close, and steelmanning Bentham before exposing his buried axiom.",
+          "lose": "The Scientist gestures at the readouts. To argue science can't reach 'ought' you must know who dug the gap. Learn the cards and return."
         }
       }
     },
@@ -47751,6 +48341,157 @@
           ],
           "win": "The Idealist lowers her fist, thoughtful. You held the floor — turning 'if everyone' into the free-rider trap, weighing the individual against the system, and making even Ostrom prove that structure beats solo virtue.",
           "lose": "The Idealist grins, unbroken. To argue that action is futile, you must know why groups fail. Learn the cards and face me again."
+        },
+        "against": {
+          "persona": {
+            "name": "The Fatalist",
+            "emoji": "🌀",
+            "intro": "You're one ant against a landslide. Recycle, vote, march — the system grinds on regardless. Convince me your little gestures matter."
+          },
+          "rounds": [
+            {
+              "attack": "The systems are vast and impersonal — markets, climate, bureaucracies. One person changes nothing. Despair is just realism.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — systems are made of individuals and tip",
+                  "right": true,
+                  "land": "A system isn't a force of nature; it's individuals all the way down, and it has tipping points. Below a threshold nothing moves; cross it and behaviour cascades. The lone actor who shifts the few around them is exactly how the threshold gets crossed. 'Futile' confuses linear with non-linear.",
+                  "reply": "…thresholds and cascades. You turned my landslide into something a pebble can start. Hm.",
+                  "recall": {
+                    "demand": "Name the economist who won the Nobel for showing communities themselves successfully govern shared problems.",
+                    "qz": {
+                      "answer": "Ostrom",
+                      "type": "detail",
+                      "accept": [
+                        "ostrom",
+                        "elinor ostrom",
+                        "e ostrom"
+                      ]
+                    },
+                    "choices": [
+                      "Elinor Ostrom",
+                      "Mancur Olson",
+                      "Garrett Hardin",
+                      "Thomas Schelling"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Ostrom. Living proof that ordinary people organise and solve. Annoying.",
+                    "miss": "Arguing people can act and you can't name Ostrom? She won the Nobel for it. Learn the card.",
+                    "card": "sys-commons"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — systems aren't made of people",
+                  "right": false,
+                  "reply": "They obviously are; deny it and you sound absurd."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, the individual is powerless",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then sink into the cushions. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "But your recycling is a rounding error beside industrial emissions. The arithmetic of individual action is hopeless.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh leverage, not direct effect",
+                  "right": true,
+                  "land": "Weigh the right quantity. Your direct footprint is a rounding error — agreed. But individual action's leverage is indirect: shifting norms, joining movements, voting, withdrawing legitimacy. Movements are nothing but individuals who didn't wait. The arithmetic isn't your emissions; it's the slope you tip.",
+                  "reply": "Leverage over footprint, norms over tonnes. …You weighed the channel that actually moves, and I can't deny it.",
+                  "recall": {
+                    "demand": "Name the term — Charles Tilly's — for the toolkit of protest tactics a movement draws on.",
+                    "qz": {
+                      "answer": "repertoire of contention",
+                      "type": "detail",
+                      "accept": [
+                        "repertoire of contention",
+                        "repertoires of contention",
+                        "the repertoire of contention",
+                        "repertoire"
+                      ]
+                    },
+                    "choices": [
+                      "The repertoire of contention",
+                      "The free-rider problem",
+                      "The Overton window",
+                      "Manufactured consent"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The repertoire of contention. You know how individual acts become collective force. Respect.",
+                    "miss": "Arguing movements matter and you can't name the repertoire of contention? That's how they work. Learn it.",
+                    "card": "poli-social-movements"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — individual footprints are huge",
+                  "right": false,
+                  "reply": "They're small; deny it and the numbers crush you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — leverage is a fantasy",
+                  "right": false,
+                  "reply": "Asserted, not shown. WHY does indirect leverage work? Give the warrant."
+                }
+              ]
+            },
+            {
+              "attack": "Olson proved it: in a large group everyone free-rides, so collective action collapses. The individual rationally does nothing.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman Olson, then name his own solution",
+                  "right": true,
+                  "land": "Granted — Olson is right that big groups tend to free-ride, and naive 'if everyone helped' is doomed. But he didn't stop at the problem: he named the cure. Selective incentives, leadership, identity and shared purpose routinely overcome free-riding — which is precisely why movements exist at all. The theory predicts when individuals DO act.",
+                  "reply": "Conceding Olson's problem and then wielding his own solution. …That's the turn I couldn't block.",
+                  "recall": {
+                    "demand": "Name what Olson said overcomes free-riding in a large group — the private carrot or stick.",
+                    "qz": {
+                      "answer": "selective incentives",
+                      "type": "detail",
+                      "accept": [
+                        "selective incentive",
+                        "selective incentives",
+                        "selective benefit",
+                        "selective benefits"
+                      ]
+                    },
+                    "choices": [
+                      "Selective incentives",
+                      "The general will",
+                      "Moral suasion",
+                      "Consciousness-raising"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Selective incentives. You know Olson named the fix, not just the trap. Floor's yours.",
+                    "miss": "Citing Olson and you can't name selective incentives? That's his answer. Learn the card.",
+                    "card": "poli-collective-action"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — free-riding never happens",
+                  "right": false,
+                  "reply": "It plainly does; denial hands him the strongest ground."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the rational individual does nothing",
+                  "right": false,
+                  "reply": "You conceded the motion. The Fatalist sinks deeper into the couch."
+                }
+              ]
+            }
+          ],
+          "win": "The Fatalist sits up, despite himself. You held the floor — turning the landslide into something a pebble can start, weighing leverage over footprint, and wielding Olson's own cure against him.",
+          "lose": "The Fatalist shrugs into the cushions. To argue action matters you must know how groups actually move. Learn the cards and come back."
         }
       }
     },
@@ -48541,6 +49282,159 @@
           ],
           "win": "The Economist closes her notebook. You held the floor — conceding the value theory to save the critique, scoring the diagnosis against the failed prophecy, and severing Marx's analysis from the regimes that abused it.",
           "lose": "The Economist permits a dry smile. To defend Marx you must know exactly which Marx to defend. Learn the cards and return."
+        },
+        "against": {
+          "persona": {
+            "name": "The Marxist",
+            "emoji": "☭",
+            "intro": "Alienation, exploitation, capital devouring everything — Marx described the world you live in. He is more relevant than ever. Tell me he's a relic."
+          },
+          "rounds": [
+            {
+              "attack": "Marx's core insights — alienation, exploitation, class power — describe modern capitalism perfectly. The man saw our world coming.",
+              "moves": [
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Turn it — the vague parts fit anything; the testable parts failed",
+                  "right": true,
+                  "land": "The parts that 'fit perfectly' — alienation, exploitation — are elastic enough to fit any era; that's not predictive power, it's a horoscope. The parts that were testable — the labour theory of value, ever-deepening misery, inevitable revolution — were refuted. What survives is the unfalsifiable; what was falsifiable, fell.",
+                  "reply": "…separating the unfalsifiable from the refuted. You turned 'always relevant' into 'never testable'. Tch.",
+                  "recall": {
+                    "demand": "Name an economist of the 1870s marginal revolution that replaced Marx's labour theory of value with marginal utility.",
+                    "qz": {
+                      "answer": "Jevons",
+                      "type": "detail",
+                      "accept": [
+                        "jevons",
+                        "william stanley jevons",
+                        "w s jevons",
+                        "menger",
+                        "carl menger",
+                        "walras",
+                        "leon walras"
+                      ]
+                    },
+                    "choices": [
+                      "Jevons",
+                      "Engels",
+                      "Keynes",
+                      "Veblen"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Jevons — the marginalists. You know what buried the value theory. Hm.",
+                    "miss": "Arguing the value theory was refuted and you can't name the marginalists? Jevons led them. Learn the card.",
+                    "card": "pe-marginalist"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — every Marxist prediction came true",
+                  "right": false,
+                  "reply": "Most plainly didn't; overclaiming loses the room."
+                },
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Concede — yes, Marx is fully relevant",
+                  "right": false,
+                  "reply": "Conceding the motion in round one? Then workers of the world, unite. We agree."
+                }
+              ]
+            },
+            {
+              "attack": "And Piketty proved Marx right — capital concentrates, r exceeds g, the rich pull away exactly as he foretold.",
+              "moves": [
+                {
+                  "tactic": "rhet-weighing",
+                  "label": "Weigh what survived against what collapsed",
+                  "right": true,
+                  "land": "Weigh both columns honestly. Survived: some concentration of capital, recurring crises. Collapsed: immiseration (living standards soared), the revolutionary proletariat (the middle class grew), the value theory. And Piketty is a liberal reformer, not Marx — borrowing one worry from a thinker doesn't resurrect his system.",
+                  "reply": "Piketty isn't Marx, and the ledger is mostly red for the prophet. …A fairer accounting than I wanted.",
+                  "recall": {
+                    "demand": "Name the discredited doctrine — that a good's value comes from the labour embodied in it — at the centre of Marx's economics.",
+                    "qz": {
+                      "answer": "labour theory of value",
+                      "type": "detail",
+                      "accept": [
+                        "labour theory of value",
+                        "labor theory of value",
+                        "ltv",
+                        "the labour theory of value"
+                      ]
+                    },
+                    "choices": [
+                      "The labour theory of value",
+                      "Marginal utility",
+                      "Comparative advantage",
+                      "Surplus value"
+                    ],
+                    "correctChoice": 0,
+                    "good": "The labour theory of value. You know which load-bearing wall fell. Respect.",
+                    "miss": "Arguing Marx's economics failed and you can't name the labour theory of value? That's the crux. Learn it.",
+                    "card": "pe-ltv"
+                  }
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Deny it — capital doesn't concentrate",
+                  "right": false,
+                  "reply": "Piketty's data says it can; flat denial sinks you."
+                },
+                {
+                  "tactic": "rhet-anatomy",
+                  "label": "Outweigh — predictions don't matter for relevance",
+                  "right": false,
+                  "reply": "Stated, not shown. WHY do the failed predictions not count? Warrant it."
+                }
+              ]
+            },
+            {
+              "attack": "His critique of capitalism's crises still bites — 2008, inequality, precarity. The diagnosis is alive even if the cure failed.",
+              "moves": [
+                {
+                  "tactic": "rhet-steelman",
+                  "label": "Steelman the diagnosis, then show capitalism adapted",
+                  "right": true,
+                  "land": "Granted — capitalism does lurch through crises, and Marx saw that clearly; I'll concede the diagnosis has teeth. But his deeper claim was that the system COULDN'T reform its way out — and the welfare state, central banks and regulation are exactly the self-correction he said was impossible. The diagnosis survives; the prognosis that made him Marx does not.",
+                  "reply": "Conceding the diagnosis and then turning the self-correction against the prognosis. …That's the split I couldn't hold.",
+                  "recall": {
+                    "demand": "Name the economist whose r > g finding is often misread as vindicating Marx — though he's a liberal reformer, not a Marxist.",
+                    "qz": {
+                      "answer": "Piketty",
+                      "type": "detail",
+                      "accept": [
+                        "piketty",
+                        "thomas piketty"
+                      ]
+                    },
+                    "choices": [
+                      "Thomas Piketty",
+                      "Friedrich Engels",
+                      "Rosa Luxemburg",
+                      "Antonio Gramsci"
+                    ],
+                    "correctChoice": 0,
+                    "good": "Piketty — claimed by Marxists, no Marxist himself. You know the difference. Floor's yours.",
+                    "miss": "Leaning on capital concentration and you can't name Piketty? r > g is the modern hook. Learn it.",
+                    "card": "find-piketty-r-g"
+                  }
+                },
+                {
+                  "tactic": "rhet-burden",
+                  "label": "Deny it — capitalism never has crises",
+                  "right": false,
+                  "reply": "2008 says otherwise; denial discredits you."
+                },
+                {
+                  "tactic": "rhet-rebuttal-moves",
+                  "label": "Concede — the diagnosis makes Marx relevant",
+                  "right": false,
+                  "reply": "You let the diagnosis carry the prognosis — and conceded the motion."
+                }
+              ]
+            }
+          ],
+          "win": "The Marxist lowers the banner. You held the floor — separating the unfalsifiable from the refuted, weighing what survived against what collapsed, and turning capitalism's self-correction against the prognosis.",
+          "lose": "The Marxist raises a fist, vindicated. To argue Marx is obsolete you must know exactly which Marx fell. Learn the cards and come back."
         }
       }
     },
