@@ -815,16 +815,16 @@
   .rdField{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:800;
     color:var(--fc,var(--accent)); letter-spacing:.1px; }
   .rddate{ font-size:40px; font-weight:800; letter-spacing:-1.4px; line-height:1; color:var(--fc,var(--accent)); margin:14px 0 2px; }
-  .rdTitle{ font-size:30px; font-weight:800; letter-spacing:-.9px; line-height:1.12; margin:10px 0 4px; }
+  .rdTitle{ font-size:28px; font-weight:720; letter-spacing:-.7px; line-height:1.14; margin:10px 0 4px; }
   .rdLayer{ animation:fadeup .32s ease both; padding-top:16px; border-top:.5px solid var(--sep); margin-top:16px; }
   .rdLayer:first-of-type{ border-top:none; margin-top:10px; padding-top:6px; }
-  .rdLabel{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px;
+  .rdLabel{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px;
     color:var(--fc,var(--accent)); margin-bottom:9px; }
   .rdLayer.d-gist .rdLabel{ color:var(--l3); }
   .rdLayer.d-debate .rdLabel{ color:var(--blue); }
-  .rdLayer p{ font-size:17px; line-height:1.62; color:var(--ink); margin-bottom:13px; }
+  .rdLayer p{ font-size:17px; font-weight:400; line-height:1.6; color:var(--ink); margin-bottom:13px; }
   .rdLayer p:last-child{ margin-bottom:0; }
-  .rdLayer.d-gist p{ font-size:21px; font-weight:600; letter-spacing:-.3px; line-height:1.42; color:var(--ink); }
+  .rdLayer.d-gist p{ font-size:19px; font-weight:480; letter-spacing:-.2px; line-height:1.45; color:var(--ink); }
   .rdEnd{ margin-top:18px; }
   .rdEnd .kdebate{ margin-top:14px; }
   /* media slots (schema v3): figures / maps / equations */

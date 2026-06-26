@@ -30277,7 +30277,6 @@
       ],
       "title": "Lanchester's laws of combat",
       "fact": "Lanchester's square law says modern firepower scales with the SQUARE of how many units you field, so concentration of force wins decisively.",
-      "detail": "Frederick Lanchester modelled aimed, ranged combat with two coupled equations: each side loses units at a rate set by how many of the enemy are shooting, dA/dt = -b*B and dB/dt = -a*A, where a and b are per-unit firepower. Solving them gives a conserved quantity, a*A^2 - b*B^2, so with equal weapons the larger force A beats B and ends with sqrt(A^2 - B^2) survivors. Example: 5 units against 3, equal weapons, leaves sqrt(25 - 9) = sqrt(16) = 4 survivors, not the 2 you would get by plain subtraction. The squaring is why a 100 vs 70 fight is lopsided (the 100 keeps about sqrt(10000 - 4900) = 71 units while the 70 are wiped out) and why splitting your army in half is dangerous: each half fights at a quarter of the combined strength, since (1/2)^2 = 1/4. The older LINEAR law fits one-on-one melee, where each soldier engages exactly one enemy and the survivor count is just the plain difference A - B.",
       "deploy": "Use it to argue for concentrating force rather than dividing it, and to estimate how a ranged engagement between unequal numbers ends: with equal kit the winner keeps about sqrt(A^2 - B^2) units.",
       "counter": "The square law assumes every unit can fire on any target with full information; it breaks down for guerrilla and asymmetric war. Analysts of the Vietnam and counterinsurgency literature note that when one side hides among civilians and cannot be targeted freely, neither the square nor the linear model holds, and historians caution that Lanchester's clean attrition equations omit terrain, morale, logistics and command.",
       "tags": [
@@ -30325,6 +30324,58 @@
             "The linear law takes over once a force is divided, making numbers irrelevant"
           ],
           "answer": 0
+        }
+      ],
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The square law",
+          "body": "Lanchester's square law: in aimed, ranged combat a force's fighting power grows with the SQUARE of its numbers — so concentrating force wins decisively."
+        },
+        {
+          "d": "basics",
+          "t": "Why it squares",
+          "body": "Add a unit and it helps twice over: one more gun firing, and one more of your units that survives to keep firing. The edge compounds, so power goes as N², not N."
+        },
+        {
+          "d": "deeper",
+          "t": "The model",
+          "body": "Each side loses units at a rate set by how many of the enemy are shooting: \\(\\frac{dA}{dt}=-bB\\) and \\(\\frac{dB}{dt}=-aA\\), where \\(a,b\\) are per-unit firepower."
+        },
+        {
+          "d": "deeper",
+          "t": "Who's left",
+          "body": "Solving gives a conserved quantity, \\(aA^2-bB^2\\). With equal weapons the larger force A wins and ends with \\(\\sqrt{A^2-B^2}\\) survivors."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "5 against 3, equal kit: \\(\\sqrt{25-9}=\\sqrt{16}=4\\) survivors — not the 2 you'd get by plain subtraction. At 100 vs 70 the 100 keep \\(\\sqrt{10000-4900}\\approx 71\\) while the 70 are wiped out."
+        },
+        {
+          "d": "deeper",
+          "t": "Don't split your army",
+          "body": "Halve your force and each half fights at a QUARTER of its combined strength, since \\((\\tfrac12)^2=\\tfrac14\\). Divided forces get beaten in detail."
+        },
+        {
+          "d": "debate",
+          "t": "When it breaks — the linear law",
+          "body": "The square law assumes every unit can fire on any target with full information; it breaks down in guerrilla and asymmetric war. The older LINEAR law fits one-on-one melee, where each soldier meets exactly one enemy and survivors are just \\(A-B\\)."
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            71,
+            30
+          ],
+          "labels": [
+            "Square law",
+            "Subtraction"
+          ],
+          "caption": "100 vs 70, equal kit: the square law leaves ~71 survivors; naive subtraction says 30. Squaring rewards concentration."
         }
       ]
     },
@@ -42074,8 +42125,7 @@
           "edges": [
             [
               0,
-              1,
-              "hard problems"
+              1
             ]
           ],
           "caption": "Kahneman: an intuitive System 1 runs by default; effortful System 2 engages for hard problems — and is lazy."
@@ -47310,7 +47360,6 @@
       "year": 2013,
       "title": "Piketty: r > g, so wealth piles up",
       "fact": "Thomas Piketty's central finding: across two centuries of data, the return on capital (r, ~4–5%) has usually run ahead of the economy's growth rate (g, ~1–2%) — so inherited wealth grows faster than wages, and fortunes concentrate.",
-      "detail": "In 'Capital in the Twenty-First Century' (2013), Piketty and collaborators assembled tax and wealth records stretching back over 200 years — an empirical haul economics had never had. The pattern: the rate of return on capital r tends to exceed the growth rate of the economy g. When r > g, money already owned grows faster than money earned from work, so wealth concentrates at the top and the past (inheritance) dominates the present (effort). The mid-20th century looked equal only because two world wars and the Depression destroyed capital and high taxes held it down; by his data, wealth-to-income ratios in Europe have since climbed back toward the extreme levels of the Belle Époque (~600–700% of national income). His proposed remedy — a global progressive wealth tax — is openly utopian, but the diagnosis reframed the inequality debate around capital, not just wages.",
       "deploy": "Use r > g to explain why inequality can widen even in a fair labour market: if owned wealth compounds faster than the economy grows, inheritance outpaces work regardless of how wages are set.",
       "counter": "Heavily debated. Matt Rognlie showed most of the rising capital share is housing, not the factories-and-finance Piketty emphasises; a Financial Times investigation (Chris Giles) alleged data errors in the wealth series; and many economists doubt r > g mechanically implies ever-rising inequality without strong assumptions about saving and inheritance.",
       "tags": [
@@ -47351,6 +47400,73 @@
             "Matt Rognlie",
             "Matthew Rognlie"
           ]
+        }
+      ],
+      "layers": [
+        {
+          "d": "basics",
+          "t": "The finding",
+          "body": "Across 200+ years of data, the return on capital r (about 4–5%) has usually run ahead of the economy's growth rate g (about 1–2%)."
+        },
+        {
+          "d": "basics",
+          "t": "Why it matters",
+          "body": "When r > g, money already owned grows faster than money earned from work — so wealth piles up at the top and inheritance outweighs effort."
+        },
+        {
+          "d": "deeper",
+          "t": "The data",
+          "body": "In 'Capital in the Twenty-First Century' (2013), Piketty and colleagues assembled tax and wealth records reaching back two centuries — an empirical haul economics had never had."
+        },
+        {
+          "d": "deeper",
+          "t": "Why the mid-century looked equal",
+          "body": "The equal-looking mid-1900s were a blip: two world wars and the Depression destroyed capital, and high taxes held it down."
+        },
+        {
+          "d": "deeper",
+          "t": "Back toward the Belle Époque",
+          "body": "Since then, Europe's wealth-to-income ratios have climbed back toward their extreme early-1900s levels — around 600–700% of national income."
+        },
+        {
+          "d": "debate",
+          "t": "Remedy, and the pushback",
+          "body": "His fix — a global progressive wealth tax — is openly utopian. And it's contested: Matt Rognlie argues most of the rising capital share is housing; Chris Giles (FT) alleged data errors; others doubt r > g mechanically forces ever-rising inequality."
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Return on capital r≈4–5%",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Growth g≈1–2%",
+              "col": 0,
+              "row": 2
+            },
+            {
+              "label": "r > g: wealth concentrates",
+              "col": 1,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "When capital's return r outpaces growth g, owned wealth compounds faster than wages — so fortunes concentrate."
         }
       ]
     },

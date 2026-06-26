@@ -1211,7 +1211,9 @@ function drawViz(g, spec, st, readout){
       const s=edge(a,ux,uy), en=edge(b,-ux,-uy);
       g.appendChild(svgEl('line',{x1:s[0].toFixed(1),y1:s[1].toFixed(1),x2:en[0].toFixed(1),y2:en[1].toFixed(1),stroke:l2,'stroke-width':1.6}));
       ahead(en[0],en[1],Math.atan2(en[1]-s[1],en[0]-s[0]));
-      if(e[2]!=null&&e[2]!=='') vzText(g,((s[0]+en[0])/2).toFixed(1),((s[1]+en[1])/2-3).toFixed(1),String(e[2]),ink,8.5,'middle'); });
+      if(e[2]!=null&&e[2]!==''){ const lab=String(e[2]), mx=(s[0]+en[0])/2, my=(s[1]+en[1])/2, w=lab.length*4.9+10;  // a pill keeps the edge label legible over boxes/lines
+        g.appendChild(svgEl('rect',{x:(mx-w/2).toFixed(1),y:(my-8).toFixed(1),width:w.toFixed(1),height:'14',rx:'7',fill:card,stroke:vzCss('--line'),'stroke-width':'0.75'}));
+        vzText(g,mx.toFixed(1),(my+2).toFixed(1),lab,l2,8.5,'middle'); } });
     N.forEach((n,i)=>{ const p=P[i], hl=!!n.hl;
       g.appendChild(svgEl('rect',{x:(p[0]-bw/2).toFixed(1),y:(p[1]-bh/2).toFixed(1),width:bw.toFixed(1),height:bh.toFixed(1),rx:9,fill:hl?accent:card,stroke:accent,'stroke-width':2}));
       const lines=wrap(n.label||'',17), tc=hl?'#fff':ink, y0=p[1]-(lines.length-1)*6+3.5;
@@ -1690,10 +1692,14 @@ function initReaderSwipe(){
 function renderReader(){
   const c=byId[rdId]; if(!c) return;
   const fl=fieldById[c.field]||{}, col=fl.color||'#888';
-  const layers=layersOf(c), total=layers.length;
+  const layers=layersOf(c), L=layers.length;
+  const hasUC=!!(c.deploy||c.counter);
+  // peel order: content layers → (its own step) "Use it / contest it" → wrap-up (source, related, quiz, actions)
+  const total=L+(hasUC?1:0)+1;
   rdRevealed=clamp(rdRevealed,1,total);
+  const stepTitle=(i)=> i<L ? (layers[i].t||'More') : ((hasUC&&i===L)?'Use it & contest it':'Source & quick check');
   $("rdHead").style.setProperty('--fc',col);
-  $("rdProg").innerHTML=layers.map((l,i)=>'<span class="rddot'+(i<rdRevealed?' on':'')+'"></span>').join('');
+  $("rdProg").innerHTML=Array.from({length:total},(_,i)=>'<span class="rddot'+(i<rdRevealed?' on':'')+'"></span>').join('');
   $("rdSave").classList.toggle("on",(settings.saved||[]).includes(rdId));
 
   let body='<div class="rdField" style="--fc:'+col+'">'+(fl.icon?esc(fl.icon)+' ':'')+esc(fl.label||'')+(c.kind!=='date'&&c.year?(' · '+c.year):'')+'</div>';
@@ -1701,13 +1707,15 @@ function renderReader(){
   body+='<h1 class="rdTitle">'+esc(c.title)+'</h1>';
   if(isNew(rdId) && !prereqsMet(c)){ const lk=lockedBy(c);
     body+='<div class="rdlocked">'+ICON.lock+'<div class="rdlockedtxt"><div class="rdlockedrow">'+lk.map(p=>cardLinkChip(p.id,true)).join('')+'</div><div class="rdlockednote">Builds on the above — best learned first, but read on if you like.</div></div></div>'; }
-  for(let i=0;i<rdRevealed;i++){ const l=layers[i];
+  for(let i=0;i<Math.min(rdRevealed,L);i++){ const l=layers[i];
     body+='<div class="rdLayer d-'+esc(l.d||'')+'"><div class="rdLabel">'+esc(l.t||'')+'</div>'+paras(l.body||'')+'</div>'; }
   // figures & equations are core to the concept — show them straight away, not behind the final peel
   const mh=mediaHtml(c); if(mh) body+='<div class="rdMedia">'+mh+'</div>';
-  // once every layer is open, the source / "use it & contest it" box / quiz / actions live in the scroll
+  // "Use it / contest it" gets its own peel, separate from the explanatory text
+  if(hasUC && rdRevealed>=L+1) body+='<div class="rdEnd">'+debateBox(c)+'</div>';
+  // final peel: source, related, quiz, actions
   if(rdRevealed>=total){
-    body+='<div class="rdEnd">'+sourceLine(c)+debateBox(c)+relatedHtml(c)+'</div>';
+    body+='<div class="rdEnd">'+sourceLine(c)+relatedHtml(c)+'</div>';
     if(cardQuizzes(c).length) body+='<button class="btn tinted wide sm" id="rdQuiz" style="margin-top:12px;">Quick check ⚡</button>';
     if(isNew(rdId)) body+='<button class="btn wide" id="rdLearn" style="margin-top:10px;">＋ Add to my learning</button>';
     else body+='<div class="rddone">'+(isLearned(rdId)?('✓ In your deck · next review '+relDue(progress[rdId].due)):'In progress')+'</div>';
@@ -1723,7 +1731,7 @@ function renderReader(){
   document.querySelectorAll("#rdBody .rdrel").forEach(b=> b.onclick=(e)=>{ e.stopPropagation(); openReader(b.dataset.id); });
   // foot: a persistent "go deeper" affordance while peeling; empty once fully open
   $("rdFoot").innerHTML = (rdRevealed<total)
-    ? '<button class="btn wide rddeeper" id="rdDeeper"><span>Go deeper</span><span class="rddsub">'+esc(layers[rdRevealed].t||'')+' · '+(rdRevealed+1)+' of '+total+'</span></button>'
+    ? '<button class="btn wide rddeeper" id="rdDeeper"><span>'+(rdRevealed>=L?'Reveal':'Go deeper')+'</span><span class="rddsub">'+esc(stepTitle(rdRevealed))+' · '+(rdRevealed+1)+' of '+total+'</span></button>'
     : '';
   const dp=$("rdDeeper"); if(dp) dp.onclick=()=>{ rdRevealed++; renderReader(); };
   const lr=$("rdLearn"); if(lr) lr.onclick=()=>{ schedule(rdId,2,true); persistAll(); toast("Added to your web — "+esc(c.title)); renderReader(); };
