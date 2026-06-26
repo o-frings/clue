@@ -7265,6 +7265,49 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "More",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Even more",
+              "col": 1,
+              "row": 0,
+              "hl": true
+            },
+            {
+              "label": "Above target",
+              "col": 0,
+              "row": 1
+            },
+            {
+              "label": "Pushed back",
+              "col": 1,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              "reinforces"
+            ],
+            [
+              2,
+              3,
+              "balances"
+            ]
+          ],
+          "caption": "Reinforcing loops amplify (interest, viral spread, arms races); balancing loops pull back toward a target (a thermostat)."
+        }
       ]
     },
     {
@@ -7322,6 +7365,41 @@
             "binding agreements"
           ]
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Each grazes more",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Cost shared by all",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Pasture collapses",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Private gain, shared cost — until the resource is gone. Ostrom's reply: clear rules and user monitoring can avert it."
+        }
       ]
     },
     {
@@ -7372,6 +7450,33 @@
             "log normal",
             "the lognormal"
           ]
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "values": [
+            100,
+            33,
+            16,
+            9,
+            6,
+            4,
+            3,
+            2
+          ],
+          "labels": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "caption": "A heavy tail: a few cases tower over a long tail of small ones, so the 'average' misleads."
         }
       ]
     },
@@ -7434,6 +7539,29 @@
           "answer": 5,
           "unit": "x",
           "tol": 0.01
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Has more",
+            "Attracts more"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              0,
+              ""
+            ]
+          ],
+          "caption": "The more you already have, the more you attract — a reinforcing spiral, so 'the rich get richer'."
         }
       ]
     },
@@ -7498,6 +7626,50 @@
           "answer": 1,
           "tol": 0.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Tweak numbers",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Feedback loops",
+              "col": 0,
+              "row": 1
+            },
+            {
+              "label": "Rules of the game",
+              "col": 0,
+              "row": 2
+            },
+            {
+              "label": "Goals & paradigm",
+              "col": 0,
+              "row": 3,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Meadows' leverage points, weak to strong: tweaking numbers barely moves a system; changing its goals and paradigm moves it most."
+        }
       ]
     },
     {
@@ -7561,6 +7733,50 @@
           "type": "num",
           "answer": 8,
           "tol": 0.0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Clear boundaries",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Users monitor",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Graduated sanctions",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Commons endures",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Ostrom's design principles let a community self-govern a commons — no state takeover or privatisation required."
         }
       ]
     },
