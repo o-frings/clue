@@ -6764,6 +6764,35 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Variation",
+            "Selection",
+            "Heredity"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              0,
+              ""
+            ]
+          ],
+          "caption": "Heritable variation, then differential survival, then inheritance — repeated each generation. Design with no designer."
+        }
       ]
     },
     {
@@ -6866,6 +6895,41 @@
             "Germline edits are guaranteed to be perfectly accurate, removing all risk"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Guide RNA finds target",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Cas9 cuts the DNA",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Cell repairs — edit inserted",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A guide RNA homes in on a chosen sequence, Cas9 snips it, and the cell's repair leaves your edit behind."
         }
       ]
     },
@@ -7106,6 +7170,50 @@
           "unit": "years",
           "tol": 0.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Wolves reintroduced",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Elk fewer and wary",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Willow & aspen recover",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Riverbanks stabilise",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "A trophic cascade: a top predator's return rippled down through the grazers to the vegetation — and the rivers."
+        }
       ]
     },
     {
@@ -7209,6 +7317,50 @@
           "answer": 4,
           "unit": "million people",
           "tol": 0.5
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Nitrogen from the air",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Haber-Bosch: heat + pressure",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Ammonia fertiliser",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Feeds roughly half the world",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Fixing inert atmospheric nitrogen into fertiliser (1909) is why the planet can feed ~8 billion people."
         }
       ]
     },
@@ -7846,6 +7998,41 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Gradual pressure",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Cross a threshold",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Abrupt flip, often for good",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A system can absorb stress for a long time, then flip suddenly past a threshold — and not flip back."
+        }
       ]
     },
     {
@@ -7973,6 +8160,50 @@
           "answer": 7.5,
           "unit": "mg/L",
           "tol": 0.1
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Fertiliser runoff",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Algae bloom",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Decay strips oxygen",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Dead zone",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "The nutrients that feed crops also feed algae; when the bloom dies, decomposition strips the water of oxygen."
         }
       ]
     },
@@ -29096,6 +29327,43 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Susceptible",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Infected",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Recovered",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              "R0"
+            ],
+            [
+              1,
+              2,
+              "recover"
+            ]
+          ],
+          "caption": "People flow S → I → R; the ratio R0 (infections per case) decides whether an outbreak grows or fades."
+        }
       ]
     },
     {
@@ -29230,6 +29498,41 @@
             "predator and prey are independent and only appear to cycle together"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Prey ↑",
+            "Pred ↑",
+            "Prey ↓",
+            "Pred ↓"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              3,
+              ""
+            ],
+            [
+              3,
+              0,
+              ""
+            ]
+          ],
+          "caption": "Each boom feeds the next bust: more prey → more predators → fewer prey → fewer predators → more prey, forever."
         }
       ]
     },
