@@ -622,7 +622,17 @@ function cardDate(c){ return c.when || (c.year? String(c.year):''); }
 // a card's quiz can be a single {q,choices,answer} or an array of them; pickQuiz rotates daily
 function cardQuizzes(c){ const q=c&&c.quiz; return Array.isArray(q)?q.filter(Boolean):(q?[q]:[]); }
 function pickQuiz(c){ const qs=cardQuizzes(c); return qs.length? qs[hashStr(c.id+todayStr())%qs.length] : null; }
-function paras(s){ return esc(s).split(/\n\n+/).map(p=>'<p>'+p+'</p>').join(''); }
+// lightweight markdown emphasis: **bold** and *italic* (book titles, key terms). Runs on the
+// already-escaped string. Inline KaTeX (\(...\)) is shielded first so a "*" used as multiplication
+// inside maths is never mistaken for emphasis. The italic rule needs a word boundary before "*" and
+// non-space just inside, so "5*2", "alpha*x", "L*log2(N)" are left alone.
+function mdInline(s){
+  const math=[]; s=s.replace(/\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]/g, m=>{ math.push(m); return ''+(math.length-1)+''; });
+  s=s.replace(/\*\*([^*\n]+?)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/(^|[\s(])\*(\S(?:[^*\n]*?\S)?)\*(?=[\s.,;:?!)\]]|$)/g,'$1<em>$2</em>');
+  return s.replace(/(\d+)/g,(_,i)=>math[+i]);
+}
+function paras(s){ return esc(s).split(/\n\n+/).map(p=>'<p>'+mdInline(p)+'</p>').join(''); }
 
 function setSub(){ const obj={everything:"Learn everything",general:"General foundations",specialise:"Specialise",debate:"Debate prep",sharp:"Stay sharp"}[settings.objective]||"";
   const due=dueCards().length, na=newAllowedToday();
@@ -1748,9 +1758,15 @@ function readerQuiz(c){
       '<div class="rdquiz"><div class="quizq">'+esc(qz.q)+'</div>'+quizFieldHtml(qz, st)+
       (answered!=null?'<button class="btn wide sm" id="rdQzBack" style="margin-top:14px;">Back to card</button>':'')+'</div>';
     if(answered==null){ wireQuizField($("rdBody"), qz, (resp,correct)=>{ answered={resp,correct};
-      // retrieval feeds the invisible scheduler — no points, no streak, no toast
-      if(isLearned(rdId)) schedule(rdId, correct?2:1, false);
-      persistAll(); draw(); }); }
+      if(correct){                                  // correct → add it to your web (if new) and move on
+        const wasNew=isNew(rdId);
+        schedule(rdId, 2, wasNew); persistAll(); draw();
+        toast(wasNew?'✓ Added to your web · next card':'✓ Correct · next card');
+        setTimeout(()=>{ if(rdId) readerNext(); }, 950);
+      } else {                                       // a miss feeds the scheduler but keeps you on the card
+        if(isLearned(rdId)) schedule(rdId, 1, false);
+        persistAll(); draw();
+      } }); }
     else { $("rdBody").scrollTop=0; $("rdQzBack").onclick=()=>{ rdRevealed=layersOf(c).length; renderReader(); }; }
   }
   draw();
