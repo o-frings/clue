@@ -46372,18 +46372,33 @@
       "layers": [
         {
           "d": "basics",
-          "t": "Two things you can contest",
-          "body": "A norm has two parts. The FRAME is the justifying principle — 'torture is always wrong'. The CLAIM is the concrete action it demands here — 'so this interrogation is illegal'. Anette Stimmer's point is that the two come apart: a state may accept the frame yet dispute the claim ('this technique isn't torture'), or reject the frame outright. Which one you attack changes everything."
+          "t": "Two parts",
+          "body": "A norm has two parts: the FRAME — the justifying principle ('torture is always wrong') — and the CLAIM — the action it demands here ('so this interrogation is illegal')."
+        },
+        {
+          "d": "basics",
+          "t": "They come apart",
+          "body": "Anette Stimmer's insight is that you can accept one and fight the other: agree torture is wrong, yet deny that 'this' technique counts as torture."
         },
         {
           "d": "deeper",
-          "t": "Four endings, one key finding",
-          "body": "In 'The Politics of International Norms' (2025) Stimmer maps four outcomes by whether actors end up agreeing on the frame and/or the claim: norm IMPASSE, NEGLECT, RECOGNITION, and CLARIFICATION. The finding that matters: contesting the FRAME spreads uncertainty and erodes the norm, while fighting over the CLAIM can leave the principle intact — even sharpen it. Argue 'airstrikes are the wrong tool here' and the responsibility to protect survives; argue 'sovereignty outweighs any duty to intervene' and the norm itself weakens. Same crisis, opposite damage."
+          "t": "Which fight does the damage",
+          "body": "Contest the FRAME and uncertainty spreads — the norm erodes. Contest only the CLAIM and the principle survives; it can even be sharpened."
+        },
+        {
+          "d": "deeper",
+          "t": "A worked case",
+          "body": "'Airstrikes are the wrong tool here' contests the claim — the responsibility to protect survives. 'Sovereignty outweighs any duty to intervene' contests the frame — it weakens. Same crisis, opposite damage."
+        },
+        {
+          "d": "deeper",
+          "t": "Four endings",
+          "body": "In 'The Politics of International Norms' (2025) Stimmer names four outcomes, by what ends up agreed: impasse, neglect, recognition, and clarification."
         },
         {
           "d": "debate",
           "t": "Who pushes back",
-          "body": "This cuts against the classic 'norm life cycle' of Martha Finnemore and Kathryn Sikkink (1998), where norms emerge, cascade, and finally become internalised and stable. Stimmer denies that 'internalised' means settled: norms are argued over continuously, and contestation can erode or reinforce them rather than simply ending."
+          "body": "This cuts against the classic 'norm life cycle' of Finnemore and Sikkink (1998), where norms end up internalised and stable. Stimmer says they are argued over continuously — contestation can erode or reinforce them, not just end."
         }
       ],
       "deploy": "Diagnose any norms fight by separating the principle from the application — attacking the principle is the move that actually weakens a rule.",
@@ -46429,6 +46444,47 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Contest the frame",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Norm erodes",
+              "col": 1,
+              "row": 0,
+              "hl": true
+            },
+            {
+              "label": "Contest the claim",
+              "col": 0,
+              "row": 1
+            },
+            {
+              "label": "Survives / clarifies",
+              "col": 1,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Attack the principle and the norm weakens; attack only the action and it can survive — even sharpen."
+        }
       ]
     },
     {
@@ -46445,17 +46501,32 @@
         {
           "d": "basics",
           "t": "Float",
-          "body": "Load a Starbucks card, top up an Uber or Uber Eats wallet, buy a gift card — you hand over cash now for goods later. Until you spend it, the company holds your money: a pile of interest-free loans called float. Starbucks sits on about $1.87bn of it (2024), more 'deposits' than the great majority of US banks hold."
+          "body": "Load a Starbucks card or top up an Uber wallet and you pay now for goods later. Until you spend it, the firm holds your cash, interest-free. That pile is called float."
+        },
+        {
+          "d": "basics",
+          "t": "It's bank-sized",
+          "body": "Starbucks sits on about $1.87bn of it (2024) — more 'deposits' than the great majority of US banks hold."
         },
         {
           "d": "deeper",
-          "t": "Free money, with numbers",
-          "body": "Float is funding the firm would otherwise borrow — at 5%, $1.9bn is ~$95m a year in interest never paid. Better still is BREAKAGE: money loaded but never spent, which Starbucks books as roughly $200m a year of pure profit. Worked example: 10 million customers each keeping $30 loaded is $300m of free funding; if ~8% is never redeemed, $24m becomes profit on top of the interest avoided. A small bank, no licence — because closed-loop balances dodge the rules a real deposit-taker faces."
+          "t": "Why it's free money",
+          "body": "Float is funding the firm would otherwise borrow. At 5%, $1.9bn is roughly $95m a year in interest never paid."
+        },
+        {
+          "d": "deeper",
+          "t": "Breakage",
+          "body": "Some money is loaded but never spent — forgotten cards, small leftovers. Starbucks books close to $200m a year of this 'breakage' as pure profit."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Say 10 million customers each keep $30 loaded: $300m of free funding. If about 8% is never redeemed, $24m becomes profit, on top of the interest avoided."
         },
         {
           "d": "debate",
-          "t": "The catch, and where regulators caught up",
-          "body": "The risk lands on customers: these balances aren't state-insured deposits, so if the firm fails, cardholders are unsecured creditors who can lose the lot — as gift-card holders have in retail bankruptcies. And 'breakage' is just customers' money they forgot to spend. Regulators are closing in: China forced the vast float inside Alipay and WeChat Pay to be parked at the central bank, and stored-value rules are tightening elsewhere."
+          "t": "The catch",
+          "body": "These balances aren't insured deposits — if the firm fails, you're an unsecured creditor who can lose the lot. Regulators are catching up: China forced the float in Alipay and WeChat Pay into central-bank reserves."
         }
       ],
       "deploy": "Spot hidden financing: any business that takes payment before delivery is running on customer float — a bank-like balance sheet in disguise.",
@@ -46496,6 +46567,50 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "You pay now",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Firm holds float",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "You spend it",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Breakage = profit",
+              "col": 2,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "caption": "Pay up front, the firm earns on your money — and keeps whatever you never spend."
+        }
       ]
     },
     {
@@ -46511,18 +46626,33 @@
       "layers": [
         {
           "d": "basics",
-          "t": "Printing money you sell to banks",
-          "body": "Airlines create miles out of nothing, then sell them — mostly to banks, which hand them out as credit-card rewards at roughly 1 to 1.5 cents a mile. Real cash in, for a token the airline conjured. Cashback and shop points work the same way: privately issued scrip you treat as money."
+          "t": "Miles from nothing",
+          "body": "Airlines create miles out of thin air, then sell them — mostly to banks — at roughly 1 to 1.5 cents each."
+        },
+        {
+          "d": "basics",
+          "t": "Cash now",
+          "body": "The bank hands the miles out as credit-card rewards; the airline gets real cash today for a token it invented. Cashback and shop points work the same way."
         },
         {
           "d": "deeper",
-          "t": "Why the programme beats the airline",
-          "body": "Flying planes is brutal, low-margin work; selling miles is almost pure margin. In 2020, with aircraft grounded, US carriers pledged their loyalty programmes as collateral and the appraisals came in above the airlines' own value — United's MileagePlus near $22bn against $10.6bn of equity. Worked example: sell a bank 10,000 miles at 1.4¢ = $140 cash today; the free seat you owe later costs almost nothing (and miles that expire cost zero). Profiting from issuing your own money is seigniorage — here a private company does it, breakage included."
+          "t": "The programme beats the airline",
+          "body": "Selling miles is almost pure margin; flying planes isn't. In 2020 United's MileagePlus was valued near $22bn against $10.6bn of equity."
+        },
+        {
+          "d": "deeper",
+          "t": "Seigniorage",
+          "body": "Profiting from issuing your own money is seigniorage. A free seat you owe later costs almost nothing — and miles that expire cost zero."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Sell a bank 10,000 miles at 1.4¢ = $140 in cash today, against a future seat that is near-free to provide (and often never claimed)."
         },
         {
           "d": "debate",
-          "t": "The liability side",
-          "body": "Miles are also a debt the airline must honour, carried as deferred revenue. The temptation is to devalue — quietly raising the miles needed for a flight — which is the issuer clipping its own coinage: good for the books today, corrosive to the trust the asset rests on. Consumers and regulators increasingly read silent devaluation as a hidden price rise."
+          "t": "The catch",
+          "body": "Miles are also a debt, carried as deferred revenue. Quietly raising the miles needed per flight — devaluation — is the issuer clipping its own coinage, and it erodes the trust the asset rests on."
         }
       ],
       "deploy": "Read loyalty schemes as monetary policy: the issuer prints its own money, sells it to banks, earns seigniorage and breakage, and can devalue at will.",
@@ -46562,6 +46692,41 @@
           "type": "num",
           "answer": 1.4,
           "tol": 0.6
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Airline mints miles",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Banks buy (~1.4¢)",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "You redeem — or it expires",
+              "col": 2,
+              "row": 0
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              "cash now"
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Mint miles, sell them to banks for cash now, and honour them later — or pocket the ones that expire."
         }
       ]
     }

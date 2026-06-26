@@ -1191,6 +1191,33 @@ function drawViz(g, spec, st, readout){
       vzText(g,p[0].toFixed(1),(p[1]+3.5).toFixed(1),S[i],ink,11,'middle'); });
     return;
   }
+  // ---- flow: a boxes-and-arrows flowchart. spec.nodes:[{label,col,row,hl?}]; spec.edges:[[from,to,'label'?],...] ----
+  // Nodes sit on a col×row grid (0-indexed); edges draw directed arrows between box edges. Good for
+  // chains, branches and 2×2s. Labels wrap to two short lines; `hl` fills a box with the accent colour.
+  if(kind==='flow'){
+    const N=spec.nodes||[]; if(!N.length) return;
+    const card=vzCss('--card');
+    const ncol=Math.max(1,...N.map(n=>(n.col||0)+1)), nrow=Math.max(1,...N.map(n=>(n.row||0)+1));
+    const padL=12,padR=12,padT=16,padB=16, cw=(VZ_W-padL-padR)/ncol, chh=(VZ_H-padT-padB)/nrow;
+    const bw=Math.min(cw-12, 132), bh=Math.min(chh-14, 46);
+    const P=N.map(n=>[padL+((n.col||0)+0.5)*cw, padT+((n.row||0)+0.5)*chh]);
+    const wrap=(s,mx)=>{ const out=[]; let cur=''; String(s).split(/\s+/).forEach(w=>{
+      if((cur+' '+w).trim().length>mx){ if(cur) out.push(cur); cur=w; } else cur=(cur+' '+w).trim(); });
+      if(cur) out.push(cur); return out.slice(0,2); };
+    const ahead=(x,y,a)=>{ const hs=6.5; [a+2.6,a-2.6].forEach(an=> g.appendChild(svgEl('line',{x1:x.toFixed(1),y1:y.toFixed(1),x2:(x+hs*Math.cos(an)).toFixed(1),y2:(y+hs*Math.sin(an)).toFixed(1),stroke:l2,'stroke-width':1.6,'stroke-linecap':'round'}))); };
+    const edge=(p,ux,uy)=>{ const tx=Math.abs(ux)<1e-6?1e9:(bw/2)/Math.abs(ux), ty=Math.abs(uy)<1e-6?1e9:(bh/2)/Math.abs(uy), t=Math.min(tx,ty); return [p[0]+ux*t, p[1]+uy*t]; };
+    (spec.edges||[]).forEach(e=>{ const a=P[e[0]], b=P[e[1]]; if(!a||!b) return;
+      const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1, ux=dx/len,uy=dy/len;
+      const s=edge(a,ux,uy), en=edge(b,-ux,-uy);
+      g.appendChild(svgEl('line',{x1:s[0].toFixed(1),y1:s[1].toFixed(1),x2:en[0].toFixed(1),y2:en[1].toFixed(1),stroke:l2,'stroke-width':1.6}));
+      ahead(en[0],en[1],Math.atan2(en[1]-s[1],en[0]-s[0]));
+      if(e[2]!=null&&e[2]!=='') vzText(g,((s[0]+en[0])/2).toFixed(1),((s[1]+en[1])/2-3).toFixed(1),String(e[2]),ink,8.5,'middle'); });
+    N.forEach((n,i)=>{ const p=P[i], hl=!!n.hl;
+      g.appendChild(svgEl('rect',{x:(p[0]-bw/2).toFixed(1),y:(p[1]-bh/2).toFixed(1),width:bw.toFixed(1),height:bh.toFixed(1),rx:9,fill:hl?accent:card,stroke:accent,'stroke-width':2}));
+      const lines=wrap(n.label||'',17), tc=hl?'#fff':ink, y0=p[1]-(lines.length-1)*6+3.5;
+      lines.forEach((ln,k)=> vzText(g,p[0].toFixed(1),(y0+k*12).toFixed(1),ln,tc,9.5,'middle')); });
+    return;
+  }
   // ---- series: plot a given list of y-values as a line, with an optional dashed reference line ----
   // spec.ys:[...]; spec.ref (a horizontal guide); spec.refLabel; spec.domain/yrange optional
   if(kind==='series'){
