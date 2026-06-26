@@ -9684,6 +9684,41 @@
             "estrangement"
           ]
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Split into steps",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Workers specialise",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Output per worker soars",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Smith's pin factory: breaking a job into specialised steps multiplied output per worker many times over."
+        }
       ]
     },
     {
@@ -9922,6 +9957,50 @@
           ],
           "answer": 0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Money (M)",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Buy labour & means",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Commodities (C)",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Sell for more (M′)",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Marx's circuit of capital, M–C–M′: money buys labour and means, makes goods, and sells for MORE — the gap is surplus value."
+        }
       ]
     },
     {
@@ -9979,6 +10058,33 @@
             "It proves the superstructure always determines the base"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Economic base",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Law, politics, ideas",
+              "col": 1,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              "shapes"
+            ]
+          ],
+          "caption": "Marx: how people make their living (the economic base) shapes the law, politics and ideas built on top of it."
         }
       ]
     },
@@ -10056,6 +10162,50 @@
           "unit": "years",
           "tol": 1.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Spending falls",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Output & jobs cut",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Incomes fall",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Stuck in slump",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Keynes: weak demand cuts output and incomes, which cuts demand again — the economy can sit stuck below full employment."
+        }
       ]
     },
     {
@@ -10106,6 +10256,50 @@
           "answer": 20,
           "unit": "%",
           "tol": 0.5
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "All save more at once",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Spending falls",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Incomes fall",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Saving ends lower",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "The paradox of thrift: if everyone saves more together, demand and incomes drop — and total saving can end up lower."
         }
       ]
     },
@@ -21328,6 +21522,41 @@
             "They refused all foreign investment and grew anyway"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Periphery exports raw goods",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Core captures the value",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Periphery stays poor",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Dependency theory (Prebisch, Frank, Wallerstein): the global system funnels value from periphery to core, locking in poverty."
         }
       ]
     },
