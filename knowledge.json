@@ -10290,6 +10290,28 @@
           "unit": "years",
           "tol": 1.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "series",
+          "ys": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1.05,
+            1.2,
+            1.6,
+            2.6,
+            4.5,
+            8,
+            14
+          ],
+          "caption": "For millennia, living standards barely moved — then around 1800 they began to explode. The hockey-stick of growth."
+        }
       ]
     },
     {
@@ -21572,6 +21594,41 @@
           "unit": "years",
           "tol": 1.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Export-led industrial policy",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Rapid catch-up growth",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Poor to rich in a generation",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "The Asian tigers grew by guiding industry toward exports — the fastest catch-up in history."
+        }
       ]
     },
     {
@@ -30984,6 +31041,35 @@
             "The enclosure movement"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Tech gain",
+            "Population ↑",
+            "Gain erased"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              0,
+              ""
+            ]
+          ],
+          "caption": "The Malthusian trap: each gain in productivity is eaten by population growth, so living standards keep returning to subsistence."
         }
       ]
     },
@@ -42301,6 +42387,47 @@
           ],
           "answer": 1
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Inclusive institutions",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Investment & growth",
+              "col": 1,
+              "row": 0,
+              "hl": true
+            },
+            {
+              "label": "Extractive institutions",
+              "col": 0,
+              "row": 1
+            },
+            {
+              "label": "Stagnation",
+              "col": 1,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Acemoglu & Robinson: inclusive institutions reward investment and grow; extractive ones enrich a few and stagnate."
+        }
       ]
     },
     {
@@ -42405,6 +42532,35 @@
             "Sachs wants recipient-led aid; Easterly wants donor-led conditionality"
           ],
           "answer": 1
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Can't invest",
+            "Low income",
+            "Stays poor"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              0,
+              ""
+            ]
+          ],
+          "caption": "A poverty trap is self-reinforcing: too poor to save or invest, so productivity and income stay low — keeping you poor."
         }
       ]
     },
@@ -42564,6 +42720,50 @@
           ],
           "answer": 1
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Resource boom",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Currency rises",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Other exports priced out",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Manufacturing shrinks",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "A commodity windfall pushes up the exchange rate, making a country's other export sectors uncompetitive."
+        }
       ]
     },
     {
@@ -42615,6 +42815,50 @@
             "When foreign direct investment exceeds domestic savings"
           ],
           "answer": 1
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Surplus farm labour",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Moves to industry",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Higher productivity",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Economy develops",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Lewis's dual-economy model: development is workers shifting from low-productivity farming to higher-productivity industry."
         }
       ]
     },
