@@ -46373,22 +46373,17 @@
         {
           "d": "basics",
           "t": "Two things you can contest",
-          "body": "A norm has two parts. The FRAME is the justifying principle — 'torture is always wrong'. The CLAIM is the concrete action it demands here — 'so this interrogation is illegal'. Anette Stimmer's point is that the two can come apart: a state may accept the frame (torture is wrong) yet dispute the claim (this technique isn't torture), or it may reject the frame outright. Which one you attack changes everything."
+          "body": "A norm has two parts. The FRAME is the justifying principle — 'torture is always wrong'. The CLAIM is the concrete action it demands here — 'so this interrogation is illegal'. Anette Stimmer's point is that the two come apart: a state may accept the frame yet dispute the claim ('this technique isn't torture'), or reject the frame outright. Which one you attack changes everything."
         },
         {
           "d": "deeper",
-          "t": "Four ways the argument ends",
-          "body": "In 'The Politics of International Norms' (2025) Stimmer maps four outcomes, depending on whether actors end up agreeing on the frame and/or the claim: norm IMPASSE (they agree on neither), norm NEGLECT (the norm is quietly dropped), norm RECOGNITION (agreement is reached), and norm CLARIFICATION (the dispute sharpens what the norm means). Her central finding: contesting the FRAME spreads uncertainty and erodes a norm's strength, while haggling over the CLAIM can leave the principle intact — and sometimes even strengthen it through clarification."
-        },
-        {
-          "d": "deeper",
-          "t": "Worked example",
-          "body": "Take the 'responsibility to protect'. If states argue 'civilians must be protected, but airstrikes are the wrong tool in this case', they contest only the claim — the principle survives and may be clarified. If they argue 'state sovereignty outweighs any duty to intervene', they contest the frame — and the norm itself weakens. Same crisis, opposite damage, depending on which level the fight lands."
+          "t": "Four endings, one key finding",
+          "body": "In 'The Politics of International Norms' (2025) Stimmer maps four outcomes by whether actors end up agreeing on the frame and/or the claim: norm IMPASSE, NEGLECT, RECOGNITION, and CLARIFICATION. The finding that matters: contesting the FRAME spreads uncertainty and erodes the norm, while fighting over the CLAIM can leave the principle intact — even sharpen it. Argue 'airstrikes are the wrong tool here' and the responsibility to protect survives; argue 'sovereignty outweighs any duty to intervene' and the norm itself weakens. Same crisis, opposite damage."
         },
         {
           "d": "debate",
           "t": "Who pushes back",
-          "body": "Stimmer's contestation view cuts against the classic 'norm life cycle' of Martha Finnemore and Kathryn Sikkink (1998), in which norms emerge, cascade, and finally become internalised and stable. Stimmer's rhetorical approach denies that 'internalised' means settled: norms are argued over continuously, and contestation can erode or reinforce them rather than simply ending."
+          "body": "This cuts against the classic 'norm life cycle' of Martha Finnemore and Kathryn Sikkink (1998), where norms emerge, cascade, and finally become internalised and stable. Stimmer denies that 'internalised' means settled: norms are argued over continuously, and contestation can erode or reinforce them rather than simply ending."
         }
       ],
       "deploy": "Diagnose any norms fight by separating the principle from the application — attacking the principle is the move that actually weakens a rule.",
@@ -46450,22 +46445,17 @@
         {
           "d": "basics",
           "t": "Float",
-          "body": "When you load a Starbucks card, top up an Uber or Uber Eats wallet, or buy a gift card, you hand over cash now for goods later. Until you spend it, the company holds your money — a pile of interest-free loans called float. Starbucks sits on about $1.87bn of it (2024); measured by these balances it holds more 'deposits' than the great majority of US banks."
+          "body": "Load a Starbucks card, top up an Uber or Uber Eats wallet, buy a gift card — you hand over cash now for goods later. Until you spend it, the company holds your money: a pile of interest-free loans called float. Starbucks sits on about $1.87bn of it (2024), more 'deposits' than the great majority of US banks hold."
         },
         {
           "d": "deeper",
-          "t": "Why it's free money — and then some",
-          "body": "Float is funding the firm would otherwise borrow. At 5% interest, $1.9bn of float is worth roughly $95m a year in interest never paid. Better still is BREAKAGE — money loaded but never spent (forgotten cards, small leftover balances). Starbucks books close to $200m a year of breakage as straight profit. And because the balance is closed-loop — spendable only at Starbucks — it sidesteps the rules a real deposit-taking bank must follow."
-        },
-        {
-          "d": "deeper",
-          "t": "Worked example",
-          "body": "Say 10 million customers each keep $30 loaded: that's $300m of interest-free funding. If about 8% is never redeemed, $24m converts to pure profit, on top of the interest you avoided on the rest. You have built a small bank with no banking licence. Uber, PayPal, transit cards and retail gift cards all run versions of this — take the cash up front, hold the float, keep the breakage."
+          "t": "Free money, with numbers",
+          "body": "Float is funding the firm would otherwise borrow — at 5%, $1.9bn is ~$95m a year in interest never paid. Better still is BREAKAGE: money loaded but never spent, which Starbucks books as roughly $200m a year of pure profit. Worked example: 10 million customers each keeping $30 loaded is $300m of free funding; if ~8% is never redeemed, $24m becomes profit on top of the interest avoided. A small bank, no licence — because closed-loop balances dodge the rules a real deposit-taker faces."
         },
         {
           "d": "debate",
           "t": "The catch, and where regulators caught up",
-          "body": "The risk lands on customers: these balances are not state-insured deposits. If the company fails, cardholders are unsecured creditors who can lose everything — as gift-card holders have in retail bankruptcies. And 'breakage' profit is, plainly, customers' own money they forgot to spend. Regulators have started to close the gap: China, facing the enormous float inside Alipay and WeChat Pay, forced that money to be parked at the central bank, and stored-value and unclaimed-property rules are tightening elsewhere."
+          "body": "The risk lands on customers: these balances aren't state-insured deposits, so if the firm fails, cardholders are unsecured creditors who can lose the lot — as gift-card holders have in retail bankruptcies. And 'breakage' is just customers' money they forgot to spend. Regulators are closing in: China forced the vast float inside Alipay and WeChat Pay to be parked at the central bank, and stored-value rules are tightening elsewhere."
         }
       ],
       "deploy": "Spot hidden financing: any business that takes payment before delivery is running on customer float — a bank-like balance sheet in disguise.",
@@ -46522,22 +46512,17 @@
         {
           "d": "basics",
           "t": "Printing money you sell to banks",
-          "body": "Airlines create miles out of nothing, then sell them — mostly to banks, which give them away as credit-card rewards at roughly 1 to 1.5 cents a mile. That is real cash in, for a token the airline conjured. Cashback schemes and shop points work the same way: privately issued scrip you accept as if it were money."
+          "body": "Airlines create miles out of nothing, then sell them — mostly to banks, which hand them out as credit-card rewards at roughly 1 to 1.5 cents a mile. Real cash in, for a token the airline conjured. Cashback and shop points work the same way: privately issued scrip you treat as money."
         },
         {
           "d": "deeper",
           "t": "Why the programme beats the airline",
-          "body": "Flying planes is brutal, low-margin work; selling miles is almost pure margin. In 2020, with aircraft grounded, US carriers pledged their loyalty programmes as collateral to borrow billions — and the appraisals came in above the airlines' own market value. United's MileagePlus was valued near $22bn against $10.6bn of equity; American's AAdvantage and Delta's SkyMiles told a similar story. The miles, not the metal, were the crown jewels."
-        },
-        {
-          "d": "deeper",
-          "t": "Worked example — private seigniorage",
-          "body": "Sell a bank 10,000 miles at 1.4 cents each: $140 in cash today. The miles are a liability — a flight you owe later — but a seat that would have flown empty costs you almost nothing, and miles that expire cost you zero. Profiting from issuing your own money for more than it costs you is seigniorage; here a private company does it, complete with breakage on points never redeemed."
+          "body": "Flying planes is brutal, low-margin work; selling miles is almost pure margin. In 2020, with aircraft grounded, US carriers pledged their loyalty programmes as collateral and the appraisals came in above the airlines' own value — United's MileagePlus near $22bn against $10.6bn of equity. Worked example: sell a bank 10,000 miles at 1.4¢ = $140 cash today; the free seat you owe later costs almost nothing (and miles that expire cost zero). Profiting from issuing your own money is seigniorage — here a private company does it, breakage included."
         },
         {
           "d": "debate",
           "t": "The liability side",
-          "body": "Miles are also a debt the airline must honour, carried as deferred revenue. The temptation is to devalue — quietly raising the miles needed for a flight — which is the issuer clipping its own coinage. It boosts the books today but erodes the trust the whole asset rests on, and consumers and regulators increasingly read silent devaluation as a hidden price rise."
+          "body": "Miles are also a debt the airline must honour, carried as deferred revenue. The temptation is to devalue — quietly raising the miles needed for a flight — which is the issuer clipping its own coinage: good for the books today, corrosive to the trust the asset rests on. Consumers and regulators increasingly read silent devaluation as a hidden price rise."
         }
       ],
       "deploy": "Read loyalty schemes as monetary policy: the issuer prints its own money, sells it to banks, earns seigniorage and breakage, and can devalue at will.",
