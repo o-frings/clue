@@ -8280,6 +8280,41 @@
             "D. Ricardo"
           ]
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Each specialises",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "They trade",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Both gain more",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Even if one country is better at everything, differing opportunity costs mean specialising and trading leaves both richer."
+        }
       ]
     },
     {
@@ -19442,6 +19477,50 @@
           "unit": "currency units",
           "tol": 1.0
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Sellers know hidden quality",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Buyers fear lemons, offer less",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Good goods withdraw",
+              "col": 2,
+              "row": 0
+            },
+            {
+              "label": "Market unravels",
+              "col": 3,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Akerlof's lemons: when quality is hidden, buyers lowball, good sellers exit, and the market can collapse."
+        }
       ]
     },
     {
@@ -19510,6 +19589,41 @@
             "A homeowner's premium rises after a flood damages the whole region"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Risk is insured",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Less care taken",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "More of the risk",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Insure or bail out a risk and people bear less of its cost — so they take more of it."
         }
       ]
     },
@@ -19580,6 +19694,41 @@
             "Let shareholders directly observe every decision the manager makes"
           ],
           "answer": 0
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "You hire an agent",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Interests differ from yours",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "May shirk; needs incentives",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "An agent acting for you has their own interests, so contracts lean on incentives and monitoring to align them."
         }
       ]
     },
@@ -20697,6 +20846,41 @@
             "Milton Friedman",
             "M. Friedman"
           ]
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Rates hit zero",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Further cuts do nothing",
+              "col": 1,
+              "row": 0
+            },
+            {
+              "label": "Monetary policy stuck",
+              "col": 2,
+              "row": 0,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "At the zero lower bound, cutting rates stops working — the economy needs fiscal policy instead."
         }
       ]
     },
@@ -39826,6 +40010,41 @@
           ],
           "answer": 1
         }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "label": "Clear property rights",
+              "col": 0,
+              "row": 0
+            },
+            {
+              "label": "Low bargaining costs",
+              "col": 0,
+              "row": 2
+            },
+            {
+              "label": "Bargain to efficiency",
+              "col": 1,
+              "row": 1,
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Coase: with clear rights and cheap bargaining, private deals reach the efficient outcome — no regulator needed."
+        }
       ]
     },
     {
@@ -40141,6 +40360,19 @@
             "All three: fixed rates, free capital, and independent monetary policy"
           ],
           "answer": 1
+        }
+      ],
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Fixed FX",
+            "Free capital",
+            "Own rates"
+          ],
+          "edges": [],
+          "caption": "The impossible trinity: a country can have any two of these three at once — never all three."
         }
       ]
     },
