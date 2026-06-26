@@ -5778,6 +5778,33 @@
       "url": "https://en.wikipedia.org/wiki/Straw_man#Steelmanning",
       "kind": "reference",
       "strength": "Describes the steelman — answering the strongest version of an opponent's argument."
+    },
+    "ev-stimmer-norms": {
+      "who": "Anette Stimmer (Cambridge University Press)",
+      "year": 2025,
+      "title": "The Politics of International Norms: A Rhetorical Approach",
+      "where": "",
+      "url": "https://www.cambridge.org/core/books/politics-of-international-norms/E054D112472F4EBCB7B83C1C861F9774",
+      "kind": "book",
+      "strength": "Sets out the norm-frame vs behavioural-claim distinction and the four 'alternate endings' of norm contestation."
+    },
+    "ev-starbucks-float": {
+      "who": "Finbold",
+      "year": 2024,
+      "title": "Banking business? Starbucks holds over $1.8 billion in customer deposits",
+      "where": "",
+      "url": "https://finbold.com/banking-business-starbucks-holds-over-1-8-billion-in-customer-deposits/",
+      "kind": "analysis",
+      "strength": "Reports Starbucks' $1.872bn stored-value card liability (Q2 2024), the interest-free-loan mechanism, and breakage of ~$200m."
+    },
+    "ev-airline-loyalty": {
+      "who": "Sherwood News",
+      "year": 2024,
+      "title": "Airline loyalty programs are their most valuable collateral",
+      "where": "",
+      "url": "https://sherwood.news/business/jetblue-airline-loyalty-programs-valuable-collateral/",
+      "kind": "news",
+      "strength": "Documents 2020 loyalty-program valuations exceeding airline equity (United MileagePlus ~$22bn vs $10.6bn) and their use as loan collateral."
     }
   }
 }

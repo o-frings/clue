@@ -46356,6 +46356,229 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ir-norm-contestation",
+      "field": "ir",
+      "depth": "concept",
+      "level": 4,
+      "xref": [
+        "ir-constructivism",
+        "rhet-burden",
+        "behav-framing"
+      ],
+      "title": "Norm contestation: the frame versus the claim",
+      "fact": "When states fight over an international norm, it matters whether they attack the principle or just the action — Anette Stimmer shows attacking the principle does far more damage.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "Two things you can contest",
+          "body": "A norm has two parts. The FRAME is the justifying principle — 'torture is always wrong'. The CLAIM is the concrete action it demands here — 'so this interrogation is illegal'. Anette Stimmer's point is that the two can come apart: a state may accept the frame (torture is wrong) yet dispute the claim (this technique isn't torture), or it may reject the frame outright. Which one you attack changes everything."
+        },
+        {
+          "d": "deeper",
+          "t": "Four ways the argument ends",
+          "body": "In 'The Politics of International Norms' (2025) Stimmer maps four outcomes, depending on whether actors end up agreeing on the frame and/or the claim: norm IMPASSE (they agree on neither), norm NEGLECT (the norm is quietly dropped), norm RECOGNITION (agreement is reached), and norm CLARIFICATION (the dispute sharpens what the norm means). Her central finding: contesting the FRAME spreads uncertainty and erodes a norm's strength, while haggling over the CLAIM can leave the principle intact — and sometimes even strengthen it through clarification."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Take the 'responsibility to protect'. If states argue 'civilians must be protected, but airstrikes are the wrong tool in this case', they contest only the claim — the principle survives and may be clarified. If they argue 'state sovereignty outweighs any duty to intervene', they contest the frame — and the norm itself weakens. Same crisis, opposite damage, depending on which level the fight lands."
+        },
+        {
+          "d": "debate",
+          "t": "Who pushes back",
+          "body": "Stimmer's contestation view cuts against the classic 'norm life cycle' of Martha Finnemore and Kathryn Sikkink (1998), in which norms emerge, cascade, and finally become internalised and stable. Stimmer's rhetorical approach denies that 'internalised' means settled: norms are argued over continuously, and contestation can erode or reinforce them rather than simply ending."
+        }
+      ],
+      "deploy": "Diagnose any norms fight by separating the principle from the application — attacking the principle is the move that actually weakens a rule.",
+      "counter": "It is a framework for describing contestation, not a predictive law: whether a given dispute counts as 'frame' or 'claim' can be read differently after the fact, and real outcomes turn on power and politics the typology brackets out.",
+      "src": [
+        "ev-stimmer-norms"
+      ],
+      "year": 2025,
+      "tags": [
+        "norms",
+        "constructivism",
+        "contestation",
+        "framing"
+      ],
+      "quiz": [
+        {
+          "q": "In Stimmer's account, which kind of contestation most erodes a norm's strength?",
+          "choices": [
+            "Contesting the frame (the justifying principle)",
+            "Contesting the claim (the specific action)",
+            "Quietly ignoring the norm",
+            "Putting the norm to a vote"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Name the scholar whose 'rhetorical approach' distinguishes the norm frame from the behavioural claim.",
+          "type": "detail",
+          "answer": "Anette Stimmer",
+          "accept": [
+            "stimmer",
+            "anette stimmer",
+            "annette stimmer"
+          ]
+        },
+        {
+          "q": "A state that says 'we accept torture is wrong, but this technique isn't torture' is contesting the…",
+          "choices": [
+            "claim (the application)",
+            "frame (the principle)",
+            "treaty's wording",
+            "audience"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "macro-float",
+      "field": "macro",
+      "depth": "concept",
+      "level": 2,
+      "xref": [
+        "macro-loyalty-currency"
+      ],
+      "title": "The shops and apps that are secretly banks",
+      "fact": "Starbucks holds about $1.9 billion of customers' money on its cards — an interest-free loan larger than the deposits of most American banks, and it isn't regulated as one.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "Float",
+          "body": "When you load a Starbucks card, top up an Uber or Uber Eats wallet, or buy a gift card, you hand over cash now for goods later. Until you spend it, the company holds your money — a pile of interest-free loans called float. Starbucks sits on about $1.87bn of it (2024); measured by these balances it holds more 'deposits' than the great majority of US banks."
+        },
+        {
+          "d": "deeper",
+          "t": "Why it's free money — and then some",
+          "body": "Float is funding the firm would otherwise borrow. At 5% interest, $1.9bn of float is worth roughly $95m a year in interest never paid. Better still is BREAKAGE — money loaded but never spent (forgotten cards, small leftover balances). Starbucks books close to $200m a year of breakage as straight profit. And because the balance is closed-loop — spendable only at Starbucks — it sidesteps the rules a real deposit-taking bank must follow."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example",
+          "body": "Say 10 million customers each keep $30 loaded: that's $300m of interest-free funding. If about 8% is never redeemed, $24m converts to pure profit, on top of the interest you avoided on the rest. You have built a small bank with no banking licence. Uber, PayPal, transit cards and retail gift cards all run versions of this — take the cash up front, hold the float, keep the breakage."
+        },
+        {
+          "d": "debate",
+          "t": "The catch, and where regulators caught up",
+          "body": "The risk lands on customers: these balances are not state-insured deposits. If the company fails, cardholders are unsecured creditors who can lose everything — as gift-card holders have in retail bankruptcies. And 'breakage' profit is, plainly, customers' own money they forgot to spend. Regulators have started to close the gap: China, facing the enormous float inside Alipay and WeChat Pay, forced that money to be parked at the central bank, and stored-value and unclaimed-property rules are tightening elsewhere."
+        }
+      ],
+      "deploy": "Spot hidden financing: any business that takes payment before delivery is running on customer float — a bank-like balance sheet in disguise.",
+      "counter": "It isn't literally banking: closed-loop balances can't be withdrawn as cash or lent out to create new money, and consumer-protection and stored-value rules increasingly bite — so 'unregulated bank' is a deliberate exaggeration.",
+      "src": [
+        "ev-starbucks-float"
+      ],
+      "year": 2024,
+      "tags": [
+        "float",
+        "stored value",
+        "shadow banking",
+        "breakage"
+      ],
+      "quiz": [
+        {
+          "q": "Roughly how much, in billions of dollars, does Starbucks hold in customer stored-value (card) balances?",
+          "type": "num",
+          "answer": 1.9,
+          "tol": 0.4
+        },
+        {
+          "q": "What is the term for money loaded onto cards but never spent, which the company books as profit?",
+          "type": "detail",
+          "answer": "breakage",
+          "accept": [
+            "breakage",
+            "breakage revenue"
+          ]
+        },
+        {
+          "q": "Why is customer 'float' valuable to a company like Starbucks?",
+          "choices": [
+            "It's an interest-free loan it would otherwise have to borrow",
+            "It is insured by the government",
+            "It pays the customer interest",
+            "It must be lent out to other firms"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "macro-loyalty-currency",
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "xref": [
+        "macro-float"
+      ],
+      "title": "Frequent-flyer miles are a private currency",
+      "fact": "An airline's loyalty programme is often worth more than the airline itself: in 2020 United's MileagePlus was valued near $22 billion while United's own equity was about $10.6 billion.",
+      "layers": [
+        {
+          "d": "basics",
+          "t": "Printing money you sell to banks",
+          "body": "Airlines create miles out of nothing, then sell them — mostly to banks, which give them away as credit-card rewards at roughly 1 to 1.5 cents a mile. That is real cash in, for a token the airline conjured. Cashback schemes and shop points work the same way: privately issued scrip you accept as if it were money."
+        },
+        {
+          "d": "deeper",
+          "t": "Why the programme beats the airline",
+          "body": "Flying planes is brutal, low-margin work; selling miles is almost pure margin. In 2020, with aircraft grounded, US carriers pledged their loyalty programmes as collateral to borrow billions — and the appraisals came in above the airlines' own market value. United's MileagePlus was valued near $22bn against $10.6bn of equity; American's AAdvantage and Delta's SkyMiles told a similar story. The miles, not the metal, were the crown jewels."
+        },
+        {
+          "d": "deeper",
+          "t": "Worked example — private seigniorage",
+          "body": "Sell a bank 10,000 miles at 1.4 cents each: $140 in cash today. The miles are a liability — a flight you owe later — but a seat that would have flown empty costs you almost nothing, and miles that expire cost you zero. Profiting from issuing your own money for more than it costs you is seigniorage; here a private company does it, complete with breakage on points never redeemed."
+        },
+        {
+          "d": "debate",
+          "t": "The liability side",
+          "body": "Miles are also a debt the airline must honour, carried as deferred revenue. The temptation is to devalue — quietly raising the miles needed for a flight — which is the issuer clipping its own coinage. It boosts the books today but erodes the trust the whole asset rests on, and consumers and regulators increasingly read silent devaluation as a hidden price rise."
+        }
+      ],
+      "deploy": "Read loyalty schemes as monetary policy: the issuer prints its own money, sells it to banks, earns seigniorage and breakage, and can devalue at will.",
+      "counter": "The eye-watering valuations come from the programmes' own bond documents and from banks with reason to talk them up; a mile is only ever worth what it redeems for, and aggressive devaluation can destroy the very trust the asset depends on.",
+      "src": [
+        "ev-airline-loyalty"
+      ],
+      "year": 2020,
+      "tags": [
+        "loyalty",
+        "private money",
+        "seigniorage",
+        "breakage"
+      ],
+      "quiz": [
+        {
+          "q": "In 2020, how did United's MileagePlus valuation compare with United's own equity value?",
+          "choices": [
+            "It was worth more than the airline itself",
+            "About the same",
+            "Roughly a tenth of the airline",
+            "The miles had no value"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What is the economic term for the profit made from issuing currency for more than it costs to provide?",
+          "type": "detail",
+          "answer": "seigniorage",
+          "accept": [
+            "seigniorage",
+            "seignorage"
+          ]
+        },
+        {
+          "q": "Banks buy airline miles at roughly how many cents per mile?",
+          "type": "num",
+          "answer": 1.4,
+          "tol": 0.6
+        }
+      ]
     }
   ],
   "motions": [
