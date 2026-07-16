@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v120";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v121";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -397,7 +397,7 @@ const TAXONOMY = [
   ]},
   { id:'humanities', label:'Humanities', icon:'📜', disciplines:[
     { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['logic','epist','metaph','phmind','phlang','phsci','ethics','phpol','phhist'] },
-    { id:'history', label:'History',           icon:'🏛️', fields:['history'] },
+    { id:'history', label:'History',           icon:'🏛️', fields:['histanc','histmed','histearly','histmod','histcontemp','histglobal','histideas','histmethod'] },
   ]},
   { id:'applied', label:'Applied & professional', icon:'💼', disciplines:[
     { id:'finance', label:'Finance',           icon:'💰', fields:['qfin','refin'] },
@@ -2682,11 +2682,26 @@ function migrateTaxonomyV120(){
   persistAll();
 }
 
+// v121: History split into period + thematic sub-fields (like Economics). Card progress is keyed
+// by card id, so nothing learned is lost; only field-keyed settings are remapped.
+function migrateTaxonomyV121(){
+  if(settings._taxo121) return;
+  const HIST=['histanc','histmed','histearly','histmod','histcontemp','histglobal','histideas','histmethod'];
+  if(Array.isArray(settings.focus)){
+    const out=[]; settings.focus.forEach(f=>{ (f==='history'?HIST:[f]).forEach(x=>out.push(x)); });
+    settings.focus=[...new Set(out)];
+  }
+  delete settings.degrees;
+  settings._taxo121=true;
+  persistAll();
+}
+
 async function init(){
   await requestPersistence();   // ask the browser not to evict our on-device data (before first read)
   settings=Object.assign(settings,(await sget("settings"))||{});
   progress=(await sget("progress"))||{};
   migrateTaxonomyV120();
+  migrateTaxonomyV121();
   applyTheme();
   const ok=await loadKnowledge();
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }

@@ -132,11 +132,60 @@
       "color": "#7048e8"
     },
     {
-      "id": "history",
-      "label": "History",
-      "blurb": "Turning points and how we got here.",
-      "icon": "🏛",
+      "id": "histanc",
+      "label": "Ancient history",
+      "blurb": "Greece, Rome, and the first civilisations.",
+      "icon": "🏺",
       "color": "#b08968"
+    },
+    {
+      "id": "histmed",
+      "label": "Medieval history",
+      "blurb": "From Rome's fall to 1500 — faith, feudalism, empires.",
+      "icon": "🏰",
+      "color": "#9c6644"
+    },
+    {
+      "id": "histearly",
+      "label": "Early modern history",
+      "blurb": "1500–1800: reformation, states, and connected oceans.",
+      "icon": "⛵",
+      "color": "#c2810a"
+    },
+    {
+      "id": "histmod",
+      "label": "Modern history",
+      "blurb": "1800–1945: revolutions, industry, and world wars.",
+      "icon": "🏭",
+      "color": "#d9480f"
+    },
+    {
+      "id": "histcontemp",
+      "label": "Contemporary history",
+      "blurb": "1945 to now: cold war and a decolonised world.",
+      "icon": "🛰️",
+      "color": "#e8590c"
+    },
+    {
+      "id": "histglobal",
+      "label": "Global & imperial history",
+      "blurb": "Empire, trade, slavery, migration, decolonisation.",
+      "icon": "🗺️",
+      "color": "#0ca678"
+    },
+    {
+      "id": "histideas",
+      "label": "Intellectual & cultural history",
+      "blurb": "The Renaissance, the Enlightenment, and the life of ideas.",
+      "icon": "💡",
+      "color": "#7048e8"
+    },
+    {
+      "id": "histmethod",
+      "label": "Historiography & method",
+      "blurb": "How historians know — schools, sources, and dating.",
+      "icon": "📜",
+      "color": "#495057"
     },
     {
       "id": "geo",
@@ -387,7 +436,7 @@
   "cards": [
     {
       "id": "date-constantinople-1453",
-      "field": "history",
+      "field": "histmed",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -452,7 +501,7 @@
     },
     {
       "id": "date-french-revolution-1789",
-      "field": "history",
+      "field": "histmod",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -519,7 +568,7 @@
     },
     {
       "id": "date-moon-landing-1969",
-      "field": "history",
+      "field": "histcontemp",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -719,7 +768,7 @@
     },
     {
       "id": "china-century-humiliation",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -1530,7 +1579,7 @@
     },
     {
       "id": "me-sunni-shia",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 1,
       "src": [
@@ -1789,7 +1838,7 @@
     },
     {
       "id": "colonial-scramble-africa",
-      "field": "history",
+      "field": "histglobal",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -2121,7 +2170,7 @@
     },
     {
       "id": "date-hijra-622",
-      "field": "history",
+      "field": "histmed",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -2253,7 +2302,7 @@
     },
     {
       "id": "date-prc-1949",
-      "field": "history",
+      "field": "histcontemp",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -2387,7 +2436,7 @@
     },
     {
       "id": "date-berlin-wall-1989",
-      "field": "history",
+      "field": "histcontemp",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -6249,7 +6298,7 @@
     },
     {
       "id": "hist-printing",
-      "field": "history",
+      "field": "histearly",
       "depth": "event",
       "level": 1,
       "xref": [
@@ -6300,7 +6349,7 @@
     },
     {
       "id": "hist-blackdeath",
-      "field": "history",
+      "field": "histmed",
       "depth": "event",
       "level": 2,
       "xref": [
@@ -6354,7 +6403,7 @@
     },
     {
       "id": "hist-westphalia",
-      "field": "history",
+      "field": "histearly",
       "depth": "event",
       "level": 3,
       "xref": [
@@ -24427,7 +24476,7 @@
       "src": [
         "ev-german-reunification"
       ],
-      "field": "history",
+      "field": "histcontemp",
       "kind": "event",
       "depth": "event",
       "level": 2,
@@ -31460,7 +31509,7 @@
     },
     {
       "id": "hist-radiocarbon",
-      "field": "history",
+      "field": "histmethod",
       "level": 2,
       "depth": "concept",
       "prereq": [],
@@ -38154,7 +38203,7 @@
     },
     {
       "id": "hist-athenian-democracy",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 1,
       "prereq": [],
@@ -38209,7 +38258,7 @@
     },
     {
       "id": "hist-persian-wars",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 1,
       "prereq": [
@@ -38261,7 +38310,7 @@
     },
     {
       "id": "hist-peloponnesian-war",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38314,7 +38363,7 @@
     },
     {
       "id": "hist-roman-republic",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 1,
       "prereq": [],
@@ -38364,7 +38413,7 @@
     },
     {
       "id": "hist-roman-civil-wars",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38415,7 +38464,7 @@
     },
     {
       "id": "hist-roman-principate",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38466,7 +38515,7 @@
     },
     {
       "id": "hist-fall-rome",
-      "field": "history",
+      "field": "histanc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38523,7 +38572,7 @@
     },
     {
       "id": "hist-feudalism",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38576,7 +38625,7 @@
     },
     {
       "id": "hist-islamic-golden-age",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 2,
       "prereq": [],
@@ -38626,7 +38675,7 @@
     },
     {
       "id": "hist-mongols",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38677,7 +38726,7 @@
     },
     {
       "id": "hist-black-death-concept",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38729,7 +38778,7 @@
     },
     {
       "id": "hist-hundred-years-war",
-      "field": "history",
+      "field": "histmed",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38781,7 +38830,7 @@
     },
     {
       "id": "hist-renaissance",
-      "field": "history",
+      "field": "histideas",
       "depth": "concept",
       "level": 2,
       "prereq": [],
@@ -38832,7 +38881,7 @@
     },
     {
       "id": "hist-reformation",
-      "field": "history",
+      "field": "histearly",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38886,7 +38935,7 @@
     },
     {
       "id": "hist-scientific-revolution",
-      "field": "history",
+      "field": "histideas",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -38940,7 +38989,7 @@
     },
     {
       "id": "hist-columbian-exchange",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 2,
       "prereq": [],
@@ -38992,7 +39041,7 @@
     },
     {
       "id": "hist-atlantic-slave-trade",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39044,7 +39093,7 @@
     },
     {
       "id": "hist-thirty-years-war",
-      "field": "history",
+      "field": "histearly",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39096,7 +39145,7 @@
     },
     {
       "id": "hist-enlightenment",
-      "field": "history",
+      "field": "histideas",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39150,7 +39199,7 @@
     },
     {
       "id": "hist-american-revolution",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39203,7 +39252,7 @@
     },
     {
       "id": "hist-french-revolution-concept",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39256,7 +39305,7 @@
     },
     {
       "id": "hist-haitian-revolution",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39309,7 +39358,7 @@
     },
     {
       "id": "hist-industrial-revolution",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [],
@@ -39361,7 +39410,7 @@
     },
     {
       "id": "hist-imperialism",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -39415,7 +39464,7 @@
     },
     {
       "id": "hist-wwi-causes",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39469,7 +39518,7 @@
     },
     {
       "id": "hist-russian-revolution",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39522,7 +39571,7 @@
     },
     {
       "id": "hist-versailles",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39575,7 +39624,7 @@
     },
     {
       "id": "hist-rise-of-fascism",
-      "field": "history",
+      "field": "histmod",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -39630,7 +39679,7 @@
     },
     {
       "id": "hist-decolonization",
-      "field": "history",
+      "field": "histglobal",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -39683,7 +39732,7 @@
     },
     {
       "id": "hist-cold-war",
-      "field": "history",
+      "field": "histcontemp",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39737,7 +39786,7 @@
     },
     {
       "id": "hist-1989",
-      "field": "history",
+      "field": "histcontemp",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -39790,7 +39839,7 @@
     },
     {
       "id": "hist-annales",
-      "field": "history",
+      "field": "histmethod",
       "depth": "concept",
       "level": 3,
       "prereq": [],
@@ -39839,7 +39888,7 @@
     },
     {
       "id": "hist-social-history",
-      "field": "history",
+      "field": "histmethod",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -39890,7 +39939,7 @@
     },
     {
       "id": "hist-postcolonial-history",
-      "field": "history",
+      "field": "histmethod",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -42730,7 +42779,7 @@
       ],
       "xref": [
         "deveco-colonial-legacy",
-        "hist-decolonisation"
+        "hist-decolonization"
       ],
       "src": [
         "ev-deveco-institutions"
@@ -43010,7 +43059,7 @@
         "deveco-institutions"
       ],
       "xref": [
-        "hist-decolonisation",
+        "hist-decolonization",
         "hist-imperialism"
       ],
       "src": [
@@ -56266,6 +56315,1864 @@
       ],
       "deploy": "The single most useful guard against being misled by statistics in news, ads and research.",
       "counter": "Experiments aren't always possible or ethical; well-designed observational methods can still support cautious causal claims."
+    },
+    {
+      "id": "hist-hammurabi",
+      "field": "histanc",
+      "depth": "concept",
+      "level": 1,
+      "title": "The Code of Hammurabi",
+      "fact": "Around 1754 BC the Babylonian king Hammurabi had ~282 laws carved on a stone stele — one of the earliest written legal codes, applying set penalties to set offences.",
+      "tags": [
+        "ancient",
+        "law",
+        "Mesopotamia",
+        "Babylon"
+      ],
+      "quiz": [
+        {
+          "q": "The Code of Hammurabi is significant chiefly because it:",
+          "choices": [
+            "abolished slavery",
+            "was one of the earliest written, publicly displayed legal codes",
+            "founded democracy",
+            "was written in Latin"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Babylonian king promulgated the famous law code around 1754 BC?",
+          "type": "detail",
+          "answer": "Hammurabi",
+          "accept": [
+            "Hammurabi"
+          ]
+        },
+        {
+          "q": "The principle of proportional retaliation in the code is known as:",
+          "choices": [
+            "habeas corpus",
+            "lex talionis (an eye for an eye)",
+            "due process",
+            "common law"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-hammurabi"
+      ],
+      "detail": "The code fixed punishments publicly ('an eye for an eye', lex talionis) and varied them by social class (free man, commoner, slave). By writing law down, it moved justice from a ruler's whim toward a knowable, predictable standard — an early ancestor of the rule of law.",
+      "year": -1754,
+      "xref": [
+        "hist-athenian-democracy"
+      ],
+      "deploy": "A touchstone for debating the origins of written law and equality before it.",
+      "counter": "Its penalties were sharply unequal by class and gender, so it codified hierarchy as much as it constrained power."
+    },
+    {
+      "id": "hist-alexander",
+      "field": "histanc",
+      "depth": "concept",
+      "level": 2,
+      "title": "Alexander the Great's conquests",
+      "fact": "Between 336 and 323 BC Alexander of Macedon conquered the Persian Empire and reached India, spreading Greek culture across three continents and launching the Hellenistic age.",
+      "tags": [
+        "ancient",
+        "Alexander",
+        "Hellenistic",
+        "empire"
+      ],
+      "quiz": [
+        {
+          "q": "Alexander's conquests are credited with spreading which culture across Asia and Egypt?",
+          "choices": [
+            "Roman",
+            "Greek (Hellenistic)",
+            "Persian",
+            "Chinese"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Persian king did Alexander defeat at Gaugamela in 331 BC?",
+          "type": "detail",
+          "answer": "Darius",
+          "accept": [
+            "Darius",
+            "Darius III"
+          ]
+        },
+        {
+          "q": "At what age (in years) did Alexander die, his empire unbroken but soon to fragment?",
+          "type": "num",
+          "answer": 32,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-alexander"
+      ],
+      "detail": "Inheriting Macedon at 20, Alexander defeated Darius III (Issus 333, Gaugamela 331), took Egypt and Persia, and pushed to the Indus before his troops turned back. He died at 32; his generals split the empire, but Greek language, art and cities (like Alexandria) seeded a cosmopolitan Hellenistic world.",
+      "year": -331,
+      "prereq": [
+        "hist-persian-wars"
+      ],
+      "xref": [
+        "hist-roman-republic"
+      ],
+      "deploy": "The archetype of rapid conquest and cultural diffusion — endlessly invoked in strategy and empire debates.",
+      "counter": "'Hellenisation' was uneven; local cultures often absorbed Greek elements selectively rather than being replaced.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Macedon 336"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Conquers Persia"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Empire splits",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A decade of conquest to the Indus, then fragmentation into the Hellenistic kingdoms."
+        }
+      ]
+    },
+    {
+      "id": "hist-pax-romana",
+      "field": "histanc",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Pax Romana",
+      "fact": "For roughly two centuries (27 BC–180 AD) the Roman Empire enjoyed relative internal peace and stability, ruling perhaps 60–70 million people around the Mediterranean.",
+      "tags": [
+        "ancient",
+        "Rome",
+        "empire",
+        "Augustus"
+      ],
+      "quiz": [
+        {
+          "q": "The Pax Romana refers to a long period of Roman:",
+          "choices": [
+            "civil war",
+            "relative internal peace and stability",
+            "democratic reform",
+            "decline"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which emperor's reign marks the start of the Pax Romana around 27 BC?",
+          "type": "detail",
+          "answer": "Augustus",
+          "accept": [
+            "Augustus",
+            "Octavian"
+          ]
+        },
+        {
+          "q": "Roughly how many centuries did the Pax Romana last?",
+          "type": "num",
+          "answer": 2,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-pax-romana"
+      ],
+      "detail": "Begun under Augustus, the 'Roman peace' let trade, roads, law and cities flourish across an empire encircling the Mediterranean ('Mare Nostrum'). It was peace enforced by legions and unequal by design — but its scale of integrated, governed territory was not matched in Europe again for over a millennium.",
+      "year": -27,
+      "prereq": [
+        "hist-roman-principate"
+      ],
+      "xref": [
+        "hist-fall-rome"
+      ],
+      "deploy": "A benchmark for 'imperial peace' — invoked in debates about order imposed by dominant powers.",
+      "counter": "The 'peace' rested on conquest, slavery and provincial extraction; it was far from peaceful at the frontiers.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "Empire (est.)",
+            "Rome city",
+            "Roman roads (000 km)"
+          ],
+          "values": [
+            65,
+            1,
+            80
+          ],
+          "caption": "Rough scale of the Pax Romana: ~65M people, a million-strong capital, ~80,000 km of roads."
+        }
+      ]
+    },
+    {
+      "id": "hist-charlemagne",
+      "field": "histmed",
+      "depth": "concept",
+      "level": 2,
+      "title": "Charlemagne and the Carolingian revival",
+      "fact": "On Christmas Day 800 the Frankish king Charlemagne was crowned 'Emperor of the Romans' by the Pope, reviving the idea of a Western empire and binding it to the Church.",
+      "tags": [
+        "medieval",
+        "Charlemagne",
+        "empire",
+        "Europe"
+      ],
+      "quiz": [
+        {
+          "q": "Charlemagne's coronation in 800 revived the idea of:",
+          "choices": [
+            "Athenian democracy",
+            "a Western Roman/Christian empire",
+            "an Islamic caliphate",
+            "a republic"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Who crowned Charlemagne 'Emperor of the Romans' in 800?",
+          "type": "detail",
+          "answer": "the Pope",
+          "accept": [
+            "Pope",
+            "the Pope",
+            "Pope Leo III",
+            "Leo III"
+          ]
+        },
+        {
+          "q": "In what year was Charlemagne crowned emperor?",
+          "type": "num",
+          "answer": 800,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-charlemagne"
+      ],
+      "detail": "Charlemagne united much of Western Europe, standardised script (Carolingian minuscule) and sponsored a learning revival. His coronation fused Roman, Christian and Germanic authority — the seed of the Holy Roman Empire and of centuries of tension between popes and emperors over who outranked whom.",
+      "year": 800,
+      "xref": [
+        "hist-feudalism",
+        "hist-fall-rome"
+      ],
+      "deploy": "The origin point for the Holy Roman Empire and the medieval Church–state entanglement.",
+      "counter": "The 'empire' fragmented within a generation of his death, so the revival was more symbolic than durable."
+    },
+    {
+      "id": "hist-crusades",
+      "field": "histmed",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Crusades",
+      "fact": "From 1095 a series of religiously-sanctioned wars sent European Christians to seize the Holy Land from Muslim rule — reshaping trade, ideas and Christian–Muslim relations for centuries.",
+      "tags": [
+        "medieval",
+        "Crusades",
+        "religion",
+        "Mediterranean"
+      ],
+      "quiz": [
+        {
+          "q": "The Crusades were primarily framed as an effort to:",
+          "choices": [
+            "spread democracy",
+            "recover the Holy Land for Christendom",
+            "abolish feudalism",
+            "found universities"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which pope launched the First Crusade with a call to arms in 1095?",
+          "type": "detail",
+          "answer": "Urban II",
+          "accept": [
+            "Urban II",
+            "Pope Urban II",
+            "Urban"
+          ]
+        },
+        {
+          "q": "In what year did the First Crusade capture Jerusalem?",
+          "type": "num",
+          "answer": 1099,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-crusades"
+      ],
+      "detail": "Launched by Pope Urban II's call in 1095, the Crusades mixed piety, politics and plunder. The First Crusade took Jerusalem (1099); later ones largely failed, and the Fourth infamously sacked Christian Constantinople (1204). Beyond the fighting, they intensified Mediterranean trade and Europe's contact with Islamic learning.",
+      "year": 1095,
+      "prereq": [
+        "me-sunni-shia"
+      ],
+      "xref": [
+        "hist-islamic-golden-age",
+        "date-constantinople-1453"
+      ],
+      "deploy": "A charged case study in religious war, trade and cross-cultural contact.",
+      "counter": "Long romanticised in the West, the Crusades were also wars of conquest whose legacy in the region remains contested.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Urban's call 1095"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Jerusalem 1099"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Trade & ideas",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Military aims mostly failed; the lasting effects were economic and intellectual exchange."
+        }
+      ]
+    },
+    {
+      "id": "hist-magna-carta",
+      "field": "histmed",
+      "depth": "concept",
+      "level": 2,
+      "title": "Magna Carta",
+      "fact": "In 1215 rebellious English barons forced King John to seal Magna Carta, conceding that the king was not above the law and could not tax or imprison arbitrarily.",
+      "tags": [
+        "medieval",
+        "law",
+        "England",
+        "constitutionalism"
+      ],
+      "quiz": [
+        {
+          "q": "Magna Carta's enduring principle is that:",
+          "choices": [
+            "the king owns all land",
+            "royal power is limited by law",
+            "barons rule directly",
+            "taxes are abolished"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which English king was forced to seal Magna Carta in 1215?",
+          "type": "detail",
+          "answer": "John",
+          "accept": [
+            "John",
+            "King John"
+          ]
+        },
+        {
+          "q": "In what year was Magna Carta sealed?",
+          "type": "num",
+          "answer": 1215,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-magna-carta"
+      ],
+      "detail": "Most clauses were feudal and quickly annulled, but the principle — that royal power is limited by law, and free men are entitled to lawful judgement — proved durable. Clause 39 (no imprisonment 'except by lawful judgement') became a seed of due process and constitutional government.",
+      "year": 1215,
+      "xref": [
+        "hist-hundred-years-war",
+        "pol-social-contract"
+      ],
+      "deploy": "The founding symbol of constitutional limits on power — cited from the US Constitution to human-rights law.",
+      "counter": "Its immediate scope was narrow (feudal barons, not commoners); its constitutional meaning was largely read back into it later."
+    },
+    {
+      "id": "hist-ottoman",
+      "field": "histearly",
+      "depth": "concept",
+      "level": 2,
+      "title": "The rise of the Ottoman Empire",
+      "fact": "After taking Constantinople in 1453, the Ottomans built a Muslim empire spanning southeastern Europe, the Middle East and North Africa that lasted into the 20th century.",
+      "tags": [
+        "early modern",
+        "Ottoman",
+        "empire",
+        "Islam"
+      ],
+      "quiz": [
+        {
+          "q": "The Ottoman 'millet' system is best described as:",
+          "choices": [
+            "a tax on trade",
+            "self-government for religious communities",
+            "a military draft",
+            "a legal code"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Under which sultan (r. 1520–66) did the Ottoman Empire reach its zenith?",
+          "type": "detail",
+          "answer": "Suleiman",
+          "accept": [
+            "Suleiman",
+            "Suleiman the Magnificent",
+            "Süleyman"
+          ]
+        },
+        {
+          "q": "The Ottomans captured which city in 1453, ending the Byzantine Empire?",
+          "choices": [
+            "Vienna",
+            "Constantinople",
+            "Baghdad",
+            "Cairo"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-ottoman"
+      ],
+      "detail": "Under Suleiman the Magnificent (r. 1520–66) the empire reached its height, besieging Vienna and governing a vast multi-religious realm through the millet system, which granted religious communities self-rule. For centuries it was a first-rank European and Mediterranean power, not a place apart from 'European' history.",
+      "year": 1453,
+      "prereq": [
+        "date-constantinople-1453"
+      ],
+      "xref": [
+        "hist-mughal",
+        "hist-thirty-years-war"
+      ],
+      "deploy": "Corrects Eurocentric narratives — a major early-modern power shaping European politics for centuries.",
+      "counter": "Framing it only by later 'decline' obscures centuries during which it out-administered many European rivals."
+    },
+    {
+      "id": "hist-mughal",
+      "field": "histearly",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Mughal Empire",
+      "fact": "From 1526 the Mughals ruled most of the Indian subcontinent, presiding over one of the world's richest economies and a flowering of art, architecture and administration.",
+      "tags": [
+        "early modern",
+        "Mughal",
+        "India",
+        "empire"
+      ],
+      "quiz": [
+        {
+          "q": "The Mughal Empire ruled mainly over which region?",
+          "choices": [
+            "the Indian subcontinent",
+            "North Africa",
+            "Southeast Asia",
+            "the Andes"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which tolerant Mughal emperor (r. 1556–1605) consolidated the empire?",
+          "type": "detail",
+          "answer": "Akbar",
+          "accept": [
+            "Akbar"
+          ]
+        },
+        {
+          "q": "At its height around 1700, Mughal India was notable for:",
+          "choices": [
+            "having no cities",
+            "producing a large share of world manufacturing",
+            "isolation from trade",
+            "a tiny population"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-mughal"
+      ],
+      "detail": "Founded by Babur and consolidated by Akbar (r. 1556–1605), who pursued religious tolerance across a Hindu-majority realm, the empire produced the Taj Mahal and, by 1700, perhaps a quarter of world manufacturing output. Its later fragmentation opened the door to British expansion.",
+      "year": 1526,
+      "xref": [
+        "hist-ottoman",
+        "hist-columbian-exchange",
+        "china-century-humiliation"
+      ],
+      "deploy": "Key to understanding pre-colonial Asian wealth and why the 'great divergence' is debated.",
+      "counter": "Estimates of its economic share are uncertain, and its tolerance varied sharply between rulers."
+    },
+    {
+      "id": "hist-absolutism",
+      "field": "histearly",
+      "depth": "concept",
+      "level": 3,
+      "title": "Absolutism and the divine right of kings",
+      "fact": "In the 17th–18th centuries monarchs like Louis XIV claimed near-total, God-given authority — 'L'état, c'est moi' — centralising power against nobles and parliaments.",
+      "tags": [
+        "early modern",
+        "absolutism",
+        "monarchy",
+        "state"
+      ],
+      "quiz": [
+        {
+          "q": "Absolutist monarchs justified their power chiefly by appeal to:",
+          "choices": [
+            "popular elections",
+            "divine right and centralised state authority",
+            "feudal contracts",
+            "market forces"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which French king epitomised absolutism and built Versailles?",
+          "type": "detail",
+          "answer": "Louis XIV",
+          "accept": [
+            "Louis XIV",
+            "Louis the Fourteenth",
+            "Sun King"
+          ]
+        },
+        {
+          "q": "Absolutism worked partly by drawing the nobility into:",
+          "choices": [
+            "parliament",
+            "a controlled royal court",
+            "the church",
+            "exile"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-absolutism"
+      ],
+      "detail": "Absolutism concentrated the state in the crown: standing armies, professional bureaucracies, and a court (Versailles) that tamed the nobility. Theorists like Bossuet grounded it in divine right. It provoked the counter-current — constitutionalism and social-contract theory — that would justify limiting or removing kings.",
+      "year": 1661,
+      "xref": [
+        "pol-social-contract",
+        "hist-french-revolution-concept"
+      ],
+      "deploy": "The political order that constitutionalism and the Enlightenment defined themselves against.",
+      "counter": "'Absolute' power was always constrained in practice by distance, custom, law and the need for tax consent.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Centralise",
+            "Tame nobles",
+            "Army & bureau",
+            "Divine right"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              3,
+              ""
+            ],
+            [
+              3,
+              0,
+              ""
+            ]
+          ],
+          "caption": "Absolutism as a self-reinforcing loop concentrating authority in the monarch."
+        }
+      ]
+    },
+    {
+      "id": "hist-napoleon",
+      "field": "histmod",
+      "depth": "concept",
+      "level": 2,
+      "title": "Napoleon and the Napoleonic Wars",
+      "fact": "Rising from the French Revolution, Napoleon Bonaparte crowned himself emperor (1804), conquered much of Europe, and spread revolutionary legal codes before his final defeat at Waterloo (1815).",
+      "tags": [
+        "modern",
+        "Napoleon",
+        "France",
+        "Europe"
+      ],
+      "quiz": [
+        {
+          "q": "A lasting legacy of Napoleon beyond conquest was the spread of:",
+          "choices": [
+            "feudalism",
+            "a modern civil legal code",
+            "absolute monarchy",
+            "the gold standard"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "At which 1815 battle was Napoleon finally defeated?",
+          "type": "detail",
+          "answer": "Waterloo",
+          "accept": [
+            "Waterloo"
+          ]
+        },
+        {
+          "q": "The 1815 Congress of Vienna aimed to:",
+          "choices": [
+            "spread revolution",
+            "restore monarchy and a balance of power",
+            "abolish borders",
+            "create the EU"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-napoleon"
+      ],
+      "detail": "Napoleon exported the Revolution's reforms — the Napoleonic Code, careers open to talent, metric measures — even as he built an empire by conquest. His defeat led to the Congress of Vienna (1815), which redrew Europe to restore balance and monarchy, yet the nationalist and legal legacies he spread could not be undone.",
+      "year": 1804,
+      "prereq": [
+        "hist-french-revolution-concept"
+      ],
+      "xref": [
+        "hist-versailles",
+        "hist-nationalism"
+      ],
+      "deploy": "The hinge between the French Revolution and 19th-century Europe — reform and reaction in one figure.",
+      "counter": "Whether he fulfilled or betrayed the Revolution — liberator or tyrant — is a genuine and lasting dispute.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Revolution 1789"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Empire 1804"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Waterloo 1815",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Revolution → empire → defeat; but the Napoleonic Code and nationalism he spread outlived him."
+        }
+      ]
+    },
+    {
+      "id": "hist-meiji",
+      "field": "histmod",
+      "depth": "concept",
+      "level": 3,
+      "title": "The Meiji Restoration",
+      "fact": "In 1868 Japan overthrew the shogunate, restored the emperor, and launched a crash programme of industrialisation that made it a great power within a generation.",
+      "tags": [
+        "modern",
+        "Japan",
+        "modernisation",
+        "industrialisation"
+      ],
+      "quiz": [
+        {
+          "q": "The Meiji Restoration (1868) is famous as an example of:",
+          "choices": [
+            "failed reform",
+            "rapid state-led modernisation",
+            "peaceful isolation",
+            "religious revival"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which country underwent the Meiji Restoration?",
+          "type": "detail",
+          "answer": "Japan",
+          "accept": [
+            "Japan"
+          ]
+        },
+        {
+          "q": "In what year did the Meiji Restoration begin?",
+          "type": "num",
+          "answer": 1868,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-meiji"
+      ],
+      "detail": "Confronted by Western gunboats, reformers abolished feudalism, built railways, factories, a conscript army and a constitution — borrowing selectively from the West under the slogan 'rich country, strong army'. Japan's rapid, state-led modernisation is the classic counterexample to the idea that industrialisation was uniquely Western.",
+      "year": 1868,
+      "prereq": [
+        "hist-industrial-revolution"
+      ],
+      "xref": [
+        "china-century-humiliation",
+        "hist-imperialism"
+      ],
+      "deploy": "The prime case that industrial modernity could be adopted outside the West — and fast.",
+      "counter": "Modernisation came with militarism and empire, complicating any simple 'success story' reading."
+    },
+    {
+      "id": "hist-social-question",
+      "field": "histmod",
+      "depth": "concept",
+      "level": 3,
+      "title": "The 'social question'",
+      "fact": "Industrialisation created a mass urban working class in dire conditions, forcing 19th-century societies to confront poverty, labour and inequality — the 'social question'.",
+      "tags": [
+        "modern",
+        "labour",
+        "welfare state",
+        "inequality"
+      ],
+      "quiz": [
+        {
+          "q": "The 19th-century 'social question' concerned how to respond to:",
+          "choices": [
+            "religious war",
+            "mass industrial poverty and labour conditions",
+            "colonial trade",
+            "royal succession"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which German chancellor introduced pioneering social insurance in the 1880s?",
+          "type": "detail",
+          "answer": "Bismarck",
+          "accept": [
+            "Bismarck",
+            "Otto von Bismarck"
+          ]
+        },
+        {
+          "q": "Responses to the social question included:",
+          "choices": [
+            "abolishing cities",
+            "trade unions, factory laws and social insurance",
+            "ending trade",
+            "restoring feudalism"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-social-question"
+      ],
+      "detail": "Slums, child labour and long hours provoked responses across the spectrum: socialism and trade unions, factory acts and public health laws, and — in Bismarck's Germany (1880s) — the first modern social insurance. The welfare state and labour law grew out of this reckoning.",
+      "year": 1880,
+      "prereq": [
+        "hist-industrial-revolution"
+      ],
+      "xref": [
+        "pol-marx-alienation",
+        "hist-rise-of-fascism"
+      ],
+      "deploy": "The origin of the welfare state, labour rights and modern debates over inequality.",
+      "counter": "Reforms were also a strategy to defuse revolution — motives mixed compassion with control."
+    },
+    {
+      "id": "hist-ww2",
+      "field": "histmod",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Second World War",
+      "fact": "From 1939 to 1945 the deadliest conflict in history — perhaps 70–85 million dead — pitted the Allies against Axis powers and ended with the Holocaust exposed and nuclear weapons used.",
+      "tags": [
+        "modern",
+        "WWII",
+        "total war",
+        "20th century"
+      ],
+      "quiz": [
+        {
+          "q": "A direct institutional legacy of the Second World War was the founding of the:",
+          "choices": [
+            "League of Nations",
+            "United Nations",
+            "European Union",
+            "Warsaw Pact"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did the Second World War end?",
+          "type": "detail",
+          "answer": "1945",
+          "accept": [
+            "1945"
+          ]
+        },
+        {
+          "q": "The war is often called 'total' because it:",
+          "choices": [
+            "was fought only at sea",
+            "mobilised entire economies and targeted civilians",
+            "lasted one year",
+            "involved no technology"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-ww2"
+      ],
+      "detail": "Triggered by Nazi Germany's expansion and Japan's in Asia, the war became global and total, mobilising whole economies and targeting civilians. Its aftermath created the United Nations, decolonisation's acceleration, the Cold War's superpower order, and a resolve — 'never again' — behind human-rights law.",
+      "year": 1939,
+      "prereq": [
+        "hist-rise-of-fascism"
+      ],
+      "xref": [
+        "hist-cold-war",
+        "hist-versailles"
+      ],
+      "deploy": "The reference catastrophe behind the postwar order, human-rights law and 'never again'.",
+      "counter": "National memories differ sharply on causes, turning points and credit, making a single narrative contested.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Fascism rises"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Total war"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Postwar order",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "From the last war's unstable peace, through total war, to the UN and the Cold War order."
+        }
+      ]
+    },
+    {
+      "id": "hist-great-depression",
+      "field": "histmod",
+      "depth": "concept",
+      "level": 3,
+      "title": "The Great Depression",
+      "fact": "The 1929 Wall Street crash triggered a global economic collapse: output fell by a quarter or more and unemployment reached ~25% in the worst-hit economies.",
+      "tags": [
+        "modern",
+        "economy",
+        "depression",
+        "1929"
+      ],
+      "quiz": [
+        {
+          "q": "The Great Depression helped discredit which economic orthodoxy?",
+          "choices": [
+            "Keynesianism",
+            "laissez-faire non-intervention",
+            "mercantilism",
+            "monetarism"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did the Wall Street crash that triggered the Depression occur?",
+          "type": "detail",
+          "answer": "1929",
+          "accept": [
+            "1929"
+          ]
+        },
+        {
+          "q": "Roughly what percentage did US unemployment reach at the worst of the Depression?",
+          "type": "num",
+          "answer": 25,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-great-depression"
+      ],
+      "detail": "Bank failures, collapsing demand and a shrinking money supply spread the slump worldwide through the gold standard and trade. It discredited laissez-faire orthodoxy, fuelled political extremism, and — via Keynes — reshaped economics toward active government management of demand.",
+      "year": 1929,
+      "xref": [
+        "hist-rise-of-fascism",
+        "hist-social-question"
+      ],
+      "deploy": "The formative economic catastrophe behind Keynesian policy and financial regulation.",
+      "counter": "Economists still dispute the primary cause — money supply (Friedman) vs collapsing demand (Keynes) vs the gold standard.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "Output fall %",
+            "Unemployment %",
+            "Trade fall %"
+          ],
+          "values": [
+            27,
+            25,
+            60
+          ],
+          "caption": "Rough magnitudes at the trough in the hardest-hit economies (illustrative estimates)."
+        }
+      ]
+    },
+    {
+      "id": "hist-un",
+      "field": "histcontemp",
+      "depth": "concept",
+      "level": 2,
+      "title": "The founding of the United Nations",
+      "fact": "In 1945, 51 states founded the United Nations to prevent another world war through collective security, diplomacy and international law.",
+      "tags": [
+        "contemporary",
+        "United Nations",
+        "international law",
+        "1945"
+      ],
+      "quiz": [
+        {
+          "q": "The UN Security Council's five permanent members each hold the power of:",
+          "choices": [
+            "taxation",
+            "veto",
+            "conscription",
+            "expulsion"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which earlier body, seen as a failure, did the UN replace?",
+          "type": "detail",
+          "answer": "League of Nations",
+          "accept": [
+            "League of Nations",
+            "the League of Nations",
+            "League"
+          ]
+        },
+        {
+          "q": "In what year was the United Nations founded?",
+          "type": "num",
+          "answer": 1945,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-un"
+      ],
+      "detail": "Replacing the failed League of Nations, the UN paired a broad General Assembly with a Security Council whose five permanent members hold vetoes — a design that reflects 1945's victors and both enables and hobbles action. It also birthed the Universal Declaration of Human Rights (1948).",
+      "year": 1945,
+      "prereq": [
+        "hist-ww2"
+      ],
+      "xref": [
+        "hist-versailles"
+      ],
+      "deploy": "The institutional core of the postwar international order — and a fixture of debates on its legitimacy.",
+      "counter": "The permanent-member veto reflects 1945's power balance and often paralyses the Council on the gravest issues."
+    },
+    {
+      "id": "hist-european-integration",
+      "field": "histcontemp",
+      "depth": "concept",
+      "level": 3,
+      "title": "European integration",
+      "fact": "To make war 'not merely unthinkable but materially impossible', Western Europe pooled coal and steel (1951) and step by step built the European Union.",
+      "tags": [
+        "contemporary",
+        "Europe",
+        "integration",
+        "EU"
+      ],
+      "quiz": [
+        {
+          "q": "Post-war European integration began by pooling which industries?",
+          "choices": [
+            "banking and insurance",
+            "coal and steel",
+            "farming and fishing",
+            "oil and gas"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which 1957 treaty established the European Economic Community?",
+          "type": "detail",
+          "answer": "Treaty of Rome",
+          "accept": [
+            "Treaty of Rome",
+            "Rome"
+          ]
+        },
+        {
+          "q": "European integration is often described as an experiment in:",
+          "choices": [
+            "absolute monarchy",
+            "pooled sovereignty",
+            "autarky",
+            "colonial rule"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-european-integration"
+      ],
+      "detail": "From the Schuman Plan and the 1957 Treaty of Rome to the single market and the euro, integration bound former enemies through shared institutions and economics. It is the most ambitious experiment in voluntarily pooled sovereignty — admired as a peace project and contested over its democratic accountability.",
+      "year": 1951,
+      "prereq": [
+        "hist-ww2"
+      ],
+      "xref": [
+        "hist-cold-war"
+      ],
+      "deploy": "The template for regional integration and the live debate over sovereignty vs cooperation.",
+      "counter": "Critics point to a 'democratic deficit' — powers pooled faster than accountable European politics developed.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Coal & Steel"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Single market"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Euro & EU",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Integration by increments — each step deepening union and raising accountability questions."
+        }
+      ]
+    },
+    {
+      "id": "hist-globalization",
+      "field": "histcontemp",
+      "depth": "concept",
+      "level": 3,
+      "title": "Late-20th-century globalisation",
+      "fact": "After 1945, and especially after 1990, falling trade barriers, cheap shipping and digital communication knit national economies into one interdependent world market.",
+      "tags": [
+        "contemporary",
+        "globalisation",
+        "trade",
+        "economy"
+      ],
+      "quiz": [
+        {
+          "q": "A key enabler of late-20th-century globalisation was:",
+          "choices": [
+            "higher tariffs",
+            "cheap container shipping and digital communication",
+            "the gold standard",
+            "colonial empires"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which organisation, founded in 1995, oversees the rules of world trade?",
+          "type": "detail",
+          "answer": "WTO",
+          "accept": [
+            "WTO",
+            "World Trade Organization",
+            "World Trade Organisation"
+          ]
+        },
+        {
+          "q": "Globalisation is credited with reducing global poverty but criticised for:",
+          "choices": [
+            "ending trade",
+            "widening some inequalities and displacing industries",
+            "abolishing markets",
+            "raising tariffs"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-globalization"
+      ],
+      "detail": "Container shipping, GATT/WTO trade rounds, and the end of the Cold War brought China and the former Soviet bloc into world markets. Global trade rose from under a tenth of world output in 1945 toward a quarter by the 2000s — lifting hundreds of millions from poverty while stoking backlash over inequality and lost industries.",
+      "year": 1995,
+      "prereq": [
+        "hist-cold-war"
+      ],
+      "xref": [
+        "hist-decolonization"
+      ],
+      "deploy": "The economic backdrop to modern politics — from supply chains to populist backlash.",
+      "counter": "Gains were real but uneven; the backlash of the 2010s shows integration is neither automatic nor irreversible.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "1945",
+            "1980",
+            "2008"
+          ],
+          "values": [
+            7,
+            17,
+            26
+          ],
+          "caption": "World trade as a rough % of world GDP — a rising but volatile trend (illustrative)."
+        }
+      ]
+    },
+    {
+      "id": "hist-silk-roads",
+      "field": "histglobal",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Silk Roads",
+      "fact": "For over a thousand years, overland and maritime routes linked China, India, Persia and the Mediterranean, carrying silk, spices, silver — and ideas, religions and disease.",
+      "tags": [
+        "global",
+        "trade",
+        "Silk Road",
+        "Eurasia"
+      ],
+      "quiz": [
+        {
+          "q": "Beyond goods, the Silk Roads were crucial for transmitting:",
+          "choices": [
+            "only silk",
+            "religions, technologies and diseases",
+            "nothing but spices",
+            "modern currencies"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which deadly pandemic spread west along these trade routes around 1347?",
+          "type": "detail",
+          "answer": "Black Death",
+          "accept": [
+            "Black Death",
+            "the Black Death",
+            "plague"
+          ]
+        },
+        {
+          "q": "The Silk Roads show that pre-modern Eurasia was:",
+          "choices": [
+            "completely isolated",
+            "deeply interconnected by trade and exchange",
+            "only linked by sea",
+            "united under one empire"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-silk-roads"
+      ],
+      "detail": "No single road but a shifting web of exchange, the Silk Roads moved Buddhism into China, paper and gunpowder westward, and (in 1347) the Black Death along with the goods. They show that pre-modern Eurasia was deeply connected long before European maritime empires.",
+      "year": 100,
+      "xref": [
+        "hist-mongols",
+        "hist-blackdeath",
+        "hist-islamic-golden-age"
+      ],
+      "deploy": "The classic evidence that 'globalisation' has deep roots — connection long predates the modern West.",
+      "counter": "Romanticised as a single 'road'; in reality it was intermittent, dangerous and dominated by intermediaries.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "network",
+          "labels": [
+            "China",
+            "Central Asia",
+            "Persia",
+            "Mediterranean"
+          ],
+          "layers": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "caption": "A chain of exchange linking East Asia to Europe through intermediary hubs."
+        }
+      ]
+    },
+    {
+      "id": "hist-triangular-trade",
+      "field": "histglobal",
+      "depth": "concept",
+      "level": 3,
+      "title": "The triangular trade",
+      "fact": "The Atlantic economy ran on a three-legged circuit: manufactured goods to Africa, enslaved Africans to the Americas, and plantation crops back to Europe.",
+      "tags": [
+        "global",
+        "slavery",
+        "Atlantic",
+        "trade"
+      ],
+      "quiz": [
+        {
+          "q": "The triangular trade's three legs connected:",
+          "choices": [
+            "Europe, Africa and the Americas",
+            "Asia, Europe and Africa",
+            "the Americas, Asia and Australia",
+            "Europe, Russia and China"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What name is given to the brutal Atlantic crossing endured by enslaved Africans?",
+          "type": "detail",
+          "answer": "Middle Passage",
+          "accept": [
+            "Middle Passage",
+            "the Middle Passage"
+          ]
+        },
+        {
+          "q": "Roughly how many million enslaved Africans were transported across the Atlantic (to the nearest few)?",
+          "type": "num",
+          "answer": 12,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-hist-triangular-trade"
+      ],
+      "detail": "This system (16th–19th c.) forcibly transported over 12 million Africans across the Atlantic — the Middle Passage — to produce sugar, tobacco and cotton. It generated European and American wealth while inflicting a demographic and moral catastrophe whose consequences persist.",
+      "year": 1600,
+      "prereq": [
+        "hist-atlantic-slave-trade"
+      ],
+      "xref": [
+        "hist-abolition",
+        "hist-columbian-exchange"
+      ],
+      "deploy": "The economic engine of Atlantic slavery — central to debates on capitalism's origins and reparations.",
+      "counter": "Historians debate how essential slave profits were to European industrialisation versus other factors.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Goods → Africa"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Enslaved → Americas"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Crops → Europe",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "caption": "A closed circuit of profit built on forced transportation — the Middle Passage as its second leg."
+        }
+      ]
+    },
+    {
+      "id": "hist-abolition",
+      "field": "histglobal",
+      "depth": "concept",
+      "level": 3,
+      "title": "The abolition of slavery",
+      "fact": "Over the 19th century a movement of formerly enslaved people, activists and states abolished the Atlantic slave trade and then slavery itself, though its legacies endured.",
+      "tags": [
+        "global",
+        "abolition",
+        "slavery",
+        "19th century"
+      ],
+      "quiz": [
+        {
+          "q": "The abolition of slavery in the 19th century resulted from:",
+          "choices": [
+            "a single law in one country",
+            "moral campaigning, slave resistance and shifting economics",
+            "a papal decree",
+            "a UN resolution"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which country was the last in the Americas to abolish slavery, in 1888?",
+          "type": "detail",
+          "answer": "Brazil",
+          "accept": [
+            "Brazil"
+          ]
+        },
+        {
+          "q": "Emancipation, historians stress, often did NOT immediately bring:",
+          "choices": [
+            "legal freedom",
+            "social and economic equality",
+            "the end of the trade",
+            "new laws"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-abolition"
+      ],
+      "detail": "Britain banned the slave trade in 1807 and slavery in its empire in 1833; the US abolished it in 1865 after civil war; Brazil last, in 1888. Abolition combined moral campaigning, enslaved people's own resistance (Haiti above all), and shifting economics — but emancipation rarely brought equality.",
+      "year": 1833,
+      "prereq": [
+        "hist-triangular-trade"
+      ],
+      "xref": [
+        "hist-haitian-revolution",
+        "hist-social-question"
+      ],
+      "deploy": "A landmark case of moral progress — and of how legal change outpaces social change.",
+      "counter": "Abolition was entangled with imperial and economic interests, and forced labour persisted under new names."
+    },
+    {
+      "id": "hist-humanism",
+      "field": "histideas",
+      "depth": "concept",
+      "level": 3,
+      "title": "Renaissance humanism",
+      "fact": "Renaissance humanists revived classical Greek and Roman texts and put human dignity, reason and worldly achievement at the centre of learning.",
+      "tags": [
+        "intellectual history",
+        "humanism",
+        "Renaissance",
+        "ideas"
+      ],
+      "quiz": [
+        {
+          "q": "Renaissance humanism emphasised:",
+          "choices": [
+            "divine revelation alone",
+            "human dignity, reason and classical learning",
+            "feudal loyalty",
+            "withdrawal from the world"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What Latin phrase ('to the sources') captured the humanist return to original texts?",
+          "type": "detail",
+          "answer": "ad fontes",
+          "accept": [
+            "ad fontes"
+          ]
+        },
+        {
+          "q": "Humanist textual criticism helped fuel which religious upheaval?",
+          "choices": [
+            "the Crusades",
+            "the Reformation",
+            "the Great Schism",
+            "the Counter-Reformation only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-humanism"
+      ],
+      "detail": "Scholars like Petrarch and Erasmus returned 'ad fontes' (to the sources), studying original texts critically rather than through medieval commentary. Humanism reshaped education (the 'humanities'), fed the Reformation's scriptural scrutiny, and helped shift authority from tradition toward evidence and the individual.",
+      "year": 1400,
+      "prereq": [
+        "hist-renaissance"
+      ],
+      "xref": [
+        "hist-reformation",
+        "hist-printing"
+      ],
+      "deploy": "The origin of the 'humanities' and of critical, source-based scholarship.",
+      "counter": "Its 'human' ideal was largely elite, male and European, a limit later humanisms had to confront."
+    },
+    {
+      "id": "hist-nationalism",
+      "field": "histideas",
+      "depth": "concept",
+      "level": 3,
+      "title": "The rise of nationalism",
+      "fact": "Nationalism — the idea that humanity divides into 'nations' each entitled to its own state — was largely a 19th-century invention that redrew the world map.",
+      "tags": [
+        "intellectual history",
+        "nationalism",
+        "ideology",
+        "19th century"
+      ],
+      "quiz": [
+        {
+          "q": "Benedict Anderson influentially described nations as:",
+          "choices": [
+            "natural and eternal",
+            "'imagined communities'",
+            "purely economic units",
+            "religious sects"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which scholar coined the phrase 'imagined communities' for nations?",
+          "type": "detail",
+          "answer": "Anderson",
+          "accept": [
+            "Anderson",
+            "Benedict Anderson"
+          ]
+        },
+        {
+          "q": "Nationalism in the 19th century worked to:",
+          "choices": [
+            "preserve all empires",
+            "unify some states and break up others",
+            "abolish states",
+            "end all wars"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-nationalism"
+      ],
+      "detail": "Benedict Anderson called nations 'imagined communities': too large for face-to-face knowledge, they are bound by shared language, print, history and symbols. Nationalism unified Germany and Italy, dissolved empires, and powered both liberation movements and catastrophic wars.",
+      "year": 1800,
+      "xref": [
+        "hist-napoleon",
+        "hist-hundred-years-war"
+      ],
+      "deploy": "The most powerful political idea of the modern age — behind both liberation and mass violence.",
+      "counter": "Whether nations are 'constructed' or reflect older ethnic realities (primordialism) remains debated."
+    },
+    {
+      "id": "hist-romanticism",
+      "field": "histideas",
+      "depth": "concept",
+      "level": 3,
+      "title": "Romanticism",
+      "fact": "As a reaction to the Enlightenment's cult of reason, Romanticism (c. 1800) exalted emotion, imagination, nature, the sublime and the authentic individual.",
+      "tags": [
+        "intellectual history",
+        "Romanticism",
+        "culture",
+        "ideas"
+      ],
+      "quiz": [
+        {
+          "q": "Romanticism arose largely as a reaction against the Enlightenment's emphasis on:",
+          "choices": [
+            "emotion",
+            "reason and calculation",
+            "nature",
+            "imagination"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name one value Romanticism exalted over cold reason.",
+          "type": "detail",
+          "answer": "emotion",
+          "accept": [
+            "emotion",
+            "imagination",
+            "nature",
+            "the sublime",
+            "feeling",
+            "individual"
+          ]
+        },
+        {
+          "q": "Politically, Romanticism fed both nationalism and:",
+          "choices": [
+            "laissez-faire economics",
+            "a conservative reverence for tradition",
+            "logical positivism",
+            "utilitarianism"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-romanticism"
+      ],
+      "detail": "In poetry, music and painting — Wordsworth, Beethoven, Friedrich — Romantics prized feeling over calculation and the folk and national over the universal. Politically double-edged, it fed both liberationist nationalism and a conservative reverence for tradition and the organic community.",
+      "year": 1800,
+      "prereq": [
+        "hist-enlightenment"
+      ],
+      "xref": [
+        "hist-nationalism"
+      ],
+      "deploy": "Key to understanding modern art, nationalism and the recurring reaction against pure rationalism.",
+      "counter": "'Romanticism' lumps together very different figures; some scholars doubt it names one coherent movement."
+    },
+    {
+      "id": "hist-sources",
+      "field": "histmethod",
+      "depth": "concept",
+      "level": 1,
+      "title": "Primary vs secondary sources",
+      "fact": "History rests on evidence: primary sources are first-hand traces of the past (letters, artefacts, records); secondary sources are later scholars' interpretations of them.",
+      "tags": [
+        "historiography",
+        "sources",
+        "method",
+        "evidence"
+      ],
+      "quiz": [
+        {
+          "q": "A primary source is:",
+          "choices": [
+            "a later scholar's analysis",
+            "a first-hand trace from the period studied",
+            "always a book",
+            "a summary"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What single word names the origin and chain of custody of a source, which historians must assess?",
+          "type": "detail",
+          "answer": "provenance",
+          "accept": [
+            "provenance"
+          ]
+        },
+        {
+          "q": "Critical source evaluation always asks who created a source and:",
+          "choices": [
+            "how long it is",
+            "why, and who is left out",
+            "where it is stored",
+            "its price"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-sources"
+      ],
+      "detail": "A soldier's diary is primary; a book analysing the battle is secondary. Historians must also weigh provenance, bias and gaps — who created a source, why, and who is missing from it. Critical source evaluation is the discipline's basic method, separating history from mere storytelling.",
+      "xref": [
+        "hist-radiocarbon",
+        "hist-annales",
+        "epi-testimony"
+      ],
+      "deploy": "The foundational skill for judging any historical (or news) claim by its evidence.",
+      "counter": "The primary/secondary line blurs — a secondary source can become a primary source for studying its own author's era.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Traces"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Evaluate"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Interpretation",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "From surviving traces, through source criticism, to secondary interpretation."
+        }
+      ]
+    },
+    {
+      "id": "hist-periodization",
+      "field": "histmethod",
+      "depth": "concept",
+      "level": 2,
+      "title": "Periodisation",
+      "fact": "Dividing the past into eras — ancient, medieval, modern — is a tool historians impose to make sense of change, not a natural fact of time.",
+      "tags": [
+        "historiography",
+        "periodisation",
+        "method",
+        "time"
+      ],
+      "quiz": [
+        {
+          "q": "Periodisation (ancient/medieval/modern) is best understood as:",
+          "choices": [
+            "a natural feature of time",
+            "an interpretive tool historians impose",
+            "a legal system",
+            "a dating technique"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "The term 'Middle Ages' implies the era was a gap between two periods of what?",
+          "type": "detail",
+          "answer": "greatness",
+          "accept": [
+            "greatness",
+            "golden ages",
+            "classical greatness",
+            "achievement",
+            "flourishing"
+          ]
+        },
+        {
+          "q": "A common criticism of standard periodisation is that it is:",
+          "choices": [
+            "too precise",
+            "Eurocentric and obscures gradual change",
+            "purely mathematical",
+            "never used"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-periodization"
+      ],
+      "detail": "Labels like 'the Middle Ages' or 'the Renaissance' were coined later and carry judgements (the 'medieval' as a dark gap between two golden ages). Periods can illuminate but also mislead — they are Eurocentric, blur regional differences, and make gradual change look like sharp breaks.",
+      "xref": [
+        "hist-renaissance",
+        "hist-fall-rome",
+        "hist-black-death-concept"
+      ],
+      "deploy": "A reminder that historical 'eras' are arguments, not givens — crucial for reading any history critically.",
+      "counter": "Yet some periodisation is unavoidable; the debate is which divisions illuminate rather than distort.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Ancient"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Medieval"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Modern",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A conventional Western spine (with early-modern and contemporary as finer splits) — an imposed frame, not a fact of nature."
+        }
+      ]
+    },
+    {
+      "id": "hist-microhistory",
+      "field": "histmethod",
+      "depth": "concept",
+      "level": 3,
+      "title": "Microhistory",
+      "fact": "Microhistory studies the past through a single village, trial or life in intense detail, using the small case to illuminate whole worlds of belief and social structure.",
+      "tags": [
+        "historiography",
+        "microhistory",
+        "method",
+        "culture"
+      ],
+      "quiz": [
+        {
+          "q": "Microhistory illuminates large historical questions by:",
+          "choices": [
+            "surveying entire centuries",
+            "studying a single case in intense detail",
+            "using only statistics",
+            "ignoring sources"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which historian wrote the classic microhistory The Cheese and the Worms (1976)?",
+          "type": "detail",
+          "answer": "Ginzburg",
+          "accept": [
+            "Ginzburg",
+            "Carlo Ginzburg"
+          ]
+        },
+        {
+          "q": "Microhistory is especially good at recovering:",
+          "choices": [
+            "elite diplomacy",
+            "ordinary people's beliefs usually absent from grand narratives",
+            "economic aggregates",
+            "military tactics"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-hist-microhistory"
+      ],
+      "detail": "Carlo Ginzburg's The Cheese and the Worms (1976) reconstructed the cosmology of one 16th-century miller from Inquisition records, revealing popular culture usually invisible in grand narratives. The method trades sweeping coverage for depth, asking what one well-documented case can reveal about the many.",
+      "year": 1976,
+      "prereq": [
+        "hist-social-history"
+      ],
+      "xref": [
+        "hist-annales",
+        "hist-postcolonial-history"
+      ],
+      "deploy": "Shows how a single deep case can overturn assumptions a broad survey would miss.",
+      "counter": "Critics ask how far one exceptional case can be generalised to a whole society."
     }
   ],
   "motions": [

@@ -6966,6 +6966,213 @@
       "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation",
       "kind": "reference",
       "strength": "Reference; a foundational methodological principle."
+    },
+    "ev-hist-hammurabi": {
+      "who": "Wikipedia",
+      "year": -1754,
+      "title": "Code of Hammurabi",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Code_of_Hammurabi",
+      "kind": "reference",
+      "strength": "Well-attested artefact in the Louvre; dating and content firmly established."
+    },
+    "ev-hist-alexander": {
+      "who": "Wikipedia",
+      "year": -331,
+      "title": "Alexander the Great",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Alexander_the_Great",
+      "kind": "reference",
+      "strength": "Extensively documented via ancient historians; core chronology firmly attested."
+    },
+    "ev-hist-pax-romana": {
+      "who": "Wikipedia",
+      "year": -27,
+      "title": "Pax Romana",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Pax_Romana",
+      "kind": "reference",
+      "strength": "Standard reference; figures are scholarly estimates, hence approximate."
+    },
+    "ev-hist-charlemagne": {
+      "who": "Wikipedia",
+      "year": 800,
+      "title": "Charlemagne",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Charlemagne",
+      "kind": "reference",
+      "strength": "Well-documented; date and coronation firmly attested."
+    },
+    "ev-hist-crusades": {
+      "who": "Wikipedia",
+      "year": 1095,
+      "title": "Crusades",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Crusades",
+      "kind": "reference",
+      "strength": "Standard reference; chronology firmly attested, interpretation contested (noted)."
+    },
+    "ev-hist-magna-carta": {
+      "who": "Wikipedia",
+      "year": 1215,
+      "title": "Magna Carta",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Magna_Carta",
+      "kind": "reference",
+      "strength": "Well-documented founding legal document; date firmly attested."
+    },
+    "ev-hist-ottoman": {
+      "who": "Wikipedia",
+      "year": 1453,
+      "title": "Ottoman Empire",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Ottoman_Empire",
+      "kind": "reference",
+      "strength": "Standard reference; chronology firmly attested."
+    },
+    "ev-hist-mughal": {
+      "who": "Wikipedia",
+      "year": 1526,
+      "title": "Mughal Empire",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mughal_Empire",
+      "kind": "reference",
+      "strength": "Standard reference; economic figures are scholarly estimates."
+    },
+    "ev-hist-absolutism": {
+      "who": "Wikipedia",
+      "year": 1661,
+      "title": "Absolute monarchy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Absolute_monarchy",
+      "kind": "reference",
+      "strength": "Standard reference; the concept and cases are well documented."
+    },
+    "ev-hist-meiji": {
+      "who": "Wikipedia",
+      "year": 1868,
+      "title": "Meiji Restoration",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Meiji_Restoration",
+      "kind": "reference",
+      "strength": "Standard reference; chronology firmly attested."
+    },
+    "ev-hist-social-question": {
+      "who": "Wikipedia",
+      "year": 1880,
+      "title": "Social question",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_question",
+      "kind": "reference",
+      "strength": "Standard reference; the concept and reforms are well documented."
+    },
+    "ev-hist-great-depression": {
+      "who": "Wikipedia",
+      "year": 1929,
+      "title": "Great Depression",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Great_Depression",
+      "kind": "reference",
+      "strength": "Standard reference; figures are scholarly estimates that vary by country."
+    },
+    "ev-hist-un": {
+      "who": "Wikipedia",
+      "year": 1945,
+      "title": "United Nations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/United_Nations",
+      "kind": "reference",
+      "strength": "Standard reference; founding facts firmly attested."
+    },
+    "ev-hist-european-integration": {
+      "who": "Wikipedia",
+      "year": 1951,
+      "title": "History of the European Union",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/History_of_the_European_Union",
+      "kind": "reference",
+      "strength": "Standard reference; chronology firmly attested."
+    },
+    "ev-hist-globalization": {
+      "who": "Wikipedia",
+      "year": 1995,
+      "title": "Globalization",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Globalization",
+      "kind": "reference",
+      "strength": "Standard reference; trade-share figures are approximate estimates."
+    },
+    "ev-hist-triangular-trade": {
+      "who": "Wikipedia",
+      "year": 1600,
+      "title": "Triangular trade",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Triangular_trade",
+      "kind": "reference",
+      "strength": "Standard reference; the Atlantic slave-trade figures are from the Trans-Atlantic Slave Trade Database."
+    },
+    "ev-hist-abolition": {
+      "who": "Wikipedia",
+      "year": 1833,
+      "title": "Abolitionism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Abolitionism",
+      "kind": "reference",
+      "strength": "Standard reference; the chronology is firmly attested."
+    },
+    "ev-hist-humanism": {
+      "who": "Wikipedia",
+      "year": 1400,
+      "title": "Renaissance humanism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Renaissance_humanism",
+      "kind": "reference",
+      "strength": "Standard reference; movement well documented."
+    },
+    "ev-hist-nationalism": {
+      "who": "Anderson, B.",
+      "year": 1983,
+      "title": "Imagined Communities",
+      "where": "Verso",
+      "url": "https://en.wikipedia.org/wiki/Imagined_Communities",
+      "kind": "reference",
+      "strength": "Primary source plus reference; concept widely adopted."
+    },
+    "ev-hist-romanticism": {
+      "who": "Wikipedia",
+      "year": 1800,
+      "title": "Romanticism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Romanticism",
+      "kind": "reference",
+      "strength": "Standard reference; movement well documented."
+    },
+    "ev-hist-sources": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Primary source",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Primary_source",
+      "kind": "reference",
+      "strength": "Standard reference; a foundational methodological distinction."
+    },
+    "ev-hist-periodization": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Periodization",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Periodization",
+      "kind": "reference",
+      "strength": "Standard reference; a core historiographical concept."
+    },
+    "ev-hist-microhistory": {
+      "who": "Ginzburg, C.",
+      "year": 1976,
+      "title": "The Cheese and the Worms",
+      "where": "Einaudi",
+      "url": "https://en.wikipedia.org/wiki/Microhistory",
+      "kind": "reference",
+      "strength": "Primary source plus reference; established method."
     }
   }
 }
