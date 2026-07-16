@@ -447,11 +447,46 @@
       "color": "#1098ad"
     },
     {
-      "id": "socio",
-      "label": "Sociology",
-      "blurb": "Society as structure — Durkheim, Weber, Bourdieu, networks.",
-      "icon": "🕸️",
+      "id": "socth",
+      "label": "Sociological theory",
+      "blurb": "The classics and the big frameworks.",
+      "icon": "🏛️",
       "color": "#ae3ec9"
+    },
+    {
+      "id": "socstrat",
+      "label": "Stratification & inequality",
+      "blurb": "Class, mobility, and who gets what.",
+      "icon": "📊",
+      "color": "#9c36b5"
+    },
+    {
+      "id": "socident",
+      "label": "Race, gender & identity",
+      "blurb": "How societies sort and rank people.",
+      "icon": "⚖️",
+      "color": "#d6336c"
+    },
+    {
+      "id": "socdev",
+      "label": "Crime & deviance",
+      "blurb": "Norms, rule-breaking, and control.",
+      "icon": "🚔",
+      "color": "#862e9c"
+    },
+    {
+      "id": "socecon",
+      "label": "Urban & economic sociology",
+      "blurb": "Cities, markets, and modern life.",
+      "icon": "🏙️",
+      "color": "#7048e8"
+    },
+    {
+      "id": "socnet",
+      "label": "Networks & methods",
+      "blurb": "Social ties and how sociology measures.",
+      "icon": "🕸️",
+      "color": "#be4bdb"
     },
     {
       "id": "anthsoc",
@@ -44024,7 +44059,7 @@
     },
     {
       "id": "socio-what-is",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 1,
       "prereq": [],
@@ -44073,7 +44108,7 @@
     },
     {
       "id": "socio-social-facts",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44125,7 +44160,7 @@
     },
     {
       "id": "socio-solidarity",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44176,7 +44211,7 @@
     },
     {
       "id": "socio-anomie",
-      "field": "socio",
+      "field": "socdev",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44229,7 +44264,7 @@
     },
     {
       "id": "socio-verstehen",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44281,7 +44316,7 @@
     },
     {
       "id": "socio-rationalisation",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44334,7 +44369,7 @@
     },
     {
       "id": "socio-bureaucracy",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44385,7 +44420,7 @@
     },
     {
       "id": "socio-class-marxian",
-      "field": "socio",
+      "field": "socstrat",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44438,7 +44473,7 @@
     },
     {
       "id": "socio-bourdieu-capital",
-      "field": "socio",
+      "field": "socstrat",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44492,7 +44527,7 @@
     },
     {
       "id": "socio-habitus",
-      "field": "socio",
+      "field": "socstrat",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44544,7 +44579,7 @@
     },
     {
       "id": "socio-social-capital",
-      "field": "socio",
+      "field": "socnet",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44598,7 +44633,7 @@
     },
     {
       "id": "socio-network-theory",
-      "field": "socio",
+      "field": "socnet",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44649,7 +44684,7 @@
     },
     {
       "id": "socio-stratification",
-      "field": "socio",
+      "field": "socstrat",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44701,7 +44736,7 @@
     },
     {
       "id": "socio-goffman-dramaturgy",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44753,7 +44788,7 @@
     },
     {
       "id": "socio-intersectionality",
-      "field": "socio",
+      "field": "socident",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44806,7 +44841,7 @@
     },
     {
       "id": "socio-gender-sociology",
-      "field": "socio",
+      "field": "socident",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44858,7 +44893,7 @@
     },
     {
       "id": "socio-symbolic-interactionism",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -44911,7 +44946,7 @@
     },
     {
       "id": "socio-foucault-power",
-      "field": "socio",
+      "field": "socth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -44964,7 +44999,7 @@
     },
     {
       "id": "socio-urbanisation",
-      "field": "socio",
+      "field": "socecon",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -62982,6 +63017,1081 @@
       ],
       "deploy": "Shows anthropology's real-world payoff — from UX research to public-health design.",
       "counter": "Working for clients raises hard questions about whose interests the research ultimately serves."
+    },
+    {
+      "id": "socio-functionalism",
+      "field": "socth",
+      "depth": "concept",
+      "level": 2,
+      "title": "Structural functionalism",
+      "fact": "Society is like an organism: its institutions — family, school, religion, law — each perform functions that keep the whole stable.",
+      "tags": [
+        "theory",
+        "functionalism",
+        "Parsons",
+        "Merton"
+      ],
+      "quiz": [
+        {
+          "q": "Structural functionalism views society's institutions as:",
+          "choices": [
+            "sources of endless conflict",
+            "parts that each perform functions maintaining the whole",
+            "illusions",
+            "purely economic"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist distinguished 'manifest' from 'latent' functions?",
+          "type": "detail",
+          "answer": "Merton",
+          "accept": [
+            "Merton",
+            "Robert Merton"
+          ]
+        },
+        {
+          "q": "A weakness of functionalism is that it struggles to explain:",
+          "choices": [
+            "stability",
+            "social conflict and change",
+            "institutions",
+            "norms"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-functionalism"
+      ],
+      "detail": "Talcott Parsons and Robert Merton (mid-20th century) asked what each part 'does for' the social system. Merton distinguished manifest functions (intended) from latent ones (unintended but real): a rain dance's manifest function is rain, its latent function is group solidarity. The approach explains stability well — and change and conflict poorly.",
+      "year": 1951,
+      "prereq": [
+        "socio-what-is"
+      ],
+      "xref": [
+        "socio-conflict-theory",
+        "socio-social-facts"
+      ],
+      "deploy": "A foundational lens — and the foil that conflict theory defined itself against.",
+      "counter": "Critics say it is conservative, treating whatever exists as functional and ignoring power and domination."
+    },
+    {
+      "id": "socio-conflict-theory",
+      "field": "socth",
+      "depth": "concept",
+      "level": 2,
+      "title": "Conflict theory",
+      "fact": "Society is best understood not as harmonious but as an arena of struggle between groups with unequal power over scarce resources.",
+      "tags": [
+        "theory",
+        "conflict theory",
+        "Marx",
+        "power"
+      ],
+      "quiz": [
+        {
+          "q": "Conflict theory sees society primarily as:",
+          "choices": [
+            "a smoothly functioning organism",
+            "an arena of struggle over unequal power and resources",
+            "a network of friendships",
+            "a market of equals"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which 19th-century thinker is the main root of conflict theory?",
+          "type": "detail",
+          "answer": "Marx",
+          "accept": [
+            "Marx",
+            "Karl Marx"
+          ]
+        },
+        {
+          "q": "Conflict theory's guiding question about any institution is:",
+          "choices": [
+            "how it maintains harmony",
+            "who benefits and who is kept down",
+            "how old it is",
+            "how efficient it is"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-conflict-theory"
+      ],
+      "detail": "Rooted in Marx and extended by later theorists, conflict theory sees institutions as arenas where dominant groups protect their advantages — and social order as, in part, imposed. Where functionalism asks how society holds together, conflict theory asks who benefits and who is kept down.",
+      "year": 1950,
+      "prereq": [
+        "socio-class-marxian"
+      ],
+      "xref": [
+        "socio-functionalism",
+        "pol-marx-alienation"
+      ],
+      "deploy": "The counterweight to functionalism — foregrounds power, domination and inequality.",
+      "counter": "Taken alone it can overstate conflict and underplay genuine cooperation and shared values."
+    },
+    {
+      "id": "socio-critical-theory",
+      "field": "socth",
+      "depth": "concept",
+      "level": 4,
+      "title": "Critical theory and the Frankfurt School",
+      "fact": "The Frankfurt School turned Marxism toward culture, asking why revolution never came — and found answers in mass culture, ideology and the 'culture industry'.",
+      "tags": [
+        "theory",
+        "critical theory",
+        "Frankfurt School",
+        "Habermas"
+      ],
+      "quiz": [
+        {
+          "q": "The Frankfurt School's 'culture industry' argument is that mass culture:",
+          "choices": [
+            "liberates people",
+            "pacifies people and reinforces the existing order",
+            "has no political effect",
+            "only entertains"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Frankfurt School heir developed the theory of 'communicative rationality'?",
+          "type": "detail",
+          "answer": "Habermas",
+          "accept": [
+            "Habermas",
+            "Jürgen Habermas",
+            "Jurgen Habermas"
+          ]
+        },
+        {
+          "q": "Critical theory extended Marxism from economics toward:",
+          "choices": [
+            "biology",
+            "culture and ideology",
+            "geography",
+            "law only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-critical-theory"
+      ],
+      "detail": "Adorno, Horkheimer and later Habermas argued that a commercialised 'culture industry' pacifies people and manufactures consent, so domination now works through entertainment and reason itself, not just economics. Habermas shifted focus to 'communicative rationality' — the ideal of undistorted public debate.",
+      "year": 1944,
+      "prereq": [
+        "socio-conflict-theory"
+      ],
+      "xref": [
+        "socio-foucault-power"
+      ],
+      "deploy": "The intellectual root of much cultural criticism and media studies.",
+      "counter": "Critics find it pessimistic and elitist, dismissing popular culture and audiences' own agency."
+    },
+    {
+      "id": "socio-disenchantment",
+      "field": "socth",
+      "depth": "concept",
+      "level": 3,
+      "title": "Weber: the disenchantment of the world",
+      "fact": "Weber argued that modernity strips the world of magic and mystery: science, bureaucracy and calculation replace enchantment with rational control.",
+      "tags": [
+        "theory",
+        "Weber",
+        "disenchantment",
+        "modernity"
+      ],
+      "quiz": [
+        {
+          "q": "Weber's 'disenchantment' describes modernity replacing magic and mystery with:",
+          "choices": [
+            "religion",
+            "rational calculation and science",
+            "art",
+            "tradition"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist described the 'disenchantment of the world'?",
+          "type": "detail",
+          "answer": "Weber",
+          "accept": [
+            "Weber",
+            "Max Weber"
+          ]
+        },
+        {
+          "q": "Disenchantment is closely tied to Weber's image of the modern:",
+          "choices": [
+            "gift economy",
+            "'iron cage' of rationalisation",
+            "tribal band",
+            "carnival"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-disenchantment"
+      ],
+      "detail": "As rational, calculable systems spread, Weber said, we no longer explain the world by spirits or fate but by impersonal laws and procedures — the world becomes 'disenchanted'. It brings mastery and efficiency, but also a loss of meaning, trapping us in the 'iron cage' of rationalised life.",
+      "year": 1917,
+      "prereq": [
+        "socio-rationalisation"
+      ],
+      "xref": [
+        "socio-bureaucracy",
+        "hist-enlightenment"
+      ],
+      "deploy": "A classic diagnosis of what modernity gains in control and loses in meaning.",
+      "counter": "Modern life also 're-enchants' — through nationalism, celebrity, wellness and new spiritualities."
+    },
+    {
+      "id": "socio-social-norms",
+      "field": "socth",
+      "depth": "concept",
+      "level": 1,
+      "title": "Norms, values and sanctions",
+      "fact": "Social order rests on norms — shared expectations about how to behave — enforced by sanctions ranging from a raised eyebrow to prison.",
+      "tags": [
+        "theory",
+        "norms",
+        "values",
+        "social order"
+      ],
+      "quiz": [
+        {
+          "q": "Social norms are:",
+          "choices": [
+            "laws only",
+            "shared expectations about how to behave",
+            "personal opinions",
+            "genetic traits"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the general term for the rewards or punishments that enforce norms?",
+          "type": "detail",
+          "answer": "sanctions",
+          "accept": [
+            "sanctions",
+            "sanction"
+          ]
+        },
+        {
+          "q": "Norms express deeper cultural ideals called:",
+          "choices": [
+            "values",
+            "sanctions",
+            "statuses",
+            "roles"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-socio-social-norms"
+      ],
+      "detail": "Norms are the invisible rules we follow without thinking (queueing, personal space); values are the deeper ideals (fairness, freedom) they express. Breaking a norm draws sanctions — informal (disapproval) or formal (law). Studying norms reveals how much of behaviour is socially patterned rather than freely chosen.",
+      "year": 1937,
+      "prereq": [
+        "socio-what-is"
+      ],
+      "xref": [
+        "socio-anomie",
+        "socio-labeling"
+      ],
+      "deploy": "The building blocks of social order — and of understanding conformity and deviance.",
+      "counter": "Norms vary by group and context, and people break or contest them as much as they follow them."
+    },
+    {
+      "id": "socio-social-mobility",
+      "field": "socstrat",
+      "depth": "concept",
+      "level": 2,
+      "title": "Social mobility",
+      "fact": "Social mobility is movement up or down the class ladder — and in most societies it is far more limited than the myth of meritocracy suggests.",
+      "tags": [
+        "stratification",
+        "mobility",
+        "meritocracy",
+        "inequality"
+      ],
+      "quiz": [
+        {
+          "q": "Intergenerational social mobility compares a person's position with:",
+          "choices": [
+            "their own past job",
+            "their parents' position",
+            "their neighbours'",
+            "the national average"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What curve links higher inequality to LOWER social mobility across countries?",
+          "type": "detail",
+          "answer": "Great Gatsby curve",
+          "accept": [
+            "Great Gatsby curve",
+            "Great Gatsby"
+          ]
+        },
+        {
+          "q": "Evidence generally shows that social mobility is:",
+          "choices": [
+            "higher than the meritocracy myth claims",
+            "more limited than the meritocracy myth claims",
+            "perfect",
+            "irrelevant"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-social-mobility"
+      ],
+      "detail": "Mobility can be intergenerational (do children outrank their parents?) or intragenerational (over one career). Studies find a strong stickiness: where you start heavily predicts where you end up, via education, networks and inherited wealth. High-inequality societies tend to have lower mobility (the 'Great Gatsby curve').",
+      "year": 1927,
+      "prereq": [
+        "socio-stratification"
+      ],
+      "xref": [
+        "socio-distinction"
+      ],
+      "deploy": "Cuts through the meritocracy myth — where you're born still largely predicts where you land.",
+      "counter": "Measuring mobility is hard: absolute mobility (rising living standards) can rise even as relative mobility stalls."
+    },
+    {
+      "id": "socio-distinction",
+      "field": "socstrat",
+      "depth": "concept",
+      "level": 3,
+      "title": "Bourdieu: taste as a class marker",
+      "fact": "Bourdieu argued that taste — in music, food, art — is not personal but a badge of class that quietly reproduces the social hierarchy.",
+      "tags": [
+        "stratification",
+        "Bourdieu",
+        "taste",
+        "cultural capital"
+      ],
+      "quiz": [
+        {
+          "q": "Bourdieu's Distinction argues that personal taste is really a marker of:",
+          "choices": [
+            "innate talent",
+            "social class",
+            "random preference",
+            "biology"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What form of 'capital' — knowing high-status culture — did Bourdieu say converts into advantage?",
+          "type": "detail",
+          "answer": "cultural capital",
+          "accept": [
+            "cultural capital",
+            "cultural"
+          ]
+        },
+        {
+          "q": "Taste, for Bourdieu, works to:",
+          "choices": [
+            "level society",
+            "reproduce the class hierarchy",
+            "abolish class",
+            "randomise status"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-distinction"
+      ],
+      "detail": "In Distinction (1979), Bourdieu showed that what looks like free aesthetic preference tracks upbringing and education, letting elites recognise 'their own' and mark others as vulgar. Cultural capital — knowing which fork, which composer — converts into real advantage, so taste helps the privileged pass on their status.",
+      "year": 1979,
+      "prereq": [
+        "socio-bourdieu-capital"
+      ],
+      "xref": [
+        "socio-habitus",
+        "socio-social-mobility"
+      ],
+      "deploy": "Explains how inequality is reproduced through the seemingly innocent realm of taste.",
+      "counter": "Cultural boundaries have blurred — 'omnivorous' elites now consume both high and pop culture, complicating the theory."
+    },
+    {
+      "id": "socio-du-bois",
+      "field": "socident",
+      "depth": "concept",
+      "level": 2,
+      "title": "Du Bois: double consciousness",
+      "fact": "W.E.B. Du Bois described the 'double consciousness' of Black Americans — always seeing oneself through the eyes of a society that devalues you.",
+      "tags": [
+        "identity",
+        "race",
+        "Du Bois",
+        "double consciousness"
+      ],
+      "quiz": [
+        {
+          "q": "Du Bois's 'double consciousness' describes:",
+          "choices": [
+            "having two jobs",
+            "seeing oneself through the eyes of a society that devalues you",
+            "bilingualism",
+            "split personality"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which 1903 book introduced 'double consciousness'?",
+          "type": "detail",
+          "answer": "The Souls of Black Folk",
+          "accept": [
+            "The Souls of Black Folk",
+            "Souls of Black Folk"
+          ]
+        },
+        {
+          "q": "Du Bois is significant partly as an early, long-overlooked founder of:",
+          "choices": [
+            "economics",
+            "empirical sociology",
+            "linguistics",
+            "physics"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-du-bois"
+      ],
+      "detail": "In The Souls of Black Folk (1903), Du Bois — a founder of sociology often written out of its canon — analysed race with rigorous data and theory. 'Double consciousness' names the split of measuring yourself by the standards of a hostile dominant culture, feeling one's 'two-ness' as both American and Black.",
+      "year": 1903,
+      "prereq": [
+        "socio-what-is"
+      ],
+      "xref": [
+        "anth-race-construct",
+        "socio-intersectionality"
+      ],
+      "deploy": "A foundational analysis of race — and a correction to sociology's own canon.",
+      "counter": "Du Bois's data-driven sociology was marginalised in his time; recovering it reframes the discipline's history."
+    },
+    {
+      "id": "socio-doing-gender",
+      "field": "socident",
+      "depth": "concept",
+      "level": 3,
+      "title": "Doing gender",
+      "fact": "Gender is not something you have but something you continually 'do' — produced in everyday interaction and held to account by others.",
+      "tags": [
+        "identity",
+        "gender",
+        "West and Zimmerman",
+        "interaction"
+      ],
+      "quiz": [
+        {
+          "q": "'Doing gender' means gender is:",
+          "choices": [
+            "a fixed biological trait",
+            "continually produced and performed in interaction",
+            "chosen once",
+            "irrelevant"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name either author of the 1987 paper 'Doing Gender'.",
+          "type": "detail",
+          "answer": "West",
+          "accept": [
+            "West",
+            "Candace West",
+            "Zimmerman",
+            "Don Zimmerman"
+          ]
+        },
+        {
+          "q": "The 'doing gender' view treats gender as a:",
+          "choices": [
+            "thing you possess",
+            "social process/accomplishment",
+            "hormone",
+            "legal status"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-doing-gender"
+      ],
+      "detail": "West and Zimmerman (1987) argued that gender is an ongoing accomplishment: we perform it in how we speak, move and dress, and others judge us against gender expectations. This shifts gender from a fixed trait to a social process, explaining why it feels natural yet varies across cultures and can change.",
+      "year": 1987,
+      "prereq": [
+        "socio-gender-sociology"
+      ],
+      "xref": [
+        "socio-symbolic-interactionism",
+        "socio-goffman-dramaturgy"
+      ],
+      "deploy": "The interactionist foundation of modern gender studies.",
+      "counter": "Critics ask whether framing gender as 'performance' underplays its material and structural grip."
+    },
+    {
+      "id": "socio-social-construction",
+      "field": "socident",
+      "depth": "concept",
+      "level": 2,
+      "title": "The social construction of reality",
+      "fact": "Much of what we treat as natural and fixed — money, gender roles, nations, even 'normal' — is built and sustained by shared human agreement.",
+      "tags": [
+        "identity",
+        "social construction",
+        "Berger",
+        "Luckmann"
+      ],
+      "quiz": [
+        {
+          "q": "To say something is 'socially constructed' is to say it is:",
+          "choices": [
+            "fake and powerless",
+            "built by human agreement, yet real in its effects",
+            "biologically fixed",
+            "imaginary"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name either author of The Social Construction of Reality (1966).",
+          "type": "detail",
+          "answer": "Berger",
+          "accept": [
+            "Berger",
+            "Peter Berger",
+            "Luckmann",
+            "Thomas Luckmann"
+          ]
+        },
+        {
+          "q": "A key implication of social construction is that the thing:",
+          "choices": [
+            "can never change",
+            "could be otherwise",
+            "is natural law",
+            "is genetic"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-social-construction"
+      ],
+      "detail": "Berger and Luckmann (1966) argued that society is a human product that then confronts us as an objective reality we internalise. Once enough people act as if something is real (money is valuable, a border matters), it becomes real in its effects. Naming something 'constructed' isn't calling it fake — it's showing it could be otherwise.",
+      "year": 1966,
+      "prereq": [
+        "socio-social-facts"
+      ],
+      "xref": [
+        "anth-race-construct",
+        "socio-doing-gender"
+      ],
+      "deploy": "A master concept for questioning what a society treats as 'just natural'.",
+      "counter": "Overused, 'it's a construct' can imply anything goes; constraints (biology, material reality) still bite."
+    },
+    {
+      "id": "socio-durkheim-suicide",
+      "field": "socdev",
+      "depth": "concept",
+      "level": 2,
+      "title": "Durkheim's study of suicide",
+      "fact": "Durkheim showed that even suicide — seemingly the most private act — follows social patterns, rising and falling with how integrated people are into society.",
+      "tags": [
+        "deviance",
+        "Durkheim",
+        "suicide",
+        "social facts"
+      ],
+      "quiz": [
+        {
+          "q": "Durkheim's Suicide demonstrated that suicide rates are shaped by:",
+          "choices": [
+            "only individual psychology",
+            "social integration and regulation",
+            "the weather",
+            "genetics alone"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What type of suicide did Durkheim link to a breakdown of social regulation?",
+          "type": "detail",
+          "answer": "anomic",
+          "accept": [
+            "anomic",
+            "anomie",
+            "anomic suicide"
+          ]
+        },
+        {
+          "q": "Suicide is celebrated as an early demonstration of the power of:",
+          "choices": [
+            "social facts / empirical sociology",
+            "psychoanalysis",
+            "economics",
+            "genetics"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-socio-durkheim-suicide"
+      ],
+      "detail": "In Suicide (1897), the founding empirical study of sociology, Durkheim used statistics to show suicide rates track social forces, not just individual despair: too little integration (egoistic) or too little regulation (anomic) raise the rate. It proved 'social facts' shape even our most personal decisions.",
+      "year": 1897,
+      "prereq": [
+        "socio-social-facts"
+      ],
+      "xref": [
+        "socio-anomie"
+      ],
+      "deploy": "The founding empirical study of sociology — social forces behind a private act.",
+      "counter": "Historical suicide statistics are unreliable (under-reporting, misclassification), complicating the classic findings."
+    },
+    {
+      "id": "socio-labeling",
+      "field": "socdev",
+      "depth": "concept",
+      "level": 3,
+      "title": "Labeling theory",
+      "fact": "Deviance isn't just an act — it's a label society attaches. Being labelled 'deviant' can push someone deeper into a deviant identity and career.",
+      "tags": [
+        "deviance",
+        "labeling theory",
+        "Becker",
+        "identity"
+      ],
+      "quiz": [
+        {
+          "q": "Labeling theory argues that deviance is created by:",
+          "choices": [
+            "the act itself",
+            "society's rules and the labels it applies",
+            "genetics",
+            "poverty alone"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist set out labeling theory in Outsiders (1963)?",
+          "type": "detail",
+          "answer": "Becker",
+          "accept": [
+            "Becker",
+            "Howard Becker"
+          ]
+        },
+        {
+          "q": "Being labelled deviant can trigger a self-fulfilling loop called:",
+          "choices": [
+            "primary deviance",
+            "secondary deviance",
+            "anomie",
+            "solidarity"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-labeling"
+      ],
+      "detail": "Howard Becker (1963) argued that no act is inherently deviant; social groups create deviance by making rules and applying them. Once labelled (a 'delinquent', an 'addict'), a person may be treated accordingly, lose other options, and adopt the identity — a self-fulfilling prophecy of 'secondary deviance'.",
+      "year": 1963,
+      "prereq": [
+        "socio-social-norms"
+      ],
+      "xref": [
+        "socio-anomie",
+        "psych-attribution"
+      ],
+      "deploy": "Explains how the reaction to rule-breaking can manufacture the very deviance it names.",
+      "counter": "It can understate real harm and the agency of offenders, treating them only as passively labelled.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Rule-breaking",
+            "Labelled 'deviant'",
+            "Treated as deviant",
+            "Adopts identity"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              3,
+              ""
+            ],
+            [
+              3,
+              0,
+              ""
+            ]
+          ],
+          "caption": "A self-fulfilling loop: the label helps produce the 'secondary deviance' it describes."
+        }
+      ]
+    },
+    {
+      "id": "socio-gemeinschaft",
+      "field": "socecon",
+      "depth": "concept",
+      "level": 2,
+      "title": "Community and society (Gemeinschaft/Gesellschaft)",
+      "fact": "Tönnies contrasted Gemeinschaft — tight, personal community bonds — with Gesellschaft, the impersonal, contractual ties of modern urban society.",
+      "tags": [
+        "urban",
+        "Tönnies",
+        "community",
+        "modernity"
+      ],
+      "quiz": [
+        {
+          "q": "Gesellschaft refers to social ties that are:",
+          "choices": [
+            "warm and personal",
+            "impersonal, contractual and instrumental",
+            "tribal",
+            "religious"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist introduced the Gemeinschaft/Gesellschaft distinction (1887)?",
+          "type": "detail",
+          "answer": "Tönnies",
+          "accept": [
+            "Tönnies",
+            "Tonnies",
+            "Ferdinand Tönnies",
+            "Ferdinand Tonnies"
+          ]
+        },
+        {
+          "q": "Modernisation, in this framework, is a shift from Gemeinschaft toward:",
+          "choices": [
+            "Gesellschaft",
+            "feudalism",
+            "the village",
+            "kinship"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-socio-gemeinschaft"
+      ],
+      "detail": "In the village (Gemeinschaft) relationships are face-to-face, based on kinship and shared tradition; in the city (Gesellschaft) they are instrumental, based on contracts and self-interest. Ferdinand Tönnies (1887) framed modernisation as a shift from one to the other — a theme echoed by Durkheim's solidarity and Weber's rationalisation.",
+      "year": 1887,
+      "prereq": [
+        "socio-urbanisation"
+      ],
+      "xref": [
+        "socio-solidarity",
+        "socio-disenchantment"
+      ],
+      "deploy": "A classic frame for what is gained and lost as societies urbanise and modernise.",
+      "counter": "The dichotomy is idealised — real communities mix personal and impersonal ties, cities included."
+    },
+    {
+      "id": "socio-embeddedness",
+      "field": "socecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "Economic embeddedness",
+      "fact": "Markets are not separate from society: economic action is 'embedded' in social networks, trust and norms — you get a job through who you know.",
+      "tags": [
+        "economic sociology",
+        "embeddedness",
+        "Granovetter",
+        "networks"
+      ],
+      "quiz": [
+        {
+          "q": "The 'embeddedness' thesis says economic action is:",
+          "choices": [
+            "fully rational and asocial",
+            "embedded in social networks, trust and norms",
+            "random",
+            "controlled by the state"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist argued economic action is 'embedded' in social relations (1985)?",
+          "type": "detail",
+          "answer": "Granovetter",
+          "accept": [
+            "Granovetter",
+            "Mark Granovetter"
+          ]
+        },
+        {
+          "q": "A everyday example of embeddedness is finding a job through:",
+          "choices": [
+            "a lottery",
+            "personal networks (who you know)",
+            "pure merit tests",
+            "random assignment"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-embeddedness"
+      ],
+      "detail": "Mark Granovetter (1985) attacked the economists' image of atomised, self-interested traders, showing real economic life runs on personal relationships and reputation. Deals rest on trust; hiring flows through networks. Economic sociology studies how the 'economy' is shot through with social structure.",
+      "year": 1985,
+      "prereq": [
+        "socio-network-theory"
+      ],
+      "xref": [
+        "socio-weak-ties"
+      ],
+      "deploy": "The sociological correction to the economist's asocial 'rational actor'.",
+      "counter": "Embeddedness can be stretched to explain everything; specifying when networks matter most is the hard part."
+    },
+    {
+      "id": "socio-weak-ties",
+      "field": "socnet",
+      "depth": "concept",
+      "level": 2,
+      "title": "The strength of weak ties",
+      "fact": "Your close friends know what you know; it's your acquaintances — 'weak ties' — who connect you to new information and opportunities, like jobs.",
+      "tags": [
+        "networks",
+        "weak ties",
+        "Granovetter",
+        "information"
+      ],
+      "quiz": [
+        {
+          "q": "The 'strength of weak ties' is that acquaintances are better than close friends at providing:",
+          "choices": [
+            "emotional support",
+            "novel information and opportunities",
+            "money",
+            "housing"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which sociologist wrote 'The Strength of Weak Ties' (1973)?",
+          "type": "detail",
+          "answer": "Granovetter",
+          "accept": [
+            "Granovetter",
+            "Mark Granovetter"
+          ]
+        },
+        {
+          "q": "Weak ties are valuable because they act as ______ between separate social clusters.",
+          "choices": [
+            "walls",
+            "bridges",
+            "copies",
+            "enemies"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-weak-ties"
+      ],
+      "detail": "Granovetter (1973) found people more often land jobs through acquaintances than close friends. Weak ties bridge between otherwise separate social clusters, so they carry novel information that your tight-knit circle already shares. It is a foundational, counter-intuitive result of social network analysis.",
+      "year": 1973,
+      "prereq": [
+        "socio-network-theory"
+      ],
+      "xref": [
+        "socio-embeddedness",
+        "socio-small-world"
+      ],
+      "deploy": "Why LinkedIn works — and a core result behind job search, diffusion and influence.",
+      "counter": "In some contexts (finding trusted help, hard skills) strong ties matter more; 'weak is better' is not universal.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "network",
+          "labels": [
+            "Your cluster",
+            "Weak tie (bridge)",
+            "New cluster"
+          ],
+          "layers": [
+            1,
+            1,
+            1
+          ],
+          "caption": "A weak tie bridges to a separate cluster, carrying information your close circle lacks."
+        }
+      ]
+    },
+    {
+      "id": "socio-small-world",
+      "field": "socnet",
+      "depth": "concept",
+      "level": 2,
+      "title": "The small-world phenomenon",
+      "fact": "Any two people on Earth are linked by a surprisingly short chain of acquaintances — popularly, 'six degrees of separation'.",
+      "tags": [
+        "networks",
+        "small world",
+        "Milgram",
+        "six degrees"
+      ],
+      "quiz": [
+        {
+          "q": "The small-world phenomenon says any two people are connected by:",
+          "choices": [
+            "a single friend",
+            "a short chain of acquaintances (~six steps)",
+            "no path at all",
+            "exactly two links"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which psychologist's 1967 letter experiment gave rise to 'six degrees of separation'?",
+          "type": "detail",
+          "answer": "Milgram",
+          "accept": [
+            "Milgram",
+            "Stanley Milgram"
+          ]
+        },
+        {
+          "q": "How many degrees of separation, roughly, did Milgram's chains suggest?",
+          "type": "num",
+          "answer": 6,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-socio-small-world"
+      ],
+      "detail": "Stanley Milgram's 1967 experiment asked people to route a letter to a stranger through personal contacts; completed chains averaged about six steps. Later network science (Watts & Strogatz) showed why: a few long-range 'weak tie' shortcuts collapse the distance across huge, otherwise-clustered networks.",
+      "year": 1967,
+      "prereq": [
+        "socio-weak-ties"
+      ],
+      "xref": [
+        "socio-network-theory",
+        "logic-modal"
+      ],
+      "deploy": "The maths of connectedness behind social media, epidemics and information spread.",
+      "counter": "Milgram's completion rate was low, so 'six degrees' is a rough, much-romanticised figure.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "network",
+          "labels": [
+            "You",
+            "Acquaintance",
+            "Their contact",
+            "Target"
+          ],
+          "layers": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "caption": "A few long-range shortcuts make even a huge, clustered world 'small'."
+        }
+      ]
+    },
+    {
+      "id": "socio-methods",
+      "field": "socnet",
+      "depth": "concept",
+      "level": 1,
+      "title": "Quantitative and qualitative methods",
+      "fact": "Sociology studies society with two toolkits: quantitative (surveys, statistics on many cases) and qualitative (interviews, ethnography going deep on a few).",
+      "tags": [
+        "methods",
+        "quantitative",
+        "qualitative",
+        "research"
+      ],
+      "quiz": [
+        {
+          "q": "Qualitative methods (interviews, ethnography) are best for capturing:",
+          "choices": [
+            "large-scale statistics",
+            "meaning, process and depth",
+            "exact percentages",
+            "national averages"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term describes combining quantitative and qualitative approaches?",
+          "type": "detail",
+          "answer": "mixed methods",
+          "accept": [
+            "mixed methods",
+            "mixed-methods"
+          ]
+        },
+        {
+          "q": "A key limit of survey (quantitative) research is that it struggles to capture:",
+          "choices": [
+            "large samples",
+            "lived meaning and context",
+            "numbers",
+            "generalisation"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-socio-methods"
+      ],
+      "detail": "Quantitative work tests hypotheses across large samples and generalises; qualitative work uncovers meaning, process and the unexpected. Neither is superior — surveys can't capture lived meaning, ethnography can't generalise — so many sociologists combine them ('mixed methods'). All of it demands care about bias, sampling and ethics.",
+      "year": 1900,
+      "prereq": [
+        "socio-what-is"
+      ],
+      "xref": [
+        "meth-reliability-validity",
+        "meth-weird",
+        "anthro-ethnography"
+      ],
+      "deploy": "How to read any social claim — by asking what method produced it and what that method can and can't show.",
+      "counter": "The quant/qual divide is partly cultural; the best work often refuses the dichotomy."
     }
   ],
   "motions": [

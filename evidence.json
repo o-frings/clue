@@ -7803,6 +7803,159 @@
       "url": "https://en.wikipedia.org/wiki/Applied_anthropology",
       "kind": "reference",
       "strength": "Standard reference; established practice."
+    },
+    "ev-socio-functionalism": {
+      "who": "Parsons, T.",
+      "year": 1951,
+      "title": "Structural functionalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Structural_functionalism",
+      "kind": "reference",
+      "strength": "Foundational sociological theory."
+    },
+    "ev-socio-conflict-theory": {
+      "who": "Wikipedia",
+      "year": 1950,
+      "title": "Conflict theories",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Conflict_theories",
+      "kind": "reference",
+      "strength": "Foundational sociological theory."
+    },
+    "ev-socio-critical-theory": {
+      "who": "Adorno, T. & Horkheimer, M.",
+      "year": 1944,
+      "title": "Frankfurt School",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Frankfurt_School",
+      "kind": "reference",
+      "strength": "Foundational; influential across the humanities."
+    },
+    "ev-socio-disenchantment": {
+      "who": "Weber, M.",
+      "year": 1917,
+      "title": "Disenchantment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Disenchantment",
+      "kind": "reference",
+      "strength": "Foundational Weberian concept."
+    },
+    "ev-socio-social-norms": {
+      "who": "Wikipedia",
+      "year": 1937,
+      "title": "Social norm",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_norm",
+      "kind": "reference",
+      "strength": "Foundational sociological concept."
+    },
+    "ev-socio-social-mobility": {
+      "who": "Wikipedia",
+      "year": 1927,
+      "title": "Social mobility",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_mobility",
+      "kind": "reference",
+      "strength": "Foundational; well-studied empirically."
+    },
+    "ev-socio-distinction": {
+      "who": "Bourdieu, P.",
+      "year": 1979,
+      "title": "Distinction (book)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Distinction_(book)",
+      "kind": "reference",
+      "strength": "Foundational; landmark study."
+    },
+    "ev-socio-du-bois": {
+      "who": "Du Bois, W.E.B.",
+      "year": 1903,
+      "title": "Double consciousness",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Double_consciousness",
+      "kind": "reference",
+      "strength": "Foundational; increasingly central to the canon."
+    },
+    "ev-socio-doing-gender": {
+      "who": "West, C. & Zimmerman, D.",
+      "year": 1987,
+      "title": "Doing gender",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Doing_gender",
+      "kind": "reference",
+      "strength": "Foundational gender sociology."
+    },
+    "ev-socio-social-construction": {
+      "who": "Berger, P. & Luckmann, T.",
+      "year": 1966,
+      "title": "The Social Construction of Reality",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/The_Social_Construction_of_Reality",
+      "kind": "reference",
+      "strength": "Foundational sociology."
+    },
+    "ev-socio-durkheim-suicide": {
+      "who": "Durkheim, É.",
+      "year": 1897,
+      "title": "Suicide (book)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Suicide_(book)",
+      "kind": "reference",
+      "strength": "Foundational; landmark empirical study."
+    },
+    "ev-socio-labeling": {
+      "who": "Becker, H.",
+      "year": 1963,
+      "title": "Labeling theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Labeling_theory",
+      "kind": "reference",
+      "strength": "Foundational deviance theory."
+    },
+    "ev-socio-gemeinschaft": {
+      "who": "Tönnies, F.",
+      "year": 1887,
+      "title": "Gemeinschaft and Gesellschaft",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gemeinschaft_and_Gesellschaft",
+      "kind": "reference",
+      "strength": "Foundational classical sociology."
+    },
+    "ev-socio-embeddedness": {
+      "who": "Granovetter, M.",
+      "year": 1985,
+      "title": "Embeddedness",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Embeddedness",
+      "kind": "reference",
+      "strength": "Foundational economic sociology."
+    },
+    "ev-socio-weak-ties": {
+      "who": "Granovetter, M.",
+      "year": 1973,
+      "title": "The Strength of Weak Ties",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Interpersonal_ties",
+      "kind": "reference",
+      "strength": "Foundational network sociology."
+    },
+    "ev-socio-small-world": {
+      "who": "Milgram, S.",
+      "year": 1967,
+      "title": "Small-world experiment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Small-world_experiment",
+      "kind": "reference",
+      "strength": "Foundational; the figure is approximate (noted)."
+    },
+    "ev-socio-methods": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Social research",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_research",
+      "kind": "reference",
+      "strength": "Foundational methodology."
     }
   }
 }
