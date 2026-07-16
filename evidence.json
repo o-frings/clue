@@ -7668,6 +7668,141 @@
       "url": "https://en.wikipedia.org/wiki/Reflex_arc",
       "kind": "reference",
       "strength": "Foundational neuroscience."
+    },
+    "ev-anth-rites-of-passage": {
+      "who": "van Gennep, A.",
+      "year": 1909,
+      "title": "Rite of passage",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Rite_of_passage",
+      "kind": "reference",
+      "strength": "Foundational; cross-culturally documented."
+    },
+    "ev-anth-race-construct": {
+      "who": "Wikipedia",
+      "year": 1950,
+      "title": "Race (human categorization)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Race_(human_categorization)",
+      "kind": "reference",
+      "strength": "Reflects the discipline's scientific consensus."
+    },
+    "ev-arch-material-culture": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Material culture",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Material_culture",
+      "kind": "reference",
+      "strength": "Foundational archaeological method."
+    },
+    "ev-arch-stratigraphy": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Stratigraphy (archaeology)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Stratigraphy_(archaeology)",
+      "kind": "reference",
+      "strength": "Foundational method."
+    },
+    "ev-arch-neolithic": {
+      "who": "Wikipedia",
+      "year": -10000,
+      "title": "Neolithic Revolution",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Neolithic_Revolution",
+      "kind": "reference",
+      "strength": "Foundational; independently attested across regions."
+    },
+    "ev-arch-three-age": {
+      "who": "Thomsen, C.J.",
+      "year": 1836,
+      "title": "Three-age system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Three-age_system",
+      "kind": "reference",
+      "strength": "Foundational; historically firm."
+    },
+    "ev-bioanth-human-evolution": {
+      "who": "Wikipedia",
+      "year": 1974,
+      "title": "Human evolution",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Human_evolution",
+      "kind": "reference",
+      "strength": "Foundational; fossil and genetic evidence, details actively revised."
+    },
+    "ev-bioanth-out-of-africa": {
+      "who": "Wikipedia",
+      "year": 1987,
+      "title": "Recent African origin of modern humans",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Recent_African_origin_of_modern_humans",
+      "kind": "reference",
+      "strength": "Well-supported by genetics; details of admixture actively researched."
+    },
+    "ev-bioanth-primatology": {
+      "who": "Goodall, J.",
+      "year": 1960,
+      "title": "Primatology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Primatology",
+      "kind": "reference",
+      "strength": "Foundational; Goodall's observations well documented."
+    },
+    "ev-ling-sapir-whorf": {
+      "who": "Whorf, B.",
+      "year": 1940,
+      "title": "Linguistic relativity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Linguistic_relativity",
+      "kind": "reference",
+      "strength": "Weak version supported; strong version rejected — noted."
+    },
+    "ev-ling-language-diversity": {
+      "who": "Wikipedia",
+      "year": 1992,
+      "title": "Endangered language",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Endangered_language",
+      "kind": "reference",
+      "strength": "Standard reference; figures are widely cited estimates."
+    },
+    "ev-ling-code-switching": {
+      "who": "Wikipedia",
+      "year": 1980,
+      "title": "Code-switching",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Code-switching",
+      "kind": "reference",
+      "strength": "Standard reference; well-studied phenomenon."
+    },
+    "ev-medanth-illness-disease": {
+      "who": "Kleinman, A.",
+      "year": 1980,
+      "title": "Medical anthropology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Medical_anthropology",
+      "kind": "reference",
+      "strength": "Foundational medical anthropology."
+    },
+    "ev-medanth-structural-violence": {
+      "who": "Farmer, P.",
+      "year": 1996,
+      "title": "Structural violence",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Structural_violence",
+      "kind": "reference",
+      "strength": "Foundational; widely used in global health."
+    },
+    "ev-applied-anthropology": {
+      "who": "Wikipedia",
+      "year": 1980,
+      "title": "Applied anthropology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Applied_anthropology",
+      "kind": "reference",
+      "strength": "Standard reference; established practice."
     }
   }
 }

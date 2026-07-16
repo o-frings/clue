@@ -454,11 +454,39 @@
       "color": "#ae3ec9"
     },
     {
-      "id": "anthro",
-      "label": "Anthropology",
-      "blurb": "Kinship, exchange, myth, and what fieldwork finds.",
+      "id": "anthsoc",
+      "label": "Sociocultural anthropology",
+      "blurb": "Culture, kinship, ritual, and meaning.",
       "icon": "🗿",
       "color": "#c2810a"
+    },
+    {
+      "id": "antharch",
+      "label": "Archaeology",
+      "blurb": "The human past through its material remains.",
+      "icon": "⛏️",
+      "color": "#a1691a"
+    },
+    {
+      "id": "anthbio",
+      "label": "Biological anthropology",
+      "blurb": "Human evolution, primates, and variation.",
+      "icon": "🦴",
+      "color": "#d9a441"
+    },
+    {
+      "id": "anthling",
+      "label": "Linguistic anthropology",
+      "blurb": "Language, culture, and identity.",
+      "icon": "💬",
+      "color": "#b8860b"
+    },
+    {
+      "id": "anthmed",
+      "label": "Medical & applied anthropology",
+      "blurb": "Health, illness, and anthropology at work.",
+      "icon": "🩺",
+      "color": "#9c6644"
     },
     {
       "id": "law",
@@ -44989,7 +45017,7 @@
     },
     {
       "id": "anthro-what-is",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 1,
       "prereq": [],
@@ -45038,7 +45066,7 @@
     },
     {
       "id": "anthro-ethnography",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45090,7 +45118,7 @@
     },
     {
       "id": "anthro-cultural-relativism",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45142,7 +45170,7 @@
     },
     {
       "id": "anthro-thick-description",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45193,7 +45221,7 @@
     },
     {
       "id": "anthro-structuralism",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45246,7 +45274,7 @@
     },
     {
       "id": "anthro-kinship",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45298,7 +45326,7 @@
     },
     {
       "id": "anthro-gift-exchange",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45351,7 +45379,7 @@
     },
     {
       "id": "anthro-hunter-gatherer",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45402,7 +45430,7 @@
     },
     {
       "id": "anthro-religion-anthropology",
-      "field": "anthro",
+      "field": "anthsoc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -61883,6 +61911,1077 @@
       ],
       "deploy": "Explains fast protective responses and the layered design of the nervous system.",
       "counter": "The brain can modulate many reflexes (e.g. suppressing a blink), so the 'brain-free' story is a simplification."
+    },
+    {
+      "id": "anth-rites-of-passage",
+      "field": "anthsoc",
+      "depth": "concept",
+      "level": 2,
+      "title": "Rites of passage",
+      "fact": "Ceremonies marking a change of status — birth, initiation, marriage, death — share a three-stage structure: separation, a 'liminal' in-between, and reincorporation.",
+      "tags": [
+        "sociocultural",
+        "ritual",
+        "van Gennep",
+        "liminality"
+      ],
+      "quiz": [
+        {
+          "q": "Van Gennep's three stages of a rite of passage are separation, reincorporation, and a middle phase called:",
+          "choices": [
+            "celebration",
+            "the liminal phase",
+            "the sacred phase",
+            "the taboo phase"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which anthropologist identified the universal three-stage structure of rites of passage (1909)?",
+          "type": "detail",
+          "answer": "van Gennep",
+          "accept": [
+            "van Gennep",
+            "Arnold van Gennep",
+            "Gennep"
+          ]
+        },
+        {
+          "q": "The 'liminal' phase is best described as a state of being:",
+          "choices": [
+            "fully adult",
+            "betwixt and between statuses",
+            "permanently sacred",
+            "outside society forever"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-anth-rites-of-passage"
+      ],
+      "detail": "Arnold van Gennep (1909) found the same pattern across cultures; Victor Turner developed the middle 'liminal' phase, where the initiate is betwixt and between, stripped of old status before gaining a new one. The idea illuminates everything from graduation to military boot camp.",
+      "year": 1909,
+      "prereq": [
+        "anthro-what-is"
+      ],
+      "xref": [
+        "anthro-religion-anthropology"
+      ],
+      "deploy": "A lens for reading initiations, ceremonies and transitions in any society, including our own.",
+      "counter": "Not every transition fits three neat stages; the model can be imposed too tidily on messy practices.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Separation",
+            "Liminal (in-between)",
+            "Reincorporation"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ]
+          ],
+          "caption": "The initiate leaves an old status, passes through an ambiguous middle, and returns transformed."
+        }
+      ]
+    },
+    {
+      "id": "anth-race-construct",
+      "field": "anthsoc",
+      "depth": "concept",
+      "level": 2,
+      "title": "Race as a social construct",
+      "fact": "Anthropology holds that human 'races' are not natural biological categories — there is more genetic variation within so-called races than between them.",
+      "tags": [
+        "sociocultural",
+        "race",
+        "biology",
+        "social construction"
+      ],
+      "quiz": [
+        {
+          "q": "On the anthropological/genetic view, human races are:",
+          "choices": [
+            "distinct biological subspecies",
+            "a social construct, not natural biological categories",
+            "determined by continent",
+            "fixed and discrete"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Is there MORE genetic variation within or between conventional racial groups?",
+          "type": "detail",
+          "answer": "within",
+          "accept": [
+            "within",
+            "within groups",
+            "within races"
+          ]
+        },
+        {
+          "q": "Saying race is 'socially constructed' means it is:",
+          "choices": [
+            "imaginary and without effect",
+            "real in its social consequences but not a biological division",
+            "purely genetic",
+            "a recent invention with no impact"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-anth-race-construct"
+      ],
+      "detail": "Skin colour and other visible traits vary continuously and don't cluster into discrete biological races; most human genetic diversity is found within any given population. 'Race' is real as a social category with real consequences, but it is a cultural and historical construction, not a biological division of humanity.",
+      "year": 1950,
+      "prereq": [
+        "anthro-cultural-relativism"
+      ],
+      "xref": [
+        "bio-mutation"
+      ],
+      "deploy": "A crucial, evidence-based correction to folk ideas about race.",
+      "counter": "Population genetics does show clustering by ancestry — the claim is that these don't map onto folk 'races', not that ancestry is meaningless."
+    },
+    {
+      "id": "arch-material-culture",
+      "field": "antharch",
+      "depth": "concept",
+      "level": 1,
+      "title": "Archaeology and material culture",
+      "fact": "Archaeology reconstructs past human life from the things people left behind — tools, pottery, buildings, rubbish — since most of the human story predates writing.",
+      "tags": [
+        "archaeology",
+        "material culture",
+        "context",
+        "method"
+      ],
+      "quiz": [
+        {
+          "q": "Archaeology studies the human past primarily through:",
+          "choices": [
+            "written documents",
+            "material remains (objects, structures, refuse)",
+            "oral legends",
+            "DNA only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What Latin phrase describes an object found in its original undisturbed position?",
+          "type": "detail",
+          "answer": "in situ",
+          "accept": [
+            "in situ",
+            "insitu"
+          ]
+        },
+        {
+          "q": "Looting is so damaging to archaeology because it destroys an object's:",
+          "choices": [
+            "monetary value",
+            "context",
+            "age",
+            "material"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-arch-material-culture"
+      ],
+      "detail": "Over 95% of human existence left no written record, so material culture is our main evidence. Archaeologists read context obsessively: where an object sat, with what, in which layer. A potsherd in situ tells more than a beautiful artefact ripped from its setting — which is why looting destroys knowledge, not just property.",
+      "year": 1900,
+      "xref": [
+        "arch-stratigraphy",
+        "hist-sources"
+      ],
+      "deploy": "Explains how we know about the 95%+ of human history before writing.",
+      "counter": "Material culture is a biased sample — durable goods survive, perishable ones (textiles, wood, ideas) mostly vanish."
+    },
+    {
+      "id": "arch-stratigraphy",
+      "field": "antharch",
+      "depth": "concept",
+      "level": 2,
+      "title": "Stratigraphy",
+      "fact": "In undisturbed ground, deeper layers are older — so the vertical sequence of soil strata is a timeline of a site.",
+      "tags": [
+        "archaeology",
+        "stratigraphy",
+        "dating",
+        "superposition"
+      ],
+      "quiz": [
+        {
+          "q": "In undisturbed stratigraphy, layers that are deeper are generally:",
+          "choices": [
+            "younger",
+            "older",
+            "the same age",
+            "undatable"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What geological law — deeper is older — underpins stratigraphy?",
+          "type": "detail",
+          "answer": "superposition",
+          "accept": [
+            "superposition",
+            "law of superposition"
+          ]
+        },
+        {
+          "q": "Stratigraphy gives a RELATIVE sequence; absolute dates often come from:",
+          "choices": [
+            "guesswork",
+            "radiocarbon dating",
+            "the objects' beauty",
+            "depth alone"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-arch-stratigraphy"
+      ],
+      "detail": "Borrowed from geology (the law of superposition), stratigraphy lets archaeologists order finds in time by the layer they come from. Combined with absolute methods like radiocarbon dating, it turns a jumble of objects into a dated sequence of occupation, destruction and rebuilding.",
+      "year": 1900,
+      "prereq": [
+        "arch-material-culture"
+      ],
+      "xref": [
+        "hist-radiocarbon"
+      ],
+      "deploy": "The backbone of archaeological dating and site interpretation.",
+      "counter": "Real sites are disturbed — by burrowing, ploughing, rebuilding — so reading the layers is rarely simple.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Top layer: recent"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Middle: older"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Bottom: oldest",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Superposition: barring disturbance, the deeper the layer, the older the material."
+        }
+      ]
+    },
+    {
+      "id": "arch-neolithic",
+      "field": "antharch",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Neolithic Revolution",
+      "fact": "Around 12,000 years ago humans began farming instead of foraging — a shift that produced surplus food, permanent settlements, and eventually cities and states.",
+      "tags": [
+        "archaeology",
+        "Neolithic",
+        "agriculture",
+        "civilisation"
+      ],
+      "quiz": [
+        {
+          "q": "The Neolithic Revolution was the shift from foraging to:",
+          "choices": [
+            "hunting only",
+            "farming (agriculture)",
+            "industry",
+            "trade"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "The taming of wild plants and animals for human use is called:",
+          "type": "detail",
+          "answer": "domestication",
+          "accept": [
+            "domestication",
+            "domesticating"
+          ]
+        },
+        {
+          "q": "Roughly how many thousand years ago did farming begin?",
+          "type": "num",
+          "answer": 12,
+          "tol": 2
+        }
+      ],
+      "src": [
+        "ev-arch-neolithic"
+      ],
+      "detail": "The domestication of plants and animals, arising independently in several regions, let populations settle and grow. Surplus allowed specialists, hierarchy, writing and states — but also worse diet, disease and inequality than many foragers enjoyed. It is arguably the most consequential transition in human history.",
+      "year": -10000,
+      "prereq": [
+        "arch-material-culture"
+      ],
+      "xref": [
+        "anthro-hunter-gatherer",
+        "hist-hammurabi"
+      ],
+      "deploy": "The origin of settled life, cities, states and most of recorded history.",
+      "counter": "Early farmers were often shorter, sicker and worked harder than foragers — 'progress' came at a cost.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Foraging"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Farming & domestication"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Surplus & settlement"
+            },
+            {
+              "row": 0,
+              "col": 3,
+              "label": "Cities & states",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "caption": "Farming enabled surplus, which enabled specialists, hierarchy and the state."
+        }
+      ]
+    },
+    {
+      "id": "arch-three-age",
+      "field": "antharch",
+      "depth": "concept",
+      "level": 2,
+      "title": "The three-age system",
+      "fact": "Archaeology's first big framework divided prehistory by tool material: the Stone Age, then the Bronze Age, then the Iron Age.",
+      "tags": [
+        "archaeology",
+        "three-age system",
+        "prehistory",
+        "Thomsen"
+      ],
+      "quiz": [
+        {
+          "q": "The three-age system orders prehistory by the dominant material used for:",
+          "choices": [
+            "clothing",
+            "tools and weapons",
+            "pottery",
+            "art"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which museum curator devised the three-age system in 1836?",
+          "type": "detail",
+          "answer": "Thomsen",
+          "accept": [
+            "Thomsen",
+            "Christian Thomsen",
+            "Christian Jürgensen Thomsen"
+          ]
+        },
+        {
+          "q": "The correct chronological order of the three ages is:",
+          "choices": [
+            "Bronze, Stone, Iron",
+            "Stone, Bronze, Iron",
+            "Iron, Bronze, Stone",
+            "Stone, Iron, Bronze"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-arch-three-age"
+      ],
+      "detail": "Christian Jürgensen Thomsen devised it (1836) to organise a Danish museum's collection — the first use of technology to date the past. Crude and uneven across regions, it nonetheless established that prehistory has a sequence, and that material technology is a marker of change.",
+      "year": 1836,
+      "prereq": [
+        "arch-material-culture"
+      ],
+      "xref": [
+        "arch-stratigraphy"
+      ],
+      "deploy": "The first scientific periodisation of prehistory — technology as a clock.",
+      "counter": "The ages overlap and arrive at wildly different times in different regions, so the scheme is a rough guide.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Stone Age"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Bronze Age"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Iron Age",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A technology-based sequence — useful but uneven across the world."
+        }
+      ]
+    },
+    {
+      "id": "bioanth-human-evolution",
+      "field": "anthbio",
+      "depth": "concept",
+      "level": 2,
+      "title": "Human evolution",
+      "fact": "Humans evolved in Africa over ~7 million years, through a bushy series of hominin species — not a straight march from ape to man.",
+      "tags": [
+        "biological anthropology",
+        "human evolution",
+        "hominins",
+        "Africa"
+      ],
+      "quiz": [
+        {
+          "q": "Human evolution is best pictured as:",
+          "choices": [
+            "a straight ladder from ape to man",
+            "a branching bush with many coexisting species",
+            "a single unchanging line",
+            "unrelated to other primates"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What nickname is given to the famous Australopithecus fossil found in 1974?",
+          "type": "detail",
+          "answer": "Lucy",
+          "accept": [
+            "Lucy"
+          ]
+        },
+        {
+          "q": "Homo sapiens first appeared roughly how long ago?",
+          "choices": [
+            "10,000 years",
+            "300,000 years",
+            "5 million years",
+            "50 years"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bioanth-human-evolution"
+      ],
+      "detail": "The lineage runs (roughly) from early bipeds like Australopithecus (e.g. 'Lucy'), through Homo habilis and the wide-ranging Homo erectus, to Homo sapiens ~300,000 years ago. It was a branching bush, not a ladder: several hominin species often coexisted, including Neanderthals, with whom our ancestors interbred.",
+      "year": 1974,
+      "xref": [
+        "bioanth-out-of-africa",
+        "bio-natural-selection",
+        "anth-race-construct"
+      ],
+      "deploy": "The scientific account of where we come from — and a rebuttal to the 'ladder of progress' myth.",
+      "counter": "The family tree keeps changing as new fossils and ancient DNA rearrange the branches.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Australopithecus"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Homo erectus"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Homo sapiens",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A simplified line through a much bushier tree of coexisting hominin species."
+        }
+      ]
+    },
+    {
+      "id": "bioanth-out-of-africa",
+      "field": "anthbio",
+      "depth": "concept",
+      "level": 2,
+      "title": "Out of Africa",
+      "fact": "Modern humans arose in Africa and spread across the globe within roughly the last 60,000–100,000 years, replacing or absorbing earlier human groups.",
+      "tags": [
+        "biological anthropology",
+        "migration",
+        "Out of Africa",
+        "genetics"
+      ],
+      "quiz": [
+        {
+          "q": "The 'Out of Africa' model says modern humans originated in Africa and then:",
+          "choices": [
+            "stayed put",
+            "spread across the world relatively recently",
+            "evolved separately on each continent",
+            "went extinct"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which extinct human group, met in Eurasia, contributed DNA to most non-Africans?",
+          "type": "detail",
+          "answer": "Neanderthals",
+          "accept": [
+            "Neanderthals",
+            "Neanderthal"
+          ]
+        },
+        {
+          "q": "Human genetic diversity is greatest in:",
+          "choices": [
+            "Europe",
+            "Africa",
+            "Asia",
+            "the Americas"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bioanth-out-of-africa"
+      ],
+      "detail": "Genetic diversity is highest in Africa and thins with distance from it — the signature of a migration outward. Along the way our ancestors met and interbred with Neanderthals and Denisovans, so most non-Africans carry a small percentage of their DNA. We are one young, closely-related, recently-dispersed species.",
+      "year": 1987,
+      "prereq": [
+        "bioanth-human-evolution"
+      ],
+      "xref": [
+        "hist-silk-roads"
+      ],
+      "deploy": "Explains why all humans are so closely related and how we peopled the planet.",
+      "counter": "It is not simple replacement — interbreeding means some regional continuity, a debate not fully closed.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Origin in Africa"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Into Eurasia"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Worldwide",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A recent dispersal, with interbreeding along the way — hence Neanderthal DNA in non-Africans."
+        }
+      ]
+    },
+    {
+      "id": "bioanth-primatology",
+      "field": "anthbio",
+      "depth": "concept",
+      "level": 2,
+      "title": "Primatology",
+      "fact": "Studying our closest relatives — chimpanzees, bonobos, gorillas — reveals which human behaviours are ancient inheritances and which are uniquely ours.",
+      "tags": [
+        "biological anthropology",
+        "primatology",
+        "Goodall",
+        "behaviour"
+      ],
+      "quiz": [
+        {
+          "q": "Primatology helps anthropology by showing which human traits are:",
+          "choices": [
+            "entirely unique",
+            "shared inheritances from common primate ancestors",
+            "learned in school",
+            "recent inventions"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which primatologist's Gombe studies (from 1960) showed chimpanzees make tools?",
+          "type": "detail",
+          "answer": "Goodall",
+          "accept": [
+            "Goodall",
+            "Jane Goodall"
+          ]
+        },
+        {
+          "q": "Comparing aggressive chimps with peaceable bonobos warns against:",
+          "choices": [
+            "studying primates",
+            "reading a single fixed 'human nature' off our relatives",
+            "fieldwork",
+            "evolution"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bioanth-primatology"
+      ],
+      "detail": "Jane Goodall's Gombe research (from 1960) showed chimps make and use tools, wage group conflict, and have distinct personalities — collapsing supposed human–animal boundaries. Comparing chimp aggression with bonobo cooperation cautions against reading a single 'human nature' off our relatives.",
+      "year": 1960,
+      "prereq": [
+        "bioanth-human-evolution"
+      ],
+      "xref": [
+        "psych-development"
+      ],
+      "deploy": "Grounds debates about human nature in evidence from our closest kin.",
+      "counter": "Chimps and bonobos are equally distant from us; neither is a straightforward model of our ancestors."
+    },
+    {
+      "id": "ling-sapir-whorf",
+      "field": "anthling",
+      "depth": "concept",
+      "level": 3,
+      "title": "Linguistic relativity (Sapir–Whorf)",
+      "fact": "The language you speak may shape how you perceive and think — the 'linguistic relativity' hypothesis.",
+      "tags": [
+        "linguistic anthropology",
+        "Sapir-Whorf",
+        "relativity",
+        "cognition"
+      ],
+      "quiz": [
+        {
+          "q": "Linguistic relativity proposes that language:",
+          "choices": [
+            "has no effect on thought",
+            "shapes how speakers perceive and think",
+            "determines biology",
+            "is universal and identical"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name either scholar the linguistic-relativity hypothesis is named after.",
+          "type": "detail",
+          "answer": "Whorf",
+          "accept": [
+            "Whorf",
+            "Benjamin Whorf",
+            "Sapir",
+            "Edward Sapir"
+          ]
+        },
+        {
+          "q": "The evidence best supports which version?",
+          "choices": [
+            "strong (language fully determines thought)",
+            "weak (language influences thought)",
+            "that language is irrelevant",
+            "none"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-ling-sapir-whorf"
+      ],
+      "detail": "The strong version (language determines thought) is discredited, but a weaker version has support: speakers of languages with absolute directions ('north of your hand') keep better track of orientation; colour vocabulary subtly affects discrimination. Language is a tool that nudges, not a cage that dictates.",
+      "year": 1940,
+      "xref": [
+        "philo-wittgenstein-investigations",
+        "cog-chomsky"
+      ],
+      "deploy": "A careful, evidence-based answer to 'does language shape thought?'",
+      "counter": "Strong Whorfianism is false; separating language's effect from culture's is methodologically hard."
+    },
+    {
+      "id": "ling-language-diversity",
+      "field": "anthling",
+      "depth": "concept",
+      "level": 2,
+      "title": "Language diversity and endangerment",
+      "fact": "Humans speak roughly 7,000 languages, but about 40% are endangered — many will vanish this century, taking unique knowledge with them.",
+      "tags": [
+        "linguistic anthropology",
+        "language diversity",
+        "endangerment",
+        "culture"
+      ],
+      "quiz": [
+        {
+          "q": "Roughly how many languages are spoken in the world today?",
+          "choices": [
+            "about 700",
+            "about 7,000",
+            "about 70,000",
+            "about 700,000"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Roughly how many thousand languages are spoken worldwide (nearest thousand)?",
+          "type": "num",
+          "answer": 7,
+          "tol": 0.0
+        },
+        {
+          "q": "A dying language is a concern to anthropologists because it takes with it:",
+          "choices": [
+            "nothing important",
+            "unique cultural knowledge and classifications",
+            "only grammar",
+            "its alphabet"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-ling-language-diversity"
+      ],
+      "detail": "Languages encode a people's classifications of plants, kin, landscape and time; when the last speaker dies, that whole system can be lost. Just a handful of languages (Mandarin, Spanish, English…) dominate, and globalisation accelerates the shift. Documentation and revitalisation try to slow the loss.",
+      "year": 1992,
+      "xref": [
+        "ling-sapir-whorf",
+        "bioanth-out-of-africa"
+      ],
+      "deploy": "Frames language loss as a form of knowledge extinction, akin to biodiversity loss.",
+      "counter": "Language shift can also reflect speakers' own choices for opportunity, complicating simple 'loss' narratives."
+    },
+    {
+      "id": "ling-code-switching",
+      "field": "anthling",
+      "depth": "concept",
+      "level": 2,
+      "title": "Code-switching",
+      "fact": "People fluidly switch between languages, dialects or registers depending on context — signalling identity, belonging and power with every shift.",
+      "tags": [
+        "linguistic anthropology",
+        "code-switching",
+        "identity",
+        "register"
+      ],
+      "quiz": [
+        {
+          "q": "Code-switching is the practice of:",
+          "choices": [
+            "inventing new words",
+            "shifting between languages/registers by context",
+            "speaking only one language",
+            "writing in code"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Beyond communication, code-switching signals a speaker's ______.",
+          "type": "detail",
+          "answer": "identity",
+          "accept": [
+            "identity",
+            "social identity",
+            "belonging",
+            "status"
+          ]
+        },
+        {
+          "q": "Anthropologists see code-switching as:",
+          "choices": [
+            "a sign of poor language skill",
+            "a skilled social performance",
+            "random",
+            "meaningless"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-ling-code-switching"
+      ],
+      "detail": "A speaker may use one variety at home, another at work, mixing them mid-sentence to include or exclude, to claim status or solidarity. Far from sloppy, code-switching is a skilled social performance. Studying it shows language is not just information transfer but a constant marking of who we are to whom.",
+      "year": 1980,
+      "prereq": [
+        "ling-language-diversity"
+      ],
+      "xref": [
+        "soc-sit"
+      ],
+      "deploy": "Reveals how everyday speech constantly negotiates identity and power.",
+      "counter": "The term stretches from formal bilingual switching to loose 'style-shifting', which some argue are different phenomena."
+    },
+    {
+      "id": "medanth-illness-disease",
+      "field": "anthmed",
+      "depth": "concept",
+      "level": 2,
+      "title": "Illness versus disease",
+      "fact": "Medical anthropology distinguishes 'disease' (the biological malfunction) from 'illness' (the patient's lived, culturally-shaped experience of it).",
+      "tags": [
+        "medical anthropology",
+        "illness",
+        "disease",
+        "Kleinman"
+      ],
+      "quiz": [
+        {
+          "q": "In medical anthropology, 'illness' refers to:",
+          "choices": [
+            "the biological malfunction",
+            "the patient's lived, culturally-shaped experience",
+            "the diagnosis code",
+            "the cure"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which medical anthropologist introduced 'explanatory models' of sickness?",
+          "type": "detail",
+          "answer": "Kleinman",
+          "accept": [
+            "Kleinman",
+            "Arthur Kleinman"
+          ]
+        },
+        {
+          "q": "The illness/disease distinction implies good care must attend to the patient's:",
+          "choices": [
+            "insurance",
+            "experience and meaning, not just biology",
+            "age only",
+            "location"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-medanth-illness-disease"
+      ],
+      "detail": "Arthur Kleinman argued that patients and doctors hold different 'explanatory models' of what is wrong and why. The same disease is experienced, named and treated differently across cultures; ignoring the illness experience produces worse care. This split reshaped how medicine thinks about the patient.",
+      "year": 1980,
+      "xref": [
+        "clin-biopsychosocial",
+        "anthro-cultural-relativism"
+      ],
+      "deploy": "Reframes medicine to include the patient's experience — the root of patient-centred care.",
+      "counter": "Over-emphasising cultural meaning risks neglecting the real, universal biology of disease."
+    },
+    {
+      "id": "medanth-structural-violence",
+      "field": "anthmed",
+      "depth": "concept",
+      "level": 3,
+      "title": "Structural violence",
+      "fact": "Much suffering and early death is not bad luck but the result of unjust social structures — poverty, racism, inequality — that harm people invisibly.",
+      "tags": [
+        "medical anthropology",
+        "structural violence",
+        "Farmer",
+        "inequality"
+      ],
+      "quiz": [
+        {
+          "q": "'Structural violence' refers to harm caused by:",
+          "choices": [
+            "direct physical assault",
+            "unjust social and economic structures",
+            "natural disasters",
+            "personal choices"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which physician-anthropologist popularised 'structural violence' in global health?",
+          "type": "detail",
+          "answer": "Farmer",
+          "accept": [
+            "Farmer",
+            "Paul Farmer"
+          ]
+        },
+        {
+          "q": "The concept shifts responsibility for ill health from individuals toward:",
+          "choices": [
+            "genetics",
+            "social and economic systems",
+            "bad luck",
+            "climate"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-medanth-structural-violence"
+      ],
+      "detail": "Paul Farmer used 'structural violence' to explain why the poor get sick and die more: not culture or choice, but political and economic arrangements that deny them care, food and safety. It shifts blame from individuals to systems, and grounds a moral case for global health equity.",
+      "year": 1996,
+      "prereq": [
+        "medanth-illness-disease"
+      ],
+      "xref": [
+        "pol-marx-alienation",
+        "hist-social-question"
+      ],
+      "deploy": "A powerful framework linking health inequality to social justice.",
+      "counter": "Critics warn the term can be so broad that everything becomes 'violence', blunting its analytic edge."
+    },
+    {
+      "id": "applied-anthropology",
+      "field": "anthmed",
+      "depth": "concept",
+      "level": 2,
+      "title": "Applied anthropology",
+      "fact": "Applied anthropology puts ethnographic methods to work outside academia — in business, design, public health, development and policy.",
+      "tags": [
+        "applied anthropology",
+        "ethnography",
+        "practice",
+        "design"
+      ],
+      "quiz": [
+        {
+          "q": "Applied anthropology uses anthropological methods to:",
+          "choices": [
+            "only study ancient societies",
+            "solve practical problems in business, health and policy",
+            "avoid fieldwork",
+            "catalogue museums"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Corporate 'user research' is largely a form of applied ______.",
+          "type": "detail",
+          "answer": "ethnography",
+          "accept": [
+            "ethnography",
+            "anthropology",
+            "fieldwork"
+          ]
+        },
+        {
+          "q": "A recurring tension in applied anthropology is between the client's goals and the discipline's:",
+          "choices": [
+            "budget",
+            "ethics",
+            "location",
+            "language"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-applied-anthropology"
+      ],
+      "detail": "Rather than only describing cultures, applied anthropologists help design products people will actually use, tailor health campaigns to local beliefs, or evaluate why a development project failed. 'User research' in tech is largely applied ethnography. The catch: serving a client's goals can clash with the discipline's ethics.",
+      "year": 1980,
+      "prereq": [
+        "anthro-ethnography"
+      ],
+      "xref": [
+        "soc-elm"
+      ],
+      "deploy": "Shows anthropology's real-world payoff — from UX research to public-health design.",
+      "counter": "Working for clients raises hard questions about whose interests the research ultimately serves."
     }
   ],
   "motions": [
