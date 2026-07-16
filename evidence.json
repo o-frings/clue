@@ -7173,6 +7173,267 @@
       "url": "https://en.wikipedia.org/wiki/Microhistory",
       "kind": "reference",
       "strength": "Primary source plus reference; established method."
+    },
+    "ev-phys-newton": {
+      "who": "Newton, I.",
+      "year": 1687,
+      "title": "Philosophiæ Naturalis Principia Mathematica",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion",
+      "kind": "reference",
+      "strength": "Foundational, exhaustively verified physics."
+    },
+    "ev-phys-energy": {
+      "who": "Wikipedia",
+      "year": 1847,
+      "title": "Conservation of energy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Conservation_of_energy",
+      "kind": "reference",
+      "strength": "Foundational conservation law; experimentally exact."
+    },
+    "ev-phys-momentum": {
+      "who": "Wikipedia",
+      "year": 1687,
+      "title": "Momentum",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Momentum",
+      "kind": "reference",
+      "strength": "Foundational conservation law."
+    },
+    "ev-phys-gravitation": {
+      "who": "Newton, I.",
+      "year": 1687,
+      "title": "Law of universal gravitation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation",
+      "kind": "reference",
+      "strength": "Foundational; superseded only in extreme regimes."
+    },
+    "ev-phys-coulomb": {
+      "who": "Coulomb, C.",
+      "year": 1785,
+      "title": "Coulomb's law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Coulomb%27s_law",
+      "kind": "reference",
+      "strength": "Foundational electrostatics; experimentally exact."
+    },
+    "ev-phys-maxwell": {
+      "who": "Maxwell, J.C.",
+      "year": 1865,
+      "title": "A Dynamical Theory of the Electromagnetic Field",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Maxwell%27s_equations",
+      "kind": "reference",
+      "strength": "Foundational; among the most tested theories in science."
+    },
+    "ev-phys-faraday": {
+      "who": "Faraday, M.",
+      "year": 1831,
+      "title": "Faraday's law of induction",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Faraday%27s_law_of_induction",
+      "kind": "reference",
+      "strength": "Foundational; basis of electrical engineering."
+    },
+    "ev-phys-thermo-laws": {
+      "who": "Wikipedia",
+      "year": 1850,
+      "title": "Laws of thermodynamics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Laws_of_thermodynamics",
+      "kind": "reference",
+      "strength": "Foundational; among the most robust laws in physics."
+    },
+    "ev-phys-ideal-gas": {
+      "who": "Wikipedia",
+      "year": 1834,
+      "title": "Ideal gas law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Ideal_gas_law",
+      "kind": "reference",
+      "strength": "Foundational; accurate for dilute gases."
+    },
+    "ev-phys-boltzmann": {
+      "who": "Boltzmann, L.",
+      "year": 1877,
+      "title": "Boltzmann's entropy formula",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Boltzmann%27s_entropy_formula",
+      "kind": "reference",
+      "strength": "Foundational statistical mechanics."
+    },
+    "ev-phys-shm": {
+      "who": "Wikipedia",
+      "year": 1600,
+      "title": "Simple harmonic motion",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Simple_harmonic_motion",
+      "kind": "reference",
+      "strength": "Foundational; exactly solvable model."
+    },
+    "ev-phys-interference": {
+      "who": "Young, T.",
+      "year": 1801,
+      "title": "Double-slit experiment",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Double-slit_experiment",
+      "kind": "reference",
+      "strength": "Foundational wave optics; endlessly reproduced."
+    },
+    "ev-phys-snell": {
+      "who": "Wikipedia",
+      "year": 1621,
+      "title": "Snell's law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Snell%27s_law",
+      "kind": "reference",
+      "strength": "Foundational optics; experimentally exact."
+    },
+    "ev-phys-emc2": {
+      "who": "Einstein, A.",
+      "year": 1905,
+      "title": "Mass–energy equivalence",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mass%E2%80%93energy_equivalence",
+      "kind": "reference",
+      "strength": "Foundational; confirmed to high precision."
+    },
+    "ev-phys-general-rel": {
+      "who": "Einstein, A.",
+      "year": 1915,
+      "title": "General relativity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/General_relativity",
+      "kind": "reference",
+      "strength": "Foundational; passed every experimental test to date."
+    },
+    "ev-phys-de-broglie": {
+      "who": "de Broglie, L.",
+      "year": 1924,
+      "title": "Matter wave",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Matter_wave",
+      "kind": "reference",
+      "strength": "Foundational quantum mechanics; confirmed by electron diffraction."
+    },
+    "ev-phys-schrodinger": {
+      "who": "Schrödinger, E.",
+      "year": 1926,
+      "title": "Schrödinger equation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation",
+      "kind": "reference",
+      "strength": "Foundational; verified across chemistry and physics."
+    },
+    "ev-phys-tunneling": {
+      "who": "Wikipedia",
+      "year": 1928,
+      "title": "Quantum tunnelling",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quantum_tunnelling",
+      "kind": "reference",
+      "strength": "Foundational; directly exploited in technology."
+    },
+    "ev-phys-standard-model": {
+      "who": "Wikipedia",
+      "year": 1975,
+      "title": "Standard Model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Standard_Model",
+      "kind": "reference",
+      "strength": "Foundational; the most precisely tested theory in physics."
+    },
+    "ev-phys-quarks": {
+      "who": "Gell-Mann, M.",
+      "year": 1964,
+      "title": "Quark",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Quark",
+      "kind": "reference",
+      "strength": "Foundational; confinement confirmed experimentally."
+    },
+    "ev-phys-radioactivity": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Radioactive decay",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Radioactive_decay",
+      "kind": "reference",
+      "strength": "Foundational; exponential law experimentally exact for large samples."
+    },
+    "ev-phys-fission-fusion": {
+      "who": "Wikipedia",
+      "year": 1938,
+      "title": "Nuclear binding energy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Nuclear_binding_energy",
+      "kind": "reference",
+      "strength": "Foundational nuclear physics."
+    },
+    "ev-phys-phases": {
+      "who": "Wikipedia",
+      "year": 1873,
+      "title": "State of matter",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/State_of_matter",
+      "kind": "reference",
+      "strength": "Foundational; phase behaviour well established."
+    },
+    "ev-phys-superconductivity": {
+      "who": "Onnes, H.K.",
+      "year": 1911,
+      "title": "Superconductivity",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Superconductivity",
+      "kind": "reference",
+      "strength": "Foundational; conventional case explained by BCS theory."
+    },
+    "ev-phys-semiconductors": {
+      "who": "Wikipedia",
+      "year": 1947,
+      "title": "Semiconductor",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Semiconductor",
+      "kind": "reference",
+      "strength": "Foundational; basis of modern electronics."
+    },
+    "ev-phys-big-bang": {
+      "who": "Lemaître, G.",
+      "year": 1927,
+      "title": "Big Bang",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Big_Bang",
+      "kind": "reference",
+      "strength": "Foundational cosmology; multiple independent lines of evidence."
+    },
+    "ev-phys-hubble": {
+      "who": "Hubble, E.",
+      "year": 1929,
+      "title": "Hubble's law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hubble%27s_law",
+      "kind": "reference",
+      "strength": "Foundational; the Hubble tension is a noted open issue."
+    },
+    "ev-phys-stellar-life": {
+      "who": "Wikipedia",
+      "year": 1939,
+      "title": "Stellar evolution",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Stellar_evolution",
+      "kind": "reference",
+      "strength": "Foundational astrophysics; well-supported by observation."
+    },
+    "ev-phys-black-holes": {
+      "who": "Wikipedia",
+      "year": 1916,
+      "title": "Black hole",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Black_hole",
+      "kind": "reference",
+      "strength": "Foundational; now directly observed (LIGO 2015, EHT 2019)."
     }
   }
 }

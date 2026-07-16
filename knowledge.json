@@ -125,11 +125,67 @@
       "color": "#1864ab"
     },
     {
-      "id": "physics",
-      "label": "Physics",
-      "blurb": "Energy, relativity, the quantum, the cosmos.",
-      "icon": "⚛",
+      "id": "phys-mech",
+      "label": "Classical mechanics",
+      "blurb": "Force, motion, energy, gravity.",
+      "icon": "🎯",
+      "color": "#4dabf7"
+    },
+    {
+      "id": "phys-em",
+      "label": "Electromagnetism",
+      "blurb": "Charges, fields, and light.",
+      "icon": "🧲",
+      "color": "#4263eb"
+    },
+    {
+      "id": "phys-thermo",
+      "label": "Thermodynamics",
+      "blurb": "Heat, entropy, and statistical mechanics.",
+      "icon": "🔥",
+      "color": "#e8590c"
+    },
+    {
+      "id": "phys-waves",
+      "label": "Waves & optics",
+      "blurb": "Oscillations, interference, and light.",
+      "icon": "🌊",
+      "color": "#22b8cf"
+    },
+    {
+      "id": "phys-rel",
+      "label": "Relativity",
+      "blurb": "Space, time, mass, and gravity.",
+      "icon": "⏱️",
       "color": "#7048e8"
+    },
+    {
+      "id": "phys-quantum",
+      "label": "Quantum mechanics",
+      "blurb": "The strange rules of the very small.",
+      "icon": "⚛️",
+      "color": "#9c36b5"
+    },
+    {
+      "id": "phys-particle",
+      "label": "Particle & nuclear physics",
+      "blurb": "The fundamental constituents of matter.",
+      "icon": "🔬",
+      "color": "#f76707"
+    },
+    {
+      "id": "phys-condensed",
+      "label": "Condensed matter",
+      "blurb": "Solids, phases, and emergent order.",
+      "icon": "💎",
+      "color": "#1098ad"
+    },
+    {
+      "id": "phys-astro",
+      "label": "Astrophysics & cosmology",
+      "blurb": "Stars, galaxies, and the whole universe.",
+      "icon": "🌌",
+      "color": "#5c7cfa"
     },
     {
       "id": "histanc",
@@ -5815,7 +5871,7 @@
     },
     {
       "id": "phys-entropy",
-      "field": "physics",
+      "field": "phys-thermo",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -5868,7 +5924,7 @@
     },
     {
       "id": "phys-light-speed",
-      "field": "physics",
+      "field": "phys-rel",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -5921,7 +5977,7 @@
     },
     {
       "id": "phys-uncertainty",
-      "field": "physics",
+      "field": "phys-quantum",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -5979,7 +6035,7 @@
     },
     {
       "id": "phys-cmb",
-      "field": "physics",
+      "field": "phys-astro",
       "depth": "event",
       "level": 1,
       "xref": [
@@ -6031,7 +6087,7 @@
     },
     {
       "id": "phys-time-dilation",
-      "field": "physics",
+      "field": "phys-rel",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6092,7 +6148,7 @@
     },
     {
       "id": "phys-heat-death",
-      "field": "physics",
+      "field": "phys-thermo",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6153,7 +6209,7 @@
     },
     {
       "id": "phys-entanglement",
-      "field": "physics",
+      "field": "phys-quantum",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6219,7 +6275,7 @@
     },
     {
       "id": "phys-dark-energy",
-      "field": "physics",
+      "field": "phys-astro",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -58173,6 +58229,1912 @@
       ],
       "deploy": "Shows how a single deep case can overturn assumptions a broad survey would miss.",
       "counter": "Critics ask how far one exceptional case can be generalised to a whole society."
+    },
+    {
+      "id": "phys-newton",
+      "field": "phys-mech",
+      "depth": "concept",
+      "level": 1,
+      "title": "Newton's laws of motion",
+      "fact": "Newton's three laws: objects keep their motion unless a force acts (inertia); force equals mass times acceleration, \\(F = ma\\); and every action has an equal and opposite reaction.",
+      "tags": [
+        "mechanics",
+        "Newton",
+        "force",
+        "motion"
+      ],
+      "quiz": [
+        {
+          "q": "Newton's second law states that force equals:",
+          "choices": [
+            "mass times velocity",
+            "mass times acceleration",
+            "energy over time",
+            "momentum squared"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Write the equation for Newton's second law (force in terms of mass and acceleration).",
+          "type": "detail",
+          "answer": "F=ma",
+          "accept": [
+            "F=ma",
+            "F = ma",
+            "ma",
+            "f=ma"
+          ]
+        },
+        {
+          "q": "Newton's first law is essentially the principle of:",
+          "choices": [
+            "gravity",
+            "inertia",
+            "entropy",
+            "relativity"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-newton"
+      ],
+      "detail": "The second law, \\(F = ma\\), is the workhorse: a net force changes an object's momentum in proportion to the force and inversely to its mass. Together the three laws (1687) let you predict the motion of anything from a thrown ball to a planet, given the forces acting on it.",
+      "year": 1687,
+      "xref": [
+        "phys-momentum",
+        "phys-gravitation"
+      ],
+      "deploy": "The foundation of all classical mechanics — still how we design bridges, cars and rockets.",
+      "counter": "They break down at very high speeds (relativity) and very small scales (quantum mechanics)."
+    },
+    {
+      "id": "phys-energy",
+      "field": "phys-mech",
+      "depth": "concept",
+      "level": 1,
+      "title": "Conservation of energy",
+      "fact": "Energy is never created or destroyed, only converted between forms — kinetic \\(E_k=\\tfrac12 m v^2\\), potential, heat, and so on.",
+      "tags": [
+        "mechanics",
+        "energy",
+        "conservation"
+      ],
+      "quiz": [
+        {
+          "q": "Conservation of energy says energy can be:",
+          "choices": [
+            "created from nothing",
+            "converted between forms but not created or destroyed",
+            "destroyed by friction",
+            "only stored, never used"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Write the formula for kinetic energy in terms of mass m and speed v.",
+          "type": "detail",
+          "answer": "1/2 m v^2",
+          "accept": [
+            "1/2 m v^2",
+            "0.5mv^2",
+            "½mv²",
+            "1/2mv2",
+            "mv^2/2",
+            "(1/2)mv^2"
+          ]
+        },
+        {
+          "q": "As a ball falls, its gravitational potential energy converts mainly into:",
+          "choices": [
+            "mass",
+            "kinetic energy",
+            "charge",
+            "entropy only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-energy"
+      ],
+      "detail": "A falling ball trades gravitational potential energy \\(E_p=mgh\\) for kinetic energy \\(E_k=\\tfrac12 m v^2\\); the total stays constant (ignoring friction, which converts some to heat). This bookkeeping principle is one of the most powerful in all of physics, constraining every process that can possibly happen.",
+      "year": 1847,
+      "prereq": [
+        "phys-newton"
+      ],
+      "xref": [
+        "phys-thermo-laws",
+        "phys-momentum"
+      ],
+      "deploy": "The single most useful shortcut in physics — solve problems without tracking every force.",
+      "counter": "Energy is conserved only in a closed system; open systems exchange energy with their surroundings."
+    },
+    {
+      "id": "phys-momentum",
+      "field": "phys-mech",
+      "depth": "concept",
+      "level": 2,
+      "title": "Conservation of momentum",
+      "fact": "The total momentum \\(p = mv\\) of an isolated system stays constant — which is why a rocket moves forward by throwing mass backward.",
+      "tags": [
+        "mechanics",
+        "momentum",
+        "conservation"
+      ],
+      "quiz": [
+        {
+          "q": "In an isolated system, the total momentum:",
+          "choices": [
+            "always increases",
+            "stays constant",
+            "decays to zero",
+            "depends on colour"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Write momentum p in terms of mass m and velocity v.",
+          "type": "detail",
+          "answer": "p=mv",
+          "accept": [
+            "p=mv",
+            "mv",
+            "p = mv"
+          ]
+        },
+        {
+          "q": "A rocket accelerates forward by:",
+          "choices": [
+            "pushing against air",
+            "ejecting mass backward (conserving momentum)",
+            "losing energy",
+            "gaining charge"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-momentum"
+      ],
+      "detail": "In any collision or interaction without outside forces, momentum before equals momentum after. It follows directly from Newton's third law. Rockets, recoil, and billiard balls all obey it; combined with energy conservation, it solves most collision problems.",
+      "year": 1687,
+      "prereq": [
+        "phys-newton"
+      ],
+      "xref": [
+        "phys-energy"
+      ],
+      "deploy": "Explains propulsion, collisions and recoil — from rockets to car-crash safety.",
+      "counter": "At relativistic speeds momentum is \\(p=\\gamma mv\\), not simply \\(mv\\)."
+    },
+    {
+      "id": "phys-gravitation",
+      "field": "phys-mech",
+      "depth": "concept",
+      "level": 2,
+      "title": "Newton's law of universal gravitation",
+      "fact": "Every mass attracts every other with a force \\(F = G\\dfrac{m_1 m_2}{r^2}\\) — falling off with the square of the distance.",
+      "tags": [
+        "mechanics",
+        "gravity",
+        "Newton",
+        "inverse square"
+      ],
+      "quiz": [
+        {
+          "q": "In Newton's law of gravitation, the force between two masses falls off with distance as:",
+          "choices": [
+            "1/r",
+            "1/r²",
+            "1/r³",
+            "independent of r"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In \\(F=G m_1 m_2 / r^2\\), what does the symbol G represent?",
+          "type": "detail",
+          "answer": "gravitational constant",
+          "accept": [
+            "gravitational constant",
+            "the gravitational constant",
+            "Newton's constant",
+            "G"
+          ]
+        },
+        {
+          "q": "Newton's insight unified the falling apple with:",
+          "choices": [
+            "the tides only",
+            "the orbit of the Moon and planets",
+            "electricity",
+            "heat"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-gravitation"
+      ],
+      "detail": "The same force that drops an apple holds the Moon in orbit — Newton's great unification (1687). The inverse-square dependence means doubling the distance quarters the force. It predicted planetary motion for centuries until Einstein's general relativity refined it near very strong gravity.",
+      "year": 1687,
+      "prereq": [
+        "phys-newton"
+      ],
+      "xref": [
+        "phys-general-rel",
+        "phys-black-holes"
+      ],
+      "deploy": "Governs orbits, tides and spaceflight — the model that put humans on the Moon.",
+      "counter": "It is an approximation: general relativity is needed for strong fields (e.g. Mercury's orbit, GPS)."
+    },
+    {
+      "id": "phys-coulomb",
+      "field": "phys-em",
+      "depth": "concept",
+      "level": 2,
+      "title": "Coulomb's law",
+      "fact": "Two electric charges attract or repel with a force \\(F = k\\dfrac{q_1 q_2}{r^2}\\) — like gravity, an inverse-square law, but vastly stronger and able to push as well as pull.",
+      "tags": [
+        "electromagnetism",
+        "charge",
+        "Coulomb",
+        "force"
+      ],
+      "quiz": [
+        {
+          "q": "Coulomb's law describes the force between:",
+          "choices": [
+            "masses",
+            "electric charges",
+            "magnets only",
+            "light rays"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Do two charges of the SAME sign attract or repel?",
+          "type": "detail",
+          "answer": "repel",
+          "accept": [
+            "repel",
+            "repulsion",
+            "they repel"
+          ]
+        },
+        {
+          "q": "Compared with gravity, the electric force between two protons is:",
+          "choices": [
+            "far weaker",
+            "about equal",
+            "vastly stronger",
+            "exactly opposite"
+          ],
+          "answer": 2
+        }
+      ],
+      "src": [
+        "ev-phys-coulomb"
+      ],
+      "detail": "Opposite charges attract, like charges repel, with a force set by the product of the charges over the square of their separation. The electric force is roughly \\(10^{36}\\) times stronger than gravity between two protons — which is why chemistry and matter's rigidity are electric, not gravitational, phenomena.",
+      "year": 1785,
+      "xref": [
+        "phys-gravitation",
+        "phys-maxwell"
+      ],
+      "deploy": "The force behind chemistry, electronics and why solid matter doesn't collapse.",
+      "counter": "It holds for static charges; moving charges also create magnetic forces, unified by Maxwell."
+    },
+    {
+      "id": "phys-maxwell",
+      "field": "phys-em",
+      "depth": "concept",
+      "level": 3,
+      "title": "Maxwell's equations",
+      "fact": "Four equations unify electricity and magnetism and reveal that light itself is an electromagnetic wave travelling at speed \\(c\\).",
+      "tags": [
+        "electromagnetism",
+        "Maxwell",
+        "light",
+        "fields"
+      ],
+      "quiz": [
+        {
+          "q": "Maxwell's great discovery was that light is:",
+          "choices": [
+            "a stream of particles only",
+            "an electromagnetic wave",
+            "a form of sound",
+            "a type of heat"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which physicist formulated the equations unifying electricity and magnetism (1865)?",
+          "type": "detail",
+          "answer": "Maxwell",
+          "accept": [
+            "Maxwell",
+            "James Clerk Maxwell",
+            "Clerk Maxwell"
+          ]
+        },
+        {
+          "q": "A changing electric field, per Maxwell, produces a:",
+          "choices": [
+            "gravitational field",
+            "magnetic field",
+            "sound wave",
+            "temperature rise"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-maxwell"
+      ],
+      "detail": "James Clerk Maxwell (1865) showed that a changing electric field makes a magnetic field and vice versa, so the two fields can sustain each other as a self-propagating wave. Calculating its speed gave exactly the speed of light — proving light is electromagnetic radiation, and opening the door to radio, radar and wireless everything.",
+      "year": 1865,
+      "prereq": [
+        "phys-coulomb"
+      ],
+      "xref": [
+        "phys-light-speed",
+        "phys-shm"
+      ],
+      "deploy": "The foundation of all electrical technology and telecommunications.",
+      "counter": "Classical Maxwell theory needs quantum electrodynamics to describe light's particle (photon) behaviour."
+    },
+    {
+      "id": "phys-faraday",
+      "field": "phys-em",
+      "depth": "concept",
+      "level": 2,
+      "title": "Electromagnetic induction",
+      "fact": "A changing magnetic field induces a voltage in a nearby wire — the principle behind every generator and transformer.",
+      "tags": [
+        "electromagnetism",
+        "induction",
+        "Faraday",
+        "generator"
+      ],
+      "quiz": [
+        {
+          "q": "Electromagnetic induction produces a voltage from a:",
+          "choices": [
+            "steady magnetic field",
+            "changing magnetic field",
+            "static charge",
+            "constant current"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which scientist discovered electromagnetic induction in 1831?",
+          "type": "detail",
+          "answer": "Faraday",
+          "accept": [
+            "Faraday",
+            "Michael Faraday"
+          ]
+        },
+        {
+          "q": "Induction is the working principle of an electrical:",
+          "choices": [
+            "resistor",
+            "generator",
+            "battery",
+            "fuse"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-faraday"
+      ],
+      "detail": "Michael Faraday (1831) discovered that moving a magnet through a coil produces a current: it is the *change* in magnetic flux that drives it. Spin a coil in a magnetic field and you have a generator; almost all the world's electricity is made this way, converting mechanical motion into electric power.",
+      "year": 1831,
+      "prereq": [
+        "phys-coulomb"
+      ],
+      "xref": [
+        "phys-maxwell"
+      ],
+      "deploy": "How virtually all electricity is generated — from power stations to bike dynamos.",
+      "counter": "Induction alone doesn't create energy; it converts mechanical work into electrical energy."
+    },
+    {
+      "id": "phys-thermo-laws",
+      "field": "phys-thermo",
+      "depth": "concept",
+      "level": 2,
+      "title": "The laws of thermodynamics",
+      "fact": "Four laws govern heat and energy: energy is conserved (1st law), entropy never decreases in an isolated system (2nd law), and you cannot reach absolute zero (3rd law).",
+      "tags": [
+        "thermodynamics",
+        "entropy",
+        "energy",
+        "laws"
+      ],
+      "quiz": [
+        {
+          "q": "The second law of thermodynamics says that in an isolated system, entropy:",
+          "choices": [
+            "always decreases",
+            "tends to increase or stay the same",
+            "stays exactly constant",
+            "is undefined"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which law of thermodynamics is essentially the conservation of energy (including heat)?",
+          "type": "detail",
+          "answer": "first",
+          "accept": [
+            "first",
+            "first law",
+            "1st",
+            "the first law"
+          ]
+        },
+        {
+          "q": "The laws of thermodynamics forbid a:",
+          "choices": [
+            "heat engine",
+            "perpetual-motion machine",
+            "refrigerator",
+            "battery"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-thermo-laws"
+      ],
+      "detail": "The first law is energy conservation including heat: \\(\\Delta U = Q - W\\). The second law says disordered energy (entropy) tends to increase, setting the arrow of time and forbidding perpetual-motion machines. The third law makes absolute zero unreachable. Together they bound every engine, fridge and living cell.",
+      "year": 1850,
+      "xref": [
+        "phys-entropy",
+        "phys-energy",
+        "phys-boltzmann"
+      ],
+      "deploy": "The rules every engine, power plant and living organism must obey.",
+      "counter": "The second law is statistical: tiny local decreases in entropy are possible, just overwhelmingly unlikely."
+    },
+    {
+      "id": "phys-ideal-gas",
+      "field": "phys-thermo",
+      "depth": "concept",
+      "level": 2,
+      "title": "The ideal gas law",
+      "fact": "For a dilute gas, pressure, volume and temperature are tied together by \\(PV = nRT\\).",
+      "tags": [
+        "thermodynamics",
+        "gas",
+        "pressure",
+        "temperature"
+      ],
+      "quiz": [
+        {
+          "q": "In \\(PV = nRT\\), raising the temperature at fixed volume causes the pressure to:",
+          "choices": [
+            "fall",
+            "rise",
+            "stay constant",
+            "become zero"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Write the ideal gas law relating pressure P, volume V, amount n and temperature T.",
+          "type": "detail",
+          "answer": "PV=nRT",
+          "accept": [
+            "PV=nRT",
+            "pv=nrt",
+            "PV = nRT"
+          ]
+        },
+        {
+          "q": "The ideal gas law bridges bulk properties with the behaviour of:",
+          "choices": [
+            "light",
+            "moving molecules",
+            "electric charges",
+            "atomic nuclei"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-ideal-gas"
+      ],
+      "detail": "Squeeze a gas (lower \\(V\\)) and its pressure \\(P\\) rises; heat it (raise \\(T\\)) and it expands or pushes harder. The law combines Boyle's, Charles's and Avogadro's laws into one, with \\(n\\) the amount of gas and \\(R\\) the gas constant. It is the first quantitative link between the visible (pressure, temperature) and the microscopic (moving molecules).",
+      "year": 1834,
+      "prereq": [
+        "phys-thermo-laws"
+      ],
+      "xref": [
+        "phys-boltzmann"
+      ],
+      "deploy": "The starting point for engines, weather, chemistry and the behaviour of the atmosphere.",
+      "counter": "It fails for dense gases and near condensation, where molecular size and attractions matter (van der Waals)."
+    },
+    {
+      "id": "phys-boltzmann",
+      "field": "phys-thermo",
+      "depth": "concept",
+      "level": 3,
+      "title": "Entropy and Boltzmann's insight",
+      "fact": "Boltzmann linked the macroscopic entropy \\(S\\) to the number of microscopic arrangements \\(W\\): \\(S = k_B \\ln W\\).",
+      "tags": [
+        "thermodynamics",
+        "entropy",
+        "Boltzmann",
+        "statistical mechanics"
+      ],
+      "quiz": [
+        {
+          "q": "Boltzmann's \\(S = k_B \\ln W\\) interprets entropy as:",
+          "choices": [
+            "stored heat",
+            "the number of microscopic arrangements (a count of disorder)",
+            "temperature",
+            "pressure"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which physicist gave the statistical definition of entropy (S = k ln W)?",
+          "type": "detail",
+          "answer": "Boltzmann",
+          "accept": [
+            "Boltzmann",
+            "Ludwig Boltzmann"
+          ]
+        },
+        {
+          "q": "The statistical view explains the second law because systems drift toward states that are:",
+          "choices": [
+            "colder",
+            "most probable (most arrangements)",
+            "smaller",
+            "charged"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-boltzmann"
+      ],
+      "detail": "Entropy is a count of how many microscopic states look the same at the macroscopic level. A tidy room has few arrangements, a messy one vastly more — so disorder is simply the overwhelmingly more probable macrostate. This statistical view explains *why* the second law holds: systems drift toward the states there are most ways to be in.",
+      "year": 1877,
+      "prereq": [
+        "phys-thermo-laws"
+      ],
+      "xref": [
+        "phys-entropy"
+      ],
+      "deploy": "Bridges the microscopic and macroscopic — the foundation of statistical mechanics.",
+      "counter": "It assumes all microstates are equally likely; defining and counting them precisely can be subtle."
+    },
+    {
+      "id": "phys-shm",
+      "field": "phys-waves",
+      "depth": "concept",
+      "level": 1,
+      "title": "Simple harmonic motion",
+      "fact": "A mass on a spring or a swinging pendulum traces a smooth oscillation, \\(x(t)=A\\cos(\\omega t)\\), repeating every period — the template for all waves.",
+      "tags": [
+        "waves",
+        "oscillation",
+        "SHM",
+        "periodic"
+      ],
+      "quiz": [
+        {
+          "q": "Simple harmonic motion arises when the restoring force is:",
+          "choices": [
+            "constant",
+            "proportional to displacement",
+            "zero",
+            "random"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In \\(x(t)=A\\cos(\\omega t)\\), what does A represent?",
+          "type": "detail",
+          "answer": "amplitude",
+          "accept": [
+            "amplitude",
+            "the amplitude"
+          ]
+        },
+        {
+          "q": "The shape traced by simple harmonic motion over time is a:",
+          "choices": [
+            "straight line",
+            "sine/cosine curve",
+            "parabola",
+            "step"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-shm"
+      ],
+      "detail": "When the restoring force is proportional to displacement, motion is sinusoidal: the same shape as a sound wave, an AC current or a light wave. The angular frequency \\(\\omega\\) sets how fast it oscillates; the amplitude \\(A\\) sets how far. Understanding this single curve unlocks all of wave physics.",
+      "year": 1600,
+      "xref": [
+        "phys-maxwell",
+        "phys-interference"
+      ],
+      "deploy": "The mathematical seed of every wave — sound, light, AC electricity, quantum wavefunctions.",
+      "counter": "Real oscillators lose energy (damping) and, pushed hard, become nonlinear and can turn chaotic.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "sine",
+          "domain": [
+            0,
+            12.57
+          ],
+          "caption": "Displacement oscillating smoothly in time — one full cycle each period."
+        }
+      ]
+    },
+    {
+      "id": "phys-interference",
+      "field": "phys-waves",
+      "depth": "concept",
+      "level": 2,
+      "title": "Interference and superposition",
+      "fact": "When waves overlap they add: crest-on-crest reinforces (constructive), crest-on-trough cancels (destructive) — producing the fringes of the double-slit experiment.",
+      "tags": [
+        "waves",
+        "interference",
+        "superposition",
+        "optics"
+      ],
+      "quiz": [
+        {
+          "q": "When a wave crest meets another crest, the result is:",
+          "choices": [
+            "destructive cancellation",
+            "constructive reinforcement",
+            "no change",
+            "a new frequency"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Whose 1801 double-slit experiment demonstrated the wave nature of light?",
+          "type": "detail",
+          "answer": "Young",
+          "accept": [
+            "Young",
+            "Thomas Young"
+          ]
+        },
+        {
+          "q": "Noise-cancelling headphones exploit which effect?",
+          "choices": [
+            "refraction",
+            "destructive interference",
+            "reflection",
+            "diffraction only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-interference"
+      ],
+      "detail": "The superposition principle says overlapping waves simply sum. Young's double-slit experiment (1801) showed light passing through two slits makes bright-and-dark fringes — proof that light is a wave. The same physics gives noise-cancelling headphones and the iridescence of soap films.",
+      "year": 1801,
+      "prereq": [
+        "phys-shm"
+      ],
+      "xref": [
+        "phys-de-broglie",
+        "phys-maxwell"
+      ],
+      "deploy": "Explains the double-slit, holograms, noise cancellation and thin-film colours.",
+      "counter": "Interference of single particles (electrons, photons) forces the quantum interpretation of waves of probability."
+    },
+    {
+      "id": "phys-snell",
+      "field": "phys-waves",
+      "depth": "concept",
+      "level": 2,
+      "title": "Refraction and Snell's law",
+      "fact": "Light bends when it changes medium, by \\(n_1\\sin\\theta_1 = n_2\\sin\\theta_2\\) — the reason lenses focus and a straw looks broken in water.",
+      "tags": [
+        "waves",
+        "optics",
+        "refraction",
+        "Snell"
+      ],
+      "quiz": [
+        {
+          "q": "Light bends when it passes between media because its ______ changes.",
+          "choices": [
+            "colour",
+            "speed",
+            "charge",
+            "frequency"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Snell's law relates the angles via the two media's refractive ______.",
+          "type": "detail",
+          "answer": "indices",
+          "accept": [
+            "indices",
+            "index",
+            "indexes",
+            "refractive index",
+            "refractive indices"
+          ]
+        },
+        {
+          "q": "Total internal reflection, a consequence of refraction, enables:",
+          "choices": [
+            "radio",
+            "fibre-optic cables",
+            "magnets",
+            "batteries"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-snell"
+      ],
+      "detail": "Light slows in denser media (higher refractive index \\(n\\)), and the ray bends toward the normal. This single law explains lenses, prisms splitting white light into colours, rainbows, and why a pool looks shallower than it is. Total internal reflection from it makes fibre-optic communication possible.",
+      "year": 1621,
+      "prereq": [
+        "phys-shm"
+      ],
+      "xref": [
+        "phys-maxwell"
+      ],
+      "deploy": "The physics of every lens, camera, eye, prism and optical fibre.",
+      "counter": "Ray optics ignores diffraction; near apertures comparable to the wavelength, the wave picture is needed."
+    },
+    {
+      "id": "phys-emc2",
+      "field": "phys-rel",
+      "depth": "concept",
+      "level": 2,
+      "title": "Mass–energy equivalence",
+      "fact": "Einstein's \\(E = mc^2\\) says mass is a hugely concentrated form of energy — a tiny mass times the speed of light squared is an enormous energy.",
+      "tags": [
+        "relativity",
+        "Einstein",
+        "energy",
+        "mass"
+      ],
+      "quiz": [
+        {
+          "q": "\\(E = mc^2\\) implies that mass is:",
+          "choices": [
+            "unrelated to energy",
+            "a very concentrated form of energy",
+            "always destroyed",
+            "weightless"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In \\(E=mc^2\\), what does c stand for?",
+          "type": "detail",
+          "answer": "speed of light",
+          "accept": [
+            "speed of light",
+            "the speed of light",
+            "c",
+            "light speed"
+          ]
+        },
+        {
+          "q": "The Sun releases energy by converting a small amount of:",
+          "choices": [
+            "charge",
+            "mass into energy",
+            "volume",
+            "entropy"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-emc2"
+      ],
+      "detail": "Because \\(c^2\\) is vast (\\(\\approx 9\\times10^{16}\\,\\mathrm{m^2/s^2}\\)), even a gram of mass holds the energy of tens of kilotons of TNT. Converting a sliver of mass powers the Sun (fusion) and nuclear reactors (fission). It also means energy has mass: a hot object is very slightly heavier than a cold one.",
+      "year": 1905,
+      "prereq": [
+        "phys-light-speed"
+      ],
+      "xref": [
+        "phys-fission-fusion",
+        "phys-stellar-life"
+      ],
+      "deploy": "The principle behind nuclear power, the Sun's energy, and PET scans.",
+      "counter": "The famous form applies to objects at rest; the full relation includes momentum: \\(E^2=(mc^2)^2+(pc)^2\\)."
+    },
+    {
+      "id": "phys-general-rel",
+      "field": "phys-rel",
+      "depth": "concept",
+      "level": 3,
+      "title": "General relativity",
+      "fact": "Gravity is not a force but the curvature of spacetime: mass and energy bend spacetime, and objects follow the straightest available paths through it.",
+      "tags": [
+        "relativity",
+        "Einstein",
+        "spacetime",
+        "gravity"
+      ],
+      "quiz": [
+        {
+          "q": "In general relativity, gravity is understood as:",
+          "choices": [
+            "an invisible pulling force",
+            "the curvature of spacetime by mass and energy",
+            "a magnetic effect",
+            "a quantum particle exchange"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did Einstein publish the general theory of relativity?",
+          "type": "detail",
+          "answer": "1915",
+          "accept": [
+            "1915"
+          ]
+        },
+        {
+          "q": "A confirmed prediction of general relativity is:",
+          "choices": [
+            "cold fusion",
+            "light bending around the Sun",
+            "perpetual motion",
+            "the ideal gas law"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-general-rel"
+      ],
+      "detail": "Einstein (1915) replaced Newton's gravitational force with geometry — 'matter tells spacetime how to curve; spacetime tells matter how to move'. It predicts light bending around the Sun (confirmed 1919), the precession of Mercury's orbit, black holes, and gravitational waves (detected 2015). GPS satellites correct for it to stay accurate.",
+      "year": 1915,
+      "prereq": [
+        "phys-gravitation",
+        "phys-light-speed"
+      ],
+      "xref": [
+        "phys-black-holes",
+        "phys-big-bang"
+      ],
+      "deploy": "Governs GPS, black holes, gravitational waves and the large-scale universe.",
+      "counter": "It is incompatible with quantum mechanics at tiny scales — reconciling them is physics' great unsolved problem."
+    },
+    {
+      "id": "phys-de-broglie",
+      "field": "phys-quantum",
+      "depth": "concept",
+      "level": 2,
+      "title": "Wave–particle duality",
+      "fact": "Every particle also behaves as a wave, with wavelength \\(\\lambda = h/p\\) — and light, long thought a wave, comes in particle-like packets (photons).",
+      "tags": [
+        "quantum",
+        "duality",
+        "de Broglie",
+        "photon"
+      ],
+      "quiz": [
+        {
+          "q": "Wave–particle duality says that particles like electrons:",
+          "choices": [
+            "are only tiny balls",
+            "also exhibit wave behaviour",
+            "have no momentum",
+            "cannot be detected"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In de Broglie's relation \\(\\lambda = h/p\\), what is h?",
+          "type": "detail",
+          "answer": "Planck's constant",
+          "accept": [
+            "Planck's constant",
+            "Planck constant",
+            "h",
+            "Plancks constant"
+          ]
+        },
+        {
+          "q": "A particle of light (a packet of electromagnetic energy) is called a:",
+          "choices": [
+            "photon",
+            "proton",
+            "phonon",
+            "positron"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-de-broglie"
+      ],
+      "detail": "Louis de Broglie (1924) proposed that matter has a wavelength inversely proportional to its momentum; electrons duly produce interference fringes. Conversely, Einstein's photons explain the photoelectric effect. Quantum objects are neither classical waves nor classical particles but something that shows each face depending on how you look.",
+      "year": 1924,
+      "prereq": [
+        "phys-interference"
+      ],
+      "xref": [
+        "phys-schrodinger",
+        "phys-uncertainty"
+      ],
+      "deploy": "The conceptual core of quantum mechanics — and of electron microscopes.",
+      "counter": "'Wave' and 'particle' are classical crutches; the quantum state is more fundamental than either picture."
+    },
+    {
+      "id": "phys-schrodinger",
+      "field": "phys-quantum",
+      "depth": "concept",
+      "level": 3,
+      "title": "The Schrödinger equation",
+      "fact": "Quantum systems are described by a wavefunction \\(\\Psi\\) whose evolution is set by the Schrödinger equation; \\(|\\Psi|^2\\) gives the probability of finding the particle.",
+      "tags": [
+        "quantum",
+        "wavefunction",
+        "Schrödinger",
+        "probability"
+      ],
+      "quiz": [
+        {
+          "q": "In quantum mechanics, \\(|\\Psi|^2\\) gives the:",
+          "choices": [
+            "exact position",
+            "probability of finding the particle",
+            "energy",
+            "charge"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which physicist formulated the central wave equation of quantum mechanics (1926)?",
+          "type": "detail",
+          "answer": "Schrödinger",
+          "accept": [
+            "Schrodinger",
+            "Schrödinger",
+            "Erwin Schrödinger",
+            "Erwin Schrodinger"
+          ]
+        },
+        {
+          "q": "Before measurement, the wavefunction describes a particle as:",
+          "choices": [
+            "at one definite point",
+            "a spread of possibilities",
+            "stationary",
+            "classical"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-schrodinger"
+      ],
+      "detail": "Rather than a definite position, a quantum particle has a wavefunction spread over possibilities; the Schrödinger equation (1926) tells you how it changes in time. Born's rule says the square of its magnitude is a probability density. Measurement yields one outcome, drawn from that distribution — the root of quantum indeterminacy.",
+      "year": 1926,
+      "prereq": [
+        "phys-de-broglie"
+      ],
+      "xref": [
+        "phys-uncertainty",
+        "phys-entanglement"
+      ],
+      "deploy": "The master equation of chemistry and quantum technology — it predicts atomic structure.",
+      "counter": "What 'collapse' of the wavefunction on measurement means is the unresolved quantum measurement problem."
+    },
+    {
+      "id": "phys-tunneling",
+      "field": "phys-quantum",
+      "depth": "concept",
+      "level": 3,
+      "title": "Quantum tunnelling",
+      "fact": "A quantum particle can pass through an energy barrier it classically shouldn't be able to cross, because its wavefunction leaks to the other side.",
+      "tags": [
+        "quantum",
+        "tunnelling",
+        "barrier",
+        "wavefunction"
+      ],
+      "quiz": [
+        {
+          "q": "Quantum tunnelling lets a particle:",
+          "choices": [
+            "gain infinite energy",
+            "cross a barrier it classically couldn't",
+            "travel faster than light",
+            "lose its charge"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Tunnelling is possible because a particle's ______ leaks through the barrier.",
+          "type": "detail",
+          "answer": "wavefunction",
+          "accept": [
+            "wavefunction",
+            "wave function"
+          ]
+        },
+        {
+          "q": "Quantum tunnelling is essential to:",
+          "choices": [
+            "nuclear fusion in the Sun",
+            "chemical bonding only",
+            "gravity",
+            "sound"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-tunneling"
+      ],
+      "detail": "Since the wavefunction doesn't stop dead at a barrier but decays through it, there is a finite chance of finding the particle beyond. Tunnelling powers the Sun (protons fuse despite electrical repulsion), the scanning tunnelling microscope, and flash memory — and it sets a limit on how small transistors can shrink.",
+      "year": 1928,
+      "prereq": [
+        "phys-schrodinger"
+      ],
+      "xref": [
+        "phys-fission-fusion",
+        "phys-semiconductors"
+      ],
+      "deploy": "Behind fusion, flash memory, tunnel diodes and the limits of chip miniaturisation.",
+      "counter": "Tunnelling probability falls off exponentially with barrier width, so it matters only at tiny scales."
+    },
+    {
+      "id": "phys-standard-model",
+      "field": "phys-particle",
+      "depth": "concept",
+      "level": 3,
+      "title": "The Standard Model",
+      "fact": "All known matter is built from a small set of elementary particles — quarks and leptons — interacting via force-carrying bosons; the Higgs gives them mass.",
+      "tags": [
+        "particle physics",
+        "Standard Model",
+        "quarks",
+        "Higgs"
+      ],
+      "quiz": [
+        {
+          "q": "In the Standard Model, forces are transmitted by particles called:",
+          "choices": [
+            "quarks",
+            "bosons",
+            "leptons",
+            "hadrons"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which particle, confirmed in 2012, explains how others acquire mass?",
+          "type": "detail",
+          "answer": "Higgs boson",
+          "accept": [
+            "Higgs",
+            "Higgs boson",
+            "the Higgs"
+          ]
+        },
+        {
+          "q": "A notable omission from the Standard Model is:",
+          "choices": [
+            "electromagnetism",
+            "gravity",
+            "the electron",
+            "the photon"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-standard-model"
+      ],
+      "detail": "Matter comes in three generations of quarks (up/down…) and leptons (electron, neutrino…). Forces are carried by bosons: the photon (electromagnetism), gluons (strong), and W/Z (weak). The Higgs boson, confirmed in 2012, explains how particles acquire mass. It is the most precisely tested theory in science — yet omits gravity and dark matter.",
+      "year": 1975,
+      "xref": [
+        "phys-quarks",
+        "phys-maxwell"
+      ],
+      "deploy": "The reigning theory of matter and forces — the framework behind the LHC.",
+      "counter": "It cannot explain gravity, dark matter, dark energy or why there is more matter than antimatter.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "network",
+          "labels": [
+            "Quarks",
+            "Leptons",
+            "Force bosons",
+            "Higgs"
+          ],
+          "layers": [
+            2,
+            2,
+            3,
+            1
+          ],
+          "caption": "Matter particles (quarks, leptons), the force carriers, and the mass-giving Higgs."
+        }
+      ]
+    },
+    {
+      "id": "phys-quarks",
+      "field": "phys-particle",
+      "depth": "concept",
+      "level": 3,
+      "title": "Quarks and the strong force",
+      "fact": "Protons and neutrons are not fundamental — each is made of three quarks bound by the strong force, carried by gluons.",
+      "tags": [
+        "particle physics",
+        "quarks",
+        "strong force",
+        "confinement"
+      ],
+      "quiz": [
+        {
+          "q": "A proton is made of:",
+          "choices": [
+            "two quarks",
+            "three quarks",
+            "one quark",
+            "no quarks"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What force-carrying particle binds quarks together?",
+          "type": "detail",
+          "answer": "gluon",
+          "accept": [
+            "gluon",
+            "gluons"
+          ]
+        },
+        {
+          "q": "Quarks cannot be isolated because the strong force:",
+          "choices": [
+            "vanishes with distance",
+            "grows with distance (confinement)",
+            "is electric",
+            "is gravitational"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-quarks"
+      ],
+      "detail": "Quarks come in six 'flavours'; up and down quarks make protons (uud) and neutrons (udd). The strong force between them, unusually, grows with distance, so quarks are permanently 'confined' — you can never isolate a single one. This confinement is why we see protons and neutrons, never free quarks.",
+      "year": 1964,
+      "prereq": [
+        "phys-standard-model"
+      ],
+      "xref": [
+        "phys-fission-fusion"
+      ],
+      "deploy": "Explains what protons and neutrons really are — the substructure of all matter.",
+      "counter": "Confinement is well-established experimentally but proving it rigorously from the theory (QCD) is an open problem."
+    },
+    {
+      "id": "phys-radioactivity",
+      "field": "phys-particle",
+      "depth": "concept",
+      "level": 2,
+      "title": "Radioactive decay",
+      "fact": "Unstable nuclei decay at random, but a huge population thins predictably: \\(N(t) = N_0 e^{-\\lambda t}\\), halving every 'half-life'.",
+      "tags": [
+        "nuclear physics",
+        "radioactivity",
+        "decay",
+        "half-life"
+      ],
+      "quiz": [
+        {
+          "q": "Radioactive decay of a large sample over time follows a(n):",
+          "choices": [
+            "straight line",
+            "exponential decrease",
+            "increasing curve",
+            "random walk with no pattern"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What name is given to the time for half of a radioactive sample to decay?",
+          "type": "detail",
+          "answer": "half-life",
+          "accept": [
+            "half-life",
+            "half life",
+            "halflife"
+          ]
+        },
+        {
+          "q": "Whether a single given nucleus will decay in the next second is:",
+          "choices": [
+            "certain",
+            "predictable exactly",
+            "fundamentally random",
+            "impossible"
+          ],
+          "answer": 2
+        }
+      ],
+      "src": [
+        "ev-phys-radioactivity"
+      ],
+      "detail": "You cannot predict when a single nucleus decays, yet the fraction of a large sample remaining follows a clean exponential. The half-life is the time for half to decay — from fractions of a second to billions of years. This clock underlies carbon dating and the safe handling of nuclear waste.",
+      "year": 1900,
+      "xref": [
+        "phys-fission-fusion",
+        "hist-radiocarbon"
+      ],
+      "deploy": "The basis of radiometric dating, nuclear medicine and waste management.",
+      "counter": "The exponential law is statistical; for a few atoms, decay timing is genuinely unpredictable.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "exp",
+          "domain": [
+            0,
+            4
+          ],
+          "caption": "Fraction remaining vs time — a clean exponential, halving each half-life.",
+          "params": {
+            "k": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "phys-fission-fusion",
+      "field": "phys-particle",
+      "depth": "concept",
+      "level": 2,
+      "title": "Nuclear fission and fusion",
+      "fact": "Splitting heavy nuclei (fission) or joining light ones (fusion) releases energy because the products are slightly lighter — that lost mass becomes energy via \\(E=mc^2\\).",
+      "tags": [
+        "nuclear physics",
+        "fission",
+        "fusion",
+        "energy"
+      ],
+      "quiz": [
+        {
+          "q": "Both fission and fusion release energy because the products are:",
+          "choices": [
+            "heavier",
+            "slightly lighter (mass converts to energy)",
+            "charged",
+            "radioactive"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which process — fusion or fission — powers the Sun?",
+          "type": "detail",
+          "answer": "fusion",
+          "accept": [
+            "fusion",
+            "nuclear fusion"
+          ]
+        },
+        {
+          "q": "Uranium reactors and the first atomic bombs use nuclear:",
+          "choices": [
+            "fusion",
+            "fission",
+            "decay only",
+            "tunnelling"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-fission-fusion"
+      ],
+      "detail": "Fission of uranium powers reactors and the first atomic bombs; fusion of hydrogen into helium powers the Sun and hydrogen bombs, and is the goal of clean-energy reactors. Both liberate energy because iron sits at the peak of nuclear stability — moving toward it, from either side, releases binding energy.",
+      "year": 1938,
+      "prereq": [
+        "phys-emc2"
+      ],
+      "xref": [
+        "phys-stellar-life",
+        "phys-radioactivity"
+      ],
+      "deploy": "The physics of nuclear power, weapons, and the energy of the stars.",
+      "counter": "Controlled fusion power remains unachieved at net energy gain outside brief experiments.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Fission: split heavy"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Mass lost"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Energy via E=mc²",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Both fission and fusion move nuclei toward iron, releasing binding energy as the mass drops."
+        }
+      ]
+    },
+    {
+      "id": "phys-phases",
+      "field": "phys-condensed",
+      "depth": "concept",
+      "level": 1,
+      "title": "States of matter and phase transitions",
+      "fact": "Matter shifts between solid, liquid and gas (and plasma) as temperature and pressure change — abrupt reorganisations called phase transitions.",
+      "tags": [
+        "condensed matter",
+        "phases",
+        "states of matter",
+        "transition"
+      ],
+      "quiz": [
+        {
+          "q": "During melting, added heat energy mainly goes into:",
+          "choices": [
+            "raising the temperature",
+            "breaking the solid's ordered structure",
+            "creating charge",
+            "emitting light"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the term for the heat absorbed or released during a phase change without a temperature change?",
+          "type": "detail",
+          "answer": "latent heat",
+          "accept": [
+            "latent heat",
+            "latent"
+          ]
+        },
+        {
+          "q": "The fourth state of matter, an ionised gas, is:",
+          "choices": [
+            "plasma",
+            "crystal",
+            "glass",
+            "liquid crystal"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-phases"
+      ],
+      "detail": "Heating ice to water to steam adds energy that first breaks rigid order, then frees molecules entirely. At the transition, energy goes into rearranging structure rather than raising temperature (latent heat). Phase transitions — including exotic ones like magnetism switching on — are a central theme of condensed-matter physics.",
+      "year": 1873,
+      "xref": [
+        "phys-thermo-laws",
+        "phys-superconductivity"
+      ],
+      "deploy": "The everyday physics of ice, steam, alloys and materials processing.",
+      "counter": "Beyond the familiar three, matter has many phases (superfluids, plasmas, Bose–Einstein condensates).",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "Solid",
+            "Liquid",
+            "Gas"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              "melt"
+            ],
+            [
+              1,
+              2,
+              "boil"
+            ],
+            [
+              2,
+              1,
+              "condense"
+            ],
+            [
+              1,
+              0,
+              "freeze"
+            ]
+          ],
+          "caption": "Transitions between the common states, driven by temperature and pressure."
+        }
+      ]
+    },
+    {
+      "id": "phys-superconductivity",
+      "field": "phys-condensed",
+      "depth": "concept",
+      "level": 3,
+      "title": "Superconductivity",
+      "fact": "Cooled below a critical temperature, some materials lose all electrical resistance and expel magnetic fields entirely — carrying current forever without loss.",
+      "tags": [
+        "condensed matter",
+        "superconductivity",
+        "Cooper pairs",
+        "resistance"
+      ],
+      "quiz": [
+        {
+          "q": "A superconductor below its critical temperature has electrical resistance of:",
+          "choices": [
+            "very high",
+            "exactly zero",
+            "half normal",
+            "infinite"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What name is given to the paired electrons responsible for conventional superconductivity?",
+          "type": "detail",
+          "answer": "Cooper pairs",
+          "accept": [
+            "Cooper pairs",
+            "Cooper pair",
+            "Cooper"
+          ]
+        },
+        {
+          "q": "A current technology relying on superconducting magnets is:",
+          "choices": [
+            "MRI scanners",
+            "incandescent bulbs",
+            "solar panels",
+            "transistors"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-superconductivity"
+      ],
+      "detail": "Discovered in 1911 (mercury near absolute zero), superconductivity arises when electrons pair up (Cooper pairs) and move without scattering. It gives us MRI magnets, maglev trains and the LHC's magnets. The race for a room-temperature superconductor could transform power grids — but so far it needs extreme cold or pressure.",
+      "year": 1911,
+      "prereq": [
+        "phys-phases"
+      ],
+      "xref": [
+        "phys-tunneling"
+      ],
+      "deploy": "Powers MRI, maglev and particle accelerators — and a room-temperature version would be revolutionary.",
+      "counter": "High-temperature superconductivity (since 1986) still lacks a complete theoretical explanation."
+    },
+    {
+      "id": "phys-semiconductors",
+      "field": "phys-condensed",
+      "depth": "concept",
+      "level": 2,
+      "title": "Semiconductors and the band gap",
+      "fact": "Semiconductors conduct only somewhat — because electrons need a small energy jump across a 'band gap' — and doping them with impurities lets us switch that conduction on and off.",
+      "tags": [
+        "condensed matter",
+        "semiconductors",
+        "band gap",
+        "electronics"
+      ],
+      "quiz": [
+        {
+          "q": "A semiconductor conducts electricity:",
+          "choices": [
+            "never",
+            "perfectly",
+            "somewhere between an insulator and a conductor",
+            "only when magnetic"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "What is the term for adding trace impurities to tune a semiconductor's conduction?",
+          "type": "detail",
+          "answer": "doping",
+          "accept": [
+            "doping",
+            "dope"
+          ]
+        },
+        {
+          "q": "Joining differently-doped semiconductor regions creates a:",
+          "choices": [
+            "resistor",
+            "transistor/diode",
+            "magnet",
+            "battery"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-semiconductors"
+      ],
+      "detail": "In a semiconductor like silicon, a modest energy gap separates bound electrons from conducting ones. Adding trace impurities ('doping') creates surplus electrons or holes, and joining differently-doped regions makes a diode or transistor — a switch with no moving parts. This band physics is the foundation of every computer chip.",
+      "year": 1947,
+      "prereq": [
+        "phys-phases"
+      ],
+      "xref": [
+        "phys-tunneling",
+        "phys-schrodinger"
+      ],
+      "deploy": "The physics inside every transistor, chip, solar cell and LED.",
+      "counter": "As transistors approach atomic size, quantum leakage (tunnelling) undermines the classical switch picture."
+    },
+    {
+      "id": "phys-big-bang",
+      "field": "phys-astro",
+      "depth": "concept",
+      "level": 2,
+      "title": "The Big Bang",
+      "fact": "The universe began ~13.8 billion years ago as an extremely hot, dense state and has been expanding and cooling ever since.",
+      "tags": [
+        "cosmology",
+        "Big Bang",
+        "expansion",
+        "universe"
+      ],
+      "quiz": [
+        {
+          "q": "The Big Bang theory describes the universe as:",
+          "choices": [
+            "static and eternal",
+            "expanding and cooling from a hot dense state",
+            "contracting",
+            "unchanging in size"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Approximately how many billion years ago did the Big Bang occur?",
+          "type": "num",
+          "answer": 14,
+          "tol": 1
+        },
+        {
+          "q": "A key piece of evidence for the Big Bang is the cosmic:",
+          "choices": [
+            "microwave background",
+            "ray gun",
+            "wind",
+            "tide"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-big-bang"
+      ],
+      "detail": "Evidence converges: galaxies recede (Hubble), the cosmic microwave background is the cooled afterglow of the early universe, and the observed proportions of hydrogen and helium match early-universe nucleosynthesis. The 'Big Bang' describes the expansion from a hot dense state — not an explosion in space, but an expansion of space itself.",
+      "year": 1927,
+      "prereq": [
+        "phys-general-rel"
+      ],
+      "xref": [
+        "phys-cmb",
+        "phys-hubble",
+        "phys-dark-energy"
+      ],
+      "deploy": "The foundation of modern cosmology and our account of cosmic origins.",
+      "counter": "It describes the universe's evolution, not the initial instant itself, where known physics breaks down.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Hot dense start"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Expansion & cooling"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Galaxies today",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Space itself expands and cools — not an explosion into pre-existing space."
+        }
+      ]
+    },
+    {
+      "id": "phys-hubble",
+      "field": "phys-astro",
+      "depth": "concept",
+      "level": 2,
+      "title": "Hubble's law and the expanding universe",
+      "fact": "Distant galaxies recede faster in proportion to their distance: \\(v = H_0 d\\) — the signature of an expanding universe.",
+      "tags": [
+        "cosmology",
+        "Hubble",
+        "expansion",
+        "galaxies"
+      ],
+      "quiz": [
+        {
+          "q": "Hubble's law \\(v = H_0 d\\) says a galaxy's recession speed is proportional to its:",
+          "choices": [
+            "mass",
+            "distance",
+            "brightness",
+            "temperature"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which astronomer discovered the distance–velocity relation for galaxies (1929)?",
+          "type": "detail",
+          "answer": "Hubble",
+          "accept": [
+            "Hubble",
+            "Edwin Hubble"
+          ]
+        },
+        {
+          "q": "The linear recession implies the universe has:",
+          "choices": [
+            "a single centre",
+            "no special centre — space itself expands",
+            "a fixed edge",
+            "stopped expanding"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-hubble"
+      ],
+      "detail": "Edwin Hubble (1929) found that a galaxy's recession speed rises linearly with distance; the slope \\(H_0\\) is the Hubble constant. Space itself stretches, carrying galaxies apart — so every observer sees others receding, with no special centre. Running the expansion backwards points to the Big Bang.",
+      "year": 1929,
+      "prereq": [
+        "phys-big-bang"
+      ],
+      "xref": [
+        "phys-dark-energy"
+      ],
+      "deploy": "The observational cornerstone of the expanding universe and Big Bang cosmology.",
+      "counter": "The measured value of \\(H_0\\) differs between methods (the 'Hubble tension') — an active puzzle.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "function",
+          "fn": "line",
+          "domain": [
+            0,
+            10
+          ],
+          "caption": "Recession speed rising linearly with distance; the slope is the Hubble constant.",
+          "params": {
+            "m": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "phys-stellar-life",
+      "field": "phys-astro",
+      "depth": "concept",
+      "level": 2,
+      "title": "The life cycle of stars",
+      "fact": "Stars form from collapsing gas clouds, fuse hydrogen for most of their lives, then — depending on mass — end as white dwarfs, neutron stars or black holes.",
+      "tags": [
+        "astrophysics",
+        "stars",
+        "fusion",
+        "supernova"
+      ],
+      "quiz": [
+        {
+          "q": "For most of its life, a star is powered by:",
+          "choices": [
+            "chemical burning",
+            "nuclear fusion of hydrogen",
+            "gravity alone",
+            "radioactive decay"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What explosive death do massive stars undergo, forging heavy elements?",
+          "type": "detail",
+          "answer": "supernova",
+          "accept": [
+            "supernova",
+            "supernovae"
+          ]
+        },
+        {
+          "q": "The heaviest stars can end their lives as:",
+          "choices": [
+            "white dwarfs only",
+            "black holes",
+            "planets",
+            "comets"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-phys-stellar-life"
+      ],
+      "detail": "Gravity pulls a gas cloud together until fusion ignites, and the star lives in balance between gravity and radiation pressure. When the fuel runs low, low-mass stars puff off their layers and leave a white dwarf; massive stars explode as supernovae, forging heavy elements and leaving a neutron star or black hole. We are, literally, made of stardust.",
+      "year": 1939,
+      "prereq": [
+        "phys-fission-fusion"
+      ],
+      "xref": [
+        "phys-black-holes",
+        "phys-emc2"
+      ],
+      "deploy": "Explains where the elements come from and the fate of the Sun.",
+      "counter": "Stellar-evolution models depend on complex physics (opacity, convection) that is still being refined.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Gas cloud"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Fusion (main sequence)"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Dwarf / neutron star / black hole",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Birth to death, with the endpoint set mainly by the star's mass."
+        }
+      ]
+    },
+    {
+      "id": "phys-black-holes",
+      "field": "phys-astro",
+      "depth": "concept",
+      "level": 3,
+      "title": "Black holes",
+      "fact": "A black hole is a region where gravity is so strong that nothing, not even light, can escape from within its event horizon.",
+      "tags": [
+        "astrophysics",
+        "black holes",
+        "general relativity",
+        "event horizon"
+      ],
+      "quiz": [
+        {
+          "q": "The 'event horizon' of a black hole is the boundary beyond which:",
+          "choices": [
+            "light is created",
+            "nothing, not even light, can escape",
+            "time stops for outside observers",
+            "gravity vanishes"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which physicist showed black holes slowly radiate and can evaporate?",
+          "type": "detail",
+          "answer": "Hawking",
+          "accept": [
+            "Hawking",
+            "Stephen Hawking"
+          ]
+        },
+        {
+          "q": "Direct evidence for black holes now includes gravitational waves and:",
+          "choices": [
+            "a direct image of one's shadow (2019)",
+            "a sound recording",
+            "a captured sample",
+            "a fossil"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-phys-black-holes"
+      ],
+      "detail": "Predicted by general relativity, black holes form when massive stars collapse. The event horizon is the point of no return; at the centre lies a singularity where known physics fails. We now have direct evidence — gravitational waves from mergers (2015) and the first image of a black hole's shadow (2019). Hawking showed they slowly radiate and evaporate.",
+      "year": 1916,
+      "prereq": [
+        "phys-general-rel"
+      ],
+      "xref": [
+        "phys-stellar-life",
+        "phys-gravitation"
+      ],
+      "deploy": "Extreme laboratories for gravity — and a headline test of general relativity.",
+      "counter": "What happens to information falling in (the 'information paradox') pits relativity against quantum theory, unresolved."
     }
   ],
   "motions": [
