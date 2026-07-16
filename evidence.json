@@ -5805,6 +5805,1167 @@
       "url": "https://sherwood.news/business/jetblue-airline-loyalty-programs-valuable-collateral/",
       "kind": "news",
       "strength": "Documents 2020 loyalty-program valuations exceeding airline equity (United MileagePlus ~$22bn vs $10.6bn) and their use as loan collateral."
+    },
+    "ev-logic-modal": {
+      "who": "Wikipedia",
+      "year": 1918,
+      "title": "Modal logic",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Modal_logic",
+      "kind": "reference",
+      "strength": "Standard reference tracing C.I. Lewis and Kripke's semantics; uncontroversial history."
+    },
+    "ev-logic-godel": {
+      "who": "Wikipedia",
+      "year": 1931,
+      "title": "Gödel's incompleteness theorems",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems",
+      "kind": "reference",
+      "strength": "Encyclopaedic account of a rigorously proven result; the mathematics is settled."
+    },
+    "ev-logic-liar": {
+      "who": "Wikipedia",
+      "year": 1936,
+      "title": "Liar paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Liar_paradox",
+      "kind": "reference",
+      "strength": "Well-documented history from Eubulides to Tarski; interpretation of the fix is debated, noted in the counter."
+    },
+    "ev-logic-nonclassical": {
+      "who": "Wikipedia",
+      "year": 1920,
+      "title": "Non-classical logic",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Non-classical_logic",
+      "kind": "reference",
+      "strength": "Survey reference; the systems are formally well-defined, their philosophical status is contested."
+    },
+    "ev-logic-toulmin": {
+      "who": "Toulmin, S.",
+      "year": 1958,
+      "title": "The Uses of Argument",
+      "where": "Cambridge University Press",
+      "url": "https://en.wikipedia.org/wiki/Stephen_Toulmin",
+      "kind": "reference",
+      "strength": "Primary work; the model is standard in argumentation theory."
+    },
+    "ev-logic-russell-paradox": {
+      "who": "Wikipedia",
+      "year": 1901,
+      "title": "Russell's paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Russell%27s_paradox",
+      "kind": "reference",
+      "strength": "Historically firm; the contradiction is a proven fact about naive comprehension."
+    },
+    "ev-epi-virtue": {
+      "who": "Sosa, E.",
+      "year": 1980,
+      "title": "The Raft and the Pyramid",
+      "where": "Midwest Studies in Philosophy",
+      "url": "https://en.wikipedia.org/wiki/Virtue_epistemology",
+      "kind": "reference",
+      "strength": "Primary source plus survey; framework is well-established, details debated."
+    },
+    "ev-epi-contextualism": {
+      "who": "DeRose, K.",
+      "year": 1992,
+      "title": "Contextualism and Knowledge Attributions",
+      "where": "Philosophy and Phenomenological Research",
+      "url": "https://en.wikipedia.org/wiki/Contextualism",
+      "kind": "reference",
+      "strength": "Primary and survey references; a live, contested position."
+    },
+    "ev-epi-disagreement": {
+      "who": "Christensen, D.",
+      "year": 2007,
+      "title": "Epistemology of Disagreement: The Good News",
+      "where": "Philosophical Review",
+      "url": "https://en.wikipedia.org/wiki/Disagreement",
+      "kind": "reference",
+      "strength": "Primary source; an active research area with no settled consensus."
+    },
+    "ev-epi-value-knowledge": {
+      "who": "Plato",
+      "year": -380,
+      "title": "Meno",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Meno",
+      "kind": "reference",
+      "strength": "Classical primary text; the modern 'value problem' framing is standard in epistemology."
+    },
+    "ev-epi-safety-sensitivity": {
+      "who": "Nozick, R.",
+      "year": 1981,
+      "title": "Philosophical Explanations",
+      "where": "Harvard University Press",
+      "url": "https://en.wikipedia.org/wiki/Robert_Nozick",
+      "kind": "reference",
+      "strength": "Primary source; safety vs sensitivity is a well-mapped debate."
+    },
+    "ev-epi-epistemic-injustice": {
+      "who": "Fricker, M.",
+      "year": 2007,
+      "title": "Epistemic Injustice: Power and the Ethics of Knowing",
+      "where": "Oxford University Press",
+      "url": "https://en.wikipedia.org/wiki/Epistemic_injustice",
+      "kind": "reference",
+      "strength": "Primary source; concept is influential and widely adopted."
+    },
+    "ev-epi-criterion": {
+      "who": "Chisholm, R.",
+      "year": 1973,
+      "title": "The Problem of the Criterion",
+      "where": "Marquette University Press",
+      "url": "https://en.wikipedia.org/wiki/Problem_of_the_criterion",
+      "kind": "reference",
+      "strength": "Primary source; the ancient pedigree via Sextus is well documented."
+    },
+    "ev-epi-internalism-externalism": {
+      "who": "Wikipedia",
+      "year": 1980,
+      "title": "Internalism and externalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Internalism_and_externalism",
+      "kind": "reference",
+      "strength": "Survey reference for a foundational, still-open distinction."
+    },
+    "ev-eth-realism-antirealism": {
+      "who": "Wikipedia",
+      "year": 1903,
+      "title": "Moral realism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Moral_realism",
+      "kind": "reference",
+      "strength": "Survey reference for the central metaethical divide."
+    },
+    "ev-eth-relativism": {
+      "who": "Wikipedia",
+      "year": 2004,
+      "title": "Moral relativism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Moral_relativism",
+      "kind": "reference",
+      "strength": "Survey reference; the position and its standard objections are well documented."
+    },
+    "ev-eth-emotivism": {
+      "who": "Ayer, A.J.",
+      "year": 1936,
+      "title": "Language, Truth and Logic",
+      "where": "Gollancz",
+      "url": "https://en.wikipedia.org/wiki/Emotivism",
+      "kind": "reference",
+      "strength": "Primary source; standard account of emotivism."
+    },
+    "ev-eth-error-theory": {
+      "who": "Mackie, J.L.",
+      "year": 1977,
+      "title": "Ethics: Inventing Right and Wrong",
+      "where": "Penguin",
+      "url": "https://en.wikipedia.org/wiki/Moral_error_theory",
+      "kind": "reference",
+      "strength": "Primary source; canonical statement of error theory."
+    },
+    "ev-eth-trolley": {
+      "who": "Foot, P.",
+      "year": 1967,
+      "title": "The Problem of Abortion and the Doctrine of Double Effect",
+      "where": "Oxford Review",
+      "url": "https://en.wikipedia.org/wiki/Trolley_problem",
+      "kind": "reference",
+      "strength": "Primary source; the thought experiment and its variants are well documented."
+    },
+    "ev-eth-double-effect": {
+      "who": "Aquinas, T.",
+      "year": 1265,
+      "title": "Summa Theologiae (II-II, Q.64)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Principle_of_double_effect",
+      "kind": "reference",
+      "strength": "Historical primary source; doctrine is standard in ethics."
+    },
+    "ev-eth-moral-luck": {
+      "who": "Nagel, T.",
+      "year": 1979,
+      "title": "Moral Luck (Mortal Questions)",
+      "where": "Cambridge University Press",
+      "url": "https://en.wikipedia.org/wiki/Moral_luck",
+      "kind": "reference",
+      "strength": "Primary source; the taxonomy of luck is standard."
+    },
+    "ev-eth-care": {
+      "who": "Gilligan, C.",
+      "year": 1982,
+      "title": "In a Different Voice",
+      "where": "Harvard University Press",
+      "url": "https://en.wikipedia.org/wiki/Ethics_of_care",
+      "kind": "reference",
+      "strength": "Primary source; foundational text of the tradition."
+    },
+    "ev-eth-contractarianism": {
+      "who": "Hobbes, T.",
+      "year": 1651,
+      "title": "Leviathan",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Contractarianism",
+      "kind": "reference",
+      "strength": "Primary source plus survey; a well-defined tradition."
+    },
+    "ev-eth-difference-principle": {
+      "who": "Rawls, J.",
+      "year": 1971,
+      "title": "A Theory of Justice",
+      "where": "Harvard University Press",
+      "url": "https://en.wikipedia.org/wiki/A_Theory_of_Justice",
+      "kind": "reference",
+      "strength": "Primary source; the principle is precisely stated there."
+    },
+    "ev-meta-free-will": {
+      "who": "Wikipedia",
+      "year": 2000,
+      "title": "Free will",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Free_will",
+      "kind": "reference",
+      "strength": "Survey reference for a perennial, unsettled problem."
+    },
+    "ev-meta-compatibilism": {
+      "who": "Frankfurt, H.",
+      "year": 1969,
+      "title": "Alternate Possibilities and Moral Responsibility",
+      "where": "Journal of Philosophy",
+      "url": "https://en.wikipedia.org/wiki/Compatibilism",
+      "kind": "reference",
+      "strength": "Primary source; Frankfurt cases are a standard reference point."
+    },
+    "ev-meta-time": {
+      "who": "McTaggart, J.M.E.",
+      "year": 1908,
+      "title": "The Unreality of Time",
+      "where": "Mind",
+      "url": "https://en.wikipedia.org/wiki/A-series_and_B-series",
+      "kind": "reference",
+      "strength": "Primary source; the distinction it draws is standard."
+    },
+    "ev-meta-ship-theseus": {
+      "who": "Plutarch",
+      "year": 75,
+      "title": "Life of Theseus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Ship_of_Theseus",
+      "kind": "reference",
+      "strength": "Classical source; the puzzle is standard in metaphysics."
+    },
+    "ev-meta-realism-idealism": {
+      "who": "Berkeley, G.",
+      "year": 1710,
+      "title": "A Treatise Concerning the Principles of Human Knowledge",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Subjective_idealism",
+      "kind": "reference",
+      "strength": "Primary source; Berkeley's slogan is canonical."
+    },
+    "ev-meta-grounding": {
+      "who": "Schaffer, J.",
+      "year": 2009,
+      "title": "On What Grounds Are There?",
+      "where": "Metametaphysics (OUP)",
+      "url": "https://en.wikipedia.org/wiki/Metaphysical_grounding",
+      "kind": "reference",
+      "strength": "Primary source; a young but well-defined research programme."
+    },
+    "ev-meta-mereology": {
+      "who": "Wikipedia",
+      "year": 1916,
+      "title": "Mereology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mereology",
+      "kind": "reference",
+      "strength": "Survey reference; the formal systems are well defined."
+    },
+    "ev-meta-meinong": {
+      "who": "Meinong, A.",
+      "year": 1904,
+      "title": "The Theory of Objects",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Alexius_Meinong",
+      "kind": "reference",
+      "strength": "Primary source; the Meinong–Russell dispute is well documented."
+    },
+    "ev-mind-ryle": {
+      "who": "Ryle, G.",
+      "year": 1949,
+      "title": "The Concept of Mind",
+      "where": "Hutchinson",
+      "url": "https://en.wikipedia.org/wiki/The_Concept_of_Mind",
+      "kind": "reference",
+      "strength": "Primary source; canonical critique of dualism."
+    },
+    "ev-mind-eliminative": {
+      "who": "Churchland, P.M.",
+      "year": 1981,
+      "title": "Eliminative Materialism and the Propositional Attitudes",
+      "where": "Journal of Philosophy",
+      "url": "https://en.wikipedia.org/wiki/Eliminative_materialism",
+      "kind": "reference",
+      "strength": "Primary source; position and objections well documented."
+    },
+    "ev-mind-panpsychism": {
+      "who": "Strawson, G.",
+      "year": 2006,
+      "title": "Realistic Monism: Why Physicalism Entails Panpsychism",
+      "where": "Journal of Consciousness Studies",
+      "url": "https://en.wikipedia.org/wiki/Panpsychism",
+      "kind": "reference",
+      "strength": "Primary source; the combination problem is standard."
+    },
+    "ev-mind-extended": {
+      "who": "Clark, A. & Chalmers, D.",
+      "year": 1998,
+      "title": "The Extended Mind",
+      "where": "Analysis",
+      "url": "https://en.wikipedia.org/wiki/Extended_mind_thesis",
+      "kind": "reference",
+      "strength": "Primary source; a well-known, actively debated thesis."
+    },
+    "ev-mind-zombies": {
+      "who": "Chalmers, D.",
+      "year": 1996,
+      "title": "The Conscious Mind",
+      "where": "Oxford University Press",
+      "url": "https://en.wikipedia.org/wiki/Philosophical_zombie",
+      "kind": "reference",
+      "strength": "Primary source; the argument is a standard reference."
+    },
+    "ev-mind-intentionality": {
+      "who": "Brentano, F.",
+      "year": 1874,
+      "title": "Psychology from an Empirical Standpoint",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Intentionality",
+      "kind": "reference",
+      "strength": "Primary source; concept is foundational."
+    },
+    "ev-mind-mental-causation": {
+      "who": "Kim, J.",
+      "year": 1998,
+      "title": "Mind in a Physical World",
+      "where": "MIT Press",
+      "url": "https://en.wikipedia.org/wiki/Mental_causation",
+      "kind": "reference",
+      "strength": "Primary source; the exclusion argument is a standard reference."
+    },
+    "ev-lang-verificationism": {
+      "who": "Ayer, A.J.",
+      "year": 1936,
+      "title": "Language, Truth and Logic",
+      "where": "Gollancz",
+      "url": "https://en.wikipedia.org/wiki/Verificationism",
+      "kind": "reference",
+      "strength": "Primary source; rise and fall well documented."
+    },
+    "ev-lang-davidson": {
+      "who": "Davidson, D.",
+      "year": 1967,
+      "title": "Truth and Meaning",
+      "where": "Synthese",
+      "url": "https://en.wikipedia.org/wiki/Truth-conditional_semantics",
+      "kind": "reference",
+      "strength": "Primary source; foundational for truth-conditional semantics."
+    },
+    "ev-lang-twin-earth": {
+      "who": "Putnam, H.",
+      "year": 1975,
+      "title": "The Meaning of 'Meaning'",
+      "where": "Minnesota Studies",
+      "url": "https://en.wikipedia.org/wiki/Twin_Earth_thought_experiment",
+      "kind": "reference",
+      "strength": "Primary source; canonical for externalism."
+    },
+    "ev-lang-2d": {
+      "who": "Chalmers, D.",
+      "year": 2004,
+      "title": "Epistemic Two-Dimensional Semantics",
+      "where": "Philosophical Studies",
+      "url": "https://en.wikipedia.org/wiki/Two-dimensionalism",
+      "kind": "reference",
+      "strength": "Primary source; a technical but well-mapped programme."
+    },
+    "ev-lang-sorites": {
+      "who": "Wikipedia",
+      "year": -350,
+      "title": "Sorites paradox",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Sorites_paradox",
+      "kind": "reference",
+      "strength": "Survey reference; ancient pedigree and modern responses well documented."
+    },
+    "ev-lang-metaphor": {
+      "who": "Lakoff, G. & Johnson, M.",
+      "year": 1980,
+      "title": "Metaphors We Live By",
+      "where": "University of Chicago Press",
+      "url": "https://en.wikipedia.org/wiki/Conceptual_metaphor",
+      "kind": "reference",
+      "strength": "Primary source; influential across linguistics and cognitive science."
+    },
+    "ev-sci-ibe": {
+      "who": "Harman, G.",
+      "year": 1965,
+      "title": "The Inference to the Best Explanation",
+      "where": "Philosophical Review",
+      "url": "https://en.wikipedia.org/wiki/Abductive_reasoning",
+      "kind": "reference",
+      "strength": "Primary source; concept is standard."
+    },
+    "ev-sci-pessimistic": {
+      "who": "Laudan, L.",
+      "year": 1981,
+      "title": "A Confutation of Convergent Realism",
+      "where": "Philosophy of Science",
+      "url": "https://en.wikipedia.org/wiki/Pessimistic_induction",
+      "kind": "reference",
+      "strength": "Primary source; a central anti-realist argument."
+    },
+    "ev-sci-dn-model": {
+      "who": "Hempel, C. & Oppenheim, P.",
+      "year": 1948,
+      "title": "Studies in the Logic of Explanation",
+      "where": "Philosophy of Science",
+      "url": "https://en.wikipedia.org/wiki/Deductive-nomological_model",
+      "kind": "reference",
+      "strength": "Primary source; the model and its counterexamples are standard."
+    },
+    "ev-sci-laws": {
+      "who": "Lewis, D.",
+      "year": 1983,
+      "title": "New Work for a Theory of Universals",
+      "where": "Australasian Journal of Philosophy",
+      "url": "https://en.wikipedia.org/wiki/Physical_law",
+      "kind": "reference",
+      "strength": "Primary source plus survey; a well-defined debate."
+    },
+    "ev-sci-reductionism": {
+      "who": "Nagel, E.",
+      "year": 1961,
+      "title": "The Structure of Science",
+      "where": "Harcourt",
+      "url": "https://en.wikipedia.org/wiki/Reductionism",
+      "kind": "reference",
+      "strength": "Primary source; canonical account of reduction."
+    },
+    "ev-sci-bayes-confirmation": {
+      "who": "Wikipedia",
+      "year": 1763,
+      "title": "Bayesian confirmation theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Bayesian_epistemology",
+      "kind": "reference",
+      "strength": "Survey reference; the formal framework is well established."
+    },
+    "ev-sci-values": {
+      "who": "Longino, H.",
+      "year": 1990,
+      "title": "Science as Social Knowledge",
+      "where": "Princeton University Press",
+      "url": "https://en.wikipedia.org/wiki/Philosophy_of_science",
+      "kind": "reference",
+      "strength": "Primary source plus survey; an active debate."
+    },
+    "ev-pol-social-contract": {
+      "who": "Hobbes/Locke/Rousseau",
+      "year": 1762,
+      "title": "Leviathan; Second Treatise; The Social Contract",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Social_contract",
+      "kind": "reference",
+      "strength": "Primary sources; the tradition is well documented."
+    },
+    "ev-pol-two-liberties": {
+      "who": "Berlin, I.",
+      "year": 1958,
+      "title": "Two Concepts of Liberty",
+      "where": "Oxford University Press",
+      "url": "https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty",
+      "kind": "reference",
+      "strength": "Primary source; the distinction is canonical."
+    },
+    "ev-pol-marx-alienation": {
+      "who": "Marx, K.",
+      "year": 1844,
+      "title": "Economic and Philosophic Manuscripts of 1844",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Marx%27s_theory_of_alienation",
+      "kind": "reference",
+      "strength": "Primary source; concept is well documented."
+    },
+    "ev-pol-capability": {
+      "who": "Sen, A.",
+      "year": 1985,
+      "title": "Commodities and Capabilities",
+      "where": "North-Holland",
+      "url": "https://en.wikipedia.org/wiki/Capability_approach",
+      "kind": "reference",
+      "strength": "Primary source; widely applied framework."
+    },
+    "ev-pol-republicanism": {
+      "who": "Pettit, P.",
+      "year": 1997,
+      "title": "Republicanism: A Theory of Freedom and Government",
+      "where": "Oxford University Press",
+      "url": "https://en.wikipedia.org/wiki/Republicanism",
+      "kind": "reference",
+      "strength": "Primary source; a well-defined contemporary position."
+    },
+    "ev-pol-anarchism": {
+      "who": "Proudhon, P.-J.",
+      "year": 1840,
+      "title": "What Is Property?",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Anarchism",
+      "kind": "reference",
+      "strength": "Primary source plus survey; tradition well documented."
+    },
+    "ev-pol-arendt": {
+      "who": "Arendt, H.",
+      "year": 1951,
+      "title": "The Origins of Totalitarianism",
+      "where": "Harcourt",
+      "url": "https://en.wikipedia.org/wiki/Hannah_Arendt",
+      "kind": "reference",
+      "strength": "Primary source; concepts widely discussed."
+    },
+    "ev-hist-socratic": {
+      "who": "Plato",
+      "year": -390,
+      "title": "Early Dialogues (Apology, Euthyphro)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Socratic_method",
+      "kind": "reference",
+      "strength": "Classical primary sources; method is well documented."
+    },
+    "ev-hist-plato-forms": {
+      "who": "Plato",
+      "year": -380,
+      "title": "Republic",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Theory_of_forms",
+      "kind": "reference",
+      "strength": "Classical primary source; the theory is canonical."
+    },
+    "ev-hist-aristotle-causes": {
+      "who": "Aristotle",
+      "year": -350,
+      "title": "Physics (Book II)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Four_causes",
+      "kind": "reference",
+      "strength": "Classical primary source; doctrine is standard."
+    },
+    "ev-hist-stoicism": {
+      "who": "Epictetus/Marcus Aurelius",
+      "year": 170,
+      "title": "Enchiridion; Meditations",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Stoicism",
+      "kind": "reference",
+      "strength": "Classical primary sources; doctrine well documented."
+    },
+    "ev-hist-epicureanism": {
+      "who": "Epicurus",
+      "year": -300,
+      "title": "Letter to Menoeceus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Epicureanism",
+      "kind": "reference",
+      "strength": "Classical primary source; doctrine is standard."
+    },
+    "ev-hist-descartes-cogito": {
+      "who": "Descartes, R.",
+      "year": 1641,
+      "title": "Meditations on First Philosophy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cogito,_ergo_sum",
+      "kind": "reference",
+      "strength": "Primary source; canonical."
+    },
+    "ev-hist-hume-bundle": {
+      "who": "Hume, D.",
+      "year": 1739,
+      "title": "A Treatise of Human Nature",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Bundle_theory",
+      "kind": "reference",
+      "strength": "Primary source; canonical."
+    },
+    "ev-hist-hegel-dialectic": {
+      "who": "Hegel, G.W.F.",
+      "year": 1807,
+      "title": "Phenomenology of Spirit",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Dialectic",
+      "kind": "reference",
+      "strength": "Primary source; interpretations vary, noted in counter."
+    },
+    "ev-hist-nietzsche-morality": {
+      "who": "Nietzsche, F.",
+      "year": 1887,
+      "title": "On the Genealogy of Morality",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/On_the_Genealogy_of_Morality",
+      "kind": "reference",
+      "strength": "Primary source; canonical."
+    },
+    "ev-hist-sartre-existentialism": {
+      "who": "Sartre, J.-P.",
+      "year": 1943,
+      "title": "Being and Nothingness",
+      "where": "Gallimard",
+      "url": "https://en.wikipedia.org/wiki/Existentialism",
+      "kind": "reference",
+      "strength": "Primary source; canonical."
+    },
+    "ev-cog-working-memory": {
+      "who": "Baddeley, A. & Hitch, G.",
+      "year": 1974,
+      "title": "Working Memory",
+      "where": "Psychology of Learning and Motivation",
+      "url": "https://en.wikipedia.org/wiki/Working_memory",
+      "kind": "reference",
+      "strength": "Primary source; the model is standard, details actively researched."
+    },
+    "ev-cog-dual-process": {
+      "who": "Kahneman, D.",
+      "year": 2011,
+      "title": "Thinking, Fast and Slow",
+      "where": "Farrar, Straus and Giroux",
+      "url": "https://en.wikipedia.org/wiki/Dual_process_theory",
+      "kind": "reference",
+      "strength": "Primary source; influential framework, with noted critiques."
+    },
+    "ev-cog-attention-filter": {
+      "who": "Broadbent, D.",
+      "year": 1958,
+      "title": "Perception and Communication",
+      "where": "Pergamon",
+      "url": "https://en.wikipedia.org/wiki/Attention",
+      "kind": "reference",
+      "strength": "Primary source; early/late debate well documented."
+    },
+    "ev-cog-gestalt": {
+      "who": "Wertheimer, M.",
+      "year": 1923,
+      "title": "Laws of Organization in Perceptual Forms",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gestalt_psychology",
+      "kind": "reference",
+      "strength": "Primary source; principles are standard."
+    },
+    "ev-cog-chomsky": {
+      "who": "Chomsky, N.",
+      "year": 1959,
+      "title": "A Review of B.F. Skinner's Verbal Behavior",
+      "where": "Language",
+      "url": "https://en.wikipedia.org/wiki/Language_acquisition",
+      "kind": "reference",
+      "strength": "Primary source; foundational and still debated."
+    },
+    "ev-cog-cognitive-load": {
+      "who": "Sweller, J.",
+      "year": 1988,
+      "title": "Cognitive Load During Problem Solving",
+      "where": "Cognitive Science",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_load",
+      "kind": "reference",
+      "strength": "Primary source; widely applied in education research."
+    },
+    "ev-cog-heuristics": {
+      "who": "Tversky, A. & Kahneman, D.",
+      "year": 1974,
+      "title": "Judgment under Uncertainty: Heuristics and Biases",
+      "where": "Science",
+      "url": "https://en.wikipedia.org/wiki/Heuristics_in_judgment_and_decision-making",
+      "kind": "reference",
+      "strength": "Primary source; landmark, with the Gigerenzer critique noted."
+    },
+    "ev-cog-mental-imagery": {
+      "who": "Shepard, R. & Metzler, J.",
+      "year": 1971,
+      "title": "Mental Rotation of Three-Dimensional Objects",
+      "where": "Science",
+      "url": "https://en.wikipedia.org/wiki/Mental_rotation",
+      "kind": "reference",
+      "strength": "Primary source; classic finding."
+    },
+    "ev-soc-bystander": {
+      "who": "Darley, J. & Latané, B.",
+      "year": 1968,
+      "title": "Bystander Intervention in Emergencies",
+      "where": "Journal of Personality and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Bystander_effect",
+      "kind": "reference",
+      "strength": "Primary source; robust lab effect, with the field caveat noted."
+    },
+    "ev-soc-groupthink": {
+      "who": "Janis, I.",
+      "year": 1972,
+      "title": "Victims of Groupthink",
+      "where": "Houghton Mifflin",
+      "url": "https://en.wikipedia.org/wiki/Groupthink",
+      "kind": "reference",
+      "strength": "Primary source; concept is influential."
+    },
+    "ev-soc-group-polarization": {
+      "who": "Moscovici, S. & Zavalloni, M.",
+      "year": 1969,
+      "title": "The Group as a Polarizer of Attitudes",
+      "where": "Journal of Personality and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Group_polarization",
+      "kind": "reference",
+      "strength": "Primary source; well-replicated effect."
+    },
+    "ev-soc-sit": {
+      "who": "Tajfel, H. & Turner, J.",
+      "year": 1979,
+      "title": "An Integrative Theory of Intergroup Conflict",
+      "where": "Brooks/Cole",
+      "url": "https://en.wikipedia.org/wiki/Social_identity_theory",
+      "kind": "reference",
+      "strength": "Primary source; foundational and well supported."
+    },
+    "ev-soc-stereotype-threat": {
+      "who": "Steele, C. & Aronson, J.",
+      "year": 1995,
+      "title": "Stereotype Threat and Intellectual Test Performance",
+      "where": "Journal of Personality and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Stereotype_threat",
+      "kind": "reference",
+      "strength": "Primary source; influential, with replication debate noted."
+    },
+    "ev-soc-contact": {
+      "who": "Allport, G.",
+      "year": 1954,
+      "title": "The Nature of Prejudice",
+      "where": "Addison-Wesley",
+      "url": "https://en.wikipedia.org/wiki/Contact_hypothesis",
+      "kind": "reference",
+      "strength": "Primary source plus meta-analytic support."
+    },
+    "ev-soc-elm": {
+      "who": "Petty, R. & Cacioppo, J.",
+      "year": 1986,
+      "title": "The Elaboration Likelihood Model of Persuasion",
+      "where": "Advances in Experimental Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Elaboration_likelihood_model",
+      "kind": "reference",
+      "strength": "Primary source; standard model of persuasion."
+    },
+    "ev-soc-deindividuation": {
+      "who": "Zimbardo, P.",
+      "year": 1969,
+      "title": "The Human Choice: Individuation, Reason, and Order",
+      "where": "Nebraska Symposium on Motivation",
+      "url": "https://en.wikipedia.org/wiki/Deindividuation",
+      "kind": "reference",
+      "strength": "Primary source; concept revised by later SIDE research."
+    },
+    "ev-dev-vygotsky": {
+      "who": "Vygotsky, L.",
+      "year": 1934,
+      "title": "Thought and Language",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Zone_of_proximal_development",
+      "kind": "reference",
+      "strength": "Primary source; concept is standard."
+    },
+    "ev-dev-erikson": {
+      "who": "Erikson, E.",
+      "year": 1950,
+      "title": "Childhood and Society",
+      "where": "Norton",
+      "url": "https://en.wikipedia.org/wiki/Erikson%27s_stages_of_psychosocial_development",
+      "kind": "reference",
+      "strength": "Primary source; influential framework, weakly falsifiable."
+    },
+    "ev-dev-kohlberg": {
+      "who": "Kohlberg, L.",
+      "year": 1958,
+      "title": "The Development of Modes of Moral Thinking",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Lawrence_Kohlberg%27s_stages_of_moral_development",
+      "kind": "reference",
+      "strength": "Primary source; foundational, with the care-ethics critique noted."
+    },
+    "ev-dev-theory-of-mind": {
+      "who": "Wimmer, H. & Perner, J.",
+      "year": 1983,
+      "title": "Beliefs about Beliefs",
+      "where": "Cognition",
+      "url": "https://en.wikipedia.org/wiki/Theory_of_mind",
+      "kind": "reference",
+      "strength": "Primary source; robust classic finding, with early-competence debate."
+    },
+    "ev-dev-behavioral-genetics": {
+      "who": "Bouchard, T.",
+      "year": 1990,
+      "title": "Sources of Human Psychological Differences",
+      "where": "Science",
+      "url": "https://en.wikipedia.org/wiki/Heritability",
+      "kind": "reference",
+      "strength": "Primary source; widely cited twin research."
+    },
+    "ev-dev-language-milestones": {
+      "who": "Pinker, S.",
+      "year": 1994,
+      "title": "The Language Instinct",
+      "where": "Morrow",
+      "url": "https://en.wikipedia.org/wiki/Language_development",
+      "kind": "reference",
+      "strength": "Popular-science synthesis; milestones are well established."
+    },
+    "ev-dev-lifespan": {
+      "who": "Baltes, P.",
+      "year": 1987,
+      "title": "Theoretical Propositions of Life-Span Developmental Psychology",
+      "where": "Developmental Psychology",
+      "url": "https://en.wikipedia.org/wiki/Life-span_developmental_psychology",
+      "kind": "reference",
+      "strength": "Primary source; framework is standard."
+    },
+    "ev-lrn-observational": {
+      "who": "Bandura, A.",
+      "year": 1961,
+      "title": "Transmission of Aggression through Imitation of Aggressive Models",
+      "where": "Journal of Abnormal and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Bobo_doll_experiment",
+      "kind": "reference",
+      "strength": "Primary source; classic finding."
+    },
+    "ev-lrn-learned-helplessness": {
+      "who": "Seligman, M. & Maier, S.",
+      "year": 1967,
+      "title": "Failure to Escape Traumatic Shock",
+      "where": "Journal of Experimental Psychology",
+      "url": "https://en.wikipedia.org/wiki/Learned_helplessness",
+      "kind": "reference",
+      "strength": "Primary source; later revised by the authors, noted in counter."
+    },
+    "ev-lrn-token-economy": {
+      "who": "Ayllon, T. & Azrin, N.",
+      "year": 1968,
+      "title": "The Token Economy",
+      "where": "Appleton-Century-Crofts",
+      "url": "https://en.wikipedia.org/wiki/Token_economy",
+      "kind": "reference",
+      "strength": "Primary source; established applied technique."
+    },
+    "ev-lrn-taste-aversion": {
+      "who": "Garcia, J. & Koelling, R.",
+      "year": 1966,
+      "title": "Relation of Cue to Consequence in Avoidance Learning",
+      "where": "Psychonomic Science",
+      "url": "https://en.wikipedia.org/wiki/Conditioned_taste_aversion",
+      "kind": "reference",
+      "strength": "Primary source; classic finding."
+    },
+    "ev-lrn-shaping": {
+      "who": "Skinner, B.F.",
+      "year": 1951,
+      "title": "How to Teach Animals",
+      "where": "Scientific American",
+      "url": "https://en.wikipedia.org/wiki/Shaping_(psychology)",
+      "kind": "reference",
+      "strength": "Primary source; standard technique."
+    },
+    "ev-pers-trait-state": {
+      "who": "Mischel, W.",
+      "year": 1968,
+      "title": "Personality and Assessment",
+      "where": "Wiley",
+      "url": "https://en.wikipedia.org/wiki/Person%E2%80%93situation_debate",
+      "kind": "reference",
+      "strength": "Primary source; a defining debate in the field."
+    },
+    "ev-pers-locus-control": {
+      "who": "Rotter, J.",
+      "year": 1966,
+      "title": "Generalized Expectancies for Internal versus External Control",
+      "where": "Psychological Monographs",
+      "url": "https://en.wikipedia.org/wiki/Locus_of_control",
+      "kind": "reference",
+      "strength": "Primary source; well-established construct."
+    },
+    "ev-pers-self-concept": {
+      "who": "Rogers, C.",
+      "year": 1959,
+      "title": "A Theory of Therapy, Personality and Interpersonal Relationships",
+      "where": "McGraw-Hill",
+      "url": "https://en.wikipedia.org/wiki/Self-concept",
+      "kind": "reference",
+      "strength": "Primary source; foundational humanistic concept."
+    },
+    "ev-pers-temperament": {
+      "who": "Thomas, A. & Chess, S.",
+      "year": 1977,
+      "title": "Temperament and Development",
+      "where": "Brunner/Mazel",
+      "url": "https://en.wikipedia.org/wiki/Temperament",
+      "kind": "reference",
+      "strength": "Primary source; foundational longitudinal work."
+    },
+    "ev-pers-mbti-critique": {
+      "who": "Wikipedia",
+      "year": 1962,
+      "title": "Myers–Briggs Type Indicator",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator",
+      "kind": "reference",
+      "strength": "Survey reference; the psychometric criticisms are well documented."
+    },
+    "ev-pers-hexaco": {
+      "who": "Ashton, M. & Lee, K.",
+      "year": 2004,
+      "title": "A Six-Factor Structure of Personality Descriptors",
+      "where": "Journal of Personality and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/HEXACO_model_of_personality_structure",
+      "kind": "reference",
+      "strength": "Primary source; empirically well-supported extension."
+    },
+    "ev-clin-dsm": {
+      "who": "American Psychiatric Association",
+      "year": 1980,
+      "title": "DSM-III",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Diagnostic_and_Statistical_Manual_of_Mental_Disorders",
+      "kind": "reference",
+      "strength": "Reference; history and criticisms well documented."
+    },
+    "ev-clin-beck-depression": {
+      "who": "Beck, A.",
+      "year": 1976,
+      "title": "Cognitive Therapy and the Emotional Disorders",
+      "where": "International Universities Press",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_therapy",
+      "kind": "reference",
+      "strength": "Primary source; foundational for CBT."
+    },
+    "ev-clin-cbt": {
+      "who": "Beck, A. / Ellis, A.",
+      "year": 1976,
+      "title": "Cognitive Behavioural Therapy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_behavioral_therapy",
+      "kind": "reference",
+      "strength": "Reference; strong evidence base documented."
+    },
+    "ev-clin-diathesis-stress": {
+      "who": "Zubin, J. & Spring, B.",
+      "year": 1977,
+      "title": "Vulnerability: A New View of Schizophrenia",
+      "where": "Journal of Abnormal Psychology",
+      "url": "https://en.wikipedia.org/wiki/Diathesis%E2%80%93stress_model",
+      "kind": "reference",
+      "strength": "Primary source; widely-used model."
+    },
+    "ev-clin-schizophrenia": {
+      "who": "Bleuler, E.",
+      "year": 1908,
+      "title": "Dementia Praecox or the Group of Schizophrenias",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Schizophrenia",
+      "kind": "reference",
+      "strength": "Reference; clinical facts well established."
+    },
+    "ev-clin-ptsd": {
+      "who": "American Psychiatric Association",
+      "year": 1980,
+      "title": "PTSD (DSM-III)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Post-traumatic_stress_disorder",
+      "kind": "reference",
+      "strength": "Reference; well documented."
+    },
+    "ev-clin-ssri": {
+      "who": "Wikipedia",
+      "year": 1987,
+      "title": "Selective serotonin reuptake inhibitor",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Selective_serotonin_reuptake_inhibitor",
+      "kind": "reference",
+      "strength": "Reference; efficacy established, mechanism debated (noted in counter)."
+    },
+    "ev-clin-biopsychosocial": {
+      "who": "Engel, G.",
+      "year": 1977,
+      "title": "The Need for a New Medical Model",
+      "where": "Science",
+      "url": "https://en.wikipedia.org/wiki/Biopsychosocial_model",
+      "kind": "reference",
+      "strength": "Primary source; standard framework."
+    },
+    "ev-bio-neuron": {
+      "who": "Sherrington, C.",
+      "year": 1897,
+      "title": "The Central Nervous System",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Neuron",
+      "kind": "reference",
+      "strength": "Reference; foundational neuroscience."
+    },
+    "ev-bio-neurotransmitters": {
+      "who": "Loewi, O.",
+      "year": 1921,
+      "title": "On the Humoral Transmission of Nerve Impulses",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Neurotransmitter",
+      "kind": "reference",
+      "strength": "Reference; foundational finding."
+    },
+    "ev-bio-limbic": {
+      "who": "Papez, J.",
+      "year": 1937,
+      "title": "A Proposed Mechanism of Emotion",
+      "where": "Archives of Neurology",
+      "url": "https://en.wikipedia.org/wiki/Limbic_system",
+      "kind": "reference",
+      "strength": "Reference; concept refined over time."
+    },
+    "ev-bio-sleep": {
+      "who": "Aserinsky, E. & Kleitman, N.",
+      "year": 1953,
+      "title": "Regularly Occurring Periods of Eye Motility",
+      "where": "Science",
+      "url": "https://en.wikipedia.org/wiki/Rapid_eye_movement_sleep",
+      "kind": "reference",
+      "strength": "Primary source; classic discovery."
+    },
+    "ev-bio-split-brain": {
+      "who": "Sperry, R. & Gazzaniga, M.",
+      "year": 1968,
+      "title": "Observations on Visual Perception after Disconnexion",
+      "where": "Brain",
+      "url": "https://en.wikipedia.org/wiki/Split-brain",
+      "kind": "reference",
+      "strength": "Primary source; classic, with recent nuance."
+    },
+    "ev-bio-broca-wernicke": {
+      "who": "Broca, P.",
+      "year": 1861,
+      "title": "Remarks on the Seat of the Faculty of Articulate Language",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Broca%27s_area",
+      "kind": "reference",
+      "strength": "Reference; foundational, refined by imaging."
+    },
+    "ev-bio-hpa-stress": {
+      "who": "Selye, H.",
+      "year": 1936,
+      "title": "A Syndrome Produced by Diverse Nocuous Agents",
+      "where": "Nature",
+      "url": "https://en.wikipedia.org/wiki/Hypothalamic%E2%80%93pituitary%E2%80%93adrenal_axis",
+      "kind": "reference",
+      "strength": "Primary source; foundational stress research."
+    },
+    "ev-pos-flow": {
+      "who": "Csíkszentmihályi, M.",
+      "year": 1990,
+      "title": "Flow: The Psychology of Optimal Experience",
+      "where": "Harper & Row",
+      "url": "https://en.wikipedia.org/wiki/Flow_(psychology)",
+      "kind": "reference",
+      "strength": "Primary source; well-known construct."
+    },
+    "ev-pos-grit": {
+      "who": "Duckworth, A.",
+      "year": 2007,
+      "title": "Grit: Perseverance and Passion for Long-Term Goals",
+      "where": "Journal of Personality and Social Psychology",
+      "url": "https://en.wikipedia.org/wiki/Grit_(personality_trait)",
+      "kind": "reference",
+      "strength": "Primary source; popular, with meta-analytic caveats."
+    },
+    "ev-pos-growth-mindset": {
+      "who": "Dweck, C.",
+      "year": 2006,
+      "title": "Mindset: The New Psychology of Success",
+      "where": "Random House",
+      "url": "https://en.wikipedia.org/wiki/Mindset",
+      "kind": "reference",
+      "strength": "Primary source; effect sizes debated (noted in counter)."
+    },
+    "ev-pos-hedonic-adaptation": {
+      "who": "Brickman, P. & Campbell, D.",
+      "year": 1971,
+      "title": "Hedonic Relativism and Planning the Good Society",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hedonic_treadmill",
+      "kind": "reference",
+      "strength": "Primary source; concept refined by later research."
+    },
+    "ev-pos-character-strengths": {
+      "who": "Peterson, C. & Seligman, M.",
+      "year": 2004,
+      "title": "Character Strengths and Virtues",
+      "where": "Oxford University Press",
+      "url": "https://en.wikipedia.org/wiki/Character_Strengths_and_Virtues",
+      "kind": "reference",
+      "strength": "Primary source; foundational for positive psychology."
+    },
+    "ev-meth-reliability-validity": {
+      "who": "Cronbach, L.",
+      "year": 1951,
+      "title": "Coefficient Alpha and the Internal Structure of Tests",
+      "where": "Psychometrika",
+      "url": "https://en.wikipedia.org/wiki/Reliability_(statistics)",
+      "kind": "reference",
+      "strength": "Primary source plus reference; core psychometric concepts."
+    },
+    "ev-meth-iq-g": {
+      "who": "Spearman, C.",
+      "year": 1904,
+      "title": "General Intelligence, Objectively Determined and Measured",
+      "where": "American Journal of Psychology",
+      "url": "https://en.wikipedia.org/wiki/G_factor_(psychometrics)",
+      "kind": "reference",
+      "strength": "Primary source; g is well replicated, its interpretation contested."
+    },
+    "ev-meth-effect-size": {
+      "who": "Cohen, J.",
+      "year": 1988,
+      "title": "Statistical Power Analysis for the Behavioral Sciences",
+      "where": "Erlbaum",
+      "url": "https://en.wikipedia.org/wiki/Effect_size",
+      "kind": "reference",
+      "strength": "Primary source; core statistical concepts."
+    },
+    "ev-meth-weird": {
+      "who": "Henrich, J., Heine, S. & Norenzayan, A.",
+      "year": 2010,
+      "title": "The Weirdest People in the World?",
+      "where": "Behavioral and Brain Sciences",
+      "url": "https://en.wikipedia.org/wiki/Psychology#Sampling_bias",
+      "kind": "reference",
+      "strength": "Primary source; influential methodological critique."
+    },
+    "ev-meth-ethics": {
+      "who": "National Commission",
+      "year": 1979,
+      "title": "The Belmont Report",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Belmont_Report",
+      "kind": "reference",
+      "strength": "Reference; foundational ethics document."
+    },
+    "ev-meth-correlation-causation": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Correlation does not imply causation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation",
+      "kind": "reference",
+      "strength": "Reference; a foundational methodological principle."
     }
   }
 }

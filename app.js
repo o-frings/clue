@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v95";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v120";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -78,20 +78,82 @@ const ICON = {
   lock:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="11" width="15" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>'
 };
 
-// ================= storage (Claude window.storage, else localStorage, else memory) =================
+// ================= storage: durable, redundant, on-device =================
+// All user data lives on the device. iOS/WebKit can EVICT a web/PWA origin's script-writable
+// storage (the "7-day cap" on inactive origins, plus low-disk eviction) — the historical cause
+// of lost progress here. Two defenses, layered:
+//   1. requestPersistence() asks the browser not to evict this origin (navigator.storage.persist).
+//   2. Every write goes to BOTH IndexedDB and localStorage; every read adopts whichever copy
+//      survives and backfills the other. If one store is cleared, the other still has the data.
+// Priority order stays: Claude's window.storage (artifact runtime) → IndexedDB+localStorage → memory.
 const _mem={};
 function hasWS(){ try{ return !!(window.storage && window.storage.get); }catch(e){ return false; } }
 function hasLS(){ try{ return !!window.localStorage; }catch(e){ return false; } }
+
+// ---- IndexedDB key-value store (primary durable store) ----
+const IDB_NAME="clue", IDB_STORE="kv", IDB_VER=1;
+let _idbPromise=null;
+function idbOpen(){
+  if(_idbPromise) return _idbPromise;
+  _idbPromise=new Promise((resolve)=>{
+    try{
+      if(!window.indexedDB){ resolve(null); return; }
+      const req=indexedDB.open(IDB_NAME, IDB_VER);
+      req.onupgradeneeded=()=>{ try{ req.result.createObjectStore(IDB_STORE); }catch(_){} };
+      req.onsuccess=()=>resolve(req.result);
+      req.onerror=()=>resolve(null);
+      req.onblocked=()=>resolve(null);
+    }catch(e){ resolve(null); }
+  });
+  return _idbPromise;
+}
+async function idbGet(k){
+  const db=await idbOpen(); if(!db) return null;
+  return new Promise((res)=>{
+    try{ const rq=db.transaction(IDB_STORE,"readonly").objectStore(IDB_STORE).get(k);
+      rq.onsuccess=()=>res(rq.result===undefined?null:rq.result); rq.onerror=()=>res(null);
+    }catch(e){ res(null); }
+  });
+}
+async function idbSet(k,v){
+  const db=await idbOpen(); if(!db) return false;
+  return new Promise((res)=>{
+    try{ const tx=db.transaction(IDB_STORE,"readwrite"); tx.objectStore(IDB_STORE).put(v,k);
+      tx.oncomplete=()=>res(true); tx.onerror=()=>res(false); tx.onabort=()=>res(false);
+    }catch(e){ res(false); }
+  });
+}
+
+// Ask the browser to keep this origin's storage from being evicted. Best-effort and idempotent;
+// silent (heuristic) on Chrome/Safari, so it never interrupts the user.
+async function requestPersistence(){
+  try{
+    if(navigator.storage && navigator.storage.persist){
+      const already = navigator.storage.persisted ? await navigator.storage.persisted() : false;
+      if(!already) await navigator.storage.persist();
+    }
+  }catch(e){}
+}
+
 async function sget(k){
   if(hasWS()){ try{ const r=await window.storage.get(k); return r?JSON.parse(r.value):null; }catch(e){ return null; } }
-  if(hasLS()){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):null; }catch(e){ return null; } }
+  // Read both stores; adopt whichever copy is present and repair the other (self-healing).
+  let idbVal=null, lsVal=null;
+  try{ idbVal=await idbGet(k); }catch(e){}
+  if(hasLS()){ try{ const s=localStorage.getItem(k); lsVal=s?JSON.parse(s):null; }catch(e){} }
+  if(idbVal!=null && lsVal==null){ if(hasLS()){ try{ localStorage.setItem(k, JSON.stringify(idbVal)); }catch(_){} } return idbVal; }
+  if(lsVal!=null && idbVal==null){ idbSet(k,lsVal); return lsVal; }   // backfill IDB from surviving LS copy
+  if(idbVal!=null) return idbVal;    // both present → prefer IndexedDB (larger quota, structured)
+  if(lsVal!=null) return lsVal;
   return (k in _mem)?_mem[k]:null;
 }
 async function sset(k,v){ await _localSet(k,v); cloudMark(k,v); }
 async function _localSet(k,v){
   if(hasWS()){ try{ await window.storage.set(k, JSON.stringify(v), false); return; }catch(e){} }
-  if(hasLS()){ try{ localStorage.setItem(k, JSON.stringify(v)); return; }catch(e){} }
-  _mem[k]=v;
+  let wrote=false;
+  try{ if(await idbSet(k,v)) wrote=true; }catch(e){}
+  if(hasLS()){ try{ localStorage.setItem(k, JSON.stringify(v)); wrote=true; }catch(e){} }
+  if(!wrote) _mem[k]=v;   // last resort: keep it for this session even if both stores refused
 }
 
 // ================= accounts & cloud sync (Supabase) =================
@@ -224,10 +286,17 @@ async function cloudReconcile(){
   try{ const { data, error } = await sb.from("user_data").select("key,value,updated_at"); if(error) throw error; rows=data||[]; }
   catch(e){ return; }
   const server={}; rows.forEach(r=>{ server[r.key]={ v:r.value, ts:Date.parse(r.updated_at) }; });
+  const count=(v)=> v && typeof v==="object" ? Object.keys(v).length : 0;
   let adopted=false;
   for(const k of CLOUD_KEYS){
     const localTs=_syncMeta[k]||0, s=server[k];
-    if(s && s.ts>localTs){ await _localSet(k,s.v); _syncMeta[k]=s.ts; adopted=true; }
+    if(s && s.ts>localTs){
+      // Safety: never let an EMPTY cloud record silently wipe non-empty local progress, even if
+      // its timestamp is newer. Push local up instead and keep what's on the device.
+      const lv=await sget(k);
+      if(k==="progress" && count(s.v)===0 && count(lv)>0){ await cloudPush(k,lv,Date.now()); continue; }
+      await _localSet(k,s.v); _syncMeta[k]=s.ts; adopted=true;
+    }
     else { const lv=await sget(k); if(lv!=null && (!s || localTs>s.ts)) await cloudPush(k,lv,localTs||Date.now()); }
   }
   await _persistMeta();
@@ -259,11 +328,11 @@ function renderAccount(){
     $("acctDelete").onclick=cloudDeleteData;
     return;
   }
-  // configured but signed out → email-code login
-  sub.textContent=" — sign in to sync";
+  // configured but signed out → email-code login (OPTIONAL — the app is fully local without it)
+  sub.textContent=" — on this device";
   const sent=!!_pendingEmail;
   body.innerHTML=
-    '<p class="acctp">Sign in to back up your progress and sync it across devices. No password — we email you a 6-digit code.</p>'+
+    '<p class="acctp">Your progress is saved <b>on this device</b> and works offline — no sign-in needed. Signing in is optional: it adds a cloud backup and sync across devices. Email delivery can be flaky right now; if a code doesn’t arrive you can keep using the app as-is, and there’s an <b>Export a backup</b> option under <b>Your data</b>.</p>'+
     '<input id="acctEmail" type="email" inputmode="email" autocapitalize="off" autocorrect="off" placeholder="you@email.com" style="margin-top:10px;">'+
     '<button class="btn wide sm" id="acctSend" style="margin-top:10px;">'+(sent?'Resend code':'Email me a code')+'</button>'+
     '<div id="acctCodeRow" style="display:'+(sent?'block':'none')+';margin-top:12px;">'+
@@ -306,7 +375,6 @@ const TAXONOMY = [
   { id:'formal', label:'Formal sciences', icon:'∑', disciplines:[
     { id:'math',    label:'Mathematics',      icon:'∑',  fields:['math','linalg'] },
     { id:'stats',   label:'Statistics',       icon:'📊', fields:['prob'] },
-    { id:'logic',   label:'Logic',            icon:'⊢',  fields:['logic'] },
   ]},
   { id:'natural', label:'Natural sciences', icon:'🔬', disciplines:[
     { id:'physics', label:'Physics',          icon:'⚛️', fields:['physics'] },
@@ -324,11 +392,11 @@ const TAXONOMY = [
     { id:'polsci',  label:'Political science', icon:'🏛️', fields:['polisci','ir'] },
     { id:'socio',   label:'Sociology',         icon:'🕸️', fields:['socio'] },
     { id:'anthro',  label:'Anthropology',      icon:'🗿', fields:['anthro'] },
-    { id:'psych',   label:'Psychology',        icon:'🧠', fields:['psych'] },
+    { id:'psych',   label:'Psychology',        icon:'🧠', fields:['cogpsy','socpsy','devpsy','lrnpsy','perspsy','clinpsy','biopsy','pospsy','methpsy'] },
     { id:'geog',    label:'Geography',         icon:'🌍', fields:['geo'] },
   ]},
   { id:'humanities', label:'Humanities', icon:'📜', disciplines:[
-    { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['philo'] },
+    { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['logic','epist','metaph','phmind','phlang','phsci','ethics','phpol','phhist'] },
     { id:'history', label:'History',           icon:'🏛️', fields:['history'] },
   ]},
   { id:'applied', label:'Applied & professional', icon:'💼', disciplines:[
@@ -2595,9 +2663,30 @@ function updateRotateGuard(){ const land=window.matchMedia&&matchMedia("(orienta
 window.addEventListener("resize",updateRotateGuard); window.addEventListener("orientationchange",updateRotateGuard);
 
 // ================= boot =================
+// One-time migration for the v120 taxonomy split: Philosophy and Psychology became multi-field
+// disciplines, and Logic moved under Philosophy. Card progress is keyed by card id (not field),
+// so learned cards are preserved automatically — only field-keyed settings need remapping.
+function migrateTaxonomyV120(){
+  if(settings._taxo120) return;
+  const expand={
+    philo:['epist','metaph','phmind','phlang','phsci','ethics','phpol','phhist'],   // logic already its own field
+    psych:['cogpsy','socpsy','devpsy','lrnpsy','perspsy','clinpsy','biopsy','pospsy','methpsy'],
+    pe:['polecon'],                                                                  // fixed orphan field
+  };
+  if(Array.isArray(settings.focus)){
+    const out=[]; settings.focus.forEach(f=>{ (expand[f]||[f]).forEach(x=>out.push(x)); });
+    settings.focus=[...new Set(out)];
+  }
+  delete settings.degrees;   // stale field-keyed snapshot; checkDegrees reseeds it silently this load
+  settings._taxo120=true;
+  persistAll();
+}
+
 async function init(){
+  await requestPersistence();   // ask the browser not to evict our on-device data (before first read)
   settings=Object.assign(settings,(await sget("settings"))||{});
   progress=(await sget("progress"))||{};
+  migrateTaxonomyV120();
   applyTheme();
   const ok=await loadKnowledge();
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }
