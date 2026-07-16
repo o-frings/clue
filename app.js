@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v125";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v126";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -373,7 +373,7 @@ function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).l
 // a single field is shown as that field directly (no redundant middle layer).
 const TAXONOMY = [
   { id:'formal', label:'Formal sciences', icon:'∑', disciplines:[
-    { id:'math',    label:'Mathematics',      icon:'∑',  fields:['math','linalg'] },
+    { id:'math',    label:'Mathematics',      icon:'∑',  fields:['mathfnd','mathcalc','linalg'] },
     { id:'stats',   label:'Statistics',       icon:'📊', fields:['prob'] },
   ]},
   { id:'natural', label:'Natural sciences', icon:'🔬', disciplines:[
@@ -396,7 +396,7 @@ const TAXONOMY = [
     { id:'geog',    label:'Geography',         icon:'🌍', fields:['geo'] },
   ]},
   { id:'humanities', label:'Humanities', icon:'📜', disciplines:[
-    { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['logic','epist','metaph','phmind','phlang','phsci','ethics','phpol','phhist'] },
+    { id:'philo',   label:'Philosophy',        icon:'🤔', fields:['logic','rhetoric','epist','metaph','phmind','phlang','phsci','ethics','phpol','phhist'] },
     { id:'history', label:'History',           icon:'🏛️', fields:['histanc','histmed','histearly','histmod','histcontemp','histglobal','histideas','histmethod'] },
   ]},
   { id:'applied', label:'Applied & professional', icon:'💼', disciplines:[
@@ -2751,6 +2751,20 @@ function migrateTaxonomyV125(){
   persistAll();
 }
 
+// v126: Mathematics generic field split into Foundations & Calculus; rhetoric re-homed under
+// Philosophy; CS fields relabelled (ids unchanged). Progress is card-id keyed.
+function migrateTaxonomyV126(){
+  if(settings._taxo126) return;
+  const MATH=['mathfnd','mathcalc'];
+  if(Array.isArray(settings.focus)){
+    const out=[]; settings.focus.forEach(f=>{ (f==='math'?MATH:[f]).forEach(x=>out.push(x)); });
+    settings.focus=[...new Set(out)];
+  }
+  delete settings.degrees;
+  settings._taxo126=true;
+  persistAll();
+}
+
 async function init(){
   await requestPersistence();   // ask the browser not to evict our on-device data (before first read)
   settings=Object.assign(settings,(await sget("settings"))||{});
@@ -2761,6 +2775,7 @@ async function init(){
   migrateTaxonomyV123();
   migrateTaxonomyV124();
   migrateTaxonomyV125();
+  migrateTaxonomyV126();
   applyTheme();
   const ok=await loadKnowledge();
   if(!ok){ $("lnStage")&&($("lnStage").innerHTML='<div class="emptystate"><div class="ei">⚠️</div><h3>Couldn’t load the library</h3><p>knowledge.json failed to load. If you’re opening the file directly, serve the folder over http instead.</p></div>'); }

@@ -55,11 +55,18 @@
       "color": "#f59f00"
     },
     {
-      "id": "math",
-      "label": "Mathematics",
-      "blurb": "Numbers, algebra, calculus, infinity — built from zero.",
-      "icon": "√",
+      "id": "mathfnd",
+      "label": "Foundations & algebra",
+      "blurb": "Numbers, variables, functions, and proof.",
+      "icon": "∑",
       "color": "#4dabf7"
+    },
+    {
+      "id": "mathcalc",
+      "label": "Calculus & analysis",
+      "blurb": "Limits, rates of change, and areas.",
+      "icon": "∫",
+      "color": "#1c7ed6"
     },
     {
       "id": "linalg",
@@ -84,14 +91,14 @@
     },
     {
       "id": "cs",
-      "label": "Computer science",
+      "label": "Theory & algorithms",
       "blurb": "Bits, algorithms, and the limits of computation.",
       "icon": "⌨",
       "color": "#0b7285"
     },
     {
       "id": "code",
-      "label": "Coding",
+      "label": "Software engineering",
       "blurb": "Writing software that humans can read and maintain.",
       "icon": "🧑‍💻",
       "color": "#5c5f66"
@@ -5691,7 +5698,7 @@
     },
     {
       "id": "math-infinities",
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -5765,7 +5772,7 @@
     },
     {
       "id": "math-godel",
-      "field": "math",
+      "field": "mathfnd",
       "depth": "book",
       "level": 2,
       "prereq": [
@@ -11169,7 +11176,7 @@
       "src": [
         "ev-math-variable"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "title": "A letter is a number you don't know yet",
@@ -11235,7 +11242,7 @@
       "src": [
         "ev-math-equation-balance"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "prereq": [
@@ -11303,7 +11310,7 @@
       "src": [
         "ev-math-function"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "prereq": [
@@ -11383,7 +11390,7 @@
       "src": [
         "ev-math-powers"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "prereq": [
@@ -11468,7 +11475,7 @@
       "src": [
         "ev-math-log"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -11552,7 +11559,7 @@
       "src": [
         "ev-math-linear-equation"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 1,
       "prereq": [
@@ -11642,7 +11649,7 @@
       "src": [
         "ev-math-quadratic"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -11745,7 +11752,7 @@
       "src": [
         "ev-math-summation"
       ],
-      "field": "math",
+      "field": "mathfnd",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -11835,7 +11842,7 @@
       "src": [
         "ev-math-limit"
       ],
-      "field": "math",
+      "field": "mathcalc",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -11921,7 +11928,7 @@
       "src": [
         "ev-math-derivative"
       ],
-      "field": "math",
+      "field": "mathcalc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -12023,7 +12030,7 @@
       "src": [
         "ev-math-integral"
       ],
-      "field": "math",
+      "field": "mathcalc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -12111,7 +12118,7 @@
       "src": [
         "ev-math-chain-rule"
       ],
-      "field": "math",
+      "field": "mathcalc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -12199,7 +12206,7 @@
       "src": [
         "ev-math-gradient"
       ],
-      "field": "math",
+      "field": "mathcalc",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -64092,6 +64099,504 @@
       ],
       "deploy": "How to read any social claim — by asking what method produced it and what that method can and can't show.",
       "counter": "The quant/qual divide is partly cultural; the best work often refuses the dichotomy."
+    },
+    {
+      "id": "math-primes",
+      "field": "mathfnd",
+      "depth": "concept",
+      "level": 2,
+      "title": "Prime numbers",
+      "fact": "A prime is a whole number greater than 1 divisible only by 1 and itself; every integer factors uniquely into primes.",
+      "tags": [
+        "mathematics",
+        "primes",
+        "number theory",
+        "foundations"
+      ],
+      "quiz": [
+        {
+          "q": "A prime number is divisible only by:",
+          "choices": [
+            "2 and itself",
+            "1 and itself",
+            "any even number",
+            "1 and 2"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What theorem states every integer has a unique prime factorisation?",
+          "type": "detail",
+          "answer": "fundamental theorem of arithmetic",
+          "accept": [
+            "fundamental theorem of arithmetic",
+            "unique factorization",
+            "unique factorisation"
+          ]
+        },
+        {
+          "q": "What is the smallest prime number?",
+          "type": "num",
+          "answer": 2,
+          "tol": 0.0
+        }
+      ],
+      "src": [
+        "ev-math-primes"
+      ],
+      "detail": "Primes (2, 3, 5, 7, 11…) are the atoms of arithmetic: the fundamental theorem of arithmetic says every whole number has exactly one prime factorisation. Euclid proved there are infinitely many. Their unpredictable distribution and the difficulty of factoring huge numbers underpins modern encryption.",
+      "year": -300,
+      "xref": [
+        "cyber-public-key",
+        "math-powers"
+      ],
+      "deploy": "The basis of number theory — and of the public-key cryptography securing the internet.",
+      "counter": "Whether patterns in prime gaps hide deeper order (the Riemann hypothesis) is maths' most famous open problem."
+    },
+    {
+      "id": "math-pythagoras",
+      "field": "mathfnd",
+      "depth": "concept",
+      "level": 1,
+      "title": "The Pythagorean theorem",
+      "fact": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides: \\(a^2 + b^2 = c^2\\).",
+      "tags": [
+        "mathematics",
+        "geometry",
+        "Pythagoras",
+        "distance"
+      ],
+      "quiz": [
+        {
+          "q": "The Pythagorean theorem \\(a^2+b^2=c^2\\) applies to which triangles?",
+          "choices": [
+            "all triangles",
+            "right-angled triangles",
+            "equilateral only",
+            "none"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In \\(a^2+b^2=c^2\\), what is the side c called?",
+          "type": "detail",
+          "answer": "hypotenuse",
+          "accept": [
+            "hypotenuse"
+          ]
+        },
+        {
+          "q": "The theorem is the basis for computing:",
+          "choices": [
+            "angles only",
+            "straight-line distance between points",
+            "area of a circle",
+            "prime numbers"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-math-pythagoras"
+      ],
+      "detail": "Known for millennia across cultures, \\(a^2+b^2=c^2\\) links algebra to geometry and is the seed of distance itself: the straight-line distance between two points comes straight from it. It generalises into the metric of space in physics and the length of a vector in linear algebra.",
+      "year": -500,
+      "xref": [
+        "la-norm",
+        "phys-shm"
+      ],
+      "deploy": "The root of distance and geometry — used everywhere from construction to computer graphics.",
+      "counter": "It holds only in flat (Euclidean) space; on curved surfaces the relationship changes."
+    },
+    {
+      "id": "math-fundamental-calculus",
+      "field": "mathcalc",
+      "depth": "concept",
+      "level": 3,
+      "title": "The fundamental theorem of calculus",
+      "fact": "Differentiation and integration are inverse operations: finding areas (integration) undoes finding slopes (differentiation), and vice versa.",
+      "tags": [
+        "mathematics",
+        "calculus",
+        "integration",
+        "Newton"
+      ],
+      "quiz": [
+        {
+          "q": "The fundamental theorem of calculus says integration and differentiation are:",
+          "choices": [
+            "unrelated",
+            "inverse operations",
+            "the same operation",
+            "both impossible"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "To integrate a function using the theorem, you find its ______.",
+          "type": "detail",
+          "answer": "antiderivative",
+          "accept": [
+            "antiderivative",
+            "anti-derivative",
+            "primitive"
+          ]
+        },
+        {
+          "q": "The theorem is credited (independently) to Leibniz and:",
+          "choices": [
+            "Euclid",
+            "Newton",
+            "Gauss",
+            "Euler"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-math-fundamental-calculus"
+      ],
+      "detail": "The theorem ties the two halves of calculus together: to compute the area under a curve, find an antiderivative and evaluate it at the endpoints. This turned integration from a limit of endless sums into a routine calculation, and unified the work of Newton and Leibniz.",
+      "year": 1687,
+      "prereq": [
+        "math-integral",
+        "math-derivative"
+      ],
+      "xref": [
+        "math-limit"
+      ],
+      "deploy": "The keystone that makes calculus practical — the engine of physics and engineering.",
+      "counter": "It requires the function to be well-behaved (continuous); pathological functions need heavier machinery."
+    },
+    {
+      "id": "cs-data-structures",
+      "field": "cs",
+      "depth": "concept",
+      "level": 2,
+      "title": "Data structures",
+      "fact": "How you organise data — as a list, a hash table, a tree, a graph — determines how fast you can search, insert and retrieve it.",
+      "tags": [
+        "computer science",
+        "data structures",
+        "algorithms",
+        "efficiency"
+      ],
+      "quiz": [
+        {
+          "q": "The choice of data structure mainly determines a program's:",
+          "choices": [
+            "colour",
+            "speed of search/insert/retrieve",
+            "file size on disk only",
+            "programming language"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which data structure offers roughly constant-time lookup by key?",
+          "type": "detail",
+          "answer": "hash table",
+          "accept": [
+            "hash table",
+            "hashmap",
+            "hash map",
+            "dictionary",
+            "hashtable"
+          ]
+        },
+        {
+          "q": "Binary search requires the data to be:",
+          "choices": [
+            "unsorted",
+            "sorted",
+            "hashed",
+            "encrypted"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-cs-data-structures"
+      ],
+      "detail": "A hash table finds items in roughly constant time; a sorted array lets you binary-search in logarithmic time; a tree keeps things ordered while allowing fast updates. Choosing the right structure is often the difference between a program that scales and one that crawls — the practical side of Big-O.",
+      "year": 1960,
+      "prereq": [
+        "cs-bigo"
+      ],
+      "xref": [
+        "cs-binary",
+        "la-matrix"
+      ],
+      "deploy": "The everyday craft of writing code that scales — the practical face of algorithm theory.",
+      "counter": "The 'best' structure depends on the access pattern; premature optimisation of it is a classic mistake."
+    },
+    {
+      "id": "cs-recursion",
+      "field": "cs",
+      "depth": "concept",
+      "level": 2,
+      "title": "Recursion",
+      "fact": "A recursive function solves a problem by calling itself on smaller pieces, until it hits a simple 'base case' it can answer directly.",
+      "tags": [
+        "computer science",
+        "recursion",
+        "algorithms",
+        "divide and conquer"
+      ],
+      "quiz": [
+        {
+          "q": "A recursive function works by:",
+          "choices": [
+            "looping a fixed number of times",
+            "calling itself on smaller subproblems until a base case",
+            "never terminating",
+            "avoiding function calls"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the term for the simple stopping condition of a recursion?",
+          "type": "detail",
+          "answer": "base case",
+          "accept": [
+            "base case",
+            "base-case"
+          ]
+        },
+        {
+          "q": "A recursion with no reachable base case will:",
+          "choices": [
+            "run fastest",
+            "crash (stack overflow / infinite recursion)",
+            "return zero",
+            "compile-error only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-cs-recursion"
+      ],
+      "detail": "To sort a list, split it, sort each half (recursively), and merge — the base case being a list of one. Recursion expresses naturally self-similar problems (trees, fractals, divide-and-conquer algorithms) compactly, though each call uses stack memory, so a missing base case causes a crash.",
+      "year": 1960,
+      "prereq": [
+        "cs-bigo"
+      ],
+      "xref": [
+        "cs-data-structures",
+        "math-chain-rule"
+      ],
+      "deploy": "A core problem-solving pattern — behind sorting, tree traversal and much of functional programming.",
+      "counter": "Deep recursion can exhaust the stack; it is sometimes rewritten as iteration for performance.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Problem"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Split into smaller"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Base case → combine",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Divide until trivial, then combine the answers back up."
+        }
+      ]
+    },
+    {
+      "id": "cs-databases",
+      "field": "cs",
+      "depth": "concept",
+      "level": 3,
+      "title": "Databases and the relational model",
+      "fact": "Most structured data lives in relational databases — tables linked by keys, queried with SQL — designed so data stays consistent and non-redundant.",
+      "tags": [
+        "computer science",
+        "databases",
+        "SQL",
+        "relational model"
+      ],
+      "quiz": [
+        {
+          "q": "A relational database organises data as:",
+          "choices": [
+            "a single long file",
+            "tables (relations) linked by keys",
+            "images",
+            "raw bits only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What query language is standard for relational databases?",
+          "type": "detail",
+          "answer": "SQL",
+          "accept": [
+            "SQL",
+            "sequel",
+            "Structured Query Language"
+          ]
+        },
+        {
+          "q": "Which scientist devised the relational model (1970)?",
+          "choices": [
+            "Turing",
+            "Codd",
+            "Knuth",
+            "Dijkstra"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-cs-databases"
+      ],
+      "detail": "Edgar Codd's relational model (1970) organises data into tables whose rows are linked by keys, letting you query by content rather than location. 'Normalisation' removes duplication so updates can't contradict themselves, and transactions guarantee all-or-nothing changes (ACID). It underpins nearly every serious application.",
+      "year": 1970,
+      "prereq": [
+        "cs-data-structures"
+      ],
+      "xref": [
+        "cs-binary"
+      ],
+      "deploy": "The backbone of virtually every business and web application.",
+      "counter": "Relational databases struggle with some scales and shapes of data, spawning NoSQL alternatives."
+    },
+    {
+      "id": "code-version-control",
+      "field": "code",
+      "depth": "concept",
+      "level": 1,
+      "title": "Version control",
+      "fact": "Version control (Git) records every change to code, lets many people work in parallel, and lets you rewind to any past state.",
+      "tags": [
+        "software engineering",
+        "version control",
+        "Git",
+        "collaboration"
+      ],
+      "quiz": [
+        {
+          "q": "Version control primarily lets a team:",
+          "choices": [
+            "write faster code",
+            "track every change and collaborate without overwriting each other",
+            "run code faster",
+            "avoid testing"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the dominant distributed version-control system?",
+          "type": "detail",
+          "answer": "Git",
+          "accept": [
+            "Git",
+            "git"
+          ]
+        },
+        {
+          "q": "Trying a change safely in isolation before merging it is done via a:",
+          "choices": [
+            "commit",
+            "branch",
+            "crash",
+            "comment"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-code-version-control"
+      ],
+      "detail": "Instead of files named 'final_v3_REAL.js', version control keeps a full, labelled history: you can branch to try something, merge it back, see who changed what and when, and revert mistakes. Git, the dominant system, made distributed collaboration — the norm in modern software — possible.",
+      "year": 2005,
+      "xref": [
+        "code-naming",
+        "code-complexity"
+      ],
+      "deploy": "The non-negotiable foundation of modern collaborative software development.",
+      "counter": "Version control tracks changes, not intent; without good commit messages, the history is far less useful."
+    },
+    {
+      "id": "code-testing",
+      "field": "code",
+      "depth": "concept",
+      "level": 2,
+      "title": "Automated testing",
+      "fact": "Automated tests are code that checks your code, catching bugs the moment you introduce them instead of in production.",
+      "tags": [
+        "software engineering",
+        "testing",
+        "quality",
+        "refactoring"
+      ],
+      "quiz": [
+        {
+          "q": "The main benefit of automated tests is catching bugs:",
+          "choices": [
+            "after release",
+            "immediately, as changes are made",
+            "only in production",
+            "never"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What kind of test checks a single small piece of code in isolation?",
+          "type": "detail",
+          "answer": "unit test",
+          "accept": [
+            "unit test",
+            "unit tests",
+            "unit"
+          ]
+        },
+        {
+          "q": "A strong test suite makes which activity safe?",
+          "choices": [
+            "deleting the repo",
+            "refactoring",
+            "skipping review",
+            "ignoring bugs"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-code-testing"
+      ],
+      "detail": "A test states 'given this input, expect this output' and runs in seconds, so a whole suite can verify a change didn't break anything. Unit tests check small pieces; integration tests check them together. Tests double as executable documentation and make refactoring safe — you can change code confidently if the tests still pass.",
+      "year": 1999,
+      "prereq": [
+        "code-version-control"
+      ],
+      "xref": [
+        "code-dry"
+      ],
+      "deploy": "How reliable software stays reliable as it changes — the safety net for refactoring.",
+      "counter": "Tests can give false confidence: they only check what you thought to check, and can rot if unmaintained."
     }
   ],
   "motions": [

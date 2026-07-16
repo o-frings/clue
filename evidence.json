@@ -7956,6 +7956,78 @@
       "url": "https://en.wikipedia.org/wiki/Social_research",
       "kind": "reference",
       "strength": "Foundational methodology."
+    },
+    "ev-math-primes": {
+      "who": "Euclid",
+      "year": -300,
+      "title": "Prime number",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Prime_number",
+      "kind": "reference",
+      "strength": "Foundational; results are proven theorems."
+    },
+    "ev-math-pythagoras": {
+      "who": "Wikipedia",
+      "year": -500,
+      "title": "Pythagorean theorem",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Pythagorean_theorem",
+      "kind": "reference",
+      "strength": "Foundational; a proven theorem with hundreds of proofs."
+    },
+    "ev-math-fundamental-calculus": {
+      "who": "Wikipedia",
+      "year": 1687,
+      "title": "Fundamental theorem of calculus",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus",
+      "kind": "reference",
+      "strength": "Foundational; a proven theorem."
+    },
+    "ev-cs-data-structures": {
+      "who": "Wikipedia",
+      "year": 1960,
+      "title": "Data structure",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Data_structure",
+      "kind": "reference",
+      "strength": "Foundational computer science."
+    },
+    "ev-cs-recursion": {
+      "who": "Wikipedia",
+      "year": 1960,
+      "title": "Recursion (computer science)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+      "kind": "reference",
+      "strength": "Foundational computer science."
+    },
+    "ev-cs-databases": {
+      "who": "Codd, E.",
+      "year": 1970,
+      "title": "Relational model",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Relational_model",
+      "kind": "reference",
+      "strength": "Foundational; Codd's model is Turing-Award-recognised."
+    },
+    "ev-code-version-control": {
+      "who": "Wikipedia",
+      "year": 2005,
+      "title": "Version control",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Version_control",
+      "kind": "reference",
+      "strength": "Foundational software practice."
+    },
+    "ev-code-testing": {
+      "who": "Wikipedia",
+      "year": 1999,
+      "title": "Software testing",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Software_testing",
+      "kind": "reference",
+      "strength": "Foundational software practice."
     }
   }
 }
