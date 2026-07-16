@@ -258,11 +258,53 @@
       "color": "#364fc7"
     },
     {
-      "id": "bio",
-      "label": "Biology",
-      "blurb": "Life, evolution, genes, and the body.",
-      "icon": "🧬",
+      "id": "biocell",
+      "label": "Molecular & cell biology",
+      "blurb": "The cell, DNA, proteins, and metabolism.",
+      "icon": "🧫",
       "color": "#37b24d"
+    },
+    {
+      "id": "biogen",
+      "label": "Genetics & genomics",
+      "blurb": "Heredity, genes, and gene editing.",
+      "icon": "🧬",
+      "color": "#2b8a3e"
+    },
+    {
+      "id": "bioevo",
+      "label": "Evolution",
+      "blurb": "How life changes and diversifies over time.",
+      "icon": "🌳",
+      "color": "#66a80f"
+    },
+    {
+      "id": "biophysio",
+      "label": "Physiology",
+      "blurb": "How bodies work — systems and homeostasis.",
+      "icon": "❤️",
+      "color": "#e03131"
+    },
+    {
+      "id": "biomicro",
+      "label": "Microbiology & immunology",
+      "blurb": "Microbes, infection, and the immune system.",
+      "icon": "🦠",
+      "color": "#12b886"
+    },
+    {
+      "id": "biodev",
+      "label": "Developmental biology",
+      "blurb": "From one cell to a whole organism.",
+      "icon": "🐣",
+      "color": "#40c057"
+    },
+    {
+      "id": "bioneuro",
+      "label": "Neuroscience",
+      "blurb": "Neurons, brains, and the senses.",
+      "icon": "🧠",
+      "color": "#7048e8"
     },
     {
       "id": "eco",
@@ -6985,7 +7027,7 @@
     },
     {
       "id": "bio-natural-selection",
-      "field": "bio",
+      "field": "bioevo",
       "depth": "book",
       "level": 1,
       "xref": [
@@ -7077,7 +7119,7 @@
     },
     {
       "id": "bio-microbiome",
-      "field": "bio",
+      "field": "biomicro",
       "depth": "fact",
       "level": 1,
       "xref": [
@@ -7128,7 +7170,7 @@
     },
     {
       "id": "bio-crispr",
-      "field": "bio",
+      "field": "biogen",
       "depth": "event",
       "level": 1,
       "xref": [
@@ -7215,7 +7257,7 @@
     },
     {
       "id": "bio-genetic-drift",
-      "field": "bio",
+      "field": "bioevo",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -7278,7 +7320,7 @@
     },
     {
       "id": "bio-microbiome-role",
-      "field": "bio",
+      "field": "biomicro",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -7342,7 +7384,7 @@
     },
     {
       "id": "bio-germline-editing",
-      "field": "bio",
+      "field": "biogen",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -30024,7 +30066,7 @@
     },
     {
       "id": "bio-sir-model",
-      "field": "bio",
+      "field": "biomicro",
       "level": 3,
       "depth": "concept",
       "prereq": [],
@@ -30118,7 +30160,7 @@
     },
     {
       "id": "bio-hardy-weinberg",
-      "field": "bio",
+      "field": "bioevo",
       "level": 2,
       "depth": "concept",
       "prereq": [],
@@ -60135,6 +60177,1712 @@
       ],
       "deploy": "Extreme laboratories for gravity — and a headline test of general relativity.",
       "counter": "What happens to information falling in (the 'information paradox') pits relativity against quantum theory, unresolved."
+    },
+    {
+      "id": "bio-cell-theory",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 1,
+      "title": "Cell theory",
+      "fact": "All living things are made of cells, the cell is the basic unit of life, and every cell comes from a pre-existing cell.",
+      "tags": [
+        "cell biology",
+        "cell theory",
+        "foundations"
+      ],
+      "quiz": [
+        {
+          "q": "Cell theory states that every cell arises from:",
+          "choices": [
+            "non-living matter",
+            "a pre-existing cell",
+            "the environment",
+            "spontaneous generation"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Whose maxim 'every cell from a cell' completed cell theory?",
+          "type": "detail",
+          "answer": "Virchow",
+          "accept": [
+            "Virchow",
+            "Rudolf Virchow"
+          ]
+        },
+        {
+          "q": "Cell theory disproved the idea of:",
+          "choices": [
+            "evolution",
+            "spontaneous generation",
+            "genetics",
+            "photosynthesis"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-cell-theory"
+      ],
+      "detail": "Formalised by Schleiden, Schwann and Virchow in the 1830s–1850s, cell theory unified biology: whether a bacterium or a blue whale, life is cellular. Virchow's addition — 'omnis cellula e cellula', every cell from a cell — killed spontaneous generation and made reproduction and heredity cellular processes.",
+      "year": 1839,
+      "xref": [
+        "bio-central-dogma",
+        "bio-cell-cycle"
+      ],
+      "deploy": "The unifying foundation of all biology — life is cellular, top to bottom.",
+      "counter": "Viruses blur the definition: they are not cells, yet are unmistakably biological."
+    },
+    {
+      "id": "bio-central-dogma",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 2,
+      "title": "The central dogma",
+      "fact": "Genetic information flows DNA → RNA → protein: DNA is transcribed into RNA, which is translated into the proteins that do the cell's work.",
+      "tags": [
+        "molecular biology",
+        "central dogma",
+        "DNA",
+        "protein"
+      ],
+      "quiz": [
+        {
+          "q": "The central dogma describes information flowing from:",
+          "choices": [
+            "protein to DNA",
+            "DNA to RNA to protein",
+            "RNA to DNA only",
+            "protein to RNA"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which scientist articulated the central dogma of molecular biology (1958)?",
+          "type": "detail",
+          "answer": "Crick",
+          "accept": [
+            "Crick",
+            "Francis Crick"
+          ]
+        },
+        {
+          "q": "Copying a gene's DNA into messenger RNA is called:",
+          "choices": [
+            "translation",
+            "transcription",
+            "replication",
+            "mutation"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-central-dogma"
+      ],
+      "detail": "Francis Crick's central dogma (1958) is the master flow of molecular biology. DNA stores the instructions; messenger RNA carries a copy to the ribosome; the ribosome reads it three letters (a codon) at a time to build a protein. Proteins then run virtually everything the cell does.",
+      "year": 1958,
+      "prereq": [
+        "bio-cell-theory"
+      ],
+      "xref": [
+        "bio-dna-structure",
+        "bio-proteins"
+      ],
+      "deploy": "The organising principle of molecular biology and biotechnology.",
+      "counter": "It has famous exceptions: retroviruses use reverse transcriptase (RNA → DNA), which is how HIV works.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "DNA"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "RNA"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Protein",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Transcription then translation — the one-way flow of genetic information (with known exceptions)."
+        }
+      ]
+    },
+    {
+      "id": "bio-proteins",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 2,
+      "title": "Proteins and how they fold",
+      "fact": "Proteins are chains of amino acids that fold into precise 3-D shapes; the shape determines the function, from enzymes to antibodies to muscle.",
+      "tags": [
+        "molecular biology",
+        "proteins",
+        "folding",
+        "enzymes"
+      ],
+      "quiz": [
+        {
+          "q": "A protein's function is determined mainly by its:",
+          "choices": [
+            "colour",
+            "folded three-dimensional shape",
+            "length only",
+            "charge only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What are the building-block molecules that link into a protein chain?",
+          "type": "detail",
+          "answer": "amino acids",
+          "accept": [
+            "amino acids",
+            "amino acid"
+          ]
+        },
+        {
+          "q": "The 2020 breakthrough that predicts protein structure from sequence is called:",
+          "choices": [
+            "CRISPR",
+            "AlphaFold",
+            "PCR",
+            "BLAST"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-proteins"
+      ],
+      "detail": "A gene specifies a sequence of amino acids, but it is the folded shape that acts — an enzyme's pocket, an antibody's grip. Misfolding causes disease (Alzheimer's, prion disorders). Predicting the fold from the sequence was a 50-year grand challenge, cracked in 2020 by DeepMind's AlphaFold.",
+      "year": 1958,
+      "prereq": [
+        "bio-central-dogma"
+      ],
+      "xref": [
+        "bio-atp"
+      ],
+      "deploy": "Central to drug design, disease and the biggest recent AI-for-science breakthrough.",
+      "counter": "The 'sequence determines structure' rule is broken by intrinsically disordered proteins with no fixed fold."
+    },
+    {
+      "id": "bio-photosynthesis",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 1,
+      "title": "Photosynthesis",
+      "fact": "Plants convert sunlight, water and carbon dioxide into sugar and oxygen: \\(6\\,CO_2 + 6\\,H_2O \\rightarrow C_6H_{12}O_6 + 6\\,O_2\\).",
+      "tags": [
+        "cell biology",
+        "photosynthesis",
+        "energy",
+        "plants"
+      ],
+      "quiz": [
+        {
+          "q": "Photosynthesis converts light energy, water and CO₂ into:",
+          "choices": [
+            "protein and nitrogen",
+            "sugar and oxygen",
+            "salt and water",
+            "fat and CO₂"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What green pigment captures light for photosynthesis?",
+          "type": "detail",
+          "answer": "chlorophyll",
+          "accept": [
+            "chlorophyll"
+          ]
+        },
+        {
+          "q": "The oxygen in Earth's atmosphere is largely a product of:",
+          "choices": [
+            "volcanoes",
+            "photosynthesis",
+            "respiration",
+            "lightning"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-photosynthesis"
+      ],
+      "detail": "Using light energy captured by chlorophyll, plants build glucose and release the oxygen we breathe. Photosynthesis is the base of almost every food chain and the source of the atmosphere's oxygen; its reverse — respiration — is how cells later burn that sugar for energy. Nearly all life runs, ultimately, on sunlight.",
+      "year": 1779,
+      "xref": [
+        "bio-atp",
+        "eco-planetary-boundaries"
+      ],
+      "deploy": "The energy base of the biosphere and the origin of atmospheric oxygen.",
+      "counter": "It is remarkably inefficient (~1–2% of sunlight captured), a target for bioengineering better crops."
+    },
+    {
+      "id": "bio-atp",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 2,
+      "title": "ATP: the cell's energy currency",
+      "fact": "Cells store and spend energy in a molecule called ATP; respiration burns glucose with oxygen to recharge it.",
+      "tags": [
+        "cell biology",
+        "ATP",
+        "metabolism",
+        "respiration"
+      ],
+      "quiz": [
+        {
+          "q": "The molecule cells use as their main energy currency is:",
+          "choices": [
+            "DNA",
+            "ATP",
+            "glucose",
+            "chlorophyll"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the process that burns glucose with oxygen to make ATP?",
+          "type": "detail",
+          "answer": "cellular respiration",
+          "accept": [
+            "cellular respiration",
+            "respiration",
+            "aerobic respiration"
+          ]
+        },
+        {
+          "q": "Cellular respiration is essentially the ______ of photosynthesis.",
+          "choices": [
+            "copy",
+            "reverse",
+            "cause",
+            "start"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-atp"
+      ],
+      "detail": "Adenosine triphosphate (ATP) is the universal energy token: splitting off a phosphate releases energy to power almost every cellular job. Cellular respiration — glucose + oxygen → carbon dioxide + water — regenerates ATP, extracting far more energy than fermentation. You cycle through roughly your body weight in ATP each day.",
+      "year": 1929,
+      "prereq": [
+        "bio-photosynthesis"
+      ],
+      "xref": [
+        "phys-thermo-laws"
+      ],
+      "deploy": "The energy economy inside every living cell.",
+      "counter": "ATP is the short-term currency; cells also use other carriers (NADH, GTP) for specific jobs."
+    },
+    {
+      "id": "bio-cell-cycle",
+      "field": "biocell",
+      "depth": "concept",
+      "level": 2,
+      "title": "The cell cycle and mitosis",
+      "fact": "Cells reproduce by growing, copying their DNA, and dividing — a controlled loop (G1 → S → G2 → M) policed by checkpoints.",
+      "tags": [
+        "cell biology",
+        "cell cycle",
+        "mitosis",
+        "cancer"
+      ],
+      "quiz": [
+        {
+          "q": "During which phase of the cell cycle is DNA copied?",
+          "choices": [
+            "G1",
+            "S phase",
+            "G2",
+            "M phase"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the name of the phase in which the cell physically divides its chromosomes?",
+          "type": "detail",
+          "answer": "mitosis",
+          "accept": [
+            "mitosis",
+            "M phase",
+            "M"
+          ]
+        },
+        {
+          "q": "Failure of the cell cycle's checkpoints can lead to:",
+          "choices": [
+            "photosynthesis",
+            "uncontrolled division (cancer)",
+            "fermentation",
+            "mutation repair"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-cell-cycle"
+      ],
+      "detail": "In interphase the cell grows (G1), copies its DNA (S), and prepares to divide (G2); in mitosis (M) it splits the duplicated chromosomes into two identical daughter cells. Checkpoints halt the cycle if something is wrong. When those brakes fail, uncontrolled division is cancer.",
+      "year": 1882,
+      "prereq": [
+        "bio-cell-theory"
+      ],
+      "xref": [
+        "bio-mutation"
+      ],
+      "deploy": "Understanding division is the key to understanding cancer and regeneration.",
+      "counter": "The neat four-phase picture hides enormous molecular complexity and many cell-type-specific variations.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "states",
+          "states": [
+            "G1 (grow)",
+            "S (copy DNA)",
+            "G2 (prepare)",
+            "M (divide)"
+          ],
+          "edges": [
+            [
+              0,
+              1,
+              ""
+            ],
+            [
+              1,
+              2,
+              ""
+            ],
+            [
+              2,
+              3,
+              ""
+            ],
+            [
+              3,
+              0,
+              ""
+            ]
+          ],
+          "caption": "A policed loop; checkpoints between phases stop a damaged cell from dividing."
+        }
+      ]
+    },
+    {
+      "id": "bio-mendel",
+      "field": "biogen",
+      "depth": "concept",
+      "level": 1,
+      "title": "Mendelian inheritance",
+      "fact": "Traits are passed on in discrete units (genes) with dominant and recessive forms, sorted independently into offspring.",
+      "tags": [
+        "genetics",
+        "Mendel",
+        "inheritance",
+        "alleles"
+      ],
+      "quiz": [
+        {
+          "q": "Mendel showed that inheritance is:",
+          "choices": [
+            "a smooth blending of parental traits",
+            "particulate — discrete units (genes) with dominant/recessive forms",
+            "purely environmental",
+            "random with no pattern"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which organism did Mendel breed to work out the laws of inheritance?",
+          "type": "detail",
+          "answer": "pea plants",
+          "accept": [
+            "pea plants",
+            "peas",
+            "pea plant",
+            "pea"
+          ]
+        },
+        {
+          "q": "An allele that masks another in a heterozygote is called:",
+          "choices": [
+            "recessive",
+            "dominant",
+            "mutant",
+            "linked"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-mendel"
+      ],
+      "detail": "From breeding pea plants, Gregor Mendel (1866) inferred that inheritance is particulate, not a blending of fluids: each parent contributes one of two 'alleles', and a dominant allele masks a recessive one. His ratios (3:1 in the second generation) launched genetics — though his work was ignored for 34 years.",
+      "year": 1866,
+      "xref": [
+        "bio-dna-structure",
+        "bio-hardy-weinberg"
+      ],
+      "deploy": "The foundation of genetics and of predicting how traits and diseases are inherited.",
+      "counter": "Many traits are polygenic and don't follow simple Mendelian ratios; environment matters too."
+    },
+    {
+      "id": "bio-dna-structure",
+      "field": "biogen",
+      "depth": "concept",
+      "level": 1,
+      "title": "The structure of DNA",
+      "fact": "DNA is a double helix whose two strands pair by complementary bases (A–T, C–G) — a structure that immediately suggests how it copies itself.",
+      "tags": [
+        "genetics",
+        "DNA",
+        "double helix",
+        "base pairing"
+      ],
+      "quiz": [
+        {
+          "q": "In DNA, the base adenine (A) pairs with:",
+          "choices": [
+            "cytosine",
+            "thymine",
+            "guanine",
+            "uracil"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Whose X-ray crystallography was crucial to discovering DNA's structure in 1953?",
+          "type": "detail",
+          "answer": "Franklin",
+          "accept": [
+            "Franklin",
+            "Rosalind Franklin"
+          ]
+        },
+        {
+          "q": "Complementary base pairing explains how DNA can:",
+          "choices": [
+            "make energy",
+            "copy itself",
+            "fold proteins",
+            "capture light"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-dna-structure"
+      ],
+      "detail": "Watson and Crick (1953), using Rosalind Franklin's X-ray data, showed DNA is two strands twined together, held by base pairs. Because A always pairs with T and C with G, each strand is a template for the other — so unzipping the helix lets each half rebuild its partner. The structure explained heredity's mechanism at a stroke.",
+      "year": 1953,
+      "prereq": [
+        "bio-mendel"
+      ],
+      "xref": [
+        "bio-central-dogma",
+        "bio-crispr"
+      ],
+      "deploy": "The molecular basis of heredity — and the starting point for all genetic technology.",
+      "counter": "The elegant model understates DNA's dynamic packaging (chromatin) and the role of the ignored non-coding majority."
+    },
+    {
+      "id": "bio-mutation",
+      "field": "biogen",
+      "depth": "concept",
+      "level": 2,
+      "title": "Mutation",
+      "fact": "A mutation is a change in DNA sequence — the raw material of evolution, sometimes harmful, sometimes neutral, occasionally beneficial.",
+      "tags": [
+        "genetics",
+        "mutation",
+        "variation",
+        "evolution"
+      ],
+      "quiz": [
+        {
+          "q": "A mutation is fundamentally a:",
+          "choices": [
+            "change in DNA sequence",
+            "type of protein",
+            "kind of cell",
+            "loss of a chromosome only"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Mutations supply the ______ that natural selection acts on.",
+          "type": "detail",
+          "answer": "variation",
+          "accept": [
+            "variation",
+            "genetic variation",
+            "diversity"
+          ]
+        },
+        {
+          "q": "Most individual mutations are:",
+          "choices": [
+            "beneficial",
+            "neutral or harmful",
+            "always lethal",
+            "impossible to inherit"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-mutation"
+      ],
+      "detail": "Copying errors, radiation and chemicals alter the genetic code. Most mutations are neutral or harmful, but rare beneficial ones, filtered by natural selection, drive adaptation. Mutations also cause genetic diseases and, accumulating in body cells, cancer. Without mutation there would be no variation for evolution to act on.",
+      "year": 1901,
+      "prereq": [
+        "bio-dna-structure"
+      ],
+      "xref": [
+        "bio-natural-selection",
+        "bio-cell-cycle"
+      ],
+      "deploy": "The source of all genetic variation — behind evolution, disease and cancer.",
+      "counter": "'Beneficial' is context-dependent: the same mutation (e.g. sickle-cell) can protect or harm depending on environment."
+    },
+    {
+      "id": "bio-genomics",
+      "field": "biogen",
+      "depth": "concept",
+      "level": 2,
+      "title": "Genomes and sequencing",
+      "fact": "A genome is an organism's complete DNA; reading it (sequencing) has gone from a 13-year, $3-billion project to under a day and a few hundred dollars.",
+      "tags": [
+        "genetics",
+        "genomics",
+        "sequencing",
+        "Human Genome Project"
+      ],
+      "quiz": [
+        {
+          "q": "A genome is:",
+          "choices": [
+            "a single gene",
+            "an organism's complete set of DNA",
+            "a protein",
+            "a chromosome pair"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Roughly how many protein-coding genes does the human genome contain (to the nearest thousand)?",
+          "type": "num",
+          "answer": 20000,
+          "tol": 2000
+        },
+        {
+          "q": "Since 2003, the cost of DNA sequencing has fallen:",
+          "choices": [
+            "slower than computing",
+            "faster than Moore's law",
+            "not at all",
+            "only for bacteria"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-genomics"
+      ],
+      "detail": "The Human Genome Project (2003) first spelled out our ~3 billion base pairs and ~20,000 genes — surprisingly few. Sequencing costs then fell faster than computing power (Moore's law), enabling personalised medicine, ancestry testing and tracking pathogens like SARS-CoV-2 in real time.",
+      "year": 2003,
+      "prereq": [
+        "bio-dna-structure"
+      ],
+      "xref": [
+        "bio-crispr"
+      ],
+      "deploy": "The engine of modern medicine, ancestry, forensics and pandemic surveillance.",
+      "counter": "Having the sequence is not understanding it — most of the genome's function is still being worked out."
+    },
+    {
+      "id": "bio-speciation",
+      "field": "bioevo",
+      "depth": "concept",
+      "level": 2,
+      "title": "Speciation",
+      "fact": "One species splits into two when populations stop interbreeding — most often after a geographic barrier separates them long enough to diverge.",
+      "tags": [
+        "evolution",
+        "speciation",
+        "isolation",
+        "Darwin"
+      ],
+      "quiz": [
+        {
+          "q": "Speciation is complete when two populations:",
+          "choices": [
+            "look slightly different",
+            "can no longer interbreed",
+            "live in different places",
+            "have any mutations"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term describes speciation driven by a geographic barrier?",
+          "type": "detail",
+          "answer": "allopatric",
+          "accept": [
+            "allopatric",
+            "allopatric speciation"
+          ]
+        },
+        {
+          "q": "Darwin's finches diverged on the separate islands of the:",
+          "choices": [
+            "Galápagos",
+            "Canaries",
+            "Azores",
+            "Maldives"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-bio-speciation"
+      ],
+      "detail": "In allopatric speciation, a mountain or ocean divides a population; mutation, drift and selection push the halves apart until, even if reunited, they can no longer interbreed. Darwin's finches on separate Galápagos islands are the classic case. Reproductive isolation is what makes them distinct species.",
+      "year": 1859,
+      "prereq": [
+        "bio-natural-selection"
+      ],
+      "xref": [
+        "bio-tree-of-life",
+        "eco-species-area"
+      ],
+      "deploy": "Explains how the millions of species arose from common ancestors.",
+      "counter": "Species boundaries are fuzzy — hybridisation and 'ring species' show speciation as a continuum, not a clean line."
+    },
+    {
+      "id": "bio-tree-of-life",
+      "field": "bioevo",
+      "depth": "concept",
+      "level": 2,
+      "title": "Common descent and the tree of life",
+      "fact": "All living things share common ancestors; life falls into three great domains — Bacteria, Archaea and Eukarya — branching from a single root.",
+      "tags": [
+        "evolution",
+        "common descent",
+        "tree of life",
+        "domains"
+      ],
+      "quiz": [
+        {
+          "q": "Common descent means that all living organisms:",
+          "choices": [
+            "evolved separately",
+            "share common ancestors",
+            "are the same species",
+            "cannot be related"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which scientist's rRNA work (1977) revealed the Archaea as a third domain of life?",
+          "type": "detail",
+          "answer": "Woese",
+          "accept": [
+            "Woese",
+            "Carl Woese"
+          ]
+        },
+        {
+          "q": "The three domains of life are Bacteria, Eukarya and:",
+          "choices": [
+            "Fungi",
+            "Archaea",
+            "Protista",
+            "Viruses"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-tree-of-life"
+      ],
+      "detail": "Shared DNA, the universal genetic code, and nested similarities show every organism is related, however distantly. Carl Woese's rRNA comparisons (1977) revealed a third domain, the Archaea, and reorganised the tree. Humans are one small twig on the eukaryote branch — most of life's diversity is microbial.",
+      "year": 1977,
+      "prereq": [
+        "bio-speciation"
+      ],
+      "xref": [
+        "bio-central-dogma"
+      ],
+      "deploy": "The unifying framework of biology — everything alive is one family.",
+      "counter": "Horizontal gene transfer between microbes tangles the 'tree' into more of a web near its base.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "network",
+          "labels": [
+            "LUCA (root)",
+            "Bacteria",
+            "Archaea",
+            "Eukarya"
+          ],
+          "layers": [
+            1,
+            3
+          ],
+          "caption": "One root, three domains — with humans a small twig on the Eukarya branch."
+        }
+      ]
+    },
+    {
+      "id": "bio-evidence-evolution",
+      "field": "bioevo",
+      "depth": "concept",
+      "level": 2,
+      "title": "The evidence for evolution",
+      "fact": "Evolution is supported by converging evidence: fossils, shared anatomy, embryology, biogeography, and — decisively — DNA.",
+      "tags": [
+        "evolution",
+        "evidence",
+        "fossils",
+        "DNA"
+      ],
+      "quiz": [
+        {
+          "q": "The single most decisive modern line of evidence for common descent is:",
+          "choices": [
+            "fossils alone",
+            "shared DNA and the universal genetic code",
+            "cave paintings",
+            "weather records"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term describes a reduced, functionless leftover structure like the human tailbone?",
+          "type": "detail",
+          "answer": "vestigial",
+          "accept": [
+            "vestigial",
+            "vestigial structure",
+            "vestige"
+          ]
+        },
+        {
+          "q": "Evolution can be observed directly in:",
+          "choices": [
+            "mountains forming",
+            "bacteria evolving antibiotic resistance",
+            "the tides",
+            "eclipses"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-evidence-evolution"
+      ],
+      "detail": "Transitional fossils (like Tiktaalik, fish-to-tetrapod), vestigial structures (the human tailbone), and the near-identical genetic code across all life all point the same way. Molecular comparisons let us reconstruct relationships and even watch evolution happen in real time — in bacteria evolving antibiotic resistance.",
+      "year": 1859,
+      "prereq": [
+        "bio-natural-selection"
+      ],
+      "xref": [
+        "bio-antibiotic-resistance",
+        "hist-radiocarbon"
+      ],
+      "deploy": "The reply to 'it's just a theory' — evolution is among the best-evidenced ideas in science.",
+      "counter": "Debates continue about the *mechanisms and tempo* of evolution, not about whether it happens."
+    },
+    {
+      "id": "bio-homeostasis",
+      "field": "biophysio",
+      "depth": "concept",
+      "level": 1,
+      "title": "Homeostasis",
+      "fact": "The body holds its internal conditions — temperature, blood sugar, pH — steady through negative feedback loops that counteract any drift.",
+      "tags": [
+        "physiology",
+        "homeostasis",
+        "feedback",
+        "regulation"
+      ],
+      "quiz": [
+        {
+          "q": "Homeostasis keeps internal conditions stable mainly through:",
+          "choices": [
+            "positive feedback",
+            "negative feedback that counteracts change",
+            "random fluctuation",
+            "external control"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Sweating to cool down and shivering to warm up both regulate body:",
+          "type": "detail",
+          "answer": "temperature",
+          "accept": [
+            "temperature",
+            "body temperature"
+          ]
+        },
+        {
+          "q": "A household device working on the same negative-feedback principle is a:",
+          "choices": [
+            "thermostat",
+            "light bulb",
+            "fridge magnet",
+            "clock"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-bio-homeostasis"
+      ],
+      "detail": "A sensor detects a change, a control centre compares it to a set point, and effectors push back: sweat cools you when hot, shivering warms you when cold. This negative feedback keeps the internal environment stable despite a changing outside world — a principle shared by living bodies and thermostats alike.",
+      "year": 1926,
+      "xref": [
+        "sys-feedback",
+        "bio-endocrine"
+      ],
+      "deploy": "The core principle of physiology and medicine — health as maintained balance.",
+      "counter": "Some vital processes use positive feedback (childbirth, blood clotting), which amplifies rather than damps.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Change detected"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Compared to set point"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Effectors push back",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Negative feedback: the response opposes the disturbance, restoring the set point."
+        }
+      ]
+    },
+    {
+      "id": "bio-circulation",
+      "field": "biophysio",
+      "depth": "concept",
+      "level": 2,
+      "title": "The circulatory system",
+      "fact": "The heart pumps blood through a closed loop of vessels, delivering oxygen and nutrients to every cell and carrying away waste.",
+      "tags": [
+        "physiology",
+        "circulation",
+        "heart",
+        "blood"
+      ],
+      "quiz": [
+        {
+          "q": "Which scientist demonstrated that blood circulates in a closed loop (1628)?",
+          "choices": [
+            "Vesalius",
+            "Harvey",
+            "Galen",
+            "Pasteur"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Vessels carrying blood AWAY from the heart are called:",
+          "type": "detail",
+          "answer": "arteries",
+          "accept": [
+            "arteries",
+            "artery"
+          ]
+        },
+        {
+          "q": "The circulatory system's main job is to transport:",
+          "choices": [
+            "light",
+            "oxygen and nutrients",
+            "sound",
+            "information"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-circulation"
+      ],
+      "detail": "William Harvey showed in 1628 that blood circulates — the heart pumps it out through arteries and back through veins, not consumed and remade as previously believed. The system is a double loop: one circuit to the lungs to pick up oxygen, one to the body to deliver it. An adult's heart beats ~100,000 times a day.",
+      "year": 1628,
+      "prereq": [
+        "bio-homeostasis"
+      ],
+      "xref": [
+        "bio-gas-exchange"
+      ],
+      "deploy": "The transport network keeping every cell alive — central to cardiovascular medicine.",
+      "counter": "Harvey couldn't see the capillaries linking arteries to veins; microscopes confirmed them decades later."
+    },
+    {
+      "id": "bio-gas-exchange",
+      "field": "biophysio",
+      "depth": "concept",
+      "level": 2,
+      "title": "Gas exchange and respiration",
+      "fact": "Lungs bring air close to blood so oxygen can diffuse in and carbon dioxide out — across a huge, thin surface folded into millions of tiny sacs.",
+      "tags": [
+        "physiology",
+        "respiration",
+        "lungs",
+        "diffusion"
+      ],
+      "quiz": [
+        {
+          "q": "Oxygen crosses from the lungs into the blood by:",
+          "choices": [
+            "active pumping",
+            "diffusion down a concentration gradient",
+            "osmosis of water",
+            "electrical current"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What are the tiny air sacs in the lungs where gas exchange happens?",
+          "type": "detail",
+          "answer": "alveoli",
+          "accept": [
+            "alveoli",
+            "alveolus"
+          ]
+        },
+        {
+          "q": "Oxygen is carried in the blood bound to:",
+          "choices": [
+            "plasma only",
+            "haemoglobin",
+            "white cells",
+            "platelets"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-gas-exchange"
+      ],
+      "detail": "The alveoli of the lungs provide a surface area the size of a tennis court, one cell thick, where gases cross by simple diffusion down their concentration gradients. Oxygen binds haemoglobin in red blood cells for transport; CO₂ rides back to be exhaled. Breathing is the bulk-flow half; diffusion does the actual exchange.",
+      "year": 1674,
+      "prereq": [
+        "bio-circulation"
+      ],
+      "xref": [
+        "bio-atp"
+      ],
+      "deploy": "How the body gets the oxygen every cell needs to make ATP.",
+      "counter": "Gas exchange is passive diffusion, but it depends on active breathing and circulation to keep the gradients steep."
+    },
+    {
+      "id": "bio-endocrine",
+      "field": "biophysio",
+      "depth": "concept",
+      "level": 3,
+      "title": "Hormones and the endocrine system",
+      "fact": "Glands release chemical messengers — hormones — into the blood to coordinate slow, body-wide processes like growth, metabolism and reproduction.",
+      "tags": [
+        "physiology",
+        "endocrine",
+        "hormones",
+        "regulation"
+      ],
+      "quiz": [
+        {
+          "q": "Hormones differ from nerve signals in that they are:",
+          "choices": [
+            "faster",
+            "slower and broadcast body-wide via the blood",
+            "electrical",
+            "one-way only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which hormone from the pancreas lowers blood sugar?",
+          "type": "detail",
+          "answer": "insulin",
+          "accept": [
+            "insulin"
+          ]
+        },
+        {
+          "q": "The 'master gland' coordinating much of the endocrine system is the:",
+          "choices": [
+            "liver",
+            "pituitary",
+            "spleen",
+            "thymus"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-endocrine"
+      ],
+      "detail": "Where nerves send fast, targeted signals, hormones broadcast slower, longer-lasting ones. Insulin from the pancreas lowers blood sugar; adrenaline readies the body for action; thyroid hormone sets metabolic rate. Feedback loops (often via the hypothalamus and pituitary) keep hormone levels in check — a chemical control system layered over the nervous one.",
+      "year": 1902,
+      "prereq": [
+        "bio-homeostasis"
+      ],
+      "xref": [
+        "bio-hpa-stress",
+        "psych-motivation"
+      ],
+      "deploy": "The chemical control system behind metabolism, growth, stress and reproduction.",
+      "counter": "Hormone actions overlap and interact, so a single hormone rarely maps to a single, clean effect."
+    },
+    {
+      "id": "bio-germ-theory",
+      "field": "biomicro",
+      "depth": "concept",
+      "level": 1,
+      "title": "Germ theory of disease",
+      "fact": "Many diseases are caused by microorganisms — germs — that invade the body, not by 'bad air' or imbalance of humours.",
+      "tags": [
+        "microbiology",
+        "germ theory",
+        "Pasteur",
+        "disease"
+      ],
+      "quiz": [
+        {
+          "q": "Germ theory holds that many diseases are caused by:",
+          "choices": [
+            "bad air (miasma)",
+            "microorganisms",
+            "humoral imbalance",
+            "cold weather"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name either scientist who established germ theory (1860s–1880s).",
+          "type": "detail",
+          "answer": "Pasteur",
+          "accept": [
+            "Pasteur",
+            "Louis Pasteur",
+            "Koch",
+            "Robert Koch"
+          ]
+        },
+        {
+          "q": "Germ theory directly justified the practice of:",
+          "choices": [
+            "bloodletting",
+            "antiseptic surgery and sanitation",
+            "astrology",
+            "humoral balancing"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-germ-theory"
+      ],
+      "detail": "Pasteur and Koch (1860s–1880s) proved that specific microbes cause specific diseases. Koch's postulates set the standard of proof; the theory transformed medicine, justifying sterilisation, antiseptic surgery, sanitation and, eventually, antibiotics and vaccines. Few ideas have saved more lives.",
+      "year": 1861,
+      "xref": [
+        "bio-immunity",
+        "bio-antibiotic-resistance"
+      ],
+      "deploy": "The foundation of modern medicine, hygiene and public health.",
+      "counter": "Not all disease is infectious — genetic, autoimmune and lifestyle diseases needed later frameworks."
+    },
+    {
+      "id": "bio-antibiotic-resistance",
+      "field": "biomicro",
+      "depth": "concept",
+      "level": 2,
+      "title": "Antibiotic resistance",
+      "fact": "Overusing antibiotics selects for resistant bacteria: susceptible microbes die, resistant ones survive and multiply — evolution in fast-forward.",
+      "tags": [
+        "microbiology",
+        "antibiotics",
+        "resistance",
+        "evolution"
+      ],
+      "quiz": [
+        {
+          "q": "Antibiotic resistance spreads because antibiotics:",
+          "choices": [
+            "create resistant bacteria directly",
+            "kill susceptible bacteria, leaving resistant ones to multiply",
+            "weaken all bacteria equally",
+            "have no effect"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Antibiotic resistance is a real-time example of which biological process?",
+          "type": "detail",
+          "answer": "natural selection",
+          "accept": [
+            "natural selection",
+            "evolution",
+            "selection"
+          ]
+        },
+        {
+          "q": "A driver of resistance is antibiotic overuse in medicine and:",
+          "choices": [
+            "farming/agriculture",
+            "astronomy",
+            "construction",
+            "shipping"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-bio-antibiotic-resistance"
+      ],
+      "detail": "Any bacterial population contains rare resistant variants; antibiotics kill the rest, leaving the resistant to take over and spread their genes (often by direct transfer). Misuse in medicine and farming has bred 'superbugs' resistant to multiple drugs — one of the gravest slow-motion threats to modern medicine.",
+      "year": 1945,
+      "prereq": [
+        "bio-germ-theory"
+      ],
+      "xref": [
+        "bio-natural-selection",
+        "bio-evidence-evolution"
+      ],
+      "deploy": "A live public-health crisis — and the clearest everyday proof of evolution.",
+      "counter": "Resistance can carry a fitness cost, so reducing antibiotic use can let susceptible strains partly rebound.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Varied population"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Antibiotic kills susceptible"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Resistant survive & spread",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Selection in fast-forward: the drug is the selective pressure."
+        }
+      ]
+    },
+    {
+      "id": "bio-immunity",
+      "field": "biomicro",
+      "depth": "concept",
+      "level": 2,
+      "title": "The immune system and vaccines",
+      "fact": "The immune system learns to recognise and destroy specific invaders, and remembers them — which is exactly what vaccines exploit.",
+      "tags": [
+        "immunology",
+        "immunity",
+        "vaccines",
+        "antibodies"
+      ],
+      "quiz": [
+        {
+          "q": "A vaccine works by:",
+          "choices": [
+            "killing all bacteria",
+            "training the immune system to remember a pathogen in advance",
+            "replacing blood",
+            "boosting metabolism"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What tailored proteins does the adaptive immune system make to target a specific pathogen?",
+          "type": "detail",
+          "answer": "antibodies",
+          "accept": [
+            "antibodies",
+            "antibody"
+          ]
+        },
+        {
+          "q": "The immune feature that vaccines rely on is immunological:",
+          "choices": [
+            "forgetting",
+            "memory",
+            "fatigue",
+            "suppression"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-immunity"
+      ],
+      "detail": "Innate defences respond fast and generically; the adaptive immune system makes antibodies tailored to a specific pathogen and keeps 'memory' cells for next time. A vaccine shows the immune system a harmless piece of a pathogen so it builds that memory in advance — the reason smallpox is gone and measles is rare.",
+      "year": 1796,
+      "prereq": [
+        "bio-germ-theory"
+      ],
+      "xref": [
+        "clin-ssri",
+        "bio-microbiome-role"
+      ],
+      "deploy": "The basis of vaccination — one of the highest-impact interventions in history.",
+      "counter": "Immune memory can wane and pathogens mutate, so some vaccines need boosters or annual updates."
+    },
+    {
+      "id": "bio-embryo",
+      "field": "biodev",
+      "depth": "concept",
+      "level": 2,
+      "title": "Embryonic development",
+      "fact": "A single fertilised cell divides and specialises into a whole organism, its cells reading the same genome but switching different genes on and off.",
+      "tags": [
+        "developmental biology",
+        "embryo",
+        "differentiation",
+        "genes"
+      ],
+      "quiz": [
+        {
+          "q": "Cells in an embryo become different types mainly by:",
+          "choices": [
+            "having different DNA",
+            "switching different genes on and off",
+            "losing their nuclei",
+            "random assignment"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "The process by which an unspecialised cell becomes a specific cell type is called:",
+          "type": "detail",
+          "answer": "differentiation",
+          "accept": [
+            "differentiation",
+            "cell differentiation",
+            "cellular differentiation"
+          ]
+        },
+        {
+          "q": "Every cell in the body carries:",
+          "choices": [
+            "a different genome",
+            "essentially the same genome",
+            "no DNA",
+            "only half its genes"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-embryo"
+      ],
+      "detail": "Every cell in your body carries the same DNA, yet a neuron and a skin cell differ completely — because development turns different genes on in different places and times. Cells signal to their neighbours, form layers, and fold into organs. How one cell becomes trillions of coordinated cells is the central puzzle of developmental biology.",
+      "year": 1900,
+      "prereq": [
+        "bio-central-dogma"
+      ],
+      "xref": [
+        "bio-stem-cells",
+        "bio-hox"
+      ],
+      "deploy": "The foundation of regenerative medicine and understanding birth defects.",
+      "counter": "Development is not purely genetic — physical forces and cell environment also shape the growing embryo."
+    },
+    {
+      "id": "bio-stem-cells",
+      "field": "biodev",
+      "depth": "concept",
+      "level": 2,
+      "title": "Stem cells",
+      "fact": "Stem cells can both renew themselves and turn into specialised cell types — and adult cells can now be reprogrammed back into stem cells.",
+      "tags": [
+        "developmental biology",
+        "stem cells",
+        "pluripotency",
+        "regeneration"
+      ],
+      "quiz": [
+        {
+          "q": "What makes stem cells special is their ability to self-renew and:",
+          "choices": [
+            "photosynthesise",
+            "differentiate into specialised cell types",
+            "resist all disease",
+            "live forever outside the body"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which scientist showed in 2006 that adult cells can be reprogrammed into stem cells (iPS cells)?",
+          "type": "detail",
+          "answer": "Yamanaka",
+          "accept": [
+            "Yamanaka",
+            "Shinya Yamanaka"
+          ]
+        },
+        {
+          "q": "Cells that can become ANY cell type are described as:",
+          "choices": [
+            "pluripotent",
+            "sterile",
+            "vestigial",
+            "dominant"
+          ],
+          "answer": 0
+        }
+      ],
+      "src": [
+        "ev-bio-stem-cells"
+      ],
+      "detail": "Embryonic stem cells can become any cell type (pluripotent). Shinya Yamanaka's 2006 breakthrough showed that adding just four genes can rewind an ordinary adult cell into an 'induced pluripotent' stem cell — sidestepping the ethical issues of embryos and opening the door to growing replacement tissues from a patient's own cells.",
+      "year": 2006,
+      "prereq": [
+        "bio-embryo"
+      ],
+      "xref": [
+        "bio-cell-cycle"
+      ],
+      "deploy": "The core of regenerative medicine and much of modern biotech.",
+      "counter": "Turning stem cells reliably and safely into working tissue in the body remains largely unsolved."
+    },
+    {
+      "id": "bio-hox",
+      "field": "biodev",
+      "depth": "concept",
+      "level": 4,
+      "title": "Hox genes and the body plan",
+      "fact": "A small set of 'master' genes — Hox genes — lay out the body's head-to-tail plan, and they are strikingly similar across almost all animals.",
+      "tags": [
+        "developmental biology",
+        "Hox genes",
+        "body plan",
+        "evo-devo"
+      ],
+      "quiz": [
+        {
+          "q": "Hox genes are responsible for setting up the body's:",
+          "choices": [
+            "colour",
+            "head-to-tail layout (body plan)",
+            "blood type",
+            "metabolism"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "The field studying how development evolves, built on findings like Hox genes, is nicknamed:",
+          "type": "detail",
+          "answer": "evo-devo",
+          "accept": [
+            "evo-devo",
+            "evolutionary developmental biology",
+            "evodevo"
+          ]
+        },
+        {
+          "q": "That the same Hox genes pattern flies and humans is evidence of:",
+          "choices": [
+            "separate creation",
+            "deep common ancestry",
+            "convergent design",
+            "random chance"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-hox"
+      ],
+      "detail": "Hox genes switch on region by region to tell each part of an embryo what to become — where to put a limb, a segment, a vertebra. Mutating one can put legs where antennae should be in a fly. That the same gene family patterns flies, mice and humans is powerful evidence of deep common ancestry (the field of 'evo-devo').",
+      "year": 1983,
+      "prereq": [
+        "bio-embryo"
+      ],
+      "xref": [
+        "bio-tree-of-life",
+        "bio-mutation"
+      ],
+      "deploy": "The genetic logic of body architecture — and a deep link between development and evolution.",
+      "counter": "Body-plan evolution involves more than Hox genes; regulatory DNA and gene networks matter too."
+    },
+    {
+      "id": "bio-action-potential",
+      "field": "bioneuro",
+      "depth": "concept",
+      "level": 3,
+      "title": "The action potential",
+      "fact": "Neurons fire by briefly flipping the voltage across their membrane — an all-or-nothing electrical spike that races down the axon.",
+      "tags": [
+        "neuroscience",
+        "action potential",
+        "neuron",
+        "membrane"
+      ],
+      "quiz": [
+        {
+          "q": "An action potential is:",
+          "choices": [
+            "a graded signal of variable size",
+            "an all-or-nothing electrical spike",
+            "a chemical only",
+            "a steady current"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which ion rushing into the neuron causes the rising (depolarisation) phase?",
+          "type": "detail",
+          "answer": "sodium",
+          "accept": [
+            "sodium",
+            "Na",
+            "Na+",
+            "sodium ions"
+          ]
+        },
+        {
+          "q": "Neurons encode signal strength mainly in the ______ of action potentials.",
+          "choices": [
+            "size",
+            "rate/frequency",
+            "colour",
+            "direction"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-action-potential"
+      ],
+      "detail": "At rest a neuron holds a negative inside voltage. A strong enough stimulus opens sodium channels; ions rush in and the voltage spikes positive (depolarisation), then potassium channels restore it (repolarisation). The spike is all-or-nothing and self-propagating, carrying signals at up to ~120 m/s. Information is coded in the *rate* of spikes, not their size.",
+      "year": 1952,
+      "xref": [
+        "bio-neuron",
+        "bio-reflex-arc"
+      ],
+      "deploy": "The physical basis of every nerve signal, thought and movement.",
+      "counter": "The classic Hodgkin–Huxley picture is a squid-axon model; real neurons have far richer channel repertoires.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Resting (–)"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Na⁺ in: depolarise (+)"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "K⁺ out: repolarise",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "An all-or-nothing spike: sodium in, then potassium out restores the resting voltage."
+        }
+      ]
+    },
+    {
+      "id": "bio-sensory",
+      "field": "bioneuro",
+      "depth": "concept",
+      "level": 2,
+      "title": "Sensory transduction",
+      "fact": "Sense organs convert physical signals — light, sound, pressure, chemicals — into the electrical language of neurons.",
+      "tags": [
+        "neuroscience",
+        "senses",
+        "transduction",
+        "perception"
+      ],
+      "quiz": [
+        {
+          "q": "Sensory transduction is the conversion of a physical stimulus into:",
+          "choices": [
+            "a chemical only",
+            "an electrical neural signal",
+            "light",
+            "motion"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What cells in the ear convert sound vibrations into neural signals?",
+          "type": "detail",
+          "answer": "hair cells",
+          "accept": [
+            "hair cells",
+            "hair cell"
+          ]
+        },
+        {
+          "q": "Because all senses output the same spike code, perception is best seen as the brain's:",
+          "choices": [
+            "direct readout",
+            "reconstruction/interpretation",
+            "random guess",
+            "photograph"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-sensory"
+      ],
+      "detail": "The eye turns photons into nerve signals via pigments in the retina; the ear turns air-pressure waves into signals via hair cells; the tongue and nose detect molecules. Every sense is a transducer: whatever the input, the output is the same neural spike code, which the brain then interprets. Perception is the brain's reconstruction, not a direct readout.",
+      "year": 1900,
+      "prereq": [
+        "bio-action-potential"
+      ],
+      "xref": [
+        "cog-gestalt",
+        "cog-attention-filter"
+      ],
+      "deploy": "How the brain gets its data — the front end of all perception.",
+      "counter": "Senses interact and the brain fills in gaps, so 'transduction' is only the first step of a constructive process."
+    },
+    {
+      "id": "bio-reflex-arc",
+      "field": "bioneuro",
+      "depth": "concept",
+      "level": 2,
+      "title": "The reflex arc",
+      "fact": "A reflex — like yanking your hand off a hot stove — is handled by a short neural loop through the spinal cord, before the brain is even involved.",
+      "tags": [
+        "neuroscience",
+        "reflex",
+        "spinal cord",
+        "circuits"
+      ],
+      "quiz": [
+        {
+          "q": "A reflex like pulling away from heat is processed primarily by the:",
+          "choices": [
+            "cerebral cortex",
+            "spinal cord (before the brain)",
+            "stomach",
+            "heart"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the name of the neural pathway that produces a reflex?",
+          "type": "detail",
+          "answer": "reflex arc",
+          "accept": [
+            "reflex arc",
+            "the reflex arc"
+          ]
+        },
+        {
+          "q": "The reflex arc shows the nervous system is:",
+          "choices": [
+            "a single central processor",
+            "layered, with fast local circuits",
+            "purely chemical",
+            "controlled by hormones"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-bio-reflex-arc"
+      ],
+      "detail": "A sensor triggers a signal that runs to the spinal cord and back to a muscle via as few as two or three neurons, producing a response in milliseconds. The brain finds out afterwards. This 'reflex arc' shows the nervous system is layered: fast local circuits handle urgent jobs, freeing the brain for slower deliberation.",
+      "year": 1906,
+      "prereq": [
+        "bio-action-potential"
+      ],
+      "xref": [
+        "psych-classical-conditioning"
+      ],
+      "deploy": "Explains fast protective responses and the layered design of the nervous system.",
+      "counter": "The brain can modulate many reflexes (e.g. suppressing a blink), so the 'brain-free' story is a simplification."
     }
   ],
   "motions": [

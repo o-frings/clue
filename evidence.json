@@ -7434,6 +7434,240 @@
       "url": "https://en.wikipedia.org/wiki/Black_hole",
       "kind": "reference",
       "strength": "Foundational; now directly observed (LIGO 2015, EHT 2019)."
+    },
+    "ev-bio-cell-theory": {
+      "who": "Wikipedia",
+      "year": 1839,
+      "title": "Cell theory",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cell_theory",
+      "kind": "reference",
+      "strength": "Foundational; historically firm."
+    },
+    "ev-bio-central-dogma": {
+      "who": "Crick, F.",
+      "year": 1958,
+      "title": "Central dogma of molecular biology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology",
+      "kind": "reference",
+      "strength": "Foundational molecular biology."
+    },
+    "ev-bio-proteins": {
+      "who": "Wikipedia",
+      "year": 1958,
+      "title": "Protein folding",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Protein_folding",
+      "kind": "reference",
+      "strength": "Foundational; AlphaFold result well documented."
+    },
+    "ev-bio-photosynthesis": {
+      "who": "Wikipedia",
+      "year": 1779,
+      "title": "Photosynthesis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "kind": "reference",
+      "strength": "Foundational; the overall reaction is textbook-standard."
+    },
+    "ev-bio-atp": {
+      "who": "Wikipedia",
+      "year": 1929,
+      "title": "Adenosine triphosphate",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Adenosine_triphosphate",
+      "kind": "reference",
+      "strength": "Foundational biochemistry."
+    },
+    "ev-bio-cell-cycle": {
+      "who": "Wikipedia",
+      "year": 1882,
+      "title": "Cell cycle",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Cell_cycle",
+      "kind": "reference",
+      "strength": "Foundational cell biology."
+    },
+    "ev-bio-mendel": {
+      "who": "Mendel, G.",
+      "year": 1866,
+      "title": "Mendelian inheritance",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mendelian_inheritance",
+      "kind": "reference",
+      "strength": "Foundational genetics."
+    },
+    "ev-bio-dna-structure": {
+      "who": "Watson, J. & Crick, F.",
+      "year": 1953,
+      "title": "Nucleic acid double helix",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Nucleic_acid_double_helix",
+      "kind": "reference",
+      "strength": "Foundational; Nobel-recognised."
+    },
+    "ev-bio-mutation": {
+      "who": "Wikipedia",
+      "year": 1901,
+      "title": "Mutation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Mutation",
+      "kind": "reference",
+      "strength": "Foundational genetics."
+    },
+    "ev-bio-genomics": {
+      "who": "Wikipedia",
+      "year": 2003,
+      "title": "Human Genome Project",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Human_Genome_Project",
+      "kind": "reference",
+      "strength": "Well-documented; sequencing-cost trend firmly attested."
+    },
+    "ev-bio-speciation": {
+      "who": "Wikipedia",
+      "year": 1859,
+      "title": "Speciation",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Speciation",
+      "kind": "reference",
+      "strength": "Foundational evolutionary biology."
+    },
+    "ev-bio-tree-of-life": {
+      "who": "Woese, C.",
+      "year": 1977,
+      "title": "Three-domain system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Three-domain_system",
+      "kind": "reference",
+      "strength": "Foundational; molecular phylogenetics well established."
+    },
+    "ev-bio-evidence-evolution": {
+      "who": "Wikipedia",
+      "year": 1859,
+      "title": "Evidence of common descent",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Evidence_of_common_descent",
+      "kind": "reference",
+      "strength": "Foundational; overwhelming convergent evidence."
+    },
+    "ev-bio-homeostasis": {
+      "who": "Cannon, W.",
+      "year": 1926,
+      "title": "Homeostasis",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Homeostasis",
+      "kind": "reference",
+      "strength": "Foundational physiology."
+    },
+    "ev-bio-circulation": {
+      "who": "Harvey, W.",
+      "year": 1628,
+      "title": "Circulatory system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Circulatory_system",
+      "kind": "reference",
+      "strength": "Foundational physiology; Harvey's demonstration is historic."
+    },
+    "ev-bio-gas-exchange": {
+      "who": "Wikipedia",
+      "year": 1674,
+      "title": "Gas exchange",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Gas_exchange",
+      "kind": "reference",
+      "strength": "Foundational physiology."
+    },
+    "ev-bio-endocrine": {
+      "who": "Wikipedia",
+      "year": 1902,
+      "title": "Endocrine system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Endocrine_system",
+      "kind": "reference",
+      "strength": "Foundational physiology."
+    },
+    "ev-bio-germ-theory": {
+      "who": "Wikipedia",
+      "year": 1861,
+      "title": "Germ theory of disease",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Germ_theory_of_disease",
+      "kind": "reference",
+      "strength": "Foundational; transformed medicine."
+    },
+    "ev-bio-antibiotic-resistance": {
+      "who": "Wikipedia",
+      "year": 1945,
+      "title": "Antimicrobial resistance",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Antimicrobial_resistance",
+      "kind": "reference",
+      "strength": "Foundational; a documented global health threat."
+    },
+    "ev-bio-immunity": {
+      "who": "Wikipedia",
+      "year": 1796,
+      "title": "Immune system",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Immune_system",
+      "kind": "reference",
+      "strength": "Foundational immunology."
+    },
+    "ev-bio-embryo": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Developmental biology",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Developmental_biology",
+      "kind": "reference",
+      "strength": "Foundational."
+    },
+    "ev-bio-stem-cells": {
+      "who": "Yamanaka, S.",
+      "year": 2006,
+      "title": "Induced pluripotent stem cell",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Induced_pluripotent_stem_cell",
+      "kind": "reference",
+      "strength": "Foundational; Nobel-recognised (2012)."
+    },
+    "ev-bio-hox": {
+      "who": "Wikipedia",
+      "year": 1983,
+      "title": "Hox gene",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Hox_gene",
+      "kind": "reference",
+      "strength": "Foundational developmental genetics."
+    },
+    "ev-bio-action-potential": {
+      "who": "Hodgkin, A. & Huxley, A.",
+      "year": 1952,
+      "title": "Action potential",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Action_potential",
+      "kind": "reference",
+      "strength": "Foundational; Nobel-recognised model."
+    },
+    "ev-bio-sensory": {
+      "who": "Wikipedia",
+      "year": 1900,
+      "title": "Transduction (physiology)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Transduction_(physiology)",
+      "kind": "reference",
+      "strength": "Foundational sensory neuroscience."
+    },
+    "ev-bio-reflex-arc": {
+      "who": "Sherrington, C.",
+      "year": 1906,
+      "title": "Reflex arc",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Reflex_arc",
+      "kind": "reference",
+      "strength": "Foundational neuroscience."
     }
   }
 }
