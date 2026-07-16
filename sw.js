@@ -9,7 +9,7 @@
  * new service worker; the new SW then re-fetches the shell with cache:"reload" and deletes the old
  * cache on activate, so the update lands on next open.
  */
-const CACHE = "clue-v126";
+const CACHE = "clue-v127";
 const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest", "./icon-1024.png", "./knowledge.json", "./evidence.json", "./glossary.json"];
 // the big data files: serve cache-first (no per-load re-download); refreshed on each version bump
 const DATA = /\/(knowledge|evidence|glossary)\.json(\?|$)/;

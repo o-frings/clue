@@ -251,11 +251,25 @@
       "color": "#495057"
     },
     {
-      "id": "geo",
+      "id": "geopol",
       "label": "Geopolitics",
-      "blurb": "Power, geography, and the state system.",
+      "blurb": "Power, territory, and strategy on the map.",
       "icon": "🌍",
       "color": "#0ca678"
+    },
+    {
+      "id": "geohuman",
+      "label": "Human & physical geography",
+      "blurb": "People, populations, and the shape of the earth.",
+      "icon": "🗺️",
+      "color": "#099268"
+    },
+    {
+      "id": "georegion",
+      "label": "Regional & area studies",
+      "blurb": "The world region by region.",
+      "icon": "🧭",
+      "color": "#12b886"
     },
     {
       "id": "ir",
@@ -419,11 +433,39 @@
       "color": "#b08968"
     },
     {
-      "id": "polisci",
-      "label": "Political science",
-      "blurb": "Voting, institutions, collective action.",
-      "icon": "🏛",
+      "id": "polth",
+      "label": "Political theory",
+      "blurb": "The state, power, and canonical thinkers.",
+      "icon": "🏛️",
       "color": "#e64980"
+    },
+    {
+      "id": "polidea",
+      "label": "Political ideologies",
+      "blurb": "Liberalism, socialism, conservatism, and the rest.",
+      "icon": "🚩",
+      "color": "#c2255c"
+    },
+    {
+      "id": "polcomp",
+      "label": "Comparative politics",
+      "blurb": "Regimes, institutions, and how they differ.",
+      "icon": "🗳️",
+      "color": "#f06595"
+    },
+    {
+      "id": "polelec",
+      "label": "Elections & social choice",
+      "blurb": "Voting systems and the maths of choosing.",
+      "icon": "📥",
+      "color": "#d6336c"
+    },
+    {
+      "id": "polmeth",
+      "label": "Political methodology",
+      "blurb": "How political scientists infer causes.",
+      "icon": "🔬",
+      "color": "#a61e4d"
     },
     {
       "id": "logic",
@@ -531,11 +573,25 @@
       "color": "#9c6644"
     },
     {
-      "id": "law",
-      "label": "Jurisprudence",
-      "blurb": "What law is, where it comes from, how courts reason.",
+      "id": "lawth",
+      "label": "Legal theory & jurisprudence",
+      "blurb": "What law is and what makes it binding.",
       "icon": "⚖️",
       "color": "#2f9e44"
+    },
+    {
+      "id": "lawpub",
+      "label": "Public & criminal law",
+      "blurb": "The state, the constitution, and crime.",
+      "icon": "🏛️",
+      "color": "#2b8a3e"
+    },
+    {
+      "id": "lawpriv",
+      "label": "Private law",
+      "blurb": "Contracts, wrongs, and property between people.",
+      "icon": "📜",
+      "color": "#40c057"
     },
     {
       "id": "cogpsy",
@@ -870,7 +926,7 @@
     },
     {
       "id": "china-party-state",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -1003,7 +1059,7 @@
     },
     {
       "id": "china-state-structure",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -1069,7 +1125,7 @@
     },
     {
       "id": "china-cadre-appointment",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -1138,7 +1194,7 @@
     },
     {
       "id": "china-local-elections",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -1204,7 +1260,7 @@
     },
     {
       "id": "china-whole-process-democracy",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 5,
       "prereq": [
@@ -1550,7 +1606,7 @@
     },
     {
       "id": "china-provinces",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -1614,7 +1670,7 @@
     },
     {
       "id": "china-hu-line",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -1680,7 +1736,7 @@
     },
     {
       "id": "china-megaregions",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -1809,7 +1865,7 @@
     },
     {
       "id": "me-oil-rentier",
-      "field": "geo",
+      "field": "geopol",
       "depth": "concept",
       "level": 1,
       "src": [
@@ -1871,7 +1927,7 @@
     },
     {
       "id": "me-israel-palestine",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -1937,7 +1993,7 @@
     },
     {
       "id": "me-iran-saudi",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -2072,7 +2128,7 @@
     },
     {
       "id": "sahel-region",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 1,
       "src": [
@@ -2135,7 +2191,7 @@
     },
     {
       "id": "sahel-alliance",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -2203,7 +2259,7 @@
     },
     {
       "id": "africa-francafrique",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -2273,7 +2329,7 @@
     },
     {
       "id": "libya-collapse",
-      "field": "geo",
+      "field": "georegion",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -2403,7 +2459,7 @@
     },
     {
       "id": "date-sykes-picot-1916",
-      "field": "geo",
+      "field": "geopol",
       "kind": "date",
       "depth": "event",
       "level": 1,
@@ -2535,7 +2591,7 @@
     },
     {
       "id": "date-year-of-africa-1960",
-      "field": "geo",
+      "field": "georegion",
       "kind": "date",
       "depth": "event",
       "level": 2,
@@ -6623,7 +6679,7 @@
     },
     {
       "id": "geo-thucydides",
-      "field": "geo",
+      "field": "geopol",
       "depth": "book",
       "level": 1,
       "xref": [
@@ -6674,7 +6730,7 @@
     },
     {
       "id": "geo-hormuz",
-      "field": "geo",
+      "field": "geopol",
       "depth": "fact",
       "level": 1,
       "xref": [
@@ -6724,7 +6780,7 @@
     },
     {
       "id": "geo-heartland",
-      "field": "geo",
+      "field": "geopol",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -6779,7 +6835,7 @@
     },
     {
       "id": "geo-rimland",
-      "field": "geo",
+      "field": "geopol",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6846,7 +6902,7 @@
     },
     {
       "id": "geo-security-dilemma",
-      "field": "geo",
+      "field": "geopol",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6914,7 +6970,7 @@
     },
     {
       "id": "geo-malacca",
-      "field": "geo",
+      "field": "geopol",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -6981,7 +7037,7 @@
     },
     {
       "id": "geo-population-decline",
-      "field": "geo",
+      "field": "geohuman",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -7047,7 +7103,7 @@
     },
     {
       "id": "geo-demographic",
-      "field": "geo",
+      "field": "geohuman",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -9032,7 +9088,7 @@
     },
     {
       "id": "poli-median-voter",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -9086,7 +9142,7 @@
     },
     {
       "id": "poli-duverger",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "concept",
       "level": 1,
       "xref": [
@@ -9140,7 +9196,7 @@
     },
     {
       "id": "poli-collective-action",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "book",
       "level": 3,
       "xref": [
@@ -9228,7 +9284,7 @@
     },
     {
       "id": "poli-arrow",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -9290,7 +9346,7 @@
     },
     {
       "id": "poli-proportional",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -26408,7 +26464,7 @@
       "src": [
         "ev-poli-what-is"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 1,
       "depth": "concept",
       "title": "What political science studies",
@@ -26474,7 +26530,7 @@
       "src": [
         "ev-poli-power"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "The three faces of power",
@@ -26544,7 +26600,7 @@
       "src": [
         "ev-poli-state"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 1,
       "depth": "concept",
       "title": "The modern state",
@@ -26614,7 +26670,7 @@
       "src": [
         "ev-poli-sovereignty"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "Sovereignty",
@@ -26682,7 +26738,7 @@
       "src": [
         "ev-poli-legitimacy"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "Legitimate authority",
@@ -26752,7 +26808,7 @@
       "src": [
         "ev-poli-regime-types"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 2,
       "depth": "concept",
       "title": "Regime types",
@@ -26816,7 +26872,7 @@
       "src": [
         "ev-poli-democracy"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "What democracy is",
@@ -26882,7 +26938,7 @@
       "src": [
         "ev-poli-authoritarianism"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "How autocracies survive",
@@ -26994,7 +27050,7 @@
       "src": [
         "ev-poli-democratization"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Waves of democratization",
@@ -27059,7 +27115,7 @@
       "src": [
         "ev-poli-backsliding"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Democratic backsliding",
@@ -27167,7 +27223,7 @@
       "src": [
         "ev-poli-separation-powers"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "Separation of powers",
@@ -27231,7 +27287,7 @@
       "src": [
         "ev-poli-presidential-parliamentary"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Presidential vs parliamentary",
@@ -27297,7 +27353,7 @@
       "src": [
         "ev-poli-federalism"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 2,
       "depth": "concept",
       "title": "Federalism",
@@ -27365,7 +27421,7 @@
       "src": [
         "ev-poli-veto-players"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 4,
       "depth": "concept",
       "title": "Veto players",
@@ -27428,7 +27484,7 @@
       "src": [
         "ev-poli-bureaucracy"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Bureaucracy",
@@ -27497,7 +27553,7 @@
       "src": [
         "ev-poli-rule-of-law"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "The rule of law",
@@ -27565,7 +27621,7 @@
       "src": [
         "ev-poli-ideologies"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "The left–right spectrum",
@@ -27634,7 +27690,7 @@
       "src": [
         "ev-poli-nationalism"
       ],
-      "field": "polisci",
+      "field": "polidea",
       "level": 2,
       "depth": "concept",
       "title": "Nationalism",
@@ -27702,7 +27758,7 @@
       "src": [
         "ev-poli-populism"
       ],
-      "field": "polisci",
+      "field": "polidea",
       "level": 3,
       "depth": "concept",
       "title": "Populism",
@@ -27770,7 +27826,7 @@
       "src": [
         "ev-poli-social-movements"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Social movements",
@@ -27839,7 +27895,7 @@
       "src": [
         "ev-poli-revolution"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 4,
       "depth": "book",
       "title": "Theories of revolution",
@@ -27938,7 +27994,7 @@
       "src": [
         "ev-poli-clientelism"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Clientelism",
@@ -28006,7 +28062,7 @@
       "src": [
         "ev-poli-political-culture"
       ],
-      "field": "polisci",
+      "field": "polcomp",
       "level": 3,
       "depth": "concept",
       "title": "Political culture and social capital",
@@ -28069,7 +28125,7 @@
       "src": [
         "ev-poli-civil-society"
       ],
-      "field": "polisci",
+      "field": "polth",
       "level": 2,
       "depth": "concept",
       "title": "Civil society",
@@ -29280,7 +29336,7 @@
     },
     {
       "id": "poli-fptp",
-      "field": "polisci",
+      "field": "polelec",
       "level": 1,
       "depth": "concept",
       "prereq": [],
@@ -29346,7 +29402,7 @@
     },
     {
       "id": "poli-runoff",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -29415,7 +29471,7 @@
     },
     {
       "id": "poli-rcv",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -29483,7 +29539,7 @@
     },
     {
       "id": "poli-borda",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -29538,7 +29594,7 @@
     },
     {
       "id": "poli-condorcet",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -29604,7 +29660,7 @@
     },
     {
       "id": "poli-approval",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -29669,7 +29725,7 @@
     },
     {
       "id": "poli-stv",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -29735,7 +29791,7 @@
     },
     {
       "id": "poli-mmp",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -29801,7 +29857,7 @@
     },
     {
       "id": "poli-gibbard",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -29867,7 +29923,7 @@
     },
     {
       "id": "poli-may-theorem",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -29932,7 +29988,7 @@
     },
     {
       "id": "poli-apportionment",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -30002,7 +30058,7 @@
     },
     {
       "id": "poli-gerrymander",
-      "field": "polisci",
+      "field": "polelec",
       "level": 2,
       "depth": "concept",
       "prereq": [
@@ -30070,7 +30126,7 @@
     },
     {
       "id": "poli-banzhaf",
-      "field": "polisci",
+      "field": "polelec",
       "level": 3,
       "depth": "concept",
       "prereq": [
@@ -30521,7 +30577,7 @@
     },
     {
       "id": "geo-map-projection",
-      "field": "geo",
+      "field": "geohuman",
       "level": 2,
       "depth": "concept",
       "prereq": [],
@@ -33612,7 +33668,7 @@
     },
     {
       "id": "poli-liberalism-rights",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -33700,7 +33756,7 @@
     },
     {
       "id": "poli-liberalism-liberty",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -33791,7 +33847,7 @@
     },
     {
       "id": "poli-conservatism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -33881,7 +33937,7 @@
     },
     {
       "id": "poli-marxism-core",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -33973,7 +34029,7 @@
     },
     {
       "id": "poli-marxism-state",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -34064,7 +34120,7 @@
     },
     {
       "id": "poli-social-democracy",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -34155,7 +34211,7 @@
     },
     {
       "id": "poli-welfare-state",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -34246,7 +34302,7 @@
     },
     {
       "id": "poli-anarchism-core",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -34337,7 +34393,7 @@
     },
     {
       "id": "poli-anarchism-strands",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -34428,7 +34484,7 @@
     },
     {
       "id": "poli-leninism-vanguard",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -34519,7 +34575,7 @@
     },
     {
       "id": "poli-leninism-practice",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -34610,7 +34666,7 @@
     },
     {
       "id": "poli-stalinism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -34702,7 +34758,7 @@
     },
     {
       "id": "poli-trotskyism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 5,
       "prereq": [
@@ -34791,7 +34847,7 @@
     },
     {
       "id": "poli-maoism-strategy",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -34882,7 +34938,7 @@
     },
     {
       "id": "poli-maoism-revolution",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -34971,7 +35027,7 @@
     },
     {
       "id": "poli-fascism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35062,7 +35118,7 @@
     },
     {
       "id": "poli-nazism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -35153,7 +35209,7 @@
     },
     {
       "id": "poli-neoliberalism-hayek",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35245,7 +35301,7 @@
     },
     {
       "id": "poli-neoliberalism-foucault",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -35335,7 +35391,7 @@
     },
     {
       "id": "poli-libertarianism",
-      "field": "polisci",
+      "field": "polidea",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -35426,7 +35482,7 @@
     },
     {
       "id": "poli-rousseau-general-will",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35483,7 +35539,7 @@
     },
     {
       "id": "poli-hegel-state",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -35540,7 +35596,7 @@
     },
     {
       "id": "poli-habermas-deliberative",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -35598,7 +35654,7 @@
     },
     {
       "id": "poli-pettit-republicanism",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35656,7 +35712,7 @@
     },
     {
       "id": "poli-tocqueville-democracy",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35715,7 +35771,7 @@
     },
     {
       "id": "poli-weber-monopoly-violence",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -35773,7 +35829,7 @@
     },
     {
       "id": "poli-tilly-war-states",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35831,7 +35887,7 @@
     },
     {
       "id": "poli-lipset-rokkan-cleavages",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35890,7 +35946,7 @@
     },
     {
       "id": "poli-odonnell-schmitter",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -35984,7 +36040,7 @@
     },
     {
       "id": "poli-linz-presidentialism",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36042,7 +36098,7 @@
     },
     {
       "id": "poli-levitsky-guardrails",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36101,7 +36157,7 @@
     },
     {
       "id": "poli-mill-comparative",
-      "field": "polisci",
+      "field": "polmeth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -36154,7 +36210,7 @@
     },
     {
       "id": "poli-selection-bias",
-      "field": "polisci",
+      "field": "polmeth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36204,7 +36260,7 @@
     },
     {
       "id": "poli-process-tracing",
-      "field": "polisci",
+      "field": "polmeth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36254,7 +36310,7 @@
     },
     {
       "id": "poli-gramsci-hegemony",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36312,7 +36368,7 @@
     },
     {
       "id": "poli-bourdieu-political-field",
-      "field": "polisci",
+      "field": "polth",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -36370,7 +36426,7 @@
     },
     {
       "id": "poli-seat-vote-curve",
-      "field": "polisci",
+      "field": "polelec",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36423,7 +36479,7 @@
     },
     {
       "id": "poli-cartel-parties",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -36476,7 +36532,7 @@
     },
     {
       "id": "poli-path-dependence",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36564,7 +36620,7 @@
     },
     {
       "id": "poli-consociationalism",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -36623,7 +36679,7 @@
     },
     {
       "id": "poli-republican-integration",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -36681,7 +36737,7 @@
     },
     {
       "id": "poli-state-capacity",
-      "field": "polisci",
+      "field": "polcomp",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45525,7 +45581,7 @@
     },
     {
       "id": "law-what-is",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 1,
       "prereq": [],
@@ -45575,7 +45631,7 @@
     },
     {
       "id": "law-positivism",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45627,7 +45683,7 @@
     },
     {
       "id": "law-natural-law",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45680,7 +45736,7 @@
     },
     {
       "id": "law-dworkin",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45733,7 +45789,7 @@
     },
     {
       "id": "law-constitutional",
-      "field": "law",
+      "field": "lawpub",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45785,7 +45841,7 @@
     },
     {
       "id": "law-justice",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 2,
       "prereq": [
@@ -45839,7 +45895,7 @@
     },
     {
       "id": "law-rawls",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45891,7 +45947,7 @@
     },
     {
       "id": "law-critical-legal",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 3,
       "prereq": [
@@ -45943,7 +45999,7 @@
     },
     {
       "id": "law-habermas-legitimacy",
-      "field": "law",
+      "field": "lawth",
       "depth": "concept",
       "level": 4,
       "prereq": [
@@ -64597,6 +64653,407 @@
       ],
       "deploy": "How reliable software stays reliable as it changes — the safety net for refactoring.",
       "counter": "Tests can give false confidence: they only check what you thought to check, and can rot if unmaintained."
+    },
+    {
+      "id": "law-criminal",
+      "field": "lawpub",
+      "depth": "concept",
+      "level": 2,
+      "title": "Criminal law",
+      "fact": "A crime generally requires both a guilty act (actus reus) and a guilty mind (mens rea), and the state must prove guilt beyond reasonable doubt.",
+      "tags": [
+        "law",
+        "criminal law",
+        "mens rea",
+        "proof"
+      ],
+      "quiz": [
+        {
+          "q": "Most serious crimes require both a guilty act and a:",
+          "choices": [
+            "guilty mind (mens rea)",
+            "guilty verdict first",
+            "confession",
+            "motive"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What Latin term names the 'guilty mind' or intent element of a crime?",
+          "type": "detail",
+          "answer": "mens rea",
+          "accept": [
+            "mens rea"
+          ]
+        },
+        {
+          "q": "The standard of proof in a criminal trial is:",
+          "choices": [
+            "balance of probabilities",
+            "beyond reasonable doubt",
+            "any evidence",
+            "the judge's hunch"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-law-criminal"
+      ],
+      "detail": "Criminal law punishes wrongs against society, prosecuted by the state, not the victim. Most serious offences require intent or recklessness (mens rea) alongside the act; strict-liability offences are the exception. The high standard of proof — 'beyond reasonable doubt' — reflects the stakes: liberty and stigma.",
+      "year": 1700,
+      "xref": [
+        "law-constitutional",
+        "eth-double-effect"
+      ],
+      "deploy": "The framework behind every prosecution — act, intent, and the burden of proof.",
+      "counter": "Strict-liability offences punish the act without intent, a much-debated exception to the mens rea principle."
+    },
+    {
+      "id": "law-human-rights",
+      "field": "lawpub",
+      "depth": "concept",
+      "level": 2,
+      "title": "Human rights law",
+      "fact": "Human rights are entitlements held by all people simply by being human — codified after 1945 in declarations and binding treaties.",
+      "tags": [
+        "law",
+        "human rights",
+        "UDHR",
+        "international"
+      ],
+      "quiz": [
+        {
+          "q": "Human rights are held by people on the basis of:",
+          "choices": [
+            "citizenship",
+            "being human",
+            "wealth",
+            "merit"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What 1948 document is the foundation of modern human rights?",
+          "type": "detail",
+          "answer": "Universal Declaration of Human Rights",
+          "accept": [
+            "Universal Declaration of Human Rights",
+            "UDHR",
+            "Universal Declaration"
+          ]
+        },
+        {
+          "q": "Human rights are commonly divided into civil-political and:",
+          "choices": [
+            "military",
+            "economic-social",
+            "commercial",
+            "religious"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-law-human-rights"
+      ],
+      "detail": "The Universal Declaration of Human Rights (1948) followed the horrors of WWII; later covenants made many rights legally binding, enforced by courts like the European Court of Human Rights. Rights are split into civil-political (speech, fair trial) and economic-social (health, education), and their universality is both celebrated and contested.",
+      "year": 1948,
+      "prereq": [
+        "law-constitutional"
+      ],
+      "xref": [
+        "hist-un"
+      ],
+      "deploy": "The legal backbone of post-war global norms — invoked from courts to campaigns.",
+      "counter": "Enforcement is patchy and 'universality' is challenged as culturally specific by some states and scholars."
+    },
+    {
+      "id": "law-contract",
+      "field": "lawpriv",
+      "depth": "concept",
+      "level": 1,
+      "title": "Contract law",
+      "fact": "A contract is a legally enforceable agreement — typically needing an offer, acceptance, and something of value exchanged (consideration).",
+      "tags": [
+        "law",
+        "contract",
+        "private law",
+        "obligations"
+      ],
+      "quiz": [
+        {
+          "q": "A binding contract classically requires offer, acceptance and:",
+          "choices": [
+            "a lawyer",
+            "consideration (something of value exchanged)",
+            "a witness",
+            "a notary"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the general legal term for breaking a contract?",
+          "type": "detail",
+          "answer": "breach",
+          "accept": [
+            "breach",
+            "breach of contract"
+          ]
+        },
+        {
+          "q": "Contract law's economic role is to let people:",
+          "choices": [
+            "avoid taxes",
+            "rely on each other's promises",
+            "own land",
+            "vote"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-law-contract"
+      ],
+      "detail": "Contract law lets strangers rely on promises: if one side breaks the deal, courts can order damages or performance. The classic ingredients are offer, acceptance, consideration, and intent to be bound. It is the invisible infrastructure of the economy — every purchase, job and loan rests on it.",
+      "year": 1600,
+      "xref": [
+        "law-tort"
+      ],
+      "deploy": "The legal foundation of trade, employment and credit.",
+      "counter": "Bargaining power is rarely equal, so 'freely agreed' contracts can entrench the stronger party's terms."
+    },
+    {
+      "id": "law-tort",
+      "field": "lawpriv",
+      "depth": "concept",
+      "level": 2,
+      "title": "Tort law and negligence",
+      "fact": "Tort law lets a person harmed by another's wrongdoing sue for compensation — most often for negligence: a careless breach of a duty of care.",
+      "tags": [
+        "law",
+        "tort",
+        "negligence",
+        "private law"
+      ],
+      "quiz": [
+        {
+          "q": "The most common tort, negligence, requires a duty of care, a breach, and:",
+          "choices": [
+            "intent to harm",
+            "resulting harm/damage",
+            "a contract",
+            "a crime"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which 1932 case ('the snail in the ginger beer') established the modern duty of care?",
+          "type": "detail",
+          "answer": "Donoghue v Stevenson",
+          "accept": [
+            "Donoghue v Stevenson",
+            "Donoghue",
+            "Donoghue vs Stevenson"
+          ]
+        },
+        {
+          "q": "A tort differs from a crime in that it is a wrong pursued by:",
+          "choices": [
+            "the state",
+            "the harmed individual (civil suit)",
+            "the police",
+            "a regulator"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-law-tort"
+      ],
+      "detail": "Unlike crime (state vs offender), a tort is a civil wrong (victim vs wrongdoer). Negligence requires a duty of care, a breach, and resulting harm — established in the famous snail-in-a-ginger-beer case, Donoghue v Stevenson (1932). Tort law spreads the cost of accidents and creates incentives for care.",
+      "year": 1932,
+      "prereq": [
+        "law-contract"
+      ],
+      "xref": [
+        "law-criminal"
+      ],
+      "deploy": "How the law handles accidents, malpractice and injury — the basis of civil liability.",
+      "counter": "Tort systems can over-deter (defensive medicine) or under-compensate; many countries prefer no-fault schemes."
+    },
+    {
+      "id": "law-property",
+      "field": "lawpriv",
+      "depth": "concept",
+      "level": 2,
+      "title": "Property law",
+      "fact": "Property is best understood not as a thing but as a 'bundle of rights' — to use, exclude others, transfer and profit — that the law recognises and enforces.",
+      "tags": [
+        "law",
+        "property",
+        "ownership",
+        "private law"
+      ],
+      "quiz": [
+        {
+          "q": "Modern property law treats ownership as:",
+          "choices": [
+            "a single physical object",
+            "a bundle of separable rights (use, exclude, transfer)",
+            "a government permit",
+            "a moral claim only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which single right — keeping others off — is often called the most basic stick in the bundle?",
+          "type": "detail",
+          "answer": "right to exclude",
+          "accept": [
+            "right to exclude",
+            "exclude",
+            "exclusion"
+          ]
+        },
+        {
+          "q": "That a tenant, landlord and mortgage-lender can all hold rights in one house illustrates property as:",
+          "choices": [
+            "indivisible",
+            "a divisible bundle of rights",
+            "a crime",
+            "a contract only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-law-property"
+      ],
+      "detail": "Owning land doesn't mean owning a physical object so much as holding a set of legally protected relationships against everyone else: the right to exclude, to sell, to bequeath. Different rights can be split among people (a tenant, a landlord, a bank with a mortgage). Property regimes shape economies profoundly.",
+      "year": 1760,
+      "prereq": [
+        "law-contract"
+      ],
+      "xref": [
+        "poli-liberalism-rights",
+        "hist-abolition"
+      ],
+      "deploy": "The legal scaffolding of wealth, housing, and the market economy.",
+      "counter": "What may be owned (land, ideas, even people historically) is a political choice, not a natural given."
+    },
+    {
+      "id": "geo-urbanisation-world",
+      "field": "geohuman",
+      "depth": "concept",
+      "level": 1,
+      "title": "Global urbanisation",
+      "fact": "For the first time in history, more than half of humanity lives in cities — a threshold crossed around 2007 and still rising.",
+      "tags": [
+        "geography",
+        "urbanisation",
+        "cities",
+        "demography"
+      ],
+      "quiz": [
+        {
+          "q": "Roughly what share of humanity now lives in cities?",
+          "choices": [
+            "about 10%",
+            "about a quarter",
+            "more than half",
+            "over 90%"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Around what year did the world's urban population first exceed its rural population?",
+          "type": "num",
+          "answer": 2007,
+          "tol": 3
+        },
+        {
+          "q": "The fastest urban growth today is in:",
+          "choices": [
+            "Europe and North America",
+            "Asia and Africa",
+            "Antarctica",
+            "the oceans"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-geo-urbanisation-world"
+      ],
+      "detail": "Driven by industrialisation and rural-to-urban migration, the urban share has climbed from ~10% in 1900 toward ~55% today, heading for two-thirds by 2050. Growth is fastest in Asia and Africa, producing dozens of megacities. Cities concentrate opportunity and emissions alike, making urban policy central to development and climate.",
+      "year": 2007,
+      "xref": [
+        "socio-urbanisation",
+        "geo-demographic"
+      ],
+      "deploy": "A defining shift of our era — central to development, housing and climate policy.",
+      "counter": "Definitions of 'urban' vary by country, so the exact crossover year is approximate."
+    },
+    {
+      "id": "geo-borders",
+      "field": "geopol",
+      "depth": "concept",
+      "level": 2,
+      "title": "Borders and territory",
+      "fact": "Modern states claim exclusive authority over bounded territory — but most borders are recent, often arbitrary lines drawn by empires, not natural divisions.",
+      "tags": [
+        "geography",
+        "borders",
+        "territory",
+        "sovereignty"
+      ],
+      "quiz": [
+        {
+          "q": "Most modern international borders are:",
+          "choices": [
+            "natural, ancient divisions",
+            "recent, often arbitrary lines drawn by states/empires",
+            "defined by rivers only",
+            "set by the UN"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "At which 1884-85 conference did European powers partition Africa with little regard for local peoples?",
+          "type": "detail",
+          "answer": "Berlin Conference",
+          "accept": [
+            "Berlin Conference",
+            "Berlin"
+          ]
+        },
+        {
+          "q": "The norm that the world is fully divided into exclusive sovereign territories is:",
+          "choices": [
+            "ancient and natural",
+            "modern and post-Westphalian",
+            "imposed by geography",
+            "universal to all species"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-geo-borders"
+      ],
+      "detail": "The idea that the globe should be fully partitioned into non-overlapping sovereign territories is a modern, post-Westphalian norm. Many borders were imposed by colonial powers with a ruler and a map (as at the Berlin Conference), cutting across peoples — a source of enduring conflict. Borders are political artefacts, not facts of nature.",
+      "year": 1885,
+      "prereq": [
+        "geo-heartland"
+      ],
+      "xref": [
+        "poli-sovereignty",
+        "colonial-scramble-africa",
+        "hist-westphalia"
+      ],
+      "deploy": "Why so many conflicts trace back to lines on a map — borders as political choices.",
+      "counter": "Some borders do follow durable geography (mountains, rivers), and long-settled borders gain real legitimacy."
     }
   ],
   "motions": [

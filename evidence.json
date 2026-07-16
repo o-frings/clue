@@ -8028,6 +8028,69 @@
       "url": "https://en.wikipedia.org/wiki/Software_testing",
       "kind": "reference",
       "strength": "Foundational software practice."
+    },
+    "ev-law-criminal": {
+      "who": "Wikipedia",
+      "year": 1700,
+      "title": "Criminal law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Criminal_law",
+      "kind": "reference",
+      "strength": "Foundational legal doctrine."
+    },
+    "ev-law-human-rights": {
+      "who": "Wikipedia",
+      "year": 1948,
+      "title": "Human rights",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Human_rights",
+      "kind": "reference",
+      "strength": "Foundational; UDHR firmly attested."
+    },
+    "ev-law-contract": {
+      "who": "Wikipedia",
+      "year": 1600,
+      "title": "Contract",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Contract",
+      "kind": "reference",
+      "strength": "Foundational private-law doctrine."
+    },
+    "ev-law-tort": {
+      "who": "Wikipedia",
+      "year": 1932,
+      "title": "Tort",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Tort",
+      "kind": "reference",
+      "strength": "Foundational; Donoghue v Stevenson is a landmark case."
+    },
+    "ev-law-property": {
+      "who": "Wikipedia",
+      "year": 1760,
+      "title": "Property law",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Property_law",
+      "kind": "reference",
+      "strength": "Foundational private-law doctrine."
+    },
+    "ev-geo-urbanisation-world": {
+      "who": "Wikipedia",
+      "year": 2007,
+      "title": "Urbanization",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Urbanization",
+      "kind": "reference",
+      "strength": "Standard reference; UN urbanisation data."
+    },
+    "ev-geo-borders": {
+      "who": "Wikipedia",
+      "year": 1885,
+      "title": "Border",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Border",
+      "kind": "reference",
+      "strength": "Standard reference; the Berlin Conference is firmly attested."
     }
   }
 }
