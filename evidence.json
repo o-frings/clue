@@ -8298,6 +8298,69 @@
       "url": "https://en.wikipedia.org/wiki/Authoritarian_capitalism",
       "kind": "reference",
       "strength": "Reference; the modernisation-thesis debate is well documented."
+    },
+    "ev-china-primary-stage": {
+      "who": "Wikipedia",
+      "year": 1987,
+      "title": "Primary stage of socialism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Primary_stage_of_socialism",
+      "kind": "reference",
+      "strength": "Reference; official doctrine (13th Party Congress, 1987) well documented."
+    },
+    "ev-china-capitalist-restoration": {
+      "who": "Wikipedia",
+      "year": 1978,
+      "title": "Capitalist roader",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Capitalist_roader",
+      "kind": "reference",
+      "strength": "Reference; the Maoist/left 'restoration' critique is well documented."
+    },
+    "ev-china-state-capitalism-marxist": {
+      "who": "Cliff, T.",
+      "year": 1948,
+      "title": "State capitalism in Russia",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/State_capitalism#Marxist_analyses",
+      "kind": "reference",
+      "strength": "Reference; Cliff's theory and its application to China well documented."
+    },
+    "ev-china-labour": {
+      "who": "Wikipedia",
+      "year": 2010,
+      "title": "Labor relations in China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Labor_in_China",
+      "kind": "reference",
+      "strength": "Reference; hukou, ACFTU monopoly and 2010 strike wave well documented."
+    },
+    "ev-china-new-left": {
+      "who": "Wikipedia",
+      "year": 1997,
+      "title": "New Left (China)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/New_Left_(China)",
+      "kind": "reference",
+      "strength": "Reference; the Chinese New Left is a documented intellectual current."
+    },
+    "ev-china-marxist-verdict": {
+      "who": "Wikipedia",
+      "year": 2000,
+      "title": "Chinese Marxist philosophy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Chinese_Marxist_philosophy",
+      "kind": "reference",
+      "strength": "Reference; synthesises documented Marxist positions on China's system."
+    },
+    "ev-china-whose-labels": {
+      "who": "Wikipedia",
+      "year": 2018,
+      "title": "Eurocentrism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Eurocentrism",
+      "kind": "reference",
+      "strength": "Reference for the meta-point that analytic categories are not value-neutral."
     }
   }
 }

@@ -65089,12 +65089,12 @@
           ]
         },
         {
-          "q": "The most defensible short answer, per most scholars, is that China is:",
+          "q": "The dispute over how to label China's system is best described as:",
           "choices": [
-            "purely communist",
-            "purely capitalist",
-            "a hybrid that fits neither Cold-War box",
-            "a feudal economy"
+            "settled — it is plainly capitalist",
+            "settled — it is plainly communist",
+            "genuinely unresolved, with serious arguments held on each side",
+            "meaningless word-play"
           ],
           "answer": 2
         }
@@ -65106,15 +65106,15 @@
         "polcomp",
         "polidea"
       ],
-      "detail": "The confusion is real, not lazy: private firms produce most output while the party owns the banks and the biggest firms and can override any of them. Officially China calls itself a 'socialist market economy' in the 'primary stage of socialism'. The honest answer is that it fits neither Cold-War box — most scholars reach for a hybrid label (see the case for each side, and the 'party-state capitalism' synthesis).",
+      "detail": "The confusion is real, not lazy: private firms produce most output, while the party owns the banks and the biggest firms and can override any of them. Three positions are held sincerely, not just for show — China's government and orthodox Marxists say it is socialist (in an early stage); many Western scholars say it is a variant of capitalism; and others say it fits neither Cold-War box. The debate is genuinely open, and the analytic labels themselves are contested (see the cases for each side, the party-state-capitalism and Marxist syntheses, and the politics of labelling).",
       "year": 1992,
       "xref": [
         "china-marxism",
         "china-party-state",
         "pe-varieties-capitalism"
       ],
-      "deploy": "The framing card for one of the biggest 'what kind of system is that?' debates in the world.",
-      "counter": "Some argue the question is a category error: China is sui generis, and forcing it into Western labels obscures more than it reveals."
+      "deploy": "The neutral framing card for the debate — it sets up the competing positions without picking a winner.",
+      "counter": "Some argue the question itself is a category error imported from the Cold War: China may be sui generis, and every off-the-shelf label — Western or official — carries an agenda."
     },
     {
       "id": "china-case-capitalist",
@@ -65265,7 +65265,7 @@
       "depth": "concept",
       "level": 3,
       "title": "Party-state capitalism",
-      "fact": "Scholars increasingly reject both labels and call China's system 'state capitalism' — or, more precisely, 'party-state capitalism': a market economy in which the Communist Party's political survival overrides everything.",
+      "fact": "One influential framework in Western scholarship rejects both plain labels and calls China's system 'state capitalism' — or, more precisely, 'party-state capitalism': a market economy in which the Communist Party's political survival overrides other goals.",
       "tags": [
         "China",
         "state capitalism",
@@ -65324,8 +65324,8 @@
         "pe-varieties-capitalism",
         "china-case-socialist"
       ],
-      "deploy": "The current scholarly consensus term — resolves the debate by naming the hybrid precisely.",
-      "counter": "Critics say 'capitalism' still understates how genuinely Leninist and plan-driven the political core remains; others find every label too neat for a fast-changing system."
+      "deploy": "A leading framework in Western academia — one serious answer among several, not a settled verdict.",
+      "counter": "It is one framework, not a consensus: Chinese scholars and officials reject the 'capitalism' framing as socialist-in-fact; Marxist critics say it understates the genuinely Leninist, plan-driven core; and others find every tidy label too neat."
     },
     {
       "id": "china-socialist-market-economy",
@@ -65541,39 +65541,41 @@
       ],
       "deploy": "A concrete way to see the system difference — who decides where the money goes.",
       "counter": "Western banking is not purely market either: bailouts, deposit insurance, 'too big to fail' and central-bank support show heavy state involvement, just of a different kind.",
-      "media": {
-        "type": "plot",
-        "kind": "flow",
-        "nodes": [
-          {
-            "row": 0,
-            "col": 0,
-            "label": "Household savings"
-          },
-          {
-            "row": 0,
-            "col": 1,
-            "label": "State-owned banks"
-          },
-          {
-            "row": 0,
-            "col": 2,
-            "label": "Directed to state firms",
-            "hl": true
-          }
-        ],
-        "edges": [
-          [
-            0,
-            1
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Household savings"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "State-owned banks"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Directed to state firms",
+              "hl": true
+            }
           ],
-          [
-            1,
-            2
-          ]
-        ],
-        "caption": "Financial repression: capped deposit rates funnel household savings into state-favoured investment."
-      }
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Financial repression: capped deposit rates funnel household savings into state-favoured investment."
+        }
+      ]
     },
     {
       "id": "china-interest-rates-west",
@@ -66684,6 +66686,489 @@
       ],
       "deploy": "Reframes the whole debate — the deeper question is whether capitalism must be liberal-democratic at all.",
       "counter": "Defenders of the modernisation thesis argue the story isn't over: pressures for openness may still build, or the model may prove brittle under slower growth."
+    },
+    {
+      "id": "china-primary-stage",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 3,
+      "title": "The 'primary stage of socialism' defence",
+      "fact": "China's official Marxist answer: it IS socialist — but in the 'primary stage', a long period in which markets are used to build the productive forces that Marx said socialism presupposes.",
+      "tags": [
+        "China",
+        "socialism",
+        "primary stage",
+        "historical materialism"
+      ],
+      "quiz": [
+        {
+          "q": "The 'primary stage of socialism' argues that China's use of markets is:",
+          "choices": [
+            "proof it abandoned socialism",
+            "a Marxist-justified tool to build the productive forces first",
+            "a Western imposition",
+            "a temporary accident"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Marxist theory — that socialism must be built on developed productive forces — grounds this defence?",
+          "type": "detail",
+          "answer": "historical materialism",
+          "accept": [
+            "historical materialism",
+            "historical materialist"
+          ]
+        },
+        {
+          "q": "On this view, China's end goal remains:",
+          "choices": [
+            "liberal capitalism",
+            "communism, reached over a long period",
+            "feudalism",
+            "permanent markets"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-primary-stage"
+      ],
+      "xfields": [
+        "polecon",
+        "polth"
+      ],
+      "detail": "Marx held that socialism can only be built on an advanced industrial base — you cannot leap to communism from poverty. So, the argument runs, China's markets and private firms are not a betrayal but a tool: develop the forces of production first, keep public ownership as 'the mainstay' and the party in command, then move toward communism over ~100 years. Adopted at the 1987 Party Congress, the 'primary stage' theory is the strongest good-faith case that China is genuinely on a socialist road.",
+      "year": 1987,
+      "prereq": [
+        "china-case-socialist"
+      ],
+      "xref": [
+        "pe-historical-materialism",
+        "china-marxism",
+        "china-common-prosperity"
+      ],
+      "deploy": "The strongest theoretically-grounded 'China is socialist' argument — markets as a stage, not a surrender.",
+      "counter": "Critics call it an open-ended alibi: a 'primary stage' lasting a century can excuse any amount of capitalism indefinitely, with communism forever deferred.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Poor agrarian base"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Markets build productive forces"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Socialism → communism",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Historical materialism's staging: develop the forces of production first, then advance to communism."
+        }
+      ]
+    },
+    {
+      "id": "china-capitalist-restoration",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 3,
+      "title": "'Capitalist restoration'",
+      "fact": "Maoists and many left Marxists argue the opposite of the official line: Deng's reforms were a 'capitalist restoration' that betrayed the revolution and created a new exploiting class.",
+      "tags": [
+        "China",
+        "capitalist restoration",
+        "Maoism",
+        "revisionism"
+      ],
+      "quiz": [
+        {
+          "q": "The 'capitalist restoration' thesis holds that Deng's reforms:",
+          "choices": [
+            "completed socialism",
+            "restored capitalism and betrayed the revolution",
+            "had no economic effect",
+            "were forced by the USSR"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What Maoist term ('capitalist ___') described officials Mao accused of taking the capitalist path?",
+          "type": "detail",
+          "answer": "roaders",
+          "accept": [
+            "roaders",
+            "capitalist roaders",
+            "roader"
+          ]
+        },
+        {
+          "q": "This critique comes from which direction politically?",
+          "choices": [
+            "the free-market right",
+            "the Marxist left",
+            "liberal centrists",
+            "monarchists"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-capitalist-restoration"
+      ],
+      "xfields": [
+        "polecon",
+        "socstrat"
+      ],
+      "detail": "In this reading the 'capitalist roaders' Mao warned of won after his death: markets, privatisation and the 1990s layoffs dispossessed the working class, while party officials and entrepreneurs became a new bourgeoisie enriched by exploiting labour. Far from a socialist road, they say, China restored capitalism under a red flag — 'revisionism' in Maoist terms. It is a critique from the left, not the right.",
+      "year": 1978,
+      "prereq": [
+        "china-case-socialist"
+      ],
+      "xref": [
+        "poli-maoism-revolution",
+        "china-soe-reform-1990s",
+        "china-case-capitalist"
+      ],
+      "deploy": "The view that China is capitalist — argued from the left as betrayal, not from the right as success.",
+      "counter": "Defenders reply that abolishing markets kept China poor under Mao (and caused famine), and that lifting 800 million from poverty is the real measure, not doctrinal purity."
+    },
+    {
+      "id": "china-state-capitalism-marxist",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 4,
+      "title": "State capitalism, the Marxist version",
+      "fact": "Some Marxists apply Tony Cliff's idea of 'state capitalism' to China: the party-state acts as a single collective capitalist that still extracts surplus value from wage-labourers — socialist in name, capitalist in its relations of production.",
+      "tags": [
+        "China",
+        "state capitalism",
+        "Cliff",
+        "exploitation"
+      ],
+      "quiz": [
+        {
+          "q": "Marxist 'state capitalism' (Cliff) locates the test of the system in:",
+          "choices": [
+            "who legally owns firms",
+            "the relation between wage-labour and capital (exploitation)",
+            "the flag flown",
+            "GDP growth"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Marxist first developed 'state capitalism' as a critique of the USSR (1948)?",
+          "type": "detail",
+          "answer": "Cliff",
+          "accept": [
+            "Cliff",
+            "Tony Cliff"
+          ]
+        },
+        {
+          "q": "This left-wing 'state capitalism' differs from the mainstream political-economy label by focusing on:",
+          "choices": [
+            "market share",
+            "class exploitation rather than state intervention",
+            "central banks",
+            "exports"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-state-capitalism-marxist"
+      ],
+      "xfields": [
+        "polecon"
+      ],
+      "detail": "Cliff coined the term for the USSR (1948): when the state owns industry but workers still sell their labour power and have no control, the state itself becomes the exploiter, driven to accumulate. Applied to China, this says the key Marxist test is not who owns the firms (the state) but the relation between labour and capital (still exploitative). Note this is a different, left-wing sense of 'state capitalism' from the liberal political-economy label.",
+      "year": 1948,
+      "prereq": [
+        "china-party-state-capitalism"
+      ],
+      "xref": [
+        "poli-trotskyism",
+        "pe-marx-capital",
+        "china-party-state-capitalism"
+      ],
+      "deploy": "Untangles a confusing double-meaning: 'state capitalism' means one thing to liberals, another to Marxists.",
+      "counter": "Orthodox and Trotskyist Marxists reject it, arguing state ownership and planning make China (like the USSR) post-capitalist — a 'deformed workers' state', not capitalist at all."
+    },
+    {
+      "id": "china-labour",
+      "field": "socstrat",
+      "depth": "concept",
+      "level": 3,
+      "title": "Labour in the 'workers' state'",
+      "fact": "A Marxist labour lens asks who actually works and on what terms: China's boom was built on ~290 million migrant workers, denied urban rights by the hukou system and long barred from independent unions.",
+      "tags": [
+        "China",
+        "labour",
+        "exploitation",
+        "hukou"
+      ],
+      "quiz": [
+        {
+          "q": "The Marxist labour critique argues that, at the point of production, China resembles:",
+          "choices": [
+            "classical socialism",
+            "capitalism (surplus value from cheap wage-labour)",
+            "feudalism",
+            "a gift economy"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which household-registration system denies migrant workers full urban rights, creating a cheap-labour underclass?",
+          "type": "detail",
+          "answer": "hukou",
+          "accept": [
+            "hukou"
+          ]
+        },
+        {
+          "q": "Independent trade unions in China are:",
+          "choices": [
+            "encouraged",
+            "banned (only the party-run ACFTU is legal)",
+            "the majority",
+            "required by law"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-labour"
+      ],
+      "xfields": [
+        "polecon",
+        "socecon"
+      ],
+      "detail": "Whatever the label at the top, at the point of production China looks to many Marxists like capitalism: surplus value extracted from cheap labour in the 'workshop of the world', a rightless migrant underclass created by hukou, gruelling '996' schedules, and only a single party-run union (the ACFTU). Waves of strikes (Honda, 2010) and the Foxconn suicides put the working class — supposedly the ruling class — at the centre of the question.",
+      "year": 2010,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "pol-marx-alienation",
+        "china-hukou",
+        "china-billionaires"
+      ],
+      "deploy": "Shifts the debate from ownership at the top to exploitation at the point of production — the Marxist core.",
+      "counter": "Defenders note real wages rose sharply and hundreds of millions left poverty; conditions, they argue, reflect a developing economy, not a permanent class verdict."
+    },
+    {
+      "id": "china-new-left",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 4,
+      "title": "The Chinese New Left",
+      "fact": "Not all Marxist critique is foreign: China has its own 'New Left' intellectuals (like Wang Hui) who attack market inequality and defend a renewed socialism against 'neoliberalism with Chinese characteristics'.",
+      "tags": [
+        "China",
+        "New Left",
+        "Wang Hui",
+        "inequality"
+      ],
+      "quiz": [
+        {
+          "q": "The Chinese New Left critiques China's reforms for importing:",
+          "choices": [
+            "too much planning",
+            "capitalist-style inequality ('neoliberalism with Chinese characteristics')",
+            "foreign socialism",
+            "democracy"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name a leading Chinese New Left intellectual associated with this critique.",
+          "type": "detail",
+          "answer": "Wang Hui",
+          "accept": [
+            "Wang Hui",
+            "Wang"
+          ]
+        },
+        {
+          "q": "The New Left's preferred remedy is broadly:",
+          "choices": [
+            "more liberalisation and privatisation",
+            "more genuine socialism and equality",
+            "monarchy",
+            "secession"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-new-left"
+      ],
+      "xfields": [
+        "polth",
+        "socecon"
+      ],
+      "detail": "Emerging in the 1990s, the New Left argues China's reforms imported capitalist inequality and should be corrected by more genuine socialism — stronger public provision, less marketisation, more equality — rather than more liberalisation (which liberal reformers want). They are broadly supportive of a strong state but critical of how markets have been used. Their existence shows the capitalist-vs-socialist argument is live inside China, not just about it.",
+      "year": 1997,
+      "prereq": [
+        "china-common-prosperity"
+      ],
+      "xref": [
+        "china-capitalist-restoration",
+        "socio-conflict-theory"
+      ],
+      "deploy": "Shows the debate is alive inside China — a homegrown Marxist critique of its own marketisation.",
+      "counter": "Critics on the liberal side argue the New Left underplays the state's own role in creating inequality and can shade into apologetics for authoritarian control."
+    },
+    {
+      "id": "china-marxist-verdict",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 4,
+      "title": "What do Marxists conclude?",
+      "fact": "Marxists are as split as everyone else — and the split turns on the test you use: judge by WHO OWNS (state, party) and China looks socialist; judge by RELATIONS OF PRODUCTION (wage-labour, surplus value) and it looks capitalist.",
+      "tags": [
+        "China",
+        "Marxism",
+        "state capitalism",
+        "debate"
+      ],
+      "quiz": [
+        {
+          "q": "Whether Marxists call China socialist or capitalist mainly depends on whether they judge by:",
+          "choices": [
+            "GDP or population",
+            "ownership/plan vs relations of production (exploitation)",
+            "flag colour",
+            "export volume"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term do some Trotskyists use for a post-capitalist state ruled by a bureaucracy — 'deformed ___ state'?",
+          "type": "detail",
+          "answer": "workers'",
+          "accept": [
+            "workers",
+            "workers'",
+            "workers' state",
+            "worker"
+          ]
+        },
+        {
+          "q": "The Marxist debate over China is best described as:",
+          "choices": [
+            "settled: it's socialist",
+            "settled: it's capitalist",
+            "genuinely unresolved and criterion-dependent",
+            "irrelevant"
+          ],
+          "answer": 2
+        }
+      ],
+      "src": [
+        "ev-china-marxist-verdict"
+      ],
+      "xfields": [
+        "polecon",
+        "polth"
+      ],
+      "detail": "The official CCP line and some orthodox Marxists say socialist ('primary stage'). Maoists and much of the Western Marxist left say capitalist restoration. Cliffite Marxists say 'state capitalism'. Some Trotskyists say a bureaucratically 'deformed workers' state' — post-capitalist but not socialist. There is no Marxist consensus; which verdict you reach depends on whether ownership-and-plan or class-and-exploitation is the decisive Marxist criterion.",
+      "year": 2000,
+      "prereq": [
+        "china-primary-stage"
+      ],
+      "xref": [
+        "china-capitalist-restoration",
+        "china-state-capitalism-marxist",
+        "china-capitalist-or-communist"
+      ],
+      "deploy": "The Marxist counterpart to the framing card — resolves the confusion by naming the criterion at stake.",
+      "counter": "Some argue the whole ownership-vs-relations framing is dated, and that global supply chains make 'is one country socialist?' the wrong unit of analysis."
+    },
+    {
+      "id": "china-whose-labels",
+      "field": "polth",
+      "depth": "concept",
+      "level": 4,
+      "title": "Whose categories? The politics of labelling",
+      "fact": "Which label you accept is partly political. 'Capitalist', 'authoritarian capitalism' and 'party-state capitalism' are largely Western analytic categories, and Chinese and some Global-South scholars argue the framing itself smuggles in liberal-democratic assumptions.",
+      "detail": "Mainstream Western social science often treats liberal-democratic capitalism as the norm, so China is described by its deviation from it — the adjectives 'state', 'authoritarian', 'party-' mark the gap. China's own scholars insist it is socialist on its own terms; some post-colonial and Global-South thinkers argue the whole capitalist-vs-communist binary is Eurocentric and that much English-language analysis carries an unexamined liberal bias. The point is not that any one label is correct, but that naming a system is never neutral — every label, Western or official, is an interested claim.",
+      "tags": [
+        "China",
+        "epistemology",
+        "bias",
+        "labelling"
+      ],
+      "xfields": [
+        "ir",
+        "polidea"
+      ],
+      "quiz": [
+        {
+          "q": "The card's core point about labels like 'authoritarian capitalism' is that they:",
+          "choices": [
+            "are objective and value-free",
+            "are analytic categories that carry assumptions and are not neutral",
+            "are Chinese government terms",
+            "are meaningless"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What word describes a bias that treats European/Western categories as the universal norm?",
+          "type": "detail",
+          "answer": "Eurocentric",
+          "accept": [
+            "Eurocentric",
+            "Eurocentrism",
+            "eurocentric"
+          ]
+        },
+        {
+          "q": "The balanced takeaway is that:",
+          "choices": [
+            "Western labels are always wrong",
+            "China's self-description is always right",
+            "every label — Western or official — is an interested claim, so read the source's standpoint",
+            "labels don't matter"
+          ],
+          "answer": 2
+        }
+      ],
+      "prereq": [
+        "china-capitalist-or-communist"
+      ],
+      "xref": [
+        "china-party-state-capitalism",
+        "china-primary-stage",
+        "epi-standpoint"
+      ],
+      "deploy": "A guard against taking any label — especially the well-marketed Western ones — as neutral truth.",
+      "counter": "Relativism cuts both ways: a label's Western origin doesn't make it false, measurement can still adjudicate many claims, and China's official self-description is itself an interested, political account.",
+      "src": [
+        "ev-china-whose-labels"
+      ]
     }
   ],
   "motions": [
