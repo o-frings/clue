@@ -65054,6 +65054,591 @@
       ],
       "deploy": "Why so many conflicts trace back to lines on a map — borders as political choices.",
       "counter": "Some borders do follow durable geography (mountains, rivers), and long-settled borders gain real legitimacy."
+    },
+    {
+      "id": "china-capitalist-or-communist",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 2,
+      "title": "Is China capitalist or communist?",
+      "fact": "China has a booming private sector and stock markets, yet a Communist Party monopoly on power and state control of the economy's core — which is why the label is genuinely contested.",
+      "tags": [
+        "China",
+        "capitalism",
+        "socialism",
+        "political economy"
+      ],
+      "quiz": [
+        {
+          "q": "Why is China's system hard to label as simply capitalist or communist?",
+          "choices": [
+            "it has no economy to speak of",
+            "it combines a large private market economy with one-party state control",
+            "it is identical to the USSR",
+            "it bans all private business"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term does China officially use for its economic system?",
+          "type": "detail",
+          "answer": "socialist market economy",
+          "accept": [
+            "socialist market economy",
+            "socialism with Chinese characteristics"
+          ]
+        },
+        {
+          "q": "The most defensible short answer, per most scholars, is that China is:",
+          "choices": [
+            "purely communist",
+            "purely capitalist",
+            "a hybrid that fits neither Cold-War box",
+            "a feudal economy"
+          ],
+          "answer": 2
+        }
+      ],
+      "src": [
+        "ev-china-capitalist-or-communist"
+      ],
+      "xfields": [
+        "polcomp",
+        "polidea"
+      ],
+      "detail": "The confusion is real, not lazy: private firms produce most output while the party owns the banks and the biggest firms and can override any of them. Officially China calls itself a 'socialist market economy' in the 'primary stage of socialism'. The honest answer is that it fits neither Cold-War box — most scholars reach for a hybrid label (see the case for each side, and the 'party-state capitalism' synthesis).",
+      "year": 1992,
+      "xref": [
+        "china-marxism",
+        "china-party-state",
+        "pe-varieties-capitalism"
+      ],
+      "deploy": "The framing card for one of the biggest 'what kind of system is that?' debates in the world.",
+      "counter": "Some argue the question is a category error: China is sui generis, and forcing it into Western labels obscures more than it reveals."
+    },
+    {
+      "id": "china-case-capitalist",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 2,
+      "title": "The case that China is capitalist",
+      "fact": "Private firms generate roughly 60% of GDP, 70% of innovation, 80% of urban employment and 90% of new jobs — and China has billionaires, stock exchanges and joined the WTO in 2001.",
+      "tags": [
+        "China",
+        "capitalism",
+        "private sector",
+        "markets"
+      ],
+      "quiz": [
+        {
+          "q": "The '60/70/80/90' figures describe the share of China's ______ from the private sector.",
+          "choices": [
+            "state spending",
+            "GDP, innovation, urban jobs and new jobs",
+            "exports to the US only",
+            "tax on the rich"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did China join the World Trade Organization, integrating into global capitalism?",
+          "type": "num",
+          "answer": 2001,
+          "tol": 0.0
+        },
+        {
+          "q": "A strong point for the 'capitalist' reading is that most of China's output and jobs come from:",
+          "choices": [
+            "state-owned enterprises",
+            "private firms",
+            "foreign governments",
+            "agriculture alone"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-case-capitalist"
+      ],
+      "xfields": [
+        "deveco",
+        "socecon"
+      ],
+      "detail": "By this reading, markets, private property (protected since the 2007 Property Law) and profit drive the economy; the state sets rules but private capital does the work. China is deeply integrated into global capitalism as its factory and a top exporter, and it has produced more billionaires than almost anywhere. The '60/70/80/90' shorthand captures the private sector's dominance of actual output.",
+      "year": 2001,
+      "prereq": [
+        "china-capitalist-or-communist"
+      ],
+      "xref": [
+        "china-growth-model",
+        "poli-neoliberalism-hayek",
+        "socio-embeddedness"
+      ],
+      "deploy": "The evidence base for calling China capitalist — private enterprise really does most of the work.",
+      "counter": "But the party owns the banks and the commanding heights and can discipline any firm overnight, as the 2020–21 tech crackdown showed — a power no capitalist state claims.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "GDP",
+            "Innovation",
+            "Urban jobs",
+            "Exports"
+          ],
+          "values": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "caption": "The private sector's share of the Chinese economy — the '60/70/80/90' shorthand (approx.)."
+        }
+      ]
+    },
+    {
+      "id": "china-case-socialist",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 2,
+      "title": "The case that China is socialist",
+      "fact": "A single Communist Party monopolises power, the state owns the banks, land and the 'commanding heights' (energy, telecoms, rail), runs five-year plans, and Xi's 'common prosperity' is called an 'essential requirement of socialism'.",
+      "tags": [
+        "China",
+        "socialism",
+        "communism",
+        "state ownership"
+      ],
+      "quiz": [
+        {
+          "q": "A central point for the 'socialist' reading is that the state owns:",
+          "choices": [
+            "nothing",
+            "the banks, land and strategic 'commanding heights'",
+            "only farms",
+            "only foreign firms"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the name of Xi Jinping's programme for more equal distribution, called an 'essential requirement of socialism'?",
+          "type": "detail",
+          "answer": "common prosperity",
+          "accept": [
+            "common prosperity"
+          ]
+        },
+        {
+          "q": "Politically, China remains a ______ system — one party controlling the state.",
+          "choices": [
+            "federal",
+            "Leninist",
+            "liberal-democratic",
+            "anarchist"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-case-socialist"
+      ],
+      "xfields": [
+        "polcomp",
+        "polecon"
+      ],
+      "detail": "By this reading, the market is a tool the party wields, not the master. The CCP is a Leninist party controlling the state, the courts, the military and — through party committees now embedded in private firms — increasingly the boardroom. Land cannot be privately owned (only leased); banks and the biggest firms are state-owned; and the constitution calls China socialist. Capitalism, on this view, is a phase, not the destination.",
+      "year": 1949,
+      "prereq": [
+        "china-capitalist-or-communist"
+      ],
+      "xref": [
+        "china-marxism",
+        "poli-marxism-core",
+        "china-party-state"
+      ],
+      "deploy": "The evidence base for calling China socialist — the party controls the economy's core and its politics.",
+      "counter": "But private firms produce most output, China embraced global markets, and inequality soared — hardly a picture of classical socialism; critics call the socialist label largely rhetorical."
+    },
+    {
+      "id": "china-party-state-capitalism",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "Party-state capitalism",
+      "fact": "Scholars increasingly reject both labels and call China's system 'state capitalism' — or, more precisely, 'party-state capitalism': a market economy in which the Communist Party's political survival overrides everything.",
+      "tags": [
+        "China",
+        "state capitalism",
+        "party-state capitalism",
+        "political economy"
+      ],
+      "quiz": [
+        {
+          "q": "'Party-state capitalism' argues that in China the top priority is:",
+          "choices": [
+            "shareholder profit",
+            "the political survival of the Communist Party",
+            "free trade",
+            "consumer choice"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Name one of the three scholars (Pearson, Rithmire, Tsai) who coined 'party-state capitalism'.",
+          "type": "detail",
+          "answer": "Rithmire",
+          "accept": [
+            "Rithmire",
+            "Meg Rithmire",
+            "Pearson",
+            "Margaret Pearson",
+            "Tsai",
+            "Kellee Tsai"
+          ]
+        },
+        {
+          "q": "Party-state capitalism describes the blurring of the line between:",
+          "choices": [
+            "church and state",
+            "state and private ownership",
+            "rich and poor",
+            "town and country"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-party-state-capitalism"
+      ],
+      "xfields": [
+        "polidea",
+        "ir"
+      ],
+      "detail": "Pearson, Rithmire and Tsai (2021) argue that since the late 2000s the party has pushed deeper into firms — party committees, state stakes, political loyalty demanded of private tycoons — blurring the line between state and private. It is capitalism (markets, profit, private firms) harnessed to a Leninist party's goals, not to shareholders'. Related labels: 'state capitalism', 'market-Leninism', and China's own 'socialist market economy'.",
+      "year": 2021,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "pe-developmental-state",
+        "pe-varieties-capitalism",
+        "china-case-socialist"
+      ],
+      "deploy": "The current scholarly consensus term — resolves the debate by naming the hybrid precisely.",
+      "counter": "Critics say 'capitalism' still understates how genuinely Leninist and plan-driven the political core remains; others find every label too neat for a fast-changing system."
+    },
+    {
+      "id": "china-socialist-market-economy",
+      "field": "echist",
+      "depth": "concept",
+      "level": 2,
+      "title": "'Socialism with Chinese characteristics'",
+      "fact": "Deng Xiaoping's reforms (from 1978) grafted markets onto a communist state by redefining markets as a neutral 'tool' — neither capitalist nor socialist — culminating in the official 'socialist market economy' (1992).",
+      "tags": [
+        "China",
+        "Deng Xiaoping",
+        "reform",
+        "market-Leninism"
+      ],
+      "quiz": [
+        {
+          "q": "Deng Xiaoping's key theoretical move was to treat the market as:",
+          "choices": [
+            "proof of capitalism",
+            "a neutral tool usable by socialism too",
+            "incompatible with China",
+            "a Western trick"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did Deng launch China's 'reform and opening'?",
+          "type": "num",
+          "answer": 1978,
+          "tol": 0.0
+        },
+        {
+          "q": "Which leader coined the term 'socialist market economy' in 1992?",
+          "type": "detail",
+          "answer": "Jiang Zemin",
+          "accept": [
+            "Jiang Zemin",
+            "Jiang"
+          ]
+        }
+      ],
+      "src": [
+        "ev-china-socialist-market-economy"
+      ],
+      "xfields": [
+        "histcontemp",
+        "polecon"
+      ],
+      "detail": "Deng argued planning and markets are just means, usable by any system ('it doesn't matter if a cat is black or white, so long as it catches mice'). His 1992 Southern Tour cut off the capitalist-vs-socialist argument — 'development is of overriding importance' — and Jiang Zemin coined 'socialist market economy' precisely to avoid having to answer it. This 'market-Leninism' is the origin of today's ambiguity.",
+      "year": 1978,
+      "xref": [
+        "china-century-humiliation",
+        "pe-hayek",
+        "china-marxism"
+      ],
+      "deploy": "The historical origin of the whole debate — how a communist state deliberately went half-market.",
+      "counter": "Whether Deng saved socialism or quietly buried it under capitalism is exactly the argument the reforms were designed to avoid.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Maoist central plan"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Deng's reforms 1978"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "'Socialist market economy' 1992",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Markets were reframed as a neutral tool, dodging the capitalist-vs-socialist question."
+        }
+      ]
+    },
+    {
+      "id": "china-state-vs-private",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "'The state advances, the private retreats'",
+      "fact": "Under Xi Jinping the balance has tilted back toward the state — a trend Chinese commentators call 'guo jin min tui' ('the state advances, the private sector retreats').",
+      "tags": [
+        "China",
+        "Xi Jinping",
+        "state capitalism",
+        "private sector"
+      ],
+      "quiz": [
+        {
+          "q": "'Guo jin min tui' describes a shift in which direction?",
+          "choices": [
+            "private sector expands",
+            "the state advances and the private sector retreats",
+            "full privatisation",
+            "foreign takeover"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Xi's slogan for reducing inequality, revived from 2021, is called what?",
+          "type": "detail",
+          "answer": "common prosperity",
+          "accept": [
+            "common prosperity"
+          ]
+        },
+        {
+          "q": "The 2020–21 crackdown targeted China's:",
+          "choices": [
+            "farmers",
+            "big tech firms and tycoons",
+            "foreign embassies",
+            "state banks"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-state-vs-private"
+      ],
+      "xfields": [
+        "polcomp"
+      ],
+      "detail": "After decades of private-sector growth, Xi reasserted party control: a 2020–21 crackdown on tech giants (Alibaba, Didi), pressure on tycoons, expanded party committees in firms, and 'common prosperity' rhetoric. Supporters call it reining in monopolies and inequality; critics call it politics trumping growth. It is the live front line of the capitalist-vs-socialist question.",
+      "year": 2021,
+      "prereq": [
+        "china-case-capitalist",
+        "china-case-socialist"
+      ],
+      "xref": [
+        "cn-made-in-china-2025",
+        "china-party-state-capitalism"
+      ],
+      "deploy": "The current, ongoing test of where China sits on the spectrum — updated by every crackdown or stimulus.",
+      "counter": "The 'retreat' may be cyclical, not structural: Beijing has repeatedly swung back to supporting private firms when growth slows."
+    },
+    {
+      "id": "china-banking-credit",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "China's banking vs the West's",
+      "fact": "In China the state owns the big banks and steers credit to favoured firms and sectors; in Western liberal democracies most banks are private and allocate credit chasing profit, refereed by an independent central bank.",
+      "tags": [
+        "China",
+        "banking",
+        "credit",
+        "finance"
+      ],
+      "quiz": [
+        {
+          "q": "The key difference in banking is that China's big banks are:",
+          "choices": [
+            "privately owned like the West's",
+            "state-owned and used to direct credit politically",
+            "foreign-owned",
+            "banned from lending"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term describes capping deposit rates low so households subsidise state investment?",
+          "type": "detail",
+          "answer": "financial repression",
+          "accept": [
+            "financial repression",
+            "repression"
+          ]
+        },
+        {
+          "q": "In Western liberal democracies, credit is mostly allocated by:",
+          "choices": [
+            "a single state bank",
+            "competing private banks on commercial terms",
+            "the army",
+            "foreign states"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-banking-credit"
+      ],
+      "xfields": [
+        "macro",
+        "polcomp"
+      ],
+      "detail": "China's 'Big Four' banks are state-owned and, with policy banks, channel cheap loans to state firms and strategic industries — the party can direct capital where it wants. This rests on 'financial repression': households earn low, capped deposit rates, effectively subsidising state investment. In the US or EU, credit is allocated by many competing private banks on commercial terms, and the state's role is mainly rule-setting and crisis backstop.",
+      "year": 1995,
+      "xref": [
+        "cn-pboc",
+        "cn-financial-repression",
+        "west-qe"
+      ],
+      "deploy": "A concrete way to see the system difference — who decides where the money goes.",
+      "counter": "Western banking is not purely market either: bailouts, deposit insurance, 'too big to fail' and central-bank support show heavy state involvement, just of a different kind.",
+      "media": {
+        "type": "plot",
+        "kind": "flow",
+        "nodes": [
+          {
+            "row": 0,
+            "col": 0,
+            "label": "Household savings"
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "label": "State-owned banks"
+          },
+          {
+            "row": 0,
+            "col": 2,
+            "label": "Directed to state firms",
+            "hl": true
+          }
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "caption": "Financial repression: capped deposit rates funnel household savings into state-favoured investment."
+      }
+    },
+    {
+      "id": "china-interest-rates-west",
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "title": "Who sets interest rates: China vs the West",
+      "fact": "In the West, politically independent central banks set interest rates to hit an inflation target, and markets do the rest; in China, the central bank answers to the party and rates are guided as a tool of state policy.",
+      "tags": [
+        "China",
+        "interest rates",
+        "central banks",
+        "monetary policy"
+      ],
+      "quiz": [
+        {
+          "q": "A defining feature of Western central banks (Fed, ECB) is that they are:",
+          "choices": [
+            "run by parliament directly",
+            "politically independent, targeting inflation",
+            "owned by private firms",
+            "forbidden to set rates"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is China's central bank called (abbreviation is fine)?",
+          "type": "detail",
+          "answer": "PBoC",
+          "accept": [
+            "PBoC",
+            "People's Bank of China",
+            "PBOC"
+          ]
+        },
+        {
+          "q": "In China, interest-rate and credit policy functions largely as:",
+          "choices": [
+            "a purely market outcome",
+            "a political tool of the party-state",
+            "a foreign decision",
+            "irrelevant"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-interest-rates-west"
+      ],
+      "xfields": [
+        "polecon",
+        "polcomp"
+      ],
+      "detail": "The US Federal Reserve and European Central Bank are deliberately shielded from politicians, adjusting rates to control inflation (inflation targeting). China's central bank, the PBoC, is not independent — it sits under the party-state, and interest rates and credit have long been administered and guided to serve growth and industrial goals rather than set purely by markets. Rate policy is thus a political instrument in China in a way it is designed not to be in liberal democracies.",
+      "year": 1998,
+      "prereq": [
+        "china-banking-credit"
+      ],
+      "xref": [
+        "cn-pboc",
+        "west-inflation-targeting",
+        "west-qe"
+      ],
+      "deploy": "Central-bank independence is a signature of liberal democracies — its absence marks China's model.",
+      "counter": "Independence is a matter of degree: Western central banks face political pressure too, and China has been gradually liberalising and marketising its rates."
     }
   ],
   "motions": [

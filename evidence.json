@@ -8091,6 +8091,78 @@
       "url": "https://en.wikipedia.org/wiki/Border",
       "kind": "reference",
       "strength": "Standard reference; the Berlin Conference is firmly attested."
+    },
+    "ev-china-capitalist-or-communist": {
+      "who": "Wikipedia",
+      "year": 1992,
+      "title": "Socialist market economy",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Socialist_market_economy",
+      "kind": "reference",
+      "strength": "Reference; the debate is well documented across scholarship."
+    },
+    "ev-china-case-capitalist": {
+      "who": "Wikipedia",
+      "year": 2001,
+      "title": "Private sector in China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economy_of_China",
+      "kind": "reference",
+      "strength": "Reference; the 60/70/80/90 figures are widely cited official/estimated shares."
+    },
+    "ev-china-case-socialist": {
+      "who": "Wikipedia",
+      "year": 1949,
+      "title": "Socialism with Chinese characteristics",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Socialism_with_Chinese_characteristics",
+      "kind": "reference",
+      "strength": "Reference; official ideology and state-ownership facts well documented."
+    },
+    "ev-china-party-state-capitalism": {
+      "who": "Pearson, M., Rithmire, M. & Tsai, K.",
+      "year": 2021,
+      "title": "Party-State Capitalism in China",
+      "where": "Current History",
+      "url": "https://en.wikipedia.org/wiki/Party-state_capitalism",
+      "kind": "reference",
+      "strength": "Primary scholarship; an influential, well-cited framework."
+    },
+    "ev-china-socialist-market-economy": {
+      "who": "Wikipedia",
+      "year": 1978,
+      "title": "Chinese economic reform",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Chinese_economic_reform",
+      "kind": "reference",
+      "strength": "Reference; chronology firmly attested."
+    },
+    "ev-china-state-vs-private": {
+      "who": "Wikipedia",
+      "year": 2021,
+      "title": "State-owned enterprises of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/State-owned_enterprises_of_China",
+      "kind": "reference",
+      "strength": "Reference; the trend is well documented."
+    },
+    "ev-china-banking-credit": {
+      "who": "Wikipedia",
+      "year": 1995,
+      "title": "Banking in China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Banking_in_China",
+      "kind": "reference",
+      "strength": "Reference; state ownership and directed lending well documented."
+    },
+    "ev-china-interest-rates-west": {
+      "who": "Wikipedia",
+      "year": 1998,
+      "title": "Central bank independence",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Central_bank_independence",
+      "kind": "reference",
+      "strength": "Reference; the institutional contrast is well documented."
     }
   }
 }

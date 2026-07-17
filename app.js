@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v127";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v128";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -365,7 +365,9 @@ function isLearned(id){ const p=progress[id]; return !!(p && p.learned); }
 function isDue(id){ const p=progress[id]; return !!(p && p.due<=Date.now()); }
 function dueCards(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].due<=Date.now()); }
 function learnedIds(){ return Object.keys(progress).filter(id=>byId[id] && progress[id].learned); }
-function learnedInField(f){ return learnedIds().filter(id=>byId[id].field===f).length; }
+// A card belongs to its primary field plus any cross-listed `xfields` (multi-discipline concepts).
+function inField(c,f){ return c.field===f || (!!c.xfields && c.xfields.indexOf(f)>=0); }
+function learnedInField(f){ return (byField[f]||[]).filter(c=>isLearned(c.id)).length; }
 
 // ================= academic hierarchy: division → discipline → field =================
 // Canonical division of disciplines. Economics is a social science, so its eight sub-fields
@@ -519,7 +521,9 @@ async function loadKnowledge(){
   byId={}; byField={}; fieldById={}; depthById={};
   KN.fields.forEach(f=>{ fieldById[f.id]=f; byField[f.id]=[]; });
   (KN.depths||[]).forEach(d=> depthById[d.id]=d);
-  KN.cards.forEach(c=>{ byId[c.id]=c; if(byField[c.field]) byField[c.field].push(c); });
+  KN.cards.forEach(c=>{ byId[c.id]=c;
+    [c.field].concat(c.xfields||[]).forEach(fid=>{ if(byField[fid] && byField[fid].indexOf(c)<0) byField[fid].push(c); });
+  });
   return true;
 }
 
@@ -1513,8 +1517,8 @@ function filterFieldIds(){
 // does a card pass the current filter? ("all" passes everything)
 function inFeedFilter(c){
   if(feedFilter==="all") return true;
-  const ids=filterFieldIds(); if(ids) return ids.includes(c.field);
-  return c.field===feedFilter;
+  const ids=filterFieldIds(); if(ids) return ids.some(f=>inField(c,f));
+  return inField(c,feedFilter);
 }
 function feedFilterLabel(){
   if(feedFilter==="all") return "For you"; if(feedFilter==="__saved") return "Saved";
@@ -1718,7 +1722,7 @@ function cardState(id){ const c=byId[id];
   if(isDue(id)) return {cls:"due",txt:"Due"}; return {cls:"learned",txt:"Learned"}; }
 function renderLibList(){
   const q=libQuery.trim().toLowerCase();
-  let list=KN.cards.filter(c=> libFieldFilter==="all" || c.field===libFieldFilter);
+  let list=KN.cards.filter(c=> libFieldFilter==="all" || inField(c,libFieldFilter));
   if(q){ list=list.filter(c=> (c.title+' '+c.fact+' '+(c.detail||'')+' '+cardSourceText(c)+' '+(c.tags||[]).join(' ')).toLowerCase().includes(q)); }
   if(!list.length){ $("libList").innerHTML='<div class="emptystate"><div class="ei">🔍</div><p>No cards match.</p></div>'; return; }
   $("libList").innerHTML=list.map(c=>{ const fl=fieldById[c.field]||{}, st=cardState(c.id);
