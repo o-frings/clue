@@ -8163,6 +8163,141 @@
       "url": "https://en.wikipedia.org/wiki/Central_bank_independence",
       "kind": "reference",
       "strength": "Reference; the institutional contrast is well documented."
+    },
+    "ev-china-soe-share": {
+      "who": "World Bank (Zhang, C.)",
+      "year": 2019,
+      "title": "How Much Do SOEs Contribute to China's GDP and Employment?",
+      "where": "",
+      "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/449701565248091726/how-much-do-state-owned-enterprises-contribute-to-china-s-gdp-and-employment",
+      "kind": "reference",
+      "strength": "Primary World Bank estimate (23–28% of GDP); the 61% market-cap figure is PIIE's top-100 listed tracker — verified, distinct metrics."
+    },
+    "ev-china-party-in-firms": {
+      "who": "Pearson, M., Rithmire, M. & Tsai, K. / CNA",
+      "year": 2021,
+      "title": "Party-building in China's private sector",
+      "where": "",
+      "url": "https://www.cna.org/our-media/indepth/2024/09/fused-together-the-chinese-communist-party-moves-inside-chinas-private-sector",
+      "kind": "reference",
+      "strength": "Verified: CCP Organization Department figures (73.1% by 2017) corroborated by CNA/CSIS; 'complete coverage' of top-500 by 2021."
+    },
+    "ev-china-property-land": {
+      "who": "National People's Congress",
+      "year": 2007,
+      "title": "Property Law of the People's Republic of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Property_Law_of_the_People's_Republic_of_China",
+      "kind": "reference",
+      "strength": "Verified: adopted 16 Mar 2007, effective 1 Oct 2007; land-use rights are usufruct (leasehold), land itself state/collective-owned."
+    },
+    "ev-china-political-capitalism": {
+      "who": "Milanović, B.",
+      "year": 2019,
+      "title": "Capitalism, Alone",
+      "where": "Harvard University Press",
+      "url": "https://www.aei.org/economics/capitalism-and-democracy-a-long-read-qa-with-branko-milanovic/",
+      "kind": "reference",
+      "strength": "Primary framework; one of several competing scholarly labels (verified as a distinct position)."
+    },
+    "ev-china-tech-crackdown": {
+      "who": "Wikipedia",
+      "year": 2020,
+      "title": "2020–2021 China corporate crackdown",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/2020%E2%80%932021_Chinese_regulatory_crackdown",
+      "kind": "reference",
+      "strength": "Well-documented events (Ant IPO halt Nov 2020; Alibaba $2.8bn fine Apr 2021)."
+    },
+    "ev-china-planned-economy": {
+      "who": "Wikipedia",
+      "year": 1953,
+      "title": "Economic history of China (1949–present)",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Economic_history_of_China_(1949%E2%80%93present)",
+      "kind": "reference",
+      "strength": "Reference; the Maoist command economy is firmly documented."
+    },
+    "ev-china-common-prosperity": {
+      "who": "China Media Project",
+      "year": 2021,
+      "title": "Common prosperity",
+      "where": "",
+      "url": "https://chinamediaproject.org/the_ccp_dictionary/common-prosperity/",
+      "kind": "reference",
+      "strength": "Reference; Xi's framing ('essential requirement of socialism', not egalitarianism) verified."
+    },
+    "ev-china-wto-2001": {
+      "who": "Wikipedia",
+      "year": 2001,
+      "title": "China and the World Trade Organization",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/China_and_the_World_Trade_Organization",
+      "kind": "reference",
+      "strength": "Reference; accession Dec 2001 firmly attested."
+    },
+    "ev-china-sez": {
+      "who": "Wikipedia",
+      "year": 1980,
+      "title": "Special economic zones of China",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Special_economic_zones_of_China",
+      "kind": "reference",
+      "strength": "Reference; Shenzhen SEZ 1980 firmly attested."
+    },
+    "ev-china-soe-reform-1990s": {
+      "who": "Wikipedia",
+      "year": 1997,
+      "title": "Chinese economic reform",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Chinese_economic_reform#Reform_of_state-owned_enterprises",
+      "kind": "reference",
+      "strength": "Reference; zhuada fangxiao and 1990s layoffs well documented."
+    },
+    "ev-china-stock-markets": {
+      "who": "Wikipedia",
+      "year": 1990,
+      "title": "Shanghai Stock Exchange",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange",
+      "kind": "reference",
+      "strength": "Reference; 1990 reopening and state intervention well documented."
+    },
+    "ev-china-billionaires": {
+      "who": "Wikipedia",
+      "year": 2020,
+      "title": "Jack Ma",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Jack_Ma",
+      "kind": "reference",
+      "strength": "Reference; the 2020 disappearance and tycoon pressure well documented."
+    },
+    "ev-china-capital-controls": {
+      "who": "Wikipedia",
+      "year": 1994,
+      "title": "Capital control",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Capital_control",
+      "kind": "reference",
+      "strength": "Reference; China's capital controls and managed float well documented."
+    },
+    "ev-china-vs-ussr": {
+      "who": "Wikipedia",
+      "year": 1991,
+      "title": "Chinese economic reform",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Chinese_economic_reform",
+      "kind": "reference",
+      "strength": "Reference; the China–USSR reform contrast is a standard comparison."
+    },
+    "ev-china-authoritarian-capitalism": {
+      "who": "Wikipedia",
+      "year": 2010,
+      "title": "Authoritarian capitalism",
+      "where": "",
+      "url": "https://en.wikipedia.org/wiki/Authoritarian_capitalism",
+      "kind": "reference",
+      "strength": "Reference; the modernisation-thesis debate is well documented."
     }
   }
 }

@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v128";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v129";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){

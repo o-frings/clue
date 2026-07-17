@@ -65639,6 +65639,1051 @@
       ],
       "deploy": "Central-bank independence is a signature of liberal democracies — its absence marks China's model.",
       "counter": "Independence is a matter of degree: Western central banks face political pressure too, and China has been gradually liberalising and marketising its rates."
+    },
+    {
+      "id": "china-soe-share",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "How big is the Chinese state, really?",
+      "fact": "The best measured estimate puts state-owned enterprises at only ~23–28% of GDP (World Bank, 2019) — yet the state's share of the 100 largest LISTED firms' market value hit 61% in 2023. Both are true; they measure different things.",
+      "tags": [
+        "China",
+        "state-owned enterprises",
+        "GDP",
+        "measurement"
+      ],
+      "quiz": [
+        {
+          "q": "The World Bank's measured estimate puts state-owned enterprises at what share of GDP?",
+          "choices": [
+            "about 5%",
+            "about 23–28%",
+            "about 61%",
+            "about 90%"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Roughly what share of the top-100 LISTED firms' market cap was state-controlled by mid-2023?",
+          "type": "detail",
+          "answer": "61%",
+          "accept": [
+            "61%",
+            "61",
+            "about 61%",
+            "around 60%"
+          ]
+        },
+        {
+          "q": "The '23–28% of GDP' and '61% of listed market cap' figures differ mainly because they:",
+          "choices": [
+            "are both wrong",
+            "measure different things (whole-economy output vs listed-firm value)",
+            "are from the same firm",
+            "cover different countries"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-soe-share"
+      ],
+      "xfields": [
+        "macro",
+        "polcomp"
+      ],
+      "detail": "A 2019 World Bank note brackets SOEs at 23–28% of GDP, so private firms make roughly three-quarters of output — a 'mostly private' economy. But the PIIE tracker shows the state's share of the top-100 listed firms' market cap rose to 61% by mid-2023 (private peaked at 55% in 2021, up from 8% in 2010). The lesson: 'how big is the state' has no single number — it depends whether you count GDP, employment, listed-market value or strategic control.",
+      "year": 2019,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "china-case-socialist",
+        "china-state-vs-private",
+        "macro-gdp-critique"
+      ],
+      "deploy": "Cuts through the number-games in every 'China is X%' claim — always ask which denominator.",
+      "counter": "Even a 'small' SOE share understates state power: the party controls the banks, land and strategic sectors and can direct private firms it does not own.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "SOE, % of GDP",
+            "State, % of top-100 listed"
+          ],
+          "values": [
+            25,
+            61
+          ],
+          "caption": "Two different denominators — whole-economy output (~25%) vs value of the 100 biggest listed firms (61%). Don't conflate them."
+        }
+      ]
+    },
+    {
+      "id": "china-party-in-firms",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 3,
+      "title": "The party inside the boardroom",
+      "fact": "The Communist Party is physically embedded in private companies: by end-2017 about 73% of private firms had internal party cells, and by 2021 the party reported 'complete coverage' of the 500 largest.",
+      "tags": [
+        "China",
+        "Communist Party",
+        "corporate governance",
+        "private sector"
+      ],
+      "quiz": [
+        {
+          "q": "By 2021 the CCP reported 'complete coverage' — a party cell in every one — of:",
+          "choices": [
+            "all firms of any size",
+            "the 500 largest private firms",
+            "foreign firms only",
+            "state banks only"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Roughly what percentage of private firms had internal party cells by end-2017?",
+          "type": "num",
+          "answer": 73,
+          "tol": 3
+        },
+        {
+          "q": "A small state stake giving the party board influence over a strategic private firm is called a:",
+          "choices": [
+            "blank cheque",
+            "golden share",
+            "poison pill",
+            "junk bond"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-party-in-firms"
+      ],
+      "xfields": [
+        "polcomp",
+        "socecon"
+      ],
+      "detail": "Party cells in private firms rose from 58% (2013) to 73% (1.88 million firms) by 2017, and reached every one of the top-500 private companies by 2021. The 2018 corporate-governance code pushes listed firms to host party organisations, and the state takes 'golden shares' in strategic tech firms. For the 'it's really socialist' camp this is decisive: even private capital operates under the party's eye.",
+      "year": 2017,
+      "prereq": [
+        "china-case-socialist"
+      ],
+      "xref": [
+        "china-party-state-capitalism",
+        "china-state-vs-private",
+        "socio-embeddedness"
+      ],
+      "deploy": "The clearest single fact for the 'party-state control' reading — capitalism, but never out of the party's sight.",
+      "counter": "Coverage statistics don't prove control: many party cells are nominal, and how much they actually steer day-to-day business decisions is disputed.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "bars",
+          "labels": [
+            "2013",
+            "2017",
+            "Top-500 by 2021"
+          ],
+          "values": [
+            58,
+            73,
+            100
+          ],
+          "caption": "Party-cell coverage of private firms, rising toward saturation of the biggest companies (%)."
+        }
+      ]
+    },
+    {
+      "id": "china-property-land",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "Can you own property in China?",
+      "fact": "Since the 2007 Property Law private property gets equal legal protection with state property — but you still cannot own land: urban land belongs to the state, rural land to collectives, and you only lease it (homes for 70 years).",
+      "tags": [
+        "China",
+        "property",
+        "land",
+        "law"
+      ],
+      "quiz": [
+        {
+          "q": "Under Chinese law, urban land is:",
+          "choices": [
+            "privately owned outright",
+            "owned by the state and leased to users",
+            "owned by foreign banks",
+            "unowned"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did China's Property Law, giving private property equal protection, take effect?",
+          "type": "detail",
+          "answer": "2007",
+          "accept": [
+            "2007"
+          ]
+        },
+        {
+          "q": "For how many years is urban residential land typically leased in China?",
+          "type": "num",
+          "answer": 70,
+          "tol": 5
+        }
+      ],
+      "src": [
+        "ev-china-property-land"
+      ],
+      "xfields": [
+        "lawpriv",
+        "echist"
+      ],
+      "detail": "The 2007 Property Law (adopted after 14 years of debate) was a landmark: it protected private assets like a capitalist economy. Yet land is different — you buy the flat but lease the ground beneath it, and the state can reclaim land for public purposes. This split — capitalist protection of movable property, socialist ownership of land — is a microcosm of the whole debate.",
+      "year": 2007,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "law-property",
+        "china-socialist-market-economy"
+      ],
+      "deploy": "A sharp, concrete test of the system — capitalist property rights over things, socialist ownership of land.",
+      "counter": "Critics note leaseholds function much like ownership in practice (they are bought, sold and inherited), while defenders say state land ownership remains a real socialist backstop."
+    },
+    {
+      "id": "china-political-capitalism",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 4,
+      "title": "Milanović: 'political capitalism'",
+      "fact": "Economist Branko Milanović argues China is simply a different KIND of capitalism — 'political capitalism' — run by an efficient technocratic elite, with the state above the law and corruption a systemic feature, not a bug.",
+      "tags": [
+        "China",
+        "political capitalism",
+        "Milanović",
+        "capitalism"
+      ],
+      "quiz": [
+        {
+          "q": "Milanović classifies China as an example of:",
+          "choices": [
+            "textbook socialism",
+            "'political capitalism' — a distinct type of capitalism",
+            "feudalism",
+            "a planned economy"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which economist's 2019 book Capitalism, Alone advanced the 'political capitalism' label?",
+          "type": "detail",
+          "answer": "Milanović",
+          "accept": [
+            "Milanovic",
+            "Milanović",
+            "Branko Milanović",
+            "Branko Milanovic"
+          ]
+        },
+        {
+          "q": "A defining feature of political capitalism, per Milanović, is:",
+          "choices": [
+            "the rule of law binding the state",
+            "an efficient bureaucracy with the state ABOVE the law",
+            "no bureaucracy",
+            "worker ownership"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-political-capitalism"
+      ],
+      "xfields": [
+        "polidea",
+        "ir"
+      ],
+      "detail": "In Capitalism, Alone (2019) Milanović says capitalism has won globally but split into two types: the West's 'liberal meritocratic' capitalism and China's 'political capitalism'. The latter combines a competent bureaucracy, an absence of the rule of law (the state is not bound by it), and endemic corruption held in check only by the party. On this view China is not socialist at all — it is capitalism governed differently.",
+      "year": 2019,
+      "prereq": [
+        "china-party-state-capitalism"
+      ],
+      "xref": [
+        "china-capitalist-or-communist",
+        "pe-varieties-capitalism",
+        "poli-neoliberalism-hayek"
+      ],
+      "deploy": "A leading rival to 'party-state capitalism' — reframes China as capitalism, not socialism, done differently.",
+      "counter": "Critics say lumping China with the West as 'capitalism' downplays the genuinely Leninist, plan-driven party-state that party-state-capitalism theorists foreground."
+    },
+    {
+      "id": "china-tech-crackdown",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "The 2020–21 tech crackdown",
+      "fact": "In late 2020 Beijing abruptly halted Ant Group's record IPO and launched a sweeping crackdown on its tech giants — the clearest case of the party's political control overriding private profit.",
+      "tags": [
+        "China",
+        "tech crackdown",
+        "Ant Group",
+        "party-state capitalism"
+      ],
+      "quiz": [
+        {
+          "q": "The 2020–21 crackdown is often read as evidence that in China:",
+          "choices": [
+            "markets always win",
+            "the party's political goals can override private profit",
+            "there is no regulation",
+            "foreign firms dominate"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which company's record IPO was abruptly halted in November 2020, triggering the crackdown?",
+          "type": "detail",
+          "answer": "Ant Group",
+          "accept": [
+            "Ant Group",
+            "Ant",
+            "Ant Financial"
+          ]
+        },
+        {
+          "q": "The crackdown was publicly framed partly under which slogan?",
+          "choices": [
+            "reform and opening",
+            "common prosperity",
+            "great leap forward",
+            "one country two systems"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-tech-crackdown"
+      ],
+      "xfields": [
+        "polcomp"
+      ],
+      "detail": "Days before Ant Group's ~$34bn listing (set to be the world's largest IPO) regulators pulled it, in November 2020. Alibaba was fined a record $2.8bn; ride-hailer Didi was punished after listing in New York; whole sectors (private tutoring, gaming) were reined in under the 'common prosperity' banner. For party-state-capitalism theorists this is the thesis in action: when markets and party priorities collide, the party wins.",
+      "year": 2020,
+      "prereq": [
+        "china-party-state-capitalism"
+      ],
+      "xref": [
+        "china-state-vs-private",
+        "china-common-prosperity"
+      ],
+      "deploy": "The vivid case study of party-state capitalism — the moment the party disciplined its own tech champions.",
+      "counter": "Some read it as ordinary antitrust and consumer-protection regulation (which Western states also do to big tech), not proof of a fundamentally different system."
+    },
+    {
+      "id": "china-planned-economy",
+      "field": "histcontemp",
+      "depth": "concept",
+      "level": 2,
+      "title": "China's planned economy under Mao",
+      "fact": "Before Deng, Mao's China was a textbook communist command economy: land collectivised, industry state-owned, output set by five-year plans, and almost no private business.",
+      "tags": [
+        "China",
+        "Mao",
+        "planned economy",
+        "communism"
+      ],
+      "quiz": [
+        {
+          "q": "Mao-era China allocated resources primarily through:",
+          "choices": [
+            "free markets",
+            "central plans (five-year plans)",
+            "foreign investment",
+            "stock exchanges"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What catastrophic 1958–62 campaign to rapidly industrialise ended in mass famine?",
+          "type": "detail",
+          "answer": "Great Leap Forward",
+          "accept": [
+            "Great Leap Forward",
+            "Great Leap"
+          ]
+        },
+        {
+          "q": "Under Mao, farmland was:",
+          "choices": [
+            "privately owned",
+            "collectivised into communes",
+            "leased from banks",
+            "left unfarmed"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-planned-economy"
+      ],
+      "xfields": [
+        "echist",
+        "polecon"
+      ],
+      "detail": "From the 1950s the state nationalised industry, herded farmers into collectives and (from 1958) vast People's Communes, and allocated resources by plan rather than price — the first Five-Year Plan began in 1953. The Great Leap Forward (1958–62) ended in catastrophic famine. This is the genuinely communist baseline against which every later reform is measured: China really was a command economy, then deliberately changed.",
+      "year": 1953,
+      "xref": [
+        "china-socialist-market-economy",
+        "china-century-humiliation"
+      ],
+      "deploy": "The communist starting point — proof China was a command economy before it went half-market.",
+      "counter": "Even Mao's economy had brief market interludes (post-Leap recovery), and how 'total' the plan ever was is debated.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "State takes industry"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Collectivise farms"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "Five-year plans",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "A command economy by the mid-1950s — the baseline the Deng reforms moved away from."
+        }
+      ]
+    },
+    {
+      "id": "china-common-prosperity",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 3,
+      "title": "'Common prosperity'",
+      "fact": "Xi Jinping revived 'common prosperity' from 2021 as a signature slogan — calling it 'an essential requirement of socialism' while insisting it is not 'egalitarianism' or robbing the rich.",
+      "tags": [
+        "China",
+        "common prosperity",
+        "Xi Jinping",
+        "socialism"
+      ],
+      "quiz": [
+        {
+          "q": "Xi Jinping describes 'common prosperity' as:",
+          "choices": [
+            "a capitalist reform",
+            "an essential requirement of socialism",
+            "a foreign policy",
+            "a tax cut for the rich"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Common prosperity marks a shift away from which Deng-era slogan about inequality?",
+          "type": "detail",
+          "answer": "let some get rich first",
+          "accept": [
+            "let some get rich first",
+            "some get rich first",
+            "get rich first",
+            "some people get rich first"
+          ]
+        },
+        {
+          "q": "Sceptics argue common prosperity functions mainly as:",
+          "choices": [
+            "genuine socialism",
+            "legitimation rhetoric and a lever over private wealth",
+            "a free-market reform",
+            "a military doctrine"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-common-prosperity"
+      ],
+      "xfields": [
+        "polecon",
+        "polcomp"
+      ],
+      "detail": "After decades in which Deng let 'some get rich first', Xi's common prosperity signals a tilt back toward redistribution: reining in excessive incomes, pressing the wealthy toward philanthropy ('tertiary distribution'), and curbing the tech and property excesses. Supporters read it as socialism reasserting itself over inequality; sceptics read it as legitimation rhetoric — or a lever to discipline private wealth — more than a genuine turn to socialism.",
+      "year": 2021,
+      "prereq": [
+        "china-case-socialist"
+      ],
+      "xref": [
+        "china-state-vs-private",
+        "china-tech-crackdown",
+        "pe-stiglitz-inequality"
+      ],
+      "deploy": "The ideological front of the debate — is the socialist label reviving, or just useful cover?",
+      "counter": "Common-prosperity spending stayed modest and the campaign faded as growth slowed, suggesting rhetoric outran redistribution."
+    },
+    {
+      "id": "china-wto-2001",
+      "field": "echist",
+      "depth": "concept",
+      "level": 2,
+      "title": "China joins the WTO (2001)",
+      "fact": "In December 2001 China joined the World Trade Organization, locking in market reforms and turning itself into the 'factory of the world' — the deepest possible embrace of global capitalism.",
+      "tags": [
+        "China",
+        "WTO",
+        "trade",
+        "globalisation"
+      ],
+      "quiz": [
+        {
+          "q": "Joining the WTO in 2001 committed China to:",
+          "choices": [
+            "central planning",
+            "cutting tariffs and opening to global trade rules",
+            "leaving the global economy",
+            "banning exports"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did China join the World Trade Organization?",
+          "type": "num",
+          "answer": 2001,
+          "tol": 0.0
+        },
+        {
+          "q": "A common Western criticism is that China embraced WTO trade while keeping its economy:",
+          "choices": [
+            "fully private",
+            "state-directed",
+            "closed",
+            "tiny"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-wto-2001"
+      ],
+      "xfields": [
+        "ir",
+        "deveco"
+      ],
+      "detail": "WTO membership required China to cut tariffs, open sectors and play by global trade rules; in return its exports exploded and it became the world's largest goods exporter and manufacturing hub. For the 'capitalist' reading this is decisive: a communist state chose to bind itself into the capitalist world economy and thrive in it. Critics abroad later argued China took the benefits while keeping a state-directed model.",
+      "year": 2001,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "china-case-capitalist",
+        "hist-globalization",
+        "pe-washington-consensus"
+      ],
+      "deploy": "The moment China bound itself into global capitalism — central to the 'it's capitalist' case and to today's trade tensions.",
+      "counter": "Membership didn't make China a liberal market economy: the state kept directing credit, subsidising firms and shielding strategic sectors, fuelling the 'unfair trade' backlash."
+    },
+    {
+      "id": "china-sez",
+      "field": "echist",
+      "depth": "concept",
+      "level": 2,
+      "title": "Special Economic Zones",
+      "fact": "China tested capitalism in fenced-off laboratories: Special Economic Zones like Shenzhen (1980), where foreign investment and markets were allowed before being rolled out nationwide.",
+      "tags": [
+        "China",
+        "special economic zones",
+        "Shenzhen",
+        "reform"
+      ],
+      "quiz": [
+        {
+          "q": "Special Economic Zones let China:",
+          "choices": [
+            "ban foreign trade",
+            "trial market reforms and foreign investment in limited areas first",
+            "collectivise farms",
+            "fix all prices"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which fishing town became China's most famous Special Economic Zone from 1980?",
+          "type": "detail",
+          "answer": "Shenzhen",
+          "accept": [
+            "Shenzhen"
+          ]
+        },
+        {
+          "q": "The SEZ approach reflects a reform style of:",
+          "choices": [
+            "big-bang shock therapy",
+            "gradual local experimentation",
+            "central planning",
+            "no change"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-sez"
+      ],
+      "xfields": [
+        "deveco",
+        "polecon"
+      ],
+      "detail": "Rather than a big-bang, Deng's reformers experimented locally — 'crossing the river by feeling the stones'. Shenzhen, a fishing town beside Hong Kong, became a market-economy testbed in 1980 and grew into a megacity of millions. SEZs let a communist state trial capitalist tools with a political off-switch, a gradualism often credited for China's stability.",
+      "year": 1980,
+      "prereq": [
+        "china-socialist-market-economy"
+      ],
+      "xref": [
+        "china-socialist-market-economy",
+        "deveco-institutions"
+      ],
+      "deploy": "Explains China's signature reform method — experiment locally, scale what works, keep control.",
+      "counter": "Zones also entrenched regional inequality and depended on cheap, rights-poor migrant labour (via the hukou system)."
+    },
+    {
+      "id": "china-soe-reform-1990s",
+      "field": "echist",
+      "depth": "concept",
+      "level": 3,
+      "title": "'Grasp the large, let go of the small'",
+      "fact": "In the late 1990s China privatised or closed most small state firms while keeping the giants — a policy called 'grasp the large, let go of the small' that laid off tens of millions of workers.",
+      "tags": [
+        "China",
+        "state-owned enterprises",
+        "reform",
+        "layoffs"
+      ],
+      "quiz": [
+        {
+          "q": "'Grasp the large, let go of the small' meant China would:",
+          "choices": [
+            "nationalise everything",
+            "keep giant strategic SOEs but sell/close small ones",
+            "abolish all SOEs",
+            "ban private firms"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What term ('iron ___ ___') described the Mao-era guarantee of a lifelong SOE job that these reforms ended?",
+          "type": "detail",
+          "answer": "iron rice bowl",
+          "accept": [
+            "iron rice bowl",
+            "rice bowl"
+          ]
+        },
+        {
+          "q": "The late-1990s SOE reforms resulted in:",
+          "choices": [
+            "full employment",
+            "tens of millions of layoffs",
+            "no change",
+            "more state jobs"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-soe-reform-1990s"
+      ],
+      "xfields": [
+        "polecon"
+      ],
+      "detail": "Under Zhu Rongji, the 1997 policy of zhuada fangxiao restructured the state sector: keep and strengthen strategic national champions, sell or shut the rest. Some 30–40 million SOE workers lost jobs ('xiagang') around 1995–2002, ending the 'iron rice bowl' of guaranteed employment. It shows a communist party deliberately shrinking the state sector — while keeping its commanding heights.",
+      "year": 1997,
+      "prereq": [
+        "china-planned-economy"
+      ],
+      "xref": [
+        "china-soe-share",
+        "china-state-vs-private"
+      ],
+      "deploy": "Shows the state sector was deliberately pruned to strategic champions — the roots of today's SOE giants.",
+      "counter": "The pain fell on workers with little safety net, and the surviving SOEs kept privileged access to cheap state credit.",
+      "media": [
+        {
+          "type": "plot",
+          "kind": "flow",
+          "nodes": [
+            {
+              "row": 0,
+              "col": 0,
+              "label": "Grasp the large"
+            },
+            {
+              "row": 0,
+              "col": 1,
+              "label": "Let go of the small"
+            },
+            {
+              "row": 0,
+              "col": 2,
+              "label": "~tens of millions laid off",
+              "hl": true
+            }
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "caption": "Keep strategic champions, sell or shut the rest — ending the Mao-era 'iron rice bowl'."
+        }
+      ]
+    },
+    {
+      "id": "china-stock-markets",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 3,
+      "title": "China's stock markets",
+      "fact": "China reopened stock exchanges (Shanghai and Shenzhen) in 1990 — a classic capitalist institution — but they are retail-dominated, volatile, and propped up by a state 'national team' when they fall.",
+      "tags": [
+        "China",
+        "stock markets",
+        "finance",
+        "state intervention"
+      ],
+      "quiz": [
+        {
+          "q": "China's stock markets differ from Western ones partly because:",
+          "choices": [
+            "they don't exist",
+            "the state intervenes via a 'national team' to prop up prices",
+            "only foreigners trade",
+            "they never fall"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In what year did China (re)open its Shanghai and Shenzhen stock exchanges?",
+          "type": "detail",
+          "answer": "1990",
+          "accept": [
+            "1990"
+          ]
+        },
+        {
+          "q": "Most trading on China's exchanges is done by:",
+          "choices": [
+            "long-term pension funds",
+            "short-term retail investors",
+            "foreign banks",
+            "the government only"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-stock-markets"
+      ],
+      "xfields": [
+        "macro"
+      ],
+      "detail": "The exchanges list thousands of firms and channel private savings into equity, like any capitalist market. Yet many big listings are SOEs where the state keeps control, most trading is by short-term retail investors, and when prices crash (as in 2015) state-backed funds — the 'national team' — buy in to stabilise them. Markets, yes; but markets the state manages.",
+      "year": 1990,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "china-banking-credit",
+        "china-case-capitalist"
+      ],
+      "deploy": "A capitalist institution run with a state hand on the tiller — the hybrid in miniature.",
+      "counter": "Western states also backstop markets in crises (bailouts, central-bank support); the difference is degree and routineness, not kind."
+    },
+    {
+      "id": "china-billionaires",
+      "field": "polecon",
+      "depth": "concept",
+      "level": 2,
+      "title": "Billionaires under the party",
+      "fact": "China has one of the world's largest billionaire counts — a hallmark of capitalism — yet its tycoons are politically insecure, as Jack Ma's abrupt disappearance from public life in 2020 showed.",
+      "tags": [
+        "China",
+        "billionaires",
+        "private wealth",
+        "party control"
+      ],
+      "quiz": [
+        {
+          "q": "China's treatment of its billionaires shows that private wealth is:",
+          "choices": [
+            "impossible in China",
+            "allowed but politically insecure, subject to party discipline",
+            "fully protected like in the West",
+            "banned"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Alibaba founder disappeared from public view after criticising regulators in 2020?",
+          "type": "detail",
+          "answer": "Jack Ma",
+          "accept": [
+            "Jack Ma",
+            "Ma Yun",
+            "Ma"
+          ]
+        },
+        {
+          "q": "The lesson of the tycoon crackdowns for the debate is that in China:",
+          "choices": [
+            "capital rules the state",
+            "the party outranks private capital",
+            "there are no rich people",
+            "law protects wealth absolutely"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-billionaires"
+      ],
+      "xfields": [
+        "socecon"
+      ],
+      "detail": "Private fortunes on a capitalist scale coexist with a party that can discipline any of them. After Alibaba's Jack Ma criticised regulators in October 2020, his Ant Group IPO was pulled and he vanished from public view for months; other tycoons have been detained or pressured to 'give back'. Wealth is allowed, even celebrated — but it is held at the party's pleasure.",
+      "year": 2020,
+      "prereq": [
+        "china-case-capitalist"
+      ],
+      "xref": [
+        "china-tech-crackdown",
+        "china-party-in-firms"
+      ],
+      "deploy": "Captures the whole paradox in one image — capitalist fortunes held at a communist party's pleasure.",
+      "counter": "Most Chinese entrepreneurs operate freely most of the time; the high-profile cases may be exceptions used to set an example, not the daily norm."
+    },
+    {
+      "id": "china-capital-controls",
+      "field": "macro",
+      "depth": "concept",
+      "level": 3,
+      "title": "Capital controls and the managed yuan",
+      "fact": "Unlike Western liberal democracies with open capital accounts and floating currencies, China restricts money crossing its border and manages the yuan's exchange rate — keeping finance under state control.",
+      "tags": [
+        "China",
+        "capital controls",
+        "exchange rate",
+        "finance"
+      ],
+      "quiz": [
+        {
+          "q": "Compared with Western economies, China's capital account is:",
+          "choices": [
+            "fully open",
+            "restricted — money can't freely cross the border",
+            "nonexistent",
+            "controlled by the WTO"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the general term for state limits on money flowing in and out of a country?",
+          "type": "detail",
+          "answer": "capital controls",
+          "accept": [
+            "capital controls",
+            "capital control"
+          ]
+        },
+        {
+          "q": "China's exchange rate is best described as:",
+          "choices": [
+            "freely floating",
+            "managed/guided by the state within a band",
+            "fixed forever",
+            "set by the US"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-capital-controls"
+      ],
+      "xfields": [
+        "polecon",
+        "ir"
+      ],
+      "detail": "In the US or eurozone, money flows in and out freely and the currency floats on the market. China instead limits how much capital can leave, screens inflows, and guides the yuan within a managed band against a basket. This lets the state run an independent credit policy and shield the economy from hot-money swings — the 'trilemma' trade-off — but it also means the market does not set China's exchange rate or freely price its capital.",
+      "year": 1994,
+      "prereq": [
+        "china-banking-credit"
+      ],
+      "xref": [
+        "china-banking-credit",
+        "macro-exchange-rates",
+        "macro-trilemma"
+      ],
+      "deploy": "A concrete structural contrast with liberal-democratic finance — the state, not the market, governs China's money at the border.",
+      "counter": "China has gradually liberalised (offshore yuan, more flexible band), and even open economies intervene in currencies at times; the line is one of degree."
+    },
+    {
+      "id": "china-vs-ussr",
+      "field": "histcontemp",
+      "depth": "concept",
+      "level": 3,
+      "title": "Why China reformed and the USSR collapsed",
+      "fact": "China changed its economy while keeping the party's political monopoly; the Soviet Union under Gorbachev opened politics (glasnost) alongside the economy — and the state came apart.",
+      "tags": [
+        "China",
+        "USSR",
+        "reform",
+        "Leninism"
+      ],
+      "quiz": [
+        {
+          "q": "The key difference in China's reforms vs the USSR's was that China:",
+          "choices": [
+            "opened politics first",
+            "reformed the economy while keeping tight one-party political control",
+            "kept a planned economy",
+            "copied the USSR exactly"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which Soviet leader's political-opening policy ('glasnost') is contrasted with Deng's approach?",
+          "type": "detail",
+          "answer": "Gorbachev",
+          "accept": [
+            "Gorbachev",
+            "Mikhail Gorbachev"
+          ]
+        },
+        {
+          "q": "China's leaders concluded that market reform must never:",
+          "choices": [
+            "raise incomes",
+            "loosen the party's political control",
+            "attract investment",
+            "cut tariffs"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-vs-ussr"
+      ],
+      "xfields": [
+        "polecon",
+        "polidea"
+      ],
+      "detail": "Deng's order of operations was deliberate: reform the economy gradually, keep the party's grip on power absolute. Gorbachev tried economic and political liberalisation at once, and the USSR dissolved in 1991. The lesson China's leaders drew — reinforced by watching 1989 — is that market reform must never loosen the party's control. It is central to why China is market-Leninist, not post-communist.",
+      "year": 1991,
+      "prereq": [
+        "china-socialist-market-economy"
+      ],
+      "xref": [
+        "china-case-socialist",
+        "hist-1989",
+        "hist-cold-war"
+      ],
+      "deploy": "The comparative case that explains China's whole model — economics loosened, politics never.",
+      "counter": "The comparison can be overdrawn: the USSR faced deeper structural and ethnic-federal problems, so 'sequencing' alone may not explain the divergence."
+    },
+    {
+      "id": "china-authoritarian-capitalism",
+      "field": "polidea",
+      "depth": "concept",
+      "level": 4,
+      "title": "Does capitalism require democracy?",
+      "fact": "China is the great counterexample to the 'modernisation thesis' that markets and wealth inevitably bring democracy — it built a capitalist-scale economy under enduring one-party rule.",
+      "tags": [
+        "China",
+        "authoritarian capitalism",
+        "democracy",
+        "modernisation theory"
+      ],
+      "quiz": [
+        {
+          "q": "China is often cited as a counterexample to the idea that:",
+          "choices": [
+            "markets create wealth",
+            "capitalism and rising wealth inevitably lead to democracy",
+            "trade is beneficial",
+            "states can plan"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What is the name of the theory — that economic development brings democracy — China appears to challenge?",
+          "type": "detail",
+          "answer": "modernisation theory",
+          "accept": [
+            "modernisation theory",
+            "modernization theory",
+            "modernisation thesis",
+            "modernization thesis"
+          ]
+        },
+        {
+          "q": "China's example suggests 'authoritarian capitalism' may be:",
+          "choices": [
+            "a brief phase before democracy",
+            "a durable model in its own right",
+            "impossible",
+            "identical to socialism"
+          ],
+          "answer": 1
+        }
+      ],
+      "src": [
+        "ev-china-authoritarian-capitalism"
+      ],
+      "xfields": [
+        "polcomp",
+        "ir"
+      ],
+      "detail": "For decades many in the West assumed capitalism would seed a middle class that would demand democracy (the modernisation thesis behind 'engagement' with China). China's rise — a market economy that grew richer while the party tightened control — is the strongest case that 'authoritarian capitalism' is durable, not a way station to liberal democracy. It reframes the whole debate: the question may be less 'capitalist or communist?' than 'must capitalism be liberal?'.",
+      "year": 2010,
+      "prereq": [
+        "china-political-capitalism"
+      ],
+      "xref": [
+        "poli-democratization",
+        "poli-authoritarianism",
+        "china-capitalist-or-communist"
+      ],
+      "deploy": "Reframes the whole debate — the deeper question is whether capitalism must be liberal-democratic at all.",
+      "counter": "Defenders of the modernisation thesis argue the story isn't over: pressures for openness may still build, or the model may prove brittle under slower growth."
     }
   ],
   "motions": [
