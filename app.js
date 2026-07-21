@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v133";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v134";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2389,11 +2389,21 @@ function drawChord(){ try{
     fo._tip=r;
     if(!focus && (fo.bands[NB-1]||0)>0 && month>=NB-0.001){ ctx.beginPath(); ctx.arc(cx,cy,r+2,fo.a0,fo.a1); ctx.strokeStyle=cwithA(accent,0.7); ctx.lineWidth=2.2; ctx.stroke(); }
   });
-  // a compact field icon at each spike's tip — no text to clip, every field marked
-  ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.font='14px -apple-system,system-ui,sans-serif';
-  M.fields.forEach(fo=>{ if((fo._tip||Ri)<=Ri+1) return; const p=pt(fo.mid,(fo._tip)+13);
-    const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.95:0.35)) : 1;
-    ctx.globalAlpha=dim; ctx.fillText(fo.icon||'•', clamp(p.x,12,cssW-12), clamp(p.y,12,cssH-12)); ctx.globalAlpha=1; });
+  // text labels at each spike tip (preview style) — shortened to fit, thinned to avoid overlap
+  const shortLbl=s=>{ let t=String(s).split(/\s*[&/]\s*/)[0].trim(); if(t.length>13) t=(t.split(' ')[0]); if(t.length>13) t=t.slice(0,12)+'…'; return t; };
+  ctx.textBaseline="middle";
+  [true,false].forEach(rightSide=>{
+    const list=M.fields.filter(fo=>(fo._tip||Ri)>Ri+1 && (Math.cos(fo.mid)>=0)===rightSide)
+      .map(fo=>{ const p=pt(fo.mid,(fo._tip)+10); return {fo, x:p.x, y:p.y}; }).sort((a,b)=>a.y-b.y);
+    let lastY=-1e9;
+    list.forEach(it=>{ const fo=it.fo, must=focus&&(fo.id===focus||conn[fo.id]);
+      if(focus&&!must) return; if(!focus && it.y-lastY<15) return; lastY=it.y;
+      const bold=fo.id===focus, t=shortLbl(fo.label), aw=t.length*6.0;
+      ctx.font=(bold?'700 ':'600 ')+'11px -apple-system,system-ui,sans-serif';
+      let lx=it.x, ly=clamp(it.y,12,cssH-12);
+      if(rightSide){ ctx.textAlign='left'; lx=clamp(lx,4,cssW-4-aw); } else { ctx.textAlign='right'; lx=clamp(lx,4+aw,cssW-4); }
+      ctx.lineWidth=3; ctx.strokeStyle=cwithA(cardc,0.9); ctx.strokeText(t,lx,ly); ctx.fillStyle=cwithA(ink,bold?1:0.82); ctx.fillText(t,lx,ly); });
+  });
   // count — total at the currently-shown point in time
   const ideas = _chordGT>=1 ? learnedIds().length : Math.round(M.fields.reduce((s,fo)=>{ let c=0; for(let b=0;b<NB;b++){ c+=fo.bands[b]*clamp(month-b,0,1); } return s+c; },0));
   const cE=$("chordCount"); if(cE) cE.textContent=ideas;
