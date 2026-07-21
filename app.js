@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v136";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v137";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2326,7 +2326,10 @@ function buildChordModel(){
   // build units (one bar each), grouped by division and coloured by division (preview-style)
   const units=[], divisions=[], covered=new Set(); let di=0;
   divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
-    const col=CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
+    // colour each division with a real app field colour (its most-learned field) so the ring
+    // matches the hues used on the field/thread cards elsewhere in the app
+    let rep=null, repN=-1; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ const n=learnedInField(f.id); if(n>repN){ repN=n; rep=f; } } }));
+    const col=(rep&&rep.color)?rep.color.trim():CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
     if(level==='div'){ const ids=[]; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ ids.push(f.id); covered.add(f.id); } }));
       units.push({id:'d:'+v.id, label:v.label, color:col, div:v.id, fieldIds:ids}); }
     else if(level==='disc'){ (v.children||[]).forEach(k=>{ const ids=(k.fieldObjs||[]).filter(f=>learned.has(f.id)).map(f=>f.id); if(!ids.length) return;
@@ -2399,8 +2402,8 @@ function drawChord(){ try{
     const fh=Math.max(rad*0.02, clamp(Math.sqrt(fo.total/REF),0,1)*Hmax);
     for(let b=0;b<NB;b++){ const vis=clamp(month-b,0,1); if(vis<=0) break; const cnt=fo.bands[b]; if(cnt<=0) continue;
       const dr=(cnt/Math.max(1,fo.total))*fh*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
-      const col=cmix(cmix(fo.color,'#000000',0.22), cmix(fo.color,'#ffffff',0.34), ageFrac);
-      const rg=ctx.createRadialGradient(cx,cy,r,cx,cy,r1); rg.addColorStop(0,cwithA(cmix(col,'#000000',0.16),dim)); rg.addColorStop(1,cwithA(col,dim));
+      const col=cmix(fo.color, '#ffffff', ageFrac*0.30);            // true colour at full strength; newer bands a touch lighter
+      const rg=ctx.createRadialGradient(cx,cy,r,cx,cy,r1); rg.addColorStop(0,cwithA(cmix(col,'#000000',0.08),dim)); rg.addColorStop(1,cwithA(col,dim));
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1,false); ctx.arc(cx,cy,r,fo.a1,fo.a0,true); ctx.closePath(); ctx.fillStyle=rg; ctx.fill();
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1); ctx.strokeStyle=cwithA(cardc,0.5*dim); ctx.lineWidth=1; ctx.stroke(); r=r1; }
     fo._tip=r;
