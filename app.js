@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v134";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v135";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2315,43 +2315,55 @@ const CHORD_NB=6;                                   // time is split into 6 band
 function learnTime(id){ const p=progress[id]; if(!p) return Date.now(); return p.seen || p.last || Date.now(); }
 // Build the growth-chord model: fields on a ring (grouped by division), each a stack of dated
 // bands (oldest inside), plus cross-field ribbons. Capped for legibility + iOS memory.
+const CHORD_PAL=['#e8551c','#d99a2b','#3f8f7c','#4a72c0','#c0577f','#6a9a3f','#9b6bd6','#c78b4a','#4bb0c9','#cf5030'];
 function buildChordModel(){
-  const present=(KN.fields||[]).filter(f=>learnedInField(f.id)>0);
-  if(!present.length) return null;
-  const capIds=new Set(present.slice().sort((a,b)=>learnedInField(b.id)-learnedInField(a.id)).slice(0,60).map(f=>f.id));
-  // order fields grouped by the division they sit in
-  const divs=divisionsPresent(), seenF=new Set(), ordered=[];
-  divs.forEach(v=>{ (v.children||[]).forEach(k=> (k.fieldObjs||[]).forEach(f=>{ if(capIds.has(f.id)&&!seenF.has(f.id)){ seenF.add(f.id); ordered.push({f, div:v.id}); } })); });
-  (KN.fields||[]).forEach(f=>{ if(capIds.has(f.id)&&!seenF.has(f.id)){ seenF.add(f.id); ordered.push({f, div:'_other'}); } });
-  // time window across all learned cards
-  let earliest=Infinity; const now=Date.now(), learnedByField={};
-  ordered.forEach(({f})=>{ const cards=(byField[f.id]||[]).filter(c=>isLearned(c.id)); learnedByField[f.id]=cards;
-    cards.forEach(c=>{ const t=learnTime(c.id); if(t<earliest) earliest=t; }); });
+  const learned=new Set((KN.fields||[]).filter(f=>learnedInField(f.id)>0).map(f=>f.id));
+  if(!learned.size) return null;
+  const divs=divisionsPresent();
+  // pick granularity so the ring never has too many bars: subfields → disciplines → divisions
+  let nDisc=0; divs.forEach(v=> (v.children||[]).forEach(k=>{ if((k.fieldObjs||[]).some(f=>learned.has(f.id))) nDisc++; }));
+  const level = learned.size<=12 ? 'field' : (nDisc<=18 ? 'disc' : 'div');
+  // build units (one bar each), grouped by division and coloured by division (preview-style)
+  const units=[], divisions=[], covered=new Set(); let di=0;
+  divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
+    const col=CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
+    if(level==='div'){ const ids=[]; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ ids.push(f.id); covered.add(f.id); } }));
+      units.push({id:'d:'+v.id, label:v.label, color:col, div:v.id, fieldIds:ids}); }
+    else if(level==='disc'){ (v.children||[]).forEach(k=>{ const ids=(k.fieldObjs||[]).filter(f=>learned.has(f.id)).map(f=>f.id); if(!ids.length) return;
+      ids.forEach(id=>covered.add(id)); units.push({id:'k:'+k.id, label:k.label, color:col, div:v.id, fieldIds:ids}); }); }
+    else { (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ covered.add(f.id); units.push({id:'f:'+f.id, label:f.label||f.id, color:col, div:v.id, fieldIds:[f.id]}); } })); }
+  });
+  const orphans=[...learned].filter(id=>!covered.has(id));
+  if(orphans.length){ divisions.push({id:'_other',label:'Other',color:'#8a8f98'});
+    if(level==='field') orphans.forEach(id=>{ const f=fieldById[id]||{}; units.push({id:'f:'+id,label:f.label||id,color:'#8a8f98',div:'_other',fieldIds:[id]}); });
+    else units.push({id:'other',label:'Other',color:'#8a8f98',div:'_other',fieldIds:orphans}); }
+  const unitCards=u=>{ const out=[]; u.fieldIds.forEach(fid=>(byField[fid]||[]).forEach(c=>{ if(isLearned(c.id)) out.push(c); })); return out; };
+  let U=units; if(U.length>40) U=U.slice().sort((a,b)=>unitCards(b).length-unitCards(a).length).slice(0,40);
+  // time window across everything learned
+  let earliest=Infinity; const now=Date.now();
+  U.forEach(u=> unitCards(u).forEach(c=>{ const t=learnTime(c.id); if(t<earliest) earliest=t; }));
   if(!isFinite(earliest)) earliest=now;
-  const span=Math.max(1, now-earliest);
-  const bucket=t=> clamp(Math.floor((t-earliest)/span*CHORD_NB),0,CHORD_NB-1);
-  let maxLearned=1;
-  const fields=ordered.map(({f,div})=>{ const cards=learnedByField[f.id], bands=new Array(CHORD_NB).fill(0);
-    cards.forEach(c=>{ bands[bucket(learnTime(c.id))]++; });
-    let firstBucket=CHORD_NB-1; for(let b=0;b<CHORD_NB;b++){ if(bands[b]>0){ firstBucket=b; break; } }
-    if(cards.length>maxLearned) maxLearned=cards.length;
-    return { id:f.id, label:f.label||f.id, icon:(f.icon||''), color:(f.color||'#888').trim(), div, bands, firstBucket, total:cards.length }; });
-  // fixed angular slots (equal wedges), grouped with gaps between divisions
-  const nF=fields.length, TAU=Math.PI*2, ST=-Math.PI/2, GG=0.10, FG=0.02;
-  const nDiv=new Set(fields.map(x=>x.div)).size, gaps=nDiv*GG + Math.max(0,nF-nDiv)*FG, avail=Math.max(0.5, TAU-gaps), sp=avail/Math.max(1,nF);
-  let ang=ST, prevDiv=null; const idxByField={};
-  fields.forEach((fo,i)=>{ if(prevDiv!==null && fo.div!==prevDiv) ang+=GG; else if(prevDiv!==null) ang+=FG;
-    fo.a0=ang; fo.a1=ang+sp; fo.mid=ang+sp/2; fo.half=sp/2; ang=fo.a1; prevDiv=fo.div; idxByField[fo.id]=i; });
-  // ribbons from real cross-field links; born-band = when both fields were underway
-  const wmap=crossFieldEdges(), pairs=[];
-  Object.keys(wmap).forEach(k=>{ const ab=k.split('|'), ia=idxByField[ab[0]], ib=idxByField[ab[1]]; if(ia==null||ib==null) return;
-    pairs.push({ a:ab[0], b:ab[1], w:wmap[k], born:Math.max(fields[ia].firstBucket,fields[ib].firstBucket), ia, ib }); });
-  pairs.sort((x,y)=>y.w-x.w);
-  const capPairs=pairs.slice(0,120), incident={};
-  fields.forEach(fo=>incident[fo.id]=[]); capPairs.forEach(p=>{ incident[p.a].push(p); incident[p.b].push(p); });
-  fields.forEach(fo=>{ const inc=incident[fo.id].slice().sort((p,q)=>{ const oa=fields[idxByField[p.a===fo.id?p.b:p.a]].mid, ob=fields[idxByField[q.a===fo.id?q.b:q.a]].mid; return oa-ob; });
-    const kk=inc.length, m=(fo.a1-fo.a0)*0.18; inc.forEach((p,j)=>{ const fr=kk>1?(j+0.5)/kk:0.5, a=fo.a0+m+(fo.a1-fo.a0-2*m)*fr; if(p.a===fo.id)p.angA=a; else p.angB=a; }); });
-  return { fields, pairs:capPairs, maxLearned, nb:CHORD_NB };
+  const span=Math.max(1, now-earliest), bucket=t=> clamp(Math.floor((t-earliest)/span*CHORD_NB),0,CHORD_NB-1);
+  let maxLearned=1; const f2u={};
+  U.forEach((u,ui)=>{ const cards=unitCards(u), bands=new Array(CHORD_NB).fill(0); cards.forEach(c=>{ bands[bucket(learnTime(c.id))]++; });
+    let fb=CHORD_NB-1; for(let b=0;b<CHORD_NB;b++){ if(bands[b]>0){ fb=b; break; } }
+    u.bands=bands; u.firstBucket=fb; u.total=cards.length; if(cards.length>maxLearned) maxLearned=cards.length; u.fieldIds.forEach(fid=>f2u[fid]=ui); });
+  // angular slots grouped by division
+  const nU=U.length, TAU=Math.PI*2, ST=-Math.PI/2, GG=0.10, FG=0.02;
+  const nDivP=new Set(U.map(u=>u.div)).size, gaps=nDivP*GG+Math.max(0,nU-nDivP)*FG, avail=Math.max(0.5,TAU-gaps), sp=avail/Math.max(1,nU);
+  let ang=ST, prevDiv=null; U.forEach(u=>{ if(prevDiv!==null&&u.div!==prevDiv) ang+=GG; else if(prevDiv!==null) ang+=FG;
+    u.a0=ang; u.a1=ang+sp; u.mid=ang+sp/2; u.half=sp/2; ang=u.a1; prevDiv=u.div; });
+  // ribbons: aggregate cross-field links up to the chosen unit level
+  const wmap=crossFieldEdges(), pm={};
+  Object.keys(wmap).forEach(k=>{ const ab=k.split('|'), ua=f2u[ab[0]], ub=f2u[ab[1]]; if(ua==null||ub==null||ua===ub) return;
+    const key=ua<ub?ua+'|'+ub:ub+'|'+ua; pm[key]=(pm[key]||0)+wmap[k]; });
+  let pairs=Object.keys(pm).map(key=>{ const ij=key.split('|').map(Number);
+    return { ia:ij[0], ib:ij[1], a:U[ij[0]].id, b:U[ij[1]].id, w:pm[key], born:Math.max(U[ij[0]].firstBucket,U[ij[1]].firstBucket) }; });
+  pairs.sort((x,y)=>y.w-x.w); pairs=pairs.slice(0,120);
+  const inc={}; U.forEach((u,i)=>inc[i]=[]); pairs.forEach(p=>{ inc[p.ia].push(p); inc[p.ib].push(p); });
+  U.forEach((u,ui)=>{ const list=inc[ui].slice().sort((p,q)=>{ const oa=U[p.ia===ui?p.ib:p.ia].mid, ob=U[q.ia===ui?q.ib:q.ia].mid; return oa-ob; });
+    const kk=list.length, m=(u.a1-u.a0)*0.18; list.forEach((p,j)=>{ const fr=kk>1?(j+0.5)/kk:0.5, a=u.a0+m+(u.a1-u.a0-2*m)*fr; if(p.ia===ui)p.angA=a; else p.angB=a; }); });
+  return { fields:U, pairs, maxLearned, nb:CHORD_NB, divisions, level };
 }
 function drawChord(){ try{
   const cv=$("chordCanvas"); if(!cv||!_chordModel) return;
@@ -2431,7 +2443,8 @@ function chordHeroHtml(){
     '<div class="chordhud"><div class="ch-n" id="chordCount">'+total+'</div><div class="ch-k">ideas learned</div>'+
       '<div class="ch-sub">'+conns+' connection'+(conns===1?'':'s')+' · '+fldN+' field'+(fldN===1?'':'s')+'</div></div>'+
     '<button class="ch-replay" id="chordReplay" aria-label="Replay growth"><svg width="11" height="12" viewBox="0 0 12 13" aria-hidden="true"><path d="M1 1 L11 6.5 L1 12 Z" fill="currentColor"/></svg>Replay</button>'+
-    '<div class="ch-cue">tap a field</div></div>';
+    '<div class="ch-cue">tap a field</div>'+
+    '<div class="ch-legend" id="chordLegend"></div></div>';
 }
 function neighborsOf(id){ const c=byId[id]; if(!c) return []; return [...(c.prereq||[]),...(c.xref||[])].filter(n=>byId[n]&&n!==id); }
 function buildWebNodes(){
@@ -2637,6 +2650,8 @@ function renderWeb(){
   const cvCh=$("chordCanvas");
   if(cvCh){
     _chordModel=buildChordModel(); _chordFocus=null; _chordGT=1;
+    const leg=$("chordLegend");
+    if(leg && _chordModel){ leg.innerHTML=(_chordModel.divisions||[]).map(d=>'<span><i style="background:'+d.color+'"></i>'+esc(d.label)+'</span>').join(''); }
     requestAnimationFrame(()=>{ if(!_chordAutoPlayed){ _chordAutoPlayed=true; chordPlay(); } else drawChord(); });
     cvCh.onclick=(ev)=>{ const h=chordHit(cvCh,ev); if(!h) return;
       _chordFocus = h.clear ? null : (_chordFocus===h.field ? null : h.field); drawChord();
