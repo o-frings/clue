@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v130";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v131";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2293,6 +2293,136 @@ function roundRect(ctx,x,y,w,h,r){ r=Math.min(r,w/2,h/2); ctx.beginPath(); ctx.m
 // Deterministic cluster layout (no physics): fields sit around a circle, their cards spiral
 // out from the field centroid. Pan by dragging; tap a node to open it.
 let webPan={x:0,y:0}, webZoom=1, _webNodes=[], _webView=null;
+// ===== the living web: a field-level constellation that densifies as you learn =====
+// Kept deliberately bounded (one node per field, capped) so it never repeats the
+// iOS-Safari crash that a full card-level <canvas> graph caused (see NOTES.md).
+let _chordModel=null, _chordFocus=null, _chordGT=1, _chordRAF=0, _chordGeom=null, _chordAutoPlayed=false, _chordResizeWired=false;
+// cross-field connections you've actually made: a learned card xref'd to a learned card in another field.
+function crossFieldEdges(){
+  const w={};
+  learnedIds().forEach(id=>{ const c=byId[id]; if(!c) return;
+    (c.xref||[]).forEach(t=>{ const o=byId[t]; if(!o||!isLearned(t)||o.field===c.field) return;
+      const k=c.field<o.field ? c.field+'|'+o.field : o.field+'|'+c.field; w[k]=(w[k]||0)+1; }); });
+  return w;
+}
+// --- colour helpers that accept both #hex and rgb() (so mixed results can be re-mixed) ---
+function cparse(col){ col=String(col).trim(); if(col[0]==='#') return [parseInt(col.slice(1,3),16),parseInt(col.slice(3,5),16),parseInt(col.slice(5,7),16)];
+  const m=col.match(/[\d.]+/g); return m?[+m[0]||0,+m[1]||0,+m[2]||0]:[136,136,136]; }
+function cwithA(col,a){ const v=cparse(col); return 'rgba('+v[0]+','+v[1]+','+v[2]+','+a+')'; }
+function cmix(A,B,t){ const a=cparse(A),b=cparse(B); return 'rgb('+Math.round(a[0]+(b[0]-a[0])*t)+','+Math.round(a[1]+(b[1]-a[1])*t)+','+Math.round(a[2]+(b[2]-a[2])*t)+')'; }
+const CHORD_NB=6;                                   // time is split into 6 bands (the tree rings)
+// best-effort "when did you learn this card" — first-seen, else last-studied, else now
+function learnTime(id){ const p=progress[id]; if(!p) return Date.now(); return p.seen || p.last || Date.now(); }
+// Build the growth-chord model: fields on a ring (grouped by division), each a stack of dated
+// bands (oldest inside), plus cross-field ribbons. Capped for legibility + iOS memory.
+function buildChordModel(){
+  const present=(KN.fields||[]).filter(f=>learnedInField(f.id)>0);
+  if(!present.length) return null;
+  const capIds=new Set(present.slice().sort((a,b)=>learnedInField(b.id)-learnedInField(a.id)).slice(0,60).map(f=>f.id));
+  // order fields grouped by the division they sit in
+  const divs=divisionsPresent(), seenF=new Set(), ordered=[];
+  divs.forEach(v=>{ (v.children||[]).forEach(k=> (k.fieldObjs||[]).forEach(f=>{ if(capIds.has(f.id)&&!seenF.has(f.id)){ seenF.add(f.id); ordered.push({f, div:v.id}); } })); });
+  (KN.fields||[]).forEach(f=>{ if(capIds.has(f.id)&&!seenF.has(f.id)){ seenF.add(f.id); ordered.push({f, div:'_other'}); } });
+  // time window across all learned cards
+  let earliest=Infinity; const now=Date.now(), learnedByField={};
+  ordered.forEach(({f})=>{ const cards=(byField[f.id]||[]).filter(c=>isLearned(c.id)); learnedByField[f.id]=cards;
+    cards.forEach(c=>{ const t=learnTime(c.id); if(t<earliest) earliest=t; }); });
+  if(!isFinite(earliest)) earliest=now;
+  const span=Math.max(1, now-earliest);
+  const bucket=t=> clamp(Math.floor((t-earliest)/span*CHORD_NB),0,CHORD_NB-1);
+  let maxLearned=1;
+  const fields=ordered.map(({f,div})=>{ const cards=learnedByField[f.id], bands=new Array(CHORD_NB).fill(0);
+    cards.forEach(c=>{ bands[bucket(learnTime(c.id))]++; });
+    let firstBucket=CHORD_NB-1; for(let b=0;b<CHORD_NB;b++){ if(bands[b]>0){ firstBucket=b; break; } }
+    if(cards.length>maxLearned) maxLearned=cards.length;
+    return { id:f.id, label:f.label||f.id, color:(f.color||'#888').trim(), div, bands, firstBucket, total:cards.length }; });
+  // fixed angular slots (equal wedges), grouped with gaps between divisions
+  const nF=fields.length, TAU=Math.PI*2, ST=-Math.PI/2, GG=0.10, FG=0.02;
+  const nDiv=new Set(fields.map(x=>x.div)).size, gaps=nDiv*GG + Math.max(0,nF-nDiv)*FG, avail=Math.max(0.5, TAU-gaps), sp=avail/Math.max(1,nF);
+  let ang=ST, prevDiv=null; const idxByField={};
+  fields.forEach((fo,i)=>{ if(prevDiv!==null && fo.div!==prevDiv) ang+=GG; else if(prevDiv!==null) ang+=FG;
+    fo.a0=ang; fo.a1=ang+sp; fo.mid=ang+sp/2; fo.half=sp/2; ang=fo.a1; prevDiv=fo.div; idxByField[fo.id]=i; });
+  // ribbons from real cross-field links; born-band = when both fields were underway
+  const wmap=crossFieldEdges(), pairs=[];
+  Object.keys(wmap).forEach(k=>{ const ab=k.split('|'), ia=idxByField[ab[0]], ib=idxByField[ab[1]]; if(ia==null||ib==null) return;
+    pairs.push({ a:ab[0], b:ab[1], w:wmap[k], born:Math.max(fields[ia].firstBucket,fields[ib].firstBucket), ia, ib }); });
+  pairs.sort((x,y)=>y.w-x.w);
+  const capPairs=pairs.slice(0,120), incident={};
+  fields.forEach(fo=>incident[fo.id]=[]); capPairs.forEach(p=>{ incident[p.a].push(p); incident[p.b].push(p); });
+  fields.forEach(fo=>{ const inc=incident[fo.id].slice().sort((p,q)=>{ const oa=fields[idxByField[p.a===fo.id?p.b:p.a]].mid, ob=fields[idxByField[q.a===fo.id?q.b:q.a]].mid; return oa-ob; });
+    const kk=inc.length, m=(fo.a1-fo.a0)*0.18; inc.forEach((p,j)=>{ const fr=kk>1?(j+0.5)/kk:0.5, a=fo.a0+m+(fo.a1-fo.a0-2*m)*fr; if(p.a===fo.id)p.angA=a; else p.angB=a; }); });
+  return { fields, pairs:capPairs, maxLearned, nb:CHORD_NB };
+}
+function drawChord(){ try{
+  const cv=$("chordCanvas"); if(!cv||!_chordModel) return;
+  const cssW=cv.clientWidth||window.innerWidth, cssH=cv.clientHeight||360;
+  let DPR=Math.min(window.devicePixelRatio||1, 2);
+  const MAXPX=1.8e6; if(cssW*cssH*DPR*DPR>MAXPX) DPR=Math.max(1, Math.sqrt(MAXPX/Math.max(1,cssW*cssH)));
+  const pw=Math.round(cssW*DPR), ph=Math.round(cssH*DPR);
+  if(cv.width!==pw||cv.height!==ph){ cv.width=pw; cv.height=ph; }
+  const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
+  const css=getComputedStyle(document.documentElement);
+  const ink=(css.getPropertyValue('--ink')||'#111').trim(), cardc=(css.getPropertyValue('--card')||'#fff').trim(), accent=(css.getPropertyValue('--accent')||'#e8551c').trim();
+  const cx=cssW/2, cy=cssH*0.52, rad=Math.min(cssW,cssH)/2, Ri=rad*0.34, Hmax=rad*0.40, rIn=Ri-3;
+  _chordGeom={cx,cy,Ri,Hmax};
+  const M=_chordModel, NB=M.nb, TAU=Math.PI*2, month=_chordGT*NB, focus=_chordFocus, conn={};
+  if(focus){ M.pairs.forEach(p=>{ if((p.a===focus||p.b===focus)&&p.born<=month){ conn[p.a]=1; conn[p.b]=1; } }); }
+  const pt=(ang,r)=>({x:cx+Math.cos(ang)*r, y:cy+Math.sin(ang)*r});
+  // base ring
+  ctx.beginPath(); ctx.arc(cx,cy,Ri,0,TAU); ctx.strokeStyle=cwithA(ink,0.06); ctx.lineWidth=1; ctx.stroke();
+  // ribbons (inside the ring), brighter the more recently formed
+  M.pairs.forEach(p=>{ if(p.born>month) return;
+    const A=pt(p.angA,rIn), B=pt(p.angB,rIn), cpx=cx+((A.x+B.x)/2-cx)*0.14, cpy=cy+((A.y+B.y)/2-cy)*0.14;
+    const rec=clamp(1-(month-p.born)/2.5,0,1), alpha= focus ? ((p.a===focus||p.b===focus)?0.85:0.05) : (0.12+rec*0.5);
+    const g=ctx.createLinearGradient(A.x,A.y,B.x,B.y); g.addColorStop(0,cwithA(M.fields[p.ia].color,alpha)); g.addColorStop(1,cwithA(M.fields[p.ib].color,alpha));
+    ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.quadraticCurveTo(cpx,cpy,B.x,B.y); ctx.strokeStyle=g; ctx.lineWidth=1+Math.min(p.w,4)*0.9; ctx.lineCap='round'; ctx.stroke(); });
+  // bars: each field grows outward, banded by time (tree rings)
+  M.fields.forEach(fo=>{ const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.9:0.24)) : 1; let r=Ri;
+    for(let b=0;b<NB;b++){ const vis=clamp(month-b,0,1); if(vis<=0) break; const cnt=fo.bands[b]; if(cnt<=0) continue;
+      const dr=(cnt/M.maxLearned)*Hmax*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
+      const col=cmix(cmix(fo.color,'#000000',0.26), cmix(fo.color,'#ffffff',0.34), ageFrac);
+      ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1,false); ctx.arc(cx,cy,r,fo.a1,fo.a0,true); ctx.closePath(); ctx.fillStyle=cwithA(col,dim); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1); ctx.strokeStyle=cwithA(cardc,0.5*dim); ctx.lineWidth=1; ctx.stroke(); r=r1; }
+    fo._tip=r;
+    if(!focus && (fo.bands[NB-1]||0)>0 && month>=NB-0.001){ ctx.beginPath(); ctx.arc(cx,cy,r+2,fo.a0,fo.a1); ctx.strokeStyle=cwithA(accent,0.7); ctx.lineWidth=2.2; ctx.stroke(); }
+  });
+  // labels — the tallest few at rest, or the focused field + its neighbours
+  const labelSet= focus ? new Set([focus].concat(Object.keys(conn))) : new Set(M.fields.slice().sort((a,b)=>b.total-a.total).slice(0,12).map(f=>f.id));
+  ctx.textBaseline="middle";
+  M.fields.forEach(fo=>{ if(!labelSet.has(fo.id) || (fo._tip||Ri)<=Ri+1) return;
+    const right=Math.cos(fo.mid)>=0, p=pt(fo.mid,(fo._tip||Ri)+11), bold=fo.id===focus;
+    ctx.textAlign=right?'left':'right'; ctx.font=(bold?'700 ':'600 ')+'11px -apple-system,system-ui,sans-serif';
+    const t=fo.label.length>16?fo.label.slice(0,15)+'…':fo.label;
+    ctx.lineWidth=3; ctx.strokeStyle=cwithA(cardc,0.9); ctx.strokeText(t,p.x,p.y); ctx.fillStyle=cwithA(ink,bold?1:0.8); ctx.fillText(t,p.x,p.y); });
+  // count — total at the currently-shown point in time
+  const ideas = _chordGT>=1 ? learnedIds().length : Math.round(M.fields.reduce((s,fo)=>{ let c=0; for(let b=0;b<NB;b++){ c+=fo.bands[b]*clamp(month-b,0,1); } return s+c; },0));
+  const cE=$("chordCount"); if(cE) cE.textContent=ideas;
+}catch(e){ console.error('[clue] drawChord failed:', e); } }
+// animate the six-band growth: rings accrete outward and ribbons snap in
+function chordPlay(){ const cv=$("chordCanvas"); if(!cv||!_chordModel) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ _chordGT=1; drawChord(); return; }
+  cancelAnimationFrame(_chordRAF); _chordFocus=null; _chordGT=0; const t0=Date.now();
+  const step=()=>{ _chordGT=clamp((Date.now()-t0)/2200,0,1); drawChord(); if(_chordGT<1) _chordRAF=requestAnimationFrame(step); };
+  step();
+}
+// which field wedge (if any) a tap landed on; {clear:true} for a tap in the middle
+function chordHit(cv, ev){ if(!_chordModel||!_chordGeom) return null;
+  const rect=cv.getBoundingClientRect(), X=ev.clientX-rect.left, Y=ev.clientY-rect.top;
+  const {cx,cy,Ri,Hmax}=_chordGeom, dx=X-cx, dy=Y-cy, dist=Math.hypot(dx,dy), pa=Math.atan2(dy,dx), TAU=Math.PI*2;
+  if(dist<Ri-6) return {clear:true};
+  let best=null, bd=1e9; _chordModel.fields.forEach(fo=>{ const d=Math.abs(((pa-fo.mid+Math.PI*3)%TAU)-Math.PI); if(d<bd){bd=d;best=fo;} });
+  return (best && bd<=best.half+0.04 && dist<Ri+Hmax+16) ? {field:best.id} : null;
+}
+function chordHeroHtml(){
+  const total=learnedIds().length;
+  if(!total) return '<div class="chordhero"><div class="chordhero-empty">Learn your first cards and your web starts here — each field grows outward, band by band, and links form as you connect ideas across subjects.</div></div>';
+  const conns=Object.keys(crossFieldEdges()).length, fldN=new Set(learnedIds().map(id=>byId[id]&&byId[id].field)).size;
+  return '<div class="chordhero"><canvas id="chordCanvas"></canvas>'+
+    '<div class="chordhud"><div class="ch-n" id="chordCount">'+total+'</div><div class="ch-k">ideas learned</div>'+
+      '<div class="ch-sub">'+conns+' connection'+(conns===1?'':'s')+' · '+fldN+' field'+(fldN===1?'':'s')+'</div></div>'+
+    '<button class="ch-replay" id="chordReplay" aria-label="Replay growth"><svg width="11" height="12" viewBox="0 0 12 13" aria-hidden="true"><path d="M1 1 L11 6.5 L1 12 Z" fill="currentColor"/></svg>Replay</button>'+
+    '<div class="ch-cue">tap a field</div></div>';
+}
 function neighborsOf(id){ const c=byId[id]; if(!c) return []; return [...(c.prereq||[]),...(c.xref||[])].filter(n=>byId[n]&&n!==id); }
 function buildWebNodes(){
   const learned=new Set(learnedIds());
@@ -2450,6 +2580,7 @@ function webHtml(){
     '<div class="websearch"><input id="webSearch" type="search" inputmode="search" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Search '+KN.cards.length+' cards…"></div>'+
     '<div id="webResults" class="webresults" hidden></div>'+
     '<div id="webMain">'+
+      chordHeroHtml()+
       '<div class="webhd">Pull a thread'+(frTop.length?' <span class="webcount">· '+fr.length+' ready</span>':'')+'</div>'+frHtml+
       (due?'<button class="webdue" id="webReview">↻ Review '+due+' due card'+(due===1?'':'s')+'</button>':'')+
       '<div class="webhd webhd2">Your topics</div><div class="topics">'+topicsHtml()+'</div>'+
@@ -2492,6 +2623,16 @@ function renderWeb(){
     const ids=hits.map(c=>c.id);
     res.querySelectorAll('.wres').forEach(b=> b.onclick=()=> openFrom(b.dataset.id, ids));
   };
+  // ---- the living web: a growth chord (fields grow outward in dated rings; ribbons = shared ideas) ----
+  const cvCh=$("chordCanvas");
+  if(cvCh){
+    _chordModel=buildChordModel(); _chordFocus=null; _chordGT=1;
+    requestAnimationFrame(()=>{ drawChord(); if(!_chordAutoPlayed){ _chordAutoPlayed=true; chordPlay(); } });
+    cvCh.onclick=(ev)=>{ const h=chordHit(cvCh,ev); if(!h) return;
+      _chordFocus = h.clear ? null : (_chordFocus===h.field ? null : h.field); drawChord(); };
+    const rep=$("chordReplay"); if(rep) rep.onclick=()=> chordPlay();
+    if(!_chordResizeWired){ _chordResizeWired=true; window.addEventListener('resize', ()=>{ if($("chordCanvas")) drawChord(); }); }
+  }
 }
 
 // ================= appearance =================
