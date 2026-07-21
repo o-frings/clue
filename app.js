@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v131";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v132";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2363,7 +2363,7 @@ function drawChord(){ try{
   const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
   const css=getComputedStyle(document.documentElement);
   const ink=(css.getPropertyValue('--ink')||'#111').trim(), cardc=(css.getPropertyValue('--card')||'#fff').trim(), accent=(css.getPropertyValue('--accent')||'#e8551c').trim();
-  const cx=cssW/2, cy=cssH*0.52, rad=Math.min(cssW,cssH)/2, Ri=rad*0.34, Hmax=rad*0.40, rIn=Ri-3;
+  const cx=cssW/2, cy=cssH*0.52, rad=Math.min(cssW,cssH)/2, Ri=rad*0.30, Hmax=rad*0.34, rIn=Ri-3;   // outer ~0.36·rad kept clear for labels
   _chordGeom={cx,cy,Ri,Hmax};
   const M=_chordModel, NB=M.nb, TAU=Math.PI*2, month=_chordGT*NB, focus=_chordFocus, conn={};
   if(focus){ M.pairs.forEach(p=>{ if((p.a===focus||p.b===focus)&&p.born<=month){ conn[p.a]=1; conn[p.b]=1; } }); }
@@ -2378,8 +2378,10 @@ function drawChord(){ try{
     ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.quadraticCurveTo(cpx,cpy,B.x,B.y); ctx.strokeStyle=g; ctx.lineWidth=1+Math.min(p.w,4)*0.9; ctx.lineCap='round'; ctx.stroke(); });
   // bars: each field grows outward, banded by time (tree rings)
   M.fields.forEach(fo=>{ const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.9:0.24)) : 1; let r=Ri;
+    // √-scaled height so small fields still read as a real (not empty) spike, with a floor
+    const fh=Math.max(rad*0.035, Math.sqrt(fo.total)/Math.sqrt(M.maxLearned)*Hmax);
     for(let b=0;b<NB;b++){ const vis=clamp(month-b,0,1); if(vis<=0) break; const cnt=fo.bands[b]; if(cnt<=0) continue;
-      const dr=(cnt/M.maxLearned)*Hmax*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
+      const dr=(cnt/Math.max(1,fo.total))*fh*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
       const col=cmix(cmix(fo.color,'#000000',0.26), cmix(fo.color,'#ffffff',0.34), ageFrac);
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1,false); ctx.arc(cx,cy,r,fo.a1,fo.a0,true); ctx.closePath(); ctx.fillStyle=cwithA(col,dim); ctx.fill();
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1); ctx.strokeStyle=cwithA(cardc,0.5*dim); ctx.lineWidth=1; ctx.stroke(); r=r1; }
@@ -2387,13 +2389,15 @@ function drawChord(){ try{
     if(!focus && (fo.bands[NB-1]||0)>0 && month>=NB-0.001){ ctx.beginPath(); ctx.arc(cx,cy,r+2,fo.a0,fo.a1); ctx.strokeStyle=cwithA(accent,0.7); ctx.lineWidth=2.2; ctx.stroke(); }
   });
   // labels — the tallest few at rest, or the focused field + its neighbours
-  const labelSet= focus ? new Set([focus].concat(Object.keys(conn))) : new Set(M.fields.slice().sort((a,b)=>b.total-a.total).slice(0,12).map(f=>f.id));
+  const labelSet= focus ? new Set([focus].concat(Object.keys(conn))) : new Set(M.fields.slice().sort((a,b)=>b.total-a.total).slice(0,8).map(f=>f.id));
   ctx.textBaseline="middle";
-  M.fields.forEach(fo=>{ if(!labelSet.has(fo.id) || (fo._tip||Ri)<=Ri+1) return;
-    const right=Math.cos(fo.mid)>=0, p=pt(fo.mid,(fo._tip||Ri)+11), bold=fo.id===focus;
-    ctx.textAlign=right?'left':'right'; ctx.font=(bold?'700 ':'600 ')+'11px -apple-system,system-ui,sans-serif';
-    const t=fo.label.length>16?fo.label.slice(0,15)+'…':fo.label;
-    ctx.lineWidth=3; ctx.strokeStyle=cwithA(cardc,0.9); ctx.strokeText(t,p.x,p.y); ctx.fillStyle=cwithA(ink,bold?1:0.8); ctx.fillText(t,p.x,p.y); });
+  M.fields.forEach(fo=>{ if(!labelSet.has(fo.id)) return;
+    const bold=fo.id===focus, right=Math.cos(fo.mid)>=0, base=pt(fo.mid,(fo._tip||Ri)+11);
+    ctx.font=(bold?'700 ':'600 ')+'11px -apple-system,system-ui,sans-serif';
+    const t=fo.label.length>15?fo.label.slice(0,14)+'…':fo.label, aw=t.length*6.2;
+    let lx=base.x, ly=clamp(base.y,12,cssH-12);                                   // clamp inside the canvas so labels never overflow
+    if(right){ ctx.textAlign='left'; lx=clamp(lx,4,cssW-4-aw); } else { ctx.textAlign='right'; lx=clamp(lx,4+aw,cssW-4); }
+    ctx.lineWidth=3; ctx.strokeStyle=cwithA(cardc,0.9); ctx.strokeText(t,lx,ly); ctx.fillStyle=cwithA(ink,bold?1:0.82); ctx.fillText(t,lx,ly); });
   // count — total at the currently-shown point in time
   const ideas = _chordGT>=1 ? learnedIds().length : Math.round(M.fields.reduce((s,fo)=>{ let c=0; for(let b=0;b<NB;b++){ c+=fo.bands[b]*clamp(month-b,0,1); } return s+c; },0));
   const cE=$("chordCount"); if(cE) cE.textContent=ideas;
@@ -2627,7 +2631,7 @@ function renderWeb(){
   const cvCh=$("chordCanvas");
   if(cvCh){
     _chordModel=buildChordModel(); _chordFocus=null; _chordGT=1;
-    requestAnimationFrame(()=>{ drawChord(); if(!_chordAutoPlayed){ _chordAutoPlayed=true; chordPlay(); } });
+    requestAnimationFrame(()=>{ if(!_chordAutoPlayed){ _chordAutoPlayed=true; chordPlay(); } else drawChord(); });
     cvCh.onclick=(ev)=>{ const h=chordHit(cvCh,ev); if(!h) return;
       _chordFocus = h.clear ? null : (_chordFocus===h.field ? null : h.field); drawChord(); };
     const rep=$("chordReplay"); if(rep) rep.onclick=()=> chordPlay();
