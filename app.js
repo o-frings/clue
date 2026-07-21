@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v135";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v136";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2375,7 +2375,7 @@ function drawChord(){ try{
   const ctx=cv.getContext("2d"); ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,cssW,cssH);
   const css=getComputedStyle(document.documentElement);
   const ink=(css.getPropertyValue('--ink')||'#111').trim(), cardc=(css.getPropertyValue('--card')||'#fff').trim(), accent=(css.getPropertyValue('--accent')||'#e8551c').trim();
-  const cx=cssW/2, cy=cssH*0.52, rad=Math.min(cssW,cssH)/2, Ri=rad*0.22, Hmax=rad*0.44, rIn=Ri-3;   // small hole, tall bars, outer margin for icons
+  const cx=cssW/2, cy=cssH*0.47, rad=Math.min(cssW,cssH)/2, Ri=rad*0.22, Hmax=rad*0.44, rIn=Ri-3;   // higher centre leaves bottom room for the legend
   _chordGeom={cx,cy,Ri,Hmax};
   const M=_chordModel, NB=M.nb, TAU=Math.PI*2, month=_chordGT*NB, focus=_chordFocus, conn={};
   if(focus){ M.pairs.forEach(p=>{ if((p.a===focus||p.b===focus)&&p.born<=month){ conn[p.a]=1; conn[p.b]=1; } }); }
@@ -2389,9 +2389,14 @@ function drawChord(){ try{
     const g=ctx.createLinearGradient(A.x,A.y,B.x,B.y); g.addColorStop(0,cwithA(M.fields[p.ia].color,alpha)); g.addColorStop(1,cwithA(M.fields[p.ib].color,alpha));
     ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.quadraticCurveTo(cpx,cpy,B.x,B.y); ctx.strokeStyle=g; ctx.lineWidth=1+Math.min(p.w,4)*0.9; ctx.lineCap='round'; ctx.stroke(); });
   // bars: each field grows outward, banded by time (tree rings)
+  // ABSOLUTE height reference (cards to fill a bar) — bars stay small until you've really
+  // learned a lot in an area, instead of always filling because you divided by your own max.
+  const REF = M.level==='field' ? 16 : (M.level==='div' ? 70 : 30);
   M.fields.forEach(fo=>{ const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.9:0.24)) : 1; let r=Ri;
-    // √-scaled height so small fields still read as a real (not empty) spike, with a floor
-    const fh=Math.max(rad*0.035, Math.sqrt(fo.total)/Math.sqrt(M.maxLearned)*Hmax);
+    // faint headroom track so early (small) bars still sit inside a complete ring
+    ctx.beginPath(); ctx.arc(cx,cy,Ri+Hmax,fo.a0,fo.a1,false); ctx.arc(cx,cy,Ri,fo.a1,fo.a0,true); ctx.closePath();
+    ctx.fillStyle=cwithA(fo.color, dim*0.07); ctx.fill();
+    const fh=Math.max(rad*0.02, clamp(Math.sqrt(fo.total/REF),0,1)*Hmax);
     for(let b=0;b<NB;b++){ const vis=clamp(month-b,0,1); if(vis<=0) break; const cnt=fo.bands[b]; if(cnt<=0) continue;
       const dr=(cnt/Math.max(1,fo.total))*fh*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
       const col=cmix(cmix(fo.color,'#000000',0.22), cmix(fo.color,'#ffffff',0.34), ageFrac);
@@ -2412,7 +2417,7 @@ function drawChord(){ try{
       if(focus&&!must) return; if(!focus && it.y-lastY<15) return; lastY=it.y;
       const bold=fo.id===focus, t=shortLbl(fo.label), aw=t.length*6.0;
       ctx.font=(bold?'700 ':'600 ')+'11px -apple-system,system-ui,sans-serif';
-      let lx=it.x, ly=clamp(it.y,12,cssH-12);
+      let lx=it.x, ly=clamp(it.y,12,cssH-46);                                       // keep clear of the legend row at the bottom
       if(rightSide){ ctx.textAlign='left'; lx=clamp(lx,4,cssW-4-aw); } else { ctx.textAlign='right'; lx=clamp(lx,4+aw,cssW-4); }
       ctx.lineWidth=3; ctx.strokeStyle=cwithA(cardc,0.9); ctx.strokeText(t,lx,ly); ctx.fillStyle=cwithA(ink,bold?1:0.82); ctx.fillText(t,lx,ly); });
   });
