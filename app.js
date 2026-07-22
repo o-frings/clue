@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v140";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v141";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2323,8 +2323,9 @@ function buildChordModel(){
   const divs=divisionsPresent();
   // pick granularity so the ring never has too many bars: subfields → disciplines → divisions
   let nDisc=0; divs.forEach(v=> (v.children||[]).forEach(k=>{ if((k.fieldObjs||[]).some(f=>learned.has(f.id))) nDisc++; }));
-  // keep field-level (so cross-field ribbons survive and it matches the prototype); summarise only when truly many
-  const level = learned.size<=24 ? 'field' : (nDisc<=16 ? 'disc' : 'div');
+  // keep it coarse: group subfields into their discipline (fewer, cleaner bars). Only fall back to
+  // whole divisions if there are a great many disciplines. (Discipline level keeps cross-links visible.)
+  const level = nDisc<=18 ? 'disc' : 'div';
   // build units (one bar each), grouped by division and coloured by division (preview-style)
   const units=[], divisions=[], covered=new Set(); let di=0;
   divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
@@ -2393,11 +2394,13 @@ function drawChord(){ try{
   // bars: each field grows outward, banded by time (tree rings)
   // ABSOLUTE height reference (cards to fill a bar) — bars stay small until you've really
   // learned a lot in an area, instead of always filling because you divided by your own max.
-  // bars: each field grows outward, banded by month (tree rings). Height ∝ learned relative to your
-  // biggest area (prototype) — so the deepest fields are the tall spikes.
+  // bars: each field grows outward, banded by month (tree rings). Height is ABSOLUTE — cards learned
+  // vs a fixed "deep" reference — so one card is a shallow stub and bars grow only as you go deep.
+  const REF = M.level==='field' ? 25 : (M.level==='div' ? 90 : 45);
   M.fields.forEach(fo=>{ const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.92:0.24)) : 1; let r=Ri;
+    const fh=Math.max(rad*0.025, clamp(Math.sqrt(fo.total/REF),0,1)*Hmax);
     for(let b=0;b<NB;b++){ const vis=clamp(month-b,0,1); if(vis<=0) break; const cnt=fo.bands[b]; if(cnt<=0) continue;
-      const dr=(cnt/M.maxLearned)*Hmax*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
+      const dr=(cnt/Math.max(1,fo.total))*fh*vis, r1=r+dr, ageFrac=NB>1?b/(NB-1):1;
       const col=cmix(cmix(fo.color,'#000000',0.26), cmix(fo.color,'#ffffff',0.34), ageFrac);
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1,false); ctx.arc(cx,cy,r,fo.a1,fo.a0,true); ctx.closePath(); ctx.fillStyle=cwithA(col,dim); ctx.fill();
       ctx.beginPath(); ctx.arc(cx,cy,r1,fo.a0,fo.a1); ctx.strokeStyle=cwithA(cardc,0.5*dim); ctx.lineWidth=1; ctx.stroke(); r=r1; }
