@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v138";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v139";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2323,7 +2323,8 @@ function buildChordModel(){
   const divs=divisionsPresent();
   // pick granularity so the ring never has too many bars: subfields → disciplines → divisions
   let nDisc=0; divs.forEach(v=> (v.children||[]).forEach(k=>{ if((k.fieldObjs||[]).some(f=>learned.has(f.id))) nDisc++; }));
-  const level = learned.size<=8 ? 'field' : (nDisc<=8 ? 'disc' : 'div');   // aim for a few strong bars, not many
+  // keep field-level (so cross-field ribbons survive and it matches the prototype); summarise only when truly many
+  const level = learned.size<=24 ? 'field' : (nDisc<=16 ? 'disc' : 'div');
   // build units (one bar each), grouped by division and coloured by division (preview-style)
   const units=[], divisions=[], covered=new Set(); let di=0;
   divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
@@ -2349,11 +2350,13 @@ function buildChordModel(){
   U.forEach((u,ui)=>{ const cards=unitCards(u), bands=new Array(CHORD_NB).fill(0); cards.forEach(c=>{ bands[bucket(learnTime(c.id))]++; });
     let fb=CHORD_NB-1; for(let b=0;b<CHORD_NB;b++){ if(bands[b]>0){ fb=b; break; } }
     u.bands=bands; u.firstBucket=fb; u.total=cards.length; if(cards.length>maxLearned) maxLearned=cards.length; u.fieldIds.forEach(fid=>f2u[fid]=ui); });
-  // angular slots grouped by division
-  const nU=U.length, TAU=Math.PI*2, ST=-Math.PI/2, GG=0.10, FG=0.02;
-  const nDivP=new Set(U.map(u=>u.div)).size, gaps=nDivP*GG+Math.max(0,nU-nDivP)*FG, avail=Math.max(0.5,TAU-gaps), sp=avail/Math.max(1,nU);
-  let ang=ST, prevDiv=null; U.forEach(u=>{ if(prevDiv!==null&&u.div!==prevDiv) ang+=GG; else if(prevDiv!==null) ang+=FG;
-    u.a0=ang; u.a1=ang+sp; u.mid=ang+sp/2; u.half=sp/2; ang=u.a1; prevDiv=u.div; });
+  // angular slots grouped by division — each wedge's WIDTH ∝ its share of what you've learned
+  const nU=U.length, TAU=Math.PI*2, ST=-Math.PI/2, GG=0.08, FG=0.015;
+  const nDivP=new Set(U.map(u=>u.div)).size, gaps=nDivP*GG+Math.max(0,nU-nDivP)*FG, avail=Math.max(0.5,TAU-gaps);
+  const sumT=U.reduce((s,u)=>s+u.total,0)||1;
+  let raw=U.map(u=>Math.max(u.total/sumT, 0.25/nU)); const rsum=raw.reduce((s,x)=>s+x,0)||1; raw=raw.map(x=>x/rsum);   // share, with a floor so small areas stay tappable
+  let ang=ST, prevDiv=null; U.forEach((u,i)=>{ if(prevDiv!==null&&u.div!==prevDiv) ang+=GG; else if(prevDiv!==null) ang+=FG;
+    const sp=raw[i]*avail; u.a0=ang; u.a1=ang+sp; u.mid=ang+sp/2; u.half=sp/2; ang=u.a1; prevDiv=u.div; });
   // ribbons: aggregate cross-field links up to the chosen unit level
   const wmap=crossFieldEdges(), pm={};
   Object.keys(wmap).forEach(k=>{ const ab=k.split('|'), ua=f2u[ab[0]], ub=f2u[ab[1]]; if(ua==null||ub==null||ua===ub) return;
