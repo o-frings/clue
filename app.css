@@ -545,7 +545,8 @@
     padding:7px 12px; border-radius:999px; -webkit-tap-highlight-color:transparent; }
   .ch-replay:active{ transform:translateY(1px); }
   .ch-cue{ position:absolute; right:16px; top:52px; font-size:11px; font-weight:600; color:var(--l3); pointer-events:none; }
-  .ch-legend{ position:absolute; left:14px; right:14px; bottom:12px; display:flex; flex-wrap:wrap; gap:10px 14px; pointer-events:none; }
+  .ch-legend{ display:flex; flex-wrap:wrap; gap:9px 14px; padding:4px 16px 16px; }
+  .ch-legend:empty{ display:none; }
   .ch-legend span{ display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:650; color:var(--l2); }
   .ch-legend i{ width:9px; height:9px; border-radius:2px; flex:0 0 auto; }
   .chordhero-empty{ display:flex; align-items:center; justify-content:center; min-height:220px; padding:28px 32px;
