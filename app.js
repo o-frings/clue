@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v137";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v138";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -2315,21 +2315,19 @@ const CHORD_NB=6;                                   // time is split into 6 band
 function learnTime(id){ const p=progress[id]; if(!p) return Date.now(); return p.seen || p.last || Date.now(); }
 // Build the growth-chord model: fields on a ring (grouped by division), each a stack of dated
 // bands (oldest inside), plus cross-field ribbons. Capped for legibility + iOS memory.
-const CHORD_PAL=['#e8551c','#d99a2b','#3f8f7c','#4a72c0','#c0577f','#6a9a3f','#9b6bd6','#c78b4a','#4bb0c9','#cf5030'];
+// distinct, vivid hues from the app's Open-Color palette, ordered so neighbours contrast
+const CHORD_PAL=['#1c7ed6','#e8590c','#2f9e44','#9c36b5','#0ca678','#e03131','#f08c00','#1098ad','#c2255c','#3b5bdb'];
 function buildChordModel(){
   const learned=new Set((KN.fields||[]).filter(f=>learnedInField(f.id)>0).map(f=>f.id));
   if(!learned.size) return null;
   const divs=divisionsPresent();
   // pick granularity so the ring never has too many bars: subfields → disciplines → divisions
   let nDisc=0; divs.forEach(v=> (v.children||[]).forEach(k=>{ if((k.fieldObjs||[]).some(f=>learned.has(f.id))) nDisc++; }));
-  const level = learned.size<=12 ? 'field' : (nDisc<=18 ? 'disc' : 'div');
+  const level = learned.size<=8 ? 'field' : (nDisc<=8 ? 'disc' : 'div');   // aim for a few strong bars, not many
   // build units (one bar each), grouped by division and coloured by division (preview-style)
   const units=[], divisions=[], covered=new Set(); let di=0;
   divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
-    // colour each division with a real app field colour (its most-learned field) so the ring
-    // matches the hues used on the field/thread cards elsewhere in the app
-    let rep=null, repN=-1; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ const n=learnedInField(f.id); if(n>repN){ repN=n; rep=f; } } }));
-    const col=(rep&&rep.color)?rep.color.trim():CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
+    const col=CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
     if(level==='div'){ const ids=[]; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ ids.push(f.id); covered.add(f.id); } }));
       units.push({id:'d:'+v.id, label:v.label, color:col, div:v.id, fieldIds:ids}); }
     else if(level==='disc'){ (v.children||[]).forEach(k=>{ const ids=(k.fieldObjs||[]).filter(f=>learned.has(f.id)).map(f=>f.id); if(!ids.length) return;
@@ -2394,7 +2392,7 @@ function drawChord(){ try{
   // bars: each field grows outward, banded by time (tree rings)
   // ABSOLUTE height reference (cards to fill a bar) — bars stay small until you've really
   // learned a lot in an area, instead of always filling because you divided by your own max.
-  const REF = M.level==='field' ? 16 : (M.level==='div' ? 70 : 30);
+  const REF = M.level==='field' ? 14 : (M.level==='div' ? 45 : 24);
   M.fields.forEach(fo=>{ const dim= focus ? (fo.id===focus?1:(conn[fo.id]?0.9:0.24)) : 1; let r=Ri;
     // faint headroom track so early (small) bars still sit inside a complete ring
     ctx.beginPath(); ctx.arc(cx,cy,Ri+Hmax,fo.a0,fo.a1,false); ctx.arc(cx,cy,Ri,fo.a1,fo.a0,true); ctx.closePath();
@@ -2659,7 +2657,7 @@ function renderWeb(){
   if(cvCh){
     _chordModel=buildChordModel(); _chordFocus=null; _chordGT=1;
     const leg=$("chordLegend");
-    if(leg && _chordModel){ leg.innerHTML=(_chordModel.divisions||[]).map(d=>'<span><i style="background:'+d.color+'"></i>'+esc(d.label)+'</span>').join(''); }
+    if(leg && _chordModel){ leg.innerHTML=(_chordModel.level==='div') ? '' : (_chordModel.divisions||[]).map(d=>'<span><i style="background:'+d.color+'"></i>'+esc(d.label)+'</span>').join(''); }
     requestAnimationFrame(()=>{ if(!_chordAutoPlayed){ _chordAutoPlayed=true; chordPlay(); } else drawChord(); });
     cvCh.onclick=(ev)=>{ const h=chordHit(cvCh,ev); if(!h) return;
       _chordFocus = h.clear ? null : (_chordFocus===h.field ? null : h.field); drawChord();
