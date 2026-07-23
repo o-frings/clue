@@ -101,15 +101,18 @@
   #pager .page, .sheetbody{ scrollbar-width:none; -ms-overflow-style:none; }
   #pager .page::-webkit-scrollbar, .sheetbody::-webkit-scrollbar{ width:0; height:0; display:none; }
   .tabbar{ position:absolute; left:0; right:0; bottom:0; z-index:50; display:flex; align-items:center;
-    padding:12px 8px calc(12px + env(safe-area-inset-bottom)); border-top:.5px solid var(--sep);
+    padding:9px 8px calc(9px + env(safe-area-inset-bottom)); border-top:.5px solid var(--sep);
     background:color-mix(in srgb, var(--bg) 88%, transparent);
     transition:transform .3s cubic-bezier(.4,0,.2,1); will-change:transform; }
-  .tabitem{ flex:1; display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer;
+  .tabitem{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; background:none; border:none; cursor:pointer;
     color:var(--l3); transition:color .15s; -webkit-tap-highlight-color:transparent; }
-  .tabitem svg{ width:30px; height:30px; transition:transform .12s; }
-  .tabitem span{ display:none; }
+  .tabitem svg{ width:26px; height:26px; transition:transform .12s; }
+  .tabitem span{ display:block; font-size:10px; font-weight:600; letter-spacing:.01em; }
   .tabitem.active{ color:var(--accent); }
-  .tabitem:active svg{ transform:scale(.86); }
+  .tabitem .on{ display:none; }              /* active tab fills in (weight, not just tint) */
+  .tabitem.active .off{ display:none; }
+  .tabitem.active .on{ display:block; }
+  .tabitem:active svg{ transform:scale(.9); }
   body.kb .tabbar{ display:none; }
 
   /* ===== cards / blocks ===== */
