@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v141";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v142";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -411,6 +411,9 @@ const TAXONOMY = [
 ];
 const divisionById={}, disciplineById={}, _discDiv={};
 TAXONOMY.forEach(v=>{ divisionById[v.id]=v; (v.disciplines||[]).forEach(d=>{ disciplineById[d.id]=d; _discDiv[d.id]=v; }); });
+// one canonical colour per division — shared by the web graph AND the topic list so the app reads as one palette
+const DIVCOLORS={ formal:'#1c7ed6', natural:'#2f9e44', computing:'#7048e8', social:'#e8590c', humanities:'#e64980', applied:'#0ca678', fun:'#f59f00', _other:'#868e96' };
+function divColor(id){ return DIVCOLORS[id]||'#868e96'; }
 function disciplineOf(fid){ for(const d of Object.values(disciplineById)){ if(d.fields.includes(fid)) return d; } return null; }
 function divisionOf(fid){ const d=disciplineOf(fid); return d?_discDiv[d.id]:null; }
 function groupOf(fid){ return divisionOf(fid); }            // back-compat alias → division
@@ -2315,8 +2318,6 @@ const CHORD_NB=6;                                   // time is split into 6 band
 function learnTime(id){ const p=progress[id]; if(!p) return Date.now(); return p.seen || p.last || Date.now(); }
 // Build the growth-chord model: fields on a ring (grouped by division), each a stack of dated
 // bands (oldest inside), plus cross-field ribbons. Capped for legibility + iOS memory.
-// distinct, vivid hues from the app's Open-Color palette, ordered so neighbours contrast
-const CHORD_PAL=['#1c7ed6','#e8590c','#2f9e44','#9c36b5','#0ca678','#e03131','#f08c00','#1098ad','#c2255c','#3b5bdb'];
 function buildChordModel(){
   const learned=new Set((KN.fields||[]).filter(f=>learnedInField(f.id)>0).map(f=>f.id));
   if(!learned.size) return null;
@@ -2327,9 +2328,9 @@ function buildChordModel(){
   // whole divisions if there are a great many disciplines. (Discipline level keeps cross-links visible.)
   const level = nDisc<=18 ? 'disc' : 'div';
   // build units (one bar each), grouped by division and coloured by division (preview-style)
-  const units=[], divisions=[], covered=new Set(); let di=0;
+  const units=[], divisions=[], covered=new Set();
   divs.forEach(v=>{ if(!(v.children||[]).some(k=>(k.fieldObjs||[]).some(f=>learned.has(f.id)))) return;
-    const col=CHORD_PAL[di%CHORD_PAL.length]; divisions.push({id:v.id,label:v.label,color:col}); di++;
+    const col=divColor(v.id); divisions.push({id:v.id,label:v.label,color:col});
     if(level==='div'){ const ids=[]; (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ ids.push(f.id); covered.add(f.id); } }));
       units.push({id:'d:'+v.id, label:v.label, color:col, div:v.id, fieldIds:ids}); }
     else if(level==='disc'){ (v.children||[]).forEach(k=>{ const ids=(k.fieldObjs||[]).filter(f=>learned.has(f.id)).map(f=>f.id); if(!ids.length) return;
@@ -2337,9 +2338,9 @@ function buildChordModel(){
     else { (v.children||[]).forEach(k=>(k.fieldObjs||[]).forEach(f=>{ if(learned.has(f.id)){ covered.add(f.id); units.push({id:'f:'+f.id, label:f.label||f.id, color:col, div:v.id, fieldIds:[f.id]}); } })); }
   });
   const orphans=[...learned].filter(id=>!covered.has(id));
-  if(orphans.length){ divisions.push({id:'_other',label:'Other',color:'#8a8f98'});
-    if(level==='field') orphans.forEach(id=>{ const f=fieldById[id]||{}; units.push({id:'f:'+id,label:f.label||id,color:'#8a8f98',div:'_other',fieldIds:[id]}); });
-    else units.push({id:'other',label:'Other',color:'#8a8f98',div:'_other',fieldIds:orphans}); }
+  if(orphans.length){ const oc=divColor('_other'); divisions.push({id:'_other',label:'Other',color:oc});
+    if(level==='field') orphans.forEach(id=>{ const f=fieldById[id]||{}; units.push({id:'f:'+id,label:f.label||id,color:oc,div:'_other',fieldIds:[id]}); });
+    else units.push({id:'other',label:'Other',color:oc,div:'_other',fieldIds:orphans}); }
   const unitCards=u=>{ const out=[]; u.fieldIds.forEach(fid=>(byField[fid]||[]).forEach(c=>{ if(isLearned(c.id)) out.push(c); })); return out; };
   let U=units; if(U.length>40) U=U.slice().sort((a,b)=>unitCards(b).length-unitCards(a).length).slice(0,40);
   // time window across everything learned
@@ -2585,7 +2586,7 @@ function topicFieldsHtml(gid){
 }
 function topicsHtml(){
   return divisionsPresent().map(g=>{ const a=divisionAgg(g); const pct=a.total?Math.round(a.done/a.total*100):0;
-    return '<div class="topic" data-g="'+g.id+'">'+
+    return '<div class="topic" data-g="'+g.id+'" style="--dc:'+divColor(g.id)+'">'+
       '<button class="topic-hd"><span class="topic-ic">'+esc(g.icon||'')+'</span>'+
         '<span class="topic-main"><span class="topic-lab">'+esc(g.label)+'</span>'+
           '<span class="topic-bar"><i style="width:'+Math.max(pct,2)+'%"></i></span></span>'+

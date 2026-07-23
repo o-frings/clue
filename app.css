@@ -605,11 +605,11 @@
   .topic{ background:var(--card); border:.5px solid var(--line); border-radius:14px; overflow:hidden; }
   .topic-hd{ display:flex; align-items:center; gap:11px; width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:13px; }
   .topic-hd:active{ opacity:.6; }
-  .topic-ic{ flex:0 0 auto; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:17px; border-radius:9px; background:var(--accent-soft); }
+  .topic-ic{ flex:0 0 auto; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:17px; border-radius:9px; background:color-mix(in srgb, var(--dc, var(--accent)) 18%, transparent); }
   .topic-main{ flex:1; min-width:0; }
   .topic-lab{ display:block; font-size:15.5px; font-weight:700; color:var(--ink); letter-spacing:-.2px; }
   .topic-bar{ display:block; height:5px; border-radius:3px; background:var(--track); overflow:hidden; margin-top:7px; }
-  .topic-bar i{ display:block; height:100%; border-radius:3px; background:var(--grad); }
+  .topic-bar i{ display:block; height:100%; border-radius:3px; background:var(--dc, var(--grad)); }
   .topic .fp-chev{ flex:0 0 auto; color:var(--l3); font-size:20px; line-height:1; transition:transform .18s; }
   .topic.open .fp-chev{ transform:rotate(90deg); }
   .topic-body{ padding:0 9px 10px; display:flex; flex-direction:column; gap:7px; }
