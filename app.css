@@ -185,7 +185,7 @@
   /* ===== panels (Me dashboards) ===== */
   .panel{ background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); overflow:hidden; margin-bottom:var(--sp-4); box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); }
   .panelhd{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px 4px; }
-  .panelt{ display:flex; align-items:center; gap:8px; font-size:16px; font-weight:650; letter-spacing:-.2px; }
+  .panelt{ display:flex; align-items:center; gap:8px; font-size:var(--fs-headline); font-weight:var(--fw-med); letter-spacing:var(--tr-headline); }
   .panelt svg{ width:19px; height:19px; color:var(--accent); }
   .panelfoot{ padding:6px 18px 16px; font-size:13px; color:var(--l2); line-height:1.4; }
   /* feed status toggle (matches Yalla's segmented control) */
@@ -205,7 +205,7 @@
   .fieldrow .frbar i{ display:block; height:100%; border-radius:3px; background:var(--fc); }
 
   .insight{ border:.5px solid var(--line); border-left-width:3px; border-radius:12px; padding:16px; background:var(--card); }
-  .insight .ititle{ font-size:15px; font-weight:700; letter-spacing:-.2px; }
+  .insight .ititle{ font-size:15px; font-weight:var(--fw-med); letter-spacing:var(--tr-headline); }
   .insight .itext{ font-size:15px; color:var(--l2); line-height:1.5; margin-top:8px; }
 
   .profcard{ display:flex; align-items:center; gap:14px; padding:16px; background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); margin-bottom:var(--sp-4); box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); cursor:pointer; transition:opacity .12s; }
@@ -352,7 +352,7 @@
   .streakring .srn{ font-size:28px; font-weight:800; letter-spacing:-1px; line-height:1; }
   .streakring .srk{ font-size:10px; font-weight:700; color:var(--l2); text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
   .streakinfo{ flex:1; min-width:0; }
-  .streakinfo .sit{ font-size:17px; font-weight:700; letter-spacing:-.3px; }
+  .streakinfo .sit{ font-size:var(--fs-headline); font-weight:var(--fw-med); letter-spacing:var(--tr-headline); }
   .streakinfo .sis{ font-size:14px; color:var(--l2); margin-top:4px; line-height:1.4; }
 
   .daytiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-2); margin-bottom:var(--sp-4); }
@@ -362,8 +362,8 @@
   .daytile .dtk{ font-size:11px; color:var(--l2); margin-top:4px; font-weight:600; }
 
   .fotd{ border-left:3px solid var(--accent); }
-  .fotd .fk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--accent); }
-  .fotd .ft{ font-size:17px; font-weight:650; line-height:1.4; margin-top:8px; }
+  .fotd .fk{ font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--accent); }
+  .fotd .ft{ font-size:var(--fs-headline); font-weight:var(--fw-med); line-height:1.4; margin-top:8px; }
   .fotd .fm{ font-size:13px; color:var(--l2); margin-top:10px; }
 
   /* recently learned list */
@@ -381,7 +381,7 @@
   .libcard:active{ transform:scale(.99); }
   .libcard .lcdot{ width:10px; height:10px; border-radius:50%; flex:0 0 auto; }
   .libcard .lcinfo{ flex:1; min-width:0; }
-  .libcard .lctitle{ font-size:15px; font-weight:650; line-height:1.25; }
+  .libcard .lctitle{ font-size:15px; font-weight:var(--fw-med); line-height:1.25; }
   .libcard .lcmeta{ font-size:12px; color:var(--l2); margin-top:3px; }
   .libcard .lcstate{ flex:0 0 auto; font-size:11px; font-weight:700; padding:4px 9px; border-radius:10px; }
   .libcard .lcstate.new{ background:var(--accent-soft); color:var(--accent); }
@@ -395,8 +395,8 @@
      DEBATE mode
      ========================================================================= */
   .motioncard{ background:var(--grad); color:#fff; border-radius:var(--r-lg); padding:22px 20px; margin-bottom:var(--sp-4); box-shadow:0 14px 36px -16px var(--accent-glow); }
-  .motioncard .mk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; opacity:.85; }
-  .motioncard .mt{ font-size:21px; font-weight:750; letter-spacing:-.4px; line-height:1.3; margin-top:8px; }
+  .motioncard .mk{ font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); opacity:.85; }
+  .motioncard .mt{ font-size:var(--fs-title); font-weight:var(--fw-med); letter-spacing:var(--tr-title); line-height:1.3; margin-top:8px; }
   .motionpick{ display:flex; align-items:flex-start; gap:12px; padding:16px; background:var(--row); border:.5px solid var(--line); border-radius:var(--r-md); margin-bottom:var(--sp-2); cursor:pointer; transition:transform .12s, background .15s; }
   .motionpick:active{ transform:scale(.99); background:var(--accent-soft); }
   .motionpick .mpt{ flex:1; font-size:16px; font-weight:600; line-height:1.35; }
@@ -535,7 +535,7 @@
     background:var(--card); border:.5px solid var(--line); border-radius:12px; padding:12px 14px; cursor:pointer; transition:opacity .12s; }
   .wres:active{ opacity:.6; }
   .wres-t{ font-size:15px; font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .wres-f{ flex:0 0 auto; font-size:11px; font-weight:700; color:var(--fc,#888); }
+  .wres-f{ flex:0 0 auto; font-size:11px; font-weight:var(--fw-med); color:var(--fc,#888); }
   .wres.learned .wres-t{ color:var(--l2); }
   .wres.locked{ opacity:.5; }
 
@@ -560,7 +560,7 @@
   .chordhero-empty{ display:flex; align-items:center; justify-content:center; min-height:220px; padding:28px 32px;
     text-align:center; font-size:14px; color:var(--l2); line-height:1.55; }
 
-  .webhd{ font-size:13px; font-weight:800; letter-spacing:.3px; text-transform:uppercase; color:var(--l3); margin:0 0 10px; }
+  .webhd{ font-size:var(--fs-label); font-weight:var(--fw-med); letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--l3); margin:0 0 10px; }
   .webhd2{ margin-top:20px; }
   .webcount{ color:var(--accent); font-weight:700; text-transform:none; letter-spacing:0; }
 
@@ -570,10 +570,10 @@
     background:var(--card); border:.5px solid var(--line); border-left:3px solid var(--fc,#888); border-radius:14px;
     padding:12px 13px; box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); transition:transform .1s, opacity .12s; }
   .fcx:active{ transform:scale(.98); opacity:.85; }
-  .fcx-field{ font-size:11px; font-weight:800; color:var(--fc,#888); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .fcx-title{ font-size:15px; font-weight:700; line-height:1.25; color:var(--ink); }
+  .fcx-field{ font-size:11px; font-weight:var(--fw-med); color:var(--fc,#888); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .fcx-title{ font-size:15px; font-weight:var(--fw-med); line-height:1.25; color:var(--ink); }
   .fcx-builds{ margin-top:auto; font-size:11.5px; color:var(--l3); line-height:1.3; }
-  .fcx-builds b{ color:var(--l2); font-weight:700; }
+  .fcx-builds b{ color:var(--l2); font-weight:var(--fw-med); }
   @media (max-width:340px){ .frontier{ grid-template-columns:1fr; } }
 
   .webdue{ display:block; width:100%; margin-top:12px; background:var(--accent-soft); color:var(--accent); border:none;
@@ -625,14 +625,14 @@
   /* discipline sub-header inside an expanded division (Library) */
   .topsub{ display:flex; align-items:center; gap:8px; padding:6px 4px 1px; }
   .topsub .tsub-ic{ font-size:12px; }
-  .topsub .tsub-lab{ flex:1; font-size:11px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--l3); }
+  .topsub .tsub-lab{ flex:1; font-size:11px; font-weight:var(--fw-med); letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--l3); }
   .topsub .tsub-num{ font-size:11px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
 
   /* domain headers on the You page degree list */
   .degroup{ margin-bottom:6px; }
   .degroup-hd{ display:flex; align-items:center; gap:9px; padding:14px 2px 7px; }
   .degroup-hd .dgh-ic{ font-size:14px; }
-  .degroup-hd .dgh-lab{ flex:1; font-size:12px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:var(--l3); }
+  .degroup-hd .dgh-lab{ flex:1; font-size:var(--fs-label); font-weight:var(--fw-med); letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--l3); }
   .degroup-hd .dgh-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
   .degroup:first-child .degroup-hd{ padding-top:2px; }
   /* discipline sub-header within a division (You page degree list) */
@@ -646,7 +646,7 @@
     padding:14px 4px 8px; }
   .fsgroup:active{ opacity:.6; }
   .fsgroup .fsg-ic{ font-size:15px; }
-  .fsgroup .fsg-lab{ flex:1; font-size:13px; font-weight:800; letter-spacing:.3px; text-transform:uppercase; color:var(--l2); }
+  .fsgroup .fsg-lab{ flex:1; font-size:var(--fs-label); font-weight:var(--fw-med); letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--l2); }
   .fsgroup .fsg-num{ font-size:12px; font-weight:700; color:var(--l3); font-variant-numeric:tabular-nums; }
   .fsgroup .fsg-go{ color:var(--l3); font-size:18px; }
   /* discipline sub-header (indented) inside a division in the Fields sheet */
@@ -774,31 +774,31 @@
   .fcard:active{ transform:scale(.985); }
   .fcard::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--fc,var(--accent)); }
   .fctop{ display:flex; align-items:center; gap:8px; margin-bottom:9px; }
-  .fcfield{ font-size:12px; font-weight:800; color:var(--fc,var(--accent)); letter-spacing:.1px; }
+  .fcfield{ font-size:var(--fs-label); font-weight:var(--fw-med); color:var(--fc,var(--accent)); letter-spacing:0; }
   /* feed quiz item: looks like a card, no loud banner — a quiet inline retrieval prompt */
   .fqitem{ display:block; width:100%; background:var(--card); border:.5px solid var(--line); border-radius:20px;
     padding:18px 18px 16px; margin-bottom:var(--sp-4); position:relative; overflow:hidden;
     box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); color:var(--ink); }
   .fqitem::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--fc,var(--accent)); opacity:.5; }
-  .fqhint{ margin-left:auto; font-size:10.5px; font-weight:700; color:var(--l3); letter-spacing:.2px; }
-  .fqq{ font-size:18px; font-weight:700; letter-spacing:-.3px; line-height:1.28; margin-bottom:14px; }
+  .fqhint{ margin-left:auto; font-size:10.5px; font-weight:600; color:var(--l3); letter-spacing:.2px; }
+  .fqq{ font-size:18px; font-weight:var(--fw-med); letter-spacing:var(--tr-headline); line-height:1.28; margin-bottom:var(--sp-4); }
   .fqitem .quizopt{ font-size:15px; padding:13px 15px; }
   .fqopen{ display:block; width:100%; text-align:left; margin-top:13px; background:none; border:none; padding:0;
     font-family:inherit; font-size:13px; font-weight:700; color:var(--l2); cursor:pointer; }
   .fqopen:active{ opacity:.6; }
-  .fctag{ font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--l3);
+  .fctag{ font-size:9.5px; font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:.6px; color:var(--l3);
     border:.5px solid var(--line); border-radius:8px; padding:3px 7px; }
   .fcsaved{ margin-left:auto; font-size:14px; }
-  .fctitle{ font-size:19px; font-weight:750; letter-spacing:-.4px; line-height:1.2; }
-  .fchook{ font-size:15px; color:var(--l2); line-height:1.46; margin-top:7px; }
-  .fcdate{ display:inline-block; margin:4px 0 2px; font-size:13px; font-weight:800; letter-spacing:.2px; color:var(--fc,var(--accent)); }
+  .fctitle{ font-size:19px; font-weight:var(--fw-med); letter-spacing:var(--tr-title); line-height:1.2; }
+  .fchook{ font-size:var(--fs-callout); color:var(--l2); line-height:1.46; margin-top:7px; }
+  .fcdate{ display:inline-block; margin:4px 0 2px; font-size:var(--fs-foot); font-weight:var(--fw-med); letter-spacing:.2px; color:var(--fc,var(--accent)); }
   .fcard.feat .fcdate{ color:rgba(255,255,255,.96); }
   .fcard.islocked{ opacity:.66; }
   .fclock{ display:flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:600; color:var(--l3); }
   .fclock svg{ width:13px; height:13px; flex:0 0 auto; }
   .fcard.feat .fclock{ color:rgba(255,255,255,.9); }
   .fcfoot{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
-  .fcdepth{ font-size:12px; font-weight:800; color:var(--fc,var(--accent)); }
+  .fcdepth{ font-size:12px; font-weight:var(--fw-med); color:var(--fc,var(--accent)); }
   .fcstate{ font-size:11px; font-weight:700; padding:4px 9px; border-radius:10px; }
   .fcstate.new{ background:var(--accent-soft); color:var(--accent); }
   .fcstate.learned{ background:rgba(47,158,68,.16); color:var(--green); }
@@ -841,9 +841,9 @@
   .readerBody{ flex:1 1 auto; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
     padding:4px 22px 24px; scrollbar-width:none; }
   .readerBody::-webkit-scrollbar{ display:none; }
-  .rdField{ display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:800;
-    color:var(--fc,var(--accent)); letter-spacing:.1px; }
-  .rddate{ font-size:40px; font-weight:800; letter-spacing:-1.4px; line-height:1; color:var(--fc,var(--accent)); margin:14px 0 2px; }
+  .rdField{ display:inline-flex; align-items:center; gap:6px; font-size:var(--fs-label); font-weight:var(--fw-med);
+    text-transform:uppercase; color:var(--fc,var(--accent)); letter-spacing:var(--tr-label); }
+  .rddate{ font-size:40px; font-weight:var(--fw-bold); letter-spacing:-1.4px; line-height:1; color:var(--fc,var(--accent)); margin:14px 0 2px; }
   .rdTitle{ font-size:28px; font-weight:720; letter-spacing:-.7px; line-height:1.14; margin:10px 0 4px; }
   .rdLayer{ animation:fadeup .32s ease both; padding-top:16px; border-top:.5px solid var(--sep); margin-top:16px; }
   .rdLayer:first-of-type{ border-top:none; margin-top:10px; padding-top:6px; }
@@ -890,7 +890,7 @@
   @media (prefers-reduced-motion: reduce){ .kviz .kvizbtn{ transition:none; } }
   /* cross-reference web: "Builds on" / "Connects to" chips */
   .rdrelblock{ margin-top:18px; }
-  .rdrelh{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin-bottom:9px; }
+  .rdrelh{ font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--l3); margin-bottom:9px; }
   .rdrelrow{ display:flex; flex-wrap:wrap; gap:8px; }
   .rdrel{ display:inline-flex; align-items:center; gap:6px; max-width:100%; padding:9px 13px; border-radius:13px; cursor:pointer;
     font-size:14px; font-weight:600; text-align:left; color:var(--ink); font-family:inherit;
