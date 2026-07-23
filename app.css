@@ -20,9 +20,14 @@
     --accent-glow:rgba(255,90,40,.40);
     --red:#ff3b30; --green:#2f9e44; --blue:#1d72c2;
     --r-lg:22px; --r-md:14px; --r-sm:10px;
-    /* one spacing scale — every margin/padding routes through these */
-    --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:28px;
+    /* one spacing scale — every margin/padding routes through these seven steps */
+    --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px;
     --gutter:var(--sp-4);   /* page horizontal inset + block rhythm */
+    /* ---- type system: eight roles, three weights (theme-independent, inherited into dark) ---- */
+    --fw-reg:400; --fw-med:600; --fw-bold:700;
+    --fs-display:31px; --fs-title:21px; --fs-headline:17px; --fs-body:16px; --fs-callout:15px; --fs-foot:13px; --fs-label:12px;
+    --lh-display:1.05; --lh-title:1.18; --lh-headline:1.3; --lh-body:1.6;
+    --tr-display:-.02em; --tr-title:-.015em; --tr-headline:-.01em; --tr-label:.1em;
   }
   html.dark{
     color-scheme: dark;
@@ -78,7 +83,7 @@
   .titleBtn{ cursor:pointer; -webkit-tap-highlight-color:transparent; }
   .titleBtn:active{ opacity:.6; }
   .titleBtn .tchev{ width:22px; height:22px; color:var(--l3); vertical-align:-3px; margin-left:4px; }
-  .largeTitle{ font-size:30px; font-weight:700; letter-spacing:-.5px; padding: calc(env(safe-area-inset-top) + 14px) 0 16px; }
+  .largeTitle{ font-size:var(--fs-display); font-weight:var(--fw-bold); letter-spacing:var(--tr-display); line-height:var(--lh-display); padding: calc(env(safe-area-inset-top) + 14px) 0 16px; }
   .largeTitle .ltmain{ display:flex; align-items:center; gap:12px; }
   .largeTitle .ltmain .titleBtn{ flex:1; min-width:0; line-height:1.08; }
   .largeTitle .ltmain .iconbtn{ flex:0 0 auto; align-self:flex-start; margin-top:2px; }
@@ -119,12 +124,12 @@
   .group{ background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); overflow:hidden; margin-bottom:var(--sp-4); box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); }
   .pad{ padding:20px; }
   .row{ display:flex; gap:10px; }
-  .ed-label{ font-size:12px; color:var(--l3); font-weight:700; text-transform:uppercase; letter-spacing:.6px; margin:var(--sp-5) 0 var(--sp-2); }
+  .ed-label{ font-size:var(--fs-label); color:var(--l3); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); margin:var(--sp-5) 0 var(--sp-2); }
   .subhint{ font-weight:500; color:var(--l3); }
-  .mezone{ font-size:13px; font-weight:700; color:var(--l2); text-transform:uppercase; letter-spacing:.4px; margin:28px 2px 12px; padding-bottom:8px; border-bottom:.5px solid var(--line); }
+  .mezone{ font-size:var(--fs-label); font-weight:var(--fw-med); color:var(--l2); text-transform:uppercase; letter-spacing:var(--tr-label); margin:var(--sp-6) 2px var(--sp-3); padding-bottom:var(--sp-2); border-bottom:.5px solid var(--line); }
   .mezone:first-child{ margin-top:4px; }
-  .ovk{ font-size:12px; color:var(--l3); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
-  .ovbig{ font-size:24px; font-weight:750; letter-spacing:-.4px; margin-top:4px; line-height:1.1; }
+  .ovk{ font-size:var(--fs-label); color:var(--l3); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); }
+  .ovbig{ font-size:24px; font-weight:var(--fw-med); letter-spacing:var(--tr-title); margin-top:4px; line-height:1.1; }
   .ovmeta{ font-size:14px; color:var(--l2); margin-top:8px; font-weight:500; }
 
   .bar{ height:5px; background:var(--track); border-radius:10px; overflow:hidden; margin:12px 0 2px; }
@@ -266,7 +271,7 @@
   .sessbar .pbar{ flex:1; height:6px; background:var(--track); border-radius:6px; overflow:hidden; }
   .sessbar .pbar > i{ display:block; height:100%; background:var(--grad); border-radius:6px; transition:width .4s cubic-bezier(.2,.8,.2,1); }
   .sessbar .pcount{ font-size:13px; font-weight:700; color:var(--l2); flex:0 0 auto; min-width:42px; text-align:right; }
-  .sessphase{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--accent); margin:0 2px 10px; }
+  .sessphase{ font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--accent); margin:0 2px 10px; }
 
   .cardstage{ position:relative; }
   .kcard{ background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow), inset 0 .5px 0 var(--hi);
@@ -276,7 +281,7 @@
   .kfieldtag{ display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:6px 11px; border-radius:14px; color:#fff; }
   .kdepth{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); border:.5px solid var(--line); border-radius:12px; padding:5px 9px; }
   .klevel{ margin-left:auto; font-size:11px; color:var(--l3); font-weight:700; letter-spacing:.5px; }
-  .kfact{ font-size:23px; font-weight:700; letter-spacing:-.5px; line-height:1.25; }
+  .kfact{ font-size:23px; font-weight:var(--fw-med); letter-spacing:var(--tr-title); line-height:1.25; }
   .kyear{ font-size:13px; font-weight:700; color:var(--accent); margin-top:10px; letter-spacing:.3px; }
   .kreveal{ margin-top:18px; }
 
@@ -291,7 +296,7 @@
   .kdebate{ margin-top:16px; border-radius:14px; overflow:hidden; border:.5px solid var(--line); }
   .karg{ padding:14px 16px; }
   .karg + .karg{ border-top:.5px solid var(--sep); }
-  .karg .klabel{ display:flex; align-items:center; gap:7px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; }
+  .karg .klabel{ display:flex; align-items:center; gap:7px; font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); margin-bottom:6px; }
   .karg .klabel svg{ width:14px; height:14px; }
   .karg.deploy{ border-left:3px solid var(--green); }
   .karg.deploy .klabel{ color:var(--green); }
@@ -312,7 +317,7 @@
   .grade.easy{ background:rgba(47,158,68,.16); color:var(--green); }
 
   /* ===== quiz ===== */
-  .quizq{ font-size:20px; font-weight:700; letter-spacing:-.3px; line-height:1.3; margin-bottom:16px; }
+  .quizq{ font-size:20px; font-weight:var(--fw-med); letter-spacing:var(--tr-headline); line-height:1.3; margin-bottom:var(--sp-4); }
   .quizopts{ display:flex; flex-direction:column; gap:10px; }
   .quizopt{ text-align:left; background:var(--row); border:1.5px solid var(--line); border-radius:14px; padding:16px; font-size:16px; font-weight:600; color:var(--ink); cursor:pointer; font-family:inherit; transition:transform .1s, border-color .15s, background .15s; }
   .quizopt:active{ transform:scale(.99); }
