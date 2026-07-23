@@ -11,7 +11,7 @@
     --ink:#1c1c1e; --l2:#6e6e73; --l3:#a6a6ac;
     --sep:rgba(60,60,67,.11);
     --accent:#e8551c; --accent-soft:rgba(232,85,28,.10);
-    --grad:linear-gradient(135deg,#ff7a18 0%,#ff2f3d 100%);
+    --grad:linear-gradient(180deg,#f0641f 0%,#e8551c 100%);
     --segtrack:#e8e8ee; --segthumb:#ffffff;
     --track:#e6e6eb; --grabber:#c7c7cc; --sheetbg:#ffffff; --chartbg:#f4f4f8;
     --shadow:0 1px 2px rgba(17,17,26,.04), 0 8px 24px -16px rgba(17,17,26,.16);
@@ -30,7 +30,7 @@
     --ink:#ffffff; --l2:#98989e; --l3:#636366;
     --sep:rgba(84,84,88,.45);
     --accent:#ff7a3a; --accent-soft:rgba(255,122,58,.16);
-    --grad:linear-gradient(135deg,#ff7a18 0%,#ff3450 100%);
+    --grad:linear-gradient(180deg,#ff8a4d 0%,#ff6a2a 100%);
     --segtrack:#0e0e10; --segthumb:#3a3a3c;
     --track:#0e0e10; --grabber:#48484a; --sheetbg:#1c1c1e; --chartbg:#222226;
     --shadow:0 1px 1px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.85);
@@ -51,14 +51,14 @@
   input, textarea, select, [contenteditable]{ -webkit-user-select:text; user-select:text; -webkit-touch-callout:default; }
   body::before{ content:""; position:fixed; top:0; left:0; right:0; height:100vh; z-index:-1; pointer-events:none;
     background:
-      radial-gradient(140% 60% at 50% 42%, var(--accent-soft) 0%, transparent 68%),
+      radial-gradient(120% 46% at 50% -6%, color-mix(in srgb, var(--accent) 6%, transparent) 0%, transparent 58%),
       var(--bg);
     transition:background .25s ease; }
 
   /* ===== launch splash ===== */
   .splash{ position:fixed; top:0; left:0; right:0; height:100vh; z-index:9999; pointer-events:none;
     display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(160deg,#ff7a18 0%,#ff2f3d 100%);
+    background:linear-gradient(165deg,#f0641f 0%,#e8551c 100%);
     opacity:1; transition:opacity .42s ease; }
   .splash.gone{ opacity:0; }
   .splashInner{ display:flex; flex-direction:column; align-items:center; gap:18px;
@@ -78,7 +78,7 @@
   .titleBtn{ cursor:pointer; -webkit-tap-highlight-color:transparent; }
   .titleBtn:active{ opacity:.6; }
   .titleBtn .tchev{ width:22px; height:22px; color:var(--l3); vertical-align:-3px; margin-left:4px; }
-  .largeTitle{ font-size:29px; font-weight:700; letter-spacing:-1px; padding: calc(env(safe-area-inset-top) + 12px) 0 16px; }
+  .largeTitle{ font-size:30px; font-weight:700; letter-spacing:-.5px; padding: calc(env(safe-area-inset-top) + 14px) 0 16px; }
   .largeTitle .ltmain{ display:flex; align-items:center; gap:12px; }
   .largeTitle .ltmain .titleBtn{ flex:1; min-width:0; line-height:1.08; }
   .largeTitle .ltmain .iconbtn{ flex:0 0 auto; align-self:flex-start; margin-top:2px; }
@@ -128,14 +128,14 @@
   .bar > i{ display:block; height:100%; background:var(--grad); border-radius:10px; transition:width .6s cubic-bezier(.2,.8,.2,1); }
   canvas{ max-width:100%; display:block; }
 
-  input{ background:var(--field); border:none; color:var(--ink); border-radius:12px;
+  input{ background:var(--field); border:none; color:var(--ink); border-radius:var(--r-md);
     padding:16px 16px; font-size:17px; font-weight:500; width:100%; outline:none; font-family:inherit; transition:box-shadow .15s; }
   input::placeholder{ color:var(--l3); font-weight:400; }
   input:focus{ box-shadow:0 0 0 2px var(--accent) inset; }
 
   .btn{ background:var(--grad); color:#fff; border:none; border-radius:var(--r-md); padding:16px 20px;
     font-size:17px; font-weight:600; cursor:pointer; font-family:inherit;
-    box-shadow:0 6px 18px -6px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,.22);
+    box-shadow:0 4px 16px -10px var(--accent-glow);
     transition:transform .14s ease, filter .15s, box-shadow .2s, opacity .12s; }
   .btn:active{ transform:scale(.975); filter:brightness(.96); opacity:.96; }
   .btn.sm{ padding:12px 16px; font-size:16px; }
@@ -157,7 +157,7 @@
   .seg::-webkit-scrollbar{ display:none; }
   .seg .s{ flex:1 0 auto; text-align:center; padding:14px 18px; font-size:16px; font-weight:600; color:var(--l2);
     border-radius:8px; cursor:pointer; white-space:nowrap; transition:background .15s,color .15s; }
-  .seg .s.active{ background:var(--segthumb); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.16); }
+  .seg .s.active{ background:var(--segthumb); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.10); }
   html.dark .seg .s.active{ box-shadow:none; border:.5px solid rgba(255,255,255,.08); }
   .seg.compact .s{ padding:10px 14px; font-size:14px; }
 
