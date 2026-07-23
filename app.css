@@ -411,11 +411,11 @@
   .argcard .aclock{ font-size:13px; color:var(--l3); margin-top:8px; display:flex; align-items:center; gap:6px; }
   .argcard .aclock svg{ width:14px; height:14px; }
   .steelman{ background:var(--accent-soft); border-radius:14px; padding:16px; margin:6px 0 18px; }
-  .steelman .smk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--accent); }
+  .steelman .smk{ font-size:11px; font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--accent); }
   .steelman p{ font-size:15px; color:var(--ink); line-height:1.5; margin-top:8px; }
 
   /* ----- motion row "Spar" badge ----- */
-  .motionpick .mpspar{ flex:0 0 auto; align-self:center; font-size:11px; font-weight:800; letter-spacing:.2px;
+  .motionpick .mpspar{ flex:0 0 auto; align-self:center; font-size:11px; font-weight:var(--fw-med); letter-spacing:.2px;
     color:#e8590c; background:color-mix(in srgb,#e8590c 14%,transparent); padding:3px 8px; border-radius:999px; }
 
   /* ----- motion hub: choose how to take the motion on ----- */
@@ -429,17 +429,17 @@
   .dbhub.spar .dbhubic{ background:color-mix(in srgb,#e8590c 16%,transparent); }
   .dbhub.hard .dbhubic{ background:color-mix(in srgb,var(--ink) 8%,transparent); }
   .dbhubmain{ flex:1; min-width:0; }
-  .dbhubt{ font-size:16px; font-weight:750; letter-spacing:-.2px; color:var(--ink); }
-  .dbhardtag{ margin-left:8px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.4px; vertical-align:middle;
+  .dbhubt{ font-size:var(--fs-headline); font-weight:var(--fw-med); letter-spacing:var(--tr-headline); color:var(--ink); }
+  .dbhardtag{ margin-left:8px; font-size:10px; font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:.4px; vertical-align:middle;
     color:var(--l2); background:var(--field); border:.5px solid var(--line); border-radius:999px; padding:2px 7px; }
   .dbhubd{ font-size:13px; color:var(--l2); line-height:1.4; margin-top:3px; }
-  .sparhard{ font-size:11px; font-weight:800; letter-spacing:.3px; color:#e8590c; background:color-mix(in srgb,#e8590c 14%,transparent); border-radius:999px; padding:2px 8px; }
+  .sparhard{ font-size:11px; font-weight:var(--fw-med); letter-spacing:.3px; color:#e8590c; background:color-mix(in srgb,#e8590c 14%,transparent); border-radius:999px; padding:2px 8px; }
 
   /* ----- sparring ring ----- */
   .sparhead{ display:flex; align-items:center; gap:12px; padding:4px 2px 14px; }
   .sparav{ flex:0 0 auto; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
     font-size:26px; background:color-mix(in srgb,#e8590c 16%,transparent); border:1px solid color-mix(in srgb,#e8590c 35%,transparent); }
-  .sparname{ font-size:17px; font-weight:800; color:var(--ink); }
+  .sparname{ font-size:var(--fs-headline); font-weight:var(--fw-med); color:var(--ink); }
   .sparrole{ font-size:12px; color:var(--l3); margin-top:1px; }
 
   .sparlog{ display:flex; flex-direction:column; gap:9px; padding:2px 0 4px; }
@@ -460,7 +460,7 @@
     border:none; border-radius:999px; padding:4px 9px; }
   .blandchip svg{ width:12px; height:12px; }
 
-  .sparmovetip{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin:18px 0 9px; }
+  .sparmovetip{ font-size:var(--fs-label); font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--l3); margin:18px 0 9px; }
   .sparmoves{ display:flex; flex-direction:column; gap:9px; }
   .sparmove{ width:100%; text-align:left; font-family:inherit; cursor:pointer; font-size:14.5px; font-weight:600; line-height:1.4;
     color:var(--ink); background:var(--card); border:.5px solid var(--line); border-radius:13px; padding:14px 15px;
@@ -471,11 +471,11 @@
   .sparverdict{ margin-top:18px; background:var(--card); border:.5px solid var(--line); border-radius:var(--r-lg); padding:20px 18px; box-shadow:var(--shadow); }
   .sparverdict.flawless{ border-color:#f2a93b; box-shadow:0 14px 36px -18px #f2a93b; }
   .sparverdict.failed{ border-color:color-mix(in srgb,var(--red,#e03131) 45%,var(--line)); }
-  .sparverdict .svk{ font-size:18px; font-weight:800; letter-spacing:-.2px; color:var(--ink); }
+  .sparverdict .svk{ font-size:18px; font-weight:var(--fw-med); letter-spacing:var(--tr-headline); color:var(--ink); }
   .sparverdict p{ font-size:14.5px; color:var(--l2); line-height:1.5; margin:9px 0 0; }
   .svhits{ font-size:12.5px; color:var(--l3); margin-top:8px; }
   .svtactics{ margin-top:16px; }
-  .svtk{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--l3); margin-bottom:8px; }
+  .svtk{ font-size:11px; font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--l3); margin-bottom:8px; }
   .svtac{ display:inline-block; margin:0 6px 6px 0; font-family:inherit; cursor:pointer; font-size:13px; font-weight:700;
     color:var(--accent); background:var(--accent-soft); border:none; border-radius:999px; padding:6px 12px; }
   .sparbtns{ display:flex; gap:9px; margin-top:18px; }
@@ -504,7 +504,7 @@
   .fbrow .fbnum{ flex:0 0 auto; font-size:12px; font-weight:700; color:var(--l2); font-variant-numeric:tabular-nums; min-width:42px; text-align:right; }
   .fbempty{ font-size:13px; color:var(--l3); text-align:center; padding:8px 0; }
   /* per-field degrees list (You page) */
-  .petitle{ font-size:14px; font-weight:800; color:var(--ink); letter-spacing:-.2px; }
+  .petitle{ font-size:14px; font-weight:var(--fw-med); color:var(--ink); letter-spacing:var(--tr-headline); }
   .deglist{ display:flex; flex-direction:column; }
   .degrow{ display:flex; align-items:center; gap:12px; width:100%; padding:11px 4px; background:none; border:none; border-bottom:.5px solid var(--line); text-align:left; cursor:pointer; transition:opacity .12s; }
   .degrow:last-child{ border-bottom:none; }
@@ -514,7 +514,7 @@
   .degrow .degtop{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
   .degrow .deglab{ font-size:15px; font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .degrow .degstar{ color:#f2a93b; font-size:12px; }
-  .degbadge{ flex:0 0 auto; font-size:11px; font-weight:800; letter-spacing:.2px; padding:2px 8px; border-radius:999px; color:#fff; background:var(--dc,#888); box-shadow:inset 0 .5px 0 rgba(255,255,255,.25); }
+  .degbadge{ flex:0 0 auto; font-size:11px; font-weight:var(--fw-med); letter-spacing:.2px; padding:2px 8px; border-radius:999px; color:#fff; background:var(--dc,#888); box-shadow:inset 0 .5px 0 rgba(255,255,255,.25); }
   .degbadge.none{ color:var(--l3); background:var(--field); box-shadow:none; }
   .degpips{ display:flex; gap:4px; margin-top:6px; }
   .degpip{ width:18px; height:16px; border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; font-style:normal; color:var(--l3); background:var(--field); border:1px solid transparent; font-variant-numeric:tabular-nums; }
@@ -593,7 +593,7 @@
   .fpath .degpips{ margin-top:6px; }
   .fpath .fp-right{ flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
   .fpath .fp-num{ font-size:12px; font-weight:700; color:var(--l2); font-variant-numeric:tabular-nums; }
-  .fpath .fp-ready{ font-size:10.5px; font-weight:800; color:var(--accent); background:var(--accent-soft); padding:1px 7px; border-radius:999px; }
+  .fpath .fp-ready{ font-size:10.5px; font-weight:var(--fw-med); color:var(--accent); background:var(--accent-soft); padding:1px 7px; border-radius:999px; }
   .fpath .fp-chev{ flex:0 0 auto; color:var(--l3); font-size:20px; line-height:1; transition:transform .18s; }
   .fpath.open .fp-chev{ transform:rotate(90deg); }
   .fpath-body{ padding:2px 13px 13px; }
@@ -756,8 +756,8 @@
     box-shadow:var(--shadow), inset 0 .5px 0 var(--hi); transition:transform .12s cubic-bezier(.2,.72,.3,1); }
   .story:active{ transform:scale(.93); }
   .story .storyio{ font-size:25px; line-height:1; }
-  .story .storybig{ font-size:19px; font-weight:800; letter-spacing:-.6px; margin-top:5px; }
-  .story .storysub{ font-size:10px; font-weight:800; color:var(--l2); text-transform:uppercase; letter-spacing:.3px; }
+  .story .storybig{ font-size:19px; font-weight:var(--fw-med); letter-spacing:var(--tr-title); margin-top:5px; }
+  .story .storysub{ font-size:10px; font-weight:var(--fw-med); color:var(--l2); text-transform:uppercase; letter-spacing:var(--tr-label); }
   .story.s-session{ background:var(--grad); border-color:transparent; box-shadow:0 8px 22px -10px var(--accent-glow); }
   .story.s-session .storybig{ color:#fff; }
   .story.s-session .storysub{ color:#fff; opacity:.92; }
@@ -864,7 +864,7 @@
   .kmedia.eq code{ font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:15px; color:var(--ink); white-space:pre; }
   .kmedia.eq .katex{ font-size:1.18em; }
   .kmedia.eq .kmsay{ font-size:13px; color:var(--ink); line-height:1.45; margin-top:12px; padding-top:11px; border-top:.5px solid var(--line); text-align:center; }
-  .kmedia.eq .kmsay span{ display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--accent); margin-right:6px; vertical-align:1px; }
+  .kmedia.eq .kmsay span{ display:inline-block; font-size:10px; font-weight:var(--fw-med); text-transform:uppercase; letter-spacing:var(--tr-label); color:var(--accent); margin-right:6px; vertical-align:1px; }
   .kdetail .katex{ font-size:1.05em; }
   /* dynamic SVG graphs (viz engine) — calm, card-like, theme-aware */
   .kviz{ background:transparent; border:none; padding:0; margin:18px 0; }
