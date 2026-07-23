@@ -13,7 +13,7 @@ const escRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const truncate = (s,n) => { s=String(s==null?'':s); return s.length>n ? s.slice(0,n-1).trimEnd()+'…' : s; };
 const DAY = 86400000;
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
-const BUILD = "v142";   // bumped each deploy; shown in the error banner so we know the running build
+const BUILD = "v143";   // bumped each deploy; shown in the error banner so we know the running build
 // visible on-screen error reporter — surfaces a real, actionable error (auto-dismisses)
 let __errBanner=null, __errSeen=new Set(), __errT=null;
 function showError(msg){
@@ -523,6 +523,9 @@ async function loadKnowledge(){
   glossIndex=null;
   byId={}; byField={}; fieldById={}; depthById={};
   KN.fields.forEach(f=>{ fieldById[f.id]=f; byField[f.id]=[]; });
+  // FULL homogenisation: every field takes its division's canonical colour, so the whole app —
+  // thread cards, chips, reader, degrees, feed, radar — shares one palette with the web graph.
+  KN.fields.forEach(f=>{ const v=divisionOf(f.id); if(v) f.color=divColor(v.id); });
   (KN.depths||[]).forEach(d=> depthById[d.id]=d);
   KN.cards.forEach(c=>{ byId[c.id]=c;
     [c.field].concat(c.xfields||[]).forEach(fid=>{ if(byField[fid] && byField[fid].indexOf(c)<0) byField[fid].push(c); });
